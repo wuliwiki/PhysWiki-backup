@@ -1,0 +1,26 @@
+% 旋转矩阵的导数
+
+\pentry{瞬时转轴\upref{InsAx}， 叉乘的矩阵形式\upref{CrosMt}， 旋转矩阵\upref{Rot3D}}
+
+我们来证明含参数 $t$ （$t$ 不一定是时间）的旋转矩阵 $\mat R(t)$ 的导数 $\dot{\mat R}$ 满足
+\begin{equation}
+\dot{\mat R} = \mat \Omega \mat R
+\end{equation}
+其中
+\begin{equation}
+\mat \Omega = \pmat{
+0 & -\omega_z & \omega_y\\
+\omega_z & 0 & -\omega_x\\
+-\omega_y & \omega_x & 0
+}
+\end{equation}
+其中 $(\omega_x, \omega_y, \omega_z)$ 是旋转的瞬时转轴．
+
+以下是证明． 我们可以把一个任意的不随 $t$ 变化的列矢量 $\bvec r_0$ 旋转得
+\begin{equation}
+\bvec r(t) = \mat R(t) \bvec r_0
+\end{equation}
+关于 $t$ 求导得
+\begin{equation}
+\dot{\bvec r} = \dot{\mat R} \bvec r_0
+\end{equation}

@@ -1,0 +1,10 @@
+% 角动量守恒
+\begin{enumerate}
+\item \footnote{Von Herrn J. Schur, Zur Theorie der vertauschbaren Matrizen, Journal f\"ur die Reine und Angewandte Mathematik, {\bf 130} (1905), 66-76.}设$\mathbb{F}^{n\times n}$的子空间$V$中任意两个方阵乘积可交换．证明：$\dim(V)\le 1+\dfrac{n^2}{4}$．//
+
+对$n$归纳证明：若$A_1,\cdots,A_k\in V$线性无关，则$k\le 1+\frac{n^2}{4}$．由于$A_1,\cdots,A_k$在$\mathbb{F}$的扩域上也是线性无关的，故不妨设$\mathbb{F}$是代数封闭域．当$n=1$时，结论显然成立．下设$n\ge 2$．同\S5.2习题9，存在可逆方阵$P$使得$P^{-1}A_iP$都是上三角．设$P^{-1}A_iP=\begin{pmatrix}B_i&* \\ {\bf 0}&*\end{pmatrix}$，$\{B_1,\cdots,B_k\}$生成$\mathbb{F}^{(n-1)\times(n-1)}$的$s$维子空间，则存在$\alpha_j\in\mathbb{F}^{n\times 1}$使得$\left\{\begin{pmatrix}O&\alpha_j\end{pmatrix}\mid 1\le j\le k-s\right\}\subset V$线性无关．同理，设$P^{-1}A_iP=\begin{pmatrix}*&* \\ {\bf 0}&C_i\end{pmatrix}$，$\{C_1,\cdots,C_k\}$生成$\mathbb{F}^{(n-1)\times(n-1)}$的$t$维子空间，则存在$\beta_j\in\mathbb{F}^{1\times n}$使得$\left\{\begin{pmatrix}\beta_j \\ O\end{pmatrix}\mid 1\le j\le k-t\right\}\subset V$线性无关．注意到$\beta_j\alpha_i=0$，$\forall i,j$．由$(k-s)+(k-t)\le n$和归纳假设，$k\le\frac{s+t+n}{2}\le\left\lfloor 1+\frac{(n-1)^2}{4}+\frac{n}{2}\right\rfloor=\left\lfloor 1+\frac{n^2}{4}\right\rfloor$．
+
+\item 设$V$是$\mathbb{F}$上的线性空间，$\mathcal{A}\in L(V)$是幂零变换．对$\deg(d_{\mathcal{A}})$应用数学归纳法证明：$V$可以分解为若干个$\mathcal{A}$-循环子空间的直和．
+\item $V=\Span(e_1,e_2,\cdots)$，$\mathcal{A}:e_1\mapsto e_1$，$e_k\mapsto e_k-e_1$，$k\ge 2$．
+\end{enumerate}
+

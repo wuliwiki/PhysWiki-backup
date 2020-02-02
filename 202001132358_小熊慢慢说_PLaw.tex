@@ -1,0 +1,25 @@
+% 动量定理 动量守恒
+% 动量守恒|动量定理|合外力|质点系
+
+\pentry{动量\ 动量定理（单个质点）\upref{PLaw1}， 质点系\upref{PSys}}
+\subsection{结论}
+系统总动量的变化率等于合外力，所以合外力为零时系统总动量守恒．
+
+\subsection{推导}
+任何系统都可以看做质点系，质点系中第 $i$ 个质点可能受到系统内力 $\bvec F_i^{in}$ 或系统外力 $\bvec F_i^{out}$． 由单个质点的动量定理\upref{PLaw1}，
+\begin{equation}
+\dv{t} \bvec p_i = \bvec F_i^{in} + \bvec F_i^{out}
+\end{equation}
+总动量的变化率为
+\begin{equation}
+\dv{\bvec P}{t} = \sum_i \dv{t} \bvec p_i  = \sum_i \bvec F_i^{in}  + \sum_i \bvec F_i^{out}
+\end{equation}
+由“质点系\upref{PSys}” 中的结论， 上式右边第一项求和是系统合内力， 恒为零． 于是我们得到系统的动量定理
+\begin{equation}
+\dv{\bvec P}{t} = \sum_i \bvec F_i^{out}
+\end{equation}
+可见当和外力（即等式右边）为零时， 动量 $\bvec P$ 不随时间变化， 也就是\textbf{动量守恒}．
+
+\begin{example}{静止原子核的转变}
+一个原来静止的原子核，经放射性衰变，放出一个动量为$9.22×10^{-16}g\cdot cm/s$
+\end{example}

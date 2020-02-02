@@ -1,0 +1,92 @@
+ % 尝试
+我们知道，起初在不加规范限定的情况下，我们的传播子方程是无解的．即方程
+\[
+\left(-k^2 g_{\mu\nu}+k_\mu k_\nu\right)\tilde D^{\nu\rho}_F
+=i\delta^\rho_\mu
+\]
+中，由于矩阵 $-k^2 g_{\mu\nu}+k_\mu k_\nu$ 行列式为零，所以这个矩阵没有逆．为了弥补这缺陷，我们在拉格朗日密度中加入规范限定项，并将它加入计算费曼传播子的方程中．我们在这个水帖中就来展示这个技术．
+
+我们以 $R_\xi$ 规范开始，加入规范限定的方程为
+\[
+\left(-k^2 g_{\mu\nu}+\left(1-\frac{1}{\xi}\right)k_\mu k_\nu\right)\tilde D^{\nu\rho}_F
+=i\delta^\rho_\mu
+\]
+这意味着我们要求矩阵 $-k^2 g_{\mu\nu}+\left(1-\frac{1}{\xi}\right)k_\mu k_\nu$ 的逆．由于 $-k^2$ 是标量，所以我们又可将矩阵变形为
+\[
+g_{\mu\nu}-\left(1-\frac{1}{\xi}\right)\frac{k_\mu k_\nu}{k^2}
+\]
+但是记得之后要把它恢复过来．根据经验，我们假设逆矩阵具有如下形式（你写不出更多项了！）
+\[
+g^{\mu\nu}+a\frac{k^\mu k^\nu}{k^2}
+\]
+$a$ 就是我们的待定系数，将两式相乘，于是有
+\[\begin{split}
+&\left(g_{\mu\nu}-\left(1-\frac{1}{\xi}\right)\frac{k_\mu k_\nu}{k^2}\right)
+\left(g^{\nu\rho}+a\frac{k^\nu k^\rho}{k^2}\right)\\
+=&g_{\mu\nu}g^{\nu\rho}+
+ag_{\mu\nu}\frac{k^\nu k^\rho}{k^2}-
+g^{\nu\rho}\left(1-\frac{1}{\xi}\right)\frac{k_\mu k_\nu}{k^2}
+-a\frac{k^\nu k^\rho}{k^2}\left(1-\frac{1}{\xi}\right)\frac{k_\mu k_\nu}{k^2}\\
+=&\delta^\rho_\mu+\frac{k_\mu k^\rho}{k^2}
+\left(
+a-1+\frac{1}{\xi}-a+\frac{a}{\xi}
+\right)
+\end{split}\]
+第二项应该等于零，于是得到
+\[
+a=\xi-1
+\]
+因此费曼传播子应该为
+\[
+g^{\mu\nu}+(\xi-1)\frac{k^\mu k^\nu}{k^2}
+\]
+补上省去的 $-k^2$ 和 $i$，于是最终有
+\[
+\frac{-i}{k^2}\left(g^{\mu\nu}+(\xi-1)\frac{k^\mu k^\nu}{k^2}\right)
+\]
+
+下面我们将罗列六个常见规范以及它们的传播子（不完整形式）
+
+1、 $R_\xi$ 规范
+\[
+\mathcal{L}'=-\frac{1}{2\xi}(\partial_\mu A^\mu)^2
+\]
+\[
+g_{\mu\nu}+(\xi-1)\frac{k_\mu k_\nu}{k^2}
+\]
+2、洛伦兹规范
+\[
+\partial_\mu A^\mu=0
+\]
+\[
+g_{\mu\nu}-\frac{k_\mu k_\nu}{k^2}
+\]
+3、库伦规范
+\[
+\nabla \vec A=0
+\]
+\[
+g_{\mu\nu}-\frac{k_\mu k^T_\nu+k^T_\mu k_\nu}{k^2_T}+\frac{k_\mu k_\nu}{k^2_T}
+\]
+4、轴向规范
+\[
+nA=0
+\]
+\[
+g_{\mu\nu}-\frac{k_\mu n_\nu+n_\mu k_\nu}{kn}+\frac{k_\mu k_\nu}{(kn)^2}n^2
+\]
+5、伪轴向规范
+\[
+\mathcal{L}'=-\frac{\beta^2}{2}(nA)^2
+\]
+\[
+g_{\mu\nu}-\frac{k_\mu n_\nu+n_\mu k_\nu}{kn}+\frac{k_\mu k_\nu}{(kn)^2}\left(n^2+\frac{k^2}{\beta^2}\right)
+\]
+6、平面规范
+\[
+\mathcal{L}'=\frac{1}{2\xi}nA\partial^2nA
+\]
+\[
+g_{\mu\nu}-\frac{k_\mu n_\nu+n_\mu k_\nu}{kn}+\frac{k_\mu k_\nu}{(kn)^2}n^2(1-\xi) 
+
+

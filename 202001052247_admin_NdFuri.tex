@@ -1,0 +1,18 @@
+% 多元函数的傅里叶级数
+
+\pentry{傅里叶级数\upref{FSExp}， 重积分\upref{IntN}}
+
+我们知道有限长区间中一个性质足够良好（满足迪利克雷条件）函数可以展开为三角函数的线性组合， 同理， 一个性质足够良好的 $N$ 元函数 $f(x_1, \dots, x_N)$ 也可以展开为 $N$ 个三角函数乘积的线性组合
+\begin{equation}
+f(x_1, \dots, x_N) = \sum_{i_1,\dots, i_N} C_{i_1,\dots, i_N} \exp(-\I \frac{n\pi}{l_1} x_1) \dots \exp(-\I \frac{n\pi}{l_N} x_N)
+\end{equation}
+其中 $x_i$ 的区间长度为 $l_i$， 每个指标求和时取负无穷到正无穷的所有整数． 系数 $C_{i_1,\dots, i_N}$ 可以由 $N$ 重积分得到
+\begin{equation}
+C_{i_1,\dots, i_N} = \int\dots\int  \exp(\I \frac{n\pi}{l_1} x_1) \dots \exp(\I \frac{n\pi}{l_N} x_N) f(x_1, \dots, x_N) \dd{x_1}\dots\dd{x_N}
+\end{equation}
+
+
+我们以下以二元函数的傅里叶级数为例讨论， 更高元的情况同理可得． $N = 2$ 时有
+\begin{equation}
+f(x, y) = \sum_{i = -\infty}^\infty \sum_{j = -\infty}^\infty C_{i, j} \exp(-\I \frac{n\pi}{l_1} x) \dots \exp(-\I \frac{n\pi}{l_N} y)
+\end{equation}

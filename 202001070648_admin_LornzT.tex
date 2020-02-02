@@ -1,0 +1,137 @@
+% 洛伦兹变换
+% 光速不变|洛伦兹变换|狭义相对论|四维时空
+% 参考 docx 版物理百科
+
+\pentry{相对论简介， 伽利略变换} % 未完成
+
+\subsection{相对论的基本假设}
+\begin{enumerate}
+\item 相对性原理——任何惯性系中，物理定律及相同实验的结果都相同
+\item 光速不变原理——任何惯性系中，光速都不改变
+\end{enumerate}
+
+设 $t = 0$ 时空间直角坐标系 $S$ 与 $S'$ 系重合． $S'$ 系相对 $S$ 系沿 $x$ 轴方向以速度 $v$ 匀速运动．
+
+洛伦兹变换的假设是，在 $S$ 系中的坐标 $(x, y, z, t)$ 一一对应到 $S'$ 系中的坐标 $(x', y', z', t')$． 变换一定是线性变换，因为时间和空间是均匀的， 这也叫物理定律的平移对称及时间对称．
+
+\subsection{洛伦兹变换}
+\begin{equation}
+\leftgroup{
+&x' = \frac{x - vt}{\sqrt{1 - v^2/c^2}}\\
+&t' = \frac{t - vx/c^2}{\sqrt{1 - v^2/c^2}}
+}
+\qquad
+\leftgroup{
+&x = \frac{x' + vt'}{\sqrt{1 - v^2/c^2}}\\
+&t = \frac{t' + vx'/c^2}{\sqrt{1 - v^2/c^2}}
+}
+\end{equation}
+
+\subsection{推导}
+先考虑 $x$ 轴的一维情况， 令线性变换为
+\begin{equation}
+\leftgroup{
+x' &= ax + bt\\
+t' &= mx + nt
+}
+\end{equation}
+逆变换为
+\begin{equation}
+\leftgroup{
+x &= \frac{nx' - bt'}{an - bm}\\
+t &= \frac{mx' - at'}{bm - an}
+}
+\end{equation}
+由相对性原理， 正变换和逆变换必须完全相同， 对比系数并化简得
+\begin{equation}
+\leftgroup{
+&a = -n\\
+&bm - an = 1
+}
+\end{equation}
+由光速不变原理，（为方便起见，设长度单位为秒，1秒=299792458米，则光速为1，速度无单位）% 未完成， 这个表述太奇怪了
+当速度 $v = \dv*{x}{t} = 1$ 时， 必须有
+\begin{equation}
+v' = \dv{x'}{t'} = \frac{a\dd{x} + b\dd{t}}{m\dd{x} + n\dd{t}} = \frac{a + b}{m + n} = -1
+\end{equation}
+结合（引用未完成） 得
+\begin{equation}
+\leftgroup{
+&n = -a\\
+&m = -b\\
+&a^2 - b^2 = 1
+}
+\end{equation}
+即
+\begin{equation}
+\leftgroup{
+&b = \pm \sqrt{a^2 - 1}\\
+&n = -a\\
+&m = \mp \sqrt{a^2 - 1}
+}
+\end{equation}
+由两系相对运动的方向，当 $x$ 不变， $t$ 增大， $x'$ 必然减小，所以 $b < 0$， 即
+\begin{equation}
+\leftgroup{
+&b = -\sqrt{a^2 - 1}\\
+&n = -a\\
+&m = \sqrt{a^2 - 1}
+}
+\end{equation}
+当 $x = 0$，
+\begin{equation}
+\dv{x'}{t'} = \frac{\sqrt{a^2 - 1}}{a} = -v \quad (v > 0) \Rightarrow a = -\frac{1}{1 - v^2}
+\end{equation}
+把(4)(5)(6)(7)代入变换得% 引用
+正逆变换分别为
+\begin{equation}
+\leftgroup{
+&x' = - \frac{x + vt}{\sqrt{1 - v^2}}\\
+&t' = \frac{t + vx}{\sqrt{1 - v^2}}
+}
+\qquad
+\leftgroup{
+&x = -\frac{x' + vt'}{\sqrt{1 - v^2}}\\
+&t = \frac{t' + vx'}{\sqrt{1 - v^2}}
+}
+\end{equation}
+通常，为了方便起见，把 轴的方向改成与 轴一样，即，在上式的 前面加负号，得
+\begin{equation}
+\leftgroup{
+&x' = \frac{x - vt}{\sqrt{1 - v^2}}\\
+&t' = \frac{t - vx}{\sqrt{1 - v^2}}
+}
+\qquad
+\leftgroup{
+&x = \frac{x' + vt'}{\sqrt{1 - v^2}}\\
+&t = \frac{t' + vx'}{\sqrt{1 - v^2}}
+}
+\end{equation}
+考虑其他维度， 设
+\begin{equation}
+\leftgroup{
+&x' = \frac{x - vt}{\sqrt{1 - v^2}} + ay + bz\\
+&t' = \frac{t - vx}{\sqrt{1 - v^2}} + cy + ez
+}
+\end{equation}
+求逆变换，对比系数，得出 $a, b, c, e$ 为零． 同理可得
+\begin{equation}
+\leftgroup{
+y' &= y\\
+z' &= z
+}
+\end{equation}
+这就是常见的洛伦兹变换
+
+由此可以看出，撇开人为的单位规定，洛伦兹变换对时间和空间的效果是相同的，这非常耐人寻味．但这也具有必然性，因为从数学的角度说，上面的推导过程中并没有体现出这两个物理量的区别．
+
+若转换成普通单位，
+\begin{equation}
+\leftgroup{
+&x \Rightarrow x/c\\
+&v \Rightarrow v/c\\
+&x' \Rightarrow x'/c\\
+&v' \Rightarrow v'/c
+}
+\end{equation}
+就得到了% 引用未完成

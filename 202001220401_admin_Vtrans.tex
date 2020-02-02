@@ -1,0 +1,29 @@
+% 速度的参考系变换
+
+% 主要是说明科里奥利力词条中的
+
+\pentry{几何矢量\upref{GVec}}
+
+\subsection{无相对转动}
+若两个坐标系 $S$ 和 $S'$ 之间无相对转动（注意我们不要求坐标轴 $\uvec x, \uvec y, \uvec z$ 和 $\uvec x', \uvec y', \uvec z'$ 同方向）， 那么某时刻两坐标系之间的相对速度是唯一确定的． 我们把 $S'$ 系相对于 $S$ 系的速度记为 $\bvec v_{rel}$ 根据高中所学的速度叠加原理， 若某点 $P$ 相对于 $S$ 系的速度瞬时为 $\bvec v_S$， 相对于 $S'$ 的瞬时速度为 $\bvec v_{S'}$ 我们有
+\begin{equation}\label{Vtrans_eq1}
+\bvec v_{S} = \bvec v_{S'} + \bvec v_{rel}
+\end{equation}
+其中三个矢量都可以是时间的函数． 注意该式与点 $P$ 的位置无关只和速度有关．
+
+注意\autoref{Vtrans_eq1} 中的矢量都是抽象的矢量， 不能将 $\bvec v_S$ 或 $\bvec v_S'$ 等同于点 $P$ 在 $S$ 系或 $S'$ 系中的三个坐标的求导． 如果要将\autoref{Vtrans_eq1} 写成坐标的形式， 三个矢量必须在同一坐标系中表示． 我们来举例说明．
+
+\begin{example}{}
+令 $\uvec y' = \uvec x$， $\uvec z' = \uvec y$， $\uvec x' = \uvec z$， $\bvec v_{rel} = 2\uvec x = 2\uvec y'$， 点 $P$ 在 $S$ 系中的坐标关于时间的导数为 $(1, 2, 3)$． 请将\autoref{Vtrans_eq1} 表示为列矢量的形式．
+
+容易得出， 点 $P$ 在 $S'$ 系中的坐标关于时间的导数为 $(3, -1, 2)$．
+
+我们先来看错误的理解： 将 $\bvec v_S$ 等同于 $(1, 2, 3)$， $\bvec v_{S'}$ 等同于 $(3, -1, 2)$
+\end{example}
+
+\subsection{有相对转动}
+对于任意两个坐标系（他们之间可以存在任何， 同样有
+\begin{equation}
+\bvec v_{xyz} = \bvec v_{abc} + \bvec v_{rel}
+\end{equation}
+然而

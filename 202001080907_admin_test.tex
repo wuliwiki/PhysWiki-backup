@@ -1,0 +1,11 @@
+% 角动量守恒
+\begin{enumerate}
+\item \footnote{Von Herrn J. Schur, Zur Theorie der vertauschbaren Matrizen, Journal f\"ur die Reine und Angewandte Mathematik, {\bf 130} (1905), 66-76.}设$\mathbb{F}^{n\times n}$的子空间$V$中任意两个方阵乘积可交换．证明：$\dim(V)\le 1+\dfrac{n^2}{4}$．//
+
+对$n$归纳证明：若$A_1,\cdots,A_k\in V$线性无关，则$k\le 1+\frac{n^2}{4}$．由于$A_1,\cdots,A_k$在$\mathbb{F}$的扩域上也是线性无关的，故不妨设$\mathbb{F}$是代数封闭域．当$n=1$时，结论显然成立．下设$n\ge 2$．同\S5.2习题9，存在可逆方阵$P$使得$P^{-1}A_iP$都是上三角．设$P^{-1}A_iP=\begin{pmatrix}B_i&* \\ {\bf 0}&*\end{pmatrix}$，$\{B_1,\cdots,B_k\}$生成$\mathbb{F}^{(n-1)\times(n-1)}$的$s$维子空间，则存在$\alpha_j\in\mathbb{F}^{n\times 1}$使得$\left\{\begin{pmatrix}O&\alpha_j\end{pmatrix}\mid 1\le j\le k-s\right\}\subset V$线性无关．同理，设$P^{-1}A_iP=\begin{pmatrix}*&* \\ {\bf 0}&C_i\end{pmatrix}$，$\{C_1,\cdots,C_k\}$生成$\mathbb{F}^{(n-1)\times(n-1)}$的$t$维子空间，则存在$\beta_j\in\mathbb{F}^{1\times n}$使得$\left\{\begin{pmatrix}\beta_j \\ O\end{pmatrix}\mid 1\le j\le k-t\right\}\subset V$线性无关．注意到$\beta_j\alpha_i=0$，$\forall i,j$．由$(k-s)+(k-t)\le n$和归纳假设，$k\le\frac{s+t+n}{2}\le\left\lfloor 1+\frac{(n-1)^2}{4}+\frac{n}{2}\right\rfloor=\left\lfloor 1+\frac{n^2}{4}\right\rfloor$．
+
+\item 设$\mathcal{A}\in L(V)$满足$\mathcal{A}^m=\mathcal{O}$，其中$m$是给定的正整数．$\mathcal{A}$称为{\bf 幂零变换}．证明：存在$V$的子空间$U$使得$V=\bigoplus\limits_{i=1}^m\mathcal{A}^{i-1}(U)$．
+
+对$m$使用数学归纳法．当$m=1$时，结论显然成立．假设结论对$m-1$成立．设$B$是$A$在$\im A$上的限制映射，则$B^{m-1}=O$．因此，存在$\im A$的子空间$U_1$使得$\im A=\bigoplus\limits_{i=1}^{m-1}A^{i-1}(U_1)$．设$\{A(\alpha_i)\mid i\in I\}$是$U_1$的基，$U_0=\Span(\{\alpha_i\mid i\in I\})$，则$A(U_0)=U_1$，$U_0\cap\im A=\{{\bf 0}\}$，并且$V=\left(\bigoplus\limits_{i=1}^{m-1}A^{i-1}(U_0)\right)+\Ker A$．注意到$A^{m-1}(U_0)=A^{m-2}(U_1)\subset\Ker A$．设$\Ker A$的子空间$W_0$使得$V=\left(\bigoplus\limits_{i=1}^mA^{i-1}(U_0)\right)\oplus W_0$，则$U=U_0\oplus W_0$使得$V=\bigoplus\limits_{i=1}^mA^{i-1}(U)$．
+\end{enumerate}
+

@@ -1,0 +1,44 @@
+% LaTeX 简介（除公式）
+
+考虑到许多网友只用过 LaTeX 编辑公式而没有写过正文， 这里来结合本编辑器做一个简要的介绍．
+
+LaTeX 是一种所见非所得的排版语言， 即用户编辑的是代码， 需要经过编译过程才能获得最终的显示效果． 小时物理百科的 PDF 编译使用 TeXlive2019， 而在线编辑器则是我们自行开发的．
+
+一个简单完整的 LaTeX 文档如下
+\begin{lstlisting} % 未完成：高亮
+\documentclass{article}
+
+\begin{document}
+\title{My Title}
+\author{My Name}
+\maketitle
+
+\section{Introduction}
+Some introduction.
+
+\begin{equation}
+a^2 + b^2 = c^2
+\end{equation}
+
+\subsection{Subtitle}
+Subsection text.
+
+\end{document}
+\end{lstlisting}
+
+编译后效果如
+\begin{figure}[ht]
+\centering
+\includegraphics[width=13cm]{./figures/LatxIn1.png}
+\caption{排版效果} \label{latxIn_fig1}
+\end{figure}
+
+\subsection{环境}
+一个完整的 LaTeX 文档是由许多环境构成的， 环境的格式如下
+\begin{lstlisting}
+\begin{环境名}[可选设置]
+...
+...
+\end{环境名}
+\end{lstlisting}
+其中 \lstinline|[可选设置]| 不一定会出现． 在一个完整的 LaTeX 文档中， 最大的环境是 \lstinline|document| 环境， 文档的所有内容（包括其他环境）都在 \lstinline|document| 环境中． 

@@ -1,0 +1,54 @@
+% 加速度的坐标系变换
+
+\pentry{速度的参考系变换\upref{Vtrans}}
+
+\subsection{无相对转动}
+类比\autoref{Vtrans_eq1}\upref{Vtrans}， 若两个参考系之间只有平移没有转动， 令某时刻点 $P$ 相对于 $S$ 系和 $S'$ 系的加速度分别为 $\bvec a_S$ 和 $\bvec a_{S'}$， 再令两坐标系中任意两个固定点（例如各自的原点）之间的加速度为 $\bvec a_r$， 那么有
+\begin{equation}\label{AccTra_eq1}
+\bvec a_S = \bvec a_{S'} + \bvec a_r
+\end{equation}
+同样地， 如果要将该式写成分量的形式， 三个矢量必须使用同一坐标系（见\autoref{Vtrans_ex2}\upref{Vtrans}）．
+
+\subsection{一般情况}
+类比\autoref{Vtrans_eq2}\upref{Vtrans}， 若两参考系之间有可能存在转动， 我们定义 $S'$ 系中的固定点相对于 $S$ 系的加速度为 $\bvec a_{r}$ 中的两个固定点取 $t$ 时刻点 $P$ 在两参考系中的坐标． 那么是否仍然有 $\bvec a_S = \bvec a_{S'} + \bvec a_r$ 呢？ 答案是否定的， 正确的表达式需要添加一项
+\begin{equation}\label{AccTra_eq2}
+\bvec a_S = \bvec a_{S'} + \bvec a_{rS} + 2 \bvec \omega \cross \bvec v
+\end{equation}
+其中 $\bvec \omega$ 是 $S'$ 系相对于 $S$ 系的瞬时角速度． 最有一项被称为\textbf{科里奥利加速度}
+\begin{equation}
+\bvec a_c = 2 \bvec \omega \cross \bvec v
+\end{equation}
+同样， 如果要将\autoref{AccTra_eq2} 写成分量的形式， 所有矢量必须使用同一坐标系．
+
+\begin{exercise}{}
+请使用 \autoref{Vtrans_ex1}\upref{Vtrans} 的场景验证\autoref{AccTra_eq2}．
+\end{exercise}
+
+\subsection{证明（旋转矩阵）}
+\pentry{旋转矩阵的导数\upref{RotDer}}
+我们在 $S$ 系中以坐标的形式证明\autoref{AccTra_eq2}， 即式中的矢量都看作是 $S$ 系中的三个坐标． 令点 $P$ 在两系中的坐标分别为 $\bvec r_S(t) = (x, y, z)\Tr$ 和 $\bvec r_{S'}(t) = (x', y', z')\Tr$， 且坐标变换可以用一个旋转矩阵 $\mat R(t)$ 和一个平移矢量 $\bvec d(t)$ 表示为
+\begin{equation}
+\bvec r_S = \mat R \bvec{r_{S'}} + \bvec d
+\end{equation}
+两边关于时间求导得\footnote{用一点表示时间导数， 两点表示时间二阶导数}
+\begin{equation}
+\dot{\bvec r}_S = \dot{\mat R} \bvec{r_{S'}} + \mat R \dot{\bvec r}_{S'}+ \dot{\bvec d}
+\end{equation}
+再求导并整理得
+\begin{equation}\label{AccTra_eq3}
+\ddot{\bvec r}_S = \mat R \ddot{\bvec r}_{S'} + (\ddot{\mat R} \bvec r_{S'} + \ddot{\bvec d}) + 2 \dot{\mat R} \dot{\bvec r}_{S'}
+\end{equation}
+下面我们只需证明这三项分别对应\autoref{AccTra_eq2} 的各项即可．
+
+在 $S$ 系中， 显然有 $\bvec a_S = \ddot{\bvec r}_S$． $P$ 在 $S'$ 系中的加速度为 $\ddot{\bvec r}_{S'}$， 乘以旋转矩阵就变换到 $S$ 系中， 所以 $\bvec a_{S'} = \mat R \ddot{\bvec r}_{S'}$．
+
+若 $S'$ 系中的固定点 $\bvec r_{S'}$ 不随时间变化， 则求二阶导数得 $S'$ 系中固定点相对于 $S$ 系中固定点的加速度（在 $S$ 系中的坐标）
+\begin{equation}
+\bvec a_r = \ddot{\mat R} \bvec r_{S'} + \ddot{\bvec d}
+\end{equation}
+
+再来看\autoref{AccTra_eq3} 最后一项， 将\autoref{RotDer_eq4}\upref{RotDer} 带入， 得
+\begin{equation}
+2\dot{\mat R} \dot{\bvec r}_{S'} = 2\mat\Omega \mat R \dot{\bvec r}_{S'} = 2\bvec \omega \cross \dot{\bvec r}_S
+\end{equation}
+这就是\autoref{AccTra_eq2} 的最后一项． 证毕．

@@ -1,0 +1,69 @@
+% 动量定理 动量守恒
+% 动量守恒|动量定理|合外力|质点系
+\pentry{动量\ 动量定理（单个质点）\upref{PLaw1}， 质点系\upref{PSys}}
+\subsection{结论}
+系统总动量的变化率等于合外力，所以合外力为零时系统总动量守恒．
+
+\subsection{推导}
+任何系统都可以看做质点系，质点系中第 $i$ 个质点可能受到系统内力 $\bvec F_i^{in}$ 或系统外力 $\bvec F_i^{out}$． 由单个质点的动量定理\upref{PLaw1}，
+\begin{equation}
+\dv{t} \bvec p_i = \bvec F_i^{in} + \bvec F_i^{out}
+\end{equation}
+总动量的变化率为
+\begin{equation}
+\dv{\bvec P}{t} = \sum_i \dv{t} \bvec p_i  = \sum_i \bvec F_i^{in}  + \sum_i \bvec F_i^{out}
+\end{equation}
+由“质点系\upref{PSys}” 中的结论， 上式右边第一项求和是系统合内力， 恒为零． 于是我们得到系统的动量定理
+\begin{equation}
+\dv{\bvec P}{t} = \sum_i \bvec F_i^{out}
+\end{equation}
+可见当和外力（即等式右边）为零时， 动量 $\bvec P$ 不随时间变化， 也就是\textbf{动量守恒}．
+
+\begin{example}{静止原子核的转变}
+一个原来静止的原子核，经放射性衰变，放出一个动量为$9.22×10^{-16}{\rm g\cdot cm/s}$的电子，同时该核在垂直方向上又放出一个动量为$5.33×10^{-16}{\rm g\cdot cm/s}$的中微子．问蜕变后原子核的动量的大小和方向．
+
+解：由于这个静止的原子核在蜕变的全过程中没有受到其他外力，所以对该原子核构成的系统，总动量守恒．即有
+$$\bvec p_{\rm B}+\bvec p_{\rm e}+\bvec p_{\rm \nu}=0$$
+即有
+$$p_{\rm B}=|\bvec p_{\rm B}|=|-\bvec p_{\rm e}-\bvec p_{\rm \nu}|=\sqrt{p_{\rm e}^{2}+p_{\rm \nu}^{2}}=10.65×10^{-16}{\rm g\cdot cm/s}$$
+$$\theta=\arctan\frac{5.33}{9.22}=30^\circ$$
+
+（矢量图略）解毕．
+\end{example}
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\begin{document}
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2051699860393919cm,y=0.3504105947133264cm]
+\begin{axis}[
+x=0.2051699860393919cm,y=0.3504105947133264cm,
+axis lines=middle,
+ymajorgrids=true,
+xmajorgrids=true,
+xmin=-5.0,
+xmax=10.0,
+ymin=-5.0,
+ymax=5.0,
+xtick={-4.0,-2.0,...,10.0},
+ytick={-4.0,-2.0,...,4.0},]
+\clip(-5.,-5.) rectangle (10.,5.);
+\draw [shift={(0.,0.)},line width=2.pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (-30.:0.9806855639310398) arc (-30.:0.:0.9806855639310398) -- cycle;
+\draw [->,line width=2.pt] (0.,0.) -- (-8.,0.);
+\draw [->,line width=2.pt] (0.,0.) -- (2.,3.4641016151377544);
+\draw [->,line width=2.pt,dash pattern=on 1pt off 1pt] (0.,0.) -- (8.,0.);
+\draw [->,line width=2.pt] (0.,0.) -- (6.,-3.4641016151377553);
+\draw [line width=2.pt,dash pattern=on 1pt off 1pt] (2.,3.4641016151377544)-- (8.,0.);
+\draw [line width=2.pt,dash pattern=on 1pt off 1pt] (8.,0.)-- (6.,-3.4641016151377553);
+\begin{scriptsize}
+\draw[color=black] (-6.430170260982736,0.6732383897109115) node {$P_B$};
+\draw[color=black] (1.5460723256563864,3.8768112318856343) node {$P_v$};
+\draw[color=black] (5.59957265657135,-2.366886858475305) node {$P_e$};
+\draw[color=qqwuqq] (1.7912437166391462,-0.16034433963047034) node {$\theta$};
+\end{scriptsize}
+\end{axis}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,41 @@
+% 科里奥利力
+% 惯性系|惯性力|非惯性系|旋转参考系|离心力|科里奥利力
+
+\pentry{离心力\upref{Centri}，平面旋转矩阵\upref{Rot2D}}%未完成
+
+\textbf{科里奥利力（Coriolis Force）}是旋转的参考系中由质点运动产生的惯性力．
+\begin{equation}
+\bvec F_c = 2m \bvec v_{S'} \cross \bvec \omega
+\end{equation}
+其中 $m$ 是质点的质量， $\bvec v_{S'}$ 是质点相对于旋转参考系 $S'$ 的瞬时速度， $\bvec\omega$ 是旋转系相对于某惯性系 $S$ 转动的角速度矢量．%未完成： 考虑使用脚注或链接
+式中的乘法是叉乘\upref{Cross}．
+在匀速转动参考系（属于非惯性系）中，若质点保持相对静止，则惯性力只有离心力．然而当质点与转动参考系有相对速度时，惯性力中还会增加一项与速度垂直的力，这就是科里奥利力．地理中的地转偏向力就是科里奥利力，可用上式计算（见“地球表面的科里奥利力\upref{ErthCf}”）．
+
+\subsection{推导（矢量法）}
+\pentry{连续叉乘的化简\upref{TriCro}， 速度的参考系变换\upref{Vtrans}}
+
+我们先令质点的位矢关于时间变化的函数为 $\bvec r(t)$， 某时刻相对于 $S$ 和 $S'$ 系的速度分别为 $\bvec v_{S}$ 和 $\bvec v_{S'}$， 根据\autoref{Vtrans_ex1}\upref{Vtrans} 中的结论， 任意时刻都有
+\begin{equation}\label{Corio_eq5}
+\bvec v_{S} = \bvec v_{S'} + \bvec\omega\cross\bvec r
+\end{equation}
+两边在 $S$ 系中对时间求导得（我们先假设 $\bvec \omega$ 是常矢量\footnote{如果角速度 $\bvec \omega$ 随时间变化， 那么惯性力中会多出一项， 但这项并不属于科里奥利力， 所以科里奥利力的表达式并不要求角速度不变．}）
+\begin{equation}\label{Corio_eq6}
+\bvec a_{S} = \qty(\dv{\bvec v_{S'}}{t})_{S} + \bvec\omega\cross\bvec v_{S}
+\end{equation}
+注意 $S'$ 系中的加速度 $\bvec a_{S'}$ 并不是上式右边第一项， 而是 $(\dv*{\bvec v_{S'}}{t})_{S'}$． 令\autoref{Corio_eq4} 中的 $\bvec A = \bvec v_{S'}$， 得
+\begin{equation}\label{Corio_eq7}
+\qty(\dv{\bvec v_{S'}}{t})_{S} = \bvec a_{S'} + \bvec\omega\cross\bvec v_{S'}
+\end{equation}
+将\autoref{Corio_eq5} 和\autoref{Corio_eq7} 代入\autoref{Corio_eq6}， 得
+\begin{equation}
+\bvec a_{S} = \bvec a_{S'} + 2\bvec\omega\cross\bvec v_{S'} + \bvec\omega\cross(\bvec\omega\cross\bvec r)
+\end{equation}
+所以旋转参考系中的总惯性力（\autoref{Iner_eq1}\upref{Iner}）为
+\begin{equation}
+\bvec f = m(\bvec a_{S'} - \bvec a_{S}) = -2m\bvec\omega\cross\bvec v_{S'} - m\bvec\omega\cross(\bvec\omega\cross\bvec r)
+\end{equation}
+其中第二项为离心力（\autoref{Centri_eq5}\upref{Centri}）， 而第一项被称为科里奥利力．
+
+% 未完成：需要引用矩阵相乘的求导法则
+\subsection{推导（旋转矩阵法）}
+
