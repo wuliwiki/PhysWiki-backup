@@ -1,0 +1,103 @@
+% 量子散射 分波展开
+% 散射|概率流密度|散射截面|微分截面|薛定谔方程|有心力
+
+\pentry{散射\upref{Scater}， 概率流密度\upref{PrbJ}， 球坐标中的薛定谔方程\upref{RYTDSE}}
+
+\subsection{散射截面}
+
+\footnote{本文参考 Physics of Atoms and Molecules, Bransden}散射截面 $\sigma$ 等于一定时间内被散射的粒子数除以单位截面入射的粒子数．那么从经典力学的角度，如果想象入射粒子流密度是均匀的， $\sigma$ 可以看做是一个障碍物（无远程作用）的最大横截面面积，微分截面 $\dv*{\sigma}{\Omega}$ 可以理解为单位立体角的散射截面．量子力学中，如果考虑单粒子以平面波入射，那么 $\sigma$ 等于被散射的概率流（概率/时间）除以入射的概率流密度（概率/时间/面积）．概率流定义为
+\begin{equation}
+\bvec j = \frac{\I\hbar }{2m}(\psi \grad \psi^* - \psi^* \grad \psi )
+\end{equation}
+\textbf{微分截面（differential cross section）} 是能量的函数， 可以用概率流定义为
+\begin{equation}\label{ParWav_eq3}
+\dv{\sigma}{\Omega} = \lim_{r\to\infty} \frac{(\bvec j_{out} \vdot \uvec r) r^2}{\abs{\bvec j_{in}}}
+\end{equation}
+总\textbf{散射截面（scattering cross section）}
+\begin{equation}
+\sigma = \int \dv{\sigma}{\Omega} \dd{\Omega} 
+\end{equation}
+
+在三维情况下， 每个能量 $E$ 都是无穷维简并的． 且根据不同的边界条件我们可以获得不同的正交归一基底． 常见的边界条件如平面波入射． 这是一种物理意义较强的选择， 因为如果一个无穷远处的入射波包具有很窄的能量带宽， 我们就可以把它近似看作是平面波．
+\begin{equation}
+\lim_{r \to \infty} \psi_{\bvec k}^{(+)}(\bvec r) = (2\pi)^{-3/2} \exp(\I \bvec k \vdot \bvec r) + f(k, \uvec r) \frac{\exp(\I k r)}{r}
+\end{equation}
+$f(k, \bvec r)$ 是\textbf{散射幅}． 满足该边界条件的波函数也会满足正交归一条件
+\begin{equation}
+\int \psi_{\bvec k'}^{(+)}(\bvec r)^* \psi_{\bvec k}^{(+)}(\bvec r) \dd[3]{r} = \delta(\bvec k - \bvec k')
+\end{equation}
+将\autoref{ParWav_eq4} 带入\autoref{ParWav_eq3} 可得微分截面就是散射幅的模方
+\begin{equation}
+\dv{\sigma}{\Omega} = \abs{f(k, \uvec r)}^2
+\end{equation}
+
+\subsection{光学定理}
+由概率守恒对散射幅的约束， 可以得出\textbf{光学定理（Optical Theorem）}
+\begin{equation}
+\sigma = \frac{4\pi}{k} \Im[f(k, \uvec k)]
+\end{equation}
+理解： 球面波往其他方向发射出去的总概率流等于在 $\uvec k$ 方向抵消的概率流．
+% 证明未完成
+
+\subsection{分波展开}
+除了\autoref{QMscat_eq1} 的边界条件外， 我们也可以找到符合另一种常用边界条件的正交归一散射态， 每个能量同样由无穷维简并．
+\begin{equation}
+\lim_{r\to 0} \psi(\bvec r) = 0
+\end{equation}
+我们在球坐标中解方程． 先讨论简单的情况， 即势能为中心势能 $V(r)$， 则薛定谔方程可分离变量 %链接未完成
+\begin{equation}
+\psi(\bvec r) = \frac{1}{r} \sum_l u_l(r) Y_{l,0}(\uvec r)
+\end{equation}
+其中每一项就是一个分波， 满足上述边界条件． 在实际计算中我们一般使用球坐标． 因为在中心势能 $V(r)$ 下， 薛定谔方程可以在球坐标中分离变量， 使解偏微分方程变为解常微分方程， 即径向方程
+\begin{equation}
+-\frac{\hbar^2}{2m} \dv[2]{\psi_{l,m}}{r} + \qty[V(r) + \frac{\hbar^2}{2m}\frac{l(l + 1)}{r^2}]\psi_{l,m} = \I \pdv{t} \psi_{l,m}
+\end{equation}
+
+\subsection{剩下的}
+我们讨论一个粒子在\textbf{中心势能} $V(r)$ 下的散射． 核心思路： 我们需要 $E > 0$ 的所有本征波函数（也叫散射态）， 入射的初始波包可以由这些散射态叠加而成， 之后的时间演化就是这些散射态分别乘以 $\exp(-\I E t)$ 再叠加．
+
+
+
+原则上我们只需要把初始波包在这个基底上展开，加上时间因子即可得到 $t =  + \infty$ 时概率的分布．现在我们假设势能没有角分布（ $m = 0$ ），且无穷远处势能为0，则基底化简为
+\begin{equation}
+\psi_{k,l}(\bvec r) = R_{k,l}(r) Y_l^0(\theta ) = \sqrt{\frac{2l + 1}{4\pi }} R_{k,l}(r) P_l(\cos\theta)
+\end{equation}
+\begin{equation}\label{ParWav_eq6}
+\begin{aligned}
+R_{k,l}(r \to + \infty) &= A_l j_l(kr) + B_l n_l(kr) \\
+&= [A_l\sin(kr - l\pi /2) - B_l\cos(kr - l\pi /2)]/r \\
+&= \sin [kr - l\pi /2 + \delta_l(k)]/r
+\end{aligned}
+\end{equation}
+其中 $\delta_l(k) = \arctan(- B_l/A_l)$．
+
+然而我们也可以选择能量和无穷远处的线性动量 $\bvec k$ 作为本征值（由对称性，令 $\bvec k=k\uvec z$），求出本征基底，这样如果初始波包有很窄的动量分布（近似为平面波），我们仅从本征基底的角分布就可求出微分截面而无需分解波包．令该基底为
+\begin{equation}\label{ParWav_eq7}
+\psi_k(\bvec r) = \E^{\I kz} + \sum_l \rho_{k,l}(r) P_l(\cos \theta)
+\end{equation}
+由于在无穷远处，平面波就是定态薛定谔方程的解，所以剩下的项也应该是．且由于散射只有向外的概率流，令
+\begin{equation}\label{ParWav_eq8}
+{\rho_{k,l}}(r \to {\text{ + }}\infty ) = (2l + 1){a_l}(k)\frac{\E^{\I kr}}{r}
+\end{equation}
+其中 $(2l + 1)$ 是为了以下计算方便，球面波的相位包含在 ${a_l}(k)$ 中．该基底在无穷远处也可记为
+\begin{equation}\label{ParWav_eq9}
+\psi_k(\bvec r) = \E^{\I kz} + f(k,\theta )\frac{\E^{\I kr}}{r}
+\end{equation}
+其中 $f(k,\theta) = \sum_l (2l + 1) a_l(k) P_l(\cos \theta)$．注意\autoref{ParWav_eq9} 在无穷远处是精确成立的．若从波包的角度考虑，入射波包可以看做仅由第一项展开得到，出射波包的 $\theta  \ne 0$ 部分仅由第二项展开得到，所以可以仅用第一项计算 $\bvec j_{inc}$， 第二项计算 $\bvec j_{sc}$，代入\autoref{ParWav_eq3} 得
+\begin{equation}
+\dv{\sigma }{\Omega} = \abs{f(k,\theta)}^2
+\end{equation}
+假设我们已经在球坐标中解出了 $\psi_{k,l}$，即径向波函数 $R_{k,l}(r)$ 与相移， 如何获得 $f(k,\theta )$，即系数 $a_l(k)$ 呢？ 把 $\psi_k$ 用 $\psi_{k,l}$ 基底展开，即对 $P_l$ 展开，再逐项对比系数即可．首先展开平面波
+\begin{equation}
+\E^{\I kz} = \sum_{l = 0}^\infty  \I^l (2l + 1) j_l(kr) P_l(\cos \theta)
+\end{equation}
+无穷远处
+\begin{equation}\label{ParWav_eq12}
+\E^{\I kz} = \sum_{l=0}^\infty  (2l + 1)\frac{\E^{\I kr} - \E^{-\I(kr - l\pi)}}{2\I kr} P_l(\cos \theta)
+\end{equation}
+将\autoref{ParWav_eq12} 与\autoref{ParWav_eq8} 代入\autoref{ParWav_eq7}，再逐项与\autoref{ParWav_eq6} 对比，得
+\begin{equation}
+a_l(k) = \frac{\E^{2\I \delta_l(k)} - 1}{2\I k}
+\end{equation}
+总结起来，轴对称的有心力的散射问题只需通过径向方程\autoref{ParWav_eq4} 获得 $\delta_l (k)$，求出 $a_l(k)$ 和 $f(k, \theta)$ 即可．
+
