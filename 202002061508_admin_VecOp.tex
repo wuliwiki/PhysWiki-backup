@@ -1,0 +1,28 @@
+% 矢量算符
+
+\pentry{矢量内积\upref{Dot}， 叉乘\upref{Cross}， 偏微分算符\upref{ParOp}}
+
+我们先区分两种函数， 第一种是普通的多元函数 $f(x, y, z)$， 也叫\textbf{标量函数}， 即自变量 $x, y, z$ 是实数， 因变量也是实数\footnote{一些情况下也可以是复数}． 另一种是\textbf{矢量函数}， 一般用粗体加以区分（手写的时候在上方加箭头）， 如 $\bvec f(x, y, z)$， 即因变量是一个 3 维列矢量\footnote{一些情况下也可以是 $N = 1, 2, \dots$ 维}
+
+定义三维的\textbf{矢量算符}为 （也叫 nabla 或 del 算符）
+\begin{equation}
+\Nabla = \uvec x \pdv{x} + \uvec y \pdv{y} + \uvec z \pdv{z}
+\end{equation}
+$\Nabla$ 作用在标量函数（因变量是实数或复数） $f(x, y, z)$ 上的结果称为函数的\textbf{梯度}， 是一个矢量函数
+\begin{equation}
+\Nabla f(x, y, z) = \qty(\uvec x \pdv{x} + \uvec y \pdv{y} + \uvec z \pdv{z}) f = \uvec x \pdv{f}{x} + \uvec y \pdv{f}{y} + \uvec z \pdv{f}{z}
+\end{equation}
+这可以类比矢量与标量的乘法．
+
+
+$\Nabla$ 与矢量函数（因变量是矢量） $\bvec f(x, y, z)$ 的作用有两种， 第一是 “点乘”， 结果称为函数的\textbf{散度}， 是一个标量函数
+\begin{equation}
+\begin{aligned}
+\Nabla \vdot \bvec f(x, y, z) &= \qty(\uvec x \pdv{x} + \uvec y \pdv{y} + \uvec z \pdv{z}) \vdot \qty(\bvec x f_x + \bvec y f_y + \bvec z f_z)\\
+&= \pdv{f}{x} + \pdv{f}{y} + \pdv{f}{z}
+\end{aligned}
+\end{equation}
+另一种是 “叉乘”， 得到函数的
+
+
+（未完成： 例如梯度散度旋度算符， 例如量子力学角动量算符， 要区分对矢量函数作用还是对标量函数作用）
