@@ -1,0 +1,24 @@
+% 拉普拉斯算符
+% 梯度|散度|拉普拉斯方程
+
+\pentry{矢量算符\upref{Grad}}
+
+我们令一个标量函数 $u(x, y)$ 的梯度的散度为它的\textbf{拉普拉斯（Laplacian）}， 合成的算符（类比复合函数）叫做\textbf{拉普拉斯算符}， 记为 $\laplacian$．
+\begin{equation}
+\laplacian u = \div (\grad u)
+\end{equation}
+也可以记
+\begin{equation}
+\laplacian = \Nabla \vdot \Nabla
+\end{equation}
+
+
+在直角坐标系中， 散度的两个分量分别为 $\pdv*{u}{x}$ 和 $\pdv*{u}{y}$， 再求旋度， 就是分别对两个分量关于 $x, y$ 再求一次偏导得
+\begin{equation}
+\laplacian u = \pdv[2]{u}{x} + \pdv[2]{u}{y}
+\end{equation}
+从形式上， 我们可以写成算符的形式（有点类似矢量的内积）
+\begin{equation}
+\laplacian = \qty(\uvec x \pdv{x} + \uvec y \pdv{y}) \qty (\uvec x \pdv{x}  + \uvec y \pdv{y})
+= \pdv[2]{x} + \pdv[2]{y}
+\end{equation}
