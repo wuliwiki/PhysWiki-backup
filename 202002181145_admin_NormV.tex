@@ -1,0 +1,28 @@
+% 范数
+
+\pentry{矢量空间\upref{LSpace}}
+
+一些矢量空间中， 我们可以给每个矢量都定义一个\textbf{范数}， 范数可以有多种．
+
+\subsection{列矢量的范数}
+定义矢量的 $N$ 范数为
+\begin{equation}
+\norm{\bvec x}_n = \qty(\sum_i \abs{x_i}^n)^{1/n}
+\end{equation}
+最常见的是几何矢量的坐标的 2-范数．
+
+
+可以证明极限情况 $n \to \infty$ 时， 绝对值最大的 $x_i$ 对求和的贡献将远大于其他分量， 所以定义\textbf{无穷范数}为
+\begin{equation}
+\norm{\bvec x}_\infty = \max \qty{\abs{x_i}}
+\end{equation}
+
+\subsection{函数的范数}
+多元函数 $f(x_1, \dots x_N)$ 的范数在物理中常定义为
+\begin{equation}
+\norm{f} = \int \abs{f(x_1, \dots, x_N)}^2 \dd{x_1}\dots \dd{x_N}
+\end{equation}
+另一种简单定义是使用函数的最大值
+\begin{equation}
+\norm{f} = \max\qty{\abs{f(x_1, \dots, x_N)}}
+\end{equation}
