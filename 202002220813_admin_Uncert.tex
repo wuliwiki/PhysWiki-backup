@@ -1,0 +1,37 @@
+% 不确定原理
+
+\pentry{平均值\upref{QMavg}， 柯西不等式\upref{CSNeq}}
+
+\begin{equation}\label{Uncert_eq2}
+\sigma_a \sigma_b \leqslant \frac{\hbar}{2}
+\end{equation}
+
+\begin{example}{高斯波包}\label{Uncert_ex1}
+123
+\end{example}
+
+\subsection{证明}
+令 $f = (A-a)v$， $g = (B-b)v$， 使用柯西不等式\upref{CSNeq} 有
+\begin{equation}\label{Uncert_eq1}
+\sigma_a^2 \sigma_b^2 = \braket{f}{f} \braket{g}{g} \leqslant \abs{\braket{f}{g}}^2 = (\Re\braket{f}{g})^2 + (\abs{\Im\braket{f}{g}})^2
+\end{equation}
+其中
+\begin{equation}
+\begin{aligned}
+\Im\braket{f}{g} &= \frac{1}{2\I}(\braket{f}{g} - \braket{g}{f})
+= \frac{1}{2\I}\mel{v}{[(A-a), (B-b)]}{v}\\
+&= \frac{1}{2\I}\mel{v}{[A, B]}{v}
+\end{aligned}
+\end{equation}
+忽略\autoref{Uncert_eq1} 中的 $\Re$ 项（大于等于 0）， 则有\footnote{容易证明， $\mel{v}{[A, B]}{v}$ 必然是一个纯虚数， 所以\autoref{Uncert_eq4} 右边是实数．}
+\begin{equation}\label{Uncert_eq4}
+\sigma_a \sigma_b \leqslant \frac{1}{2\I}\mel{v}{[A, B]}{v}
+\end{equation}
+令 $A = x, B = p = -\I\hbar \dv*{x}$， 有正则对易关系
+\begin{equation}
+[A, B] = [x, p] = \I\hbar
+\end{equation}
+带入\autoref{Uncert_eq4} 得\autoref{Uncert_eq2}． 
+
+最后我们需要证明存在波函数 $\ket{v}$ 使得不等式可以取等号， 而高斯波包可以满足这个要求（\autoref{Uncert_ex1}）．% 未完成：链接
+证毕．

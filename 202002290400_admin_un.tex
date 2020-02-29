@@ -1,0 +1,31 @@
+%un
+
+\begin{table}[a]
+    \caption{\newline The results of running algorithm parallel using MapReduce.}
+    \begin{tabular}{lllllll}
+    \hline
+     & Google IoT Core & AWS IoT Core & Azure IoT Hub & Bosch IoT Hub & Aliyun Cloud & Tuya Smart \\
+    Scene 1. Duplicate connect in same session & Discon & Discon & Discon & Discon & Discon & Discon \\
+    Scene 2. Duplicate connect from 2 different clients & Discon/Con & Discon/Discon & Discon/Discon & Con/Con & Discon/Discon or Discon/Con & Discon/Con \\
+    Retained Message & N/A & N/A & N/A &  & N/A &  \\
+    Will Message & N/A &  &  &  & N/A &          
+    \end{tabular}
+    \end{table}
+    
+    
+    \begin{table}[a]
+    \caption{\newline The results of running algorithm parallel using MapReduce.}
+    \begin{tabular}{lllllll}
+    \hline
+    ​ & Google IoT Core & AWS IoT Core & Azure IoT Hub & Bosch IoT Hub & Aliyun Cloud & Tuya Smart \\
+    connect(server device) & 1.IA+ 2.AL & 1.IA 2.AL & 1.IA+ 2.AL & 1.IA 2.AL & 1.- 2.AL & 1.WA 2.AL \\
+    connect(device server) & 1.AL & 1.AL & 1.AL & 1.AL & 1.AL 2.AL* & 1.AL 2.AL \\
+    publish(server device) & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL \\
+    publish(device server) & 1.AL & 1.AL & 1.AL & 1.AL & 1.AL 2.AL* & 1.AL 2.AL \\
+    subscribe(server device) & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL \\
+    subscribe(device server) & 1.AL & 1.AL & 1.AL & 1.AL & 1.AL 2.AL* & 1.AL 2.AL \\
+    unsubscribe(server device) & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL \\
+    unsubscribe(device server) & 1.AL & 1.AL & 1.AL & 1.AL & 1.AL 2.AL* & 1.AL 2.AL \\
+    disconnect(server device) & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL & 1.AL 2.AL \\
+    \end{tabular}
+    \end{table}    

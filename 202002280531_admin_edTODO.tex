@@ -1,0 +1,107 @@
+% 编辑器待处理
+
+\subsection{PhysWikiScan BUG}
+
+\subsubsection{表格标题}
+第二个表格会具有第一个表格的标题
+\begin{table}[ht]
+\centering
+\caption{第一个标题}\label{edTODO_tab2}
+\begin{tabular}{|c|c|}
+\hline
+* & * \\
+\hline
+* & * \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{第二个标题}\label{edTODO_tab3}
+\begin{tabular}{|c|c|}
+\hline
+* & * \\
+\hline
+* & * \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{表格标签多次定义}
+删除某个表格再重新插入一个具有同样标签的表格就会出现 “标签多次定义” 的错误．
+
+\subsection{Editor BUG}
+\subsubsection{itemize 环境中的美元符号补全}
+\begin{itemize}
+\item 打第一个美元符号不会出现一对美元符号 $abc^2$
+\item 手动打第二个美元符号时会出现两个 $1 + x (x \in X)$
+\end{itemize}
+其他环境中（如 enumerate， table）是否也存在同样问题？
+
+\subsubsection{表格以后的正文高亮有问题}
+\begin{table}[ht]
+\centering
+\caption{请输入表格标题}\label{edTODO_tab1}
+\begin{tabular}{|c|c|c|}
+\hline
+内容 & 内容 & 内容 \\
+\hline
+$abc$ & 内容 & * \\
+\hline
+* & * & * \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{请输入表格标题}
+\begin{tabular}{|c|c|c|c|}
+\hline
+物理量 & $\beta$ & 描述 & 数值（国际单位）\\
+\hline
+* & * & * & * \\
+\hline
+* & * & * & * \\
+\hline
+* & * & * & * \\
+\hline
+* & * & * & * \\
+\hline
+* & * & * & * \\
+\hline
+* & * & * & * \\
+\hline
+* & * & * & * \\
+\hline
+* & * & * & * \\
+\hline
+* & * & * & * \\
+\hline
+* & * & * & * \\
+\hline
+\end{tabular}
+\end{table}
+
+
+质量 $m$ & $m_e$ & 电子质量 & $9.10938215 \times 10^{-31}$ \\
+\hline
+长度 $x$ & $a_0 = \dfrac{4\pi \epsilon_0 \hbar ^2}{m_e e^2}$ & 玻尔半径 & $5.2917721067 \times 10^{-11}$ \\
+\hline
+时间 $t$ & $m_e a_0^2/\hbar$ & 长度除以速度 & $2.418884326 \times 10^{-17}$\\
+\hline
+角频率 $\omega$ & $\dfrac{\hbar}{m_e a_0^2}$ & 基态运动频率 & $6.579683921 \times {10^{15}}$ \\
+\hline
+能量 $E$ & $\dfrac{\hbar^2}{m_e a_0^2} = \dfrac{e^2}{4\pi \epsilon_0 a_0}$ & 基态电子势能大小 & $4.3597446499 \times 10^{-18}$ \\
+\hline
+速度 $v$ & $\dfrac{\hbar}{m_e a_0}$ & 基态电子速度 & $2.1876912633 \times 10^6$ \\
+\hline
+角动量 $L$ & $m_e v_0 a_0 = \hbar$ & 长度乘以动量 & $1.054571800 \times 10^{-34}$ \\
+\hline
+电荷 $q$ & $e$ 或 $q_e$ & 电子电荷 & $1.6021766208 \times 10^{-19}$\\
+\hline
+电场强度 $\mathcal{E}$ & $\dfrac{e}{(4\pi \epsilon_0) a_0^2}$ & 基态轨道电场强度 & $5.1422067070 \times 10^{11}$ \\
+\hline
+电势 $V$ & $\dfrac{e}{4\pi\epsilon_0 a_0}$ & 基态轨道电势 & 27.211386019 \\
+\hline
