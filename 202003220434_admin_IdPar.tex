@@ -1,0 +1,28 @@
+% 全同粒子
+
+% 未完成： 这应该是二级词条
+
+\subsection{粒子交换算符}
+\pentry{正交子空间\upref{OrthSp}}
+
+定义
+\begin{equation}
+P_{1,2}\psi(\bvec r_1, \bvec r_2) = \psi(\bvec r_2, \bvec r_1)
+\end{equation}
+可以证明这是一个厄米算符， 即
+\begin{equation}
+\braket{\phi}{P_{1,2}\psi} = \braket{P_{1,2}\phi}{\psi}
+\end{equation}
+该算符有 $1$ 和 $-1$ 两个本征值， 对应两个正交子空间\upref{OrthSp}， 分别是对称波函数和反对称波函数（即满足下式）构成的空间。
+\begin{equation}
+\psi(\bvec r_2, \bvec r_1) = \pm\psi(\bvec r_1, \bvec r_2)
+\end{equation}
+
+这两个子空间外的波函数既非对称也非反对称。
+
+对称波函数描述全同玻色子， 反对称波函数描述全同费米子。
+
+\subsection{与哈密顿算符对易}
+
+\pentry{守恒量（量子力学）\upref{QMcons}}
+对于全同粒子， 交换算符与哈密顿算符对易\footnote{对非全同粒子则不成立， 例如两个质量不同的粒子的哈密顿算符与交换算符不对易}。 这保证了 $P$ 是一个守恒量。 也就玻色子波函数在演化过程中将一直保持对称， 费米子的波函数

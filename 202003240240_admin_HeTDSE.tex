@@ -1,0 +1,214 @@
+% 氦原子数值解 TDSE
+% 氦原子|薛定谔方程|波函数|动量谱|光电子|电离|FEDVR|数值解
+
+\pentry{广义球谐函数\upref{GenYlm}}
+
+\subsection{氦原子基本数据}
+
+\begin{itemize}
+\item \textbf{parahelium}: singlet spin, 对称波函数， 存在 1s 基态（我们使用的）． \textbf{orthohelium}: triplet spin, 反对称波函数， 不存在 1s 基态， 但其他束缚态的能量相对较低．
+
+\item 数值计算的基态能量： -2.9037244 a.u. （-79.014366 eV）
+
+\item 氦离子基态能量： -2 a.u. （-27.2eV） 第一激发态 -0.5 a.u.(-13.6eV) 第二激发态 -2/9=-0.22...a.u.（-6.0469747eV）
+
+\item direct 单电离 threshold： 0.9037244 a.u. （24.591594eV）
+
+\item shakeup （n=2）单电离 threshold： 2.4037244 a.u. （-65.408673eV）
+
+\item shakeup （n=3）单电离 threshold： 
+
+\item 90eV 的 xuv 光子能量为 3.3074390 a.u.
+
+\item 90eV xuv 的 direct 电离后电子的末动能为 2.4037146 a.u.（65.408405eV）， 末动量为 2.1925850a.u.
+
+\item 90eV xuv 的 shakeup （n=1）电离后电子末动能为 0.9037146 a.u. （24.591326eV）， 末动量为 1.3444066a.u.
+\end{itemize}
+
+\subsection{波函数展开}
+使用角向基底为两个电子总轨道角动量和 $z$ 分量的本征态\upref{AMAdd}， 即广义球谐函数 $\mathcal{Y}_{l_1,l_2}^{L,M}(\uvec r_1, \uvec r_2)$．
+
+总波函数所在的空间可以看做角向空间和径向空间的张量积空间． 现在有了角向空间的基底， 总波函数就可以在该基底上展开
+\begin{equation}
+\ket{\Psi} = \sum_\lambda \ket{R_\lambda}\ket{\mathcal{Y_\lambda}}
+\end{equation}
+其中 $\lambda$ 是将所有的 $(l_1,l_2,L,M)$ 组合排序后的序号． $\ket{R_\lambda}$ 是二维径向波函数
+\begin{equation}
+\ket{R_\lambda} = \frac{1}{r_1 r_2} \psi_\lambda(r_1, r_2)
+\end{equation}
+即总波函数为
+\begin{equation}\label{HeTDSE_eq2}
+\Psi(\bvec r_1, \bvec r_2) = \sum_{L, M, l_1, l_2}  \frac{1}{r_1 r_2} \psi_{l_1, l_2}^{L, M}(r_1, r_2)\mathcal{Y}_{l_1, l_2}^{L, M}(\uvec r_1, \uvec r_2)
+\end{equation}
+
+由张量积空间\upref{DirPro}中的结论， 我们可以求哈密顿算符 $H$ 关于角向基底的“矩阵元” $H_{\lambda, \lambda'}$， 每个矩阵元是径向空间中的一个算符． 列出薛定谔方程的“矩阵形式”， 就得到了一组 couple 的径向波函数的薛定谔方程
+\begin{equation}
+\sum_{\lambda'} H_{\lambda, \lambda'} \ket{R_{\lambda'}} = \I \pdv{t} \ket{R_{\lambda'}}
+\end{equation}
+
+总哈密顿可以表示为
+\begin{equation}
+H = H_1 + H_2 + V_{12} + V_{F1} + V_{F2}
+\end{equation}
+其中 $H_i \ \ (i = 1, 2)$ 是单个电子的哈密顿算符， 对应对角矩阵．
+\begin{equation}
+H_i = K_{ri} + \frac{L_i^2}{2m r_i^2} - \frac{2}{r_i}
+\end{equation}
+其中第二项是对角矩阵是因为 $\mathcal Y$ 基底是 $L_i^2$ 的本征函数． $V_{12}$ 是两电子之间的库仑势能， $V_F$ 是电场对每个电子的作用势能．
+
+\subsection{波函数的对称性}
+我们一般假设电子自旋态恒为 singlet （反对称）， 所以总波函数满足粒子交换对称 $\Psi(\bvec r_1, \bvec r_2) = \Psi(\bvec r_2, \bvec r_1)$． 由\autoref{GenYlm_eq5}\upref{GenYlm} 可以导出分波的对称性
+\begin{equation}\label{HeTDSE_eq1}
+\psi_{l_1, l_2}^{L, M}(r_1, r_2) = (-1)^{l_1 + l_2 - L} \psi_{l_2, l_1}^{L, M}(r_2, r_1)
+\end{equation}
+以后我们会看到 $l_1 + l_2 - L$ 只能为偶数． % 未完成： 事实上我并不知道怎么得出的
+注意该式并不能说明每个分波分别都是对称或反对称的．
+
+\subsection{电子相互作用项}
+\begin{equation}
+\ali{
+V_{12} = \frac{1}{\abs{\bvec r_2 - \bvec r_1}} &= 4\pi \sum_{l=0}^{\infty} \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}} \sum_{m = -l}^l Y_{l,m}^*(\uvec r_1) Y_{l,m}(\uvec r_2)\\
+&= 4\pi \sum_{l=0}^{\infty} \frac{(-1)^l}{\sqrt{2l + 1}} \frac{r_<^l}{r_>^{l+1}} \mathcal{Y}_{l,l}^{0,0} (\uvec r_1, \uvec r_2)
+}\end{equation}
+这就相当于将张量积空间中的矢量拆到了角向空间基底的各个子空间中． 第二步使用了\autoref{SphCup_eq9}\upref{SphCup}， 即
+\begin{equation}
+\mathcal{Y}_{l,l}^{0,0} (\uvec r_1, \uvec r_2) = \frac{(-1)^l}{\sqrt{2l+1}} \sum_{m = -l}^l Y_{lm}^*(\uvec r_1) Y_{lm}(\uvec r_2)
+\end{equation}
+
+要计算矩阵元 $\mel{\mathcal Y_\lambda}{V_{12}}{\mathcal Y_{\lambda'}}$， 就要对六个球谐函数的乘积的线性组合做两次角向积分． 使用\autoref{SphCup_eq1}\upref{SphCup} 可以将上式表示为六个 CG 系数相乘的线性组合（二重求和）．
+\begin{equation}\label{HeTDSE_eq10}
+\ali{
+&\quad\mel{\mathcal{Y}_{l_1 l_2}^{LM}}{Y_{lm}^*(\uvec r_1)Y_{lm}(\uvec r_2)}{\mathcal{Y}_{l_1' l_2'}^{L'M'}}\\
+&= \sum_{m_1',m_2'}\sum_{m_1,m_2} \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M}\bmat{l_1' & l_2' & L'\\ m_1' & m_2' & M'} \times\\
+&\qquad  \iint Y_{l_1m_1}^*(\uvec r_1)Y_{l_2m_2}^*(\uvec r_2)Y_{l m}^*(\uvec r_1)Y_{l m}(\uvec r_2)Y_{l_1' m_1'}(\uvec r_1)Y_{l_2' m_2'}(\uvec r_2) \dd{\Omega_1}\dd{\Omega_2}\\
+&=\sum_{m_1',m_2'}\sum_{m_1,m_2} (-1)^{m_1 + m_2 + m} \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M}\bmat{l_1' & l_2' & L'\\ m_1' & m_2' & M'} \times\\
+&\qquad \int Y_{l_1, -m_1}(\uvec r_1)Y_{l,-m}(\uvec r_1)Y_{l_1' m_1'}(\uvec r_1)  \dd{\Omega_1} \int Y_{l_2, -m_2}(\uvec r_2)Y_{l m}(\uvec r_2)Y_{l_2' m_2'}(\uvec r_2) \dd{\Omega_2}\\
+&=\frac{2l+1}{4\pi}\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)} \sum_{m_1',m_2'}\sum_{m_1,m_2}  (-1)^{m_1 + m_2 + m} \times\\
+&\qquad\pmat{l_1 & l & l_1'\\ 0 & 0 & 0}\pmat{l_1 & l & l_1'\\ -m_1 & -m & m_1'}\pmat{l_2 & l & l_2'\\ 0 & 0 & 0}\pmat{l_2 & l & l_2'\\ -m_2 & m & m_2'}\times\\
+&\qquad\bmat{l_1 & l_2 & L\\ m_1 & m_2 & M}\bmat{l_1' & l_2' & L'\\ m_1' & m_2' & M'}
+}\end{equation}
+现在试图对 $m$  求和并使用选择定理（3j 符号第二行之和为 0）， 得（注意 $m$ 的范围）该求和中最多只有一项不为 0， 所以
+\begin{equation}\label{HeTDSE_eq9}
+\ali{
+& \mel{\mathcal{Y}_{l_1 l_2}^{LM}}{\mathcal{Y}_{l,l}^{0,0}}{\mathcal{Y}_{l_1' l_2'}^{L'M'}}
+=\\
+& \delta_{M,M'} (-1)^l \frac{\sqrt{2l+1}}{4\pi} \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}\times\\
+&\sum_{m_1',m_2'}\sum_{m_1,m_2} (-1)^{m_1' + m_2} \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M}\bmat{l_1' & l_2' & L'\\ m_1' & m_2' & M} \pmat{l_1 & l & l_1'\\ 0 & 0 & 0} \times\\
+&\pmat{l_1 & l & l_1'\\ -m_1 & m_1-m_1' & m_1'}\pmat{l_2 & l & l_2'\\ 0 & 0 & 0}\pmat{l_2 & l & l_2'\\ -m_2 & m_2-m_2' & m_2'}
+}\end{equation}
+其中对 $m_1, m_2$ 的求和要求
+\begin{equation}
+m_1 + m_2 = m_1' + m_2' = M \qquad
+\abs{m_1'-m_1} \leqslant l \qquad
+\abs{m_2'-m_2} \leqslant l
+\end{equation}
+
+由于 CG 系数都是实数， 这必定是一个实数矩阵． 选择定则如下
+\begin{itemize}
+\item 根据总角动量守恒（$1/r_{12}$ 算符与 $L, L_z$ 算符对易）， $L \ne L'$ 或 $M \ne M'$ 时， 矩阵元为零．
+\item 根据 parity CG coefficients， 当 $l_1' + l + l_1$ 或 $l_2' + l + l_2$ 为奇数时， 上式等于 0．
+\item 根据 $\Pi \mathcal{Y} = (-1)^{l_1 + l_2} \mathcal{Y}$， 考虑到 $1/r_{12}$ 具有偶宇称， 所以 $l_1 + l_2$ 与 $l_1' + l_2'$ 的奇偶性必须不同．
+\end{itemize}
+
+爱华的论文中将\autoref{HeTDSE_eq9} 用 9j 符号表示， 但仅限于 $M \ne M'$． 然而经过数值验证， 我发现应该可以将爱华的公式拓展为
+\begin{equation}
+\ali{
+\mel{\mathcal{Y}_{l_1 l_2}^{LM}}{\mathcal{Y}_{ll}^{00}}{\mathcal{Y}_{l_1' l_2'}^{L'M'}}
+= &\frac{2l+1}{4\pi} \delta_{L,L'}\delta_{M,M'} \sqrt{(2l_1'+1)(2l_2'+1)(2L+1)}\times\\
+&\bmat{l & l_1' & l_1\\ 0 & 0 & 0}
+\bmat{l & l_2' & l_2\\ 0 & 0 & 0}
+\Bmat{l & l_1' & l_1\\ l & l_2' & l_2\\ 0 & L & L}
+}\end{equation}
+注意当 $M = M'$ 时， 结果与 $M$ 无关．
+
+\subsection{电场作用项}
+对每个电子，
+\begin{equation}\label{HeTDSE_eq12}
+V_F = \bvec E \vdot \bvec r = E_x x + E_y y + E_z z
+\end{equation}
+与氢原子的情况相同， 有
+\begin{equation}
+x = \sqrt{\frac{2\pi}{3}} r (Y_{1,-1} - Y_{1,1}) \qquad
+y = \I \sqrt{\frac{2\pi}{3}} r (Y_{1,-1}+Y_{1,1}) \qquad
+z =2\sqrt{\frac{\pi}{3}} rY_{1,0}
+\end{equation}
+对线偏振电场我们只需要最后一项， 以第一个电子为例，
+% 已验证： M = M' = 0 时和爱华的程序一样
+\begin{equation}\ali{
+&\mel{\mathcal{Y}_{l_1 l_2}^{LM}}{z_1}{\mathcal{Y}_{l_1' l_2'}^{L'M'}}
+= 2\sqrt{\frac{\pi}{3}} r \sum_{m_1',m_2'}\sum_{m_1,m_2} \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M}\bmat{l_1' & l_2 & L'\\ m_1' & m_2' & M'} \times\\
+&\qquad  \iint Y_{l_1m_1}^*(\uvec r_1)Y_{l_2m_2}^*(\uvec r_2)Y_{10}(\uvec r_1)Y_{l_1' m_1'}(\uvec r_1)Y_{l_2' m_2'}(\uvec r_2) \dd{\Omega_1}\dd{\Omega_2}\\
+&= 2 \sqrt{\frac{\pi}{3}} \delta_{l_2, l_2'} r \sum_{m_1,m_2, m_1'} \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M}\bmat{l_1' & l_2' & L'\\ m_1' & m_2 & M'} \times\\
+&\qquad  \iint Y_{l_1m_1}^*(\uvec r_1)Y_{l_2m_2}^*(\uvec r_2)Y_{10}(\uvec r_1)Y_{l_1' m_1'}(\uvec r_1)Y_{l_2 m_2}(\uvec r_2) \dd{\Omega_1}\dd{\Omega_2}\\
+&= \delta_{l_2, l_2'} \sqrt{(2l_1 + 1)(2l_1'+1)} r \sum_{m_1,m_2, m_1'} (-1)^{m_1} \times\\
+&\qquad  \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M} \bmat{l_1' & l_2 & L'\\ m_1' & m_2 & M'} \pmat{l_1 & 1 & l_1'\\ 0 & 0 & 0} \pmat{l_1 & 1 & l_1'\\ -m_1 & 0 & m_1'}\\
+&= \delta_{l_2, l_2'} \delta_{M, M'} \sqrt{(2l_1 + 1)(2l_1'+1)} r \sum_{m_1,m_2} (-1)^{m_1} \times\\
+&\qquad  \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M} \bmat{l_1' & l_2 & L'\\ m_1 & m_2 & M}  \pmat{l_1 & 1 & l_1'\\ 0 & 0 & 0} \pmat{l_1 & 1 & l_1'\\ -m_1 & 0 & m_1}
+}\end{equation}
+最后一步使用了 3j 符号中 $m_1 + m_2 + m_3 = 0$， 以及 CG 系数中 $m_1 + m_2 = M$ 的性质． 两个 delta 函数验证了对第一个电子作用的 $z$ 方向电场不会影响第二个电子的角动量以及总角动量的 $z$ 分量． 推导中还陆续得出了 $m_1' = m_1, m_2' = m_2$ 的结论， 即该电场同样不会影响每个电子的角动量 $z$ 分量（所以对 $m_1', m_2'$ 的求和消去了）．
+
+同理， 对第二个电子有
+% 已验证： M = M' = 0 时和爱华的程序一样
+\begin{equation}\ali{
+&\mel{\mathcal{Y}_{l_1 l_2}^{LM}}{z_2}{\mathcal{Y}_{l_1' l_2'}^{L'M'}}
+= \delta_{l_1, l_1'} \delta_{M, M'} \sqrt{(2l_2 + 1)(2l_2'+1)} r \sum_{m_1,m_2} (-1)^{m_2} \times\\
+&\qquad  \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M} \bmat{l_1 & l_2' & L'\\ m_1 & m_2 & M}  \pmat{l_2 & 1 & l_2'\\ 0 & 0 & 0} \pmat{l_2 & 1 & l_2'\\ -m_2 & 0 & m_2}
+}\end{equation}
+
+\subsection{非线性偏振电场}
+对非线性偏振电场， \autoref{HeTDSE_eq12} 的前两项不为零， 但只和 $z$ 分量的结果大同小异（只有最后一个 3j 系数变为两项， 再除以 $\sqrt{2}$ 以归一化）
+% 未完成： 以下四条都没有验证
+\begin{equation}\ali{
+&\mel{\mathcal{Y}_{l_1 l_2}^{LM}}{x_1}{\mathcal{Y}_{l_1' l_2'}^{L'M'}}
+= \frac{\delta_{l_2, l_2'} \delta_{M, M'}}{\sqrt2} \sqrt{(2l_1 + 1)(2l_1'+1)} r \times\\
+&\qquad \sum_{m_1,m_2} (-1)^{m_1} \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M} \bmat{l_1' & l_2 & L'\\ m_1 & m_2 & M} \times\\
+&\qquad  \pmat{l_1 & 1 & l_1'\\ 0 & 0 & 0}\qty[\pmat{l_1 & 1 & l_1'\\ -m_1 & -1 & m_1} - \pmat{l_1 & 1 & l_1'\\ -m_1 & 1 & m_1}]
+}\end{equation}
+
+\begin{equation}\ali{
+&\mel{\mathcal{Y}_{l_1 l_2}^{LM}}{y_1}{\mathcal{Y}_{l_1' l_2'}^{L'M'}}
+= \frac{\I \delta_{l_2, l_2'} \delta_{M, M'}}{\sqrt2} \sqrt{(2l_1 + 1)(2l_1'+1)} r \times \\
+& \qquad \sum_{m_1,m_2} (-1)^{m_1} \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M} \bmat{l_1' & l_2 & L'\\ m_1 & m_2 & M} \times\\
+&\qquad  \pmat{l_1 & 1 & l_1'\\ 0 & 0 & 0}\qty[\pmat{l_1 & 1 & l_1'\\ -m_1 & -1 & m_1} + \pmat{l_1 & 1 & l_1'\\ -m_1 & 1 & m_1}]
+}\end{equation}
+
+\begin{equation}\ali{
+&\mel{\mathcal{Y}_{l_1 l_2}^{LM}}{x_2}{\mathcal{Y}_{l_1' l_2'}^{L'M'}}
+= \frac{\delta_{l_1, l_1'} \delta_{M, M'}}{\sqrt2} \sqrt{(2l_2 + 1)(2l_2'+1)} r\\
+&\qquad \sum_{m_1,m_2} (-1)^{m_2} \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M} \bmat{l_1 & l_2' & L'\\ m_1 & m_2 & M} \times\\
+&\qquad  \pmat{l_2 & 1 & l_2'\\ 0 & 0 & 0} \qty[\pmat{l_2 & 1 & l_2'\\ -m_2 & -1 & m_2} - \pmat{l_2 & 1 & l_2'\\ -m_2 & 0 & m_1}]
+}\end{equation}
+
+\begin{equation}\ali{
+&\mel{\mathcal{Y}_{l_1 l_2}^{LM}}{y_2}{\mathcal{Y}_{l_1' l_2'}^{L'M'}}
+= \frac{\I \delta_{l_1, l_1'} \delta_{M, M'}}{\sqrt2} \sqrt{(2l_2 + 1)(2l_2'+1)} r\\
+&\qquad \sum_{m_1,m_2} (-1)^{m_2} \bmat{l_1 & l_2 & L\\ m_1 & m_2 & M} \bmat{l_1 & l_2' & L'\\ m_1 & m_2 & M} \times\\
+&\qquad  \pmat{l_2 & 1 & l_2'\\ 0 & 0 & 0} \qty[\pmat{l_2 & 1 & l_2'\\ -m_2 & -1 & m_2} + \pmat{l_2 & 1 & l_2'\\ -m_2 & 0 & m_1}]
+}\end{equation}
+
+\subsection{波函数演化}
+传播同样使用 split operator 
+\begin{equation}
+\exp(-\I H\Delta t) = \exp(-\I H_0\frac{\Delta t}{2})\exp(-\I H_{int}\Delta t) \exp(-\I H_0\frac{\Delta t}{2}) + \order{\Delta t^3}
+\end{equation}
+只是这里的 $H_{int} = V_{12} + V_F$ 是所有 $\mel{\mathcal{Y}}{\ }{\mathcal{Y}}$ 作用后为非对角（算符）矩阵的项， 即电子的相互作用和电场对每个电子的作用．
+
+$H_0 = H_1 + H_2$ 由于 $H_1$ 和 $H_2$ 对易， 我们可以将它们独立传播
+\begin{equation}
+\exp(-\I H_0 \frac{\Delta t}{2}) = \exp(-\I H_1 \frac{\Delta t}{2}) \exp(-\I H_2 \frac{\Delta t}{2})
+\end{equation}
+也就是对每个 partial wave 的二维网格， 用类似氢原子的方法传播每一列在传播每一行．
+
+在传播 $\exp(-\I H_{int}\Delta t)$ 的时候， 爱华的做法是进一步 split 成三个 operators
+\begin{equation}
+\exp(-\I H_{int}\Delta t) = \exp(-\I V_F\frac{\Delta t}{2})   \exp(-\I V_{12} \Delta t) \exp(-\I V_F\frac{\Delta t}{2})
+\end{equation}
+所以总哈密顿一共是 split 成 5 个算符．
+
+另外一点， 如果只关心 single ionization， 可以用一个长方形网格（见 Ossiander 2017 Nat. Phys.）． 但要注意在短边加入 absorber 防止反射．）
+
+\subsection{束缚态}
+理论上可以数值解总哈密顿矩阵的本征值， 但实际上这个矩阵大到几乎不可能解出（事实上我们从来不会把总哈密顿矩阵直接储存， 而是储存 split operator）． 我们使用虚时间演化（imaginary time propagation）\upref{ImgT}．
+
+虚时演化的初始态我用的是两个 He+ 的基态相乘（实数波函数）， 和爱华略有不同， 不过这影响不大． 由于我们的 split operator 都是实数矩阵， 使用虚时间后其指数函数也是实数矩阵， 所以虚时间传播得到的基态波函数也一定会是纯实数．
+我们只需用 $L = 0, M = 0$ 的所有 partial waves 即可．

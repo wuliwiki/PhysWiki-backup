@@ -1,0 +1,21 @@
+% 密度矩阵（量子力学）
+
+\pentry{矩阵的迹\upref{trace}}
+
+\footnote{参考 Shankar, Principles of Quantum Mechanics 2ed}若一个系综中的 $N$ 个系统中， 有 $n_i$ （$i = 1,2,\dots,k$） 个在状态 $\ket{i}$ （这里假设 $\ket{i}$ 是正交归一的）． 那么这个系综可以用\textbf{密度矩阵（density matrix）}（或算符）描述
+\begin{equation}
+\rho = \sum_i p_i\ket{i}\bra{i}   
+\end{equation}
+其中 $p_i = n_i/N$ 是随机选一个系统， 处于状态 $\ket{i}$ 的概率． 若所有系统都处于同一个 $\ket{i}$， 那么这个系综就是\textbf{纯的（pure）}， 否则就是\textbf{混合的（mixed）}．
+
+对于某个物理量对应的算符 $\Omega$， 它的\textbf{系综平均值（ensemble average）}为
+\begin{equation}
+\ev{\bar\Omega} = \sum_i p_i \mel{i}{\Omega}{i}
+\end{equation}
+这个平均值既包含了每个 $\ket{i}$ 的平均， 又包含了对每个系统的平均．
+
+系综平均也可以用迹表示为 $\opn{tr}(\Omega\rho)$． 根据迹的定义，
+\begin{equation}
+\opn{tr}(\Omega\rho) = \sum_i \mel{j}{\Omega\rho}{j}
+\end{equation}
+

@@ -1,0 +1,20 @@
+% 投影算符
+
+\pentry{几何矢量\upref{GVec}}
+
+本词条只介绍有限维矢量空间的投影算符．
+
+\subsection{证明投影算符是厄米算符}
+令投影算符将空间 $X$ 中的矢量投影到空间 $A$ 中， $\qty{a_i}$ 是 $A$ 的一组正交归一基底． 那么投影算符可以表示为
+\begin{equation}
+P = \sum_i \ket{a_i}\bra{a_i}
+\end{equation}
+对任意 $u, v\in X$， 有
+\begin{equation}
+\braket{u}{Pv} = \sum_i \\braket{u}{a_i}\braket{a_i}{v}
+\end{equation}
+\begin{equation}
+\braket{Pu}{v} = \overline {\braket{v}{Pu}} = \sum_i \overline{\\braket{v}{a_i}}\overline{\braket{a_i}{u}} = \sum_i \\braket{u}{a_i}\braket{a_i}{v}
+\end{equation}
+
+
