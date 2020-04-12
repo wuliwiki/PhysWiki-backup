@@ -1,0 +1,19 @@
+% 氢原子薛定谔方程数值解
+\pentry{薛定谔方程\upref{TDSE}， 原子单位\upref{AU}}
+
+虽然最直观的方法是使用直角坐标， 但计算效率太低． 实际中一般使用球坐标系， 用球谐函数展开波函数． 如果 Hamiltonian 是轴对称的， 那么只需要 $m = 0$ 的球谐函数， 即勒让德多项式．
+
+\begin{equation}
+\Psi(\bvec r, t) = \frac{1}{r}\sum_{l,m} \psi_{l,m}(r) Y_{l,m}(\bvec r)
+\end{equation}
+定态薛定谔方程， 并左乘 $\bra{Y_{l,m}}$ 得
+\begin{equation}
+-\frac{1}{2m} \pdv[2]{\psi_{l,m}}{r} + \qty[-\frac{Z}{r} + \frac{l(l+1)}{2mr^2}]\psi_{l,m} = E \psi_{l,m}
+\end{equation}
+可见我们
+
+
+\begin{equation}
+-\frac{1}{2m} \pdv[2]{\psi_{l,m}}{r} + \qty[-\frac{Z}{r} + \frac{l(l+1)}{2mr^2}]\psi_{l,m} = \I \pdv{\psi_{l,m}}{t}
+\end{equation}
+

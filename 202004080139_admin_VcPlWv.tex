@@ -1,0 +1,37 @@
+% 真空中的平面电磁波
+% 麦克斯韦方程组|电磁波|平面波|波动方程
+
+\subsection{结论}
+电场与磁感应强度的关系为
+\begin{equation}
+B_0 = E_0/c
+\end{equation}
+平均能流密度（光强）为
+\begin{equation}
+I = \frac12 c\varepsilon_0 E_0^2
+\end{equation}
+
+% 可以考虑从平面波入手介绍波印廷矢量
+
+\subsection{推导}
+（参考 griffiths 的推导）
+
+\begin{equation}
+\curl(\curl \bvec E) = -\curl\pdv{\bvec B}{t} = -\epsilon_0\mu_0 \pdv[2]{\bvec E}{t}
+\end{equation}
+
+\begin{equation}
+\curl(\curl \bvec E) = \grad(\div \bvec E) - \laplacian \bvec E = - \laplacian \bvec E
+\end{equation}
+
+\begin{equation}
+\laplacian E = \epsilon_0 \mu_0 \pdv[2]{\bvec E}{t^2}
+\end{equation}
+
+\begin{equation}
+E_y = E_0\cos(\omega t - kx)
+\end{equation}
+
+\begin{equation}
+c = \frac{1}{\sqrt{\epsilon_0\mu_0}}
+\end{equation}
