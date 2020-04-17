@@ -1,0 +1,38 @@
+% 平面波的正交归一
+
+\pentry{函数空间\upref{FunSpc}}
+
+要计算归一化积分， 我们来看从负无穷到正无穷的归一化积分． 从零到正无穷的积分只需要除以 2 即可． 由傅里叶变换已知
+\begin{equation}
+\braket{k'}{k} = \delta(k - k')
+\end{equation}
+所以
+\begin{equation}
+\int_{-\infty}^{\infty} \E^{-\I k' x} \E^{\I k x} \dd{x} = 2\pi\braket{k'}{k} = 2\pi\delta(k - k')
+\end{equation}
+\begin{equation}
+\int_{-\infty}^{\infty} \sin(\I k' x) \sin(\I k x) \dd{x}
+= \abs{-\I\sqrt{\frac{\pi}{2}}\ket{k} + \I \sqrt{\frac{\pi}{2}}\ket{-k}}^2 = \pi\delta(k - k')
+\end{equation}
+\begin{equation}
+\int_{-\infty}^{\infty} \cos(\I k' x) \cos(\I k x) \dd{x}
+= \abs{\sqrt{\frac{\pi}{2}}\ket{k} + \sqrt{\frac{\pi}{2}}\ket{-k}}^2 = \pi\delta(k - k')
+\end{equation}
+要证明 $\sin(kx)$ 和 $\cos(kx)$ 正交，
+\begin{equation}\ali{
+&\quad \int_{-\infty}^{\infty} \sin(k'x)^*\cos(kx) \dd{x}\\
+& = \int_{-\infty}^{\infty}\qty[\I\sqrt{\frac{\pi}{2}}\bra{k} - \I \sqrt{\frac{\pi}{2}}\bra{-k}] \qty[\sqrt{\frac{\pi}{2}}\ket{k} + \sqrt{\frac{\pi}{2}}\ket{-k}] \dd{x} = 0
+}\end{equation}
+所以零到正无穷区间中完备正交归一的实波函数分别是
+\begin{equation}
+\sqrt{\frac{2}{\pi}} \cos(kx) \qquad
+\sqrt{\frac{2}{\pi}} \sin(kx) \qquad (k \geqslant 0)
+\end{equation}
+
+现在再来看波函数中有相位 $\phi(k)$ 的情况， 例如
+\begin{equation}
+\int_{0}^{\infty} \sqrt{\frac{\pi}{2}}\sin[k' x + \phi(k')] \sqrt{\frac{\pi}{2}}\sin[k x + \phi(k)] \dd{x}
+\end{equation}
+结果会不会仍然等于 $\delta(k - k')$ 呢？ 我们利用 $\sin(a + b) = \sin a\cos b + \cos a\sin b$ 和已知的归一化积分得到结果为 $\cos[\phi(k) - \phi(k')] \delta(k - k')$． 如果我们假设 $\phi(k)$ 是连续的， 那么结果就是 $\delta(k - k')$．
+
+同理可得， 以上所有基底中给波函数添加相移 $\phi(k)$ （连续函数）， 归一化积分不变．

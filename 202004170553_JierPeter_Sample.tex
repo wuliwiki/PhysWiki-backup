@@ -1,0 +1,287 @@
+% 词条示例
+% 小时物理百科|词条编辑|latex|宏包
+
+\pentry{二项式定理\upref{BiNor}}
+
+本词条需要与 LaTeX 源码对照阅读， 请使用\href{http://wuli.wiki/editor}{在线编辑器}中打开．
+\subsection{蓝色的小节标题}
+\subsubsection{黑色的子节标题}
+
+\subsection{正文}
+正文必须使用中文的括号，逗号，引号，冒号，分号，问号，感叹号，以及全角实心句号\footnote{科技文献中常用实心句号， 参考中华人民共和国国家标准标点符号用法 GB\_T15834\_1995}． 禁止使用英文标点． 像 “牛顿—莱布尼兹公式” 中的横线必须用中文单破折号． 所有的标点符号前面不能有空格， 后面尽量有空格． 正文粗体如\textbf{粗体}． 正文中禁止使用 \verb|\\| 换行， 以及 \verb|\noindent|， \verb|\phantom| 等命令强制修改格式．
+
+\subsection{公式}
+行内公式用单个美元符号， 两边最好有空格， 例如 $a^2+b^2=c^2$， 后面有标点符号的除外．
+
+独立公式的 label 必须要按照 “词条标签\_eq编号” 的格式， 只有需要引用的公式才加标签， 标签编号无需和编译后的编号相同， 保证标签不重复即可． 图表的标签分别把 \verb|eq| 改成 \verb|fig| 和 \verb|tab| 即可，例题用 \verb|ex|， 习题用 \verb|exe|．但凡是有 \verb|\caption| 命令的，\verb|\label| 需要紧接其后．
+\begin{equation}\label{Sample_eq1}
+(a+b)^n = \sum_{i=0}^n C_n^i a^i b^{n-i} \quad (\text{$n$ 为整数})
+\end{equation}
+
+公式中的空格从小到大如 $a\, b\; c\quad d\qquad e$， 注意大括号不可省略． 公式中三点省略号用 $\dots$， 如果要强制在下方， 用 $\ldots$． 实部和虚部如 $\Re[z], \Im[z]$． 双重极限如
+\begin{equation}
+\lim_{\substack{\Delta x_i\to 0\\ \Delta y_i\to 0}} \sum_{i, j} f(x_i,y_i) \Delta x_i \Delta y_j
+\end{equation}
+注意行内公式的 \verb|\lim| 和 \verb|\sum| 如果要在正上方或正下方写东西， 需要加 \verb|\limits|， 如 $\lim\limits_{x\to 0}$．
+
+如果要强制分式正常大小显示， 用 \verb|\dfrac| 命令， 如果 \verb|\frac| 后面只有两个字符的代码，可以写成如 \verb|\frac12|， \verb|\frac ab|， \verb|\frac1a| 等． 斜分数线后面若多于一个变量需要加括号， 如 $ab/(cd)$．
+
+行内分式如 $a/b$， 不允许行内用立体分式． 几何矢量如 $\bvec a$， 不要使用带箭头的矢量如 $\vec a$． 
+
+行间公式换行及对齐用 aligned 环境， 注意该环境可嵌套．
+\begin{equation}
+\begin{aligned}
+(a-b)^2 &= a^2+b^2 - 2ab \\
+& = a^2+b^2+2ab-4ab\\
+& = (a+b)^2-4ab
+\end{aligned}
+\end{equation}
+
+用 \verb|\begin{enumerate}[resume]|  来继续上一个 enumerate 的编号
+
+可变化尺寸的斜分数线如下
+\begin{equation}
+\left. \dv[2]{X}{x} \middle/ X + \dv[2]{Y}{y} \middle/ Y + \dv[2]{Z}{z} \middle/ Z  = \frac{1}{c^2}  \dv[2]{T}{t} \middle/ T\right.
+\end{equation}
+希腊字母如下
+\begin{equation}
+\begin{aligned}
+&\alpha (a), \beta (b), \chi (c), \delta (d), \epsilon/\varepsilon (e), \phi (f), \gamma (g),
+\eta (h), \iota (i), \varphi (j), \kappa (k), \lambda (l), \mu (m),\\
+& \nu (n), o (o), \pi (p), \theta (q), \rho (r), \sigma (s), \tau (t), \upsilon (u), \varpi (v), \omega (w), \xi (x), \psi (y), \zeta (z)
+\end{aligned}
+\end{equation}
+电介质常数一律用 $\epsilon$ 而不是 $\varepsilon$．
+
+以下是花体字母，只有大写有效．所谓大写 $\varepsilon$ 其实是花体的 $E$． 
+\begin{equation}
+\begin{aligned}
+&\mathcal{A, B, C, D, E, F, G, H, I, J, K, L, M,}\\
+&\mathcal{N, O, P, Q, R, S, T, U, V, W, X, Y, Z}
+\end{aligned}
+\end{equation}
+以下是双线字母， 只有大写有效
+\begin{equation}
+\begin{aligned}
+&\mathbb{A, B, C, D, E, F, G, H, I, J, K, L, M,}\\
+&\mathbb{N, O, P, Q, R, S, T, U, V, W, X, Y, Z}
+\end{aligned}
+\end{equation}
+
+
+\subsection{使用 physics 宏包}
+目前仅支持 Physics 宏包的以下命令： 绝对值如 $\abs{a}$， 微分符号如 $\dd{x}$，
+
+可变尺寸的小中大括号可以用 \verb|\qty|， 如
+\begin{equation}
+\qty(\frac ab)^2 \qquad \qty[\frac ab]^2 \qquad \qty{ \frac ab}
+\end{equation}
+矢量内积如 $\bvec A \vdot \bvec B$ （\verb|\vdot| 不可省略），矢量叉乘如 $\bvec A\cross\bvec B$．
+
+常用三角函数和自然指数对数函数后面的小括号（中括号不可以！）会自动改变尺寸，若要给他们加幂，用中括号
+\begin{equation}
+\sin(\frac ab) \qquad \sin[2](\frac ab)
+\end{equation}
+
+导数和偏导可以用
+\begin{equation}
+\dv{x} \quad \dv{f}{x} \quad \dv[2]{f}{x} \quad \dv*[2]{f}{x} \quad
+\pdv{x} \quad \pdv{f}{x} \quad \pdv[2]{f}{x} \quad \pdv{f}{x}{y} \quad \pdv*[2]{f}{x}
+\end{equation}
+
+定积分求值如 $\eval{x^2}_0^1$ （自动尺寸）．
+
+对易算符如 $\comm{\Q A}{\Q B}$ 或 $\comm*{\Q A}{\Q B}$， 前者自动尺寸， 后者强制小尺寸． 泊松括号如 $\pb{\frac12}{B}$ 和 $\pb*{\frac12}{B}$．
+
+梯度散度旋度拉普拉斯如 $\grad V$，$\div\bvec A$， $\curl\bvec A$， $\laplacian V$．
+
+狄拉克符号（加 * 号强制小尺寸）如 $\bra{a}, \ket{b}, \braket{a}, \braket{a}{b}, \mel{a}{Q}{b}$． 平均值（加 * 号强制小尺寸）如 $\ev*{Q}, \ev{Q}{\psi}$．
+
+\subsection{自定义的命令}
+本模板自定义的命令如下， 如果不使用， 要保证编译后效果相同．
+
+引用公式和图表都统一使用 \verb|\autoref| 命令， 注意前面不加空格后面要加空格（后面是标点符号除外）， 例如\autoref{Sample_eq1}． 如果要引用其他词条中的公式，可以引用 “其他词条\upref{Sample}” 的\autoref{Sample_eq1} 也可以用 “\autoref{Sample_eq1}\upref{Sample}”， 为了方便在纸质书上使用， 词条页码是不能忽略的．
+
+正文中粗体用 \verb|\textbf|． 单位矢量如 $\uvec a$．
+
+写量纲用 \verb|\Si{}| 命令， 如 $a = 100\Si{m/s^2}$， 这个命令只能出现在公式环境内．
+
+ \verb|\sinc| 函数如 $\sinc x, \sinc(x), \sinc^2(x+y)$，但后面的括号没有自动尺寸．
+ 
+ 大于等于或小于等于建议用 $\leqslant, \geqslant$ 而不是 $\le, \ge$． 自然对数底如 $\E$， 复数如 $u+\I v$ 虚数单位不能用 $i$，复共轭如 $z\Cj$．
+ 
+ 矩阵 $\mat A$，转置 $\mat A \Tr$，厄米共轭用 $\mat A \Her$． 常见的几种矩阵括号如
+\begin{equation}
+\pmat{1&2\\3&4} \qquad
+\vmat{1&2\\3&4} \qquad 
+\bmat{1&2\\3&4} \qquad
+\Bmat{1&2\\3&4} \qquad
+\pmat{1&2\\3&4}\Tr \qquad
+\pmat{1&2\\3&4}\Her
+\end{equation}
+行内的列矢量用行矢量的转置表示，如 $(1,2,3)\Tr$． 张量如 $\ten T$．
+
+单独一个粗体的 $\nabla$ 用 $\Nabla$．
+
+\begin{equation}
+\begin{aligned}
+k_1 &= f(y_n, t_n) 
+& k_2 &= f \qty(y_n + h\frac{k_1}{2}, t_n + \frac h2 )\\
+k_3 &= f \qty( y_n + h\frac{k_2}{2}, t_n + \frac h2 ) \qquad
+& k_4 &= f(y_n + hk_3, t_n + h)
+\end{aligned}
+\end{equation}
+
+左大括号用 \verb|cases| 环境， 如
+\begin{equation}
+\begin{cases}
+d+e+f = \int \frac{a}{b} \dd{x} &(a > 0)\\
+a+b = c &(b > 0)
+\end{cases}
+\end{equation}
+但是注意这个环境里面的符号都是小尺寸的（与行内公式相同）， 且只能用一次 \verb|&|． 如果需要使用大尺寸， 可以用自定义的 \verb|\leftgroup{}| 命令
+\begin{equation}
+\leftgroup{
+&d+e+f = \int \frac{a}{b} \dd{x} &&(a > 0)\\
+&a+b = c &&(b > 0)
+}
+\end{equation}
+这相当于一个可变尺寸的 \verb|{| 加上 \verb|aligned| 环境
+\begin{equation}
+\left\{
+\begin{aligned}
+&d+e+f = \int \frac{a}{b} \dd{x} &&(a > 0)\\
+&a+b = c &&(b > 0)
+\end{aligned}
+\right.
+\end{equation}
+
+表格中若用 \verb|\dfrac|， 需要在行首加上 \verb|\dfracH| 命令．% 未完成： 为什么？
+
+量子力学算符如 $\Q a$（一般可以不加， 只有必要的时候加）， 矢量量子算符如 $\Qv p$．
+
+\subsection{图表}
+
+现在来引用一张图片， 位图必须使用 png 格式， 矢量图（推荐）必须以 pdf 和 svg 格式\footnote{pdf 格式用于 pdf 版的百科， svg 用于网页显示}放在 figures 文件夹中． 文件名是词条 label 加图片序号， 即使只有一张图片也要加上 1． 生成 svg 时， 字体一律用 outline， 更多选项中保留 7 位小数， 如果矢量图中包含位图， 要把 Image Location 选成 embed． 代码中使用 pdf 图片．图片宽度一律用 cm 为单位．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/Sample_1.pdf}
+\caption{例图} \label{Sample_fig1}
+\end{figure}
+在\autoref{Sample_fig1} 中，label 只能放在 caption 的后面，否则编号会出错．由于图片是浮动的，避免使用“上图”，“下图”等词．
+
+再来看一个表格，如\autoref{Sample_tab1}． 注意标签要放在 caption 后面．
+\begin{table}[ht]
+\centering
+\caption{极限 $\E$ 数值验证}\label{Sample_tab1}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$x$ & ${10^{ - 1}}$ & ${10^{ - 2}}$ & ${10^{ - 3}}$ & ${10^{ - 4}}$ & ${10^{ - 5}}$ & ${10^{ - 6}}$ \\
+\hline
+$(1 + x)^{1/x}$ & 2.59374 & 2.70481 & 2.71692 & 2.71815 & 2.71827 & 2.71828 \\
+\hline
+\end{tabular}
+\end{table}
+
+定义如\autoref{Sample_def1}．
+\begin{definition}{名称（可省略）}\label{Sample_def1}
+ 定义导数为
+\begin{equation}
+f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
+\end{equation}
+\end{definition}
+
+引理如\autoref{Sample_lem1}．
+\begin{lemma}{名称（可省略）}\label{Sample_lem1}
+三角形内角和为 $\pi$
+\end{lemma}
+
+定理如\autoref{Sample_the1}．
+\begin{theorem}{名称（可省略）}\label{Sample_the1}
+内错角相等
+\end{theorem}
+
+推论如\autoref{Sample_cor1}
+\begin{corollary}{名称（可省略）}\label{Sample_cor1}
+1 + 2 = 3
+\end{corollary}
+
+例子如\autoref{Sample_ex1}． 
+\begin{example}{名称（可省略）}\label{Sample_ex1}
+在例子中，我们的字体可以自定义，包括公式的字号会保持与内容一致．
+\begin{equation}
+(a+b)^n = \sum_{i=0}^n C_n^i a^i b^{n-i} \quad (\text{$n$ 为整数})
+\end{equation}
+\end{example}
+
+习题如\autoref{Sample_exe1}． 
+\begin{exercise}{名称（可省略）}\label{Sample_exe1}
+已知 $b$ 和 $c$， 求 $a^2 + b^2 = c^2$．
+\end{exercise}
+
+\subsection{代码}
+在行内显示代码用 \verb|\verb| 命令． 注意这个命令比较特殊， 可以用任何两个相同的符号作为定界符（星号 \verb|*| 除外）， 如 \verb+\verb?some|code?+ 会显示为 \verb?some|code?． 注意定界符必须是代码中没有的字符．
+
+自动高亮的代码块使用 \verb|lstlisting| 环境（禁止用 \verb|\lstinputlisting| 从文件输入）
+\begin{lstlisting}[language=matlabC]
+s = 'abc'; % 一些评论
+A =
+     1     1    -1     1     3
+     2     2    -2     1     7
+     1     1     0     2     3
+     2     2    -1     5     4
+
+% 测试自定义关键字（必须是高亮）
+matlabCTestKeyWord;
+\end{lstlisting}
+
+如果 lstlisting 之前出现了 subsubsection 标明文件名（下划线用 \verb|\_|）， 代码文件夹中就会自动生成该文件． 较长的代码文件必须含文件名， 文件名需要反映代码的内容而不是与词条 label 同名．
+
+\subsubsection{sample\_code.m}
+\begin{lstlisting}[language=matlab]
+% 验证二项式定理(非整数幂)
+u = -3.5;
+x = 0.6; % |x|<1 使级数收敛
+N = 100; % 求和项数
+Coeff = 1; % x^ii 项前面的系数
+result = 1; % 求和结果
+for ii = 1:N
+    Coeff = Coeff*(u-ii+1) / ii;
+    result = result + Coeff * x^(ii);
+end
+disp('直接计算结果为');
+format long; % 显示全部小数位
+disp((1+x)^u);
+disp('求和结果为');
+disp(result);
+format short; % 恢复默认显示
+
+% 测试自定义关键字（必须是高亮）
+matlabTestKeyWord;
+
+% 测试函数颜色（必须是黑色）
+tan; cot; asin; acos; atan; arg; real; imag; sum;
+mean; diff; floor; ceil; mod; sinh; cosh; round;
+tanh; zeros; ones; rand; randn; eye; magic;
+\end{lstlisting}
+
+C++ 代码例如
+\begin{lstlisting}[language=cpp]
+template <class T, class T1, class T2,
+MY_IF(is_scalar<T>() && is_scalar<T1>() && is_scalar<T2>())>
+void Plus(T &v, const T1 &v1, const T2 &v2)
+{ v = v1 + v2; }
+\end{lstlisting}
+
+其他不支持的代码也可以使用 lstlisting 环境， 但不能使用方括号（可以在前面用注释说明语言， 以便支持后添加高亮）
+% language=julia
+\begin{lstlisting}
+a = rand(3, 3)
+c = 1 + 2im
+b = c * a
+\end{lstlisting}
+
+\subsection{文献引用}
+每章都有一个独立的参考文献列表的词条， 需要在主文件中每章最后一个 \verb|\entry| 后面加入 \verb|\bibentry| 命令插入（见本词条后面）． bibentry 的参数是 bibliographies 文件夹中的文件名， 每个文件与章节导航的 label 同名． 注意全书的词条标签不能有重复． 词条中引用文献格式如 \cite{PhysWiki} \cite{PhysWikiEng}． 但是由于 PhysWikiScan 还为实现该命令， 目前还是应该使用脚注．
+
+网址的超链接如\href{http://wuli.wiki}{本书网站}．
