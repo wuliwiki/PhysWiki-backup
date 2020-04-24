@@ -1,0 +1,46 @@
+% 诺特定理
+
+\pentry{拉格朗日方程\upref{Lagrng}}
+
+拉格朗日方程是关于广义坐标$q_\alpha(\alpha=1,2,\cdots,s)$的二阶微分方程．对于某些问题在系统运动过程中，存在$q_\alpha$和$\dot{q_\alpha}$的某些函数，它们不随时间而变，这些函数称为系统的\textbf{运动积分}．运动积分是通常的守恒律（如动量守恒定律、角动量守恒定律、机械能守恒定律）概念的推广．运动积分相对于拉格朗日方程而言降了一阶，即它们是一阶的微分方程，故运动积分有时也称为\textbf{第一次积分}．运动积分的存在与否与系统的对称性有密切的关系．一个系统如果有尽可能多的运动积分将对问题的求解带来极大的方便．
+
+在本节中我们将讨论广义动量积分和广义能量积分两种运动积分，并分析对称性与运动积分的关系，即诺特定理．
+
+\subsection{可遗坐标与广义动量积分}
+
+如拉格朗日函数$L$不包含某个广义坐标$q_\beta$，即$\dfrac{\partial L}{\partial q_\beta}=0$, 这种广义坐标叫做\textbf{可遗坐标}（也称为\textbf{循环坐标}）．于是，拉格朗日方程变为：
+\begin{equation}
+\frac{\mathrm{d}}{\mathrm{d} t}\left(\frac{\partial L}{\partial \dot{q}_{\beta}}\right)=0
+\end{equation}
+这是说，广义动量$p_\beta=\dfrac{\partial L} {\partial \dot{q_\beta}}$是守恒的，
+\begin{equation}
+p_\beta=常数(如L不含有q_\beta)
+\end{equation}
+这叫做\textbf{广义动量积分}．
+
+我们知道，如果循环坐标$q_\beta$是系统的整体平移坐标，也就是说，拉格朗日函数不包含整体平移坐标，即拉格朗日函数$L $对于整体平移是不变的，由前节关于广义动量含义的讨论可知，广义动量积分就归结为动量守恒定律．若拉格朗日函数不包含整体转动坐标，即拉格朗日函数$L$对于整体转动是不变的，也就是拉格朗日函数是各向同性的，则广义动量积分归结为角动量守恒定律．在矢量力学中，动量守恒定律和角动量守恒定律是以牛顿第三定律为先决条件（内力的矢量和为零，内力的力矩和为零），而\textbf{广义动量积分则并不以牛顿第三定律为先决条件}．这点在后续讨论电磁场时十分明显，很难根据电磁场与粒子的相互作用来谈牛顿第三定律．
+
+\begin{example}{两个楔子的加速度}
+质量为$M $的光滑大楔子置于光滑的水平桌面上，质量为$m$的光滑小楔子沿着大楔子的光滑斜边滑下，如图1所示．求这两个楔子的加速度．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/Noethe_1.png}
+\caption{} \label{Noethe_fig1}
+\end{figure}
+
+解：大楔子可在水平方向运动，小楔子在大楔子斜边上运动系统有两个自由度．
+
+取桌面上的固定点$O$, 把大楔子的质心（其实不一定要质心，改为大楔子的任一点都行）相对于$O$点的水平坐标记作$X $把小楔子的质心（其实不一定要质心）相对于大楔子斜边底端而沿着斜边计算的坐标记作$q$．$X $和$q $可作为系统的广义坐标．
+
+主动力是两个楔子所受的重力，它们都是势力．大楔子的势能在运动过程中不起变化，可以不考虑．只要讨论小楔子的势能就够了．计算动能的时候要注意，小楔子的速度不仅仅是沿斜边的$\dot q$，而且还有随着大楔子在水平方向运动的速度$X$．
+\begin{equation}
+\begin{aligned} T &=\frac{1}{2} M \dot{X}^{2}+\frac{1}{2} m\left[v_{\text {水平 }}^{2}+v_{\text {竖直 }}^{2}\right] \\ &=\frac{1}{2} M \dot{X}^{2}+\frac{1}{2} m\left[(\dot{X}+\dot{q} \cos \theta)^{2}+\dot{q}^{2} \sin ^{2} \theta\right] \\ V &=m g q \sin \theta \\ L &=T-V=\frac{1}{2}(M+m) \dot{X}^{2}+\frac{1}{2} m \dot{q}^{2}+m \dot{X} \dot{q} \cos \theta-m g q \sin \theta \end{aligned}
+\end{equation}
+于是，由拉格朗日方程，可得
+\begin{equation}
+\begin{cases}
+\dfrac{\mathrm{d}}{\mathrm{d} t}[M \dot{X}+m(\dot{X}+\dot{q} \cos \theta)]=0 \\ \dfrac{\mathrm{d}}{\mathrm{d} t}[m(\dot{X} \cos \theta+\dot{q})]+m g \sin \theta=0
+\end{cases}
+\end{equation}
+\end{example}
+
