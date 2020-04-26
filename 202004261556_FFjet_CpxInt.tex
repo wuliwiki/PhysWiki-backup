@@ -1,0 +1,26 @@
+% 复变函数的积分
+
+\pentry{定积分\upref{DefInt}}
+我们之前已经接触过了实函数的积分，那么我们如何推广到复数上呢？
+
+\subsection{复积分的定义}
+
+实际上，同高等数学一样，也采用“分割”、“作和”、“取极限”的步骤来定义积分．
+\begin{definition}{复积分的定义}
+设$C $为一条起点在$a $，终点在$b $的有向光滑曲线（或逐段光滑曲线），其方程为
+\begin{equation}
+z=z(t)=x(t)+\mathrm{i} y(t) \quad,(\alpha \leqslant t \leqslant \beta, a=z(\alpha), b=z(\beta))
+\end{equation}
+函数$ f (z) $定义在$C $上用一组点$z_{0}=a, z_{1}, z_{2}, \cdots, z_{n-1}, z_{n}=b$沿曲线从$ a $到$b $，对曲线$C$进行分割：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/CpxInt_1.png}
+\caption{请添加图片描述} \label{CpxInt_fig1}
+\end{figure}
+设$\Delta z_{k}=z_{k}-z_{k-1}$，$\zeta_k$为弧$z_{k-1}z_k$上任意一点，作和$\displaystyle S_{n}=\sum_{k=1}^{n} f\left(\zeta_{k}\right) \Delta z_{k}$．
+
+当分割点的数量无限增加，并且分割$C$所得各个弧段长度中的最大值$d \to 0$时，不论对$C$的分法及$\zeta_k$的取法如何，$S_n$存在极限$S$，则称$ f (z)$沿$C $（从$a$到$b$）可积，称$ S $为$ f (z)$沿$C$（从$a$到$b $）的积分，记作
+\begin{equation}
+S=\int_{C} f(z) \mathrm{d} z
+\end{equation}
+\end{definition}

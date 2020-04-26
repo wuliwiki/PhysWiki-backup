@@ -1,0 +1,58 @@
+% 复变函数的积分概念
+
+\pentry{定积分\upref{DefInt}}
+我们之前已经接触过了实函数的积分，那么我们如何推广到复数上呢？
+
+\subsection{复积分的定义}
+
+实际上，同高等数学一样，也采用“分割”、“作和”、“取极限”的步骤来定义积分．
+\begin{definition}{复积分的定义}
+设$C $为一条起点在$a $，终点在$b $的有向光滑曲线（或逐段光滑曲线），其方程为
+\begin{equation}
+z=z(t)=x(t)+\mathrm{i} y(t) \quad,(\alpha \leqslant t \leqslant \beta, a=z(\alpha), b=z(\beta))
+\end{equation}
+函数$ f (z) $定义在$C $上用一组点$z_{0}=a, z_{1}, z_{2}, \cdots, z_{n-1}, z_{n}=b$沿曲线从$ a $到$b $，对曲线$C$进行分割：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/CpxInt_1.png}
+\caption{复积分的定义} \label{CpxInt_fig1}
+\end{figure}
+设$\Delta z_{k}=z_{k}-z_{k-1}$，$\zeta_k$为弧$z_{k-1}z_k$上任意一点，作和$\displaystyle S_{n}=\sum_{k=1}^{n} f\left(\zeta_{k}\right) \Delta z_{k}$．
+
+当分割点的数量无限增加，并且分割$C$所得各个弧段长度中的最大值$d \to 0$时，不论对$C$的分法及$\zeta_k$的取法如何，$S_n$存在极限$S$，则称$ f (z)$沿$C $（从$a$到$b$）可积，称$ S $为$ f (z)$沿$C$（从$a$到$b $）的积分，记作
+\begin{equation}
+S=\int_{C} f(z) \mathrm{d} z
+\end{equation}
+其中 $f (z)$称为\textbf{被积函数}，$C$称为\textbf{积分路径}，而$\displaystyle S=\lim _{n \rightarrow \infty \atop d \rightarrow 0} S_{n}$．
+\end{definition}
+
+现在来看一下用定义计算复积分的一个简单例子．
+\begin{example}{}
+设$C $是一条起点为$a $终点为$b $的逐段光滑曲线，试计算$\displaystyle S=\int_C\mathrm dz$．
+
+用定义来计算该积分．由定义，将$f(z)=1$带入，得：
+\begin{equation}
+S_{n}=\sum_{k=1}^{n}\left(z_{k}-z_{k-1}\right)=b-a
+\end{equation}
+所以
+\begin{equation}
+\int_{C} \mathrm{d} z=\lim _{d \rightarrow 0} S_{n}=b-a
+\end{equation}
+\end{example}
+
+通过这道例题，我们发现对于函数$f(z)=1$，它的积分值只依赖于积分路径$C$的起点$a$和终点$b$，而与积分路径的形状是无关的．这个性质对于更一般的$f$是否成立？在后面的柯西-古萨定理中，我们将给出答案．
+
+有了积分定义后，最先关心的问题是：积分存在的条件，积分的性质与积分的计算．下面就来讨论这几个问题．
+
+\subsection{复积分存在的一个条件}
+
+为了寻求复变函数积分存在的条件，现在唯一可利用的只有定义．于是问题就归结为考察极限$\displaystyle \lim _{n \rightarrow \infty \atop d \rightarrow 0} S_{n}$的存在条件．为此，不妨将$S_n$变形后再加以考察．
+
+设
+\begin{equation}
+\begin{array}{l}f(z)=u(x, y)+i v(x, y) \\ \Delta z_{k}=\Delta x_{k}+\mathrm{i} \Delta y_{k} \\ \Delta x_{k}=x_{k}-x_{k-1}, \Delta y_{k}=y_{k}-y_{k-1} \\ \zeta_{k}=\xi_{k}+\mathrm{i} \eta_{k} \\ u_{k}=u\left(\xi_{k}, \eta_{k}\right), v_{k}=v\left(\xi_{k}, \eta_{k}\right)\end{array}
+\end{equation}
+于是
+\begin{equation}
+\begin{aligned} \int_{C} f(z) \mathrm{d} z &=\lim _{n \rightarrow \infty \atop d \rightarrow 0} S_{n}=\lim _{n \rightarrow \infty \atop d \rightarrow 0} \sum_{k=1}^{n} f\left(\zeta_{k}\right) \Delta z_{k}=\lim _{n \rightarrow \infty} \sum_{k=1}^{n} f\left(\xi_{k}+\mathrm{i} \eta_{k}\right)\left(\Delta x_{k}+\mathrm{i} \Delta y_{k}\right) \\ &=\lim _{n \rightarrow \infty} \sum_{k=1}^{n}\left[u\left(\xi_{k}, \eta_{k}\right)+\mathrm{i} v\left(\xi_{k}, \eta_{k}\right)\right]\left[\Delta x_{k}+\mathrm{i} \Delta y_{k}\right] \\ &=\lim _{n \rightarrow \infty} \sum_{k=1}^{n}\left(u_{k}+\mathrm{i} v_{k}\right)\left(\Delta x_{k}+\mathrm{i} \Delta y_{k}\right) \\ &=\lim _{n \rightarrow \infty} \sum_{k=1}^{n}\left(u_{k} \Delta x_{k}-v_{k} \Delta y_{k}\right)+\mathrm{i} \lim _{n \rightarrow \infty} \sum_{k=1}^{n}\left(v_{k} \Delta x_{k}-u_{k} \Delta y_{k}\right) \end{aligned}
+\end{equation}
