@@ -1,0 +1,40 @@
+% python函数
+函数是组织好的，可重复使用的，用来实现相关功能的代码段．它能提高代码的重复利用率．Python提供了许多\textbf{内建函数}，比如 \verb|print()|．我们也可以自己创建函数，这被叫做\textbf{自定义函数}． 需要在程序中多次执行同一项任务时， 你无需反复编写完成该任务的代码， 而只需调用执行该任务的函数， 让Python运行其中的代码． 你将发现， 通过使用函数，程序的编写、阅读、测试和修复都将更容易．
+
+\subsection{函数的定义与调用}
+我们通过一个简单的例子开始介绍：
+\begin{lstlisting}[language=python]
+def  func1():
+    # 定义一个函数，函数名为func1
+     print('hello python')
+func1()
+\end{lstlisting}
+这个示例演示了最简单的函数结构． 第一行的代码行使用关键字\verb|def| 来告诉Python我们要定义一个函数．然后向Python指出了函数名, 还可能在括号内指出函数为完成其任务需要什么样的信息． 在这里, 函数名为\verb|func1|, 它不需要任何信息就能完成其工作, 因此括号是空的(括号必不可少);最后，定义以\textbf{冒号}结尾, 后面的所有\textbf{缩进行}构成了函数体． 第二行处的文本是\textbf{函数注释},以\verb|#|开始，通常用来描述了函数是做什么的．
+第三行\verb|print('hello  python')| 是函数体内的唯一一行代码.
+\textbf{函数调用}让Python执行函数的代码． 要调用函数，可依次指定函数名以及用括号括起的必要信息, 由于这个函数不需要任何信息， 因
+此调用它时只需输入\verb|func1()| 即可．
+\subsection{向函数传递信息}
+只需对上面函数稍作修改, 就可以让函数\verb|func1()| 不仅向用户显示 \verb|hello python|, 还将可以打印其他信息. 在函数定义\verb|def func1()| 的括号内添加信息． 通过在这里添加信息, 就可让函数接受你给定的任何值．
+\begin{lstlisting}[language=python]
+def  func2(str):
+    '''
+     改进第一个函数，使得它可以输出更多信息
+     输入：字符串
+    '''
+     print('hello'+str)
+func2('C++')
+func2('Tom')
+\end{lstlisting}
+输出
+\begin{lstlisting}[language=python]
+hello C++
+hello Tom
+\end{lstlisting}
+上述代码在第一行函数定义处多了一个信息，函数功能变得更加丰富．同时我们注意到第二个用三个\textbf{单引号}开头，不再是\verb|#|. 三个单引号是用来进行多行注释的．另外注意到Python中字符串可以通过\verb|+|来连接．
+
+\subsection{实参和形参}
+前面定义函数greet_user() 时， 要求给变量username 指定一个值． 调用这个函数并提供这种信息（人名） 时， 它将打印相应的问候语．
+在函数greet_user() 的定义中， 变量username 是一个形参 ——函数完成其工作所需的一项信息． 在代码greet_user('jesse') 中， 值'jesse' 是一个实参 ． 实参是
+调用函数时传递给函数的信息． 我们调用函数时， 将要让函数使用的信息放在括号内． 在greet_user('jesse') 中， 将实参'jesse' 传递给了函数greet_user() ， 这个
+值被存储在形参username 中．
+注意 大家有时候会形参、 实参不分， 因此如果你看到有人将函数定义中的变量称为实参或将函数调用中的变量称为形参， 不要大惊小怪．

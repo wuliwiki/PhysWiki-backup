@@ -1,0 +1,58 @@
+% 洛伦兹群
+\pentry{群\upref{Sample}李群\upref{Sample}洛伦兹变换\upref{Sample}算符对易与共同本征函数\upref{Sample}矩阵\upref{Sample}闵可夫斯基空间\upref{Sample}}
+\subsection{定义}
+所有洛伦兹变换的集合形成一个群，称为洛伦兹群（Lorentz group）．
+采取度规张量$g_{\mu \nu}=\operatorname{diag}(1,-1,-1,-1)$，引入时空坐标四矢量标记
+\begin{equation}
+\begin{aligned}
+x^{\mu} &=\left(x^{0}, x^{i}\right) \quad(i=1,2,3)\\
+&=(t, \bvec{x})
+\end{aligned}
+\end{equation}
+则对于两个惯性系有
+\begin{equation}\label{qed1_eq1}\begin{aligned}
+S^{2} &=x^{0} x^{0}-x^{i} x^{i}=x^{\mu} x^{\nu} g_{\mu \nu} \\
+&=x^{\prime 0} x^{\prime 0}-x^{\prime i} x^{\prime i}=x^{\prime \mu} x^{\prime \nu} g_{\mu \nu}
+\end{aligned}\end{equation}
+设联系两个惯性系的洛伦兹变换为$\Lambda_{\nu}^{\mu}$,即
+\begin{equation}\label{qed1_eq2}x^{\prime \mu}=\Lambda_{\nu}^{\mu} x^{\nu}=\Lambda_{0}^{\mu} x^{0}+\Lambda_{i}^{\mu} x^{i}\end{equation}
+保持时空距离不变的要求导致
+\begin{equation}\label{qed1_eq3}g_{\rho \sigma}=g_{\mu \nu} \Lambda_{\rho}^{\mu} \Lambda_{\sigma}^{\nu}\end{equation}
+\subsection{推导}
+采取矩阵记法，设两个惯性系的坐标矢量分别为$X$和$X'$,度规矩阵为$g$,洛伦兹矩阵为$L$．则\autoref{qed1_eq1}，\autoref{qed1_eq2}，\autoref{qed1_eq3}可以分别写为
+\begin{equation}
+S^{2}=X^{\mathrm{T}} g X
+\end{equation}
+\begin{equation}
+X'=LX
+\end{equation}
+\begin{equation}\label{qed1_eq4}
+g=L^{\mathrm{T}} g L
+\end{equation}
+将\autoref{qed1_eq4}两边取行列式，有
+\begin{equation}
+detg=detL^{\mathrm{T}} detg detL
+\end{equation}
+命题得证．
+\subsection{分类}
+设洛伦兹矩阵可以用$L$表示，可以证明洛伦兹矩阵的行列式$detL=\pm1$.
+取洛伦兹矩阵的00分量，根据\autoref{qed1_eq3}有
+$$1=g_{\mu \nu} \Lambda_{\rho}^{0} \Lambda_{\sigma}^{0}=
+
+\subsection{推导}
+采取矩阵记法，设两个惯性系的坐标矢量分别为$X$和$X'$,度规矩阵为$g$,洛伦兹矩阵为$L$．则\autoref{qed1_eq1}，\autoref{qed1_eq2}，\autoref{qed1_eq3}可以分别写为
+\begin{equation}
+S^{2}=X^{\mathrm{T}} g X
+\end{equation}
+\begin{equation}
+X'=LX
+\end{equation}
+\begin{equation}\label{qed1_eq4}
+g=L^{\mathrm{T}} g L
+\end{equation}
+将\autoref{qed1_eq4}两边取行列式，有
+\begin{equation}
+detg=detL^{\mathrm{T}} detg detL
+\end{equation}
+命题得证．
+\subsection{洛伦兹群的李代数}

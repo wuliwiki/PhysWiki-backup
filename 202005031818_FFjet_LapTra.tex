@@ -1,0 +1,14 @@
+% 拉普拉斯变换
+
+拉普拉斯变换是用来干什么的呢？拉普拉斯变换常用于初始值问题，即已知某个物理量在初始时刻$t=0$的值$f(0)$，而求解它在初始时刻之后的变化情况$f(t)$．至于它在初始时刻之前的值，我们就让它都等于$0$，也就是说
+\begin{equation}
+f(t)=0 \quad(t<0)
+\end{equation}
+为了获得较宽的变换条件，构造一个函数$g(t)$，
+\begin{equation}
+g(t)=\mathrm{e}^{-\sigma t} f(t)
+\end{equation}
+这里$e^{-\sigma t}$为收敛因子．我们需要选一个充分大的正实数$\sigma$，用来保证$g(t) $在区间$(-\infty,+\infty)$上绝对可积．于是，可以对$g(t) $做傅里叶变换：
+\begin{equation}
+G(\omega)=\frac{1}{2 \pi} \int_{-\infty}^{\infty} g(t) \mathrm{e}^{-\omega t} \mathrm{d} t=\frac{1}{2 \pi} \int_{0}^{\infty} f(t) \mathrm{e}^{-(\sigma+\mathrm{i} \omega) t} \mathrm{d} t
+\end{equation}
