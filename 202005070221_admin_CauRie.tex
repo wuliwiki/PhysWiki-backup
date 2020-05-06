@@ -1,0 +1,40 @@
+% 复变函数的导数 柯西—黎曼条件
+
+类似实函数， 定义复变函数 $z = f(w)$ （$z, w$ 都是复数）的导数为
+\begin{equation}
+\dv{z}{w} = \lim_{\abs{h}\to 0} \frac{z(w + h) - z(w)}{h}
+\end{equation}
+其中 $h$ 也是一个复数． 注意极限
+
+\begin{equation}\label{CauRie_eq1}
+u_{x}=v_{y}, \quad u_{y}=-v_{x}
+\end{equation}
+
+% 未完成： 几何意义： 保证复平面上每一点延任意方向的导数都一样． 即 (dx, dy) 做一个旋转变换加一个缩放
+
+\subsection{推导}
+\begin{equation}
+w = x + y\I
+\end{equation}
+\begin{equation}
+z(w) = u(x, y) + \I v(x, y)
+\end{equation}
+
+
+复平面上， 看作两个实函数． 令
+\begin{equation}
+\dv{z}{w} = c = (a + b\I)
+\end{equation}
+微分形式
+\begin{equation}
+\dd{z} = (a + b\I)\dd{w}
+\end{equation}
+或者写成
+\begin{equation}
+\dd{u} + \I \dd{v} = (a + b\I)(\dd{x} + \I\dd{y}) = (a \dd{x} - b\dd{y}) + \I (b \dd{x} + a\dd{y})
+\end{equation}
+可见
+\begin{equation}
+
+\end{equation}
+

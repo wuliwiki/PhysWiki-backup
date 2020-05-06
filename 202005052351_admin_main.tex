@@ -1,0 +1,176 @@
+\section{Approach}
+\label{Section:Approach}
+
+In this section, we provide the technical details of our assembly pipeline. We begin with discussing the pre-processing operations in Section~\ref{Subsection:Preprocessing:Operations}. Then we discuss the formulation and the optimization procedure in Section~\ref{Subsection:Formulation} and Section~\ref{Subsection:Optimization}, respectively.
+
+\subsection{Preprocessing Operations}
+\label{Subsection:Preprocessing:Operations}
+
+\begin{figure}
+\centering
+\vspace{3in}
+\caption{Randomly sampled shapes under the linear shape space. We can see that these synthesized shapes retain main bone features.}
+\label{Figure:Shape:Space}
+\end{figure}
+
+The goals of the preprocessing operations are two-fold, i.e., to build a statistical shape model for the latent template model and to learn invariant feature descriptors and masks of original surfaces for matching the input pieces and the latent template model. The details are described below.
+
+\subsubsection{Linear Shape Space}
+
+TempAssembly follows the linear morphable face model described in~\cite{Blanz:1999:MMS} for building the linear shape space for assembing fractured pieces. Specifically, given a shape collection with $m$ shapes, we first manually pick a sparse set of consistent keypoints. We then apply blended intrinsic maps (or functional maps) to interpolate these keypoint correspondences into dense correspondences between a reference model and the remaining models. With $\set{S} = \{S_1,\cdots, S_m\}$ we denote the consistent meshes obtained using this procedure. Let $\bs{q}_{i1},\cdots, \bs{q}_{in}$ denote the vertex positions of $S_i$. Following~\cite{Blanz:1999:MMS}, we translate each model so that its center is always at the origin, i.e., $\frac{1}{n}\sum\limits_{j=1}^{n}\bs{q}_{ij} = \bs{0}$. 
+
+Since TempAssembly computes dense correspondences between the input pieces and the latent template model, we enforce that the sampling density on the latent template model is higher than that on the input pieces. The details are deferred to Section~\ref{Section:Experiments}. 
+
+Let $\bs{q}_i = (\bs{q}_{i1}^T,\cdots, \bs{q}_{in}^T)^T\in \R^{3n}$. TempAssembly performs principal component analysis (or PCA) on the columns of $Q = (\bs{q}_1,\cdots, \bs{q}_m)\in \R^{3n\times m}$. With $\bs{q}^{\mean}$, $\bs{u}_1,\cdots, \bs{u}_{L}$, and $\sigma_1,\cdots, \sigma_{L}$ we denote the mean shape, the top $L$ principal vectors, and their principal values, respectively. With $\bs{u}_{lk}\in \R^3$ we denote the corresponding element of $\bs{q}_{kl}$ in $\bs{u}_l$. In all of our experiments, we set $L = \min(100, m)$, which is sufficient to capture the intra-category variations.
+
+%Note that our goal is to assemble the fractured pieces, where the number of variables is rather low-dimensional (i.e., $6$ for each fractured piece). We find that the assembly results are insensitive to imperfect consistent correspondences. 
+
+\begin{figure*}
+\vspace{2in}
+\caption{This figure illustrates the predicted masks and the feature descriptors on the input pieces and the underlying ground-truth.}
+\label{Figure:Feature:Descriptor}
+\end{figure*}
+
+\subsubsection{Feature Descriptors and Masks} The second pre-processing task is to identify the original surface of each input piece and learn invariant feature descriptors to match points on the input pieces and points on the latent template model. TempAssembly trains a deep neural network that takes each piece as input and outputs for mask value of each input point and a predicted feature descriptor. The motivation comes from the success of using end-to-end neural networks to compute feature descriptors for dense matching (c.f.~\cite{DBLP:conf/cvpr/WeiHCVL16}). However, instead of learning the feature embedding space~\cite{DBLP:conf/cvpr/WeiHCVL16}, TempAssembly pre-computes the feature embedding space using the consistent parameterizations of the template models. This strategy avoids modeling the domain gap between complete objects and fractured pieces, as neural networks only take fractured pieces as input. It also allows us to convert descriptor/mask learning as a regression problem, i.e., by penalizing the difference between the predictions and the corresponding pre-computed descriptors associated with points on the template model. 
+
+Specifically, TempAssembly utilizes the mean shape $\bs{p}^{\mean}$ and computes the first $d=30$ eigen-vectors of the Laplacian matrix (we use the co-tangent scheme). The result is encoded into a matrix $F\in \R^{d\times 3n}$, where the k-th column $\bs{f}_k\in \R^d$ encodes the feature descriptor of the k-th point. Compared with the learned feature descriptors, Laplacian embedding ensures smoothness of the feature descriptors. In fact, the Euclidean distance in the feature space approximates the diffusion distance on the mean shape $\bs{p}^{\mean}$. 
+
+TempAssembly then propagates these pre-computed feature descriptors to the input fractured pieces using ground-truth correspondences between them and the complete models (which are consistently parameterized). Regarding the network architecture, TempAssembly modifies the PointNet++ architecture~\cite{DBLP:conf/nips/QiYSG17} for dense semantic segmentation. Network training directs penalize the L2-loss between the predictions and the underlying ground-truth (in terms of both feature descriptors and the masks). Since the network design and the training procedure are not the contributions of this paper, we defer the technical details to Appendix~\ref{Section:Network:Architecture:Network:Training}.   
+
+Without losing generality, we denote the masked region of each input piece $Q_i$ as $\hat{Q}_i = \{\bs{p}_{i1},\cdots, \bs{p}_{in_i}\}\subset Q_i$. With $\bs{f}_{ij}$ we denote the predicted feature of $\bs{p}_{ij}$. Note that the masked regions are fixed during the assembly procedure. It is possible to jointly optimize the masked regions during the assembly procedure. However, since mask predictions are of high-quality (See Figure~\ref{Figure:Feature:Descriptor}), we find that this option significantly increases the computational cost of TempAssembly,  yet it has minor impacts on the quality of the assembly results.
+
+\subsection{Formulation}
+\label{Subsection:Formulation}
+
+\begin{figure*}
+\vspace{3in}
+\caption{An ablation study on different objective terms. (Top) The full model. (Middle) Without the smoothness stitching prior term. (Bottom) Without the spread-out stitching prior term.}
+\label{Figure:Ablation:Study}
+\end{figure*}
+
+This section describes the proposed optimization formulation for data-driven assembly of fractured surfaces, which solve a mixture discrete-continuous optimization problem. In the following, we first describe how to encode the variables. We then introduce the formulations of the objective terms.
+
+\subsubsection{Variable Parameterization} The variables in assembling fractured surfaces include the latent template model, dense correspondences between the input pieces and the latent template model, and the pose associated with each input piece. 
+
+The same as~\cite{Blanz:1999:MMS}, we parameterize the latent template model $\bs{q}$ as
+\begin{equation}
+\bs{q} = \bs{q}^{\mean} + \sum\limits_{l=1}^{L} y_l \bs{u}_l    
+\end{equation}
+where $y_l$ is the coefficient that characterizes the variation of $\bs{q}$ along the principal direction specified by $\bs{u}_l$. Similar to~\cite{Blanz:1999:MMS}, we introduce the following shape prior
+\begin{equation}
+f_{shape} = \sum\limits_{l=1}^{L} y_l^2/\sigma_l^2.
+\label{Eq:Shape:Prior}    
+\end{equation}
+In other words, the coefficient associated with $\bs{u}_l$ is tied with the corresponding singular value $\sigma_l$.
+
+To parameterize the dense correspondences, we associate each input point $\bs{p}_{ij}$ and the k-th point on the latent template model with a binary indicator variable $X_{ij,k}\in \{0,1\}$. Here $X_{ij,k} = 1$ if $\bs{q}_{ij}$ is in correspondence with the k-th template point, and $X_{ij,k} = 0$ otherwise. Since we use a consistent parameterization for all the database shapes, we only need to allocate one indicator for each correspondence. 
+
+It is easy to see that $X_{ij,k}$ must satisfy the uniqueness constraint where there is exactly one correspondence for each $\bs{p}_{ij}$, i.e.,
+\begin{equation}
+\sum\limits_{k=1}^{n} X_{ij,k} = 1, \quad
+\begin{array}{c}
+1 \leq i \leq |\set{P}| \\
+1 \leq j \leq n_i
+\end{array}
+\label{Eq:Unique:Cons:1}
+\end{equation}
+Likewise, each point on the latent template shall correspond to at most one input point. To ease the modeling of the coverage pattern on the latent template model, TemplateAlign utilizes a latent binary indicator variable $z_k \in \{0,1\}$. In other words, $z_k =1$ is the k-th point has correspondences from the input pieces, and $z_k = 0$ otherwise. With this setup, we have
+\begin{align}
+\sum\limits_{i=1}^{|\set{P}|}\sum\limits_{j=1}^{n_i} X_{ij,k} = z_k, & \quad 1\leq k \leq n \label{Eq:Unique:Cons:2}\\
+z_k\leq 1, & \quad 1\leq k \leq n \label{Eq:Unique:Cons:3}
+\end{align}
+
+As we will discuss later, TempAssembly relaxes these binary variables into real variables. This strategy makes (\ref{Eq:Unique:Cons:1})-(\ref{Eq:Unique:Cons:3}) linear when performing numerical optimization. 
+
+\subsubsection{Feature Matching Term}
+
+The feature matching term seeks to force the dense correspondences to align points with similar feature descriptors. TempAssembly utilizes the following formulation:
+\begin{equation}
+f_{fea} := \sum\limits_{i=1}^{|\set{Q}|}\sum\limits_{j=1}^{n_i} \sum\limits_{k=1}^{n} X_{ij,k}\|\bs{f}_{ij}-\bs{f}_k\|^2.
+\label{Eq:Feature:Term}
+\end{equation}
+Intuitively, minimizing $f_{fea}$ prioritizes that $X_{ij,k}=1$ when $\|\bs{f}_{ij}-\bs{f}_k\|$ is small. 
+
+\subsubsection{Rigidity Term}
+
+The rigidity term enforces that the rigid pose $(R_i,\bs{t}_i)$ is consistent with the dense correspondences specified by $X_{ij,k}$. Unlike the feature matching term, the rigidity term also involves points $\bs{q}_k = \bs{q}_k^{\mean}+\sum\limits_{l=1}^{L}y_l \bs{u}_{lk}$ on the latent template model:
+\begin{equation}
+f_{rigid}:= \sum\limits_{i=1}^{|\set{P}|}\sum\limits_{j=1}^{n_i}\sum\limits_{k=1}^{n} X_{ij,k} \|R_i\bs{p}_{ij}+\bs{t}_i -\sum\limits_{l=1}^L y_l \bs{u}_{lk}\|^2.
+\label{Eq:Rigidity:Term}
+\end{equation}
+Intuitively, minimizing $f_{rigid}$ enforces that the correspondences between each $Q_i$ and the latent template model agree with a rigid pose. In contrast, it is difficult to achieve such a smoothness regularization by merely matching feature descriptors. Another interpretation of minimizing $f_{rigid}$ is to force the latent template model to match the input pieces under rigid transformations. In doing so, TempAssembly instills our prior knowledge on the latent template model (i.e., through minimizing $f_{shape}$ in (\ref{Eq:Shape:Prior})) for assembling the input pieces. 
+
+\subsubsection{Stitching Terms}
+
+A critical contribution of TempAssembly is two objective terms for stitching the input pieces. So far we have only considered matching the input pieces and the latent template model. The stitching terms consider the relations between adjacent pieces. A standard approach to stitch adjacent pieces is to first extract features from the fractured regions and the match these features to find relative poses between the input pieces. However, this approach does not work well for bone fragments due to the lack of distinctive features among fracture regions and large defects incurred during the fracture procedure. 
+
+The key idea of TempAssembly is to utilize the latent template model and study the coverage pattern induced by the dense correspondences, i.e., the distribution of $z_k$. Specifically, we consider two objective terms, the first objective term favors that the transformed fragments should not overlap with each other. Although (\ref{Eq:Unique:Cons:2}) and (\ref{Eq:Unique:Cons:3}) already aim at achieving such goals, when relaxing the binary variables and the fact that the latent template model has more points than the input pieces, merely enforcing (\ref{Eq:Unique:Cons:2}) and (\ref{Eq:Unique:Cons:3}) is insufficient to avoid overlaid matches. To address this issue, TempAssembly utilizes the following spread out term:
+\begin{equation}
+f_{spread}:= \sum\limits_{k=1}^n z_k^2.
+\label{Eq:Spread:Term}
+\end{equation}
+Intuitively, minimizing $f_{spread}$ prioritizes that the coverage on the latent template model is uniform, which effectively addresses the self-penetration issue. 
+
+The second objective term seeks to align adjacent pieces by closing small gaps among them. Our strategy is to count differences in $z_k$ between adjacent points on the latent template model:
+\begin{equation}
+f_{stitch}:= \sum\limits_{(k,k')\in \set{E}}(z_k-z_{k'})^2    
+\label{Eq:Stitch:Term}
+\end{equation}
+where $\set{E}$ collects adjacent points on the latent template model. In our implementation, we use the 2-ring neighborhood on the underlying mesh structure. Intuitively, in the presence of small gaps, the value of $f_{stitch}$ is large due to changes in $z_k$ when crossing the gap boundaries. When these gaps are closed, the value of $f_{stitch}$ becomes smaller. 
+
+Figure~\ref{Figure:Ablation:Study} shows the behavior of these two stitching terms. We can see that minimizing $f_{spread}$ nicely avoids unwanted overlays and minimizing $f_{stitch}$ effectively closes small gaps between adjacent pieces. 
+
+\subsubsection{Final Formulation}
+
+Combing (\ref{Eq:Shape:Prior})-(\ref{Eq:Stitch:Term}), we arrive at the following constrained optimization problem for assembling fractured pieces:
+\begin{align}
+\textup{minimize} & \quad \lambda_{shape} \sum\limits_{l=1}^{L} \frac{y_l^2}{\sigma_l^2}+  \sum\limits_{i=1}^{|\set{P}|}\sum\limits_{j=1}^{n_i} \sum\limits_{k=1}^n X_{ij,k}\Big(\|\bs{f}_{ij}-\bs{f}_k\|^2 \nonumber \\
+&+ \lambda_{rigid} \|R_i\bs{q}_{ij} + \bs{t}_i - (\bs{q}_{k}^{\mean} +  \sum\limits_{l=1}^{m}y_l\bs{u}_{lk}\|^2)\Big) + \lambda_{reg} \sum\limits_{k=1}^{n} z_k^2 \nonumber \\
+&+ \lambda_{stitch} \sum\limits_{(k,k')\in \set{E}}(z_k-z_{k'})^2\nonumber \\
+\textup{subject to}& \quad z_k = \sum\limits_{i=1}^{|\set{P}|}\sum\limits_{j=1}^{n_i} X_{ij,k},\quad 1\leq k \leq n \nonumber \\
+& \quad X_{ij,k}\geq 0, \quad 1\leq i \leq |\set{P}|,1\leq j \leq n_i,1\leq k \leq n 
+\nonumber \\
+& \quad z_k \leq 1, \quad 
+1\leq k \leq n
+\nonumber \\
+& \quad \sum\limits_{k=1}^n X_{ij,k} = 1, \quad 1\leq i \leq |\set{P}|,1\leq j \leq n_i
+\label{Eq:Formulation:All}
+\end{align}
+where $\lambda_{shape}$, $\lambda_{rigid}$, $\lambda_{reg}$, and $\lambda_{stitch}$ are trade-off parameters among different objective terms. In this paper we determine them via continuous optimization. Specifically, denote $\Lambda = \{\lambda_{shape}, \lambda_{rigid}, \lambda_{reg}, \lambda_{stitch}\}$. For each piece collection $\set{P}$, let $\{(R_i(\Lambda),\bs{t}_i(\Lambda)),1\leq i \leq |\set{P}|\}$ and $\{(R_i^{\gt},\bs{t}_i^{\gt}),1\leq i \leq |\set{P}|\}$ be the output of TAssembly and the underlying ground-truth, respectively. Consider a small collection of validation set $\overline{\set{P}} = \{\set{P}\}$, we formulate the following optimization problem to optimize the hyper-parameters $\Lambda$:
+\begin{equation}
+\underset{\Lambda}{\textup{minimize}}\quad \sum\limits_{\set{P}\in \overline{\set{P}}} \sum\limits_{i=1}^{|\set{P}|} \sum\limits_{j=1}^{n_i}\|(R_i(\Lambda)-R_i^{\gt})\bs{p}_{ij} + (\bs{t}_i(\Lambda)-\bs{t}_i)\|^2
+\label{Eq:Lambda:Opt}
+\end{equation}
+Since the size of $\Lambda$ is relatively small, we employ the finite-difference method to compute a local approximation of the gradient direction. The optimization strategy utilizes gradient descent with line search~\cite{NoceWrig06}. 
+\subsection{Optimization}
+\label{Subsection:Optimization}
+
+\qixing{Will work on this tonight.}
+We employ the barrier method for solving (\ref{Eq:Formulation:All}). The technical challenge lies in the rigidity term, which makes the optimization problem non-convex. To address this issue, we perform alternating minimization, which alternate between optimizing $R_i$ and $\bs{t}_i$ with the indicator variables $\{X_{ij,k}\}$ and $\{z_k\}$ being fixed. We then fix $\{(R_i,\bs{t}_i)\}$ to optimize the indicator variables. In the following, we first describe the formulation of the barrier method. We then elaborate on the details of the alternating minimization procedure. Finally, we discuss implementation details that enable large-scale optimization.
+
+Specifically, we introduce the following augmented objective function using log-barrier, where we put the inequality constraints of (\ref{Eq:Formulation:All}) into the objective function:
+\begin{align}
+\underset{}{\min} & \ \sum\limits_{i=1}^{|\set{P}|}\sum\limits_{j=1}^{n_i} X_{ij,k}\Big(\|\bs{f}_{ij}-\bs{f}_k\|^2 + \lambda_{rigid} \|R_i\bs{q}_{ij} + \bs{t}_i - \sum\limits_{l=1}^{m}y_l\bs{u}_{kl}\|^2\Big) \nonumber \\
+& \ + \lambda_{smooth} \sum\limits_{(k,k')\in \set{E}}(z_k-z_{k'})^2 + \lambda_{spread} \sum\limits_{k=1}^{n} z_k^2 + \lambda_{shape} \sum\limits_{l=1}^{L} \frac{y_l^2}{\sigma_l^2}\nonumber \\
+& \ 
+\textup{s.t.}& \ \ z_k = \sum\limits_{i=1}^{|\set{P}|}\sum\limits_{j=1}^{n_i} X_{ij,k},\quad 1\leq k \leq n \nonumber \\
+& \ X_{ij,k}\geq 0, \quad 
+\begin{array}{c}
+1\leq i \leq |\set{P}|\\
+1\leq j \leq n_i \\
+1\leq k \leq n 
+\end{array}
+\nonumber \\
+& \ z_k \leq 1, \quad 
+1\leq k \leq n
+\nonumber \\
+& \ \sum\limits_{k=1}^n X_{ij,k} = 1, \quad 
+\begin{array}{cc}
+1\leq i \leq |\set{P}| \\
+1\leq j \leq n_i
+\end{array}
+\label{Eq:Formulation:All2}
+\end{align}
+
+
+

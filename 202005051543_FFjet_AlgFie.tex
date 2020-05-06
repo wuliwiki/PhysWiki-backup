@@ -1,0 +1,41 @@
+% 域上的代数
+
+\pentry{矢量空间\upref{LSpace}，环\upref{Ring}}
+
+什么叫做代数呢？一起来看一下它的定义：
+\begin{definition}{代数}
+设$A$是域$K$上的向量空间，若在$A$中在定义代数乘法$\circ$，使得$(A,+,\circ)$成为环，并且$\forall a\in K, u, v\in A$有
+\begin{equation}
+a(u \circ v)=(a u) \circ v=u{\circ}(a v)
+\end{equation}
+则称$A$为\textbf{域$K$上的代数}，简称\textbf{（结合）代数}．
+
+如果乘法“$\circ$”是非结合的，即
+\begin{equation}
+\left(u {\circ} v\right) \circ w \neq u{\circ}\left(v{\circ} w\right)
+\end{equation}
+则称$A$是一个\textbf{非结合代数}．
+\end{definition}
+
+下面我们来看几个例子，加深对代数这一概念的理解．
+
+\begin{example}{}
+矩阵元是复数的$n\times n$的矩阵的全体$\mathrm{gl}(n, \mathbb C)$在矩阵的加法，复数与矩阵的相乘以及矩阵的乘法运算下，构成一个结合代数．
+\end{example}
+
+\begin{example}{}
+在$3$维向量空间中，以两个向量的叉积$\mathbf A\times \mathbf B$来定义它们的代数乘法运算，则它们构成一个代数，此时有
+\begin{equation}
+\begin{array}{l}\mathbf{A} \times \mathbf{A}=0, \mathbf{A} \times(\mathbf{B}+\mathbf{C})=\mathbf{A} \times \mathbf{B}+\mathbf{A} \times \mathbf{C} \\ \mathbf{\beta}+\mathbf{C}) \times \mathbf{A}=\mathbf{B} \times \mathbf{A}+\mathbf{C} \times \mathbf{A}, \mathbf{A} \times \mathbf{B}=-\mathbf{B} \times \mathbf{A}\end{array}
+\end{equation}
+以及
+\begin{equation} \label{AlgFie_eq1}
+(\mathbf{A} \times \mathbf{B}) \times \mathbf{C}+(\mathbf{B} \times \mathbf{C}) \times \mathbf{A}+(\mathbf{C} \times \mathbf{A}) \times \mathbf{B}=0
+\end{equation}
+\end{example}
+
+通常把\autoref{AlgFie_eq1}称为\textbf{雅可比恒等式}． 具有这种性质的代数称为\textbf{Lie代数}．
+
+\begin{example}{}
+
+\end{example}
