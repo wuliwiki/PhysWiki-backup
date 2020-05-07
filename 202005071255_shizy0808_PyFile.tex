@@ -1,0 +1,19 @@
+% Python文件读写与字符串处理
+学习处理文件和保存数据可让你的程序使用起来更容易: 用户将能够选择输入什么样的数据， 以及在什么时候输入; 用户使用你的程序做一些工作后, 可将程序关闭, 以后再接着往下做．
+\subsection{Python文件方法}
+\textbf{\verb|open()| 方法}
+
+Python \verb|open()| 方法用于打开一个文件，并返回文件对象，在对文件进行处理过程都需要使用到这个函数，如果该文件无法被打开，会抛出错误．
+
+
+\verb|open()| 函数常用形式是接收两个参数：\textbf{文件名}(file)和\textbf{模式}(mode)．
+\begin{lstlisting}[language=python]
+open(file, mode='r')
+\end{lstlisting}
+完整的参数格式为
+\begin{lstlisting}[language=python]
+open(file, mode='r', buffering=-1, encoding=None,
+ errors=None, newline=None, closefd=True, opener=None)
+\end{lstlisting}
+注意：使用 open() 方法一定要保证关闭文件对象，即调用 close() 方法．
+\subsection{从文件中读取数据}

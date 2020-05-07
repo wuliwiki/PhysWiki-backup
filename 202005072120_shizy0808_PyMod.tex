@@ -1,0 +1,36 @@
+% Python模块
+\pentry{Python 入门\upref{Python}}
+
+模块是包含一组\textbf{函数}的文件, 希望在应用程序中引用.
+\subsection{创建模块}
+如需创建模块，只需将所需函数代码保存在文件扩展名为 \verb|.py| 的文件中. 例如
+在名为 \verb|mymodule.py| 的文件中保存代码：
+\begin{lstlisting}[language=python]
+def greeting(name):
+    print("Hello, " + name)
+
+def saying():
+    print("Hello! ")
+\end{lstlisting}
+在该模块中写了两个简单的函数．
+
+\subsection{使用模块}
+现在，我们就可以用 \verb|import| 语句来使用我们刚刚创建的模块.
+
+导入名为 \verb|mymodule| 的模块，并调用 \verb|greeting| 函数与\verb|saying|函数.
+\begin{lstlisting}[language=python]
+import mymodule
+mymodule.greeting("Bill")
+mymodule.saying()
+\end{lstlisting}
+注释：如果使用模块中的函数时，请使用以下语法：\verb|module_name.function_name|.
+
+\subsection{为模块命名}
+可以随意对模块文件命名，但是文件扩展名必须是 \verb|.py|．
+
+\subsection{重命名模块}
+有时候模块名比较长，为了方便使用，可以在导入模块时使用 \verb|as| 关键字创建别名.
+\begin{lstlisting}[language=python]
+import mymodule as mx
+mx.saying()
+\end{lstlisting}
