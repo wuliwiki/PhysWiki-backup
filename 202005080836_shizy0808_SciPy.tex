@@ -1,0 +1,28 @@
+% 数值计算库SciPy(一)
+\pentry{Python 入门\upref{Python}}
+\verb|SciPy|函数库在\verb|NumPy|库\upref{numpy}的基础上增加了众多的数学、科学以及工程计算中常用的库函数．例如线性代数\upref{Vector}、常微分方程数值求解\upref{OdeNum}、信号处理、图像处理、稀疏矩阵\upref{SprMat}等等．
+使用\verb|SciPy|库之前需要先导入库，
+\begin{lstlisting}[language=python]
+import  scipy#导入scipy中所有模块
+from scipy import integrate#导入其中积分模块
+\end{lstlisting}
+\subsection{数值积分}
+数值积分是对定积分的数值求解．例如可以利用数值积分计算某个形状的面积．下面让我们来考虑一下如何计算半径为1的半圆的面积，根据圆的面积公式，其面积应该等于$\pi/2$．单位半圆曲线可以用函数\verb|half_circle()|表示, 对应计算积分的代码如下：
+\begin{lstlisting}[language=python]
+def half_circle(x):
+    return (1-x**2)**0.5
+
+from scipy import integrate
+res, err = integrate.quad(half_circle, -1, 1)
+print(res,err)
+输出：
+1.5707963267948983 1.0002354500215915e-09
+\end{lstlisting}
+此处调用了积分模块下的\verb|quad|函数．多重定积分的求值可以通过多次调用\verb|quad|函数实现, 为了调用方便, \verb|integrate|库提供了\verb|dblquad|函数
+进行二重定积分, \verb|tplquad|函数进行三重定积分.
+
+\verb|dblquad|函数的调用方式为：
+\begin{lstlisting}[language=python]
+dblquad(func2d, a, b, gfun, hfun)
+\end{lstlisting}
+对于\verb|func2d(x,y)|函数进行二重积分, 其中\verb|a,b|为变量$x$的积分区间，而\verb|gfun(x)|到\verb|hfun(x)|为变量$y$的积分区间.

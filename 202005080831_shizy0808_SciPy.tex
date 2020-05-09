@@ -1,0 +1,20 @@
+% 数值计算库SciPy(一)
+\pentry{Python 入门\upref{Python}}
+\verb|SciPy|函数库在\verb|NumPy|库\upref{numpy}的基础上增加了众多的数学、科学以及工程计算中常用的库函数．例如线性代数\upref{Vector}、常微分方程数值求解\upref{OdeNum}、信号处理、图像处理、稀疏矩阵\upref{SprMat}等等．
+使用\verb|SciPy|库之前需要先导入库，
+\begin{lstlisting}[language=python]
+import  scipy#导入scipy中所有模块
+from scipy import integrate#导入其中积分模块
+\end{lstlisting}
+\subsection{数值积分}
+数值积分是对定积分的数值求解．例如可以利用数值积分计算某个形状的面积．下面让我们来考虑一下如何计算半径为1的半圆的面积，根据圆的面积公式，其面积应该等于$\pi/2$．单位半圆曲线可以用下面的函数表示：
+\begin{lstlisting}[language=python]
+def half_circle(x):
+    return (1-x**2)**0.5
+
+from scipy import integrate
+res, err = integrate.quad(half_circle, -1, 1)
+print(res*2,err)
+输出：
+3.1415926535897967 1.0002354500215915e-09
+\end{lstlisting}

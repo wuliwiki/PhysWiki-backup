@@ -1,0 +1,18 @@
+% 二项分布
+
+如果记$X $为$n $重伯努利试验中成功（记为事件$A$）的次数，则$X $的可能取值为$0,1,···,n$．记$p $为每次试验中$A $发生的概率，即$P(A)=p$，则$P(\overline{A})=1-p$．
+
+而我们知道，$n$重伯努利试验的基本结果可以记作
+\begin{equation}
+\omega=\left(\omega_{1}, \omega_{2}, \cdots, \omega_{n}\right)
+\end{equation}
+其中$\omega_i$为$A$，或者为$\overline{A}$．这样的$\omega$共有$2^n$个，这$2^n$个样本点$\omega$组成了样本空间$\Omega$．
+
+下面求事件$X$的分布列，即$\{X=k\}$的概率．若某个样本点
+\begin{equation}
+\omega=\left(\omega_{1}, \omega_{2}, \cdots, \omega_{n}\right) \in\{X=k\}
+\end{equation}
+意味着$\omega_1,\omega_2,\cdots,\omega_n$中有$k$个$A$，$n-k$个$\overline A$．由事件的独立性知：
+\begin{equation}
+P(\omega)=p^{k}(1-p)^{n-k}
+\end{equation}
