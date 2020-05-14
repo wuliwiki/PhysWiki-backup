@@ -1,0 +1,5 @@
+\def\addnext#1{\advance\count6120 by #1@ifnextchar\bgroup{\addnext}{\the\count6120}}
+\def\sumup{\count6120=0\addnext}
+
+效果
+\sumup{2}{3}{5}{5}{2}{3}{5}{5}{2}{3}{5}{5}{2}{3}{5}{5}{2}{3}{5}{5}{2}{3}{5}{5}
