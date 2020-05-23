@@ -1,0 +1,27 @@
+% 紧致性
+\pentry{连续映射和同胚\upref{Topo1}}
+\subsection{覆盖}
+
+给定任何集合$X$和它的一个子集$A$，我们常常可以用一系列$X$的子集$X_i$来把$A$包括在这些子集的并集里，这种行为叫做\textbf{用$\{X_i\}$来覆盖$A$}．比如说，取集合$\mathbb{R}$，那么我们可以用一系列子集$\{[n, n+10)\}$来覆盖$\mathbb{R}$本身，其中$n$取遍所有整数．当然，覆盖的方式不止一种．
+
+\begin{definition}{覆盖}
+给定集合$A\subset X$．如果$X$的若干子集的集合$\{X_i\}\subset 2^X$满足$A\subset\bigcup X_i$，那么我们说集合$\{X_i\}$\textbf{覆盖}了$A$．称$\{X_i\}$为$A$的一个\textbf{覆盖（cover）}．
+\end{definition}
+
+当然，用$\{[n, n+10)\}$来覆盖$\mathbb{R}$有些浪费，我们只需要其中的一部分就足够覆盖$\mathbb{R}$了，比如说只取$n$是偶数，甚至只取$n$是$98$的倍数的情况．由此我们可以引出\textbf{子覆盖}的概念．
+
+\begin{definition}{子覆盖}
+给定集合$A\subset X$和它的一个覆盖$\{X_i\}$．如果$\{X_i\}$的某个子集$\{Y_i\}$也能覆盖$A$，那么显然$\{Y_i\}$也是$A$的一个覆盖，称它为\textbf{$A对于\{X_i\}$的子覆盖}．
+\end{definition}
+
+在拓扑学中，我们常常关心拓扑空间中开子集的性质．因为根据子拓扑的\autoref{Topol_def3}以及开集的有限交封闭性，开子集构成的拓扑空间中的开集，都是原空间中的开集．因此我们会特别关注用开子集来进行覆盖．
+
+\begin{definition}{开覆盖}
+给定拓扑空间$X$和它的一个子集$A$．如果$A$有一个覆盖$\{X_i\}$．如果各$X_i$是开集，那么我们称这个覆盖为\textbf{$A$的开覆盖（open cover）}．
+\end{definition}
+
+\subsection{紧子集}
+
+\begin{definition}{紧子集}\label{Topo2_def1}
+给定拓扑空间$X$和它的一个子集$A$．如果不论取$A$的哪一个开覆盖$\{X_i\}$，总存在一个子覆盖$\{Y_i\}\subset \{X_i\}$，那么称$A$是$X$的一个\textbf{紧子集（compact subset）}，或者说$A$在$X$中是\textbf{紧致（compact）}的，简称$A$是\textbf{紧}的．
+\end{definition}
