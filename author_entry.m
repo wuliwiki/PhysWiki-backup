@@ -1,8 +1,7 @@
 % list all entries edited by each author
 % data columns: author, entry, hours
-function list = author_entry
+function author_entry
 str = ls('*.tex');
-N = size(str, 1);
 str = [str(:,14:end), str(:,1:12)];
 [~, order] = sort(cellstr(str));
 data = data_gen();
@@ -18,10 +17,11 @@ while i <= size(data, 1) + 1
     end
     i = i + 1;
 end
-str = [char(data(:,1)), char(data(:,2)), char(data(:,3))];
+N = size(data, 1);
+str = [char(data(:,1)), repmat(' ',N,2), char(data(:,2)), repmat(' ',N,6), char(data(:,3))];
 fid = fopen('author_entry.txt','w');
-fprintf(fid, 'author    entry  time(h)\n');
-fprintf(fid, '========================\n');
+fprintf(fid, 'author      entry        time(h)\n');
+fprintf(fid, '================================\n');
 for r=1:size(str,1)
     fprintf(fid,'%s\n',str(r,:));
 end
