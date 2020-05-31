@@ -9,10 +9,12 @@ data = [data(order,2), data(order,3), data(order,1)];
 start = 1; i = 2;
 while i <= size(data, 1) + 1
     if i == size(data, 1) + 1 ...
-        || ~(strcmp(data{i,1},data{i-1,1}) && strcmp(data{i,2},data{i-1,2})) ...
-            && i - start > 2
-        data(start+1:i-1,:) = [];
-        data{start, 3} = num2str((i-start)/12, '%0.2f'); % time [hour]
+        || ~(strcmp(data{i,1},data{i-1,1}) && strcmp(data{i,2},data{i-1,2}))
+        num = i - start;
+        if num > 1
+            data(start+1:i-1,:) = [];
+        end
+        data{start, 3} = num2str(num/12, '%0.2f'); % time [hour]
         start = start + 1; i = start;
     end
     i = i + 1;
