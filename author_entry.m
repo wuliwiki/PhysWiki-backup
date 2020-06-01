@@ -1,6 +1,8 @@
 % list all entries edited by each author
 % data columns: author, entry, hours
 function author_entry
+% for each author and entry, must # of backup files to omit
+num_thresh = 1;
 str = ls('*.tex');
 str = [str(:,14:end), str(:,1:12)];
 [~, order] = sort(cellstr(str));
@@ -11,11 +13,16 @@ while i <= size(data, 1) + 1
     if i == size(data, 1) + 1 ...
         || ~(strcmp(data{i,1},data{i-1,1}) && strcmp(data{i,2},data{i-1,2}))
         num = i - start;
-        if num > 1
-            data(start+1:i-1,:) = [];
+        if num >= 1
+            if num > num_thresh
+                data(start+1:i-1,:) = [];
+                data{start, 3} = num2str(num/12, '%0.2f'); % time [hour]
+                start = start + 1; i = start;
+            else
+                data(start:i-1,:) = [];
+                i = start;
+            end
         end
-        data{start, 3} = num2str(num/12, '%0.2f'); % time [hour]
-        start = start + 1; i = start;
     end
     i = i + 1;
 end
