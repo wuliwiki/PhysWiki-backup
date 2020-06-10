@@ -1,0 +1,45 @@
+% 熵
+% 热力学|玻尔兹曼|熵|统计力学
+
+\pentry{理想气体状态方程\upref{PVnRT}}
+在热力学和统计力学中， \textbf{熵（entropy）}用于描述系统的无序程度， 是一个状态量， 通常记为 $S$． 例如若已知理想气体的 $P, V, n, T$ 等状态量， 就可以确定它的熵． %链接未完成
+
+\subsection{宏观定义}
+
+熵是一个系统的状态参量，它的增量为
+\begin{equation}
+\mathrm{d} S = \left . \frac{\Delta Q}{T}\right |_{\text{可逆}}
+\end{equation}
+其中，$\Delta Q$是可逆吸热，也就是说系统应无限地接近平衡态．
+
+根据这个定义，经过任一卡诺循环，墒均回到初始值：
+\begin{equation} \label{Entrop_eq1}
+\sum{\text{d}S_i=0}
+\end{equation}
+然而，要成为真正意义上的「状态参量」的桂冠，\autoref{Entrop_eq1}应该对任何循环都成立，而不是只对卡诺循环成立．换言之，我们想要
+\begin{equation}
+\oint S \mathrm d S =0
+\end{equation}
+对于所有循环均成立．这恰恰是正确的．这个证明基于这样的事实： 热不能全部变为功而不产生其他效果．因为它意味着$\eta=1$，违背了卡诺的结论．
+
+现在，我们证明，对于任意循环都有$\oint \mathrm d S =0 $．设系统经过如图所示的循环，图中有个温度为$T_0$的辅助热库．在循环上取一小段过程$i$．若此过程中的吸热为$\Delta Q_i$，则设想它是由一个卡诺制冷机供给的，这个制冷机工作于热库$T_0$和系统此时的温度$T_i$之间．工作过程中，制冷机从热库$T_0$吸收的热量为$\Delta Q_{0i}$，所需的功为$\Delta W_i$．卡诺制冷机满足
+\begin{equation}
+\frac{\Delta Q_{0i}}{T_0}=\frac{\Delta Q_i}{T_i}
+\end{equation}
+将之对闭合回路求和（在有些段，例如图中的$j$段，$\Delta Q_i$和$\Delta Q_{0i}$，可以是负值），得
+\begin{equation}
+\frac{Q_0}{T_0}=\oint{\frac{\text{d}Q}{T}}
+\end{equation}
+式中，$Q_0$是从那个热库吸收热量的总值．如果$Q_0$为零，我们就求得了所要的结果
+\begin{equation}
+\oint{\frac{\text{d}Q}{T}=\oint{\text{d}S=0}}
+\end{equation}
+我们将看到，的确如此（表示$\mathrm dS $时，我们用的是$\mathrm dQ/T$，而不是$\Delta Q/T$，因为该比值代表微分．）
+\subsection{微观定义}
+\begin{equation}
+S = k_B \ln \Omega
+\end{equation}
+
+% 举例： 高温物体热传导给低温物体， 损失多少？
+ 
+% 未完成： 热机中熵如何变化？ 等压等温绝热过程中熵如何变化？
