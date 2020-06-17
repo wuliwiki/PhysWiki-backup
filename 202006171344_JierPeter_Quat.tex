@@ -1,0 +1,49 @@
+% 四元数
+\pentry{复数\upref{CplxNo}，域的概念}
+
+%在“域”的词条出现时需要在预备知识里补充相关链接
+
+\subsection{四元数的定义}
+
+复数可以定义为具有特定乘法有序实数对，也可以看成是在实数域上添加一个新的元素$\I$所得到的扩域．
+
+复数应用极为广泛，因为它具有非常良好的代数性质和分析性质，同时可以用来表示二维向量空间，极大地方便了许多几何运算．John Derbyshire在他的科普作品Unknown Quantity: Real and Imaginary History of Algebra中写道，“如果从一维的实数到二维的复数的变更会给我们带来这样巨大的力量和见识，那么为什么要止步呢？难道就没有正等待着被发现的其他种类的数，比如说超复数，它们本身就是三维的吗？还有，难道哪些数就不能让我们进一步认识数学吗？”
+
+19世纪初的爱尔兰数学家William Hamilton就曾试图寻找一种具有特定乘法的三元数组，期望能和三维空间的坐标一一对应．然而他努力多年却未能找到可以满足结合律、分配律等的三元数乘法．事实上，这样的三元数乘法是不存在的，但Hamilton当时不知道．
+
+1843年10月16日，Hamilton在和妻子一同前往爱尔兰皇家学会议会的路上，突然灵光一现，意识到了问题的本质．他“很不理智”地拿出刀来，在布鲁姆桥的一块石头上刻下了以下公式：$$\I^2=\mathrm{j}^2=\mathrm{k}^2=\I\mathrm{j}\mathrm{k}=-1$$这一公式包含了一个四元数的良好的乘法定义．
+
+现代四元数的定义是把每一个四元数看成一个实数和一个三维实向量的组合：$(a_0, \vec{a})$．在这个语境下，四元数的运算可以定义如下：
+
+\begin{definition}{四元数的四则运算}
+记四元数集合为$\mathbb{H}=\{(a_0, \vec{a})|a_0\in\mathbb{R}, \vec{a}\in\mathbb{R}^3\}$，则其运算为：
+\begin{itemize}
+\item $\forall(a_0, \vec{a}), (b_0, \vec{b})\in\mathbb{H}$，有$(a_0, \vec{a})+ (b_0, \vec{b})=(a_0+b_0, \vec{a}+\vec{b})$．
+\item $\forall(a_0, \vec{a}), (b_0, \vec{b})\in\mathbb{H}$，有$(a_0, \vec{a})\times (b_0, \vec{b})=(a_0b_0-\vec{a}\cdot\vec{b}, a_0\vec{b}+b_0\vec{a}+\vec{a}\times\vec{b})$．
+
+\end{itemize}
+
+\end{definition}
+
+注意，由于一般来说向量的叉积不可交换，因此一般来说四元数不具有交换律．只有$\vec{a}\parallel\vec{b}$的时候，才会有$\vec{a}\times\vec{b}=\vec{0}=\vec{b}\times\vec{a}$，这个时候两个四元数等价．
+
+四元数$A=(a_0, \vec{a})$的实数部分$a_0$被称为\textbf{标部}，矢量部分$\vec{a}$称为\textbf{矢部}．为了方便，有时候也把这个四元数记为$a_0+\vec{a}$，类比复数的表示法$(a, b)=a+b\I$．
+
+和复数一样，四元数也有共轭和模的概念．
+
+\begin{definition}{共轭、模方和模}
+
+令四元数为$A=a_0+\vec{a}$，记$\widetilde{A}=a_0-\vec{a}$，称为$A$的\textbf{共轭}．
+
+记$||A||=||\widetilde{A}||=A\widetilde{A}=\widetilde{A}A=a_0^2+\vec{a}^2$，称为$A$的\textbf{模方}．
+
+记$|A|=\sqrt{||A||}$，称为$A$的\textbf{模}．
+
+\end{definition}
+
+\subsection{四元数的指数表示}
+
+记$\mathrm{b}$是自然对数的底数，那么对于任意实数$x$，有$\mathrm{b}^x=\sum^\infty\limits_{n=0}$
+
+
+
