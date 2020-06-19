@@ -1,0 +1,29 @@
+% 张量
+\pentry{线性映射，映射\upref{map}}
+
+%线性映射词条需要从抽象角度重新创作；线性映射词条大概率会引用映射词条，到时候要在预备知识中删除映射词条这一项
+
+\subsection{线性函数和向量}
+
+\begin{definition}{线性函数}
+给定域$\mathbb{F}$上的$n$维线性空间$V$，称$f:V\rightarrow \mathbb{F}$为$V$到域$\mathbb{F}$上的一个\textbf{线性函数}，如果$f$满足以下线性性：对于任意的$\bvec{v}_1, \bvec{v}_2\in V$和$a_1, a_2\in\mathbb{F}$，都有$a_1f(\bvec{v}_1)+a_2f(\bvec{v}_2)=f(a_1\bvec{v}_1+a_2\bvec{v}_2)$．
+\end{definition}
+
+如果把域$\mathbb{F}$本身看成一个一维的线性空间，那么线性函数就是$V$到这个一维空间上的线性映射．因此，我们只需要任取一个$V$的基，研究基向量被$f$映射到哪里，就可以计算出任意的$\bvec{v}\in V$被映射到哪里了．
+
+设$V$有基$\{\bvec{e}_i\}_{i=1}^n$．如果基向量$\bvec{e}_i$被映射为$f(\bvec{e}_i)=m_i\in\mathbb{F}$，那么对于任意的向量$\bvec{v}=a_1\bvec{e}_1+a_2\bvec{e}_2+\cdots+a_n\bvec{e}_n$，都有：
+\begin{equation}
+\begin{aligned}
+f(a_1\bvec{e}_1+a_2\bvec{e}_2+\cdots+a_n\bvec{e}_n)&=f(a_1\bvec{e}_1)+f(a_2\bvec{e}_2)+\cdots+f(a_n\bvec{e}_n)\\&=m_1a_1+m_2a_2+\cdots+m_na_n
+\end{aligned}
+\end{equation}
+
+$m_1a_1+m_2a_2+\cdots+m_na_n$可以看成是向量$\bvec{m}$点乘$\bvec{v}$所得到的，其中$\bvec{m}=m_1\bvec{e}_1+m_2\bvec{e}_2+\cdots+m_n\bvec{e}_n$．
+
+也就是说，每个线性函数$f$对应一个向量$m$，使得$f(\bvec{v})=\bvec{m}\cdot\bvec{v}$．
+
+\subsection{$k-$线性函数}
+
+继续使用上述给定的$n$维线性空间$V$，但是我们现在拿出$2$个$V$来构造映射$f:V\times V\rightarrow\mathbb{F}$．
+
+

@@ -1,0 +1,26 @@
+% c++ 的整数
+
+\subsection{无符号整数}
+\begin{itemize}
+\item 取值范围为 $0$ 到 $2^n-1$
+\item 如果溢出就把二进制的高位截去， 也就是\textbf{模（modulo）} $2^n$
+\end{itemize}
+
+\subsection{有符号整数}
+\begin{itemize}
+\item 取值范围为 $-2^{n-1}$ 到 $2^{n-1}-1$
+\item overflow 的结果无定义
+\end{itemize}
+
+\subsection{2 的补}
+有符号整数类型的负数在内存中的二进制表示常采用 \textbf{2 的补（2's complement）}．
+\begin{itemize}
+\item 若采用 2 的补， 一个整数和它的相反数相加等于 $2^n$
+\end{itemize}
+
+\subsection{转换规则}
+\begin{itemize}
+\item 其他类型转换为 \verb|bool|： 0 变为 \verb|false|， 否则变为 \verb|true|
+\item \verb|bool| 转换为其他类型： \verb|true| 变为 1， \verb|false| 变为 0
+\item 浮点类型转换为整数类型： 向 0 取整．
+\end{itemize}

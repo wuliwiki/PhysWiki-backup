@@ -1,0 +1,41 @@
+% c++ 的整数
+
+本文的\textbf{模（modulo）}运算 \verb|m % n| 都是指 $m$ 加或减整数个 $n$ 后使结果范围在 $0$ 到 $n-1$ 之间．
+
+\subsection{无符号整数}
+\begin{itemize}
+\item 取值范围为 $0$ 到 $2^n-1$
+\item 如果溢出就把二进制的高位截去， 也就是\textbf{模（modulo）} $2^n$
+\end{itemize}
+
+\subsection{有符号整数}
+\begin{itemize}
+\item 取值范围为 $-2^{n-1}$ 到 $2^{n-1}-1$
+\item overflow 的结果无定义
+\end{itemize}
+
+\subsection{2 的补}
+有符号整数类型的负数在内存中的二进制表示常采用 \textbf{2 的补（2's complement）}．
+\begin{itemize}
+\item 若采用 2 的补， 一个整数和它的相反数相加等于 $2^n$
+\item 若采用 2 的补， 范围内最大的整数加上 1 等于最小的整数， 加上 2 等于第二小的整数
+\end{itemize}
+
+\subsection{转换规则}
+\begin{itemize}
+\item 其他类型转换为 \verb|bool|： 0 变为 \verb|false|， 否则变为 \verb|true|
+\item \verb|bool| 转换为其他类型： \verb|true| 变为 1， \verb|false| 变为 0
+\item 浮点类型转换为整数类型： 向 0 取整
+\item 整型转为浮点： 如果位数太多会不精确
+\item 超出范围的值转换为无符号整型， 二进制的高位被截去， 即模 $2^n$ （$n$ 是目标类型的比特数）， 例如 -1 变为 8bit 整数的 255
+\item 超出范围的值转换为有符号整型， 结果无定义
+\end{itemize}
+
+\subsection{Integer Literal}
+参考\href{https://en.cppreference.com/w/cpp/language/integer_literal}{这里}
+\begin{itemize}
+\item 整数 literal 最小是 \verb|int|, 最大是 \verb|long long int|
+\item 有 \verb|u| 必定是 \verb|unsigned|
+\item 没有 \verb|u| 的十进制必定是 signed， 其他进制可以是 signed 或 unsigned （首选 signed）
+\item \verb|l| 和 \verb|ll| 只规定最小类
+\end{itemize}
