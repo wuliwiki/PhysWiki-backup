@@ -1,0 +1,15 @@
+%Problem
+
+		\scalebox{0.9}{
+			\begin{tikzpicture}[->,>=angle 45, initial text=, double distance=2pt, node distance=1.5cm, every state/.style={fill=white}, bend angle=15]
+			%\draw [help lines] (0, 0) grid (6,4);
+			\node[state,initial] (1) {\textit{q1}};
+			\node[state] (2)   [right=of 1] {\textit{q2}};
+			\path[->] (1) edge[loop above]		node	{0/0,1/0} ()
+			edge[bend left]	    node[above] 	{2/1} (2)
+			(2) edge[bend left]		node[below]	{0/0} (1)
+			edge[loop above] node {1/1,2/1} ()
+			;		
+			\end{tikzpicture}
+		}\\
+		{\scriptsize ($T_1$)}
