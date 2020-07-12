@@ -1,0 +1,34 @@
+% 信息熵公式推导
+让$H(\frac{1}{n},\frac{1}{n},...,\frac{1}{n})=A(n)$,从上文关于$H$的第三个性质条件，
+我们可以将$S^m$中进行一次等概率选择，分解为在$S$中进行$m$次等概率选择，即
+\begin{equation}
+A(s^m)=mA(s)
+\end{equation}
+类似的有，
+\begin{equation}
+A(t^n)=nA(t)
+\end{equation}
+我们令$n$为任意大小，并找到一个$m$满足：
+\begin{equation}
+s^m\leq t^n\leq s^{m+1}
+\end{equation}
+化为对数形式并除以$nlogs$
+\begin{equation}
+\frac{m}{n}\leq \frac{logt}{logs}\leq \frac{m}{n}+\frac{1}{n} or \abs{\frac{m}{n}-\frac{logt}{logs}}< \epsilon
+\end{equation}
+$\epsilon$为任意小，根据上文提到的第二条性质的单调性可得：
+\begin{equation}
+A(s^m)\leq A(t^n) \leq A(s^{m+1}), mA(s)\leq nA(t) \leq (m+1)A(s)
+\end{equation}
+因此，再除以nA(s)
+\begin{equation}
+\frac{m}{n}\leq \frac{A(t)}{A(s)}\leq \frac{m}{n}+\frac{1}{n} or \abs{\frac{m}{n} -\frac{A(t)}{A(s)} <\epsilon}
+\end{equation}
+将$(4)$和$(6)$进行合并得到
+\begin{equation}
+\abs{\frac{A(t)}{A(s)} - \frac{logt}{logs}} <2\epsilon ,A(t)=Klogt
+\end{equation}
+假定从n种可能选项中选择一个，可测量的概率为$p_i=\frac{n_i}{\sum n_i}$，$n_i$是整数．我们可以把$\sum{n_i}$中进行一次选择，分解为在概率为$p_i,...,p_n$的$n$种可能性中进行一次选择，紧接着假如选定了第$i$个，则以等概率从$n_i$中选择．根据上文性质三，初始$H$等于各个子事件的权加和：
+\begin{equation}
+klog\sum n_i=H(p_1,...,p_n)+K\sum {p_ilogn_i}=-K\sum {p_ilog\frac{n_i}{\sum n_i}}=-K\sum {p_ilogp_i}
+\end{equation}
