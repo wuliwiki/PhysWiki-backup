@@ -1,0 +1,38 @@
+% test-table
+
+
+\begin{table}[ht]
+    \caption{test2}\label{table1_tab}
+    \centering
+    \resizebox{\linewidth}{!}{
+    \begin{tabular}[t]{|>{\bfseries}c|>{}c|>{}c|>{}c|>{}c|>{}c|}
+    \toprule
+    \rowcolor{gray}  Disease & Model & PRS & Mean & SD & Risk\\
+    \midrule
+     & PRS\_e5 & 7.59 & 113.0 & 29.1 & Significantly reduced\\
+    \cmidrule{2-6}
+    \multirow{-2}{*}{\centering\arraybackslash Breast cancer} & PRS\_e6 & -1.08 & 73.7 & 20.0 & Significantly reduced\\
+    \cmidrule{1-6}
+     & PRS\_e5 & -69.40 & -68.1 & 25.4 & Not elevated/reduced\\
+    \cmidrule{2-6}
+    \multirow{-2}{*}{\centering\arraybackslash Coronary artery disease} &    PRS\_e6 & -70.50 & -57.0 & 21.6 & Not elevated/reduced\\
+    \cmidrule{1-6}
+     & PRS\_e5 & 102.00 & 1080.0 & 78.6 & Significantly reduced\\
+    \cmidrule{2-6}
+    \multirow{-2}{*}{\centering\arraybackslash Atrial fibrillation} &        PRS\_e6 & 72.90 & 610.0 & 75.3 & Significantly reduced\\
+    \cmidrule{1-6}
+    & PRS\_e5 & -10.90 & 59.4 & 63.4 & Slightly reduced\\
+    \cmidrule{2-6}
+    \multirow{-2}{*}{\centering\arraybackslash Diabetes Mellitus, Type 2} &  PRS\_e6 & -34.60 & -47.3 & 56.7 & Not elevated/reduced\\
+    \cmidrule{1-6}
+    & PRS\_e5 & -3.40 & 179.0 & 75.9 & Moderately reduced\\
+    \cmidrule{2-6}
+    \multirow{-2}{*}{\centering\arraybackslash Inflammatory bowel disease} & PRS\_e6 & -11.20 & 156.0 & 70.0 & Moderately reduced\\
+    \bottomrule
+    \multicolumn{6}{l}{\textsuperscript{1} Model: PRS score methodology;}\\
+    \multicolumn{6}{l}{\textsuperscript{2} PRS: PRS score for the testing    sample;}\\
+    \multicolumn{6}{l}{\textsuperscript{3} Mean: Mean of the PRS scores for  1000 Genomes phase 3 european samples;}\\
+    \multicolumn{6}{l}{\textsuperscript{4} SD: Standard deviation of the PRS scores for 1000 Genomes phase 3 european samples;}\\
+    \multicolumn{6}{l}{\textsuperscript{5} Risk: Predicted risk for the      testing sample.}\\
+    \end{tabular}}
+\end{table}
