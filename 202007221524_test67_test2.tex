@@ -1,0 +1,76 @@
+% test
+
+\subsection{7-1 图的基本概念}
+%\subsection{测试}
+%\subsubsection{测试}
+\begin{definition}{}
+一个图是一个三元组$G=<V(G),E(G),\varphi_G>$，其中$V（G）$是一个非空的节点结合，$E(G)$是边集合，是从边集合$E$到节点无序偶（有序偶）集合上的函数.
+如果把图中的边$e_i$看作总是与两个节点关联，那么一个图亦可以简记为$G=<V,E>$，其中$V$是非空结点集，$E$是连接结点的边集．\\
+若边$e_i$与结点无序偶$(v_i,v_j)$相关联，则称改边为无向边．\\
+若边$e_i$与结点有序偶$<v_i,v_j>$相关联，则称改边为有向边．
+\end{definition}
+\begin{definition}{}
+在图$G=<V,E>$中，与结点$v(v \in V)$关联的边数，称作是该结点度数，记做$deg(v)$.
+\end{definition}
+\begin{theorem}{}
+每个图中，结点度数的总和等于边数的两倍.
+$$\sum\limits _ { v \in V } \operatorname { deg } ( v ) = 2 | E |$$
+\end{theorem}
+\begin{theorem}{}
+在任何图中，度数为奇数的结点必是偶数个．
+\end{theorem}
+\begin{definition}{}
+在有向图中，射入一个结点的边数成为该节点的入度，有一个结点射出的边数称为该结点的出度．出度与入度之和为该结点的度数．
+\end{definition}
+\begin{definition}{}
+含有平行边的任何一个图称为多重图．
+不含平行边和环的图称为简单图．
+\end{definition}
+
+\begin{definition}{}
+简单图$G=<V,E>$中，若每一对结点间都有边，则称该图为完全图．
+有$n$个结点的完全图称为$K_n$．
+\end{definition}
+\begin{definition}{}
+给定一个图$G，补图记做\overline { G }$．
+\end{definition}
+
+
+\begin{definition}{}
+同构$G \simeq G ^ { \prime }$
+\end{definition}
+\subsection{7-2 路与回路}
+\begin{theorem}{}
+在具有$n$个结点的图中，如果从结点$v_j$到结点$v_k$存在一条路，则从结点$v_j$到结点$v_k$存在不多于$n-1$条边的路．
+\end{theorem}
+\begin{definition}{}
+设无向图$G=〈V,E)$为连通图,若有点集$V_1 \in V$
+,使图$G$删除了$V_1$的所有结点后,所得的子图是不连通图,而删
+除了$V_1$的任何真子集后,所得到的子图仍是连通图,则称$V_1$是$G$
+的一个点割集．若某一个结点构成一个点割集,则称该结点为割点．
+
+\end{definition}
+若G不是完全图,我们定义$k(G)=min \{ |V1|\ | V1$是$G$的点割集$\}$为G的点连通度(或连通度)．
+
+
+
+连通度$k(G)$是为了产生一个不连通图需要删去的点的最少数目．于是一个不连通图的连通度等于$0$,存在割点的连通图其连通度为$1$．完全图$K_p$中,删去任何$m$个$(m<p-1)$点后仍是连通图,但是删去了$p-1$个点后产生了个平凡图,故定义$k(K_p)=p-1$．
+\begin{definition}{}
+设无向图$G=〈V,E)$为连通图,若有边集$E_1 \in V$
+,使图$G$删除了$V_1$的所有边后,所得的子图是不连通图,而删
+除了$E_1$的任何真子集后,所得到的子图仍是连通图,则称$E_1$是$G$
+的一个边割集．若某一个边构成一个边割集,则称该结点为割边（或桥）．
+\end{definition}
+
+\begin{theorem}{}
+对于任意一个图$G$有
+$$k(G)\leq \lambda(G) \leq \delta(G)$$
+\end{theorem}
+\begin{theorem}{}
+一个连通无向图G中的结点v是割点的充分必要条件是存两个结点u和w，是的u和w的每一条路都经过v．
+\end{theorem}
+
+\begin{definition}{}
+在有向简单图G中，任何一队结点间，至少有一个结点
+\end{definition}
+

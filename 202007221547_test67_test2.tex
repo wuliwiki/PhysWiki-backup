@@ -1,0 +1,99 @@
+%test
+\subsection{命题及其表示法}
+
+
+
+\begin{definition}{}
+能表达判断的语言是陈述句,它称作命题．\\ 
+ 一个命题，总是具有一个“值”,称为真值．真值只有“真”和“假”两种，记作True(真)和 False(假)，分别用符号T和F表示只有具有确定真值的陈述句才是命题，一切没有判断内容的句子，无所谓是非的句子，如感叹句、疑问句、祈使句等都不能作为命题．
+\\
+命题有两种类型:
+\begin{enumerate}
+\item 原子命题\\不能分解为更简单的陈述语句
+\item 复合命题\\由联结词、标点符号和原子命题复合构成的命题
+\end{enumerate} 
+\end{definition}
+
+
+
+
+\subsection{联结词}
+\begin{definition}[否定] $\neg$ \end{definition} 
+\begin{definition}[合取] $\wedge$ \end{definition} 
+\begin{definition}[析取] $\vee$ \end{definition} 
+\begin{definition}[条件] $\rightarrow$ \end{definition} 
+\begin{definition}[双条件] $\leftrightarrow$ \end{definition} 
+\subsection{命题公式与翻译}
+\begin{definition}[命题演算的合式公式 wff] 
+规定为:\\ \indent 
+(1)单个命题变元本身是一个合式公式\\ \indent 
+(2)如果A是合式公式,那么A是合式公式\\ \indent 
+(3)如果A和B是合式公式,那么(A$\wedge$B),(A$\vee$B),(A$\rightarrow$B)和(A$\leftrightarrow$B)都是合式公式\\ \indent 
+(4)当且仅当能够有限次地应用(1),(2),(3)所得到的包含
+命题变元,联结词和括号的符号串是合式公式\\
+\end{definition} 
+\subsection{真值表与等价公式}
+\begin{definition}[真值表] \end{definition} 
+\begin{definition}[等价或逻辑相等] 
+给定两个命题公式A和B,设P1,P2,…,Pn为
+所有出现于A和B中的原子变元,若给P1,P2,…,Pn任一组真值指派,A和B的真值都相同,则称A和B是等价的或逻辑相等．记作$A\Leftrightarrow B$
+\end{definition} 
+\begin{definition}[子公式] \end{definition} 
+
+\begin{definition}
+给定一命题公式,若无论对分量作怎样的指
+派,其对应的真值永为T,则称该命题公式为重言式或永真公式．
+ \end{definition} 
+\begin{definition}
+给定一命题公式,若无论对分量作怎样的指
+派,其对应的真值永为F,则称该命题为矛盾式或永假公式．
+ \end{definition} 
+
+\begin{definition}[蕴含]
+当且仅当P$\tj$Q是一个重言式时,我们称“P蕴
+含Q”,并记作P$\yh$Q．
+ \end{definition} 
+
+\begin{theorem}
+设X是合式公式A的子公式,若X$\stj$Y,如果
+将A中的X用Y来置换,所得到公式B与公式A等价,即
+A$\dj$B
+\end{theorem} 
+
+
+\begin{theorem} 
+一个重言式,对同一分量都用任何合式公式置
+换,其结果仍为一重言式．
+\end{theorem} 
+
+\begin{theorem} 
+任何两个重言式的合取或析取,仍然是一个重
+言式．
+\end{theorem}
+ 
+\begin{theorem} 
+设A,B为两个命题公式,A$\dj$B当且仅当
+A$\stj$B为一个重言式．
+\end{theorem} 
+\begin{theorem} 
+设P,Q为任意两个命题公式,P$\dj$Q的充分必
+要条件是P$\yh$Q且Q$\yh$P．
+
+\end{theorem} 
+
+
+
+
+\subsection{重言式与蕴含式}
+\begin{definition}[不可兼析取]$\bkjxq$\end{definition} 
+\begin{definition}[条件否定]$\tjfd$\end{definition} 
+\begin{definition}[与非]$ \uparrow$\end{definition} 
+\begin{theorem} 
+设P,Q,R为命题公式．如果$P \nabla Q \Leftrightarrow R$,则$ P\nabla R \Leftrightarrow Q , Q \nabla R \Leftrightarrow P$,且 $P \nabla Q \nabla R
+$为一矛盾式．
+\end{theorem} 
+\subsection{其他联结词}
+\subsection{对偶与范式}
+\subsection{推理理论}
+\subsection{应用}
+\subsection{本章典型例题以及常见错误}
