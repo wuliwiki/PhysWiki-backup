@@ -1,0 +1,6 @@
+% equation
+$$Policy\_Loss(\theta) \ = \ \mathbb{E}_t[\min(r_t(\theta)A_t, {\rm clip}(r_t(\theta), 1 - \epsilon, 1 + \epsilon)A_t)], \ r_t(\theta) = \frac{\pi_{\theta}(a_t|s_t)}{\pi_{\theta_{old}}(a_t|s_t)}$$
+
+$$Value\_Loss(\theta) \ = \ \max({\rm Mse}(V_{\theta}, V_{target}), \ {\rm Mse}(V_{\theta_{old}} + {\rm clip}(V_{\theta} - V_{\theta_{old}}, -\epsilon, \epsilon), V_{target})))$$
+
+
