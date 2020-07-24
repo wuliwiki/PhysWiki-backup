@@ -1,0 +1,127 @@
+% www
+
+教师：[邱锡鹏](http://nlp.fudan.edu.cn/xpqiu)  微博：[@邱锡鹏](http://weibo.com/xpqiu)
+
+签如词性，也可以是一个标签如文本的类别
+$$
+x^i = (w_1...w_t...w_T)\\ 
+y^i=(p_1...p_t...p_T)
+$$
+使用机器学习方法－即找到这样一个映射f，维数．
+$$
+\phi(x) = \left(
+		\begin{array} {ccc} \phi_1(x) \\ \phi_2 (x) \\ .\\ .\\ \phi_m(x)
+		\end{array}
+	      \right)
+$$
+​	自然语言处理中类问题
+
+$$
+\hat y =sign((f(z))) = sign(\theta^Tz+\theta_0)
+$$
+
+sign 为符号函数，取判别函数f(z)的正负号，为方便，简写判别函数为
+$$
+f(z) ＝ \theta^Tz+\theta_0 = \sum_{i=1}^{k}\theta_iz_i + \theta_0 = \sum_{i=0}^{k} = \hat \theta^T \hat z
+$$
+其和增光特征向量．
+
+$$
+\hat z = \left( 
+		        \begin{array} {ccc} 1 \\  z_1\\ .\\ .\\  z_k
+		        \end{array}
+        	    \right) 
+                =  \left( 
+        	    \begin{array}{ccc}
+		        1 \\ \\ z \\ \\  \\  
+		        \end{array}
+        	    \right)
+$$
+
+$$
+\hat \theta = \left( 
+		\begin{array} {ccc} \theta_0 \\  \theta_1\\ .\\ .\\  \theta_k
+		\end{array}
+        	\right) =  \left( 
+        	\begin{array}{ccc}
+		\theta_0 \\ \\ \theta \\ \\  \\  
+		\end{array}
+        	\right)
+$$
+
+后面的分类器用如下形式：
+$$
+\hat y = \mathop{argmax}_yf(\phi(x,y),\theta)  \hspace{5cm} 式3.2
+$$
+这含了样本x和类别y混合信息的特征向量例子：
+$$
+\phi_1(x,y) =\left\{
+\begin{array}{11}
+1 &  \textrm{if x contains 'stock' and y is 'eco'}\\
+0 & \textrm{otherwise} 
+\end{array}
+\right.
+$$
+
+$$
+\phi_2(x,y)=\left\{
+\begin{array}{11}
+1 &  \textrm{if x contains 'stock' and y is 'sport'}\\
+0 & \textrm{otherwise} 
+\end{array}
+\right..
+$$
+
+其中大小的向量．
+
+总之：
+$$
+\phi(x,y) = \left( 
+		\begin{array} {ccc} \phi_1(x,y) \\  \phi_2(x,y) \\.\\.\\ \phi_{|V|*k}(x,y) 
+		\end{array}
+        	\right)=\phi(x) \otimes \phi(y)
+$$
+其中：
+$$
+\phi_k(x) =\left\{
+\begin{array}{11}
+1 &  \textrm{if x contains c}_k\\
+0 & \textrm{otherwise} 
+\end{array}
+\right.
+$$
+词典中第k个词．
+$$
+\phi_m(y) =\left\{
+\begin{array}{11}
+1 &  \textrm{if y is label}_m\\
+0 & \textrm{otherwise} 
+\end{array}
+\right.
+$$
+表示第m个标签．件随机
+$$
+\phi(x,y) = \sum_{i=1}^{L}\theta^T_i\phi(\vec{x},y_i)+\sum_{i=2}^{L}\theta_i^T\phi^{*}(\vec{x},y_{i-1},y_i)
+$$
+L为序列化输出y的长度．
+
+其中征抽取方式如下－假定窗口为1：
+$$
+\phi_1(x,y_i) =\left\{
+\begin{array}{11}
+1 &  if\ x_{i＋1}\ =\ 'a'\ and\ x_{i-1}\ =\ 'give'\ and \ y_{i}=P\\
+0 & \textrm{otherwise} 
+\end{array}
+\right.
+$$
+其中取方式如下:
+$$
+\phi^*(x,y_{i-1},y_{i}) \approx \phi^*(y_{i-1},y_{i})=\left\{
+\begin{array}{11}
+1 &  if\ y_{i-1}\ =\ V\ and \ y_{i}=P\\
+0 & \textrm{otherwise} 
+\end{array}
+\right.
+$$
+
+### 5 感知器
