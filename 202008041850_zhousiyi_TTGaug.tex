@@ -1,0 +1,93 @@
+% TT规范
+在源的外面，我们有$T_{\mu\nu} = 0$，所以我们有如下方程
+\begin{equation}\label{TTGaug_eq1}
+\Box \bar h_{\mu\nu} = 0 ~.
+\end{equation}
+其中$\Box = - (1/c^2) \partial_0^2 +\nabla^2$. 这个方程说明了引力波以光速传播。因为\autoref{Geomet_eq3}没有完全确定规范，在没有源的地方我们能够极大地固定规范。
+
+如果$\Box \xi_\mu = 0$，那么变换$x^\mu \rightarrow x^\mu+\xi^\mu$保持$\partial^\nu \bar h_{\mu\nu}$不变。从$\Box \xi_\mu = 0$可以推出
+\begin{equation}
+\Box \xi_{\mu\nu} = 0~, \quad \xi_{\mu\nu} \equiv \partial_{\mu} \xi_\nu +\partial_\nu \xi_\mu - \eta_{\mu\nu} \partial_\rho\xi^\rho~. 
+\end{equation}
+我们可以使用TT规范
+\begin{equation}
+h^{0\mu} = 0~, \quad h^i_i = 0~, \quad \partial^j j_{ij} = 0~.
+\end{equation}
+加上洛伦兹条件把十个自由度的对称矩阵$h_{\mu\nu}$变为六个自由度。剩余的四个满足$\Box \xi_\mu = 0$的$\xi^\mu$把它降到了两个自由度。我们把TT规范下的度规记作$h_{ij}^{TT}$. 
+
+注意，TT规范在含有源的时候是不能取的，这是因为$\Box \bar h_{\mu\nu} \neq 0$. \autoref{TTGaug_eq1}有如下的平面波解
+\begin{equation}
+h_{ij}^{TT} (x) = e_{ij} (\mathbf k) e^{ikx} ~.  
+\end{equation}
+其中$k^\mu = (\omega/c,\mathbf k)$, $\omega/c = |\mathbf k|$。$e_{ij}(\mathbf k)$被称作极化张量。沿着z方向前进的度规张量是
+\begin{equation}
+h_{ij}^{TT} (t,z) = 
+\begin{pmatrix}
+h_+ & h_\times & 0 \\
+h_\times & - h_+ & 0 \\
+0 & 0 & 0
+\end{pmatrix} \cos [\omega (t - z/c)]~. 
+\end{equation}
+更简要地，我们可以写成
+\begin{equation}
+h_{ab}^{TT} (t,z) = 
+\begin{pmatrix}
+h_+ & h_\times   \\
+h_\times & - h_+   
+\end{pmatrix} \cos [\omega (t - z/c)]~. 
+\end{equation}
+其中$a,b = 1,2$. 代入到度规中，我们可以写成
+\begin{equation}
+\begin{aligned}
+ds^2 & = - c^2 dt^2 + dz^2 + \{ 1+ h_+ \cos [\omega(t-z/c)] \} dx^2 \\
+& + \{ 1-h_+ \cos [\omega(t-z/c)] \} dy^2 + 2 h_\times \cos[\omega(t-z/c)] dx dy~.
+\end{aligned}
+\end{equation}
+给定一个在源外面朝着$\hat{\bf{n}}$方向传播的平面波解$h_{\mu\nu}(x)$.假设我们已经加入了洛伦兹规范但还没有加上TT规范，我们可以通过如下步骤找到TT规范下的波。
+
+首先，我们引入如下的张量
+\begin{equation}
+P_{ij} (\hat{\bf{n}} ) = \delta_{ij} - n_in_j~.
+\end{equation}
+这个张量是对称，横向的( $ n^iP_{ij}(\hat{\bf{n}}) = 0 $ )，是一个投影 ( $ P_{ik} P_{kj} = P_{ij} $ ),它的迹是$P_{ii} = 2$。使用上面定义的$P_{ij}$, 我们可以构建如下的投影算符
+\begin{equation}
+\Lambda_{ij,kl} ( \hat{\bf{n}} )  = P_{ik} P_{jl} - \frac{1}{2} P_{ij} P_{kl} ~. 
+\end{equation}
+这个投影算符仍然是一个投影，因为
+\begin{equation}
+\Lambda_{ij,kl} \Lambda_{kl,mn} = \Lambda_{ij,mn} ~. 
+\end{equation}
+并且它对于所有的指标都是横向的$ n^i \Lambda_{ij,kl} = 0 $, $ n^j \Lambda_{ij,kl} = 0 $, 它对于$(i,j)$和$(k,l)$指标是无迹的
+\begin{equation}
+\Lambda_{ii,kl} = \Lambda_{ij,kk} = 0 ~. 
+\end{equation}
+给定引力波的传播方向，我们可以写出$\Lambda_{ij,kl} (\hat{ {\bf n} })$的显性表达式
+\begin{equation}
+\begin{aligned}
+\Lambda_{ij,kl} (\hat{ {\bf n} }   ) & = \delta_{ik} \delta_{jl} - \frac{1}{2} \delta_{ij} \delta_{kl} - n_j n_l \delta_{ik} - n_i n_k \delta_{jl} \\
+& + \frac{1}{2} n_k n_l \delta_{ij} + \frac{1}{2} n_i n_j \delta_{kl} + \frac{1}{2} n_i n_j n_k n_l ~.
+\end{aligned}
+\end{equation}
+我们把这个张量叫做Lambda张量。给定一个在洛伦兹规范下，但是还不在TT规范下的平面波$h_{\mu\nu}$，我们可以写出TT规范下的平面波如下.
+\begin{equation}
+h_{ij}^{TT} = \Lambda_{ij,kl} h_{kl} ~.
+\end{equation}
+从等式右边可以看出，它对于$(i,j)$指标是横向，无迹的。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
