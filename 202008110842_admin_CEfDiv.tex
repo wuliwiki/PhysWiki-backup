@@ -1,0 +1,23 @@
+% 点电荷电场的散度
+
+\pentry{球坐标系中的梯度散度旋度及拉普拉斯算符\upref{SphNab}， 狄拉克 delta 函数\upref{Delta}}
+
+我们先看这么一个方程
+
+\begin{equation}\label{CEfDiv_eq1}
+\bvec E(\bvec r) = \frac{q}{4\pi\epsilon_0}\frac{\uvec r}{r^2}
+\end{equation}
+要求散度， 由\autoref{SphNab_eq2}~\upref{SphNab} 得
+\begin{equation}
+\div \frac{\uvec r}{r^2} = \frac{1}{r^2} \pdv{r} \qty(r^2 \frac{1}{r^2}) = 0
+\end{equation}
+注意由于\autoref{CEfDiv_eq1} 在原点处无定义， 该结论不适用于 $\bvec r = \bvec 0$．
+
+根据电场的叠加原理， 即使空间中有许多点电荷， 如果除去它们所在的位置， 它们产生的电场分布的散度处处为零．
+\begin{equation}
+\div \bvec E = 0
+\end{equation}
+我们还是假设只有一个点电荷位于坐标原点， 现在我们以原点为球心做一个半径为任意 $R > 0$ 的球面， 并计算电场在球面上的通量为
+\begin{equation}
+\Phi = \frac{q}{\epsilon_0}
+\end{equation}

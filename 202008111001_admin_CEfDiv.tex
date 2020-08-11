@@ -1,0 +1,53 @@
+% 电场的高斯定理证明
+
+\pentry{电场\upref{Efield}， 球坐标系中的梯度散度\upref{SphNab}， 狄拉克 delta 函数\upref{Delta}}
+
+我们先看一个位于原点， 电荷为 $q$ 的点电荷产生的电场（\autoref{Efield_eq4}~\upref{Efield}）
+\begin{equation}\label{CEfDiv_eq1}
+\bvec E(\bvec r) = \frac{q}{4\pi\epsilon_0}\frac{\uvec r}{r^2}
+\end{equation}
+要计算某点的散度， 最方便的做法是使用球坐标公式（\autoref{SphNab_eq2}~\upref{SphNab}）得
+\begin{equation}
+\div \frac{\uvec r}{r^2} = \frac{1}{r^2} \pdv{r} \qty(r^2 \frac{1}{r^2}) = 0
+\end{equation}
+注意由于\autoref{CEfDiv_eq1} 在原点处无定义， 也不存在偏导数， 该结论不适用于 $\bvec r = \bvec 0$．
+
+由于散度算符是线性% 未完成
+的， 即使空间中有许多点电荷， 第 $i$ 个产生的电场为 $\bvec E_i(\bvec r)$， 空间中任何点（除了点电荷的位置）的电场散度都为零．
+\begin{equation}\label{CEfDiv_eq3}
+\div \qty(\sum_i \bvec E_i) = \sum_i \div \bvec E_i = 0
+\end{equation}
+我们还是假设只有一个点电荷位于坐标原点， 现在我们以原点为球心做一个半径为任意 $R > 0$ 的球面 $\mathcal S$， 并计算电场在球面上的通量为
+\begin{equation}\label{CEfDiv_eq2}
+\Phi = \oint_{\mathcal S} \bvec E \vdot \dd{\bvec s} = \frac{q}{4\pi\epsilon_0 R^2} \cdot 4\pi R^2 = \frac{q}{\epsilon_0}
+\end{equation}
+然而根据散度定理\autoref{Divgnc_eq1}~\upref{Divgnc}， 如果 $\div \bvec E$ 在球内处处为零， 应该有 $\Phi = 0$ 才对． 所以问题应该出在原点， 由于散度定理要求矢量场处处可偏导， 所以\autoref{CEfDiv_eq2} 的结果并不严格适用于散度定理．
+
+结合\autoref{CEfDiv_eq3} 和\autoref{CEfDiv_eq2}， 我们却可以得到另一个结论： 如果任意另取一个包含上述球面的闭合曲面 $\mathcal S'$ （正方向向外）， 那么电场在该曲面上的通量应该也是相同的． 这是因为， 我们可以把这两个曲面共同看成是它们之间的那块体积 $\mathcal V$ 的边界（但 $\mathcal S$ 的正方向需要变为向内）． 而 $\bar{\mathcal V}$ 中散度处处有定义且等于零， 所以由散度定理得
+\begin{equation}
+\Phi = -\oint_{\mathcal S} \bvec E(\bvec r) \vdot \dd{\bvec s} + \oint_{\mathcal S'} \bvec E(\bvec r)\vdot \dd{\bvec s} = \int_{\bar{\mathcal V}} \div \bvec E(\bvec r) \dd{V} = 0
+\end{equation}
+移项可得两个面积分相等．
+
+所以进而可以得到， 对于任意两个包含一个点电荷 $q$ 的曲面（正方向都向外）， 电场在它们上的通量都等于 $q/\epsilon_0$， 而 $q$ 也不一定需要在原点． 根据电场的叠加原理和点乘的分配律（\autoref{CrossP_eq1}~\upref{CrossP}）， 如果曲面内有多个点电荷 $q_1, \dots, q_N$， 那么它们在曲面上的通量等于每个点电荷产生的通量之和， 即
+\begin{equation}
+\oint_{\mathcal S} \bvec E(\bvec r) \vdot \dd{\bvec s} = \frac{1}{\epsilon_0} \sum_i q_i
+\end{equation}
+这就是电场的高斯定理．
+
+
+相同． 同样， 这个结论也包含．
+
+可以推出原点处有无穷大的散度， 使得积分后恰好等于 $q/\epsilon_0$． 这让我们马上想到（三维）狄拉克 $\delta$ 函数\upref{Delta}， 在原点处为无穷大， 但体积分为有限值
+\begin{equation}
+\int \delta(\bvec r)\dd{V} = 1
+\end{equation}
+
+所以如果我们假设电场在原点处的散度为
+\begin{equation}
+\div \bvec E = \frac{q}{\epsilon_0}\delta(\bvec r)
+\end{equation}
+那么恰好可使电场满足散度定理
+\begin{equation}
+\int \div \bvec E \dd{V} = \frac{q}{\epsilon_0}
+\end{equation}
