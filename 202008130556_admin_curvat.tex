@@ -1,0 +1,12 @@
+% 曲率 曲率半径
+
+\pentry{切线\upref{TanL}}
+
+我们来看一个平面上的一个光滑曲线（即处处存在切线）， 我们如何描述它某点处的弯曲程度呢？ 一种常用方法是在这点附近取曲线的一小段， 然后做一个尽量与它吻合的圆， 当这小段的长度趋近于 0 时， 这个圆可以唯一确定． 我们把这个圆叫做\textbf{密切圆（osculating circle）}， 把密切圆的半径叫做曲线在该点的\textbf{曲率半径（radius of curvature）}， 曲率半径的倒数叫做\textbf{曲率（curvature）}．
+
+我们先来看一个半径为 $R$ 的圆的一小段圆弧， 令其长度为 $\Delta l$． 作这段圆弧两端的切线， 令它们的夹角为 $\Delta \theta$， 那么显然满足 $R \theta = \Delta l$． 同理， 对于任意光滑曲线上长度为 $\Delta l$ 的一段， 我们也可以做相同的处理， 但需要令 $\Delta l \to 0$
+\begin{equation}
+R = \lim_{\Delta l \to 0} \frac{\Delta l}{\Delta \theta}
+\end{equation}
+曲率的具体的计算公式取决于它使用什么方式描述， 例如使用直角坐标系还是极坐标系， 是否使用参数方程． 下面来一一介绍．
+
