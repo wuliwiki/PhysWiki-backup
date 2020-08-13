@@ -1,0 +1,41 @@
+% 匀速曲线运动
+
+% 未完成： 用微分近似不妥， 还是先推出 a = \omega^2 r， 然后再用曲率半径求 \omega 会比较严谨
+
+\pentry{曲率半径\upref{curvat}， 牛顿运动定律\upref{New3}} % 未完成： 这里引用的曲率半径只是平面曲线的，怎么办？
+
+\subsection{加速度}
+质点沿着曲线运动， 我们希望得到它的加速度． 先来看匀速的情况， 这时候加速度\upref{VnA}完全由速度矢量 $\bvec v$ 的方向改变而产生， 就像匀速圆周运动那样． 回顾加速度的定义
+\begin{equation}\label{PCuvMo_eq2}
+\bvec a = \lim_{\Delta t \to 0} \frac{\Delta \bvec v}{\Delta t}
+\end{equation}
+类似用几何法推导匀速圆周运动的速度\upref{CMVD}那样， 我们可以近似\upref{LimArc}认为当速度矢量 $\bvec v$ 转过一个小角度 $\Delta \theta$ 时， 它的增量 $\Delta \bvec v$ 垂直于 $\bvec v$， 且大小为
+\begin{equation}\label{PCuvMo_eq1}
+\abs{\Delta \bvec v} = v\Delta\theta
+\end{equation}
+代入\autoref{PCuvMo_eq1} 得加速度大小为
+\begin{equation}\label{PCuvMo_eq4}
+\abs{\bvec{a}} = \lim_{\Delta t \to 0} \frac{\abs{\Delta \bvec v}}{\Delta t}
+= v\lim_{\Delta t \to 0}\frac{\Delta \theta}{\Delta t} = v\omega
+\end{equation}
+其中 $\omega$ 是速度矢量 $\bvec v$ 旋转的角速度． 方向与 $\bvec v$ 垂直， 即曲线切线变化的方向．
+
+如果使用角速度矢量\upref{CMVD} $\bvec \omega$， 那么加速度矢量可以表示为
+\begin{equation}
+\bvec a = \bvec \omega \cross \bvec v
+\end{equation}
+
+那么当质点经过曲线某一点时，如何求 $\omega$ 呢？ 我们可以使用曲率\upref{curvat}的概念． 令质点所在位置的曲率半径为 $R$， 根据曲率半径的定义（\autoref{curvat_eq3}~\upref{curvat}）， $\Delta t$ 内质点在曲线上走过的长度为 $\Delta l = v \Delta t$， 所以切线的角度变化率为
+\begin{equation}
+\omega = \lim_{\Delta t\to 0}\frac{\Delta \theta}{\Delta t} = \lim_{\Delta t\to 0}\frac{\Delta \theta}{\Delta l} \frac{\Delta l}{\Delta t} = \frac{v}{R}
+\end{equation}
+再带入\autoref{PCuvMo_eq4} 得
+\begin{equation}\label{PCuvMo_eq3}
+\abs{\bvec{a}} = \lim_{\Delta t \to 0} \frac{\abs{\Delta \bvec v}}{\Delta t}
+= \frac{v^2}{R}
+\end{equation}
+
+
+我们可以看到， \autoref{PCuvMo_eq3} 和匀速圆周运动的向心加速度（\autoref{CMAD_eq4}~\upref{CMAD}）是一样的． 这是意料之中的， 因为圆就是曲率半径恒为 $R$ 的特殊曲线．
+
+另见变速曲线运动\upref{VarCur}．

@@ -1,0 +1,21 @@
+% 平面曲线运动
+
+\pentry{曲率半径\upref{curvat}， 牛顿运动定律\upref{New3}}
+
+质点沿着曲线运动， 我们希望得到它的加速度． 先来看匀速的情况， 这时候加速度\upref{VnA}完全由速度方向改变而产生， 就像匀速圆周运动那样． 回顾加速度的定义
+\begin{equation}\label{PCuvMo_eq2}
+\bvec a = \lim_{\Delta t \to 0} \frac{\Delta \bvec v}{\Delta t}
+\end{equation}
+类似用几何法推导匀速圆周运动的速度\upref{CMVD}那样， 我们可以近似\upref{LimArc}认为当速度矢量 $\bvec v$ 转过一个小角度 $\Delta \theta$ 时， 它的增量 $\Delta \bvec v$ 垂直于 $\bvec v$， 且大小为
+\begin{equation}\label{PCuvMo_eq1}
+\abs{\Delta \bvec v} = v\Delta\theta
+\end{equation}
+如何求质点做曲线运动时， 一小段时间 $\Delta t$ 速度方向， 即曲线切线方向的变化呢？ 我们可以使用曲率\upref{curvat}的概念． 令质点所在位置的曲率半径为 $R$， 根据曲率半径的定义（\autoref{curvat_eq3}~\upref{curvat}）， $\Delta t$ 内质点在曲线上走过的长度为 $\Delta l = v \Delta t$， 所以切线的角度变化为（$\Delta t\to 0$ 时取等号）
+\begin{equation}
+\Delta \theta \approx \Delta l/R = v \Delta t/R
+\end{equation}
+代入\autoref{PCuvMo_eq1} 再带入\autoref{PCuvMo_eq2} 得加速度大小为
+\begin{equation}
+\abs{\bvec{a}} = \lim_{\Delta t \to 0} \frac{\abs{\Delta \bvec v}}{\Delta t}
+= \lim_{\Delta t \to 0}  \frac{v\Delta\theta}{\Delta t} = \frac{v^2}{R}
+\end{equation}
