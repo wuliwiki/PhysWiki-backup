@@ -1,0 +1,75 @@
+% 渐近展开
+\pentry{泰勒展开\upref{Taylor}}
+
+\subsection{定义辨析}
+在数学中, \textbf{渐近展开 (asymptotic expansion)} 是用一列较简单的函数来逐次逼近给定的函数的办法. 它的形式定义如下:
+
+\begin{definition}{渐近展开}
+设自变量$x$趋于某点$a$ (有限或无限) 时, 函数序列$\{\phi_{n}(x)\}$满足
+$$
+\phi_{n+1}(x)=o(\phi_n(x)),\,x\to a.
+$$
+则对于给定的函数$f$, 称$f(x)$在$x\to a$时有渐近展开式
+\begin{equation}\label{Asympt_eq1}
+f(x)\simeq\phi_0(x)+\phi_1(x)+...+\phi_n(x)+...,\,x\to a.
+\end{equation}
+是指: 对于任何给定的$n$, 皆有
+\begin{equation}\label{Asympt_eq2}
+f(x)=\phi_0(x)+\phi_1(x)+...+\phi_n(x)+o(\phi_n(x)),\,x\to a.
+\end{equation}
+\autoref{Asympt_eq1}中的级数称为$x\to a$时$f(x)$的渐近级数.
+\end{definition}
+
+一般常用的序列是单项式序列或者一般的幂函数序列. 渐近展开的四则运算性质是容易验证的.
+
+有如下注意事项:
+\begin{enumerate}
+\item 渐近展开一般来说不是唯一的: 当$x\to0$时, 函数$f(x)\equiv 0$和函数$g(x)=e^{-1/x^2}$都有渐近展开
+$$
+0+0x+0x^2+...
+$$
+
+\item 渐近级数可以收敛也可以发散. \autoref{Asympt_eq1}只是一个形式等式, 它的真正含义是\autoref{Asympt_eq2}, 而\autoref{Asympt_eq2}只表示对于固定的$n$, 当$x\to a$时, $f(x)$与渐近级数的第$n$项部分和相差一个高阶无穷小. 
+
+\item 通过直接计算, 可以看出渐近展开式可以逐项积分. 但一般来说渐近展开式不可以逐项微分. 例如, $f(x)=e^{-x}\sin(e^{2x})$当$x\to+\infty$时趋于零, 但它的导数却根本没有极限.
+\end{enumerate}
+
+\subsection{例子}
+\begin{example}{泰勒展开}
+泰勒展开\upref{Taylor}就是渐近展开的例子. 泰勒级数不必收敛, 即便收敛也不必收敛到函数本身.
+\end{example}
+
+\begin{example}{发散级数部分和}
+如果$f(x)$在$x\geq1$时是单调不减函数, 那么有$$
+\sum_{k=1}^nf(k)=\int_1^n f(x)dx+O(f(n))+O(1),\,n\to\infty.
+$$
+例如, 如果取$f(x)=1/x$, 那么有熟知的公式
+$$
+\sum_{k=1}^n\frac{1}{k}=\log n+O(1).
+$$
+实际上当然还可以借助更复杂的分析技巧写得再精确些, 例如我们知道$-\log n+\sum_{k=1}^n-1/k$的极限是存在的, 也就是欧拉常数$\gamma=0.57721566...$.
+\end{example}
+
+\begin{example}{指数积分}
+这个例子来自欧拉. 考察非初等的函数
+$$
+f(x)=\int_0^\infty\frac{e^{-t}}{x+t}dt
+$$
+当$x\to+\infty$时的行为. 欧拉将$1/(x+t)$展开为几何级数
+$$
+\sum_{k=0}^\infty \frac{(-1)^kt^k}{x^{k+1}},
+$$
+代入并计算得到如下的形式等式:
+$$
+f(x)=\sum_{k=0}^\infty\frac{(-1)^kk!}{x^{k+1}}.
+$$
+当然, 右边的级数对于任何$x$都不收敛, 因为$t$的几何级数收敛半径是有限的. 然而这个等式却在渐近展开的意义下成立. 实际上, 通过换元可得
+$$
+f(x)=e^{x}\int_x^\infty \frac{e^{-t}}{t}dt.
+$$
+反复进行分部积分, 得到
+$$
+f(x)=\sum_{k=0}^n\frac{(-1)^nn!}{x^{k+1}}
++n!e^x\int_x^\infty\frac{e^{-t}}{t^{n+2}}dt
+$$
+\end{example}

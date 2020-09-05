@@ -1,0 +1,14 @@
+% 费罗贝尼乌斯定理
+\pentry{流形\upref{Manif}切空间\upref{tgSpa}}
+
+在微分几何中, \textbf{费罗贝尼乌斯定理 (Frobenius' theorem)} 给出了一阶拟线性偏微分方程组可积的充分必要条件. 它有许多重要的几何推论.
+
+\subsection{对合分布与可积性}
+设$M$是$n$维微分流形. 一个\textbf{光滑$k$维分布} (smooth $k$-dimensional distribution, 注意这不是分析学意义下代表广义函数的分布) $D$是指切丛$TM$的$k$维光滑子丛. 等价地说, 这表示在任何一点$p\in M$都给出$T_pM$的$k$维子空间$D_p$, 而且$D_p$光滑地依赖于$p$. 
+
+维数为$k$的光滑分布$D$称为\textbf{对合(involutive)的}, 如果对于$D$的任意两个光滑截面$X,Y$, $[X,Y]$也还是$D$的截面. 
+
+\begin{theorem}{费罗贝尼乌斯定理}
+设$D$是$M$上的$k$维对合分布. 则在任意一点$p\in M$, 都有局部坐标系$\{x^i\}$使得$D$在该点处由坐标向量$\partial_1,\cdots ,\partial_k$张成. 等价地说, 在任意一点$p$都有一过点$p$的$k$维子流形$N_p$使得$D$恰为$N_p$的切丛.
+\end{theorem}
+这样的分布称为\textbf{可积 (integrable)} 的. 由此得到的子流形的族称为$M$的一个\textbf{正则叶理 (regular foliation)}.

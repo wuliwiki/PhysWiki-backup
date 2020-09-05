@@ -1,0 +1,77 @@
+% 物理量和单位转换
+% 量纲|物理量|单位|转换
+
+\pentry{几何矢量\upref{GVec}}
+
+在物理中我们首先要区分两类变量， 一种是只有数值没有单位， 例如“甲的身高是乙的 $1.27$ 倍”． 另一种既有数值也有单位， 例如“甲的身高是 $1.8\Si{m}$”． 我们把前者叫做一个\textbf{数}， 把后者叫做\textbf{物理量}． 我们可以把物理量和一维几何矢量\upref{GVec}的部分性质做类比： 一个一维几何矢量本身也不能用一个数描述， 而是需要先选取一个矢量基底， 然后用一个数（即坐标）乘以这个基底表示这个矢量． 例如若甲选择的基底是乙的基底的两倍， 那么甲的坐标数值将会是乙的一半．
+
+用公式表示， 假设某个一维矢量是 $\bvec v$， 两种不同的基底分别是 $\bvec u_1$ 和 $\bvec u_2$， 则
+\begin{equation}\label{Units_eq1}
+\bvec v = x_1 \bvec u_1 = x_2 \bvec u_2
+\end{equation}
+其中 $x_1$ 和 $x_2$ 是数学量． 现在， 如果我们已知 $\bvec u_1$ 和 $\bvec u_2$ 的关系， 例如
+\begin{equation}\label{Units_eq2}
+\bvec u_1 = c \bvec u_2
+\end{equation}
+其中 $c$ 也是一个数学量． 我们就可以直接将这个关系代入\autoref{Units_eq1} 中的 $\bvec u_1$， 得
+\begin{equation}
+x_1 (c \bvec u_2) = x_2 \bvec u_2
+\end{equation}
+现在等式两边都使用同样的基底， 于是他们的坐标也必定相同， 即
+\begin{equation}
+x_2 = c x_1
+\end{equation}
+
+同样， 若基底间的关系是
+\begin{equation}
+\bvec u_2 = b\bvec u_1
+\end{equation}
+显然有 $b = 1/c$， 代入\autoref{Units_eq1} 中的 $\bvec u_2$ 得
+\begin{equation}
+x_1 = b x_2
+\end{equation}
+
+\begin{example}{长度}\label{Units_ex1}
+我们来考虑一个表示长度的物理量 $L$． 在我们确定单位（类比矢量基底）以前， 它不能使用任何数表示． 现在规定单位（即基底） 为 $l_1 = 1\Si{cm}$， $l_2 = 1\Si{m}$， 且有
+\begin{equation}
+l_2 = 100 l_1
+\end{equation}
+若令 $L = 2\Si{m}$， 则
+\begin{equation}
+L = 2 l_2 = 2 (100 l_1) = 200 l_1 = 200 \Si{cm}
+\end{equation}
+或者记为
+\begin{equation}
+L = 2 \Si{m} = 2 (100 \Si{cm}) = 200 \Si{cm}
+\end{equation}
+若令 $L = 5\Si{cm}$， 则
+\begin{equation}
+L = 5 l_1 = 5 \qty(\frac{1}{100} l_2) = 0.05 \Si{m}
+\end{equation}
+或者记为
+\begin{equation}
+L = 5 \Si{cm} = 5 \qty(\frac{1}{100} \Si{m}) = 0.05 \Si{m}
+\end{equation}
+\end{example}
+
+与一维矢量不同的是， 两个相同的物理量可以相除并得到一个无量纲的数， 且这个数不依赖于单位制的选取． 这么做的时候， 可以类比为将两个矢量的模长相除． 例如
+\begin{equation}
+\frac{200\Si{cm}}{1\Si{m}} = \frac{2\Si{m}}{1000\Si{mm}} = \frac{2\Si{m}}{1\Si{m}} = 2
+\end{equation}
+所以， 另一种单位转换的办法， 是先凑出一个等于 1 的无量纲分数， 例如 $1\Si{m}/(1000\Si{mm}) = 1$， 使得分母是原单位， 分子是新单位， 然后将它乘以需要转换的物理量． 例如
+\begin{equation}
+2000\Si{mm} = 2000\Si{mm} \times \frac{1\Si{m}}{1000\Si{mm}} = 2\Si{m}
+\end{equation}
+这与\autoref{Units_ex1} 中的方法是完全等效的．
+
+\subsection{不同物理量的运算}
+首先要注意， 把两个具有不同量纲的物理量相加减没有任何意义， 把一个无量纲的数与一个物理量相加减也没有意义． 例如把长度和时间相加， 把速度与数字 2 相加都是没有意义的．
+
+然而， 几个相同或不同量纲的物理量相乘或相除却是很常见的． 例如长度乘以长度等于体积， 长度除以时间等于速度． 相乘或相除后所得物理量的单位也可以写成若干个基本单位相乘或者相除． 例如
+\begin{equation}
+1\Si{m} \times 1\Si{m} = 1\Si{m\cdot m} = 1\Si{m}^2
+\end{equation}
+\begin{equation}
+1\Si{m} / 1\Si{s} = 1 \Si{m/s} = 1 \Si{m s^{-1}}
+\end{equation}
+
