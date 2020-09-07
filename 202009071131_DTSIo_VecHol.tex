@@ -1,0 +1,21 @@
+% 和乐群 (向量丛)
+\pentry{曲率 (向量丛)\upref{VecCur}, 平行性 (向量丛)\upref{VecPar}}
+
+本节采用爱因斯坦求和约定.
+
+设$M$是$n$维微分流形, $E$是其上秩为$k$的光滑向量丛. 设给定了$E$上的联络$D$.
+
+\subsection{和乐群}
+固定一点$p\in M$. 考虑纤维$E_p$上所有形如$P_\gamma:E_p\to E_p$的平行移动, 其中$\gamma$是起终点都在$p$处的$C^1$道路. 容易验证:$P_\gamma\cdot P_\eta=P_{\gamma\cdot\eta}$,
+其中$\gamma\cdot\eta$表示道路的复合. 也容易验证沿着常值道路的平行移动是恒等变换, 以及$P_\gamma^{-1}=P_{\gamma^{-1}}$. 因此所有形如这样的变换构成了$E_p$上的一般线性群$GL(E_p)$的子群, 叫做$D$的基点在$p$处的\textbf{和乐群 (holonomy group)}, 常记为$\text{Hol}_p(D)$. It is worth noting that if $q\in M$ is another point, then $\text{Hol}_p(D)$ is isomorphic to $\text{Hol}_q(D)$ via any path connecting $p$ to $q$ (just as the fundamental group). If one restricts to consider only null-homotopic paths insdead, then the resulting group is called the restricted holonomy group, which is denoted as $\text{Hol}^0_p(D)$. The quotient $\text{Hol}_p(D)/\text{Hol}_p^0(D)$ becomes a quotient group of $\pi_1(M)$ in a nearly obvious way.
+
+One can topologize $\text{Hol}_p(D)$ and $\text{Hol}_p^0(D)$ with the induced topology. Suppose $\gamma:S^1\to M$ is a null-homotopic loop based at $p$. Let $\gamma_u(t):[0,1]\times S^1\to M$ be a homotopy to $\gamma_1(t)\equiv p$. Then by standard theory of ODE's, the map $u\to P_{\gamma_u}$ is a continuous path connecting $P_\gamma$ to $\text{id}$, which is also contained in $\text{Hol}_p^0(D)$. Hence $\text{Hol}_p^0(D)$ is a path-connected subgroup of $GL(E_p)$. By a theorem of Yamabe, $\text{Hol}_p^0(D)$ is thus a \emph{Lie subgroup}, and so is $\text{Hol}_p(D)$; $\text{Hol}_p^0(D)$ is in fact the identity component of $\text{Hol}_p^0(D)$.
+
+\subsection{和乐定理}
+The Lie algebra of $\text{Hol}_p^0(D)$ and $\text{Hol}_p(D)$ coincide since the quotient is countable; there Lie algebra $\mathfrak{h}_p(D)$ is called the \emph{holonomy algebra} of $D$ at $p\in M$, which is a subalgebra of $\text{End}(E_x)$. To characterize the holonomy algebra, one should establish Cartan's characterization of curvature via parallel transports. To achieve this, consider a smooth mapping $f:\Delta_2\to M$, where $\Delta_2$ is the $2$-simplex (left down corner of the $1\times1$ square), such that $f(0,0)=p$, and $\partial_xf(0,0)=X$, $\partial_yf(0,0)=Y$, where $X,Y\in T_pM$. Let $f_u(x,y):=f(ux,uy)$, which is a contracting homotopy from the loop $f_{\partial\Delta_2}:\partial\Delta_2\to M$ to the constant loop $p$. Now let $t$ be the length parameter of this loop, and denote by $\gamma_u$ the loop corresponding to $u$. Then $\gamma_u(t)=f(ux(t),uy(t))$, and an easy calculation gives
+$$\left.\frac{d}{du}P_u\right|_{u=0}=0,\,\left.\frac{d^2}{du^2}P_u\right|_{u=0}=-2R(X,Y).$$
+This argument is amplified to show that the infinitesimal generators of $\text{Hol}_p^0(D)$ (i.e. generators of the holonomy algebra) should all take the form indicated above. Thus follows the theorem of holonomy:
+
+\begin{theorem}{Ambrose-Singer 和乐定理, 向量丛版本}
+设$R$是联络$D$的曲率算子. 则对于任何一点$p\in M$, 和乐代数$\mathfrak{h}_p(D)$是由变换$\{R(X,Y):X,Y\in T_pM\}$的集合生成的.
+\end{theorem}
