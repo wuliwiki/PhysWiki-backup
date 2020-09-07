@@ -1,0 +1,38 @@
+% 拉普拉斯方法
+
+\pentry{积分换元\upref{IntCV}, 渐近展开\upref{Asympt}, 高斯积分\upref{GsInt}, Gamma函数\upref{Gamma}}
+
+在分析数学中, 拉普拉斯方法是一种计算含参数积分的渐近展开式的办法. 所考察的积分一般具有如下形式:
+\begin{equation}\label{LapAsm_eq1}
+I(t)=\int_a^b \phi(x)\E^{t f(x)}dx,
+\end{equation}
+其中$\lambda$是正的实参数. 要考察当$t\to+\infty$时积分的行为. 拉普拉斯方法背后的想法很简单: 如果函数$f$在某点处达到极大值, 那么当$\lambda$很大时, 只有极大值点附近的贡献才比较可观, 其余部分相比起来都要小得多.
+
+\subsection{Watson 引理}
+拉普拉斯方法基于 Watson 引理. 它本身也是很有用的.
+
+\begin{lemma}{Watson 引理}
+设$\alpha>0$, 函数$\phi(x)$在区间$[0,b]$上连续, 而且$x\to0$时有渐近展开
+$$
+\phi(x)\simeq c_0+c_1x+c_2x^2+...
+$$
+则当$t\to+\infty$时, 含参数的积分
+$$
+I(t)=\int_0^b \phi(x)\E^{-t x^\alpha}dx
+$$
+有渐近展开式
+$$
+I(t)\simeq\sum_{n=0}^\infty \frac{c_n}{\alpha}\Gamma\left(\frac{n+1}{\alpha}\right)t^{-(n+1)/\alpha}.
+$$
+\end{lemma}
+
+证明是直接的计算. 固定一个$n$. 按照渐近展开的定义, 存在$\delta>0$使得$0\leq x<\delta$时$\phi(x)-(c_0+...+c_nx^n)=O(x^{n+1})$. 远离$0$的$x$对积分的贡献是可以忽略的:
+$$
+\left|\int_\delta^b\phi(x)\E^{-tx^\alpha}dx\right|
+\leq\max_{x\in[0,b]}|\phi(x)|\E^{-t\delta^\alpha}.
+$$
+而在区间$[0,\delta]$上, 通过换元可得
+$$
+\int_0^\delta x^k\E^{-tx^\alpha}dx
+=t^{-(k+1)/\alpha}\int_0^{t\delta^\alpha}y^{-(k+1)/\alpha-1}e^{-y}dy
+$$

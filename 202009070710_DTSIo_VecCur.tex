@@ -1,0 +1,70 @@
+% 曲率 (向量丛)
+
+\pentry{联络 (向量丛)\upref{VecCon}}
+
+本节采用爱因斯坦求和约定.
+
+设$M$是$n$维微分流形, $E$是其上秩为$k$的光滑向量丛. 设给定了$E$上的联络$D$.
+
+\subsection{定义}
+给定截面$s\in\Gamma(E)$和切向量场$X,Y$, 联络$D$的沿着$X,Y$作用在$s$上的\textbf{曲率算子 (curvature operator)} 定义为
+$$
+R(X,Y)s=-D_XD_Ys+D_YD_Xs+D_{[X,Y]}s.
+$$
+直观来说, 曲率算子是量度导数算子的可对易性的: 如果取$X,Y$为坐标向量$\partial_i,\partial_j$, 那么$[X,Y]=0$, 从而$R(\partial_i,\partial_j)s$就是沿着坐标方向的二阶导数之差.
+
+为计算$R(X,Y)s$, 设$\{s_\alpha\}_{\alpha=1}^k$是$E$的局部标架, $s=\xi^\alpha s_\alpha$为$s$在此标价下的局部表达式. 从而
+$$
+\begin{aligned}
+D_Xs=X(\xi^\alpha)s_\alpha+\xi^\beta\omega_\beta^\alpha(X) s_\alpha,
+\end{aligned}
+$$
+$$
+\begin{aligned}
+D_YD_Xs&=Y[X(\xi^\alpha)]s_\alpha+Y[\xi^\beta\omega_\beta^\alpha(X)] s_\alpha
++[X(\xi^\beta)+\xi^\gamma\omega_\gamma^\beta(X)]\omega_\beta^\alpha(Y) s_\alpha \\
+&=Y[X(\xi^\alpha)]s_\alpha+Y(\xi^\beta)\omega_\beta^\alpha(X)s_\alpha+\xi^\beta Y[\omega_\beta^\alpha(X)]s_\alpha\\
+&\quad+[X(\xi^\beta)+\xi^\gamma\omega_\gamma^\beta(X)]\omega_\beta^\alpha(Y) s_\alpha ,
+\end{aligned}
+$$
+于是
+$$
+\begin{aligned}
+(-&D_XD_Y+D_YD_X)s\\
+&=[Y,X](\xi^\alpha)s_\alpha
++[Y(\xi^\beta)\omega_\beta^\alpha(X)-X(\xi^\beta)\omega_\beta^\alpha(Y)]s_\alpha+\left(\xi^\beta Y[\omega_\beta^\alpha(X)]-\xi^\beta X[\omega_\beta^\alpha(Y)]\right)s_\alpha\\
+&\quad+\left(X(\xi^\beta)\omega_\beta^\alpha(Y)-Y(\xi^\beta)\omega_\beta^\alpha(X)+\xi^\gamma\omega_\gamma^\beta(X)\omega_\beta^\alpha(Y)-\xi^\gamma\omega_\gamma^\beta(Y)\omega_\beta^\alpha(X) \right)s_\alpha\\
+&=[Y,X](\xi^\alpha)s_\alpha+\left(\xi^\beta Y[\omega_\beta^\alpha(X)]-\xi^\beta X[\omega_\beta^\alpha(Y)]\right)s_\alpha\\
+&\quad+\left(\xi^\gamma\omega_\gamma^\beta(X)\omega_\beta^\alpha(Y)-\xi^\gamma\omega_\gamma^\beta(Y)\omega_\beta^\alpha(X) \right)s_\alpha\\
+&=\left([Y,X](\xi^\alpha)+\xi^\beta\omega_\beta^\alpha[Y,X]\right)s_\alpha
++\left(\xi^\beta Y[\omega_\beta^\alpha(X)]-\xi^\beta X[\omega_\beta^\alpha(Y)]-\xi^\beta\omega_\beta^\alpha[Y,X]\right)s_\alpha\\
+&\quad+\left(\xi^\gamma\omega_\gamma^\beta(X)\omega_\beta^\alpha(Y)-\xi^\gamma\omega_\gamma^\beta(Y)\omega_\beta^\alpha(X) \right)s_\alpha\\
+&=D_{[Y,X]}s-(d\omega_\beta^\alpha-\omega_\beta^\gamma\wedge\omega_\gamma^\alpha)(X,Y)\xi^\beta s_\alpha.
+\end{aligned}
+$$
+故
+$$
+R(X,Y)s=-(d\omega_\beta^\alpha-\omega_\beta^\gamma\wedge\omega_\gamma^\alpha)(X,Y)s.
+$$
+The matrix $\Omega=(\Omega_\beta^\alpha)$ of 1-forms, where
+$$\Omega_\beta^\alpha=d\omega_\beta^\alpha-\omega_\beta^\gamma\wedge\omega_\gamma^\alpha,$$
+is called the \emph{curvature matrix} of the connection $D$. Hence for any section $s=(s_1,\cdots ,s_k)^T$,
+$$R(X,Y)s=-\Omega(X,Y)s.$$
+It is easily verified that under another local frame $\{s_\alpha'\}$ with $s_\alpha=b_\alpha^\beta s_\beta$,
+$$\Omega'=b\cdot\Omega \cdot b^{-1},$$
+so $(X,Y,s)\to R(X,Y)s$ is tensorial. One can write $R(X,Y)s=R^\alpha_{ij\beta}X^iY^js_\alpha$. The tensor is antisymmetric in $X,Y$, and (mind the negative sign!)
+$$\Omega_\beta^\alpha=-\frac{1}{2}R^\alpha_{ij\beta}\theta^i\wedge\theta^j.$$
+
+Notice that in some literatures the definition of $R(X,Y)s$ is the negative of the definition given above, and the curvature tensor and the curvature matrix are written as
+$$R(X,Y)s=R^\alpha_{\beta ij}X^iY^js_\alpha,\,\Omega_\beta^\alpha=\frac{1}{2}R^\alpha_{\beta ij}\theta^i\wedge\theta^j.$$
+
+Differentiating the equality $\Omega_\beta^\alpha=d\omega_\beta^\alpha-\omega_\beta^\gamma\wedge\omega_\gamma^\alpha$,
+$$
+\begin{aligned}
+d\Omega_\beta^\alpha&=-d\omega_\beta^\gamma\wedge\omega_\gamma^\alpha+\omega_\beta^\gamma\wedge d\omega_\gamma^\alpha\\
+&=-(\Omega_\beta^\gamma+\omega_\beta^\lambda\wedge\omega_\lambda^\gamma)\wedge\omega_\gamma^\alpha
++\omega_\beta^\gamma\wedge(\Omega_\gamma^\alpha+\omega_\gamma^\lambda\wedge\omega_\lambda^\alpha)\\
+&=\omega_\beta^\gamma\wedge\Omega_\gamma^\alpha-\Omega_\beta^\gamma\wedge\omega_\gamma^\alpha.
+\end{aligned}
+$$
+This is called the \emph{(second) Bianchi identity}.

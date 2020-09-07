@@ -1,0 +1,9 @@
+% 拉普拉斯方法
+
+\pentry{渐近展开\upref{Asympt}, 高斯积分\upref{GsInt}, Gamma函数\upref{Gamma}}
+
+在分析数学中, 拉普拉斯方法是一种计算含参数积分的渐近展开式的办法. 所考察的积分一般具有如下形式:
+\begin{equation}\label{LapAsm_eq1}
+I(\lambda)=\int_a^b \phi(x)\E^{\lambda f(x)}dx,
+\end{equation}
+其中$\lambda$是正的实参数. 要考察当$\lambda\to+\infty$时积分的行为. 拉普拉斯方法背后的想法很简单: 如果函数$f$在某点处达到极大值, 那么当$\lambda$很大时, 只有极大值点附近的贡献才比较可观, 其余部分相比起来都要小得多.
