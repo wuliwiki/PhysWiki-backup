@@ -1,0 +1,26 @@
+% 匀加速直线运动
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{速度 加速度（一维）\upref{VnA1}}
+
+质点做匀速直线运动时， 我们延运动的直线建立坐标轴 $x$， 则最一般的运动方程
+\begin{equation}\label{CnstAL_eq1}
+x(t) = x_0 + v_0 (t - t_0) +  \frac12 a_0 (t - t_0)^2
+\end{equation}
+其中 $x_0, v_0, a_0$ 分别是 $t_0$ 时刻的位置， 速度和加速度．
+
+\subsubsection{推导}
+做匀速直线运动的质点在 $t_0$ 时的位置为 $x_0$， 速度为 $v_0$， 且加速度始终等于常数 $a_0$， 求任意时刻的速度和加速度 $x(t)$．
+
+我们首先由\autoref{VnA1_eq8}~\upref{VnA1} 得到速度函数为
+\begin{equation}
+v(t) = v_0 + \int_{t_0}^t a_0 \dd{t'} = v_0 + a_0 (t - t_0)
+\end{equation}
+然后再次积分（\autoref{VnA1_eq5}~\upref{VnA1}）
+\begin{equation}
+x(t) = x_0 + \int_{t_0}^t [v_0 + a_0 (t' - t_0)] \dd{t'}
+\end{equation}
+得\autoref{CnstAL_eq1} ．

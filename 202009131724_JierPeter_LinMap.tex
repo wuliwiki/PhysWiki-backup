@@ -1,0 +1,24 @@
+% 线性映射
+
+\begin{issues}
+\issueDraft
+\issueOther{本词条需要重新创作和整合，融入章节逻辑体系．}
+\end{issues}
+
+
+
+\pentry{对偶空间\upref{DualSp}}
+
+对于线性空间$V$，其对偶空间$V^*$中的一个元素就是$V$上的一个线性函数，即把一个向量映射为一个数字．如果取两个线性空间$V$和$U$，取它们之间的一个映射$f:V\rightarrow U$，使得$f$也满足线性性，那么我们称$f$是$V$到$U$的一个\textbf{线性映射}．在矢量空间的表示\upref{VecRep}中我们会看到，选定了各自的基以后，两个线性空间中的向量都可以看成是数字的组合，因此$f$也可以看成是$m$个线性函数$f_i$的组合，其中$m=\opn{dim}U$．
+
+\begin{definition}{线性映射}\label{LinMap_def1}
+给定域$\mathbb{F}$上的线性空间$V$和$U$．如果有映射$f:V\rightarrow U$满足，对于任意的向量$\bvec{v}_1, \bvec{v}_2\in V$和标量$a_1, a_2\in\mathbb{F}$，都有$f(a_1\bvec{v}_1+a_2\bvec{v}_2)=a_1f(\bvec{v}_1)+a_2f(\bvec{v}_2)$，那么称$f$是$V$到$U$的一个\textbf{线性映射（linear map）}．
+\end{definition}
+
+
+\autoref{LinMap_def1} 的内涵比看上去广一些．对于任意的一组有限个向量$\{\bvec{v}_i\}\subseteq V$和一组对应的标量$\{a_i\}\subseteq\mathbb{F}$，都有$f(\sum_i a_i\bvec{v}_i)=\sum_i a_if(\bvec{v}_i)$
+
+
+
+
+

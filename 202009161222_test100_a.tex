@@ -1,0 +1,127 @@
+% aaa
+% \documentclass[UTF8]{ctexart}
+% \usepackage{multirow}
+% \usepackage{framed}
+% \usepackage{listings}
+% \usepackage{courier}
+% \usepackage{color}
+\title{CSP-J 普及训练赛 2}
+\author{\textbf{\color{black}A\color{red}estas16}}
+\begin{document}
+	\maketitle
+	\begin{center}
+		\begin{tabular}{|p{3cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+			\hline
+			题目名称 & & 追光 &    \\
+			\hline
+			源程序文件名 & .cpp & light.cpp & .cpp   \\
+			\hline
+			输入文件名 & .in & light.in & .in   \\
+			\hline
+			输出文件名 & .out & light.out & .out  \\
+			\hline
+			时间限制 & 1s & 1s & 1s \\ 
+			\hline
+			空间限制 & 256 MB & 256 MB & 256 MB\\
+			\hline
+			题目类型 & 传统 & 传统 & 传统 \\
+			\hline
+			测试点数量 & 20 & 20 & 20 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\subsection*{注意事项}
+		0. 这个 pdf 文件是 ZPC\_233 做的，所以题面格式和上一次差不多．
+	
+		1. 本场测试时长 3 小时，请选手注意时间分配．
+		
+		2. 每道题目可能你没有办法拿到满分，但请尽自己能力拿到部分分．
+		
+		3. 测试请独立完成，不要互相讨论做法，或上网查找相关资料．
+		
+		4. 本场比赛使用文件输入输出，需要写 \texttt{freopen}．
+		
+		5. 部分题目数据读入量较大，请使用较快的数据读入方式．
+		
+		6. 祝大家能 AK 这场比赛！
+	\newpage
+	\section*{1 ()}
+	\subsection*{题目描述}
+	\subsection*{输入格式}
+	\textbf{从 .in 读入输入数据．}
+	\subsection*{输出格式}
+	\textbf{将答案输出到 .out 中．}
+	\subsection*{样例 1 输入}
+	\subsection*{样例 1 输出}
+	\subsection*{样例 1 解释}
+	\subsection*{测试点约束}
+	对于所有测试点，保证．
+	\newpage
+	\section*{2 追光 (light)}
+	\subsection*{题目背景}
+	\begin{center}
+		\begin{framed}
+			『人们追光，可光的速度是 $3 \times 10^5\ \texttt{km/s}$，又怎么能追得上啊』
+			
+			『所以啊，所谓追光，其实是光在等人啊』
+		\end{framed}
+	\end{center}
+	\subsection*{题目描述}
+	
+	GFA 在追光．
+	
+	光和 GFA 在同一个坐标系中，光最初在原点，面向 $\texttt{x}$ 轴正半轴方向．
+	
+	\textbf{光出发，按照如下方式运动：}
+	
+	光有一个长度为 $n$ 的序列 $a$，它将要运动 $n \times m$ 个时刻．
+	
+	在第 $i$ 个时刻，光向当前方向移动 $a_p$ 个位置，然后顺时针旋转 $a_p \times 90$ 度 （$p = i \bmod n$）．
+	
+	GFA 只能沿 $\texttt{x}$ 轴或 $\texttt{y}$ 轴运动，每个时刻运动 $1$ 个单位长度．
+	
+	光的速度是 $3 \times 10^5\ \texttt{km/s}$，GFA 追不上它，所以她只想知道她从原点出发，到达光所在的位置最少需要的时间．
+	
+	\subsection*{输入格式}
+	\textbf{从 light.in 读入输入数据．}
+	
+	第一行包括两个正整数 $n,m$．
+
+	第二行包括 $n$个用空格隔开的正整数 $a_i$．
+	\subsection*{输出格式}
+	\textbf{将答案输出到 light.out 中．}
+	
+	一行一个非负整数，即 GFA 从原点出发，到达光所在的位置最少需要的时间．
+	\newpage
+	\subsection*{样例 1 输入}
+	\texttt{5 3}
+	
+	\texttt{1 2 3 4 5}
+	\subsection*{样例 1 输出}
+	\texttt{9}
+	\subsection*{样例 2 输入}
+	\texttt{10 100}
+	
+	\texttt{97 46 39 12 54 89 32 76 88 100}
+	\subsection*{样例 2 输出}
+	\texttt{0}
+	\subsection*{测试点约束}
+	
+	对于 $60\%$ 的数据，保证 $1 \le n,m,a_i \le 500$．
+	
+	对于 $100\%$ 的数据，保证 $1 \le n,m,a_i \le 5 \times 10^5$．
+	\subsection*{后记}
+	GPA 追上了 FPS．
+	\newpage
+	\section*{3  ()}
+	\subsection*{题目描述}
+	\subsection*{输入格式}
+	\textbf{从 .in 读入输入数据．}．
+	\subsection*{输出格式}
+	\textbf{将答案输出到 .out 中．}
+	\subsection*{样例 1 输入}
+	\subsection*{样例 1 输出}
+	\subsection*{样例 1 解释}
+	\subsection*{测试点约束}
+	对于所有的数据，保证．
+\end{document}
