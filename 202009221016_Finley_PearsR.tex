@@ -1,0 +1,15 @@
+% 皮尔逊相关系数
+
+\verb | \issueTODO 皮尔逊相关系数|
+
+在统计学中，皮尔逊相关系数（Pearson correlation coefficient），又称皮尔逊积矩相关系数（Pearson product-moment correlation coefficient，简称 PPMCC或PCCs），是用于度量两个变量X和Y之间的相关（线性相关），其值介于-1与1之间．
+\begin{definition}{皮尔逊相关系数}\label{PearsR_def1}
+两个变量之间的皮尔逊相关系数定义为两个变量之间的协方差和标准差的商：
+\begin{equation}
+\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_{X}\sigma_{Y}}=\frac{E[(X-\mu X)(Y-\mu Y)]}{\sigma_{X}\sigma_{Y}}
+\end{equation}
+上式定义了总体相关系数，常用希腊小写字母$\rho_{X,Y}$表示，估算样本的协方差和标准差，可得到皮尔逊相关系数，常用英文小写字母$r$代表：
+\begin{equation}
+\frac{\displaystyle\overset n{\underset{i=1}{\sum\left(X_i-\overline X\right)}}\left(Y_i-\overline Y\right)}{\sqrt{\overset n{\underset{i=1}{\sum\left(X_i-\overline X\right)}}^2}\sqrt{\overset n{\underset{i=1}{\sum\left(Y_i-\overline Y\right)}}^2}}
+\end{equation}
+\end{definition}

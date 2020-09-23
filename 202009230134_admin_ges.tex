@@ -1,0 +1,35 @@
+% gesgs
+
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usetikzlibrary{decorations.pathreplacing}
+
+
+
+$A_m =$
+\begin{tikzpicture}[baseline = (M.west)]
+    \tikzset{brace/.style = {decorate, decoration = {brace, amplitude = 5pt}, thick}}
+    \matrix(M)
+    [
+        matrix of math nodes,
+        left delimiter = (,
+        right delimiter = )
+    ]
+    {
+        0 & 0 & \cdots & 0 & 1 & 0 & \cdots & 0\\
+        0 & 0 & \cdots & 0 & 0 & 1 & \cdots & 0\\
+        \tvdots & \tvdots & & \tvdots & \tvdots & \tvdots & & \tvdots\\
+        0 & 0 & \cdots & 0 & 0 & 0 & \cdots & 1\\
+        0 & 0 & \cdots & 0 & 0 & 0 & \cdots & 0\\
+        \tvdots & \tvdots & & \tvdots & \tvdots & \tvdots & & \tvdots\\
+        0 & 0 & \cdots & 0 & 0 & 0 & \cdots & 0\\
+    };
+    \draw[brace]
+        (M-1-1.north west)
+        -- node[above = 5pt]{$m$列}
+        (M-1-4.north east);
+    \draw[brace]
+        ($(M-5-8.north east) + (0.5, 0)$)
+        -- node[right = 5pt]{$m$行}
+        ($(M-7-8.south east) + (0.5, 0)$);
+\end{tikzpicture}

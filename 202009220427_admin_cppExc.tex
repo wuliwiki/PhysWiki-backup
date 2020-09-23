@@ -1,0 +1,28 @@
+% C++ 异常处理
+
+在初学编程时， 遇到错误我们往往就直接用 \verb|exit()| 终止程序． 但有时候我们不希望程序终止， 而是希望程序自行对错误进行一定的处理． C 语言的常见办法是把函数的返回值（通常是整型）作为错误代码， \verb|0| 代表成功， 其他值对应不同类型的错误．
+
+\begin{lstlisting}[language=cpp]
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct err_info { string where, what;};
+
+void fun2()
+{
+	err_info e;
+	e.where = "fun2()"; e.what = "something wrong!";
+	throw e;
+}
+
+void fun1() { fun2(); }
+
+int main () {
+	try { fun1(); }
+	catch (err_info e) {
+		cout << "where: " << e.where << endl;
+		cout << "what: " << e.what << endl; 
+	}
+}
+\end{lstlisting}

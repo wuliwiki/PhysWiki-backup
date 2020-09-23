@@ -1,0 +1,75 @@
+% 行列式的性质
+
+\pentry{行列式\upref{Deter}}
+
+根据行列式的几何理解， 我们容易理解它的一些性质．
+
+\begin{theorem}{ } \label{DetPro_the1}
+若行列式中某行或某列全为 0， 其结果等于 0．
+\end{theorem}
+证明： 根据定义（\autoref{Deter_eq4}~\upref{Deter}）， 行列式展开后， 相加的每一项都含有每一行（或每一列）的一个元素， 所以当某列全为 0， 则结果为 0．
+
+几何理解： 若平行体的某条边长等于 0， 其体积也等于 0．
+
+\begin{theorem}{ } \label{DetPro_the3}
+矩阵的任意一列（或任意一行）乘以常数，行列式的值也要乘以该常数．
+\end{theorem}
+证明： 思路和\autoref{DetPro_the1} 的证明一样， 行列式展开后， 相加的每一项都含有每一行（或每一列）的一个元素， 所以当某列全部元素乘以常数， 则相加的每一项都乘以该常数．
+
+几何理解： 将平行体任意一条边长乘以一个常数， 它的体积也需要乘以该常数．
+
+\begin{theorem}{ }
+将行列式的两列交换， 结果取相反数．
+\end{theorem}
+证明： 根据行列式的定义， 交换两行或两列会给展开后的每一项增加一个逆序数， 导致行列式的值取相反数．
+
+\begin{theorem}{}
+若将行列式的某行或某行的每一个元素都表示为两个数之和，那么它就可以表示为两个行列式相加：
+\begin{equation}
+\begin{aligned}
+&\quad\begin{vmatrix}
+a_{1,1} & a_{1,2} & \dots & a_{1,N}\\
+\dots & \dots & \dots & \dots\\
+b_{i,1} + c_{i,1} & b_{i, 2} + c_{i, 2} & \dots & b_{i,N} + c_{i,N}\\
+\dots & \dots & \dots & \dots\\
+a_{N,1} & a_{N,2} & \dots & a_{N,N}\\
+\end{vmatrix}\\
+&=
+\begin{vmatrix}
+a_{1,1} & a_{1,2} & \dots & a_{1,N}\\
+\dots & \dots & \dots & \dots\\
+b_{i,1} & b_{i, 2} & \dots & b_{i,N}\\
+\dots & \dots & \dots & \dots\\
+a_{N,1} & a_{N,2} & \dots & a_{N,N}\\
+\end{vmatrix}
++
+\begin{vmatrix}
+a_{1,1} & a_{1,2} & \dots & a_{1,N}\\
+\dots & \dots & \dots & \dots\\
+c_{i,1} & c_{i, 2} & \dots & c_{i,N}\\
+\dots & \dots & \dots & \dots\\
+a_{N,1} & a_{N,2} & \dots & a_{N,N}\\
+\end{vmatrix}
+\end{aligned}
+\end{equation}
+列的情况也相同．
+\end{theorem}
+证明： 行列式展开后， 相加的每一项都含有每一行（或每一列）的一个元素， 所以显然成立．
+
+\begin{theorem}{ }
+若行列式中的列矢量线性相关， 其结果等于 0．
+\end{theorem}
+二维情况下两矢量线性相关意味着他们共线， 平行四边形面积为 0． 三维情况下线性相关意味着三个矢量共面， 平行四面体体积为 0． 高维情况也可类比．
+
+\begin{theorem}{ } \label{DetPro_the2}
+行列式的值为 0 当且仅当行列式中存在线性相关的列．
+\end{theorem}
+
+\begin{theorem}{ }
+矩阵\textbf{转置}（将所有 $a_{i,j}$ 与 $a_{j,i}$ 交换\upref{Mat}）后行其列式的值不变．
+\end{theorem}
+这个定理没有显然的几何理解， 可以直接用代数定义证明（\autoref{Deter_eq1} 和\autoref{Deter_eq2}， 以及下文的\autoref{Deter_eq4}）． 根据这个定理， 以上凡是涉及到 “行” 的定理和说明， 都可以替换为 “列”， 请读者自行回顾一次．
+
+\subsection{拓展}
+
+行列式的代数性质可以抽象为\textbf{外代数}（见\autoref{AlgFie_ex1} 以及例子后的解释），进而用于定义\textbf{外微分}\upref{ExtDif}，描述微分形式的代数性质．

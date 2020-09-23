@@ -1,0 +1,33 @@
+% 滑块斜面问题
+
+\subsection{固定斜面}
+
+\subsection{无摩擦滑动的斜面}
+
+\subsubsection{拉格朗日方程}
+\addTODO{图未完成}
+考虑动量守恒， 这个系统只有一个自由度． 我们把滑块相对斜面向下移动的距离记为 $l$． 为了描述系统动能和势能， 我们另外引入几个可以用 $l$ 表示的变量： 令 $x, y$ 为滑块水平方向和竖直方向移动的距离． $X$ 为斜面水平方向移动的距离． 则拉格朗日量为
+\begin{equation}
+L = T - V = \frac12 m(\dot x^2 + \dot y^2) + \frac12 M \dot X^2 - mgy
+\end{equation}
+其中
+\begin{equation}
+x = \frac{M}{M + m}l\cos\theta
+\qquad
+y = -l\sin\theta
+\qquad
+X = -\frac{m}{M + m}l\cos\theta
+\end{equation}
+代入得
+\begin{equation}
+L = \frac{1}{2}m \qty(1 - \frac{m\cos^2\theta}{M + m}) \dot l^2 + mg\sin\theta \cdot l
+\end{equation}
+代入拉格朗日方程
+\begin{equation}
+\dv{t} \pdv{L}{\dot l} = \pdv{L}{l}
+\end{equation}
+解得
+\begin{equation}
+\ddot l = \left.g\sin\theta\middle/\qty(1 - \frac{m\cos^2\theta}{M + m})\right.
+\end{equation}
+这就是小滑块相对斜面的加速度．
