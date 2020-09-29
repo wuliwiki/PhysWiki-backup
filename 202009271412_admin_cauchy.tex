@@ -1,0 +1,42 @@
+% 柯西序列 完备度量空间
+
+\pentry{度量空间\upref{Metric}}
+
+\begin{definition}{柯西序列}
+给定某个度量空间 $X$ 中的序列 $\qty{x_i}$， 当满足以下条件时， 他就叫做\textbf{柯西序列（Cauchy sequence）}．
+
+对任意 $\varepsilon > 0$， 存在 $N$， 当 $m, n \geqslant N$ 时就满足 $d(u_m, u_n) < \varepsilon$．
+\end{definition}
+
+形象地说， 柯西序列要求随着 $i$ 增大， 数列中项与项之间的差距逐渐变小．
+
+\begin{definition}{}\label{cauchy_def1}
+本书把度量空间中的序列称为\textbf{收敛的（converged）}当且仅当它是柯西序列．
+\end{definition}
+
+\begin{theorem}{}
+度量空间 $X$ 中的任意柯西序列 $\qty{x_i}$ 都会收敛到某一点 $x$． 若 $x \in X$， 则 $x$ 是序列 $\qty{x_i}$ 的极限（\autoref{Metric_def1}~\upref{Metric}）； 若 $x \notin X$， 仍然可以定义 $x$ 和任意 $y\in X$ 的距离为（极限必定存在）
+\begin{equation}
+d(x, y) = \lim_{n\to\infty} d(x_n, y)
+\end{equation}
+使得把 $x$ 添加进 $X$ 后， 仍构成度量空间， 且 $x$ 是序列 $\qty{x_i}$ 的极限．
+\end{theorem}
+证明留到下文．
+
+% 证明： 根据三角不等式（\autoref{Metric_def2}~\upref{Metric}）， 对任意 $n$ 都有 $\abs{d(x,y) - d(x_n, y)}\le d(x, x_n)$． 根据柯西序列定义， （未完成）
+
+注意一些教材中对收敛的定义更为严格， 要求不但序列是柯西序列， 而且要求序列的极限在所讨论的度量空间内． 例如 $1, 1/2, 1/3, \dots$ 是柯西序列    当我们讨论的空间是 “正实数域”， 那么
+
+
+
+是否存在柯西序列不收敛的情况呢？ 这取决于我们如定义 “收敛”． 根据柯西序列的定义我们 $N$ 越大， 剩下的项就能在越小的范围确定， 所以有些人认为这就是收敛， 所以所有柯西序列都是收敛的． 但也有人认是否收敛和我们讨论的度量空间有关， 如果
+\begin{example}{}
+我们可以说序列 $1, 1/2, 1/3, \dots$ 在集合 $\mathbb R$ 上收敛， 但在集合 $(0, \infty)$ 上不收敛． 也可以说该序列
+\end{example}
+
+实数域 $\mathbb R$ 上的柯西序列必定是收敛的， 这是我们可以通过判断数列是否为柯西序列从而判断该序列是否收敛． 但如果我们从 $\mathbb R$ 中把收敛的那点挖走， 那么这个柯西序列在这个集合中就不收敛． 所以柯西序列是否收敛取决于它所属于的集合． % 我想表达的意思很明确， 只是说法可能不够严谨
+
+\subsection{度量空间的完备性}
+如果赋范空间中任意柯西序列\upref{cauchy}都有极限， 那么该赋范空间就是\textbf{完备（complete）}的． 完备的赋范空间常称为\textbf{巴拿赫空间（Banach space）}． 其中， 完备的内积空间特别称作\textbf{希尔伯特空间 （Hilbert space）}．
+
+“完备” 可以形象理解为空间中没有 “漏洞”． 有限维空间都是完备的． 可数维空间都是不完备的． 例如有理数集和多项式组成的空间就是不完备的（柯西序列的极限可以是 $\E^x$， 但是 $\E^x$ 并不属于该空间）．

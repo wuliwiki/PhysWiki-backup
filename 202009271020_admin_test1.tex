@@ -1,0 +1,104 @@
+% test1
+
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+%\include{macros}
+%\usepackage{floatflt}
+%\usepackage{graphics}
+%\usepackage{epsfig}
+
+\newcommand{\reals}{{\mathbb{R}}}
+\newcommand{\dom}{{\bf{dom}}}
+\newcommand{\symm}{{\bf{S}}}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{defition}{Definition}
+\newtheorem*{example}{Example}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{exercise}{Exercise}
+
+\setlength{\oddsidemargin}{-0.25 in}
+\setlength{\evensidemargin}{-0.25 in} \setlength{\topmargin}{-0.25
+in} \setlength{\textwidth}{7 in} \setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.25 in} \setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+\newcommand{\homework}[4]{
+\pagestyle{myheadings} \thispagestyle{plain}
+\newpage
+\setcounter{page}{1} \setcounter{section}{#4} \noindent
+\begin{center}
+\framebox{ \vbox{\vspace{2mm} \hbox to 6.28in { {\bf
+AU7021~Optimization~in~Learning and Control (Fall 2020) \hfill Homework: #1} }
+\vspace{6mm} \hbox to 6.28in { {\Large \hfill #1 \hfill} }
+\vspace{6mm} \hbox to 6.28in { {\it Lecturer: #2 \hfill} }
+\vspace{2mm} \hbox to 6.28in { {\it Student: #3 \hfill} }
+\vspace{2mm} } }
+\end{center}
+\markboth{#1}{#1} \vspace*{4mm} }
+
+
+\begin{document}
+
+\homework{1. Convex Set}{Xiaolin Huang \hspace{5mm} {\tt
+xiaolinhuang@sjtu.edu.cn}}{XXX
+\hspace{5mm} {\tt xxx@sjtu.edu.cn } }{9}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section 2.  Problem
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Problem 1} \label{ex-midpoint-cvx}
+\emph{Midpoint convexity.}
+A set $C$ is \emph{midpoint convex} if whenever two points $a,b$ are in $C$, the average or midpoint $(a+b)/2$ is in $C$.  Obviously a convex set is midpoint convex. It can be proved that under mild conditions midpoint convexity implies convexity. As a simple case, prove that if $C$ is closed and midpoint convex, then $C$ is convex.
+
+{\bf{Answer.}}
+
+
+\section*{Problem 2}\label{e-lin-frac-image}%
+\emph{Linear-fractional functions and convex sets.}
+Let $f:\reals^m \rightarrow \reals^n$ be the linear-fractional function
+\[
+f(x) = (Ax+b)/(c^T x+ d), \qquad \dom f = \{x \;|\; c^Tx+d >0\}.
+\]
+In this problem we study the inverse image of a convex set $C$ under $f$, i.e.,
+\[
+f^{-1} (C) = \{ x \in \dom f \;|\; f(x) \in C \}.
+\]
+For each of the following sets $C\subseteq \reals^n$, give a simple
+description of $f^{-1}(C)$.
+
+\begin{enumerate}
+\item The halfspace $C = \{ y \; | \; g^Ty \leqslant h\}$ (with $g\neq 0$).
+
+\item The polyhedron $C = \{y \; | \; Gy \preceq h\}$.
+
+\item The ellipsoid $\{ y \;|\; y^T P^{-1} y \leqslant 1 \}$ (where $P \in \symm^n_{++}$).
+
+\item The solution set of a linear matrix inequality, $C = \{y\; |\; y_1 A_1+ \cdots + y_n A_n \preceq B\}$, where $A_1$, \ldots, $A_n$, $B \in \symm^p$.
+\end{enumerate}
+
+{\bf{Answer.}}
+
+\section*{Problem 3}\label{exe-sep-hyp-strict-counterexample}
+Give an example of two closed convex sets that are disjoint but cannot be strictly separated.
+
+{\bf{Answer.}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Reference
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
