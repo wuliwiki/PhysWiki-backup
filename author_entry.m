@@ -2,6 +2,7 @@
 % data columns: author, entry, hours
 function author_entry
 % for each author and entry, must # of backup files to omit
+cd(mfilepath);
 num_thresh = 1;
 str = ls('*.tex');
 str = [str(:,14:end), str(:,1:12)];
