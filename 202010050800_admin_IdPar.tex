@@ -1,0 +1,54 @@
+% 全同粒子
+% 量子力学|交换算符|对易|哈密顿|玻色子|费米子
+\pentry{多体量子力学简介% 未完成： 应该引用什么词条呢？ 这应该是二级词条， 是否引用一级词条？
+， 角动量加法（量子力学）\upref{AMAdd}}
+
+在量子力学中， 我们假设许多基本粒子是不可区分的， 例如电子，质子，中子等， 我们把不可区分的粒子称为是\textbf{全同粒子（identical particles）}． 例如我们在两个位置同时测量到两个电子， 我们只能知道两处各有一个电子， 而不知道哪个电子在哪里． 对于宏观物体， 我们可以通过做标记或者追踪轨迹的方式轻易把不同它们区分开． 但量子力学中的粒子既不能做标记也没有轨迹的概念， 所以我们唯一可以区分的粒子的方法就是利用它们的物理属性， 如质量，电荷量，自旋等物理性质．
+
+\subsection{波函数的对称性}
+先不考虑自旋， 我们如何用它们的波函数体现 “不可区分” 呢？先写出位置表象下的双粒子波函数为 $\psi(\bvec r_1, \bvec r_2)$， 那么在任意两点同时发现两个电子的概率密度函数为% 链接未完成
+\begin{equation}
+f(\bvec r_1, \bvec r_2) = \abs{\psi(\bvec r_1, \bvec r_2)}^2
+\end{equation}
+由于两电子不可区分， 概率分布必须满足 $f(\bvec r_2, \bvec r_1) = f(\bvec r_1, \bvec r_2)$． 于是波函数必须满足以下两个条件之一
+\begin{equation}\label{IdPar_eq5}
+\psi(\bvec r_2, \bvec r_1) = \pm \psi(\bvec r_1, \bvec r_2)
+\end{equation}
+如果取正号， 我们把这样的波函数称为\textbf{对称的（symmetric）}， 取负号时则称为\textbf{反对称的（antisymmetric）}． 两个全同粒子的波函数只可能取这两种情况之一． 如果波函数既不是对称也不是反对称， 那么就称为\textbf{不对称的（not symmetric）}．
+
+以后会看到，具有交换对称或反对称的波函数在根据薛定谔方程演化的过程中一直会保持对称性． % 链接未完成
+
+\subsection{自旋态的对称性}
+如果只考虑双粒子的自旋态矢量空间， 同样由于概率原因我们要求全同粒子同样在该空间的态矢满足交换对称． 以最常见的电子态为例， 单电子自旋态是一个二维空间， 两个基底通常取 $\uparrow$ 和 $\downarrow$， 分别代表 $\ket{s=1/2,m_s=\pm 1/2}$． 而双粒子的自旋态是该空间和自己的张量积， 是 4 维的， 基底可以取 $\uparrow\uparrow, \uparrow\downarrow, \downarrow\uparrow, \downarrow\downarrow$ 四个． 但第二和第三个既不满足交换对称也不是反对称的， 所以我们可以将四个基底做一个线性变换变为四个具有对称性的基底
+\begin{equation}
+\uparrow\uparrow \qquad \frac{1}{\sqrt 2}(\uparrow\downarrow \pm \downarrow\uparrow) \qquad \downarrow\downarrow
+\end{equation}
+其中三个基底是对称的， 即三重态（triplet）， 一个是反对称的， 即单态． % 链接未完成
+显然，三重态的任意线性组合再归一化都是对称的自旋态（3 维子空间）， 但反对称的只有单态．
+
+一般地， 如果我们将双粒子自旋态记为 $\chi_{1,2}$， 那么全同粒子要求
+\begin{equation}
+\chi_{2,1} = \pm\chi_{1,2}
+\end{equation}
+
+\subsection{玻色子和费米子}
+当我们考虑两个粒子的总状态时， 我们可以把总空间视为双粒子波函数空间和双粒子自旋态空间的张量积空间．双粒子态矢总可以分解为波函数和自旋的张量积的线性组合 % 链接未完成
+\begin{equation}
+\ket{\Psi_{1,2}} = \sum_i \psi_i(\bvec r_1, \bvec r_2) \chi^{(i)}_{1,2}
+\end{equation}
+在实际物理问题中我们往往讨论的只是简单的态
+\begin{equation}\label{IdPar_eq6}
+\ket{\Psi_{1,2}} = \psi(\bvec r_1, \bvec r_2) \chi_{1,2}
+\end{equation}
+与\autoref{IdPar_eq5} 同理， 全同粒子需要满足
+\begin{equation}
+\ket{\Psi_{1,2}} = \pm \ket{\Psi_{2,1}}
+\end{equation}
+对于\autoref{IdPar_eq6} 来说， $\ket{\Psi_{1,2}}$ 是对称的当且仅当波函数和自旋具有相同对称性， 是反对称的当且仅当波函数和自旋具有相反对称性． 
+
+波函数或自旋的两种交换对称性会带来实验上可观测的结果． 实验表明， 我们可以把所有的基本粒子划分为两类， 自旋为整数的称为\textbf{玻色子（Boson）}，具有对称态矢； 自旋为半整数的称为\textbf{费米子（Fermion）}， 具有反对称态矢． 这是量子力学关于全同粒子的基本假设．
+
+例如电子自旋为 1/2， 是费米子． 如果两电子的自旋处于单态， 那么波函数就必须是对称的． 反之如果两电子处于三重态， 那么波函数必须是反对称的．
+
+\subsubsection{多个粒子的情况}
+若我们有 $N > 2$ 个全同粒子， 那么费米子和玻色子分别要求它们的态矢在交换任意两个粒子时都保持对称或反对称．
