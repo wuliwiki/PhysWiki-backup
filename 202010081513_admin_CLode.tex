@@ -1,0 +1,21 @@
+% 常系数线性微分方程
+% 微分方程|常系数|特征值|通解
+
+\subsection{常系数}
+\begin{equation}
+c_1 y + c_2 y'' + c_3 y^{(3)}
+\end{equation}
+
+
+\begin{example}{稀释酒精}
+一个容器中装有质量为 $M$ （千克）的酒精， 从某时刻开始以速率 $I$ （千克每秒）加水， 且以同样的速率从底部排水． 假设水一进入容器就瞬间与酒精搅匀， 求容器中酒精浓度 $x$（酒精质量比总质量）随时间的变化关系．
+
+令容器中酒精的质量为 $m_1$， 水的质量为 $M - m_1$． 流出容器的液体速率可以分为两部分： 流出酒精的速率为 $xI$， 流出水的速率为 $I - xI$． 所以容器中酒精质量的变化率为
+\begin{equation}
+m'_1 = -xI
+\end{equation}
+酒精浓度定义为 $x = m_1/M$， $M$ 是常数， 所以
+\begin{equation}
+x' = \qty(\frac{m_1}{M})' = \frac{m'_1}{M} = -\frac{I}{M}x
+\end{equation}
+\end{example}
