@@ -1,8 +1,8 @@
 % list all entries edited by each author
 % data columns: author, entry, hours
 function author_entry
-% for each author and entry, must # of backup files to omit
 cd(mfilepath);
+% for each author and entry, max # of backup files to omit
 num_thresh = 1;
 str = ls('*.tex');
 str = [str(:,14:end), str(:,1:12)];
