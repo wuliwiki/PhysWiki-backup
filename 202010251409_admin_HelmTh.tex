@@ -1,0 +1,29 @@
+% 亥姆霍兹定理
+% 散度|旋度|调和场|亥姆霍兹
+
+参考 \cite{GriffE}
+
+任何矢量场都可以分解为一个无旋场 $\bvec F_{div}$ 和一个无散场 $\bvec F_{curl}$， 也可以选择性地添加一个调和场 $\bvec h$．
+\begin{equation}
+\bvec F(\bvec r) = \bvec F_{div}(\bvec r) + \bvec F_{curl}(\bvec r) + \bvec h(\bvec r)
+\end{equation}
+无旋场总能表示为某个势能函数的梯度， 而无散场总能表示为另一个场的散度， 所以
+\begin{equation}
+\bvec F_{div} = \grad V
+\end{equation}
+\begin{equation}
+\bvec F_{curl} = \curl \bvec A
+\end{equation}
+调和场既没有散度也没有旋度， 所以可以合并到前两项中任意一个中． 所以亥姆霍兹分解可以记为
+\begin{equation}
+\bvec F = \grad V + \curl \bvec A
+\end{equation}
+
+但具体如何分解呢？ 一种方法是
+\begin{equation}
+\bvec F_{div} = \int \frac{(\curl \bvec F)\cross \bvec R}{4\pi R^3} \dd{V'}
+\end{equation}
+\begin{equation}
+\bvec F_{curl} = \int \frac{(\div \bvec F)\bvec R}{4\pi R^3} \dd{V'}
+\end{equation}
+但是还需要证明 $\bvec F - \bvec F_{div} - \bvec F_{curl}$ 是一个调和场．

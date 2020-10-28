@@ -1,0 +1,44 @@
+% 分部积分（高维）
+% 分部积分|散度|体积分|面积分
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{矢量算符常用公式\upref{VopEq}}
+
+参考\cite{GriffE} 式 1.59．把\autoref{VopEq_eq1}~\upref{VopEq} 两边做体积分即可． 泛函分析笔记里面貌似也有 $N$ 维分部积分， 不知道是不是同一回事．
+
+\subsection{第一种}
+这是最接近一元函数分部积分的高维拓展
+\begin{equation}
+\int (\grad f) g \dd{\tau} = \oint fg \dd{\bvec s} - \int f (\grad g) \dd{\tau}
+\end{equation}
+对于二维情况， 面积分变为线积分， 方向沿逆时针． 一维情况就一元函数分部积分．
+
+证明： 把\autoref{VopEq_eq2}~\upref{VopEq} 两边积分， 移项得
+\begin{equation}
+\int (\grad f) g \dd{\tau} = \int \grad (fg) \dd{\tau} - \int f (\grad g) \dd{\tau}
+\end{equation}
+现在只需证明
+\begin{equation}
+\int \grad (fg) \dd{\tau} = \oint fg \dd{\bvec s}
+\end{equation}
+我们可以对每个分量依次证明． 两边乘以第 $i$ 个分量的单位矢量 $\uvec x_i$ 得
+\begin{equation}
+\int \pdv{x_i}(fg) \dd{\tau} = \oint (fg\uvec x_i) \dd{\bvec s}
+\end{equation}
+由散度定理得
+\begin{equation}
+\oint (fg\uvec x_i) \dd{\bvec s} = \int \div (fg\uvec x_i) \dd{\tau} = \int \pdv{x_i}(fg) \dd{\tau}
+\end{equation}
+证毕．
+
+\subsection{第二种}
+\begin{equation}
+\int\div (f \bvec A) \dd{\tau} = \int f (\div \bvec A)\dd{\tau} + \int\bvec A \vdot (\grad f)\dd{\tau}
+\end{equation}
+由散度定理， 左边的体积分变为面积分， 移项得
+\begin{equation}
+\int f (\div \bvec A)\dd{\tau} =  \oint f \bvec A \dd{\bvec s} - \int\bvec A \vdot (\grad f)\dd{\tau}
+\end{equation}

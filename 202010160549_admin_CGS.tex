@@ -1,0 +1,21 @@
+% 厘米—克—秒单位制
+% 厘米|克|秒|单位|量纲|转换|国际单位|达因
+
+\begin{issues}
+\issueDraft
+\issueOther{高斯单位制和 CGS 单位有什么区别？}
+\end{issues}
+
+\pentry{物理量和单位转换\upref{Units}， 国际单位制\upref{SIunit}}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Centimetre-gram-second_system_of_units}{相关页面}．}\textbf{厘米—克—秒单位制（centimetre–gram–second system of units）}也简记为 CGS 单位制． 我们将从 CGS 到 SI 单位制之间的转换常数记为 $\beta_\text{物理量}$， CGS 单位制的物理量符号用角标 $c$ 加以区分． 例如 $x = \beta_x x_c$ 其中 $x$ 是国际单位制的物理量， $x_c$ 是 CGS 单位的物理量．
+
+则 $\beta_x = 0.01\Si{m/cm}$， $\beta_m = 0.001\Si{kg}/\Si{g}$， $\beta_t = 1$． 为了满足 $a_c = \ddot x_c$， 有
+\begin{equation}
+\beta_a = \beta_x/\beta_s^2 = \beta_x = 0.01 \Si{m/cm}
+\end{equation}
+为了满足牛顿定律 $F_c = m_ca_c$ 得
+\begin{equation}
+\beta_F = \beta_m \beta_x/\beta_s^2 = \beta_m\beta_x = 10^{-5} \Si{m\cdot kg/(cm\cdot g)}
+\end{equation}
+力的单位叫做\textbf{达因（dyne）}， 记作 $\Si{dyn}$． 注意以上的转换常数本质上全部等于 1．

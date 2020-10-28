@@ -1,0 +1,39 @@
+% 理想气体的状态密度（相空间）
+% 理想气体|状态密度|球体体积|相空间
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{$N$ 维球体的体积\upref{NSphV}}
+
+相空间中能量小于 $E$ 的状态数
+\begin{equation}\label{IdSDp_eq2}
+\Omega_0 = \frac{V^N}{N! h^{3N}} \frac{(2\pi mE)^{3N/2}}{\Gamma(3N/2+1)}
+\end{equation}
+关于能量的状态密度函数为
+\begin{equation}\label{IdSDp_eq3}
+g(E) = \frac{V^N}{N! h^{3N}} \frac{(2\pi m)^{3N/2}}{\Gamma(3N/2)} E^{3N/2 - 1}
+\end{equation}
+关于动量绝对值的状态密度函数为
+\begin{equation}\label{IdSDp_eq4}
+g(p) = \frac{V^N}{N! h^{3N}} \frac{2\pi^{3N/2}}{\Gamma(3N/2)} p^{3N - 1}
+\end{equation}
+
+
+\subsection{推导}
+在 $N$ 个独立的，可区分粒子的相空间中， 能量小于 $E$ 的状态数（体积除以 $h^{3N}$， 无量纲）为
+\begin{equation}\label{IdSDp_eq1}
+\Omega_0 = \frac{1}{N! h^{3N}} \int\limits_{\sum p^2 \leqslant 2mE} \dd[3N]{q} \dd[3N]{p} = \frac{V^N}{N! h^{3N}} \int\limits_{\sum p^2 \leqslant 2mE} \dd[3N]{p}
+\end{equation}
+其中积分 $\int_{\dots} \dd[3N]{p} $ 可以看做 $n=3N$ 维球体的体积， 半径为 $R = \sqrt{2mE}$． 
+
+$n$ 维空间中球体的体积\upref{NSphV}为
+\begin{equation}
+V_n = \frac{\pi^{n/2}}{\Gamma(n/2+1)}R^n
+\end{equation}
+代入 $n=3N$ 和 $R = \sqrt{2mE} $， 得
+\begin{equation}
+\int\limits_{\sum p^2 \leqslant 2mE} \dd[3N]{p} = \frac{(2\pi mE)^{3N/2}}{\Gamma(3N/2+1)}
+\end{equation}
+代入\autoref{IdSDp_eq1} 得\autoref{IdSDp_eq2}． 再对 $E$ 求导得\autoref{IdSDp_eq3}．

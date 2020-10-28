@@ -1,0 +1,19 @@
+% 逆序数
+% 逆序数|排列
+
+\pentry{集合\upref{Set}}
+
+\subsection{逆序对}
+我们讨论含有 $N$ 个元素的任意集合， 由于集合中元素的名称不重要， 我们以下将它记为 $S = \qty{1,2,\dots, N}$． 注意集合的是没有顺序的， $\qty{1,2,3}$ 和 $\qty{1,3,2}$ 是同一个集合． 现在如果我们把集合 $S$ 中的
+
+若把它们按照某种不同的顺序排列， 我们就称为它的某种\textbf{排列（permutation）}， 记为 $p_n$
+
+\subsection{逆序数}
+\textbf{逆序数（Inversion number）}的定义为
+\begin{equation}\label{InvNum_eq5}
+N_p = \sum_{i=2}^N \text{满足}\, j<i \,\text{且}\, P_n(j) > P_{n,i} \, \text{的}\, j\, \text{的个数} 
+\end{equation}
+$N$ 阶行列式可以用逆序数定义为
+\begin{equation}\label{InvNum_eq4}
+\opn{det}{A} = \sum_{n=1}^{N!} (-1)^{N_p} \prod_{i=1}^N a_{i,P_{n,i}}
+\end{equation}

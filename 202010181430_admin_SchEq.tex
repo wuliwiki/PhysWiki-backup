@@ -1,0 +1,46 @@
+% 定态薛定谔方程
+% 量子力学|波函数|薛定谔方程|哈密顿|束缚态
+
+\begin{issues}
+\issueTODO
+\issueAbstract
+\end{issues}
+
+\pentry{量子力学基本假设\upref{QMPos}， 矢量算符\upref{VecOp}}
+
+\subsection{定态薛定谔方程}
+定态薛定谔方程就是哈密顿算符的本征方程， 本征值就是能量 $E$．
+\begin{equation}
+H \psi(\bvec r) = E \psi(\bvec r)
+\end{equation}
+
+单个粒子问题中， 哈密顿算符对应粒子的总能量， 总能量算符可以表示为动能算符和势能算符之和
+\begin{equation}
+H = T + V
+\end{equation}
+一维运动的单个质点， 波函数是坐标 $x$ 的函数 $\Psi(x)$
+\begin{equation}
+T = -\frac{\hbar^2}{2m} \pdv[2]{x} \qquad V = V(x)
+\end{equation}
+所以定态薛定谔方程为
+\begin{equation}\label{SchEq_eq1}
+-\frac{\hbar^2}{2m} \pdv[2]{\Psi}{x} + V(x)\Psi = E \Psi
+\end{equation}
+例子： 无限深势阱\upref{ISW}， 有限深势阱\upref{FSW}， 简谐振子（升降算符）\upref{QSHOop}．
+
+二维或三维的情况下， 波函数是位置矢量\upref{Disp}的函数 $\Psi(\bvec r)$
+\begin{equation}
+T = -\frac{\hbar^2}{2m} \laplacian \qquad V = V(\bvec r)
+\end{equation}
+定态薛定谔方程为
+\begin{equation}
+-\frac{\hbar^2}{2m} \laplacian {\Psi} + V(\bvec r)\Psi = E \Psi
+\end{equation}
+例子： 三维简谐振子（球坐标）\upref{SHOSph}．
+
+\addTODO{为什么束缚态必须是实函数（或者乘以一个相位因子）？ 为什么实函数的平均动量必须等于 0（实函数的傅里叶变换对对称函数）？ 物理上意味着什么？ 如果势能是偶函数，那么波函数为什么一定是基函数或者偶函数？这可以通过哈密顿算符和宇称算符的对易性来解释．}．
+
+\subsection{束缚态}
+
+\subsection{波函数的对称性}
+

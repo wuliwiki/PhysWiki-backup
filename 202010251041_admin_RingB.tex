@@ -1,0 +1,28 @@
+% 环形电流的磁场
+% 比奥萨法尔定律|电流|磁场|线积分
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{比奥萨伐尔定律\upref{BioSav}}
+
+$x$-$y$ 平面上细金属圆环半径为 $R$， 逆时针电流为 $I$， 求空间一点 $(x, 0, z)$ 处的磁场．
+
+\begin{equation}
+\bvec r' = R\cos\theta\; \uvec x + R\sin\theta\; \uvec y
+\end{equation}
+
+\begin{equation}
+\dd{\bvec r'} = -R\sin \theta \dd{\theta}\; \uvec x + R\cos \theta \dd{\theta}\; \uvec y
+\end{equation}
+
+\begin{equation}
+\bvec R = (x - R\cos\theta)\uvec x -R\sin\theta \;\uvec y+ z\ \uvec z
+\end{equation}
+
+\begin{equation}
+\dd{\bvec r'} \cross \bvec R = Rz \cos\theta \dd{\theta} \;\uvec x + Rz\sin\theta \dd{\theta} \;\uvec y + R(R - x\cos\theta)\dd{\theta}\;\uvec z
+\end{equation}
+
+由于对称性， 磁场的 $y$ 分量为零．

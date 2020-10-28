@@ -1,0 +1,25 @@
+% 分部积分（高维）
+% 分部积分|散度|体积分|面积分
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{矢量算符常用公式\upref{VopEq}}
+
+参考\cite{GriffE} 式 1.59．把\autoref{VopEq_eq1}~\upref{VopEq} 两边做体积分即可． 泛函分析笔记里面貌似也有 $N$ 维分部积分， 不知道是不是同一回事．
+
+
+\begin{equation}
+\grad (fg) = f\grad g + g \grad f
+\end{equation}
+
+
+
+\begin{equation}
+\int\div (f \bvec A) \dd{\tau} = \int f (\div \bvec A)\dd{\tau} + \int\bvec A \vdot (\grad f)\dd{\tau}
+\end{equation}
+由散度定理， 左边的体积分变为面积分， 移项得
+\begin{equation}
+\int f (\div \bvec A)\dd{\tau} =  \oint f \bvec A \dd{\bvec s} - \int\bvec A \vdot (\grad f)\dd{\tau}
+\end{equation}

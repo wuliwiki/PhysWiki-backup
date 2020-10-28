@@ -1,0 +1,84 @@
+% TestTensor
+
+\pentry{词条示例\upref{Sample}}
+
+The word "tensor" first appeared in Structural Mechanics, used to describe the properties of stress, therefore translated as “张力”. The term continues in use until today, except the translation now becomes “张量”. Today we realize that the stress tensor is only a particular case for a more general mathematical object, tenosr. This object appears in corners in physics frequently. We will define the concept of tensor from the fundamental sense, which is the contemporary perspective. We will also demonstrate how a tensor is represented by a matrix or a high dimensional matrix. 
+
+This section is a step-by-step guiding textbook, rather than a list of concepts and theorems. To better understand this section, it is recommended that the reader have solid understanding of linear algebra. 
+
+The definition we use in this section is the most fundamental version. No additional structures or constraints are put onto it; also, Einstein's Summation Agreement is not applied yet, so as to be friendly for beginners. For the common concepts like covariant or contravariant tensors, please refer to the subsequent sections. 
+
+
+
+\subsection{Introduction}
+
+A tensor is a multi-linear map. Particularly, a second-order tensor can be interpreted as a map from two vectors to a scalor, or a map from a vector to another vector. The scalor here refers to an element in the field that defines the vector space; in physics, the field is usually the real numbers or the complex numbers. 
+
+Many physical quantities can be interpreted as linear maps. As an example, mass is a second-order tensor, which maps a force vector to an acceleration vector; the moment of inertia is a second-order tensor, which maps an angular velocity vector to an angular momentum vector. Tensors of different orders may behave differently, but they all share one property: the linearality. When you encounter tensors in the future, I suggest you take some time and think "what quantities does this tensor map from and to"; it helps a deeper understanding. 
+
+
+
+\subsection{1-linear function, 2-linear function and their representation}
+
+It is known that given 2 vector spaces $V$ and $W$, we can define a linear map from $V$ to $W$. In this case, we have only 1 independent and 1 dependent variables. A multi-linear map, say, a k-linear map, maps a series of vector spaces $V_1, V_2, \cdots, V_k$ to $W$, so that if only the element in one $V_i$ varies, the map varies in the way a linear map does. 
+
+The simplest case is when $W$ is a 1-dimensional space. In this case, the vector space $W$ is also the field (the real numbers). If the image of a map is some set of numbers, then we have a particular term for such a map, \textbf{function}. This is the same function that you may have seen in high school, as the maps involved in high school are mostly from real numbers to real numbers. Now, since we make $W$ the set of real numbers, we just call the map from $V_1, V_2, \cdots, V_k$ to $W$ a \textbf{linear function}. Now, we are going to introduce the concepts of multi-linear maps, tensors and their representations, step by step, starting with linear functions. 
+
+\subsubsection{Representing linear functions with vectors}
+
+\begin{definition}{Linear functions}
+给定实数域$\mathbb{R}$上的$n$维线性空间$V$，称$f:V\rightarrow \mathbb{R}$为$V$到域$\mathbb{R}$上的一个\textbf{线性函数}，如果$f$满足以下线性性：对于任意的$\bvec{v}_1, \bvec{v}_2\in V$和$a_1, a_2\in\mathbb{R}$，都有$a_1f(\bvec{v}_1)+a_2f(\bvec{v}_2)=f(a_1\bvec{v}_1+a_2\bvec{v}_2)$．
+\end{definition}
+
+
+\end{definition}
+
+If we think of $\mathbb{R}$ as a 1-dimensional vector space, then $f$ is a linear map from $V$ onto this vector space. Therefore, if we take any base of $V$ and determine what real numbers $f$ maps the base vectors to, then we can calculate $f(\bvec{v})$ for any vector $\bvec{v}\in V$. 
+
+Now suppose a base of $V$ is $\{\bvec{e}_i\}^n_{i=1}$. If the base vector $\bvec{e}_i$ is mapped to $f(\bvec{e}_i)=m_i\in\mathbb{R}$, then for any vector $\bvec{v}=a_1\bvec{e}_1+a_2\bvec{e}_2+\cdots+a_n\bvec{e}_n$, we can calculate by linearality: 
+
+\begin{equation}
+\begin{aligned}
+f(a_1\bvec{e}_1+a_2\bvec{e}_2+\cdots+a_n\bvec{e}_n)&=f(a_1\bvec{e}_1)+f(a_2\bvec{e}_2)+\cdots+f(a_n\bvec{e}_n)\\&=m_1a_1+m_2a_2+\cdots+m_na_n
+\end{aligned}
+\end{equation}
+
+
+$m_1a_1+m_2a_2+\cdots+m_na_n$can be interpreted as the inner product of $\bvec{m}$ and $\bvec{v}$, where$\bvec{m}=m_1\bvec{e}_1+m_2\bvec{e}_2+\cdots+m_n\bvec{e}_n$．
+
+That is, every linear function $f$ corresponds to a vector $\bvec{m}$, so that $f(\bvec{v})=\bvec{m}\cdot\bvec{v}$．The coordinate of the vector $\bvec{m}$, in the base $\{\bvec{e}_i\}_{i=1}^n$, is $(m_1, m_2, \cdots, m_n)^T$. If we define another base, the coordinate usually changes, but the vector is still the same. 
+
+Since a linear function is a map from a vector space to real numbers, we also call it a 1-linear function. It is to distinguish it from other multi-linear functions, like the 2-linear function we are going to focus on now. 
+
+\subsubsection{Representing 2-linear funcions with matices}
+
+Let's stick to the n-dimensional vector space $V$, except now we take 2 copies of $V$ to construct the map $f:V\times V\rightarrow\mathbb{R}$．
+
+\begin{definition}{2-linear function}
+We call $f:V\times V\rightarrow\mathbb{R}$ a 2-linear function, if and only if for any fixed vector $\bvec{v}_0$, both $f(\bvec{v}_0, \bvec{v})$ and $f(\bvec{v}, \bvec{v}_0)$ are 1-linear functions for $\bvec{v}$. In particular, we call $f$ a 2-linear function from $(V, V)$ onto $\mathbb{R}$. 
+\end{definition}
+
+An explicit expression for a 2-linear function is as follows: 
+
+\begin{equation}\label{TestT_eq2}
+\begin{aligned}
+f(a_1\bvec{v}_1+a_2\bvec{v}_2, b_1\bvec{u}_1+b_2\bvec{u}_2)&=a_1f(\bvec{v}_1, b_1\bvec{u}_1+b_2\bvec{u}_2)+a_2f(\bvec{v}_2, b_1\bvec{u}_1+b_2\bvec{u}_2)\\&=a_1b_1f(\bvec{v}_1, \bvec{u}_1)+a_2b_1f(\bvec{v}_2, \bvec{u}_1)+a_1b_2f(\bvec{v}_1, \bvec{u}_2)+a_2b_2f(\bvec{v}_2, \bvec{u}_2)
+\end{aligned}
+\end{equation}
+
+
+In order to represent this map, we have to determine the bases for the two copies of $V$. They don't have to be the same base. Let's assume the base for the first $V$ is $\{\bvec{e}_i\}^n_{i=1}$, and for the second is $\{\bvec{e}_i'\}^n_{i=1}$. Now vectors in the two vector spaces can be represented by column matrices, and the 2-linear function by a square matrix: (example with a 2-dimesional $V$)
+\begin{equation}\label{TestT_eq1}
+\begin{aligned}
+&\bvec{v}=a_1\bvec{e}_1+a_2\bvec{e}_2\rightarrow  \bvec c_v=\pmat{a_1\\a_2}\\
+&\bvec{u}=b_1\bvec{e}'_1+b_2\bvec{e}'_2\rightarrow  \bvec c_u=\pmat{b_1\\b_2}\\
+&f\rightarrow \bvec{M}=\pmat{f(\bvec{e}_1, \bvec{e}'_1)&f(\bvec{e}_1, \bvec{e}'_2)\\f(\bvec{e}_2, \bvec{e}'_1)&f(\bvec{e}_2, \bvec{e}'_2)}\\
+\end{aligned}
+\end{equation}
+
+
+That way, we have $f(\bvec{v}, \bvec{u})= \bvec c_v^T\bvec{M} \bvec c_u$．Note that $\bvec c_v^T$ means the transpose of the matix $\bvec c_v$\footnote{If we use other bases, then the representations of $\bvec{v}$, $\bvec{u}$ and $f$ may be different matrices, but the calculation of $\bvec c_v^T\bvec{M} \bvec c_u$ doesn't change}．
+
+\begin{exercise}{}
+把列向量看成矩阵，根据矩阵的运算法则，将\autoref{TestT_eq1} 代入\autoref{TestT_eq2}，验证$f(\bvec{v}, \bvec{u})= \bvec c_v^T\bvec{M} \bvec c_u$．
+\end{exercise}

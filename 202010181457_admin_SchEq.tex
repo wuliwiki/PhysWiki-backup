@@ -1,0 +1,62 @@
+% 定态薛定谔方程
+% 量子力学|波函数|薛定谔方程|哈密顿|束缚态
+
+\begin{issues}
+\issueTODO
+\issueAbstract
+\end{issues}
+
+\pentry{量子力学基本假设\upref{QMPos}， 矢量算符\upref{VecOp}}
+
+\subsection{定态薛定谔方程}
+定态薛定谔方程就是哈密顿算符的本征方程， 本征值就是能量 $E$．
+\begin{equation}
+H \psi(\bvec r) = E \psi(\bvec r)
+\end{equation}
+
+单个粒子问题中， 哈密顿算符对应粒子的总能量， 总能量算符可以表示为动能算符和势能算符之和
+\begin{equation}
+H = T + V
+\end{equation}
+
+\subsection{一维定态薛定谔方程}
+一维运动的单个质点， 波函数是坐标 $x$ 的函数 $\Psi(x)$
+\begin{equation}
+T = -\frac{\hbar^2}{2m} \dv[2]{x} \qquad V = V(x)
+\end{equation}
+所以定态薛定谔方程为
+\begin{equation}\label{SchEq_eq1}
+-\frac{\hbar^2}{2m} \dv[2]{\Psi}{x} + V(x)\Psi = E \Psi
+\end{equation}
+
+\subsubsection{束缚态和散射态}
+这是一个二阶线性常微分方程． 数学上来看无论 $E$ 是多少， 必有两个线性无关的解， 它们的线性组合也是解（二维解空间）． 然而物理上可能存在的波函数必须要可归一化： 即随着 $\abs{x} \to \infty$，  $\abs{\psi}^2$ 下降得比 $1/x^2$ 要快， 所以只有对于一些离散的 $E$ 我们才能解出这些波函数． 我们把每个 $E$ 叫做\textbf{能级（energy level）}， 对应的波函数叫做\textbf{束缚态（bound state）}．
+
+可以证明只有在能量区间
+\begin{equation}
+\min V(x) < E < \min V(\pm\infty)
+\end{equation}
+才存在束缚态： 当 $E$ 太小时， 波函数必定会在无穷远处爆炸（无穷大）， 而当 $E$ 太大时， 又不拿呢． 这就要求势能函数中存在某种形状的势阱．
+
+当 $E > \min V(\pm\infty)$ 时， \autoref{SchEq_eq1} 必定存在一个 2 维的解空间（）．% 链接未完成
+
+
+例子： 无限深势阱\upref{ISW}，有限深势阱\upref{FSW}， 简谐振子（升降算符）\upref{QSHOop}．
+
+\subsection{多维}
+二维或三维的情况下， 波函数是位置矢量\upref{Disp}的函数 $\Psi(\bvec r)$
+\begin{equation}
+T = -\frac{\hbar^2}{2m} \laplacian \qquad V = V(\bvec r)
+\end{equation}
+定态薛定谔方程为
+\begin{equation}
+-\frac{\hbar^2}{2m} \laplacian {\Psi} + V(\bvec r)\Psi = E \Psi
+\end{equation}
+例子： 三维简谐振子（球坐标）\upref{SHOSph}．
+
+\addTODO{为什么束缚态必须是实函数（或者乘以一个相位因子）？ 为什么实函数的平均动量必须等于 0（实函数的傅里叶变换对对称函数）？ 物理上意味着什么？ 如果势能是偶函数，那么波函数为什么一定是基函数或者偶函数？这可以通过哈密顿算符和宇称算符的对易性来解释．}．
+
+\subsection{束缚态}
+
+\subsection{波函数的对称性}
+

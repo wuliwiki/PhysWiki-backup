@@ -1,0 +1,40 @@
+% 亥姆霍兹定理证明 2
+% 散度|旋度
+
+\begin{theorem}{}
+令 $\bvec F$ 为无散场， 即
+\begin{equation}
+\div \bvec F = 0
+\end{equation}
+则 $\bvec F(\bvec r)$ 总能表示为另一个矢量场 $\bvec G(\bvec r)$ 的旋度， 即
+\begin{equation}
+\bvec F = \curl \bvec G
+\end{equation}
+且 $\bvec G(\bvec r)$ 可以通过以下公式计算：
+\begin{equation}\label{HlmPr2_eq1}
+\bvec G = \int \bvec F \cross \frac{\bvec R}{R^3} \dd[3]{r'} + \bvec H(\bvec r)
+\end{equation}
+其中 $\bvec H(\bvec r)$ 是一个任意的无旋场（$\curl \bvec H = \bvec 0$）， $\bvec R = \bvec r' - \bvec r$， $R = \abs{\bvec R}$．
+\end{theorem}
+
+证明： 我们只需要证明\autoref{HlmPr2_eq1} 右边第一项求旋度等于 $\bvec F$：
+\begin{equation}
+\begin{aligned}
+\curl \bvec G &= \int \curl \qty(\bvec F \cross \frac{\bvec R}{R^3}) \dd{V'}\\
+&= \int\bvec F \qty(\div \frac{\bvec R}{R^3}) \dd{V'} -  \int(\bvec F \vdot \grad) \frac{\bvec R}{R^3} \dd{V'}
+\end{aligned}
+\end{equation}
+其中第一个等号是因为 “对一个变量积分” 再 “对另一个变量求导” 这两个操作可以交换． % 链接未完成
+先来证明第二项为零：
+\begin{equation}
+123
+\end{equation}
+
+考虑到
+\begin{equation}
+\div \frac{\bvec R}{R^3} = 4\pi \delta^3(\bvec R)
+\end{equation}
+所以
+\begin{equation}
+\curl \bvec G = \int \bvec F(\bvec r') 4\pi \delta^3(\bvec r - \bvec r') \dd{V'} = \mu_0 \bvec F(\bvec r)
+\end{equation}

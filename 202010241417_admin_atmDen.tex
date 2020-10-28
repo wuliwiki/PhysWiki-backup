@@ -1,0 +1,20 @@
+% 大气密度
+% 大气|积分方程|理想气体
+
+假设大气是理想气体， 密度随高度变化为 $\rho(z)$． 所以高度 $z$ 处压强为
+\begin{equation}\label{atmDen_eq1}
+P(z) = \int_{z}^\infty \rho(z') g \dd{z'}
+\end{equation}
+而根据理想气体状态方程\upref{PVnRT}，
+\begin{equation}
+PV = n R T
+\end{equation}
+先假设大气只是由一种分子构成， 摩尔质量为 $\mu$， 即 $m = n\mu$， 代入有
+\begin{equation}
+P = \frac{m}{\mu V} RT = \frac{R}{\mu} \rho T
+\end{equation}
+其中 $P, T, \rho$ 都是高度的函数． 代入\autoref{atmDen_eq1} 得积分方程
+\begin{equation}
+\frac{R}{\mu} \rho(z) T(z) = \int_{z}^\infty \rho(z') g \dd{z'}
+\end{equation}
+

@@ -1,0 +1,40 @@
+% 高斯单位制
+% 厘米|克|秒|国际单位|CGS
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{厘米—克—秒单位制\upref{CGS}}
+
+\subsubsection{电荷}
+CGS 单位满足库伦定律
+\begin{equation}
+F = \frac{q_1 q_2}{r^2}
+\end{equation}
+注意与国际单位相比， 电荷的量纲发生变化， 单位为 $\Si{\sqrt{cm^3 g}/s}$， 为了方便我们不妨记为\footnote{这是笔者发明的记号} $C_g$． 所以 $\beta_q$ 的量纲不是 1．
+
+电荷的转换常数为\footnote{如果我们认为 $\Si{C_g}$ 和 $\Si{C}$ 是相同的量纲， 则 $\beta_q = 1$．}
+\begin{equation}
+\beta_q = \sqrt{4\pi\epsilon_0\beta_F} \beta_x = 3.3356409510736\times 10^{-10} \Si{C/C_g}
+\end{equation}
+
+\subsubsection{电场}
+电场需要满足
+\begin{equation}
+\bvec F = \bvec E q
+\end{equation}
+电场单位为 $\Si{\sqrt{g/cm}/s}$．
+\begin{equation}
+\beta_{\mathcal E} = \beta_F/\beta_q = 2.997924580815998\times 10^4 \Si{\frac{C_g\cdot m\cdot kg}{C\cdot cm\cdot g}}
+\end{equation}
+
+\subsubsection{磁场}
+高斯单位制中， 洛伦兹力为
+\begin{equation}
+\bvec F = \frac{q}{c} \bvec v \cross \bvec B
+\end{equation}
+可得电磁场具有相同的单位． 转换常数为（量纲为速度倒数）\footnote{2020 新国际单位标准以前， 这个数值精确等于 $1/100$, 新标准需要乘以 $\sqrt{\mu_0/(4\times 10^{-7}\pi)}$ 的数值．}
+\begin{equation}
+\beta_B = \frac{\beta_m}{c\beta_q} = \frac{\beta_{\mathcal E}}{c\beta_x} = 1.000000000272\times 10^{-2} \Si{\frac{C_g\cdot kg \cdot s}{C \cdot g \cdot m}}
+\end{equation}
