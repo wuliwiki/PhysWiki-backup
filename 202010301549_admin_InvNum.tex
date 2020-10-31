@@ -1,0 +1,26 @@
+% 逆序数
+% 逆序数|排列
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{排列\upref{permut}}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics)}{相关页面}．}我们把集合 $\qty{1,\dots,N}$ 的第 $n$ 种排列记为 $p_n$， 该排列的元素按照顺序分别记为 $p_{n,1}, \dots, p_{n,N}$． 对于任意 $i < j$， 如果满足 $p_{n,i} > p_{n,j}$ 我们就把 $i, j$ 或者 $p_{n,i}, p_{n,j}$ 称为排列 $p_n$ 的一个\textbf{逆序对（inversion）}． 一个排列中所有逆序对的个数就叫\textbf{逆序数（inversion number）}．
+
+在行列式和 Levi-Civita 符号中， 我们只对逆序数的奇偶性感兴趣． 
+
+\begin{theorem}{}
+交换排列中任意两个数， 逆序数奇偶性改变． 
+\end{theorem}
+
+\subsubsection{证明}
+在排列 $p_n$ 中， 考虑第 $i, j$ （$i < j$）两个元素的置换， 不妨把他们的值分别记为 $m, n$． 不妨假设 $m < n$ （$n < m$ 的讨论同理）． 为了方便讨论， 我们把所有的逆序对用弧线连起来， 弧线的条数就是逆序数． 我们可以把这些连线分为 4 类来讨论：
+\begin{enumerate}
+\item 对于不连接到 $m$ 或 $n$ 的线， 该置换不对他们产生影响， 不改变逆序数．
+\item 从 $m$ 或 $n$ 连接到 $m$ 左边或 $n$ 右边的那些线， 置换同样不会他们的数量产生影响， 不改变逆序数．
+\item 从 $m$ 或 $n$ 连接到 $m, n$ 之间某个元素 $q$ 的线， 如果 $q < m$ 或者 $q > n$， 也不会受置换影响． 只有对于每个满足 $m < p_{n,k} < n$ 的 $p_{n,k}$， 逆序数会加 2
+\end{enumerate}
+
+我们先看． 再来看， 而这并不会改变逆序数的奇偶性． 最后还有一根特殊的线， 即置换前 $m$ 和 $n$ 之间没有， 但置换后却产生的那条， 这使得逆序数必定增加或减少奇数个， 所以任何置换必定会改变逆序数的奇偶性． 证毕．
