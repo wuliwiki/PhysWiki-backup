@@ -1,0 +1,18 @@
+% 李代数
+% 李代数
+\pentry{域上的代数\upref{AlgFie}}
+
+
+李代数是对域上的代数\upref{AlgFie}进行的一种推广．域上的代数是指域上的线性空间配合了一个矢量乘法，使得这个线性空间在矢量乘法下也能构成一个环．李代数也是域上线性空间配合了一个矢量乘法，这个矢量乘法和构成环的乘法几乎一样，只有一点不同：将环乘法的结合律替代为Jacobi结合性．
+
+\begin{definition}{李代数}
+给定域$\mathbb{F}$上的一个线性空间$V$．在$V$上定义一个“乘法”运算：对于任意$\bvec{v}_1, \bvec{v}_2\in V$，将它们的运算结果记为$[\bvec{v}_1, \bvec{v}_2]\in V$．称这个结构$(V, [*, *])$为一个李代数，如果它满足以下性质：
+\begin{itemize}
+\item \textbf{双线性性} 对于任意$k_i, c_i\in \mathbb{F}$和任意$\bvec{v}_i, \bvec{u}_i\in V$，都有$[k_1\bvec{v}_1+k_2\bvec{v}_2, c_1\bvec{u}_1, c_2\bvec{u}_2]=k_1c_1[\bvec{v}_1, \bvec{u}_1]+k_1c_2[\bvec{v}_1, \bvec{u}_2]+k_2c_1[\bvec{v}_2, \bvec{u}_1]+k_2c_2[\bvec{v}_2, \bvec{u}_2]$．
+\item \textbf{Jacobi结合性} 对于任意$\bvec{x}, \bvec{y}, \bvec{z}\in V$，有$[\bvec{x}, ([\bvec{y}, \bvec{z}])]+[\bvec{z}, ([\bvec{x}, \bvec{y}])]+[\bvec{y}, ([\bvec{z}, \bvec{x}])]=0$．
+\end{itemize}
+\end{definition}
+
+
+
+

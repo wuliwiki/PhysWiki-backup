@@ -1,0 +1,29 @@
+% 矩阵的秩
+% 矩阵|秩|满秩矩阵|方阵
+
+\pentry{行列式\upref{Deter}}
+
+我们定义矩阵\upref{Mat}的\textbf{列秩（column rank）}等于其线性无关\upref{linDpe}的列数， \textbf{行秩（row rank）}等于线性无关的行数． 可以证明对于任意尺寸的矩阵， 二者是相同的\upref{RCrank}， 所以都可以直接叫做矩阵的\textbf{秩（rank）}．
+
+\begin{example}{}
+矩阵
+\begin{equation}
+\pmat{0 & 1 & 2\\ 1 & 0 & 2\\ 0 & 1 & 2}
+\end{equation}
+中， 如果我们把矩阵看做是三个列矢量 $\bvec v_1, \bvec v_2, \bvec v_3$ 组成， 那么 $\bvec v_1, \bvec v_2$ 显然是线性无关的（不共线）， 而 $\bvec v_3$ 可以表示为 $\bvec v_1, \bvec v_2$ 的线性组合， 即
+\begin{equation}
+\bvec v_3 = 2\bvec v_2 + 2\bvec v_2
+\end{equation}
+所以它们之中只有两个矢量线性无关， 该矩阵的秩为 2．
+\end{example}
+
+根据定义， 一个矩阵的秩 $R$ 必定小于或等于矩阵的行数 $M$ 以及列数 $N$（取较小者）． 对于方阵， 若三者相等， 即 $M = N = R$， 我们就称其为\textbf{满秩矩阵（full rank matrix）}． 满秩矩阵意味着矩阵中所有行（列）都线性无关．
+
+判断一个方阵是否为满秩矩阵的一种常见方法是计算方阵的行列式\upref{Deter}， 若结果不为零， 则矩阵是满秩的， 否则不是（\autoref{DetPro_the2}~\upref{DetPro}）． 注意非满秩的情况下行列式并不能判断秩具体是多少．
+
+% 补充一道例题
+
+% 未完成： 用高斯消元法判断秩的大小
+\subsection{高斯消元法计算秩}
+\pentry{高斯消元法\upref{GAUSS}}
+要确定任意矩阵秩的大小， 我们可以先用高斯消元法将矩阵变换为梯形矩阵． 矩阵的秩数就是梯形矩阵中不为零的行数． 这是因为， 行变换并会不会改变秩， 而梯形矩阵中不为零的行都是线性无关的．
