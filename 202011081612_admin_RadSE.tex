@@ -1,0 +1,85 @@
+% 球坐标和柱坐标中的定态薛定谔方程
+% 球坐标|柱坐标|定态薛定谔方程|拉普拉斯算子|径向动量
+
+\pentry{定态薛定谔方程\upref{SchEq}， 球坐标中的拉普拉斯方程\upref{SphLap}}
+
+\subsection{球坐标}
+
+使用球坐标的拉普拉斯算子\autoref{SphNab_eq4}~\upref{SphNab} 可以将单粒子的哈密顿算符表示为
+\begin{equation}
+H = -\frac{\hbar^2}{2m} \laplacian + V(\bvec r) =  K_r + \frac{L^2}{2mr^2} + V(\bvec r)
+\end{equation}
+其中径向动量算符为
+\begin{equation}
+K_r =-\frac{\hbar^2}{2m} \laplacian_r =  - \frac{\hbar^2}{2m} \qty(\pdv[2]{r} + \frac2r \pdv{r}) = -\frac{\hbar^2}{2m}\frac{1}{r^2} \dv{r} \qty(r^2\pdv{r})
+\end{equation}
+角动量平方算符为%未完成： 在 wikipedia 上， \bvec L 也是有极坐标的表达式的． 研究一下． https://en.wikipedia.org/wiki/Angular_momentum_operator
+\begin{equation}\label{RadSE_eq3}
+L^2 = -\hbar^2 r^2 \laplacian_\Omega = -\hbar^2 \qty[ \frac{1}{\sin\theta} \pdv{\theta} \qty(\sin \theta \pdv{u}{\theta}) + \frac{1}{\sin^2 \theta} \pdv[2]{u}{\phi}]
+\end{equation}
+注意角动量算符不含 $r$．
+
+定态薛定谔方程为
+\begin{equation}
+\qty(K_r + \frac{L^2}{2mr^2} + V - E)\Psi(\bvec r) = 0
+\end{equation}
+我们假设势能函数只与粒子到原点的距离有关， 即 $V = V(r)$． 两边乘以 $r^2$ 可以将 $r$ 与角向变量 $\theta, \phi$ （简写为 $\uvec r$）分离， 令 $\Psi = R(r)Y(\uvec r)$．
+
+解得 $Y(\uvec r)$ 为球谐函数 $Y_{l,m}(\uvec r)$ 满足
+\begin{equation}
+L^2 Y_{l,m}(\uvec r) = \hbar^2 l(l+1) Y_{l,m}(\uvec r)
+\end{equation}
+分离变量后 $R(r)$ 满足的方程一般被称为\textbf{径向薛定谔方程}
+\begin{equation}\label{RadSE_eq6}
+K_r R_l(r) + \qty[V(r) + \frac{\hbar^2 l(l+1)}{2mr^2} ]R_l(r) = ER(r)
+\end{equation}
+我们可以通过变量替换将其化为更简洁的形式．
+
+定义 \textbf{Scaled Radial Wave Function} 为
+\begin{equation}
+u_l(r) = r R_l(r)
+\end{equation}
+代入\autoref{RadSE_eq6}， 第一项变为
+\begin{equation}
+K_r R =  - \frac{\hbar^2}{2m} \qty(\dv[2]{R}{r} + \frac2r \dv{R}{r}) = -\frac{\hbar^2}{2m}\frac{1}{r^2} \dv{r} \qty(r^2\dv{R}{r}) =  - \frac{\hbar^2}{2m}\frac1r \dv[2]{u}{r}
+\end{equation}
+所以\autoref{RadSE_eq6} 化简为
+\begin{equation}\label{RadSE_eq1}
+-\frac{\hbar^2}{2m} \dv[2]{u}{r} + \qty[V(r) + \frac{\hbar^2}{2m}\frac{l(l + 1)}{r^2}]u = Eu
+\end{equation}
+这就是径向方程， 方括号中可以看作\textbf{一维等效势能}（类比经典力学的情况\autoref{CenFrc_eq6}~\upref{CenFrc}）． 该方程的解取决于 $V(r)$ 的具体形式．
+
+% 未完成， 讨论一下束缚态和连续态
+% 令束缚态的解为 $u_{n,l}(r)$， 对应能量（本征值）为 $E_n$
+
+总波函数体积分要求
+\begin{equation}
+\int \abs{R}^2 \abs{Y}^2 r^2 \dd{\Omega}\dd{r}  = 1
+\end{equation}
+球谐函数已经满足 $\int \abs{Y}^2 \dd{\Omega} = 1$，  所以， 要求
+\begin{equation}
+\int \abs{R}^2 r^2 \dd{r}  = 1
+\end{equation}
+正交条件类似． 根据定义
+\begin{equation}
+\int \abs{u}^2 \dd{r}  = 1
+\end{equation}
+
+\subsection{柱坐标}
+\begin{equation}
+u(r) = \sqrt r R(r)
+\end{equation}
+\begin{equation}
+ H = K_r + \frac{L_z^2}{2m r^2}
+\end{equation}
+\begin{equation}
+K_r R = -\frac{\hbar^2}{2m} \frac1r \dv{r} \qty(r \dv{R}{r}) =  - \frac{\hbar^2}{2m} \frac{1}{\sqrt r} \qty(\dv[2]{u}{r} + \frac{u}{4 r^2})
+\end{equation}
+\begin{equation}
+\frac{L_z^2}{2m r^2}\psi  = \frac{\hbar^2}{2m} \frac{m^2}{r^2}\psi 
+\end{equation}
+所以径向方程为
+\begin{equation}
+- \frac{\hbar^2}{2m} \dv[2]{u}{r} + \qty[V(r) + \frac{\hbar^2}{2m} \qty(\frac{m^2}{r^2} - \frac{1}{4 r^2})]u = Eu
+\end{equation}
+

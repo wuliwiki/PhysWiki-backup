@@ -1,0 +1,16 @@
+% 量子化的正则变换
+% 量子化|直角坐标|极坐标
+
+举一个例子： 一个无自旋的粒子在二维平面运动， 势能函数为 $V(\bvec r)$， 那么最常见的量子化方法就是当经典哈密顿量的广义坐标取直角坐标， 得到哈密顿算符为
+\begin{equation}
+H_1 = -\frac{1}{2m} \laplacian + V
+\end{equation}
+量子化后，我们也可以转换为极坐标
+\begin{equation}
+H_1 = \frac{1}{r}\pdv{r}\qty(r \pdv{r}) + \frac{1}{r^2} \pdv[2]{\theta} + V
+\end{equation}
+
+另一种量子化方法是： 我们可以直接写出极坐标中的经典哈密顿量， 广义坐标为 $r, \theta$， 广义动量分别为 $p_r = m\dot r$ 和 $L = mr^2\dot\theta$
+\begin{equation}
+H_2 = \frac{p_r^2}{2m} + \frac{L^2}{2mr^2} + V
+\end{equation}
