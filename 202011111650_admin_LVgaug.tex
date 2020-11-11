@@ -1,0 +1,47 @@
+% 长度规范和速度规范
+% 长度规范|速度规范|波函数|规范变换|薛定谔方程|麦克斯韦方程组
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{电磁场中的单粒子薛定谔方程\upref{QMEM}， 偶极子近似} % 未完成
+
+我们已知库伦规范下， 电磁场中带电粒子的哈密顿量为（\autoref{QMEM_eq4}~\upref{QMEM}）
+\begin{equation}
+\begin{aligned}
+H &= \frac{\bvec p^2}{2m} - \frac{q}{m} \bvec A \vdot \bvec p + \frac{q^2}{2m} \bvec A^2 + q\varphi\\
+&= -\frac{1}{2m} \laplacian + \I \frac{q}{m} \bvec A \vdot \Nabla + \frac{q^2}{2m} \bvec A^2 + q\varphi
+\end{aligned}
+\end{equation}
+当我们用偶极子近似时， $\bvec A(t)$ 与位置无关而只是时间的函数． 我们可以利用这个性质方便地得到另外另种规范． 注意他们只有在偶极子近似时才成立．
+
+\subsection{长度规范}
+
+\begin{equation}
+\Psi(\bvec r, t) = \exp(\I q\chi)\Psi^L(\bvec r, t)
+\end{equation}
+\begin{equation}
+\chi(\bvec r, t) = \bvec A(t) \vdot \bvec r
+\end{equation}
+利用 $-\pdv*{\bvec A}{t} = \bvec {\mathcal E}$（库伦规范+偶极子近似，引用未完成） $\grad \chi = \bvec A(t)$ 所以 $\bvec A' = \bvec 0$； $\pdv*{\chi}{t} = -\bvec {\mathcal E} \vdot \bvec r$． 变换后薛定谔方程为
+\begin{equation}
+\I \pdv{t} \Psi^L = \qty(\frac{\bvec p^2}{2m} + q\varphi + q\bvec{\mathcal{E}} \vdot \bvec r) \Psi^L
+\end{equation}
+这种规范叫做\textbf{长度规范（length gauge）}．
+
+\subsection{速度规范}
+对库仑规范使用规范变换
+\begin{equation}\label{LVgaug_eq3}
+\Psi(\bvec r, t) = \exp(\I q\chi)\Psi^V(\bvec r, t)
+\end{equation}
+\begin{equation}\label{LVgaug_eq4}
+\chi(t) = \frac{q}{2m} \int^t \bvec A^2(t') \dd{t'}
+\end{equation}
+注意\autoref{QMEM_eq5}~\upref{QMEM}中 $\grad \chi = \bvec 0$ 所以 $\bvec A' = \bvec A$． 利用 $\varphi$ 的变换就可以将 $\bvec A^2$ 项消去得\footnote{该式中省略了 $\bvec A', \varphi'$ 的瞥}
+\begin{equation}
+\I \pdv{t} \Psi^V = \qty(\frac{\bvec p^2}{2m} + q\varphi - \frac{q}{m} \bvec A \vdot \bvec p) \Psi^V
+\end{equation}
+这种规范叫做\textbf{速度规范（velocity gauge）}．
+
+

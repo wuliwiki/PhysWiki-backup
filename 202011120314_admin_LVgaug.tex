@@ -1,0 +1,49 @@
+% 速度规范
+% 长度规范|速度规范|波函数|规范变换|薛定谔方程|麦克斯韦方程组
+
+\pentry{电磁场中的单粒子薛定谔方程\upref{QMEM}， 偶极子近似} % 链接未完成
+
+我们只在使用偶极子近似时讨论速度规范， 因为我们接下来需要 $\bvec A, \varphi$ 与位置无关． 当空间中存在静止的电荷分布时， 我们可以把标量势能分为 $V + \varphi$ 两部分． 前者由静止电荷根据库伦定律计算， 不参与规范变换， 在这里我们甚至可以不把它看成电磁力而只是某种其他势能． 后者可以随时间变化， 但库仑规范下 $\varphi = 0$． 定义不含时哈密顿算符为
+\begin{equation}
+H_0 = \frac{\bvec p^2}{2m} + qV
+\end{equation}
+则伦规范下， 电磁场中带电粒子的哈密顿量为（\autoref{QMEM_eq4}~\upref{QMEM}）
+\begin{equation}\label{LVgaug_eq2}
+H = H_0 - \frac{q}{m} \bvec A \vdot \bvec p + \frac{q^2}{2m} \bvec A^2 + q\varphi
+\end{equation}
+其中 $\bvec p = m\bvec v + q\bvec A = -\I \grad$ 是广义动量算符（\autoref{QMEM_eq6}~\upref{QMEM}）． 例如在长度规范\upref{LenGau}下， $\bvec A = 0$， 则 $\bvec p$ 就是通常的动量．
+
+对库仑规范使用规范变换
+\begin{equation}\label{LVgaug_eq3}
+\Psi(\bvec r, t) = \exp(\I q\chi)\Psi^V(\bvec r, t)
+\end{equation}
+\begin{equation}\label{LVgaug_eq4}
+\chi(t) = \frac{q}{2m} \int_{-\infty}^t \bvec A^2(t') \dd{t'}
+\end{equation}
+使用规范变换为（\autoref{QMEM_eq5}~\upref{QMEM}）
+\begin{equation}\label{LVgaug_eq1}
+\bvec A = \bvec A' + \grad \chi = \bvec A'
+\end{equation}
+可见速度规范和库仑规范中的矢势相同， 所以广义动量（\autoref{QMEM_eq6}~\upref{QMEM}）也和库伦规范相同
+\begin{equation}
+\bvec p = m \bvec v + q\bvec A
+\end{equation}
+
+再看标势的变换：
+\begin{equation}\label{LVgaug_eq5}
+\varphi = \varphi' - \pdv{\chi}{t} = - \frac{q}{2m} \bvec A^2
+\end{equation}
+\autoref{LVgaug_eq1} 和\autoref{LVgaug_eq5} 带入\autoref{LVgaug_eq2} 可以消除 $\bvec A^2$ 项得
+\begin{equation}
+H^V = H_0 - \frac{q}{m} \bvec A \vdot \bvec p
+\end{equation}
+薛定谔方程为
+\begin{equation}
+H^V \Psi^V = \I \pdv{t} \Psi^V
+\end{equation}
+这种规范叫做\textbf{速度规范（velocity gauge）}．
+
+与长度规范的关系见\autoref{LenGau_eq3}~\upref{LenGau}
+\begin{equation}
+\Psi^V = \exp[\I q(\chi^L - \chi^V)]\Psi^L = \exp[-\I\frac{q^2}{2m}\int_{-\infty}^t \bvec A^2(t')\dd{t'} + \I q \bvec A\vdot \bvec r] \Psi^L
+\end{equation}

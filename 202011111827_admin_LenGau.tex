@@ -1,0 +1,42 @@
+% 长度规范
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\pentry{电磁场中的单粒子薛定谔方程\upref{QMEM}， 偶极子近似}
+
+当空间中存在静止的电荷分布时， 我们可以把标量势能分为 $V + \varphi$ 两部分． 前者由静止电荷根据库伦定律计算， 不参与规范变换， 在这里我们甚至可以不把它看成电磁力而只是某种一般的势能． 后者可以随时间变化， 但库仑规范下 $\varphi = 0$． 令不含时哈密顿算符为
+\begin{equation}
+H_0 = \frac{\bvec p^2}{2m} + qV
+\end{equation}
+\textbf{以下使用偶极子近似}， 注意 $\bvec A(t)$ 和 $\varphi$ 都与位置无关而只是时间的函数．
+
+要推导长度规范， 我们可以直接使用与规范无关的哈密顿量（\autoref{QMEM_eq2}~\upref{QMEM}）， 即无论什么规范都具有同样的形式：
+\begin{equation}\label{LenGau_eq2}
+H = H_0 - \frac{q}{2m} (\bvec A \vdot \bvec p + \bvec p \vdot \bvec A)
++ \frac{q^2}{2m} \bvec A^2 + q \varphi
+\end{equation}
+长度规范的思路是： 如果使用某种 $\bvec A' = 0$ 的规范， 就可以简化该式． 用不带撇的变量表示库仑规范， 我们令
+\begin{equation}
+\Psi(\bvec r, t) = \exp(\I q\chi)\Psi^L(\bvec r, t)
+\end{equation}
+\begin{equation}
+\chi(\bvec r, t) = \bvec A(t) \vdot \bvec r
+\end{equation}
+利用 $-\pdv*{\bvec A}{t} = \bvec {\mathcal E}$， （$\bvec {\mathcal E}(t)$ 是除静电场以外的含时电场）（库伦规范+偶极子近似，引用未完成）以及 $\varphi = 0$
+\begin{equation}
+\bvec A' = \bvec A - \grad \chi = \bvec 0
+\end{equation}
+\begin{equation}
+\varphi'(t) = \varphi + \pdv*{\chi}{t} = -\bvec {\mathcal E}(t) \vdot \bvec r
+\end{equation}
+由于形式不变， 把 $\bvec A'$ 和 $\varphi'$ 代入\autoref{LenGau_eq2} 得
+\begin{equation}
+H^L = H_0 - q\bvec{\mathcal{E}} \vdot \bvec r
+\end{equation}
+薛定谔方程为
+\begin{equation}
+H^L \Psi^L = \I \pdv{t} \Psi^L
+\end{equation}
+这种规范叫做\textbf{长度规范（length gauge）}．

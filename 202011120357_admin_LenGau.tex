@@ -1,0 +1,54 @@
+% 长度规范
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\pentry{电磁场中的单粒子薛定谔方程\upref{QMEM}， 偶极子近似} % 链接未完成
+
+我们只在使用偶极子近似时讨论长度规范， 因为我们接下来需要 $\bvec A$ 与位置无关． 当空间中存在静止的电荷分布时， 我们可以把标量势能分为 $V + \varphi$ 两部分． 前者由静止电荷根据库伦定律计算， 不参与规范变换， 在这里我们甚至可以不把它看成电磁力而只是某种其他势能． 令不含时哈密顿算符为
+\begin{equation}
+H_0 = \frac{\bvec p^2}{2m} + qV
+\end{equation}
+其中 $\bvec p$ 是所选规范下的广义动量算符（\autoref{QMEM_eq6}~\upref{QMEM}）
+\begin{equation}
+\bvec p = m \bvec v + q\bvec A = -\I \grad
+\end{equation}
+
+我们令 $\bvec A_C, \varphi_C, \Psi_C$ 代表库仑规范， $\bvec A_L, \varphi_L, \Psi_L$ 代表长度规范． 将后者代入与规范无关的哈密顿量（\autoref{QMEM_eq2}~\upref{QMEM}）得
+\begin{equation}\label{LenGau_eq2}
+H_L = H_0 - \frac{q}{2m} (\bvec A_L \vdot \bvec p + \bvec p \vdot \bvec A_L)
++ \frac{q^2}{2m} \bvec A_L^2 + q \varphi_L
+\end{equation}
+
+
+长度规范的思路是： 如果使用某种 $\bvec A' = 0$ 的规范， 就可以简化该式． 用不带撇的变量表示库仑规范， 我们令
+\begin{equation}\label{LenGau_eq1}
+\Psi_C(\bvec r, t) = \exp(\I q\chi)\Psi_L(\bvec r, t)
+\end{equation}
+\begin{equation}
+\chi(\bvec r, t) = \bvec A(t) \vdot \bvec r
+\end{equation}
+利用规范变换为（\autoref{QMEM_eq5}~\upref{QMEM}）， 以及 $-\pdv*{\bvec A}{t} = \bvec {\mathcal E}$， （$\bvec {\mathcal E}(t)$ 是除静电场以外的含时电场）（库伦规范+偶极子近似，引用未完成）以及 $\varphi = 0$
+\begin{equation}
+\bvec A' = \bvec A - \grad \chi = \bvec 0
+\end{equation}
+\begin{equation}
+\varphi'(t) = \varphi + \pdv*{\chi}{t} = -\bvec {\mathcal E}(t) \vdot \bvec r
+\end{equation}
+由于形式不变， 把以上两式代入\autoref{LenGau_eq2} 得
+\begin{equation}
+H^L = H_0 - q\bvec{\mathcal{E}} \vdot \bvec r
+\end{equation}
+薛定谔方程为
+\begin{equation}
+H^L \Psi^L = \I \pdv{t} \Psi^L
+\end{equation}
+这种规范叫做\textbf{长度规范（length gauge）}．
+
+\subsection{与速度规范的关系}
+\addTODO{移动到速度规范}
+对比\autoref{LenGau_eq1} 和\autoref{LVgaug_eq3}~\upref{LVgaug}， 有
+\begin{equation}\label{LenGau_eq3}
+\Psi^L = \exp[\I q(\chi^V - \chi^L)]\Psi^V = \exp[\I\frac{q^2}{2m}\int_{-\infty}^t \bvec A^2(t')\dd{t'} - \I q \bvec A\vdot \bvec r] \Psi^V
+\end{equation}

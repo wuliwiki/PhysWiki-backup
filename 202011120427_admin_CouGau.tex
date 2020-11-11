@@ -1,0 +1,14 @@
+% 库仑规范（量子）
+
+库仑规范\upref{Cgauge}推导起来较为简单， 该规范下， $\div \bvec A = 0$， 标势 $\varphi$ 可直接通过库伦定律（\autoref{Cgauge_eq1}~\upref{Cgauge}）计算
+\begin{equation}
+\varphi(\bvec r, t) = \frac{1}{4\pi\epsilon_0} \int \frac{\rho(\bvec r', t)}{\abs{\bvec r - \bvec r'}} \dd[3]{r'}
+\end{equation}
+结合矢量算符法则\autoref{VopEq_eq1}~\upref{VopEq} 得
+\begin{equation}
+\div (\bvec A \Psi) = (\div \bvec A) \Psi + \bvec A \vdot (\grad \Psi) = \bvec A \vdot (\grad \Psi)
+\end{equation}
+所以\autoref{QMEM_eq2} 变为
+\begin{equation}\label{QMEM_eq4}
+H = -\frac{1}{2m} \laplacian + \I \frac{q}{m} \bvec A \vdot \Nabla + \frac{q^2}{2m} \bvec A^2 + q\varphi
+\end{equation}
