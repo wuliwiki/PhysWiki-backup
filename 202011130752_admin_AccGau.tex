@@ -1,0 +1,35 @@
+% 加速度规范
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{速度规范\upref{LVgaug}}
+
+本文使用原子单位制\upref{AU}以及偶极子近似\upref{DipApr}． 首先注意加速度规范并不是一种规范而只是薛定谔方程的一种变换， 说它是规范只是习惯上的叫法． 改变换也叫做 \textbf{Kramers-Henneberger 变换} 或 \textbf{K-H 变换}． 另一种说法是， 我们使用 \textbf{K-H 参考系}．
+
+一个静止粒子在电磁波到来之前处于静止， 那么接下来它在电磁波作用下的位移为
+\begin{equation}
+\bvec \alpha(t) = q\int_{-\infty}^t \bvec A(t') \dd{t'}
+\end{equation}
+令所谓的
+\begin{equation}
+\chi(\bvec r, \bvec t) = \bvec \alpha(t) \vdot \bvec p
+\end{equation}
+注意这并不是一个函数而是算符， 
+
+\begin{equation}
+\Psi_V(\bvec r, t) = \E^{-\I \bvec \alpha \vdot \bvec p} \Psi_A(\bvec r, t)
+\end{equation}
+这里的 $\bvec p$ 应该是广义动量算符…… 但这岂不是需要五穷阶导数？？
+
+哈密顿量变为
+\begin{equation}
+H_A = -\frac{\bvec p^2}{2m} + V[\bvec r + \bvec \alpha(t)]
+\end{equation}
+其中 $V(\bvec r)$ 是不含时的势能函数（例如原子核对电子的库仑势能）．
+
+薛定谔方程为
+\begin{equation}
+H_A \Psi_A = \I \pdv{t} \Psi_A
+\end{equation}

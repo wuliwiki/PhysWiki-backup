@@ -1,0 +1,219 @@
+% test
+% test|测试|编辑器
+
+\section {误差动力学方程与通信结构的关系推导}
+每辆车的动力学方程
+\begin{equation}
+\begin{bmatrix}
+\dot{p}_{i} \\
+\dot{v}_{i} \\
+\dot{a}_{i}
+\end{bmatrix} =\begin{bmatrix}
+ 0 & 1 & 0\\
+ 0 & 0 & 1\\
+ 0 & 0 &-\frac{1}{\tau}
+\end{bmatrix}\begin{bmatrix}
+p_{i} \\
+v_{i} \\
+a_{i}
+\end{bmatrix} +\begin{bmatrix}
+0 \\
+0 \\
+\frac{1}{\tau}
+\end{bmatrix}u_{i}
+\end{equation}
+即$\dot{x}=Ax+Bu$
+
+如果引入集总状态向量，那么
+\begin{equation}
+\begin{bmatrix}
+\dot{x} _{1} \\
+\dot{x} _{2} \\
+\dot{x} _{3} \\
+\vdots  \\
+\dot{x} _{N}
+\end{bmatrix}=\begin{bmatrix}
+Ax _{1}+Bu_{1} \\
+Ax _{2}+Bu_{2}\\
+Ax _{3}+Bu_{3} \\
+\vdots  \\
+Ax _{N}+Bu_{N}
+\end{bmatrix}=\begin{bmatrix}
+ A &  &  &  & \\
+  & A &  &  & \\
+  &  & A &  & \\
+  &  &  & \ddots  & \\
+  &  &  &  &A
+\end{bmatrix}\begin{bmatrix}
+x _{1} \\
+x _{2}\\
+x _{3} \\
+\vdots  \\
+x _{N}
+\end{bmatrix}+\begin{bmatrix}
+ B &  &  &  & \\
+  & B &  &  & \\
+  &  & B &  & \\
+  &  &  & \ddots  & \\
+  &  &  &  &B
+\end{bmatrix}\begin{bmatrix}
+u _{1} \\
+u _{2}\\
+u _{3} \\
+\vdots  \\
+u _{N}
+\end{bmatrix}
+\end{equation}
+记为$\dot{X} =\mathbb{A} X+\mathbb{B} U$
+
+\subsection {线性控制器}
+假如我们设计的第$i$辆车的线性控制器结构是
+\begin{equation}
+\begin{aligned}u_{i}(t)&=-\sum_{j\in \mathbb{I}_{i} }^{} [k_{p}(p_{i}(t)-p_{j}(t)-d_{ij})+k_{v}(v_{i}(t)-v_{j}(t))+k_{a}(a_{i}(t)-a_{j}(t))]\\
+&=-\sum_{j\in \mathbb{I}_{i} }^{}k_{ij}^T(e _{i}(t)-e_{j}(t))
+\end{aligned}
+\end{equation}
+这里的$k_{ij}^T=[k_{ij,p}\ k_{ij,v}\ k_{ij,a}]$，$e _{i}(t)=x_{i}(t)-x_{0}(t)-\tilde{d} _{i}$
+
+
+其中
+\begin{equation}
+\begin{aligned}
+U(t)=\begin{bmatrix}
+u_{1}(t) \\
+u_{2}(t)  \\
+\vdots  \\
+u_{N}(t)
+\end{bmatrix}
+&=\begin{bmatrix}
+-\sum_{j\in \mathbb{I}_{1} }^{}(k_{1j}^T(e _{1}(t)-e_{j}(t)) \\
+-\sum_{j\in \mathbb{I}_{2} }^{}(k_{2j}^T(e _{2}(t)-e_{j}(t))\\
+\vdots   \\
+-\sum_{j\in \mathbb{I}_{N} }^{}(k_{Nj}^T(e _{N}(t)-e_{j}(t))
+\end{bmatrix}\\
+&=
+-\begin{bmatrix}
+p_{1}k_{10}^T+\sum_{j=1}^{N}a_{1j}k_{1j}^T   & -a_{12}k_{12}^T & \cdots  & -a_{1N}k_{1N}^T\\
+-a_{21}k_{21}^T  &  p_{2}k_{20}^T+\sum_{j=1}^{N}a_{2j}k_{2j}^T& \cdots  &-a_{2N}k_{2N}^T \\
+  \vdots & \vdots  & \ddots  & \vdots \\
+-a_{N1}k_{N1}^T  & -a_{N2}k_{N2}^T & \cdots  &p_{N}k_{N0}^T+\sum_{j=1}^{N}a_{Nj}k_{Nj}^T
+\end{bmatrix}\begin{bmatrix}
+e _{1}(t) \\
+e_{2}(t) \\
+\vdots  \\
+e_{N}(t)
+\end{bmatrix}\\
+&=-(\mathcal{L} +\mathcal{P})\otimes k^T\cdot E(t)
+\end{aligned}
+\end{equation}
+因此如果将系统的动力学方程用表示拓扑结构的矩阵表示，就可以得到$\dot{X} =\mathbb{A}X+\mathbb{B} U=\mathbb{A}X-\mathbb{B}(\mathcal{L} +\mathcal{P})\otimes k^T\cdot E$．
+
+这里的$X=[x _{1}^T\ x _{2}^T\ \cdots \ x _{N}^T]^T$是集总状态向量，$E=[e _{1}\ e _{2}\ \cdots \ e _{N}]^T$是集总误差状态向量，所以为了统一起见，最好将动力学方程改为误差动力学方程．（但如果选择其他的状态变量的话或者别的控制器结构也可以，但对应的形式肯定会有所不同）
+
+
+误差动力学方程的推导：
+%$X=\begin{bmatrix}
+% p_{1} & v_{1} &a_{1} \\ p_{2}  &v_{2} &a_{2} \\ \vdots  & \vdots  &\vdots  \\p_{N}  &  v_{N} &a_{N}
+%\end{bmatrix}$，故$\dot{X} =\begin{bmatrix}
+%v_{1} &a_{1}&\dot{a} _{1} \\v_{2} &a_{2}&\dot{a} _{2} \\
+%\vdots  &\vdots &\vdots \\v_{N} &a_{N}&\dot{a} _{N}
+%\end{bmatrix}$
+
+
+$E=\begin{pmatrix}
+p_{1}(t)-p_{0}(t)-d _{10} \\ v_{1}(t)-v_{0}(t)\\ a_{1}(t)-a_{0}(t)\\ p_{2}(t)-p_{0}(t)-d _{20}\\ v_{2}(t)-v_{0}(t)\\ a_{2}(t)-a_{0}(t)\\
+\vdots \\
+p_{N}(t)-p_{0}(t)-d _{N0} \\ v_{N}(t)-v_{0}(t) \\ a_{N}(t)-a_{0}(t)  \\
+\end{pmatrix}$，
+故$\dot{E} =\begin{pmatrix}
+v_{1}(t)-v_{0}(t)\\ a_{1}(t)-a_{0}(t)\\\dot{a} _{1}(t)-\dot{a}_{0}(t)\\v_{2}(t)-v_{0}(t)\\a_{2}(t)-a_{0}(t)\\ \dot{a} _{2}(t)-\dot{a}_{0}(t)\\
+\vdots \\
+v_{N}(t)-v_{0}(t) \\a_{N}(t)-a_{0}(t)  \\\dot{a} _{N}(t)-\dot{a}_{0}(t)
+\end{pmatrix}$
+不难得到$\dot{E} =\mathbb{A} E+\mathbb{B} U$，
+
+将$U=-(\mathcal{L} +\mathcal{P})\otimes k^T\cdot E$代入误差动力学特性方程，得到
+
+$\dot{E} =(I_{N}\otimes \mathbb{A} -I_{N}\otimes \mathbb{B}\cdot(\mathcal{L} +\mathcal{P})\otimes k^T)\cdot E=(I_{N}\otimes \mathbb{A} -(\mathcal{L} +\mathcal{P})\otimes\mathbb{B}  k^T)\cdot E$
+\subsection {MPC控制器}
+在MPC里，邻接矩阵$\mathcal{A}$，拉普拉斯矩阵$\mathcal{L}$和牵引矩阵$\mathcal{P}$很少用到的，更多的是利用这些矩阵对应的集合，称为邻域集$\mathbb{N} _{i}$，可达性集合$\mathbb{P} _{i}$和可使用的邻域信息$\mathbb{I} _{i}=\mathbb{N} _{i} \cup  \mathbb{P} _{i}$．
+\subsection {分布式MMPC—匀质队列—模仿}
+第i辆车的动力学方程：
+$\begin{pmatrix}
+\dot{p} _{i}(t) \\
+\dot{v} _{i} (t)\\
+\dot{a} _{i}(t)
+\end{pmatrix}=\begin{pmatrix}
+ 0 & 1 &0\\
+ 0 & 0 & 1\\
+ 0 & 0 &-\frac{1}{\tau }
+\end{pmatrix}\begin{pmatrix}
+p _{i}(t) \\
+v _{i} (t)\\
+a _{i}(t)
+\end{pmatrix}+\begin{pmatrix}
+0 \\
+0\\
+\frac{1}{\tau }
+\end{pmatrix}u_{i}(t) $
+
+
+以T为采样周期离散化后的动力学方程为：
+$\begin{pmatrix}
+p_{i}(k+1) \\
+v_{i} (k+1)\\
+a_{i}(k+1)
+\end{pmatrix}=\begin{pmatrix}
+ 1 & T &0\\
+ 0 & 1 & T\\
+ 0 & 0 &1-\frac{T}{\tau }
+\end{pmatrix}\begin{pmatrix}
+p _{i}(k) \\
+v _{i} (k)\\
+a _{i}(k)
+\end{pmatrix}+\begin{pmatrix}
+0 \\
+0\\
+\frac{T}{\tau }
+\end{pmatrix}u_{i}(k)$\\
+
+令$x_{i}(k)=\begin{pmatrix}
+p_{i}(k) \\
+v_{i} (k)\\
+a_{i}(k)
+\end{pmatrix}$，得到$x_{i}(k+1)=Ax_{i}(k)+Bu_{i}(k)$
+
+
+文章中有$u_{i}(k)=u_{i}(k-1)+\Delta u_{i}(k)$，所以模仿一下，将状态空间模型重新写成：
+\begin{equation}
+  \begin{bmatrix}
+x_{i}(k+1) \\
+u_{i}(k)
+\end{bmatrix}=\begin{bmatrix}
+A  &B\\
+ 0 &I
+\end{bmatrix}\begin{bmatrix}
+x_{i}(k) \\
+u_{i}(k-1)
+\end{bmatrix}+\begin{bmatrix}
+B \\
+I
+\end{bmatrix}\Delta u_{i}(k)
+\end{equation}
+令$\mathcal{X} _{i}(k)=\begin{bmatrix}
+x_{i}(k) \\
+u_{i}(k-1)
+\end{bmatrix}$，故得
+\begin{equation}
+\mathcal{X} _{i}(k+1)=\mathcal{A} \mathcal{X}_{i}(k)+\mathcal{B}\Delta u_{i}(k)\end{equation}\\
+由于MMPC每次只更新一个控制输入，其他的控制输入保持不变，故得：
+\begin{equation}
+\mathcal{X} _{i}(k+1)=\mathcal{A} \mathcal{X}_{i}(k)+\mathcal{B}_{\sigma (k)}\Delta \hat{u} _{i}(k)
+\end{equation}
+但是这里有个问题，$\sigma(k)=(k\mod{m})+1$，这里的$m$是控制输入的个数，但是一辆车只有一个控制输入，所以$m=1$，但是这样就没有意义了．
+
+
+
+
+
+

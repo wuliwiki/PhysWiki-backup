@@ -1,0 +1,96 @@
+% 氢原子电离截面
+% 一阶微扰理论|氢原子|偶极子
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{类氢原子的波函数\upref{HWF}}
+
+本文使用原子单位制\upref{AU}．一阶微扰理论就是单光子电离．
+
+基态与平面波的积分
+
+\begin{equation}
+\bvec d_{\bvec k} =  \mel{\bvec k}{\bvec r}{0} =  \frac{ \uvec k}{\sqrt2\pi} \int_0^{+\infty} \int_0^\pi \E^{-r} \E^{-\I k r \cos\theta} r \cos\theta \cdot r^2 \sin\theta \dd{\theta} \dd{r}
+\end{equation}
+换元， 令 $u = \cos\theta$， 得
+\begin{equation}\ali{% 已检查多次
+\bvec d_{\bvec k} &= \frac{\uvec k}{\sqrt{2}\pi}  \int_0^{+\infty} r^3 \E^{-r} \int_{-1}^1 \E^{-\I k r u} u  \dd{u} \cdot \dd{r}\\
+&=  \I\frac{\sqrt2 \uvec k}{\pi k}  \int_0^{+\infty} r^2 \E^{-r} \qty[\cos(kr) - \frac{1}{kr}\sin(kr)] \dd{r}\\
+&= -\I \frac{8\sqrt2}{\pi} \frac{\bvec k}{(k^2+1)^3}
+}\end{equation}
+
+严格来说， 需要把平面波替换为库仑函数．
+
+\subsection{长度规范下的微扰跃迁理论}
+含时微扰理论（\autoref{TDPT_eq10}~\upref{TDPT}） 为
+\begin{equation}\label{HionCr_eq1}
+c_i(t) = -\I \int_0^t \mel{i}{H'(t)}{j} \E^{\I\omega_{ij} t} \dd{t}
+\end{equation}
+长度规范\upref{LenGau}中，
+\begin{equation}
+H'(t) = -q\bvec {\mathcal E} \vdot \bvec r
+\end{equation}
+$\bvec {\mathcal E}$ 只是 $t$ 的函数， 可以分离
+\begin{equation}
+\mel{i}{H'(t)}{j} = -q\bvec {\mathcal E} \vdot \mel{i}{\bvec r}{j}
+\end{equation}
+令
+\begin{equation}
+\tilde {\bvec {\mathcal E}}(\omega) = \frac{1}{\sqrt{2\pi}} \int \bvec {\mathcal E}(t) \E^{-\I\omega t} \dd{t}
+\end{equation}
+代入\autoref{HionCr_eq1} 得
+\begin{equation}
+c_i(t) = \I q \mel{i}{\bvec r}{j} \int_0^t \bvec {\mathcal E(t)} \vdot  \E^{\I\omega_{ij} t} \dd{t} = \I \sqrt{2\pi} q \mel{i}{\bvec r}{j} \tilde {\bvec {\mathcal E}}(-\omega_{ij})
+\end{equation}
+跃迁概率为
+\begin{equation}\label{HionCr_eq2}
+P_{i\to j} = \abs{c_i(t)}^2 = -2\pi q^2 \abs{\mel{i}{\bvec r}{j}}^2 \abs{\tilde {\bvec {\mathcal E}}(\omega_{ij})}^2
+\end{equation}
+结合\autoref{WpEng_eq3}~\upref{WpEng}
+\begin{equation}
+s(\omega) = 2c\epsilon_0 \abs{\tilde {\bvec {\mathcal E}}(\omega)}^2
+\end{equation}
+得
+\begin{equation}
+P_{i\to j} = -\frac{\pi q^2}{c\epsilon_0} \abs{\mel{i}{\bvec r}{j}}^2 s(\omega)
+\end{equation}
+
+\subsection{速度规范下的微扰跃迁理论}
+\footnote{参考\cite{Merzbacher} 含时微扰相关章节．}速度规范\upref{LVgaug}中，
+\begin{equation}
+H'(t) = -\frac{q}{m}\bvec A \vdot \bvec p = \frac{\I q}{m}\bvec A \vdot \grad
+\end{equation}
+$\bvec A$ 只是 $t$ 的函数， 可以分离
+\begin{equation}
+\mel{i}{H'(t)}{j} = -\frac{q}{m}\bvec A(t) \vdot \mel{i}{\bvec p}{j}
+\end{equation}
+令
+\begin{equation}
+\tilde {\bvec A}(\omega) = \frac{1}{\sqrt{2\pi}} \int \bvec A(t) \E^{-\I\omega t} \dd{t}
+\end{equation}
+代入\autoref{HionCr_eq1} 得
+\begin{equation}\label{HionCr_eq4}
+c_i(t) = \frac{\I q}{m} \mel{i}{\bvec p}{j} \int_0^t  \bvec A(t) \E^{\I\omega_{ij} t} \dd{t} = \I\sqrt{2\pi}\frac{q}{m} \mel{i}{\bvec p}{j} \tilde {\bvec A}(-\omega_{ij})
+\end{equation}
+跃迁概率为
+\begin{equation}\label{HionCr_eq3}
+P_{i\to j} = \abs{c_i(t)}^2 = -\frac{2\pi q^2}{m^2} \abs{\mel{i}{\bvec p}{j}}^2 \abs{\tilde {\bvec A}(\omega_{ij})}^2
+\end{equation}
+结合波包的频谱公式（\autoref{WpEng_eq5}~\upref{WpEng}）
+\begin{equation}
+s(\omega) = 2c\epsilon_0 \omega^2 \abs{\tilde {\bvec A}(\omega_{ij})}^2
+\end{equation}
+\begin{equation}
+P_{i\to j} = -\frac{\pi q^2}{c\epsilon_0 m^2 \omega^2} \abs{\mel{i}{\bvec p}{j}}^2 s(\omega_{ij})
+\end{equation}
+
+\subsubsection{两种规范比较}
+把\autoref{LVgaug_eq6}~\upref{LVgaug} 和\autoref{WpEng_eq4}~\upref{WpEng} 带入\autoref{HionCr_eq4} 可以证明， 如果 $\braket{i}{j} = 0$， \autoref{HionCr_eq2} 和\autoref{HionCr_eq3} 是相等的， 但是如果 $\ket{i}$ 是平面波， 而 $\ket{j}$ 是氢原子束缚态， 则内积不为零， 不同规范结果不同．
+
+\subsection{电离截面}
+截面可以想象成是电磁波传播方向垂直放置的一块面积为 $\sigma$ 的面元， 使得原子从电磁波中吸收的功率恰好等于电磁波经过该面元的功率．
+\begin{equation}
+\dv{E}{\omega} = \sigma(\omega) s(\omega)
+\end{equation}
