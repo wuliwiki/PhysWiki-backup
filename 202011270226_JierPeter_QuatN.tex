@@ -1,0 +1,96 @@
+% 四元数与旋转矩阵
+% 线性代数|矩阵|绕轴旋转矩阵|旋转矩阵|四元数|基底|基底变换矩阵
+
+\begin{issues}
+\issueAbstract
+\issueTODO
+\end{issues}
+
+\pentry{绕轴旋转矩阵\upref{RotA}， 旋转矩阵的导数\upref{RotDer}，四元数\upref{Quat}}
+
+四元数可以用来简洁地表示三维空间中的旋转，极大地减少了计算量．
+
+三维空间中的一个向量表示为标部为$0$的四元数：$v=\pmat{0, \bvec{v}}$．如果我们绕着一个单位向量$\hat{\bvec{n}}$把$\bvec{v}$旋转一个角度$\theta$，所得的结果应该是哪个向量呢？取四元数$q=\pmat{\cos{\frac{\theta}{2}}, \hat{\bvec{n}}\sin{\frac{\theta}{2}}}$，那么旋转后的向量就可以表示为
+\begin{equation}
+qvq^{-1}
+\end{equation}
+
+比如说，取$v=(0, 1, 0, 0)$，它代表一个$x$轴上的单位向量．如果想要把它绕着$z$轴上的单位向量转$\pi/2$，那么结果向量的四元数表示应该是$(0, 0, 1, 0)$．按照我们定义的规则，旋转表示为四元数$q=(\sqrt{2}/2, 0, 0, \sqrt{2}/2)$，按照四元数的乘法规则易得$qvq^{-1}=(0,0,1,0)$．
+
+\subsection{证明}
+
+取四元数$q=\pmat{\cos{\frac{\theta}{2}}, \hat{\bvec{n}}\sin{\frac{\theta}{2}}}$和$v=(0, \bvec{v})$，直接计算得：
+
+\begin{equation}
+\begin{aligned}
+qvq^{-1}&=\pmat{\cos{\frac{\theta}{2}}, \hat{\bvec{n}}\sin{\frac{\theta}{2}}}\cdot (0, \bvec{v})\cdot q^{-1}\\&
+=(-\bvec{v}\cdot\hat{\bvec{n}}\sin{\frac{\theta}{2}}, \bvec{v}\cos{\frac{\theta}{2}}+\hat{\bvec{n}}\times\bvec{v}\sin{\frac{\theta}{2}})\cdot (\cos{\frac{\theta}{2}}, -\hat{\bvec{n}}\sin{\frac{\theta}{2}})\\&
+=(0, \cos^2\frac{\theta}{2}\bvec{v}+\cos\frac{\theta}{2}\sin\frac{\theta}{2}\hat{\bvec{n}}\times\bvec{v}+(\hat{\bvec{n}}\cdot\bvec{v})\sin^2\frac{\theta}{2}\hat{\bvec{n}})\\&
+=(0, \frac{\cos\theta+1}{2}\bvec{v}+\frac{1}{2}\sin\theta\hat{\bvec{n}}\times\bvec{v}+\hat{\bvec{n}}\cdot\bvec{v}\sin^2\frac{\theta}{2}\hat{\bvec{n}})
+\end{aligned}
+\end{equation}
+
+如果取$\bvec{v}\perp\hat{\bvec{n}}$，那么上式可以化简为
+\begin{equation}
+\begin{aligned}
+qvq^{-1}&=(0, \cos\theta\bvec{v}+\sin\theta\hat{\bvec{n}}\times\bvec{v})
+\end{aligned}
+\end{equation}
+
+这正是$\bvec{v}$绕$\hat{\bvec{n}}$旋转$\theta$的结果．
+
+如果取$\bvec{v}\parallel\hat{\bvec{n}}$，那么上式化为
+\begin{equation}
+\begin{aligned}
+qvq^{-1}&=(0, \cos^2\frac{\theta}{2}\bvec{v}+\sin^2\frac{\theta}{2}\bvec{v})=(0, \bvec{v})=v
+\end{aligned}
+\end{equation}
+
+这也是$\bvec{v}$绕$\hat{\bvec{n}}$旋转$\theta$的结果．
+
+综上所述，取任意向量$\bvec{v}$，把它分为垂直和平行于旋转轴的$\bvec{v}_\perp$和$\bvec{v}_\parallel$，分别对应四元数$v_\perp$和$v_\parallel$，那么$q v_\perp q^{-1}$和$q v_\parallel q^{-1}$分别对应这两个向量旋转后的结果．故取$v=v_\perp+v_\parallel$为$\bvec{v}$对应的四元数
+
+
+
+
+
+
+\subsection{旋转矩阵}
+我们可以用\textbf{四元数（quaternions ）} $\bvec q = [s, \bvec v]$ 来表示绕轴旋转矩阵， 其中
+\begin{equation}
+s = \cos(\frac{\theta}{2}) \qquad v = \abs{\bvec v} = \sin(\frac{\theta}{2})\uvec A
+\end{equation}
+则绕轴旋转矩阵\upref{RotA}可以表示为
+\begin{equation}\label{QuatN_eq2}
+\mat R(\theta) =
+\begin{pmatrix}
+1 - 2v_y^2 - 2v_z^2 & 2v_xv_y - 2sv_z  & 2v_x v_z + 2s v_y\\
+2v_x v_y + 2sv_z & 1 - 2v_x^2 - 2v_z^2 & 2v_y v_z - 2s v_x\\
+2v_x v_z - 2s v_y & 2v_y v_z + 2s v_x & 1 - 2v_x^2 - 2v_y^2
+\end{pmatrix}
+\end{equation}
+
+四元数的乘法运算可以表示两个旋转矩阵相乘， 即把两次旋转合并为一次旋转
+\begin{equation}
+[s_1, \bvec v_1] [s_2, \bvec v_2] = [s_1 s_2 - \bvec v_1 \vdot \bvec v_2, s_1 \bvec v_2 + s_2 \bvec v_1 + \bvec v_1 \cross \bvec v_2]
+\end{equation}
+% 推导未完成
+
+\subsection{导数}
+若从坐标系 B 到坐标系 A 的基底变换矩阵为 $\mat R$， 当 B 绕原点以角速度 $\bvec \omega$ 旋转时有（\autoref{RotDer_eq4}~\upref{RotDer}）
+\begin{equation}
+\dv{\mat R}{t} = \mat \Omega \mat R
+\end{equation}
+其中 $\mat\Omega$ 乘以任意位置矢量 $\bvec r$ 等于 $\bvec \omega \cross \bvec r$
+\begin{equation}
+\mat \Omega = \pmat{
+0 & -\omega_z & \omega_y\\
+\omega_z & 0 & -\omega_x\\
+-\omega_y & \omega_x & 0
+}\end{equation}
+若旋转矩阵 $\mat R$ 对应的四元数为 $\bvec q$， 则
+\begin{equation}\label{QuatN_eq1}
+\dot {\bvec q}(t) = \frac12 [0, \bvec \omega(t)] \bvec q(t)
+\end{equation}
+
+% 推导大概就是旋转微小角度然后取极限
