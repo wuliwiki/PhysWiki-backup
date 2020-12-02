@@ -1,0 +1,217 @@
+% Quaternion and Rotation
+
+
+
+\subsection{The History of Quaternions}
+
+It is known that a complex numbers can be defined as odered pairs of real numbers, or the field extension of $\mathbb{R}$ by adding the new element $\I$. 
+
+Complex numbers are broadly applied, because they have almost perfect algebraic and analytic properties, making many difficult calculations simple or even possible. John Derbyshire addressed in his book \textsl{Unknown Quantity: Real and Imaginary History of Algebra} that "If passing from the real numbers, which are merely onedimensional, to the complex numbers, which are two-dimensional, gives us such a huge increase in power and insight, why stop there? Might there not be other kinds of numbers waiting to be discovered-hyper-complex numbers, so to speak—whose natural representation is three-dimensional? And might those numbers not bring with them a vast new increase in our mathematical understanding?"\footnote{John Derbyshire, \textsl{Unknown Quantity: A Real and Imaginary History of Algebra}, 2006, Joseph Henry Press, Ch. 8, pp. 148. }
+
+The Irish mathematician from the early 19th century, William Hamilton, was in search of three-dimensional numbers with a well-defined multiplication, hopefully corresponding to the three dimensional coordinates. However, he exerted years of efforts, and still couldn't find a multiplication on the ordered triple of real numbers that satisfies associativity and distributivity. The fact is, there is no such three dimensional algebra, but Hamilton didn't know at that time. 
+
+
+The day was October 16, 1843, when Hamilton was walking to the Council of the Royal Irish Academy with his wife, "a spark flashed forth the herald of many long years to come of definitely directed thought and work", he realized what he should have been chasing after. He couldn't "resist the impulse—unphilosophical as it may have been—to cut with a knife on a stone of Brougham Bridge" the fundamental formula with the symbols $\I, \mathrm{J}, \mathrm{K}$:
+
+\begin{equation}
+\I^2=\mathrm{j}^2=\mathrm{k}^2=\I\mathrm{j}\mathrm{k}=-1
+\end{equation}
+which "contains the Solution of the Problem, but, of course, the inscription
+has long since mouldered away."\footnote{Derbyshire, pp. 151. }
+
+\subsection{The Definition of Quaternions}
+
+The modern version of the definition takes each quaternion as a combinition of one real number and one three-dimensional real vector: $(a_0, \bvec{a})$. In such a context, $\I$，$\mathrm{j}$，$\mathrm{k}$ are interpreted as vectors that forms an orthonormal basis. To avoid potential confusions, we rephrase the three base vectors as $\uvec i, \uvec j$ 和 $\uvec k$, and define the operation of quaternions as follows: 
+
+
+
+\begin{definition}{The Arithmetic of Quaternions}
+Let $\mathbb{H}=\{(a_0, \bvec{a})|a_0\in\mathbb{R}, \bvec{a}\in\mathbb{R}^3\}$be the set of quaternions. For $\forall(a_0, \bvec{a}), (b_0, \bvec{b})\in\mathbb{H}$, the \textbf{addition} is defined as:
+\begin{equation}
+(a_0, \bvec{a})+ (b_0, \bvec{b})=(a_0+b_0, \bvec{a}+\bvec{b})
+\end{equation}
+and the \textbf{multiplication} is defined as (usually the sign is left out):
+\begin{equation}\label{QuaRot_eq1}
+(a_0, \bvec{a})\times (b_0, \bvec{b})=(a_0b_0-\bvec{a}\cdot\bvec{b}, a_0\bvec{b}+b_0\bvec{a}+\bvec{a}\times\bvec{b})
+\end{equation}
+\end{definition}
+
+
+Note that though the addition of quaternions apparently commutes, the multiplication does not, because generally the cross product of vecters doesn't commute. Only when $\bvec{a}$ is parallel to $\bvec{b}$ (including the case where one of them is $\bvec 0$) can we say $\bvec{a}\times\bvec{b}= \bvec{0} =\bvec{b}\times\bvec{a}$. Nonetheless, it is safe to say that the multiplication satisfies the distributivity. 
+
+
+
+For a quaternion $A=(a_0, \bvec{a})$, the real number $a_0$ is called the \textbf{real part} , and the vector $\bvec{a}$ is called the \textbf{vector part}. For convenience, sometimes we also write such a quaternion as $a_0+\bvec{a}$, comparable to the representation of a complex number $(a, b)=a+b\I$. When the real part is $0$, we cal also just write the quaternion as $\bvec{a}$; similarly, when the vector part is $\bvec{0}$, we can write the quaternion as $a_0$. In that notation, we can interpret $a_0+\bvec{a}$ as the addition of two quaternions. Similar to the case for complex numbers, we take the quaternions whose realparts are $0$ as real numbers. 
+
+
+
+如果我们把四元数的矢部限制在一个方向上，那么得到的运算结构实际上就是复数．你可以通过比较四元数乘法规则和复数乘法规则来看出这一点——注意在限制条件下任何矢部的向量积都是$\bvec{0}$.
+
+除了把四元数看成一个标量加一个三维矢量以外，我们也可以把四元数看成一个四维矢量， 就像复数既可以看成一个实数配上一个一维矢量， 也可以看成一个二维矢量一样．这种情况下，四元数实际上就是实数域上的一个四维\textbf{代数}\upref{AlgFie}\footnote{从代数角度来说，Hamilton爵士当年苦苦思索多年的问题就是“是否存在实数域上的三维代数”，今天我们已经知道，实数域上只存在一维、二维、四维和八维的“具有积性的可除代数”，分别对应实数、复数、四元数和八元数，其中四元数已经不具有交换性，而八元数连结合性都丢了．这里的“积性”是指$\abs{a}\abs{b}=\abs{ab}$，而“可除性”就是“乘法单位元存在性”．}．
+
+和复数一样，四元数也有共轭和模的概念．
+
+\begin{definition}{共轭、模方和模}
+\begin{itemize}
+\item 令四元数为$A=a_0+\bvec{a}$，记$\widetilde{A}=a_0-\bvec{a}$，称为$A$的\textbf{共轭（conjugate）}．
+\item 记 $||A||=||\widetilde{A}||=A\widetilde{A}=\widetilde{A}A=a_0^2+ \abs{\bvec{a}}^2$，称为 $A$ 的\textbf{模方}．
+\item 记 $|A|=\sqrt{||A||}$，称为 $A$ 的\textbf{模}．
+\end{itemize}
+\end{definition}
+
+\begin{exercise}{}\label{QuaRot_exe1}
+\begin{itemize}
+\item 证明四元数满足乘法结合律
+\item 证明 $||A||=||\widetilde{A}||=\widetilde{A}A=a_0^2 + \abs{\bvec{a}}^2$
+\item 证明若将单位矢量 $\uvec e$ 看作四元数（实部为零）， 证明 $\uvec{e}^2=-1,\ \uvec{e}^3=-\uvec{e}$
+\end{itemize}
+\end{exercise}
+
+\subsection{四元数的指数表示}
+
+记 $\E$ 是自然对数的底数，那么对于任意实数 $x$，有 $\E^x = \sum^\infty\limits_{n=0} x^n / n!$．如果把实数$x$替换为其它能够进行乘方的对象，比如说矩阵、复数等，那么还可以把指数的概念拓展到更多的对象上，构造出复数的指数、矩阵的指数等．
+
+四元数也可以乘方，因此可以定义四元数的指数：
+
+\begin{definition}{四元数的指数表示}
+
+令四元数为$A=a_0+\bvec{a}$，则使用四元数的乘法（\autoref{QuaRot_eq1}），定义（类比复数的指数函数定义\upref{CExp}）
+\begin{equation}
+\E^A=\E^{a_0}\E^{\bvec{a}}=\E^{a_0}\sum^\infty\limits_{n=0}\frac{\bvec{a}^n}{n!}=\E^{a_0}\sum^\infty\limits_{n=0}\frac{(a \uvec a)^n}{n!}=\E^{a_0}[\cos{a}+\sin({a}\uvec{a})]
+\end{equation}
+其中$\uvec{a}$是和$\bvec{a}$同方向的单位矢量，$a$是 $\bvec{a}$ 作为四元数的模或者作为三维实矢量的模．
+\end{definition}
+
+\begin{exercise}{与复数的类比}
+
+比较复数和四元数的指数表示，说明为什么可以将复数看成矢部限制在一个方向上的四元数．
+
+\end{exercise}
+
+由于四元数的加法满足交换律，而乘法一般不满足，因此一般情况下四元数并不满足 $\E^{A+B} = \E^A \E^B$．因此，四元数的指数表示法在计算中其实用得不多．
+
+\subsection{四元数的拓展}
+
+我们以上定义的四元数，可以看成四个基矢量 $1$， $\uvec i$， $\uvec j$ 和 $\uvec k$ 的线性组合的集合， 而这些线性组合的系数取自实数域 $\mathbb R$． 如果系数还可以取自复数域 $\mathbb C$， 定义出来的数被称为\textbf{双四元数}， 或\textbf{复四元数}．一个双四元数可以看成一个复数和一个复数域上的三维矢量的组合．
+
+对于一个双四元数$A=a_0+a_1 \uvec i+a_2\uvec j+a_3\uvec k$，共轭的概念就被细分了：
+
+\begin{definition}{双四元数的共轭}
+\begin{itemize}
+\item 四元共轭：$\widetilde{A}=a_0-a_1\uvec i-a_2\uvec j-a_3\uvec k$
+\item 反共轭：$A^C=a_0\Cj + a_1\Cj\uvec i+a_2\Cj\uvec j+a_3\Cj\uvec k$
+\item 转置：$A^T=a_0+a_1\uvec i-a_2\uvec j+a_3\uvec k$
+\item 复共轭：$A\Cj=a_0\Cj-a_1\Cj\uvec i+a_2\Cj\uvec j-a_3\Cj\uvec k$
+\item 厄密（hermitian）共轭：$A^\dagger=a_0\Cj-a_1\Cj\uvec i-a_2\Cj\uvec j-a_3\Cj\uvec k$
+\end{itemize}
+\end{definition}
+
+双四元数的模方是用四元共轭定义的：$||A||=A\widetilde{A}=\widetilde{A}A=\sum^{3}_{n=0}a^2_n$．但是和四元数不同的是，双四元数的模方并不总是非负实数，而是有可能取任何复数．
+
+\begin{exercise}{双四元数共轭模方的关系}
+
+证明：$||A||=||\widetilde{A}||=||A^T||=||A^C||^*=||A^*||^*=||A^\dagger||^*$．
+
+\end{exercise}
+
+\begin{exercise}{双四元数共轭的乘法规律}
+设$A$和$B$是两个双四元数，证明：
+\begin{equation}
+\leftgroup{
+&A^CB^C=(AB)^C\\
+&A^*B^*=(AB)^*\\
+&\widetilde{A}\widetilde{B}=\widetilde{BA}\\
+&A^TB^T=(BA)^T\\
+&A^\dagger B^\dagger=(BA)^\dagger
+}
+\end{equation}
+
+\end{exercise}
+
+和普通四元数不同的是，双四元数中有可能存在非零但模为0的数，比如下面\autoref{QuaRot_ex1} 所举例的$u$和$v$．
+
+类似地，让四元数的系数取值为四元数，所得到的数被称为\textbf{二级四元数}．一般地，让四元数的系数取值为$n$\textbf{级四元数}，则能得到$n+1$\textbf{级四元数}．但是由于四元数不再是一个域，也没有交换律，用其做系数的效果远远不如复数系数，应用范围相对有限，在此不作详细介绍．
+
+
+\subsection{四元数的矩阵表示}
+
+如果将四元数的四个基 $1, \uvec i, \uvec j$ 和 $\uvec k$ 分别对应到以下四个矩阵
+
+\begin{equation}
+1=\begin{pmatrix}1&0\\0&1\end{pmatrix} 
+\qquad
+\uvec i=\begin{pmatrix}\I&0\\0&-\I\end{pmatrix} 
+\qquad
+\uvec j=\begin{pmatrix}0&1\\-1&0\end{pmatrix} 
+\qquad
+\uvec k=\begin{pmatrix}0&\I\\\I&0\end{pmatrix} 
+\end{equation}
+那么一个任意的四元数或双四元数$A=a_0+\bvec{a}$可以用矩阵表示为
+\begin{equation}
+\begin{pmatrix}a_0+\I a_1&a_2+\I a_3\\-a_2+\I a_3&a_0-\I a_1 \end{pmatrix} 
+\end{equation}
+
+\begin{example}{矩阵表示的例子}\label{QuaRot_ex1}
+\begin{equation}
+1+\begin{pmatrix}1\\0\\\I\end{pmatrix} =1+1\uvec i+\I\uvec j =\begin{pmatrix}1+\I&-1\\-1&1-\I\end{pmatrix} 
+\end{equation}
+\begin{equation}
+u=\frac{1}{2}(1-\I\uvec i)=\begin{pmatrix}1&0\\0&0\end{pmatrix} 
+\end{equation}
+\begin{equation}
+v=-\frac{1}{2}(\uvec j+\I\uvec k)=\begin{pmatrix}0&0\\1&0\end{pmatrix} 
+\end{equation}
+\end{example}
+
+容易验证，四元数的加法和乘法运算，与把基分别换成这四个矩阵以后的矩阵加法和乘法运算是同构的．
+
+在矩阵表示中，$A$的转置共轭就是矩阵$A$的转置，复共轭就是$A$的各矩阵元取复共轭，厄密共轭就是$A$的厄密共轭矩阵（矩阵转置后再取各矩阵元的复共轭），而四元数的模方就是其矩阵表示的行列式：$||A||=\opn{det}A$．因此，模方不为零的（双）四元数对应的矩阵是可逆的，其逆矩阵所表示的就是该四元数的逆．
+
+
+
+\subsection{Quaternion and the Representation of Rotation}
+
+四元数可以用来简洁地表示三维空间中的旋转，极大地减少了计算量．
+
+三维空间中的一个向量表示为标部为$0$的四元数：$v=\pmat{0, \bvec{v}}$．如果我们绕着一个单位向量$\hat{\bvec{n}}$把$\bvec{v}$旋转一个角度$\theta$，所得的结果应该是哪个向量呢？取四元数$q=\pmat{\cos{\frac{\theta}{2}}, \hat{\bvec{n}}\sin{\frac{\theta}{2}}}$，那么旋转后的向量就可以表示为
+\begin{equation}
+qvq^{-1}
+\end{equation}
+
+比如说，取$v=(0, 1, 0, 0)$，它代表一个$x$轴上的单位向量．如果想要把它绕着$z$轴上的单位向量转$\pi/2$，那么结果向量的四元数表示应该是$(0, 0, 1, 0)$．按照我们定义的规则，旋转表示为四元数$q=(\sqrt{2}/2, 0, 0, \sqrt{2}/2)$，按照四元数的乘法规则易得$qvq^{-1}=(0,0,1,0)$．
+
+\subsection{证明}
+
+取四元数$q=\pmat{\cos{\frac{\theta}{2}}, \hat{\bvec{n}}\sin{\frac{\theta}{2}}}$和$v=(0, \bvec{v})$，直接计算得：
+
+\begin{equation}
+\begin{aligned}
+qvq^{-1}&=\pmat{\cos{\frac{\theta}{2}}, \hat{\bvec{n}}\sin{\frac{\theta}{2}}}\cdot (0, \bvec{v})\cdot q^{-1}\\&
+=(-\bvec{v}\cdot\hat{\bvec{n}}\sin{\frac{\theta}{2}}, \bvec{v}\cos{\frac{\theta}{2}}+\hat{\bvec{n}}\times\bvec{v}\sin{\frac{\theta}{2}})\cdot (\cos{\frac{\theta}{2}}, -\hat{\bvec{n}}\sin{\frac{\theta}{2}})\\&
+=(0, \cos^2\frac{\theta}{2}\bvec{v}+\cos\frac{\theta}{2}\sin\frac{\theta}{2}\hat{\bvec{n}}\times\bvec{v}+(\hat{\bvec{n}}\cdot\bvec{v})\sin^2\frac{\theta}{2}\hat{\bvec{n}}\\&+\cos\frac{\theta}{2}\sin\frac{\theta}{2}\hat{\bvec{n}}\times\bvec{v}-\sin^2\frac{\theta}{2}\hat{\bvec{n}}\times(\hat{\bvec{n}}\times\bvec{v}))\\&
+=(0, \cos^2\frac{\theta}{2}\bvec{v}-\sin^2\frac{\theta}{2}\hat{\bvec{n}}\times(\hat{\bvec{n}}\times\bvec{v})+\sin\theta\hat{\bvec{n}}\times\bvec{v}\\&+(\hat{\bvec{n}}\cdot\bvec{v})\sin^2\frac{\theta}{2}\hat{\bvec{n}})
+\end{aligned}
+\end{equation}
+
+如果取$\bvec{v}\perp\hat{\bvec{n}}$，考虑到此时$\hat{\bvec{n}}\times(\hat{\bvec{n}}\times\bvec{v}=-\bvec{v})$且$\hat{\bvec{n}}\cdot\bvec{v}=0$，那么上式可以化简为
+\begin{equation}
+\begin{aligned}
+qvq^{-1}&=(0, \cos\theta\bvec{v}+\sin\theta\hat{\bvec{n}}\times\bvec{v})
+\end{aligned}
+\end{equation}
+
+这正是$\bvec{v}$绕$\hat{\bvec{n}}$旋转$\theta$的结果．
+
+如果取$\bvec{v}\parallel\hat{\bvec{n}}$，考虑到此时$\hat{\bvec{n}}\times\bvec{v}=0$且$(\hat{\bvec{n}}\cdot\bvec{v})\bvec{v}=\bvec{v}$，那么上式化为
+\begin{equation}
+\begin{aligned}
+qvq^{-1}&=(0, \cos^2\frac{\theta}{2}\bvec{v}+\sin^2\frac{\theta}{2}\bvec{v})=(0, \bvec{v})=v
+\end{aligned}
+\end{equation}
+
+这也是$\bvec{v}$绕$\hat{\bvec{n}}$旋转$\theta$的结果．
+
+综上所述，取任意向量$\bvec{v}$，把它分为垂直和平行于旋转轴的$\bvec{v}_\perp$和$\bvec{v}_\parallel$，分别对应四元数$v_\perp$和$v_\parallel$，那么$q v_\perp q^{-1}$和$q v_\parallel q^{-1}$分别对应这两个向量旋转后的结果．故取$v=v_\perp+v_\parallel$为$\bvec{v}$对应的四元数后可由四元数乘法分配律得到，$qvq^{-1}$对应$\bvec{v}$旋转后的向量．
+
+一点补充：考虑到四元数限定向量方向时退化为复数，故$\bvec{v}\parallel\hat{\bvec{n}}$的情况其实可以直接套用复数的交换性来得到，即$qvq^{-1}=qq^{-1}v=v$．
+
