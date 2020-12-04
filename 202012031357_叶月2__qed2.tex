@@ -1,0 +1,31 @@
+% 标量场
+
+\pentry{洛伦兹群\upref{qed1}}
+\begin{definition}{}
+标量场即洛伦兹变换下不变的场．设在两个惯性系中，标量场分别为$\phi(x)$和$\phi'(x')$，那么有
+\begin{equation}
+\phi^{\prime}\left(x^{\prime}\right)=\phi(x)
+\end{equation}
+图景是这样的，对于一个固定点P而言，洛伦兹变换前后对应的坐标不同，场函数形式不同，结果是P的数值不变．
+\end{definition}
+\begin{corollary}{}
+做一个无穷小变换
+\begin{equation}
+x^{\rho} \rightarrow x^{\prime \rho}=x^{\rho}+\delta x^{\rho}
+\end{equation}
+并且
+\begin{equation}\label{qed2_eq1}
+\delta x^{\rho}=\omega_{\sigma}^{\rho} x^{\sigma}=-\frac{i}{2} \omega_{\mu \nu}\left(J^{\mu \nu}\right)_{\sigma}^{\rho} x^{\sigma}
+\end{equation}
+其中，$\left(J^{\mu \nu}\right)_{\sigma}^{\rho}=i\left(\eta^{\mu \rho} \delta_{\sigma}^{\nu}-\eta^{\nu \rho} \delta_{\sigma}^{\mu}\right)$
+显然，令$J^{\mu \nu}=0$,该标量表示（0,0,）能满足标量场的定义．这是个平庸的结果，在场表示里，我们能做到更多．
+对于固定点x,我们做场的无穷小变换
+\begin{equation}
+\delta_{0} \phi \equiv \phi^{\prime}(x)-\phi(x)
+\end{equation}
+为了找到该表示下的生成元，我们做一阶泰勒展开
+\begin{equation}
+\delta_{0} \phi=\phi^{\prime}\left(x^{\prime}-\delta x\right)-\phi(x)=-\delta x^{\rho} \partial_{\rho} \phi(x)
+\end{equation}
+代入\autoref{qed2_eq1} 
+\end{corollary}

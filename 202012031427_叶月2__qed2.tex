@@ -1,0 +1,56 @@
+% 标量场
+
+\pentry{洛伦兹群\upref{qed1}}\pentry{欧拉-拉格朗日方程\upref{qed1}}
+\begin{definition}{}
+标量场即洛伦兹变换下不变的场．设在两个惯性系中，标量场分别为$\phi(x)$和$\phi'(x')$，那么有
+\begin{equation}
+\phi^{\prime}\left(x^{\prime}\right)=\phi(x)
+\end{equation}
+图景是这样的，对于一个固定点P而言，洛伦兹变换前后对应的坐标不同，场函数形式不同，结果是P的数值不变．
+\end{definition}
+\begin{corollary}{}
+做一个无穷小变换
+\begin{equation}
+x^{\rho} \rightarrow x^{\prime \rho}=x^{\rho}+\delta x^{\rho}
+\end{equation}
+并且
+\begin{equation}\label{qed2_eq1}
+\delta x^{\rho}=\omega_{\sigma}^{\rho} x^{\sigma}=-\frac{i}{2} \omega_{\mu \nu}\left(J^{\mu \nu}\right)_{\sigma}^{\rho} x^{\sigma}
+\end{equation}
+其中，$\left(J^{\mu \nu}\right)_{\sigma}^{\rho}=i\left(\eta^{\mu \rho} \delta_{\sigma}^{\nu}-\eta^{\nu \rho} \delta_{\sigma}^{\mu}\right)$
+显然，令$J^{\mu \nu}=0$,该标量表示（0,0,）能满足标量场的定义．这是个平庸的结果，在场表示里，我们能做到更多．
+对于固定点x,我们做场的无穷小变换
+\begin{equation}
+\delta_{0} \phi \equiv \phi^{\prime}(x)-\phi(x)
+\end{equation}
+为了找到该表示下的生成元，我们做一阶泰勒展开
+\begin{equation}
+\delta_{0} \phi=\phi^{\prime}\left(x^{\prime}-\delta x\right)-\phi(x)=-\delta x^{\rho} \partial_{\rho} \phi(x)
+\end{equation}
+代入\autoref{qed2_eq1} ，我们有
+\begin{equation}
+\delta_{0} \phi=\frac{i}{2} \omega_{\mu \nu}\left(J^{\mu \nu}\right)_{\sigma}^{\rho} x^{\sigma} \partial_{\rho} \phi \equiv-\frac{i}{2} \omega_{\mu \nu} L^{\mu \nu} \phi
+\end{equation}
+在这里，我们定义
+\begin{equation}
+L^{\mu \nu}=-\left(J^{\mu \nu}\right)_{\sigma}^{\rho} x^{\sigma} \partial_{\rho}=i\left(x^{\mu} \partial^{\nu}-x^{\nu} \partial^{\mu}\right)
+\end{equation}
+我们可以验证，$L^{\mu \nu}$满足洛伦兹群的李代数，从而确实是洛伦兹变换的生成元．所以在这里我们给出了无限维的洛伦兹群的标量场表示．（由于场函数随着坐标不同而不同，所以是无限维的）
+实际上，如果定义$p^{\mu}=+i \partial^{\mu}$，会有$L^{\mu \nu}=x^{\mu} p^{\nu}-x^{\nu} p^{\mu}$，若上标取空间坐标i,j，我们会发现这就是轨道角动量．由于$J^{\mu \nu}=L^{\mu \nu}+S^{\mu \nu}$，所以标量场表示是自旋为0的．
+\end{corollary}
+\subsection{举例}
+克莱因-戈登场即为标量场．克莱因-戈登方程为
+\begin{equation}
+\frac{1}{c^{2}} \frac{\partial^{2}}{\partial t^{2}} \psi-\nabla^{2} \psi+\frac{m^{2} c^{2}}{\hbar^{2}} \psi=0
+\end{equation}
+取自然单位，$c=\bar{h}=1$，得到协变形式
+\begin{equation}
+\left(\square^{2}+m^{2}\right) \psi=0
+\end{equation}
+达朗贝尔算符$\square^{2}=\frac{1}{c^{2}} \frac{\partial^{2}}{\partial t^{2}}-\nabla^{2}$
+在经典场论，它的拉格朗日量为$L=\frac{1}{2} \partial_{\mu} \phi \partial^{\mu} \phi-\frac{1}{2} m^{2} \phi^{2}$，由欧拉-拉格朗日方程可解得克莱因-戈尔登方程方程．根据能量本征值解，我们知道这是一个相对论性的自旋为0的标量场．
+\begin{corollary}{}
+以上我们得到了经典场论下的标量场，接着我们将标量场进行正则量子化．
+对于量子力学，我们有
+$\left[\hat{q^{i}}, \hat{p^{j}}\right]=i \delta^{i j}$
+\end{corollary}
