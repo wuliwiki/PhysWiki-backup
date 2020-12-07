@@ -1,0 +1,42 @@
+% 洛伦兹群覆盖群SL(2,C)的不可约表示
+\pentry{洛伦兹群\upref{qed1},不可约表示\upref{qed1}}
+\subsection{李代数的重新推导}
+洛伦兹群的李代数是
+\begin{equation}
+\begin{aligned}
+\left[J_{i}, J_{j}\right] &=i \epsilon_{i j k} J_{k} \\
+\left[J_{i}, K_{j}\right] &=i \epsilon_{i j k} K_{k} \\
+\left[K_{i}, K_{j}\right] &=-i \epsilon_{i j k} J_{k}
+\end{aligned}
+\end{equation}
+洛伦兹群元表达为
+\begin{equation}
+L=e^{i \mathbf{J} \cdot \theta+i \mathbf{K} \cdot \phi}
+\end{equation}
+引入新算符
+\begin{equation}
+N_{i}^{\pm}=\frac{1}{2}\left(J_{i} \pm i K_{i}\right)
+\end{equation}
+经过计算，新的生成元的对易关系如下所示
+\begin{equation}
+\begin{aligned}
+\left[N_{i}^{+}, N_{j}^{+}\right] &=i \epsilon_{i j k} N_{k}^{+} \\
+\left[N_{i}^{-}, N_{j}^{-}\right] &=i \epsilon_{i j k} N_{k}^{-} \\
+\left[N_{i}^{-}, N_{j}^{+}\right] &=0
+\end{aligned}
+\end{equation}
+显然，这与$SU(2)$群的李代数一致，也就是说洛伦兹群包含了两份SU(2)的李代数．然而洛伦兹群不是单连通群 118 ，李群理论告诉我们，对于非单连通群，不存在李代数的不可约表示和群的表示之间的一一映射 ．通过推
+导洛伦兹群李代数的不可约表示，可以导出洛伦兹群的覆盖群的表示．可以证明，其覆盖群为$SL(2,C)$．所以$SL(2,C)=SU(2)\oplus SU(2)$．$SU(2)$的每一不可约表示都可以用$SU(2)$的Casimir元对应的标量\textbf{j}来标记．（回忆一下，Casimir算符是群元中与群的所有生成元都对易的算符．本征值在群元所作变换下不变所以可以拿来标记群表示．）设这两份$SU(2)$的$j$为$j_1,j_2$,则SL(2,C)可以以($j_1,j_2$)作为群表示的标记．
+\subsection{SL(2,C)与SO(3,1)关系的简单证明}
+令坐标矢量为$(x_0,x_1,x_2,x_3)$，$SO(3,1)$的群元为$\Lambda$.$x'^{\nu}=\Lambda_{v}^{\mu} x^{\nu}$,洛伦兹变换使得该时空距离不变，即$x^\nu x^\nu=x'^\nu x'^\nu$.
+\\一般的厄米矩阵可以表示为
+\begin{equation}
+\chi=\left[\begin{array}{cc}
+x_0+x_3 & x_1-\mathrm{i} x_2 \\
+x+\mathrm{i} _2 & x_0-x_3
+\end{array}\right]
+\end{equation}
+\subsection{SL(2,C)的几个表示}
+\subsubsection{（$0,0$）表示}
+\subsubsection{（ $\frac{1}{2},0$）表示与（$0,\frac{1}{2}$）表示}
+\subsubsection{（ $\frac{1}{2},\frac{1}{2}$）表示}

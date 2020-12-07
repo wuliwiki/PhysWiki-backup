@@ -1,0 +1,57 @@
+% 太空电梯
+
+\pentry{万有引力\upref{Gravty}， 离心力\upref{Centri}}
+
+太空电梯通常是指通过一根缆绳连接从地球表面连接到地球同步轨道处的一个空间站， 使得我们可以通过该缆绳将一定质量的物体直接运送到太空中． 碳纳米管材料的发现使得太空电梯从的可行性大大提高， 本文中我们来计算太空电梯所需缆绳的质量． 根据已有的碳纳米管材料数据， 我们保守计算发现所需缆绳的质量仅仅是最大载重（包括动力系统）的 2.7 到 13.5 倍． 可见碳纳米管材料的大规模生产将开启全新的航天时代．
+
+以下的计算是风速为零的理想情况， 为了避免极端天气， 
+
+\subsection{理想情况计算}
+在地球所在的旋转参考系中， 令缆绳上某点的张力为 $F(r)$， $r$ 为该点到地心的距离． 令缆绳底部悬挂重物的重力为 $F_0$， 则缆绳底部所需张力为 $F(r_0) = F_0$， $r_0$ 是地球赤道半径． 显然随着高度 $r$ 的增加， 因为缆绳的张力等于 $F(r)$ 等于底部重物的重力， 加上 $r$ 下方所有缆绳的重力， 减去旋转参考系中的离心力． 当 $r$ 大于同步轨道半径时， $F(r)$ 慢慢减小， 这是因为此时缆绳受到的离心力已经大于万有引力． 为了节约材料， 缆绳的线密度也可以设计为高度的函数 $\lambda(r)$． 于是缆绳的张力可以通过以下积分计算， 其中括号的第一项是引力\upref{Gravty}， 第二项是离心力\upref{Centri}．
+
+\begin{equation}\label{SpcLad_eq1}
+F(r) = F_0 + \int_{r_0}^{r} \qty(\frac{GM}{r'^2} - \omega^2 r') \lambda(r') \dd{r'}
+\end{equation}
+其中 $\omega$ 是地球自转角速度．
+
+令缆绳材料单位截面可承受的最大张力为 $p$， 那么截面面积至少为
+\begin{equation}
+A(r) = F(r)/p
+\end{equation}
+绳的密度为常数 $\rho$， 那么线密度为
+\begin{equation}
+\lambda(r) = \rho A(r) = \rho F(r)/p
+\end{equation}
+带回\autoref{SpcLad_eq1} 有积分方程
+\begin{equation}
+F(r) = \frac{GM\rho}{p} \int_{r_0}^{r} \frac{F(r')}{r'^2} \dd{r'} - \frac{\omega^2\rho}{p}\int_{r_0}^r F(r') r' \dd{r'}
+\end{equation}
+令两个积分前面的常数为 $\alpha, \beta$， 两边求导
+\begin{equation}
+\dv{F}{r} = \alpha \frac{F(r)}{r^2} - \beta r F(r)
+\end{equation}
+分离变量， 解得
+\begin{equation}
+F = C\exp(-\frac{\alpha}{r} + \frac{\beta}{2} r^2)
+\end{equation}
+令初始条件为 $F(r_0) = F_0$， $F_0$ 是载重． 代入得到方程的解为
+\begin{equation}
+F(r) = F_0 \exp[\frac{GM\rho}{p} \qty(\frac{1}{r_0} - \frac{1}{r}) - \frac{\omega^2\rho}{2p}(r^2 - r_0^2)]
+\end{equation}
+
+目前最强的材料碳纳米管保守估计\footnote{来源：\href{https://www.nature.com/articles/s41467-019-10959-7}{Nature 文章}．} $p = 2.5$-$6.6\times 10^{10} \Si{Pa}$， 密度使用 $\rho = 1.34\times 10^{3} \Si{kg/m^3}$． 地球半径取 $6.370\times 10^6\Si{m}$， 同步轨道半径为 $4.2164\times 10^7 \Si{m}$． 地球质量 $M = 5.972 \times 10^{24} \Si{kg}$．
+
+代入上式得 $F = 2.7$-$13.5 F_0$． 这是一个很小的比例， 可见碳纳米管的大规模生产完全可以开启新的航天时代．
+
+\subsubsection{Matlab 代码}
+\begin{lstlisting}[language=matlab]
+G = 6.6743e-11; % 引力常数
+r0 = 6.370e6; % 地球半径
+r = 4.2164e7; % 同步轨道半径
+M = 5.972e24; % 地球质量
+rho = 1.34e3; % 碳纳米管密度 0.037-1.34
+p = 2.5e10; % 碳纳米管截面压强
+w = 2*pi/(24*3600); % 地球角速度
+
+disp(exp(G*M*rho/p*(1/r0 - 1/r) - w^2*rho/(2*p)*(r^2 - r0^2)))
+\end{lstlisting}

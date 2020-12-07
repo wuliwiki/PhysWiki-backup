@@ -1,0 +1,128 @@
+% 洛伦兹群覆盖群SL(2,C)的不可约表示
+\pentry{洛伦兹群\upref{qed1},不可约表示\upref{qed1}}
+\subsection{李代数的重新推导}
+洛伦兹群的李代数是
+\begin{equation}
+\begin{aligned}
+\left[J_{i}, J_{j}\right] &=i \epsilon_{i j k} J_{k} \\
+\left[J_{i}, K_{j}\right] &=i \epsilon_{i j k} K_{k} \\
+\left[K_{i}, K_{j}\right] &=-i \epsilon_{i j k} J_{k}
+\end{aligned}
+\end{equation}
+洛伦兹群元表达为
+\begin{equation}\label{qed3_eq1}
+\Lambda=e^{-i \mathbf{J} \cdot \theta+i \mathbf{K} \cdot \phi}
+\end{equation}
+引入新算符
+\begin{equation}
+\mathbf{J}^{\pm}=\frac{\mathbf{J} \pm i \mathbf{K}}{2}
+\end{equation}
+经过计算，新的生成元的对易关系如下所示
+\begin{equation}
+\begin{aligned}
+\left[J^{+, i}, J^{+, j}\right] &=i \epsilon^{i j k} J^{+, k} \\
+\left[J^{-, i}, J^{-, j}\right] &=i \epsilon^{i j k} J^{-, k} \\
+\left[J^{+, i}, J^{-, j}\right] &=0
+\end{aligned}
+\end{equation}
+显然，这与$SU(2)$群的李代数一致，也就是说洛伦兹群包含了两份SU(2)的李代数．然而洛伦兹群不是单连通群 118 ，李群理论告诉我们，对于非单连通群，不存在李代数的不可约表示和群的表示之间的一一映射 ．通过推
+导洛伦兹群李代数的不可约表示，可以导出洛伦兹群的覆盖群的表示．可以证明，其覆盖群为$SL(2,C)$．所以$SL(2,C)=SU(2)\oplus SU(2)$．$SU(2)$的每一不可约表示都可以用$SU(2)$的Casimir元对应的标量\textbf{j}来标记．（回忆一下，Casimir算符是群元中与群的所有生成元都对易的算符．本征值在群元所作变换下不变所以可以拿来标记群表示．）设这两份$SU(2)$的$j$为$j_-,j_+$,则SL(2,C)可以以($j_-,j_+$)作为群表示的标记，维数为$j=(2j_-+1)(2j_++1)$
+\subsection{SL(2,C)与SO(3,1)关系的简单证明}
+令坐标矢量为$(x_0,x_1,x_2,x_3)$，$SO(3,1)$的群元为$\Lambda$.$x'^{\nu}=\Lambda_{v}^{\mu} x^{\nu}$,洛伦兹变换使得该时空距离不变，即$x^\nu x^\nu=x'^\nu x'^\nu$.
+\\一般的厄米矩阵可以表示为
+\begin{equation}
+\chi=\left[\begin{array}{cc}
+x_0+x_3 & x_1-\mathrm{i} x_2 \\
+x+\mathrm{i}x_2 & x_0-x_3
+\end{array}\right]
+\end{equation}
+显然，该矩阵行列式即为时空距离．对于$\chi'=M \chi M^{*}$，该线性变换同样不会改变时空距离，即矩阵的行列式．由于$\pm M$都对应同一个$\Lambda$，所以$SL(2,C)$是$SO(3,1)$的双覆盖．
+\subsection{SL(2,C)的几个表示}
+\subsubsection{（$0,0$）表示}
+该表示维数为1．$\mathbf{J}^{\pm}=0$，则$\mathbf{J},\mathbf{K}$都是0．所以是作用在标量上的简单表示，用来描述在洛伦兹变换下不变的“东西”．
+\subsubsection{（ $\frac{1}{2},0$）表示与（$0,\frac{1}{2}$）表示}
+这两个表示都是二维表示，且自旋为$\frac{1}{2}$，所以它们都是作用在旋量上的表示．对于（ $\frac{1}{2},0$）作用的旋量，我们标记为$\left(\psi_{L}\right)_{\alpha},\alpha=1,2$，这就是左手的Wely旋量.($0,\frac{1}{2}$）作用的旋量，我们标记为$\left(\psi_{R}\right)_{\alpha},\alpha=1,2$．这就是右手的Wely旋量．
+\begin{equation}
+\text { Weyl spinors: } \quad \psi_{L} \in\left(\frac{1}{2}, 0\right), \quad \psi_{R} \in\left(0, \frac{1}{2}\right)
+\end{equation}
+接下来我们来推导这两个表示的具体形式．通过定义，我们知晓，（ $\frac{1}{2},0$）表示意味着$\mathbf{J}^{-}$为2×2矩阵．同时，$\mathbf{J}^{+}=0$.符合这一点，也符合李代数的解是$\mathbf{J}^{-}=\boldsymbol{\sigma} / 2$，所以
+\begin{equation}
+\begin{aligned}
+\mathbf{J} &=\mathbf{J}^{+}+\mathbf{J}^{-}=\frac{\sigma}{2} \\
+\mathbf{K} &=-i\left(\mathbf{J}^{+}-\mathbf{J}^{-}\right)=i \frac{\sigma}{2}
+\end{aligned}
+\end{equation}
+代入\autoref{qed3_eq1} ，左手旋量的洛伦兹变换为
+\begin{equation}
+\psi_{L} \rightarrow \Lambda_{L} \psi_{L}=\exp \left\{(-i \boldsymbol{\theta}-\boldsymbol{\eta}) \cdot \frac{\boldsymbol{\sigma}}{2}\right\} \psi_{L}
+\end{equation}
+对于旋转变换我们有
+\begin{equation}
+\begin{aligned}
+R_{x}\left(\theta_{x}\right) &=e^{-i \theta_{x} J_{x}}=e^{-i \theta_{x} \frac{1}{2} \sigma_{x}} \\
+&=1-\frac{i}{2} \theta_{x} \sigma_{x}+\frac{1}{2}\left(-\frac{i}{2} \theta_{x} \sigma_{x}\right)^{2}+\cdots \\
+&=\left(\begin{array}{cc}
+1 & 0 \\
+0 & 1
+\end{array}\right)-\frac{i}{2} \theta_{x}\left(\begin{array}{cc}
+0 & 1 \\
+1 & 0
+\end{array}\right)-\frac{1}{2}\left(\frac{-\theta_{x}}{2}\right)^{2}\left(\begin{array}{cc}
+1 & 0 \\
+0 & 1
+\end{array}\right)+\cdots \\
+&=\left(\begin{array}{cc}
+1-\frac{1}{2}\left(-\frac{\theta_{x}}{2}\right)^{2}+\cdots & i \frac{-\theta_{x}}{2}+\cdots \\
+i \frac{-\theta_{x}}{2}+\cdots & 1-\frac{1}{2}\left(\frac{-\theta_{x}}{2}\right)^{2}+\cdots
+\end{array}\right)+\cdots \\
+&=\left(\begin{array}{cc}
+\cos \frac{\theta_{x}}{2} & -i \sin \frac{\theta_{x}}{2} \\
+-i \sin \frac{\theta_{x}}{2} & \cos \frac{\theta_{x}}{2}
+\end{array}\right)
+\end{aligned}
+\end{equation}
+同样可得，
+\begin{equation}
+R_{y}\left(\theta_{y}\right)=\left(\begin{array}{cc}
+\cos \frac{\theta_{y}}{2} & \sin \frac{\theta_{y}}{2} \\
+-\sin \frac{\theta_{y}}{2} & \cos \frac{\theta_{y}}{2}
+\end{array}\right)
+\end{equation}
+以及，
+\begin{equation}
+R_{z}\left(\theta_{z}\right)=\left(\begin{array}{cc}
+\cos \frac{\theta_{z}}{2}+i \sin \frac{\theta_{z}}{2} & 0 \\
+0 & \cos \frac{\theta_{z}}{2}-i \sin \frac{\theta_{z}}{2}
+\end{array}\right)=\left(\begin{array}{cc}
+e^{i \frac{\theta_{2}}{2}} & 0 \\
+0 & e^{-i \frac{\theta_{z}}{2}}
+\end{array}\right)
+\end{equation}
+对于boost（推动），我们有
+\begin{equation}
+\begin{array}{c}
+B_{x}\left(\phi_{x}\right)=\left(\begin{array}{cc}
+\cosh \frac{\phi_{x}}{2} & \sinh \frac{\phi_{x}}{2} \\
+\sinh \frac{\phi_{x}}{2} & \cosh \frac{\phi_{x}}{2}
+\end{array}\right) \\
+B_{y}\left(\phi_{y}\right)=\left(\begin{array}{cc}
+\cosh \frac{\phi_{y}}{2} & -i \sinh \frac{\phi_{y}}{2} \\
+i \sinh \frac{\phi_{y}}{2} & \cosh \frac{\phi_{y}}{2}
+\end{array}\right) \\
+B_{z}\left(\phi_{z}\right)=\left(\begin{array}{cc}
+\cosh \frac{\phi_{z}}{2}+\sinh \frac{\phi_{z}}{2} & 0 \\
+0 & \cosh \frac{\phi_{z}}{2}-\sinh \frac{\phi_{z}}{2}
+\end{array}\right)=\left(\begin{array}{cc}
+e^{\frac{\phi_{z}}{2}} & 0 \\
+0 & e^{-\frac{\phi_{z}}{2}}
+\end{array}\right) .
+\end{array}
+\end{equation}
+显然这与矢量的群表示相差甚远．
+对于($0,\frac{1}{2}$），我们可以重复以上过程．从定义中解得$\mathbf{J}=\sigma / 2 \quad \mathbf{K}=-i \sigma / 2$．所以右手旋量的变换为
+\begin{equation}
+\psi_{R} \rightarrow \Lambda_{R} \psi_{R}=\exp \left\{(-i \boldsymbol{\theta}+\boldsymbol{\eta}) \cdot \frac{\sigma}{2}\right\} \psi_{R}
+\end{equation}
+
+\subsubsection{（ $\frac{1}{2},\frac{1}{2}$）表示}
+可以证明，该表示作用在一个二阶旋量上，且与四矢量是等价的．一个 4 向量是二阶旋量，即具有两个分量，根据洛伦兹群的（ $\frac{1}{2},\frac{1}{2}$）表示变换的量．因此，洛伦兹变换作用的最基本的对象是旋量．
