@@ -1,0 +1,50 @@
+\input{./others/format}
+
+\begin{document}
+\renewcommand{\thelstlisting}{\arabic{lstlisting}}
+\input{./others/MatlabStyle} % 设置 Matlab 颜色
+\begin{titlepage}
+\includepdf{./figures/frontcover.pdf}
+\newpage
+\includepdf{./figures/dedication.pdf}
+\end{titlepage}
+\frontmatter % 开始罗马数字页码
+\input{./contents/FrontMat    ters} % 版权声明&关于本书
+\setcounter{tocdepth}{1}
+\tableofcontents % 生成目录
+\mainmatter % 开始阿拉伯数字页码
+
+\part{研究}
+%=======================================
+\chapter{Frog-Crab}
+%---------------------------------------
+\entry{Frog-Crab}{FrgCrb}
+\entry{Exact Frog-Crab 算法}{EFrgCr}
+\entry{RABBITT}{RABBIT}
+
+\chapter{Streaking}
+%---------------------------------------
+\entry{Crank-Nicolson TDSE 笔记}{Cn3D}
+\entry{爱华毕业论文笔记}{AihuaT}
+\entry{Ossiander Note}{Osiand}
+\entry{Streaking delay 的经典力学计算}{StreCs}
+\entry{DAMOP2020-P05}{damop}
+
+\chapter{Phase meter}
+%---------------------------------------
+\entry{HH 相位仪}{HHphas}
+\entry{Attosecond Pulse Train 笔记}{APTnt}
+\entry{APT tests}{APTtst}
+\entry{High Harmonics Phase Meter}{HH2}
+
+\chapter{其他}
+%---------------------------------------
+\entry{臭宝笔记}{chouba}
+
+\chapter{自学}
+%---------------------------------------
+\entry{Attosecond Transient Absorption}{ATA}
+\entry{石墨}{Graphe}
+\entry{Least Square Frog Crab}{LSFC}
+\entry{CV}{myCV}
+\entry{量子力学中的数学笔记}{QMmath}
