@@ -1,0 +1,71 @@
+% 抛物线坐标系
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\pentry{抛物线的三种定义\upref{Para3}}
+
+\footnote{本文参考 Wikipedia \href{https://en.wikipedia.org/wiki/Parabolic_coordinates}{相关页面}．}抛物线的极坐标方程为（\autoref{Para3_eq1}~\upref{Para3}）
+\begin{equation}\label{ParaCr_eq1}
+r = \frac{\xi}{1 - \cos \theta }
+\end{equation}
+若选用不同的半通径 $\xi$ （$\xi > 0$）， 将得到一系列缩放的抛物线（\autoref{ParaCr_fig1} 中的绿色）． 我们也可以把这些抛物线旋转 180 度， 得到
+\begin{equation}
+r = \frac{\eta}{1 + \cos \theta }
+\end{equation}
+这时我们把半通径记为 $\eta$ （$\eta > 0$）， 当它取不同的值也得到一系列抛物线（\autoref{ParaCr_fig1} 中的红色）． 这样， 通过 $\xi, \eta$ 两个坐标， 我们就能确定平面上的唯一一点．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/ParaCr_1.pdf}
+\caption{抛物线坐标系， 极轴向上（来自 Wikipedia）} \label{ParaCr_fig1}
+\end{figure}
+
+若把这些曲线绕极轴旋转一周变为一系列曲面， 那么我们只需要再指定一个方位角 $\phi$ 就可以用坐标 $\xi, \eta, \phi$ 确定空间中的任意一点．
+
+\subsection{与直角坐标和球坐标的转换}
+一般令极轴与直角坐标的 $z$ 轴重合， 则根据定义有
+\begin{equation}
+\xi = r(1 + \cos\theta) = \sqrt{x^2 + y^2 + z^2} + z
+\end{equation}
+\begin{equation}
+\eta = r(1 - \cos\theta) = \sqrt{x^2 + y^2 + z^2} - z
+\end{equation}
+\begin{equation}
+\phi = \Arctan(y, x)
+\end{equation}
+其中 $\Arctan$ 见 “四象限 Arctan 函数\upref{Arctan}”． 可以解得
+\begin{equation}\label{ParaCr_eq2}
+z = \frac{\xi - \eta}{2}
+\end{equation}
+\begin{equation}\label{ParaCr_eq3}
+x = \sqrt{\xi\eta}\cos\phi \qquad
+y = \sqrt{\xi\eta}\sin\phi
+\end{equation}
+
+\subsection{正交曲线坐标系}
+可以证明\autoref{ParaCr_eq1} 中过任意一点的两条坐标曲线都垂直， 即抛物线坐标系是一个正交曲线坐标系：
+\begin{equation}
+\dd{x} = \frac{\eta \cos\phi}{2\sqrt{\xi\eta}}\dd{\xi} + \frac{\xi \cos\phi}{2\sqrt{\xi\eta}}\dd{\eta} - \sqrt{\xi\eta}\sin\phi\dd{\phi}
+\end{equation}
+\begin{equation}
+\dd{y} = \frac{\eta \sin\phi}{2\sqrt{\xi\eta}}\dd{\xi} + \frac{\xi \sin\phi}{2\sqrt{\xi\eta}}\dd{\eta} + \sqrt{\xi\eta}\cos\phi\dd{\phi}
+\end{equation}
+\begin{equation}
+\dd{z} = \frac{1}{2}\dd{\xi} - \frac{1}{2}\dd{\eta}
+\end{equation}
+
+
+
+在某点 $\bvec r$， 延 $\eta$ 曲线的切线方向为 $\pdv*{\bvec r}{\xi}$， 延 $\xi$ 方向曲线的切线方向为 $\pdv*{\bvec r}{\eta}$， 所以只需证明
+\begin{equation}
+\pdv{\bvec r}{\xi} \vdot \pdv{\bvec r}{\eta} = \bvec 0
+\end{equation}
+只需分别证明三个分量即可， 使用\autoref{ParaCr_eq2} 和\autoref{ParaCr_eq3} 易证． 证毕．
+
+\subsection{矢量算符}
+\begin{equation}
+\laplacian = \frac{4}{\xi + \eta} \qty[\pdv{\xi}\qty(\xi\pdv{\xi}) + \pdv{\eta}\qty(\eta\pdv{\eta})] + \frac{1}{\xi\eta}\pdv[2]{\phi}
+\end{equation}
+\addTODO{未完成， 新开词条}
