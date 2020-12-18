@@ -1,0 +1,96 @@
+% 角动量（量子）
+% 轨道角动量|角动量|量子力学|升降算符
+
+\begin{issues}
+\issueDraft
+\issueMissDepend
+\end{issues}
+
+\pentry{角动量\upref{AngMom}， 对易厄米算符与共同本征矢\upref{Commut}， 升降算符\upref{RLop}}
+
+思路： 根据力学量（测量量）的经典表达式，可以写出对应的算符（这其实是量子力学的一个重要假设，课本往往将其忽略，而直接告诉你可以这样做）
+
+\subsection{从经典公式到算符}
+
+经典力学中一个粒子的角动量公式是
+\begin{equation}\label{QOrbAM_eq1}
+\bvec L = \bvec r \cross \bvec p
+\end{equation}
+其中 $\bvec r$ 是参考点到物体的位矢， $\bvec p$ 是粒子的动量．或者写成直角坐标系中的分量形式（令原点为参考点）
+\begin{equation}\label{QOrbAM_eq2}
+L_x = y p_z - z p_y \qquad
+L_y = z p_x - x p_z \qquad
+L_z = x p_y - y p_x
+\end{equation}   
+现在我们用\autoref{QOrbAM_eq2} 定义三个方向的角动量算符， 此时 $x, y, z, p_x, p_y, p_z$ 也应理解为算符． 同样地， 若用 $\bvec r = x\uvec x + y\uvec y + z\uvec z$ 表示位置矢量算符， 用 $\bvec p = p_x \uvec x + p_y\uvec y + p_z\uvec z$ 表示动量矢量算符， 那角动量矢量算符可以用\autoref{QOrbAM_eq1} 定义． 我们还可以定义角动量平方（标量）算符（也可以记为非粗体的 $L^2$）
+\begin{equation}
+\bvec L^2 = \bvec L \vdot \bvec L = L_x^2 + L_y^2 + L_z^2
+\end{equation}
+
+除了 $x, y, z$ 三个方向的角动量分量， 我们可以将任意方向的角动量分量 $\uvec n \vdot \bvec L$ 表示为算符且都与 $\bvec L^2$ 算符对易．
+\begin{equation}
+L_n = n_x L_x + n_y L_y + n_z L_z \qquad (n_x^2 + n_y^2 + n_z^2 = 1)
+\end{equation}
+
+角动量算符 $L, L_z$ 通常在球坐标中表示， 详见 “球坐标系中的角动量算符\upref{SphAM}”．
+
+\subsection{对易关系}
+
+对于角动量分量，理想的状况是，如果能解出本征方程
+\begin{equation}
+\bvec L \psi  = \bvec l\psi 
+\end{equation}
+我们就能得到矢量本征值 $\bvec l$，然后测量 $\bvec L$ 本征态的结果就一定是 $\bvec l$． 但事实上， $\bvec L$ 几乎从来不单独使用，因为上式无解．为什么？ 要解上式，充分必要条件就是要存在 $\psi$，使三个分量同时有解
+\begin{equation}
+L_x \psi  = l_x \psi \qquad
+L_y \psi  = l_y \psi \qquad
+L_z \psi  = l_z \psi 
+\end{equation}   
+不幸的是，$L_x$， $L_y$， $L_z$ 中任意两个都不对易，所以没有共同的本征函数（见“算符对易和共同本征矢函数\upref{Commut}”）． 可以证明三个算符之间的对易关系为
+\begin{equation}
+[L_x, L_y] = \I\hbar L_z \qquad
+[L_y, L_z] = \I\hbar L_x \qquad
+[L_z, L_x] = \I\hbar L_y
+\end{equation}
+
+事实上，三个分量中我们只能同时知道一个（海森堡不确定原理）．% 链接未完成，一定要解释一下有些量为什么不能同时得到），
+通常情况下，我们选择解 $L_z$ 的本征方程 $L_z \psi = l_z\psi$． 
+
+比较幸运的是， $L^2$ 和 $L_x, L_y, L_z$ 都对易（或者任意 $L_n$），所以必然存在一套本征函数，同时是 $L_x, L_y, L_z$ 其中一个和 $L^2$ 的本征函数． 我们习惯上约定计算 $L^2$ 和 $L_z$ 的共同本征矢．
+
+\subsection{升降算符和本征值}
+
+如果要解 $L^2$ 和 $L_z$ 的共同本征函数，通常的方法是先把算符的表达式转换到球坐标中再解本征方程\upref{SphNab}．但是我们现在先用一种更简单的（但非常重要的）方法，升降算符（在简谐振子问题中已经见过），来绕过本征函数直接求出共同波函数的简并情况以及对两个算符的本征值．
+
+可以证明 $L_z$ 的升降算符分别为
+\begin{equation}
+L_\pm = L_x \pm \I L_y
+\end{equation}
+根据升降算符\upref{RLop} 中的一种定义，要证明它们是升降算符，只要证明 $[L_z, L_\pm] \propto L_\pm$ 即可．结论是（证明见常见算符对易表）%链接未完成）
+\begin{equation}
+[L_z, L_\pm] =  \pm \hbar L_ \pm
+\end{equation}
+类似简谐振子的升降算符，我们还需要一个归一化系数使 $L_\pm \ket{l,m} = A_ \pm \ket{l,m \pm 1}$ 成立（见 “轨道角动量升降算符归一化\upref{QLNorm}”）．结论是
+\begin{equation}
+L_\pm \ket{l, m}  = \hbar \sqrt{l(l + 1) - m(m \pm 1)} \ket{l, m \pm 1} 
+\end{equation}
+由于 $\ket{l,m}$ 也是
+% 未完成
+
+（未完成）
+
+\begin{table}[ht]
+\centering
+\caption{轨道角动量符号（剩下的按字母表顺序排序）}\label{QOrbAM_tab1}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+符号 & S & P & D & F & G & H & I & K\\
+\hline
+$L$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\
+\hline
+符号 & L & M & N & O & Q & R & T & U \\
+\hline
+$L$ & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\hline
+\end{tabular}
+\end{table}

@@ -1,0 +1,23 @@
+% 球坐标系中的角动量算符
+
+\pentry{角动量（量子）\upref{QOrbAM}}
+
+本文使用原子单位制\upref{AU}．先看角动量平方算符 $L^2$ 在球坐标中的形式． 一种简单的方法是， 经典力学中， 球坐标系中哈密顿量可以记为（\autoref{HamCan_eq3}~\upref{HamCan}）
+\begin{equation}
+H = \frac{p_r^2}{2m} + \frac{L^2}{2mr^2} + V
+\end{equation}
+其中 $p_r = m\dot r$， $L = mr^2\dot\theta$．
+
+而球坐标中， 哈密顿算符为
+\begin{equation}
+H = -\frac{1}{2m}\laplacian + V = -\frac{1}{2m}\laplacian_r -\frac{\laplacian_\Omega}{2mr^2} + V
+\end{equation}
+这让我们很容易猜出 $p_r^2$ 和 $L^2$ 对应的算符分别 $-\laplacian_r$ 和 $-\laplacian_\Omega$， 事实也的确如此． 要想严格证明， 我们必须把\autoref{QOrbAM_eq2}~\upref{QOrbAM}通过链式法则\upref{PChain}用球坐标表示（留作习题）．
+\begin{equation}
+L_x = \I \qty(\sin\phi\pdv{\theta} + \cot\theta\cos\phi\pdv{\phi})
+\end{equation}
+
+\begin{equation}
+L_z = -\I\pdv{\phi}
+\end{equation}
+

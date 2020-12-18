@@ -1,0 +1,96 @@
+% 正交曲线坐标系
+% 多元微积分|坐标系|柱坐标系|球坐标系|矢量|内积|内积|导数|偏导数|曲线坐标系|正交曲线坐标系
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{梯度\upref{Grad}， 旋度\upref{Curl}， 球坐标系\upref{Sph}， 柱坐标系\upref{Cylin}}
+
+如果 $u, v, w$ 是正交曲线坐标系的三个坐标， 空间任意一点的位置矢量\upref{Disp} $\bvec r$ 都是它们的函数 $\bvec r(u, v, w)$． 那么定义任意一点处三个单位矢量为
+\begin{equation}
+\uvec u = \frac{\pdv*{\bvec r}{u}}{\abs{\pdv*{\bvec r}{u}}}\qquad
+\uvec v = \frac{\pdv*{\bvec r}{v}}{\abs{\pdv*{\bvec r}{v}}}\qquad
+\uvec w = \frac{\pdv*{\bvec r}{w}}{\abs{\pdv*{\bvec r}{w}}}
+\end{equation}
+也就是说， 当我们只把 $u$ 增加一点点时， $\bvec r$ 沿 $\uvec u$ 的方向移动， $v, w$ 同理．
+
+令其中三个分母为 $f(u,v,w), g(u,v,w), h(u,v,w)$， 则
+\begin{equation}\label{CurCor_eq4}
+\begin{aligned}
+\dd{\bvec r} &= \pdv{\bvec r}{u}\dd{u} + \pdv{\bvec r}{v}\dd{v} + \pdv{\bvec r}{w}\dd{w}\\
+&= f\uvec u\dd{u} + g\uvec v\dd{v} + h\uvec w\dd{w}
+\end{aligned}
+\end{equation}
+
+令 $s(u, v, w)$ 为标量函数， $\bvec A(u, v, w)$ 为矢量函数， 且
+\begin{equation}
+\bvec A(u, v, w) = A_x(u, v, w)\uvec u + A_y(u, v, w)\uvec v + A_z(u, v, w)\uvec w
+\end{equation}
+那么该坐标系中的梯度\upref{Grad}， 散度\upref{Divgnc}， 旋度\upref{Curl}算符分别为
+\begin{equation}
+\grad s = \frac{1}{f} \pdv{s}{u}\uvec u + \frac{1}{g}\pdv{s}{v} \uvec v + \frac{1}{h} \pdv{s}{w}\uvec w
+\end{equation}
+\begin{equation}
+\div \bvec A = \frac{1}{fgh}\qty[\pdv{u}(ghA_u) + \pdv{v}(fhA_v) + \pdv{w}(fgA_w)]
+\end{equation}
+\begin{equation}
+\begin{aligned}
+&\curl \bvec A = \frac{1}{gh}\qty[\pdv{v}(hA_w) - \pdv{w}(gA_v)]\uvec u\\
+&\quad + \frac{1}{fh}\qty[\pdv{w}(fA_u) - \pdv{u}(hA_w)]\uvec v
++ \frac{1}{fg}\qty[\pdv{u}(gA_v) - \pdv{v}(fA_u)]\uvec w
+\end{aligned}
+\end{equation}
+\begin{equation}\label{CurCor_eq6}
+\laplacian s = \frac{1}{fgh}\qty[\pdv{u}\qty(\frac{gh}{f}\pdv{s}{u}) + \pdv{v}\qty(\frac{fh}{g}\pdv{s}{v}) + \pdv{w}\qty(\frac{fg}{h}\pdv{s}{w})]
+\end{equation}
+
+
+\addTODO{推导参考 \cite{GriffE} 附录．}
+
+\addTODO{以下内容合并到相关词条}
+\subsection{柱坐标系}
+我们先来分析柱坐标系\footnote{由于极坐标系可以看做柱坐标系 $z = 0$ 的情况， 我们不单独讨论}， 位置矢量 $\uvec r$ 在直角坐标系中展开为
+\begin{equation}\label{CurCor_eq1}
+\bvec r(r, \theta, z) = r\cos\theta\, \uvec x + r\sin\theta\, \uvec y + z\uvec z
+\end{equation}
+柱坐标系中三个单位矢量 $\uvec r, \uvec \theta, \uvec z$ 的方向被定义为每个坐标增加时 $\bvec r$ 增加的方向， 即以下偏导数的方向
+\begin{equation}\label{CurCor_eq2}
+\leftgroup{
+\pdv{\bvec r}{r} &= \cos\theta\, \uvec x + \sin\theta\, \uvec y\\
+\pdv{\bvec r}{\theta} &= -r\sin\theta\, \uvec x + r \cos\theta\, \uvec y\\
+\pdv{\bvec r}{z} &= \uvec z
+}\end{equation}
+将这三个矢量归一化% 未完成：相关词条中可以给一道例题
+， 就得到三个单位矢量
+\begin{equation}\label{CurCor_eq3}
+\begin{cases}
+\uvec r = \cos\theta\, \uvec x + \sin\theta\, \uvec y\\
+\uvec \theta = -\sin\theta\, \uvec x + \cos\theta\, \uvec y\\
+\uvec z = \uvec z
+\end{cases}
+\end{equation}
+
+可见柱坐标系和直角坐标系中的 $\uvec z$ 相同， 而 $\uvec r, \uvec \theta$ 分别是 $\uvec x, \uvec y$ 绕 $z$ 轴逆时针旋转 $\theta$ 角所得． 所以尽管柱坐标系中的三个单位矢量的方向取决于坐标， 但它们始终两两垂直．
+
+我们把单位矢量始终保持两两垂直的坐标系叫做\textbf{正交曲线坐标系}， 或简称为\textbf{曲线坐标系}． 我们熟知的直角坐标系显然就是一个正交曲线坐标系， 稍后我们会看到球坐标系也是正交曲线坐标系．
+
+现在我们可以将\autoref{CurCor_eq1} 和\autoref{CurCor_eq2} 用柱坐标中的三个单位矢量来表示．
+\begin{equation}
+\bvec r = r\uvec r + z\uvec z
+\end{equation}
+\begin{equation}
+\pdv{\bvec r}{r} = \uvec r \qquad \pdv{\bvec r}{\theta} = r\uvec \theta \qquad \pdv{\bvec r}{z} = \uvec z\label{CurCor_eq5}
+\end{equation}
+
+与极坐标的情况\upref{DPol1} 类似， 将\autoref{CurCor_eq3} 对 $\theta$ 求偏导可以得到单位矢量的偏导
+\begin{equation}
+\pdv{\uvec r}{\theta} = \uvec \theta \qquad
+\pdv{\uvec \theta}{\theta} = -\uvec r \qquad
+\pdv{\uvec z}{\theta} = \bvec 0
+\end{equation}
+根据\autoref{CurCor_eq5} 和矢量函数的全微分%未完成： 链接
+， 柱坐标系中一段微小位移可记为
+\begin{equation}\label{CurCor_eq7}
+\dd{\bvec r} = \pdv{\bvec r}{r}\dd{r} + \pdv{\bvec r}{\theta}\dd{\theta} + \pdv{\bvec r}{z}\dd{z} = \dd{r}\uvec r + r\dd{\theta} \uvec \theta + \dd{z} \uvec z
+\end{equation}
