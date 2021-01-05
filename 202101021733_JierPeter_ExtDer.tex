@@ -1,0 +1,26 @@
+% 外导数
+% 外代数|外导数|外微分|叉乘|梯度|散度|旋度
+
+\pentry{外微分\upref{ExtDif}}
+
+\subsection{外导数的定义}
+
+外导数是一种流形上的\textbf{外微分代数}上的映射，其术语分为两部分，“外”和“导数”．“外”，指的是它把各$\Omega^k(M)$中的元素映射到$\Omega^k(M)$\textbf{之外}；“导数”，指的是它具有和求导类似的性质．实际上，矢量分析中的求导就是外导数的一个特例——你可能会问，求导并不具有“外”的特点，怎么就是特例了呢？我们会在本节中解释这一点．
+
+\begin{definition}{外导数}
+给定流形$M$，其外微分代数是$\Omega (M)$．定义映射$\dd:\Omega (M)\rightarrow\Omega (M)$，满足：
+\begin{itemize}
+\item $\forall \omega\in\Omega^k(M)$，有$\dd \omega\in\Omega^{k+1}(M)$．
+\item 对于光滑函数$f\in C^\infty(M)$，$\dd f$就是$f$的方向导数（1-形式）．
+\item \textbf{线性性}：任取$a, b\in \mathbb{R}$和$\omega, \mu\in\Omega(M)$，有$\dd(a\omega+b\mu)=a\dd\omega+b\dd\mu$．
+\item \textbf{Leibniz性}：任取$\omega, \mu\in\Omega^1(M)$，有$\dd(\omega\wedge\mu)=\omega\wedge\dd\mu-\dd\omega\wedge\mu$\footnote{注意有个负号，以及$\omega, \mu$都特指1-形式．}．
+\end{itemize}
+称这个映射为$\Omega (M)$或者说$M$上的一个\textbf{外导数}．
+\end{definition}
+
+定义中
+
+
+
+
+

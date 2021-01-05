@@ -1,0 +1,27 @@
+% Matlab
+
+\begin{lstlisting}[language=matlab]
+% surf() in spherical coordinate
+% 1. R, Th, Ph are 2D matrices
+function h = surfSph(R,Th,Ph,Val,varargin)
+if isvector(R) && isvector(Th)
+    [R,Th] = ndgrid(R, Th);
+    if (isscalar(Ph))
+        Ph = Ph*ones(size(R));
+end
+if isvector(R) && isvector(Ph)
+    [R,Ph] = ndgrid(R,Ph);
+    if (isscalar(Th))
+        Th = Th*ones(size(R));
+end
+if (size(R) ~= size(Th) || size(Th) ~= size(Ph)...
+                      || size(Ph) ~= size(Val))
+    error('wrong shape for Th, Ph, Val');
+end
+[X,Y,Z] = sph2cart(Ph,pi/2-Th,R);
+h = surf(X,Y,Z,varargin{:});
+shading flat; axis equal;
+xlabel x; ylabel y; zlabel z;
+cameratoolbar;
+end
+\end{lstlisting}
