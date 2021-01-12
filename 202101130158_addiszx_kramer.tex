@@ -1,0 +1,13 @@
+% 克拉默法则
+
+\pentry{行列式\upref{Deter}}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Cramer's_rule}{相关页面}．}\textbf{克拉默法则（Kramer's rule）}是一种直接用行列式解线性方程组的方法． 把线性方程组记为矩阵乘法\upref{Mat}的形式
+\begin{equation}
+\mat A \bvec x = \bvec b
+\end{equation}
+其中 $\mat A$ 为系数矩阵． 当 $\mat A$ 为方阵且行列式 $\det{\mat A} \ne 0$ 时， 方程有唯一解（见 “线性方程组解的结构\upref{LinEq}”）． 该解可以用克拉默法则直接写出：
+\begin{equation}
+x_i = \frac{\det{\mat A_i}}{\det{\mat A}}
+\end{equation}
+其中 $\mat A_i$ 是把 $\mat A$ 的第 $i$ 列替换为 $\bvec b$ 而来．

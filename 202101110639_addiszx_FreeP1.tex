@@ -1,0 +1,20 @@
+% 一维自由粒子（量子）
+
+\pentry{薛定谔方程\upref{TDSE}， 傅里叶变换（指数）\upref{FTExp}， 原子单位制\upref{AU}}
+
+本文使用原子单位制\upref{AU}． 当含时薛定谔方程\upref{TDSE}中势能函数 $V(x) = 0$ 时， 有
+\begin{equation}\label{FreeP1_eq1}
+-\frac{1}{2m}\pdv[2]{x}\Psi(x,t) = \I \pdv{t} \Psi(x,t)
+\end{equation}
+一般用分离变量法解该方程， 通解为（\autoref{TDSE_eq3}~\upref{TDSE}）． 但首先要解出对应的定态薛定谔方程
+\begin{equation}
+-\frac{1}{2m}\dv[2]{x}\psi_E(x) = E \psi_E(x)
+\end{equation}
+只有 $E > 0$ 时有可归一化的解， 也就是熟悉的平面波
+\begin{equation}
+\psi_E(x) = \frac{1}{\sqrt{2\pi}} \E^{\I k x}
+\end{equation}
+其中 $k = \sqrt{2mE}$． 所以\autoref{FreeP1_eq1} 的通解为
+\begin{equation}
+\Psi(x,t) = \frac{1}{\sqrt{2\pi}} \int C(E) \E^{\I k x} \dd{x}
+\end{equation}
