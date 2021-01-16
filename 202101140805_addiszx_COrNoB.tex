@@ -1,0 +1,24 @@
+% 连续正交归一基底
+% 正交归一|delta 函数|内积
+
+\pentry{傅里叶变换（指数）\upref{FTExp}， 矢量空间\upref{LSpace}}
+
+\subsection{离散的函数基底}
+本文使用狄拉克符号\upref{braket}． 在 “傅里叶级数（三角）\upref{FSTri}” 中， 我们介绍了正交归一函数基底的概念， 即把满足一定条件的一元函数的集合看作一个矢量空间\upref{LSpace}， 两个函数（矢量）的内积\upref{InerPd}定义为
+\begin{equation}
+\braket{f}{g} = \int_{-\infty}^{+\infty} f(x)^* g(x) \dd{x}
+\end{equation}
+其中 $*$ 表示复共轭， 如果空间中的函数都是实函数则可忽略．
+
+该空间中的一组正交归一基底用狄拉克符号\upref{braket}表示为 $\ket{x_i}$ （$i = 1, 2,\dots$， 可以是有限个或无限个）， 满足正交归一条件（\autoref{OrNrB_eq3}~\upref{OrNrB}）
+\begin{equation}
+\braket{x_i}{x_j} = \delta_{i,j}
+\end{equation}
+若这组正交归一基底是完备的， 那么任何函数都可以分解为它们的线性组合
+\begin{equation}
+\ket{f} = \sum_i \ket{x_i}\braket{x_i}{f}
+\end{equation}
+
+
+\subsection{连续的函数基底}
+我们是否可以用
