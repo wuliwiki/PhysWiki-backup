@@ -1,0 +1,274 @@
+% test0120
+% 数学试卷01
+
+\documentclass[utf8]{ctexart}
+\usepackage{mathtools,amsmath,booktabs,amssymb,graphicx}
+\usepackage{mathrsfs}
+\usepackage{xcolor}%定义了一些颜色  
+\usepackage{colortbl,booktabs}%第二个包定义了几个*rule
+\usepackage{verbatim}  %可以使用 comment注释
+\usepackage{geometry}  %页面设置
+
+\pagestyle{plain}%页眉为空，页脚为页码
+
+\usepackage{fontspec, xunicode, xltxtra} 
+\usepackage{xeCJK}%中文字体
+\setmainfont{Times New Roman}   %衬线字体缺省英文字体.serif是有衬线字体sans serif无衬线字体
+\setsansfont{Arial}   %西文默认无衬线字体
+\setmonofont{Courier New}%打印字体的 西文默认字体．
+\setCJKmainfont[ItalicFont={楷体}, BoldFont={黑体}]{宋体}
+\setCJKsansfont{黑体}
+\setCJKmonofont{仿宋_GB2312}%中文等宽字体
+
+\usepackage{tasks}
+\settasks{
+	label={\Alph*.},
+	label-align = left,
+	label-offset = {1em},
+	label-width = 0.5em,
+	item-format=\zihao{-4},% 设置选项的字体大小
+	item-indent = {1.5em}, % indent = label-width + label-offset
+	column-sep = {1em},
+	before-skip = {1em},
+	after-skip = {1em},
+	after-item-skip = 0em}
+
+
+%=================设置章节标题格式==================
+\ctexset{
+	section={
+		%format用于设置章节标题全局格式，作用域为标题和编号
+		%字号为小三，字体为黑体，左对齐
+		%+号表示在原有格式下附加格式命令
+		format+ = \zihao{-3} \heiti \raggedright,
+		%name用于设置章节编号前后的词语
+		%前、后词语用英文状态下,分开
+		%如果没有前或后词语可以不填
+		name = {,、},
+		%number用于设置章节编号数字输出格式
+		%输出section编号为中文
+		number = \chinese{section},
+		%beforeskip用于设置章节标题前的垂直间距
+		%ex为当前字号下字母x的高度
+		%基础高度为1.0ex，可以伸展到1.2ex，也可以收缩到0.8ex
+		beforeskip = 1.0ex plus 0.4ex minus .4ex,
+		%afterskip用于设置章节标题后的垂直间距
+		afterskip = 1.0ex plus 0.2ex minus .2ex,
+		%aftername用于控制编号和标题之间的格式
+		%\hspace用于增加水平间距
+		aftername = \hspace{0pt}
+	},
+	subsection={
+		format+ = \zihao{4} \kaishu \raggedright,
+		%仅输出subsection编号且为中文
+		number = \arabic{subsection},
+		name = {,.},
+		beforeskip = 1.0ex plus 0.2ex minus .2ex,
+		afterskip = 1.0ex plus 0.2ex minus .2ex,
+		aftername = \hspace{0pt}%,
+	%	afterindent = false
+	},
+	subsubsection={
+		%设置对齐方式为居中对齐
+		format+ = \zihao{-4} \fangsong \\raggedright,
+		%仅输出subsubsection编号，格式为阿拉伯数字，打字机字体
+		number = \ttfamily\arabic{subsubsection},
+		name = {,.},
+		beforeskip = 3.0ex plus 0.2ex minus .2ex,
+		afterskip = 1.0ex plus 0.2ex minus .2ex,
+		aftername = \hspace{0pt}
+	}
+}
+\counterwithout{subsection}{section}
+\renewcommand\thesubsection{\arabic{subsection}}
+
+\begin{document}
+	%声明标题
+	\title{考研数学命题人终极预测卷(一)}
+	\date{}
+	\author{}
+	\maketitle
+\section {选择题:\textmd{1$\sim$8小题，每小题4分，共32分，下列每题给出的四个选项中，只有一个选项符合题目要求，请将所选选项钱的字母填在答题纸指定位置上.}}
+\subsection{下列反常积分中，收敛的是 \hfill (\qquad)}
+\begin{tasks}(2)
+	\task  $\int_1^{+\infty}\frac{dx}{\sqrt{x^2-1}}$	
+	\task  $\int_1^{+\infty}\frac{dx}{x(x-1)}$
+	\task  $\int_1^{+\infty}\frac{dx}{\sqrt{x(x-1)}}$
+	\task  $\int_1^{+\infty}\frac{dx}{x^2\sqrt{x^2-1}}$
+\end{tasks}
+\subsection{由方程$2y^3-2y^2+2xy+y-x^2=0$确定的函数y=y(x) \hfill (\qquad)}
+\begin{tasks}(2)
+	\task  有驻点且为极小值点
+	\task  有驻点且为极大值点
+	\task  有驻点但不是极值点
+	\task  没有驻点
+\end{tasks}
+\subsection{下列命题正确的是\hfill (\qquad)}
+\begin{tasks}(1)
+	
+	\task  设$\sum\limits_{n=1}^\infty a_n$收敛,则$\lim\limits_{n\to\infty}na_n=0$.
+	%\limits \nolimits 行间公式表示上下数字在左右，独立公式在上下， \limits \nolimits则用来改变缺省位置
+	
+	\task  设$\sum\limits_{n=1}^\infty a_n$收敛，且当$n\to\infty$时$a_n$与$b_n$是等价无穷小,则$\sum\limits_{n=1}^\infty b_n$亦收敛.
+		
+	\task  设$\sum\limits_{n=1}^\infty a_n$与$\sum\limits_{n=1}^\infty |b_n|$都收敛，则$\sum\limits_{n=1}^\infty |a_n b_n|$也收敛.
+	
+	\task  设$\sum\limits_{n=1}^\infty a_n$与$\sum\limits_{n=1}^\infty b_n$都收敛，则$\sum\limits_{n=1}^\infty a_n b_n$也收敛.	
+\end{tasks}
+\subsection{微分方程$y^{\prime\prime}+2y^\prime-3y=e^x$有特解形式\hfill (\qquad)}
+\begin{tasks}(1)
+	\task $y^{\prime\prime}=Ae^x(A\neq 0).$
+	\task $y^{\prime\prime}=(A+Bx)e^x(B\neq 0).$
+	\task $y^{\prime\prime}=(A+Bx+Cx^2)e^x(C\neq 0).$
+	\task $y^{\prime\prime}=(A+Bx+Cx^2+Dx^3)e^x(D\neq 0).$
+\end{tasks}
+\subsection{
+	设$ A=
+	\begin{bmatrix} 
+		1&-1&1\\
+		x&4&y\\
+		-3&-3&5 
+	\end{bmatrix} $
+	有三个线性无关特征向量,$\lambda=2$是其二重特征值.则 \hfill (\qquad)
+}
+\begin{tasks}(2)
+	\task $x=y=-2.$
+	\task $x=2,y=-2.$
+	\task $x=y=2.$
+	\task $x=1,y=2.$
+\end{tasks}
+\subsection{设A,B,C均是3阶方阵,满足$AB=C$,其中
+	$B=
+		\begin{bmatrix}
+			1&2&2\\
+			2&1&1\\
+			-2&-1&a
+		\end{bmatrix}
+	$,
+	$C=
+		\begin{bmatrix}
+			0&0&0\\
+			2&1&1\\
+			0&0&0
+		\end{bmatrix}
+	$,则必有 \hfill (\qquad)
+}
+	\begin{tasks}(2)
+		\task $\alpha=-1$时,$\gamma(A)=1.$
+		\task $\alpha=-1$时,$\gamma(A)=2.$
+		\task $\alpha\neq -1$时,$\gamma(A)=1.$
+		\task $\alpha\neq -1$时,$\gamma(A)=2.$
+	\end{tasks}
+
+\subsection{
+	设X,Y均服从标准正态分布$N(0,1)$,相关系数$\rho_{XY}=\frac{1}{2}$,令
+	$Z_1=aX,Z_2=bX+cY$,若$DZ_1=DZ_2=1$且$Z_1$与$Z_2$不相关,则a,b,c的取值不可以是 \hfill (\qquad)
+}
+\begin{tasks}(2)
+	\task $a=1,b=\frac{1}{\sqrt{3}},c=-\frac{2}{\sqrt{3}}.$
+	\task $a=1,b=-\frac{1}{\sqrt{3}},c=\frac{2}{\sqrt{3}}.$
+	\task $a=-1,b=\frac{1}{\sqrt{3}},c=-\frac{2}{\sqrt{3}}.$
+	\task $a=-1,b=-\frac{1}{\sqrt{3}},c=-\frac{2}{\sqrt{3}}.$
+\end{tasks}
+\subsection{设随机变量X服从$F(3,4)$分布,对给定的$\alpha(0<\alpha<1)$,数$F_a(3,4)$满足$P\{X>F_a(3,4)\}=\alpha$,若$P\{X\leq x\}=1-a$,则x等于
+	\hfill (\qquad)
+}
+\begin{tasks}(4)
+	\task $\frac{1}{F_{1-a}(4,3)}.$
+	\task $\frac{1}{F_{1-a}(3,4)}$
+	\task ${F_{a}(4,3)}$
+	\task ${F_{1-a}(4,3)}$
+\end{tasks}
+\section{填空题:\textbf{9$\sim$14小题，每小题4分,共24分,请将答案写在答题纸指定位置上.}}
+\subsection{
+	若 $f(x)=\pi-4\arccos{x}$ 与 $g(x)=c\left(x-\frac{\sqrt{2}}{2}\right)^k$ 是 $x\rightarrow\left(\frac{\sqrt{2}}{2}\right)^+$ 时的等价无穷小,则$c^k=$\underline{\hbox to 20mm{}} 
+}
+
+\subsection{
+	某商品的需求量Q对价格P的弹性为$P\ln{3}$, 该商品的市场最大需求量为1500件,则需求函数$Q=$\underline{\hbox to 20mm{}}
+}
+\subsection{
+	设$z=(1+x^2y)^{xy^2}$,则 $x\frac{\partial z}{\partial x} - 2y\frac{\partial z}{\partial y}=$\underline{\hbox to 20mm{}} 
+}
+
+\subsection{
+	设 $x_n=1+\frac{1}{1+2}+\frac{1}{1+2+3}+\dots+\frac{1}{1+2+3+\dots+n}$,则$\displaystyle\lim_{x \rightarrow \infty}x_n=$\underline{\hbox to 20mm{}}
+}
+\subsection{
+	设$Ax=0$有基础解系$\alpha_1=(1,1,2,1)^T,\alpha_1=(1,1,2,1)^T,\alpha_2=(0,-3,1,0)^T$,$Bx=0$有基础解系$\beta_1=(1,3,0,2)^T,\beta_2=(1,2,-1,\alpha)^T$,若$Ax=0$和$Bx=0$没有非零公共解，则参数$\alpha$满足条件\underline{\hbox to 20mm{}}.
+	}
+\subsection{设二维随机变量$(X,Y)$的概率密度为$f(x,y)$,则随机变量$(2X,Y+1)$的概率密度$f_1(x,y)=$}\underline{\hbox to 40mm{}}.
+\section{解答题:\textmd{$15\sim 23$小题,共94分，请将解答写在答题纸指定位置上,解答应写出文字说明、证明过程或演算步骤.}}
+\subsection{
+	(本题满分10分)\\
+	设$f(x,y)=max\{\sqrt{x^2+y^2},1\},D=\{(x,y)| |x|\leq y\leq 1\}$,\\求$\iint_{D}f(x,y)d_\delta$
+}
+\subsection{
+	(本题满分10分)\\
+	设生产某种产品需投入甲、乙两种原料,x和y分别为两种原料的投入\\
+	量(单位:吨),Q为产出量,且生产函数为$Q(x,y)=Ax^{\frac{3}{4}}y^{\frac{3}{4}}$,其中常数\\
+	$A>0$.已知甲种原料每吨的价格为3万元,乙种原料每吨的价格为2万\\
+	元,如果投入总价值为32万元的这两种原料,当每种原料各投入多少吨\\
+	时，才能获得最大的产出量?
+}
+\subsection{
+	(本题满分10分)\\
+	求常数$\kappa$的取值范围,使得当$x>0$时,$f(x)=\kappa \ln(1+x) - \arctan{x}$单\\调增加.
+}
+\subsection{(本题满分10分)\\
+设$x>2$，证明\\
+$\ln{\frac{x+2}{x-2}}=\ln\left( \frac{x+1}{x-1} \right)^2 + 2\displaystyle\sum_{n=1}^{\infty}\frac{1}{2n-1} \left( \frac{2}{x^3-3x} \right)^{2n-1}$
+}
+\subsection{(本题满分10分)\\
+(1)证明曲线$y=\sin{x}$与$y=(\ln{x})^{\frac{1}{n}}(n=1,2,3,\dots)$在区间$\left[ \frac{\pi}{2},e \right]$上有唯一交点$P_n$;\\
+(2)记$P_n$的横坐标为$x_n$,求$\displaystyle\lim_{n \rightarrow \infty}{x_n}$
+}
+\subsection{(本题满分11)\\
+已知齐次线性方程组
+$ \left\{
+\begin{aligned}
+(a_1+b)x_1+a_2x_2+a_3x_3+\dots+a_nx_n=0,\\
+a_1x_1+(a_2+b)x_2+a_3x_3+\dots+a_nx_n=0,\\
+a_1x_1+a_2x_2+(a_3+b)x_3+\dots+a_nx_n=0,\\
+\cdots\cdots\\
+a_1x_1+a_2x_2+a_3)x_3+\dots+()a_n+b)x_n=0
+\end{aligned}
+\right.
+$\\
+其中$\displaystyle\sum_{i=1}^{n}a_{i} \neq 0$,试讨论$a_1,a_2,\dots,a_n$和b满足何种关系时,\\
+(1)方程组仅有零解;\\
+(2)方程组有非零解,在有非零解时，求此方程组的一个基础解系.
+\subsection{(本题满分11分)\\}
+设A是$n(n>2)$阶矩阵,$a_1,a_2,\dots,a_n$是n维列向量组,且$Aa_1=a_2,Aa_2=a3,\dots,Aa_{n-1}=a_n,Aa_n=0,a_n \neq 0.$\\
+(1)证明$a_1,a_2,\dots,a_n$线性无关;\\
+(2)A能否相似对角化,说明理由.
+}
+\subsection{(本题满分11分)\\
+设$X\sim\cup(-1,1),Y=\vert X \vert$,令 $Z_1=
+\left \{
+\begin{aligned}
+	1,X>0,\\
+	0,X\neq 0,
+\end{aligned}
+\right.
+$,
+$Z_2=
+\left \{
+\begin{aligned}
+1,X>\frac{1}{2},\\
+0,X\neq \frac{1}{2}
+\end{aligned}
+\right.
+$\\
+(1)求$Y,Z_1$的分布函数;\\
+(2)判断Y与$Z_1$是否独立,并给出理由;\\
+(3)求$Cov(Y,Z_2)$,判断Y与$Z_2$是否独立.
+}
+\subsection{
+	(本题满分11分)\\
+	若$Y=\ln{X}$服从正态分布$N(\nu,\delta^2)$,称产品寿命X服从对数正态分布.设$X_1,X_2,\dots,X_n$是取自总体X的简单随机样本,令$Y_i=\ln{X_i}(i=1,2,\dots,n)$,$Y_1,Y_2,\dots,Y_n$相互独立且均服从正态分布$N(0,\delta^2)$,其中$\delta^2$未知,求:\\
+	(1)X的概率密度;\\
+	(2)$\delta^2$的矩估计量;\\
+	(3)$\delta^2$的最大似然估计量.
+}
+\end{document}
