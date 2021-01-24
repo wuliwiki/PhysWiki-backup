@@ -1,0 +1,88 @@
+% 傅里叶变换与连续正交归一基底
+% 正交归一|delta 函数|内积
+
+\pentry{傅里叶变换（指数）\upref{FTExp}}
+
+\subsection{离散的函数基底}
+本文使用狄拉克符号\upref{braket}． 在 “傅里叶级数（三角）\upref{FSTri}” 中， 我们介绍了正交归一函数基底的概念， 即把满足一定条件的一元函数的集合看作一个矢量空间\upref{LSpace}， 两个函数（矢量）的内积\upref{InerPd}定义为
+\begin{equation}
+\braket{f}{g} = \int_{-\infty}^{+\infty} f(x)^* g(x) \dd{x}
+\end{equation}
+其中 $*$ 表示复共轭， 如果空间中的函数都是实函数则可忽略．
+
+该空间中的一组正交归一基底用狄拉克符号\upref{braket}表示为 $\ket{x_i}$ （$i = 1, 2,\dots$）， 基底的个数可以是有限个或无限个， 空间的维数就是基底的个数．
+
+基底满足正交归一条件（\autoref{OrNrB_eq3}~\upref{OrNrB}）
+\begin{equation}\label{COrNoB_eq2}
+\braket{x_i}{x_j} = \delta_{i,j}
+\end{equation}
+若这组正交归一基底是完备的， 那么任何函数都可以分解为它们的线性组合：
+\begin{equation}\label{COrNoB_eq6}
+\ket{f} = \sum_j c_j\ket{x_j}
+\end{equation}
+两边左乘 $\bra{x_i}$， 则有
+\begin{equation}
+\braket{x_i}{f} = \sum_j c_j\braket{x_i}{x_j} = \sum_j c_j \delta_{i,j} = c_i
+\end{equation}
+即
+\begin{equation}\label{COrNoB_eq5}
+c_i = \braket{x_i}{f}
+\end{equation}
+这是几何矢量中一个熟悉的结论： 一个矢量在一组正交归一基底上的坐标等于它在每个基底上的投影．
+
+\subsection{连续的函数基底}
+我们接下来用类似的方法来理解傅里叶变换（\autoref{FTExp_eq6}~\upref{FTExp}）．
+\begin{align}\label{COrNoB_eq4}
+g(k) &= \frac{1}{\sqrt{2\pi }} \int_{-\infty }^{+\infty } f(x)\E^{-\I kx} \dd{x} \\
+\label{COrNoB_eq3}f(x) &= \frac{1}{\sqrt{2\pi }} \int_{-\infty }^{+\infty } g(k)\E^{\I kx} \dd{k}
+\end{align}
+我们令所有可以做傅里叶变换的函数构成的空间为 $X$， 从傅里叶变换的公式， 我们猜想该空间的正交归一 “基底” 为
+\begin{equation}\label{COrNoB_eq1}
+\ket{k} = \frac{1}{\sqrt{2\pi}} \E^{\I kx} \qquad (k \in \mathbb R)
+\end{equation}
+严格来说， $X$ 空间的函数必须要满足 $\braket{x}{x}$ 为有限值， 而\autoref{COrNoB_eq1} 中的函数显然不满足这点， 所以它们并不属于 $X$ 空间， 而是一个包含 $X$ 的更大的空间， 所以这个 “基底” 只是一个形象的说法， 需要加上引号．
+
+显然， \autoref{COrNoB_eq1} 中的任意两个 “基底” 的内积都不收敛， 而且 $k$ 的取值是连续的， 所以我们不可能用\autoref{COrNoB_eq2} 表示它们的正交归一关系． 通过（\autoref{Delta_eq8}~\upref{Delta}）
+\begin{equation}
+\int_{-\infty}^{+\infty} \E^{\I kx}\dd{x} = 2\pi \delta(k)
+\end{equation}
+可以得到一个和\autoref{COrNoB_eq2} 类似的关系
+\begin{equation}
+\braket{k'}{k} = \int_{-\infty}^{+\infty} \frac{\E^{-\I k'x}}{\sqrt{2\pi}} \frac{\E^{\I kx}}{\sqrt{2\pi}}\dd{x}
+= \frac{1}{2\pi}\int_{-\infty}^{+\infty} \E^{\I (k'-k)x}\dd{x}
+= \delta(k' - k)
+\end{equation}
+即
+\begin{equation}\label{COrNoB_eq8}
+\braket{k'}{k} = \delta(k' - k)
+\end{equation}
+这可以看作是\textbf{连续基底的正交归一条件}．
+
+现在， \autoref{COrNoB_eq4}  和\autoref{COrNoB_eq3} 可以分别对应到\autoref{COrNoB_eq6} 和\autoref{COrNoB_eq5} ， 用狄拉克符号记为
+\begin{align}\label{COrNoB_eq9}
+&g(k) = \braket{k}{f}\\
+\label{COrNoB_eq7}&f(x) = \int_{-\infty}^{+\infty} g(k) \ket{k} \dd{k}
+\end{align}
+我们可以把\autoref{COrNoB_eq7} 看成定义， 来证明\autoref{COrNoB_eq9} ： \autoref{COrNoB_eq7} 两边左乘 $\bra{k'}$， 使用 $\delta$ 函数的性质\autoref{Delta_eq7}~\upref{Delta} 把积分中 $\ket{k'}$ 基底的系数 “筛选” 出来
+\begin{equation}
+\begin{aligned}
+\braket{k'}{f} &= \int_{-\infty}^{+\infty} g(k) \braket{k'}{k} \dd{k} = \int_{-\infty}^{+\infty} g(k) \delta(k'-k) \dd{k}\\
+&= g(k')
+\end{aligned}
+\end{equation}
+证毕．
+
+============================
+
+ 即可．
+
+， 以及多重积分可以交换积分顺序：
+\begin{equation}
+\begin{aligned}
+\int \ket{k}\braket{k}{f} \dd{k} &= \int \frac{\E^{\I kx}}{\sqrt{2\pi }} \qty(\int \frac{\E^{-\I k x'}}{\sqrt{2\pi }} f(x') \dd{x'}) \dd{k}\\
+&= \int f(x') \qty(\int \frac{\E^{-\I x' k}}{\sqrt{2\pi }}\frac{\E^{\I x k}}{\sqrt{2\pi }}\dd{k}) \dd{x'}\\
+&= \int f(x') \delta (x - x') \dd{x'}\\
+&= f(x)
+\end{aligned}
+\end{equation}
+这样就证明了傅里叶变换．
