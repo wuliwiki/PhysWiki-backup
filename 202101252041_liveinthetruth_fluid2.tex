@@ -1,0 +1,17 @@
+% 物质导数（实质导数）
+% 物质导数|当地导数|迁移导数
+
+在流体力学中，物质导数实际上是\textbf{拉格朗日法下某变量对时间的导数}，但它可以表示成\textbf{对欧拉变量的全导数}形式，因其特殊性，常用大写的微分符号来表示，称为物质导数，或随体导数，或者实质导数．设$\Phi$是流体的某种性质，物质导数的一般表达形式为：
+\begin{align}
+\frac{\mathrm{D} \Phi }{\mathrm{D} t}=\pdv{\Phi}{t}+(\bvec V \vdot \Nabla)\Phi
+
+
+
+\end{align}
+
+导数和偏导可以用
+\begin{equation}
+\dv{x} \quad \dv{f}{x} \quad \dv[2]{f}{x} \quad \dv*[2]{f}{x} \quad
+\pdv{x} \quad \pdv{f}{x} \quad \pdv[2]{f}{x} \quad \pdv{f}{x}{y} \quad \pdv*[2]{f}{x}
+\end{equation}
+要写到行内可以加 \verb|*|， 如 $\pdv*[2]{f}{x}$．
