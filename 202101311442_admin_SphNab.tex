@@ -1,0 +1,73 @@
+% 球坐标系中的矢量算符
+% 球坐标系|梯度|散度|旋度|拉普拉斯算符
+
+\pentry{旋度\upref{Curl}}
+
+球坐标系中标量函数 $u(r, \theta, \phi)$ 和矢量函数 $\bvec v(r, \theta, \phi)$ 的梯度， 散度， 旋度和拉普拉斯算符的公式如下． 其中 $r$ 是极径，$\theta $ 是极角，$\phi $ 是方位角．
+
+梯度算符
+\begin{equation}\label{SphNab_eq1}
+\grad u = \pdv{u}{r}\uvec r + \frac{1}{r} \pdv{u}{\theta}\uvec \theta  + \frac{1}{r\sin \theta }\pdv{u}{\phi}\uvec \phi
+\end{equation}
+散度算符
+\begin{equation}\label{SphNab_eq2}
+\div \bvec v = \frac{1}{r^2} \pdv{r} (r^2 v_r) + \frac{1}{r\sin \theta} \pdv{\theta} (\sin\theta v_\theta) + \frac{1}{r\sin \theta}\pdv{v_\phi}{\phi}
+\end{equation}
+旋度算符
+\begin{equation}\ali{
+\curl \bvec v = & \frac{1}{r\sin \theta} \qty[\pdv{\theta} (\sin \theta v_\phi) - \pdv{\phi}]\uvec r  + \frac1r \qty[\frac{1}{\sin \theta}\pdv{v_r}{\phi} - \pdv{r} (r v_\phi)]\uvec \theta\\
+&+ \frac1r \qty[\pdv{r} (r v_\theta) - \pdv{v_r}{\theta}]\uvec \phi
+}\end{equation}
+拉普拉斯算符
+\begin{equation}\label{SphNab_eq4}
+\laplacian u = \div (\grad u) = \frac{1}{r^2} \pdv{r} \qty(r^2 \pdv{u}{r}) + \frac{1}{r^2 \sin\theta}\pdv{\theta} \qty(\sin \theta \pdv{u}{\theta}) + \frac{1}{r^2 \sin^2 \theta} \pdv[2]{u}{\phi}
+\end{equation}
+
+\subsubsection{拉普拉斯算符的分解}
+为了书写方便本书中定义两个算符 $\laplacian_r$ 和 $\laplacian_\Omega$ 满足
+\begin{equation}\label{SphNab_eq3}
+\laplacian = \laplacian_r + \frac{\laplacian_\Omega}{r^2}
+\end{equation}
+其中 $\laplacian_r$ 只对 $r$ 求偏导， $\laplacian_\Omega$ 只对 $\theta,\phi$ 求偏导． $\laplacian_\Omega$ 还可以进一步分解为
+\begin{equation}
+\laplacian_\Omega = \grad_\Omega\vdot \grad_\Omega
+\end{equation}
+其中（详见 “球坐标系中的角动量算符\upref{SphAM}”）
+\begin{equation}
+\grad_\Omega = -\qty(\sin\phi\pdv{\theta} + \cot\theta\cos\phi\pdv{\phi})\uvec x
++ \qty(\cos\phi\pdv{\theta} - \cot\theta \sin\phi \pdv{\phi}) \uvec y
++ \pdv{\phi} \uvec z
+\end{equation}
+
+\subsection{推导}
+\pentry{正交函数系\upref{Fbasis}}
+球坐标系中， 位置矢量可以表示为
+\begin{equation}
+\bvec r = r \uvec r = r\sin\theta\cos\phi\,\uvec x + r\sin\theta\sin\phi\,\uvec y + r\cos\theta\uvec z
+\end{equation}
+同样， 球坐标系的三个单位矢量由三个坐标增加的方向确定
+\begin{equation}\label{SphNab_eq9}
+\leftgroup{
+\pdv{\bvec r}{r} &= \sin\theta\cos\phi\,\uvec x + \sin\theta\sin\phi\,\uvec y + \cos\theta\,\uvec z\\
+\pdv{\bvec r}{\theta} &= r\cos\theta\cos\phi\,\uvec x + r\cos\theta\sin\phi\,\uvec y - r\sin\theta\,\uvec z\\
+\pdv{\bvec r}{\phi} &= -r\sin\theta\sin\phi\,\uvec x + r\sin\theta\cos\phi\,\uvec y
+}\end{equation}
+归一化得三个单位矢量为
+\begin{equation}\label{SphNab_eq10}
+\begin{cases}
+\uvec r = \sin\theta\cos\phi\,\uvec x + \sin\theta\sin\phi\,\uvec y + \cos\theta\,\uvec z\\
+\uvec \theta = \cos\theta\cos\phi\,\uvec x + \cos\theta\sin\phi\,\uvec y - \sin\theta\,\uvec z\\
+\uvec\phi = -\sin\phi\,\uvec x + \cos\phi\,\uvec y
+\end{cases}
+\end{equation}
+不难验证这三个单位矢量两两间内积为零， 即两两垂直， 所以球坐标系也属于正交曲线坐标系． 对比\autoref{SphNab_eq9} 与\autoref{SphNab_eq10}， 有
+\begin{equation}\label{SphNab_eq11}
+\pdv{\bvec r}{r} = \uvec r \qquad
+\pdv{\bvec r}{\theta} = r\uvec \theta \qquad
+\pdv{\bvec r}{\phi} = r\sin\theta\,\uvec\phi
+\end{equation}
+所以位置矢量的微分可以表示为
+\begin{equation}\label{SphNab_eq12}
+\dd{\bvec r} = \uvec r \dd{r} + r\uvec \theta\dd{\theta} + r\sin\theta\uvec \phi\dd{\phi}
+\end{equation}
+结合\autoref{CurCor_eq4}~\upref{CurCor}到\autoref{CurCor_eq6}~\upref{CurCor}即可完成推导．

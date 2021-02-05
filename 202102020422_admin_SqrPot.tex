@@ -1,0 +1,178 @@
+% 方势垒的定态波函数
+% 势垒|散射|波函数|薛定谔方程
+
+% 系数和归一化公式已数值验证！
+
+\pentry{无限深势阱\upref{ISW}， 原子单位制\upref{AU}}
+
+本文采用原子单位制\upref{AU}． 我们要解一维定态薛定谔方程（参考\autoref{AU_eq4}~\upref{AU}）为
+\begin{equation}
+-\frac{1}{2m} \dv[2]{\psi}{x} + V\psi= E \psi
+\end{equation}
+令方势垒长度为 $2l$， 关于原点对称． 势能函数为
+\begin{equation}
+V(x) =
+\begin{cases}
+0 & (x < -l)\\
+V_0 & (-l \leqslant x < l)\\
+0 & (l \leqslant x)
+\end{cases}
+\end{equation}
+一些教材把势垒放在区间 $[0, a]$， 这时只需令 $a = 2l$， 把解出的波函数做一个平移即可． 对称势能的好处是存在奇和偶的实函数解， 且它们自动正交． 如果开始时就用指数形式的波函数， 完成后还要进行施密特正交化， 归一化后两个解的形式也未必对称．
+
+\subsection{$E \ge V_0$ 的情况}
+令
+\begin{equation}
+k = \sqrt{2mE}
+\qquad
+b = \sqrt{2m(E-V_0)}
+\end{equation}
+令对称解和反对称的波函数分别为
+\begin{equation}
+\psi_{\bvec k}^e(x) =
+\begin{cases}
+A_1 \cos(bx) & (0 \leqslant x \leqslant l)\\
+C_1 \cos(kx) + D_1 \sin(kx) & (l < x)\\
+\psi_{\bvec k}^e(-x) & (x < 0)
+\end{cases}
+\end{equation}
+
+\begin{equation}
+\psi_{\bvec k}^o(x) =
+\begin{cases}
+B_2 \sin(bx) & (0 \leqslant x \leqslant l)\\
+C_2 \cos(kx) + D_2 \sin(kx) & (l < x)\\
+-\psi_{\bvec k}^o(-x) & (x < 0)
+\end{cases}
+\end{equation}
+其中 $l < x$ 的部分也可以分别记为
+\begin{equation}
+G_i \sin(kx + \phi_i) \qquad (i = 1,2)
+\end{equation}
+\begin{equation}
+G_i = \sqrt{C_i^2 + D_i^2}
+\qquad
+\phi_i = \Arctan(C_i, D_i)
+\qquad
+(i = 1,2)
+\end{equation}
+
+
+在 $x = l$ 处匹配波函数和一阶导数， 解得
+\begin{equation}\label{SqrPot_eq1}
+\leftgroup{
+\frac{C_1}{A_1} &= \cos(kl)\cos(bl) + \frac{b}{k} \sin(kl)\sin(bl) \\
+\frac{D_1}{A_1} &= -\frac{b}{k} \cos(kl) \sin(bl) + \sin(kl)\cos(bl)
+}
+\end{equation}
+
+\begin{equation}\label{SqrPot_eq2}
+\leftgroup{
+\frac{C_2}{B_2} &= \cos(kl)\sin(bl) - \frac{b}{k} \sin(kl)\cos(bl)\\
+\frac{D_2}{B_2} &= \frac{b}{k} \cos(kl) \cos(bl) + \sin(kl)\sin(bl)
+}
+\end{equation}
+对波函数归一化， 使 $\int \psi_k'(x)\psi_k(x) = \delta(k'-k)$， 使无穷远处振幅为 $1/\sqrt{\pi}$， 得
+\begin{equation}
+\begin{aligned}
+A_1 = \frac{1}{\sqrt{\pi} \sqrt{\cos[2](bl) + (b^2/k^2)\sin[2](bl)}}\\
+B_2 = \frac{1}{\sqrt{\pi} \sqrt{\sin[2](bl) + (b^2/k^2)\cos[2](bl)}}
+\end{aligned}
+\end{equation}
+
+\subsection{$0 < E < V_0$ 的情况}
+令 $\kappa = \sqrt{2m(V_0-E)}$
+\begin{equation}
+\psi_{\bvec k}^e(x) =
+\begin{cases}
+A_1 \cosh(\kappa x) & (0 \leqslant x \leqslant l)\\
+C_1 \cos(kx) + D_1 \sin(kx) & (l < x)
+\end{cases}
+\end{equation}
+\begin{equation}
+\psi_{\bvec k}^o(x) =
+\begin{cases}
+A_2 \sinh(\kappa x) & (0 \leqslant x \leqslant l)\\
+C_2 \cos(kx) + D_2 \sin(kx) & (l < x)
+\end{cases}
+\end{equation}
+在 $x = l$ 处匹配波函数和一阶导数， 分别得
+\begin{equation}
+\leftgroup{
+&A_1 \cosh(\kappa l) = C_1 \cos(kl) + D_1 \sin(kl)\\
+&\kappa A_1 \sinh(\kappa l) = - kC_1  \sin(kl) +  kD_1 \cos(kl)
+}\end{equation}
+\begin{equation}
+\leftgroup{
+&A_2 \sinh(\kappa l) = C_2 \cos(kl) + D_2 \sin(kl)\\
+&\kappa A_2 \cosh(\kappa l) = -kC_2 \sin(kl) + k D_2 \cos(kl)
+}\end{equation}
+解得
+\begin{equation}
+\leftgroup{
+&\frac{C_1}{A_1} = \cosh(\kappa l)\cos(kl) - \frac{\kappa}{k}\sinh(\kappa l) \sin(kl)\\
+&\frac{D_1}{A_1} = \cosh(\kappa l)\sin(kl) + \frac{\kappa}{k}\sinh(\kappa l) \cos(kl)
+}\end{equation}
+\begin{equation}
+\leftgroup{
+&\frac{C_2}{A_2} = \sinh(\kappa l)\cos(kl) - \frac{\kappa}{k}\cosh(\kappa l)\sin(kl)\\
+&\frac{D_2}{A_2} = \sinh(\kappa l)\sin(kl) + \frac{\kappa}{k} \cosh(\kappa l)\cos(kl)
+}\end{equation}
+对波函数归一化， 使 $\int \psi_k'(x)\psi_k(x) = \delta(k'-k)$， 得
+\begin{equation}
+A_1 = \frac{1}{\sqrt{\pi}\sqrt{\cosh^2(\kappa l) + (\kappa/k)^2 \sinh^2(kl)}}
+\end{equation}
+\begin{equation}
+A_2 = \frac{1}{\sqrt{\pi}\sqrt{\sinh^2(\kappa l) + (\kappa/k)^2 \cosh^2(kl)}}
+\end{equation}
+
+\subsection{行波边界条件}
+令左、中、右三个区间 $\exp$ 项的系数分别为 $A,B$、$C,D$、$E,F$． 左边右入射和出射， 右边只有出射没有反射 $F = 0$．
+
+当 $E > V_0$ 时， 系数解为
+\begin{equation}
+\leftgroup{
+&A = 1/\sqrt{2\pi}\\
+&B = \mathcal{N}\cdot (k^2 - b^2)\sin(2bl)\exp(-\I kl)\\
+&C = \mathcal{N}\cdot \I k (k + b) \exp(-\I bl)\\
+&D = \mathcal{N}\cdot \I k(b-k) \exp(\I bl)\\
+&E = \mathcal{N}\cdot 2\I kb \exp(-\I kl)
+}\end{equation}
+其中归一化系数为
+\begin{equation}
+\mathcal{N} = \frac{[(k^2 + b^2)\sin(2bl) - 2\I kb \cos(2bl)]\exp(-\I kl)}{\sqrt{\pi}\sqrt{2(k^2-b^2)^2\sin^2(2bl) + 8k^2b^2}}
+\end{equation}
+满足归一化条件（链接未完成）
+\begin{equation}
+\abs{A}^2 + \abs{B}^2 + \abs{}^2 = \frac{1}{\pi}
+\end{equation}
+
+透射率， 反射率分别为
+\begin{equation}
+T = \abs{\frac{E}{A}}^2 = \frac{4k^2b^2}{(k^2 + b^2) \sin[2](2bl) + 4k^2b^2\cos[2](2bl)}
+\end{equation}
+
+\begin{equation}
+R = \abs{\frac{B}{A}}^2 = \frac{(k^2 - b^2) \sin[2](2bl)}{(k^2 + b^2) \sin[2](2bl) + 4k^2b^2\cos[2](2bl)}
+\end{equation}
+
+当 $0 < E < V_0$ 时， 系数解为
+\begin{equation}
+\leftgroup{
+&A = \mathcal{N}\cdot [(k^2 - \kappa ^2) \sinh(2\kappa l) + 2\I k\kappa  \cosh(2\kappa l)]\exp(\I kl)\\
+&B = \mathcal{N}\cdot (\kappa ^2 + k^2)\sinh(2\kappa l)\exp(-\I kl)\\
+&C = \mathcal{N}\cdot k(\I \kappa  - k) \exp(-\kappa l)\\
+&D = \mathcal{N}\cdot k(\I \kappa  + k) \exp(\kappa l)\\
+&E = \mathcal{N}\cdot 2\I k\kappa \exp(-\I kl)
+}\end{equation}
+\begin{equation}
+\mathcal{N} = \frac{1}{\sqrt{\pi}\sqrt{2(k^2+\kappa^2)^2\sinh^2(2\kappa l) + 8k^2\kappa^2 \cosh^2(2\kappa l)}}
+\end{equation}
+
+\begin{equation}
+T = \abs{\frac{E}{A}}^2 = \frac{4k^2\kappa ^2}{(\kappa ^2 - k^2)^2 \sinh[2](2\kappa l) + 4k^2\kappa ^2\cosh[2](2\kappa l)}
+\end{equation}
+
+\begin{equation}
+R = \abs{\frac{B}{A}}^2 = \frac{(\kappa ^2 + k^2) \sinh[2](2\kappa l)}{(\kappa ^2 - k^2)^2 \sinh[2](2\kappa l) + 4k^2\kappa ^2\cosh[2](2\kappa l)}
+\end{equation}
