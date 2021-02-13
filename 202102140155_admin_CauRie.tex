@@ -1,0 +1,76 @@
+% 复变函数的导数 柯西—黎曼条件
+% 柯西|黎曼|导数
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{复变函数\upref{Cplx}， 全微分\upref{TDiff}}
+
+\begin{definition}{}
+类似实函数的导数\upref{Der}， 定义复变函数 $w = f(z)$ （$f:\mathbb C\to \mathbb C$）的导数为
+\begin{equation}\label{CauRie_eq4}
+f'(z) = \lim_{h\to 0} \frac{f(z + h) - f(z)}{h}
+\end{equation}
+其中 $h$ 也是一个复数． 极限 $h \to 0$ 在这里是指 $h$ 可以在复平面上以任意方式趋近于 $0$ 都得到同一个极限值， 否则极限不存在．
+\end{definition}
+
+对于实变量的函数， 只有正负两个方向趋于零， 所以复变函数可导的条件更复杂．
+
+\begin{theorem}{柯西—黎曼条件}
+令 $z = x + y\I$ 且
+\begin{equation}
+f(z) = u(x, y) + \I v(x, y)
+\end{equation}
+那么 $f(z)$ 在该点可导的充分必要条件是： 实函数 $u,v$ 在复平面的某点 $z$ 可微， 且
+\begin{equation}\label{CauRie_eq1}
+\pdv{u}{x} = \pdv{v}{y} \qquad
+\pdv{u}{y} = - \pdv{v}{x}
+\end{equation}
+该式被称为\textbf{柯西—黎曼条件（Cauchy-Riemann condition）}．
+\end{theorem}
+可见若柯西—黎曼条件成立， 函数 $u,v$ 的四个偏导数中只有两个是独立的．
+
+\subsubsection{推导}
+根据全微分\upref{TDiff}
+\begin{equation}\label{CauRie_eq2}
+\dd{w} = \dd{u} + \I \dd{v} = \qty(\pdv{u}{x} \dd{x} + \pdv{u}{y} \dd{y}) + \qty(\pdv{v}{x} \dd{x} + \pdv{v}{y} \dd{y})\I
+\end{equation}
+如果直接由此计算 $\dv*{w}{z} = (\dd{u} + \I \dd{v})/(\dd{x} + \I \dd{y})$ 会发现结果和 $\dd{y}/\dd{x}$ 有关， 即与\autoref{CauRie_eq4} 中 $h$ 趋近于零点的方向有关． 所以我们换一种思路， 直接令导数为
+\begin{equation}
+f'(z) = a(z) + b(z)\I
+\end{equation}
+写成微分形式
+\begin{equation}
+\dd{w} = f'(z)\dd{z}
+\end{equation}
+即
+\begin{equation}
+\dd{u} + \I \dd{v} = (a + b\I)(\dd{x} + \I\dd{y}) = (a \dd{x} - b\dd{y}) + \I (b \dd{x} + a\dd{y})
+\end{equation}
+该式对比\autoref{CauRie_eq2} 得
+\begin{equation}
+a = \pdv{u}{x} = \pdv{v}{y} \qquad
+b = -\pdv{u}{y} = \pdv{v}{x}
+\end{equation}
+这样， 不仅得到了柯西—黎曼条件， 也得到了导数的表达式
+\begin{equation}
+f'(z) = \pdv{u}{x} -\pdv{u}{y} \I = \pdv{v}{y} + \pdv{v}{x}\I
+\end{equation}
+
+
+% 未完成， 举例子， 例如 exp, z^2, sin 等都满足柯西—黎曼
+
+\subsection{调和场}
+\pentry{调和场\upref{HarmF}}
+
+柯西—黎曼条件的充分必要条件是， $(u, -v)$ 是二维调和场， 即散度\upref{Divgnc}和旋度\upref{Curl}都为零， 所以存在势函数 $\phi$， 使
+\begin{equation}
+u = \pdv{\phi}{x} \qquad -v = \pdv{\phi}{y}
+\end{equation}
+且满足
+\begin{equation}
+\laplacian \phi = 0
+\end{equation}
+
+（未完成）
