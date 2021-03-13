@@ -1,0 +1,21 @@
+% 线性方程组解的结构 2
+
+\pentry{线性映射的结构\upref{MatLS2}}
+
+我们可以通过以下定理， 从线性映射和向量空间的角度理解线性方程组 $\bvec A \bvec x = \bvec b$．
+\begin{equation}
+Ax = b
+\end{equation}
+
+\begin{theorem}{线性方程}
+线性映射 $A:X\to Y$ 中， 零值域为 $Y_1 = A(X)$， 那么任意 $b \in Y_1$ 的逆像\footnote{即所有满足 $Ax = b$ 的 $x$ 的集合． 详见 “映射\upref{map}”} $X_s = A^{-1}b$ 为
+\begin{equation}\label{LinEq2_eq1}
+X_s = X_0 + x_1
+\end{equation}
+其中 $x_1$ 为任意满足 $Ax_1 = b$ 的向量，  $X_0$ 为映射的零空间．
+\end{theorem}
+说明： \autoref{LinEq2_eq1} 表示把 $X_0$ 中的每一个向量与 $x_1$ 相加得到集合 $X_s$． 注意当 $x_1 \ne 0$ 时容易证明这不是一个向量空间（不存在零向量）．
+
+证明： 首先证明 $X_0 + x_1$ 中的元素满足 $Ax = b$．
+
+要证明\autoref{MatLS2_the1}~\upref{MatLS2}
