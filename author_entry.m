@@ -1,6 +1,7 @@
 % list all entries edited by each author
 % data columns: author, entry, hours
 function author_entry
+clc
 cd(mfilepath);
 % for each author and entry, max # of backup files to omit
 num_thresh = 1;
@@ -29,11 +30,8 @@ while i <= size(data, 1) + 1
 end
 N = size(data, 1);
 str = [char(data(:,1)), repmat(' ',N,2), char(data(:,2)), repmat(' ',N,6), char(data(:,3))];
-fid = fopen('author_entry.txt','w');
-fprintf(fid, 'author      entry        time(h)\n');
-fprintf(fid, '================================\n');
-for r=1:size(str,1)
-    fprintf(fid,'%s\n',str(r,:));
-end
-fclose(fid);
+% unicode will not write to file
+disp('author      entry        time(h)');
+disp('================================');
+disp(str);
 end
