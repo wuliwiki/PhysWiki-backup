@@ -1,0 +1,18 @@
+% SLISC 的 matt 和 matb 文件格式
+
+\pentry{SLISC 简介}
+
+\begin{lstlisting}[language=cpp]
+#include "SLISC/matb.h"
+using namespace slisc;
+
+int main()
+{
+    Int i = 1; Doub d = 3.1; Comp c(1, 2);
+    VecInt v(3); linspace(3, 1, 3);
+    Matb matb("test.matb", 'w');
+    save(i, "i", matb);
+    save(d, "d", matb);
+    save(c, "c", matb);
+}
+\end{lstlisting}

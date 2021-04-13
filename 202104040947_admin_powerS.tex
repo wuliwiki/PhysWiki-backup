@@ -1,0 +1,30 @@
+% 幂级数
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{极限\upref{Lim}}
+
+我们把形如
+\begin{equation}\label{powerS_eq1}
+s = \sum_{n=0}^\infty c_n (x-x_0)^n
+\end{equation}
+的表达式叫做\textbf{幂级数（power series）}． 其中 $(x-x_0)^0$ 始终视为 $1$， 即使 $x-x_0 = 0$．
+
+幂级数是无穷级数\upref{infSer}的一种， 是一个极限． 如果我们把前有限项的求和记为
+\begin{equation}
+s_m = \sum_{n=0}^m c_n (x-x_0)^n
+\end{equation}
+那么\autoref{powerS_eq1} 幂级数就是
+\begin{equation}
+s = \lim_{m\to\infty} s_m
+\end{equation}
+的简写． 对给定的 $x$， 当极限存在时， 我们就说级数\textbf{收敛（converge）}， 反之就说级数\textbf{不收敛}或\textbf{发散（diverge）}． 广义来说， 幂级数中的 $c_n, x, x_0$ 都可以是复数复数\upref{CplxNo}．
+
+\subsection{收敛半径}
+一种极端的情况是幂级数\autoref{powerS_eq1} 只在 $x = x_0$ 一点处收敛． 例如 $c_n = 2^{2n}$ 或者 $c_n = n^n$， 一般来说只要 $c_n$ 增长得比指数函数 $a^n$ 要快
+
+如果某幂级数收敛的点不止 $x_0$ 一点， 那么必定存在一个\textbf{收敛半径（radius of convergence）} $0 < r < 1$， 使得当 $\abs{x-x_0} < r$ 时级数必定收敛， 而 $\abs{x-x_0} > r$ 是必定发散（不收敛）．
+
+\subsection{收敛半径}
