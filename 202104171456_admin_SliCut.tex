@@ -1,0 +1,62 @@
+% SLISC 容器的切割
+
+\pentry{SLISC 的矢量和矩阵\upref{SliMat}}
+
+如果我们想把矩阵的一行输入到某个函数中怎么办呢？ 如果我们不使用任何容器而是用指针， 函数的输入输出也使用指针， 那么可以通过 \verb|step| 参数实现：
+\begin{lstlisting}[language=cpp]
+Doub sum(const Doub *x, Long_I N, Long_I step)
+{
+    Doub s = x[0];
+    for (Long i = 1; i < N; ++i)
+        s += x[step*i];
+    return s;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=cpp]
+Long N1 = 10, N2 = 10;row = 3;
+Doub *a;
+new Doub a[N1*N2]; // 列主序
+for (Long i = 0; i < N1*N2; ++i)
+    a[i] = i;
+// 对第 3 行求和
+cout << "sum row 3 = " << sum(a+3, N2, N1) << endl;
+// 对第 3 列求和
+cout << "sum column 3 = " << sum(a+3*N1, N1, 1) << endl;
+// 对第 3 列的前 3 个元求和
+cout << "sum column 3, 0-2 = " << sum(a+3*N1, 3, 1) << endl;
+delete a[];
+\end{lstlisting}
+再看一个例子， 如果我们需要把子矩阵相加呢？
+\begin{lstlisting}[language=cpp]
+Doub sum(const Doub *x, Long_I N1, Long_I N2, Long_I step)
+{
+    Doub s = x[0];
+    for (Long i = 1; i < N; ++i)
+        s += x[step*i];
+    return s;
+}
+\end{lstlisting}
+
+
+可见直接使用裸指针给函数传递数组是非常灵活的， 在 C 语言中这也是很常见的做法， 见 BLAS 和 LAPACK． 然而这么做的缺点是容易出错．
+
+在 SLISC 库中， 函数输入或输出除了各种容器外， 也可以是 view 类型的一种． 例如上面的 \verb|sum| 函数也可以定义为
+\begin{lstlisting}[language=cpp]
+Doub sum(DvecDoub_I x)
+{
+    Doub s = x[0];
+    for (Long i = 1; i < x.size(); ++i)
+        s += x[x.step()*i];
+    return s;
+}
+\end{lstlisting}
+其中 \verb|DvecDoub| 是 view 类型的一种， 它包含一个指针 \verb|Doub *m_p|， 一个长度 \verb|Long *m_N| 以及一个步长 \verb|Long *m_step|． 它生成和毁灭时不会管理内存， 只用于表示另一个容器的一部分数据， 所以叫做 view， 也叫 slicing．
+
+SLISC 提供一系列开头为 \verb|cut| 的函数， 可以从容器中截取一部分然后返回 view 类型的一种． 例如以上 \verb|sum| 函数可以这样使用
+\begin{lstlisting}[language=cpp]
+CmatDoub a(10, 10);
+// 对第 3 行求和
+cout << "sum row 3 = " << sum(cut1(a, 3)) << endl;
+\end{lstlisting}
+其中 \verb|cut1(a, 3)| 从矩阵 \verb|a| 中切下一行（\verb|1| 表示第 1 个维度， 即 “行”）， 然后返回一个临时的 \verb|const DvecDoub &| 类型传给 \verb|sum| 函数．
