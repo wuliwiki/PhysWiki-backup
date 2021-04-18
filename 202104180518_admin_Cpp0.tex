@@ -1,0 +1,55 @@
+% C++ 基础
+% c++|cpp|语法
+
+Matlab 和 Python 等动态语言虽然用起来方便， 但缺点是运行较慢， 对于一些计算量大的项目不适合． 目前在高性能计算中广泛使用的只有两种语言即 C++ 和 Fortran． 虽然 Fortran 普遍被认为是一个过时的语言， 但在计算物理中， 许多人仍然在使用， 一是因为以前遗留下的 Fortran 代码比较多， 二是一些年纪较大的学者只会 Fortran．
+
+一本在数值算法中很有名的书是 Numerical Recipes， 这本书第三版以前都使用 Fortran 或 C， 而第三版却只有 C++， 这也是本书选择介绍 C++ 而不是 Fortran 的原因之一． 本书将从 Numerical Recipes 中借鉴许多代码上的风格和算法．
+
+C++ 的特征实在多不胜数， 事实上无论是什么语言， 做计算物理的研究者大多会倾向于只选择一些最简单的语法来使用．
+我们在这里列出本书使用的 C++ 特性．
+
+\subsection{基础语法}
+\begin{itemize}
+\item 基本类型 （\verb|bool|, \verb|char|, \verb|int|, \verb|long|, \verb|long| \verb|long|, \verb|float|, \verb|double|， \verb|long double|）
+\item 基本算符 （\verb|=, +, -, *, /, %, ++, --, +=, -=, *=, /=, ?:|) 以及优先级
+\item scope （scope 内的名字在 scope 外没有定义， scope 内可以定义与 scope 外相同的名字并覆盖， 类的 destructor 会在 scope 结束时自动调用）
+\item 判断（\verb|if|, \verb|else if|, \verb|else|）
+\item 循环 （\verb|for|, \verb|while|， \verb|do while|）
+\item 函数（函数名重载， 变量默认值， 算符函数， inline 函数）
+\item \verb|const|
+\item 指针
+\item 引用
+\item 头文件机制 （相当于原地插入头文件中的代码）
+\item 多文件编译
+\item one definition rule （ODR)
+\item 栈（stack）和堆（heap）
+\item \verb|typedef|
+\item 数组
+\item 动态内存管理 \verb|new|, \verb|delete|．
+\item 异常处理 \verb|throw|, \verb|try|, \verb|catch|
+\end{itemize}
+
+\subsection{标准库}
+\begin{itemize}
+\item \verb|cmath|
+\item \verb|complex|
+\item \verb|vector|
+\item \verb|string|, \verb|string32|
+\item \verb|iostream| （\verb|cin|， \verb|cout|， \verb|<<| 算符， \verb|>>| 算符）
+\item \verb|fstream|
+\end{itemize}
+
+\subsection{较高级的功能}
+\begin{itemize}
+\item 类（constructor, destructor, \verb|public|, \verb|private|， 数据成员， 函数成员， \verb|operator+, -, *, /, (), []|）
+\item 宏 （\verb|#include|, \verb|#define|, \verb|#if|, \verb|#ifdef|, \verb|#ifndef|, \verb|#else|, \verb|#endif|）
+\item \verb|namespace|
+\item \verb|constexpr|
+\item 类的继承
+\end{itemize}
+
+\subsection{高级功能}
+\begin{itemize}
+\item 类模板
+\item 函数模板
+\end{itemize}
