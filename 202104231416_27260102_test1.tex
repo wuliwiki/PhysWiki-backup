@@ -1,0 +1,206 @@
+% 角动量守恒
+
+	\section{Fast Fourier Transformation}
+		\subsection{Theorie}
+		Aus Wikipedia \autocite{wikiFFT}:
+		
+		Die Fouriertransformation (FT) ist die wohl wichtigste mathematische Transformation im Bereich Daten- und Signalverarbeitung. Sie findet Anwendung in der Audio- und Videobearbeitung, im maschinellen Lernen und in physikalischen und chemischen Simulationen. Da man in Simulationen nur auf diskrete Werte zugreifen kann, wird in solchen üblicherweise die diskrete Form der FT verwendet (DFT):
+		
+		\begin{equation}
+		f_m = \sum^n_{k=0}x_k\cdot\mathrm{e}^{\left(-\frac{2\pi i}{2n}mk\right)}\qquad m=0,...,n-1
+		\end{equation}
+		
+		Wobei $f_m$ das $m$-te Element der Fouriertransformation eines Vektors ($x_0$, ..., $x_{n-1}$) darstellt. Die meisten Algorithmen, die eine DFT implementieren, verwenden die sogenannte Fast Fourier Transformation (FFT): Teilt man den Vektor in gerade $x^{\prime}_k$ und ungerade Punkte $x^{\prime\prime}_k$ ein, so folgt für die DFT:
+		
+		\begin{align}
+		f_m &= \sum_{k=0}^{n-1}x^{\prime}_k\cdot\mathrm{e}^{\left(-\frac{2\pi i}{n}mk\right)} \quad + \quad \mathrm{e}^{\left(-\frac{\pi i}{n}m\right)}\sum_{k=0}^{n-1}x^{\prime\prime}_k\cdot\mathrm{e}^{\left(-\frac{2\pi i}{n}mk\right)} \\
+		&= \begin{cases} 
+		f^{\prime}_m     + \mathrm{e}^{\left(-\frac{\pi i}{n}m\right)}    f^{\prime\prime}_m     & m < n \\
+		f^{\prime}_{m-n} - \mathrm{e}^{\left(-\frac{\pi i}{n}(m-n)\right)}f^{\prime\prime}_{m-n} & m \geq n 
+		\end{cases}
+		\end{align}
+		
+		Mit der Berechnung von $f^{\prime}_m$ und $f^{\prime\prime}_m$ ist sowohl $f_m$ als auch $f_{m+n}$ bestimmt. Der Rechenaufwand hat sich durch diese Zerlegung also praktisch halbiert. 
+		
+		Durch eine Rekursion lässt sich diese Eigenschaft ausnutzen.
+		\begin{enumerate}
+		    \item Das Feld mit den Eingangswerten wird einer Funktion als Parameter übergeben, die es in zwei halb so lange Felder (eins mit den Werten mit geradem und eins mit den Werten mit ungeradem Index) aufteilt.
+			\item Diese beiden Felder werden nun an neue Instanzen dieser Funktion übergeben.
+			\item Am Ende gibt jede Funktion die FFT des ihr als Parameter übergebenen Feldes zurück. Diese beiden FFTs werden nun, bevor eine Instanz der Funktion beendet wird, nach der oben abgebildeten Formel zu einer einzigen FFT kombiniert - und das Ergebnis an den Aufrufer zurückgegeben.
+		\end{enumerate}
+		Ist $n$ eine zweier-Potenz, so lässt sich der Aufwand effektiv auf $O(n\log n)$ reduzieren. Diese Einschränkung stellt meist kein Hindernis dar, da die Wahl von $n$ in der Praxis oft beliebig ist.
+		
+		In einer iterativen Variante lässt sich dieser Algorithmus auf einer GPU parallelisieren: In jedem Schritt werden die geraden und ungeraden Punkte in zwei Hälften geteilt. Man erhält ein sortiertes Array, in dem von jeweils zwei Elementen die DFT gebildet werden kann. Im nächsten Schritt werden diese Werte zur DFT von vier Werten kombiniert. Dies führt man so lange durch, bis man auf der obersten Ebene angelangt ist. 
+		
+		Die inverse Transformation unterscheidet sich nur durch Vorzeichen und eine Normierungskonstante.
+		
+		Dieses Vorgehen ähnelt stark einer Reduktion. Es ist daher nicht überraschend, dass auch hier eine CUDA Library als Teil des Toolkits zur Verfügung steht.
+		
+		\subsection{cuFFT}
+		Bei der cuFFT Library handelt es sich um die state-of-the-art Implementierung einer GPU parallelisierten FFT. Sie wurde im Wesentlichen von der \textit{Fastest Fourier Transformation in the West} (FFTW) inspiriert, unterscheidet sich aber in einem wichtigen Punkt (siehe \ref{fftw}). Zur Benutzung muss der Header \textit{cufft.h} (bzw. \textit{cufftXt.h} für Xt Funktionalität) inkludiert und mit \textit{libcufft} gelinkt werden.
+		
+		cuFFT unterstützt FFTs in bis zu drei Dimensionen von Komplex nach Komplex (CUFFT{\_}C2C), Real nach Komplex (CUFFT{\_}R2C) und Komplex nach Real (CUFFT{\_}C2R). R und C bezeichnen dabei einfache Präzision. Für die doppelte verwendet man D und Z.
+	
+		Zunächst müssen Arrays eines speziellen cuFFT Datentyps (\li`cufftComplex`. \li`cufftReal`, \li`cufftDouble`,\\
+		\li`cufftDoubleComplex`) erstellt und wie gewohnt in den \gls{global Memory} kopiert werden:
+		
+		\begin{lstlisting}[caption=cuFFT: komplexer Datentyp]
+		int dim = {Nx, Ny, Nz};
+		cufftComplex *data;
+		cudaMalloc(&data, Nx*Ny*Nz * sizeof(cufftComplex));
+		\end{lstlisting}
+		
+		Ein Wert lässt sich dann wie in einem multidimensionalen Array von zweikomponentigen Datenstrukturen setzen, z.B. \li`data[x][y][z].x = 5.0f; data[x][y][z].y = 3.0f;` für $5 + i\cdot 3$.
+	
+		Im nächsten Schritt muss ein \Gls{Handle} für das Programm, ein sogenannter Plan erstellt werden. Dies ist notwendig, da abhängig von der Beschaffenheit der Daten vorab bereits verschiedene Berechnungen durchgeführt werden müssen, z.B. die Größe der \Glspl{Block} oder welcher Algorithmus benutzt werden soll. 
+		
+		\begin{lstlisting}[caption=cuFFT: Pläne]
+		cufftHandle plan;
+		/////////in einer Dimension /////////
+		cufftPlan1d(&plan, Nx, CUFFT_C2C, 1);	
+		/////////in zwei Dimensionen/////////
+		cufftPlan2d(&plan, Nx, Ny, CUFFT_C2C, 1);	
+						
+		/////////in drei Dimensionen/////////
+		cufftPlan3d(&plan, Nx, Ny, Nz, CUFFT_C2C, 1);
+		\end{lstlisting}
+		
+		Der letzte Wert bezeichnet die Batch Größe (später mehr).
+	    
+		Dieser Plan muss nun ausgeführt und evtl. das Ergebnis zur Ausgabe zurück kopiert werden.
+		
+		\begin{lstlisting}[caption=cuFFT: Ausführen]
+		cufftExecC2C(plan, data, data, CUFFT_FORWARD);
+		cufftDestroy(plan);
+		cudaFree(data);
+		\end{lstlisting}
+		
+		Input und Output Array sind hier identisch, es handelt sich also um eine in-place Transformation. Das letzte Keyword bezeichnet die Art der Transformation. CUFFT\_ INVERSE bezeichnet die inverse Transformation. Da Input und Output Array nicht zwingend vom selben Datentyp sein müssen, können ihre Größen abweichen. Tabelle \ref{tab6:size} zeigt einen Vergleich.
+		
+		\begin{table}[h]
+		    \centering
+		    \begin{tabular}{llll}
+			    \toprule
+        			Dimension & FFT & Inputgröße & Outputgröße \\ \midrule
+        		    	1D & C2C & $N_x$ \li`cufftComplex` & $N_x$ \li`cufftComplex` \\
+			    1D & C2R & $\left \lfloor{\frac{N_x}{2}}\right \rfloor + 1$ \li`cufftComplex` & $N_x$ \li`cufftReal` \\
+		        	1D & R2C & $N_x$ \li`cufftReal` & $\left \lfloor{\frac{N_x}{2}}\right \rfloor + 1$ \li`cufftComplex` \\ \hline
+        			2D & C2C & $N_x\cdot N_y$ \li`cufftComplex` & $N_x\cdot N_y$ \li`cufftComplex` \\
+		        	2D & C2R & $N_x\left \lfloor{\frac{N_y}{2}}\right \rfloor + 1$ \li`cufftComplex` & $N_x\cdot N_y$ \li`cufftReal` \\
+        			2D & R2C & $N_x\cdot N_y$ \li`cufftReal` & $N_x\left \lfloor{\frac{N_y}{2}}\right \rfloor + 1$ \li`cufftComplex` \\ \hline
+		        	3D & C2C & $N_x\cdot N_y\cdot N_z$ \li`cufftComplex` & $N_x\cdot N_y\cdot N_z$ \li`cufftComplex` \\
+        			3D & C2R & $N_x\cdot N_y\left \lfloor{\frac{N_z}{2}}\right \rfloor + 1$ \li`cufftComplex` & $N_x\cdot N_y\cdot N_z$ \li`cufftReal` \\
+		        	3D & R2C & $N_x\cdot N_y\cdot N_z$ \li`cufftReal` & $N_x\cdot N_y\left \lfloor{\frac{N_z}{2}}\right \rfloor + 1$ \li`cufftComplex` \\ \bottomrule
+        		\end{tabular}
+		    \caption[cuFFT Arraygrößen]{Größenvergleich von Input und Output Arrays}
+		    \label{tab6:size}
+		\end{table}
+	
+		Nvidia stellt auch hier eine Dokumentation im gewohnten Format zur Verfügung. \autocite{cufftDoc}
+	
+		 	\subsubsection{cuFFT v.s. FFTW}\label{fftw}
+		 	Die \textit{Fastest Fourier Transformation in the West} (FFTW) hat sich wegen ihrer freien Zugänglichkeit und ihrer effizienten Parallelisierung in OpenMP und MPI für Prozessoren als de-facto Standard durchgesetzt. Sie unterscheidet sich in einem wesentlichen Punkt gegenüber cuFFT: FFTW stellt viele Pläne zur Verfügung und führt sie auf eine Art aus, cuFFT stellt nur drei Pläne zur Verfügung und benutzt mehrere Methoden zur Ausführung \autocite{FFTW05}. Tabelle \ref{tab6:fftw} zeigt einige Unterschiede.
+		 	\begin{table}[h]
+		 	\centering
+		 	\begin{tabular}{ll}
+		 		\toprule
+		 		FFTW & cuFFT \\ \midrule
+		 		\li`fftw_plan_dft_1d()`, \li`fftw_plan_dft_r2c_1d()`, \li`fftw_plan_dft_c2r_1d()` & \li`cufftPlan1d()` \\
+		 		\li`fftw_plan_dft_2d()`, \li`fftw_plan_dft_r2c_2d()`, \li`fftw_plan_dft_c2r_2d()` & \li`cufftPlan2d()` \\
+		 		\li`fftw_plan_dft_3d()`, \li`fftw_plan_dft_r2c_3d()`, \li`fftw_plan_dft_c2r_3d()` & \li`cufftPlan3d()` \\
+		 		\li`fftw_plan_dft()`, \li`fftw_plan_dft_r2c()`, \li`fftw_plan_dft_c2r()` & \li`cufftPlanMany()` \\
+		 		\li`fftw_plan_many_dft()`, \li`fftw_plan_many_dft_r2c()`, \li`fftw_plan_many_dft_c2r()` & \li`cufftPlanMany()` \\
+		 		\li`fftw_execute()` & \multirowcell{6}{\li`cufftExecC2C()`\\ \li`cufftExecZ2Z()`\\ \li`cufftExecR2C()`\\ \li`cufftExecD2Z()`\\ \li`cufftExecC2R()`\\ \li`cufftExecZ2D()`} \\
+		 		& \\
+		 		& \\
+		 		& \\
+		 		& \\
+		 		& \\
+		 		\li`fftw_destroy_plan()` & \li`cufftDestroy()` \\ \bottomrule
+		 	\end{tabular}
+		 	\caption[cuFFT v.s. FFTW]{Unterschiede zwischen FFTW und cuFFT}
+		 	\label{tab6:fftw}
+		 	\end{table}
+		 	
+		 	Eine eindimensionale Transformation würde mit FFTW in der OpenMP-parallelen Variante so aussehen:
+		 	\begin{lstlisting}[caption=FFTW Beispiel] 
+		 	fftw_complex *in = (fftw_complex*) fftw_malloc(sizeof(fftw_complex)*N);
+		 	//Komplexen Vektor belegen...
+			fftw_init_threads();
+			fftw_plan_with_nthreads(omp_get_max_threads());	
+			fftw_plan p = fftw_plan_dft_1d(N, in, in, FFTW_FORWARD, FFTW_ESTIMATE); 
+			fftw_execute(p); 
+			
+			fftw_destroy_plan(p);
+			fftw_free(in);
+			fftw_cleanup_threads();	 	
+		 	\end{lstlisting}
+		 	
+			Abbildung \ref{fig6:fft} zeigt einen Laufzeitvergleich.
+		
+			Mehr Informationen lassen sich in der Dokumentation nachlesen. \autocite{fftwDoc}
+			
+			\subsubsection{cuFFTW}
+			Um eine Umstellung zu erleichtern, wurde ein \Gls{API} programmiert, das manche FFTW Funktionen auf cuFFT abbildet. Dazu muss lediglich der Header gegen \textit{cufftw.h} ausgetauscht und mit \textit{libcufftw} gelinkt werden. Kapitel 7 in der Dokumentation zeigt alle implementierten Funktionen. \autocite{cufftDoc}		
+			
+		\subsection{clFFT}
+		Es existiert eine Open-Source Implementierung der FFT in OpenCL von AMD. Sie wurde zwar für AMD GPUs optimiert lässt sich aber prinzipiell auf allen benutzen. Diese steht unter \url{https://github.com/clMathLibraries/clFFT} zur Verfügung und muss explizit nach Anleitung kompiliert werden. Zur Benutzung muss der Header \textit{clfft.h} inkludiert und mit \textit{libclFFT} (und wie gewohnt mit \textit{libOpenCL}) gelinkt werden. Eine eindimensionale Transformation würde mit clFFT so aussehen:
+		
+		\begin{lstlisting}[caption=clFFT Beispiel]
+		cl_int err, N = ...;
+		float *X = (float*)malloc(N*2 * sizeof(*X));
+		//Komplexen Vektor belegen...
+		
+		cl_context ctx = ...;
+		cl_command_queue queue = ...;
+		
+		clfftSetupData fftSetup;
+		clfftInitSetupData(&fftSetup);
+		clfftSetup(&fftSetup);
+
+		cl_mem bufX = clCreateBuffer(ctx, CL_MEM_READ_WRITE, 
+			N*2 * sizeof(*X), NULL, &err);
+		clEnqueueWriteBuffer(queue, bufX, CL_TRUE, 0, 
+			N*2 * sizeof(*X), X, 0, NULL, NULL);
+		
+		clfftDim dim = CLFFT_1D;
+		size_t clLengths[1] = {N};
+		clfftPlanHandle planHandle;
+		clfftCreateDefaultPlan(&planHandle, ctx, dim, clLengths);
+
+		clfftSetPlanPrecision(planHandle, CLFFT_SINGLE);
+		clfftSetLayout(planHandle, CLFFT_COMPLEX_INTERLEAVED, 
+            CLFFT_COMPLEX_INTERLEAVED);
+		clfftSetResultLocation(planHandle, CLFFT_INPLACE);
+
+		clfftBakePlan(planHandle, 1, &queue, NULL, NULL);
+		clfftEnqueueTransform(planHandle, CLFFT_FORWARD, 1, 
+			&queue, 0, NULL, NULL, &bufX, NULL, NULL);
+		
+		.........
+		
+		clfftDestroyPlan(&planHandle);
+		clfftTeardown();
+		\end{lstlisting}		
+		
+		Abbildung \ref{fig6:fft} zeigt einen Laufzeitvergleich.	
+					
+		\begin{figure}[h]
+  			\centering
+			\begin{tikzpicture}
+    			    \begin{loglogaxis}[xlabel={vector size $n$}, ylabel={computation time / msec.}, legend pos=outer north east, legend style={cells={align=left}}]
+      		        \addplot [draw=UR@color@12!50!black, mark=*, only marks, mark options={scale=1}, fill=UR@color@12]   table[x index=0, y index=1]{chapter6/plots/fft.dat};
+      		        \addlegendentry{OpenMP FFTW}
+%
+    	  		        \addplot [draw=gray!50!black, mark=*, only marks, mark options={scale=1}, fill=gray!50!white] table[x index=0, y index=2]{chapter6/plots/fft.dat};
+    	  		        \addlegendentry{clFFT}
+%
+      		        \addplot [draw=UR@color@12!30!black, mark=*, only marks, mark options={scale=1}, fill=UR@color@12!30!white] table[x index=0, y index=3]{chapter6/plots/fft.dat};
+      		        \addlegendentry{cuFFT}  
+		   	    \end{loglogaxis}
+            \end{tikzpicture}
+  			\caption[Vergleich von FFTs]{Laufzeitvergleich von \textit{Complex-to-Complex} FFTs desselben $n$-dimensionalen Vektors (log-log). Zum Einsatz kam eine \textit{Nvidia GTX 1060} sowie ein Intel i7-8700K 6$\times$4.8GHz.}
+  			\label{fig6:fft}
+		\end{figure}
+		
+		Mehr Informationen zum \Gls{API} lassen sich in der Dokumentation nachlesen. \autocite{clfftDoc}
