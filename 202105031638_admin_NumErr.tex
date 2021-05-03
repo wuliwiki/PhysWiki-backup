@@ -1,0 +1,24 @@
+% 数值计算的误差
+
+\subsection{误差}
+误差（Errors）的基本概念在高中物理里面应该有所涉及，这里就不仔细展开了． 对于科学计算而言，我们所关注的主要是\textbf{相对误差(relative error)}和\textbf{绝对误差(absolute error)}．
+
+如果我们把一个数据的实际值记做 $x$ , 把它的近似值记为 $\hat x$． 在这个近似的过程，误差产生的原因主要有：
+\begin{itemize}
+\item 测量中的误差
+\item 运算和计算机表达中的不精确所引入的机器误差或者舍入误差（round-off error）
+\item 数值方法和离散化带来的误差（discretization error）
+\end{itemize}
+尤其是后面两种，是科学计算中要面临的两个主要的误差来源，下面我们会对它们进行逐一分析． 因此，在评估和使用数值方法时，我们需要系统的衡量这两项误差，并且要\textbf{掌握它们的来源}，对它们的\textbf{大小有足够的控制}．
+
+\subsection{范数}
+在了解误差以前，我们先来回顾一下线性代数中的一个常规概念，范数．
+
+科学计算中经常会涉及到向量（vector），矩阵（matrix）和张量（tensor）． 计算与它们有关的误差，需要使用更为一般化的“绝对值”函数，也就是范数 $\norm{\cdot}$．
+
+下面是几个常见的范数，其中向量由小写字母表示，矩阵由大写字母表示．
+
+\begin{itemize}
+\item 1-范数： $\norm{v}_1 = (\abs{v_1} + \abs{v_2} + \dots + \abs{v_N})$
+\item 2-范数：
+\end{itemize}

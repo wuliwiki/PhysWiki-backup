@@ -1,0 +1,24 @@
+% 悬链线
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Catenary}{相关页面}．}\textbf{悬链线（catenary）}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/Catena_1.pdf}
+\caption{悬链线} \label{Catena_fig1}
+\end{figure}
+
+微分方程， 假设原点处的张力为 $T$， 绳的线密度为 $\lambda$， 那么区间 $[0, x]$ 的曲线长度为
+\begin{equation}
+L(x) = \int_0^x \sqrt{1 + y'(x')^2} \dd{x'}
+\end{equation}
+区间 $[0, x]$ 所受重力为 $G = \lambda L g$． 根据受力分析， $x$ 点的斜率为 $[0, x]$ 所受重力除以水平拉力 $T$， 这样就得到了悬链线 $y(x)$ 的微分—积分方程
+\begin{equation}
+y' = \frac{g\lambda}{T} \int_0^x \sqrt{1 + y'^2} \dd{x'}
+\end{equation}
+两边对 $x$ 再次求导得二阶微分方程
+\addTODO{如何对积分上限求导？放链接}
+\begin{equation}
+y'' = \frac{g\lambda}{T} \sqrt{1 + y'^2}
+\end{equation}
+注意这是一个非线性二姐常微分方程． 可以验证双曲余弦（\autoref{TrigH_eq1}~\upref{TrigH}） $A\cosh(kx)$ 就是它的通解．
