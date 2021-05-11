@@ -1,0 +1,57 @@
+% 安培环路定理
+% 安培环路|比奥萨法尔
+
+\begin{issues}
+\issueOther{最后的证明未完成}
+\end{issues}
+
+\pentry{比奥萨伐尔定律\upref{BioSav}， 斯托克斯定理\upref{Stokes}}
+在空间中选取一环路（称为\textbf{安培环路}） 并定义一个正方向， 那么磁感应强度在该环路上的线积分\upref{IntL}等于穿过环路的总电流（电流的正方向由右手定则\upref{RHRul} 判断）乘以真空中的磁导率 $\mu_0$．
+\begin{equation}\label{AmpLaw_eq1}
+\oint \bvec B \vdot \dd{\bvec r} = \mu_0 I
+\end{equation}
+这就是\textbf{安培环路定理（Ampere's circuital Law）}．
+
+上式中有几点需要注意的地方． 第一， 电流及其分布不随时间变化． 这点可以从 “不存在瞬时作用” 理解， 假设某时刻电流突然从 0 变为某个值， 由于电磁场传播需要一定时间， 环路上不可能瞬间出现磁场． 第二， 空间中不能有变化的电场， 因为变化的电场也会产生磁场， 改变环路积分的结果．% 连接未完成
+
+\begin{example}{无限长直导线的磁场}\label{AmpLaw_ex1}
+若导线的电流为 $I$， 在其周围作一个半径为 $r$ 的安培环路， 由对称性， 环路上任意一点的磁感应强度大小相同且沿正方向． 所以\autoref{AmpLaw_eq1} 等于
+\begin{equation}
+2\pi r B = \mu_0 I
+\end{equation}
+所以磁感应强度大小的分布为
+\begin{equation}
+B(r) = \frac{\mu_0}{2\pi} \frac Ir
+\end{equation}
+这与使用比奥萨伐尔定律（\autoref{BioSav_ex1}~\upref{BioSav}） 得出的结论一致．
+\end{example}
+
+\begin{example}{无限长螺线管的磁场}\label{AmpLaw_ex2}
+（图未完成） 
+圆柱形均匀缠绕的螺线管单位长度匝数为 $n$ 沿螺线管的轴线方向取一个长方形回路， 根据对称性， 垂直于轴线的方向不会有任何磁场． 所以现在螺线管外面的部分可以任意伸缩， 如果伸到无穷远， 则磁场为零． 所以环路积分完全由内部的平行边贡献
+\begin{equation}
+BL = \mu_0 I_{tot} = \mu_0 nLI
+\end{equation}
+所以外部磁场为零， 内部磁场为匀强．
+\begin{equation}
+B = \mu_0 nI
+\end{equation}
+在实际情况中， 如果螺线管比较细长， 那我们仍然可以近似认为它的内部为匀强磁场．
+\end{example}
+
+\subsection{微分形式}
+根据斯托克斯公式（\autoref{Stokes_eq1}~\upref{Stokes}）， 可以把\autoref{AmpLaw_eq1} 记为微分形式
+\begin{equation}\label{AmpLaw_eq2}
+\curl \bvec B = \mu_0 \bvec j
+\end{equation}
+% 未完成： 为什么？
+
+
+% 未完成： 从比奥萨法尔定律推导
+
+\subsection{安培定理与奥萨法尔定律}
+既然比奥萨法尔定律可以让我们通过空间中的电流直接计算处任意位置的磁场， 那么我们就可以通过比奥萨法尔定律直接推导出安培环路定理． 事实上， 这两个定律是等价的， 如果要求空间中任意环路都满足安培定理， 那么比奥萨法尔定律也必须成立（可以类比库仑定律和电场高斯定律之间的关系）．% 链接未完成
+
+
+
+（未完成， 见 \cite{GriffE} 233 页）
