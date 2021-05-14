@@ -1,0 +1,79 @@
+% 弹簧的串联和并联
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{胡克定律}
+
+理想弹簧切割后， 每段的弹性系数和弹簧长度成反比．
+
+串联：
+\begin{equation}
+\frac{1}{k} = \frac{1}{k_1} + \frac{1}{k_2}
+\quad \text{或} \qquad
+k = \frac{k_1 k_2}{k_1 + k_2}
+\end{equation}
+
+并联：
+\begin{equation}
+k = k_1 + k_2
+\end{equation}
+
+可见弹簧的串联和并联分别类似于电阻的并联和串联．
+
+\addTODO{推导}
+
+\begin{example}{弹簧分割}
+一根弹性系数为 $k$ 的弹簧划分为比例为 $x$ 和 $1-x$ 的部分， 求两部分分别的弹性系数 $k_1, k_2$．
+
+解： 列方程
+\begin{equation}
+\leftgroup{
+&\frac{k_1}{k_2} = \frac{1-x}{x}\\
+&\frac{1}{k} = \frac{1}{k_1} + \frac{1}{k_2}
+}
+\end{equation}
+解得
+\begin{equation}
+k_1 = \frac{k}{x} \qquad k_2 = \frac{k}{1-x}
+\end{equation}
+\end{example}
+
+\begin{example}{}
+一根弹性绳劲度系数为 $k$， 固定在水平相距为 $L$ 的两点之间， 绳子原长远小于 $L$． 在绳上某处固定一个质点， 质点下沉后达到平衡静止， 此时质点距离一端距离为 $x$， 求下沉的高度．
+\addTODO{图未完成}
+\begin{equation}
+\frac{k_1}{k_2} = \frac{1-y}{y}
+\end{equation}
+\begin{equation}
+\frac{1}{k} = \frac{1}{k_1} + \frac{1}{k_2}
+\end{equation}
+解得
+\begin{equation}
+k_1 = \frac{k}{y} \qquad
+k_2 = \frac{k}{1-y}
+\end{equation}
+受力分析
+\begin{equation}
+\tan\theta_1 = \frac{h}{x}
+\qquad
+\tan\theta_2 = \frac{h}{L-x}
+\end{equation}
+\begin{equation}
+\leftgroup{
+&T_1\sin\theta_1 + T_2\sin\theta_2 = mg\\
+&T_1\cos\theta_1 = T_2\cos\theta_2
+}
+\end{equation}
+\begin{equation}
+\leftgroup{
+&\frac{x}{\cos\theta_1} \frac{k}{y} = T_1\\
+&\frac{L-x}{\cos\theta_2}\frac{k}{1-y} = T_2
+}
+\end{equation}
+解得
+\begin{equation}
+h = \frac{mg}{Lk}
+\end{equation}
+\end{example}
