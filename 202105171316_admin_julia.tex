@@ -1,0 +1,42 @@
+% Julia 常用功能
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{lstlisting}[language=julia]
+println("hello world")
+\end{lstlisting}
+
+\begin{lstlisting}[language=julia]
+function sphere_vol(r)
+    return 4/3*pi*r^3
+end
+\end{lstlisting}
+
+随机数
+\begin{lstlisting}[language=julia]
+rand(ComplexF64, Nr1, Nr2, Npw)
+\end{lstlisting}
+
+hash
+\begin{lstlisting}[language=julia]
+hash(矩阵)
+\end{lstlisting}
+
+当前时间 \verb|time()|， 零向量 \verb|zeros(整数)|
+
+矩阵切割 \verb|Psi[:, j, :]|
+
+\verb|size(Psi, 维度)|
+
+
+
+\subsubsection{命令行}
+\begin{itemize}
+\item 为了区分， 系统的控制行叫做 terminal， 而 julia 的控制行叫做 **REPL** (read-eval-print-loop)
+\item `Ctrl + D` 退出或者 `exit()` 退出
+\item `ans` 和 Matlab 一样
+\end{itemize}
+
+\subsubsection{}

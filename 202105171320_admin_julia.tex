@@ -1,0 +1,73 @@
+% Julia 常用功能
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{lstlisting}[language=julia]
+println("hello world")
+\end{lstlisting}
+
+\begin{lstlisting}[language=julia]
+function sphere_vol(r)
+    return 4/3*pi*r^3
+end
+\end{lstlisting}
+
+随机数
+\begin{lstlisting}[language=julia]
+rand(ComplexF64, Nr1, Nr2, Npw)
+\end{lstlisting}
+
+hash
+\begin{lstlisting}[language=julia]
+hash(矩阵)
+\end{lstlisting}
+
+当前时间 \verb|time()|， 零向量 \verb|zeros(整数)|
+
+矩阵切割 \verb|Psi[:, j, :]|
+
+\verb|size(Psi, 维度)|
+
+
+
+\subsubsection{命令行}
+\begin{itemize}
+\item 为了区分， 系统的控制行叫做 terminal， 而 julia 的控制行叫做 **REPL** (read-eval-print-loop)
+\item \verb|Ctrl + D` 退出或者 \verb|exit()` 退出
+\item \verb|ans` 和 Matlab 一样
+\end{itemize}
+
+\subsubsection{计算器}
+\begin{itemize}
+\item \verb|b = 2a` 是合法的
+\item \verb|2/3` 这种返回小数而不是整数
+\item 表示复数如 \verb|1 + 2im`， 类型应该是 \verb|ComplexF64|
+\end{itemize}
+
+\subsubsection{变量}
+\begin{itemize}
+\item 用 \verb|typeof()` 查看某个变量的类型
+\item 类型完全是 dynamic 的， 但可以限制变量类型
+\item 字符串用双引号， 单个字符用单引号
+\item 变量名可以用 UTF-8， 在一些编辑器中可以用反斜杠 latex 命令打出对应的字符
+\item 查看类型的最大和最小值如 \verb|typemax(Int64)`, \verb|typemin(Int64)`
+\item julia 自带任意精度类型 `BigInt`，  （底层是 GMP）
+\item 
+\end{itemize}
+
+\subsubsection{脚本}
+\begin{itemize}
+\item 在系统控制行用 `julia <file>` 运行脚本， 用 `julia <file> <arg1> <arg2>` 给出 arguments
+\item 在 REPL 中运行脚本如 `include("/Users/addis/Desktop/main.jl")`（路径不区分大小写）， 也支持反斜杠， 但要转义成 `\\`
+\item 在文件中， 如果要确定当前文件是不是主文件， 用 `abspath(PROGRAM_FILE) == @__FILE__`
+\end{itemize}
+
+\subsubsection{画图}
+第三方画图包 \verb|Plots`， 无需安装！
+\begin{lstlisting}[language=julia]
+using Plots
+x = 1:10; y = rand(10); # These are the plotting data
+plot(x,y)
+\end{lstlisting}
