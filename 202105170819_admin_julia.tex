@@ -1,0 +1,36 @@
+% Julia 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{lstlisting}[language=julia]
+println("hello world")
+\end{lstlisting}
+
+\begin{lstlisting}[language=julia]
+function sphere_vol(r)
+    return 4/3*pi*r^3
+end
+\end{lstlisting}
+
+\subsection{变量类型}
+可以在 literal， 变量或者表达式后面加上 \verb|::变量类型| 用于确认它具有该类型， 如果类型不符会报错． 如果 \verb|变量类型| 是ch
+
+\verb|Float6464|, \verb|ComplexF64|, 
+
+随机数
+\begin{lstlisting}[language=julia]
+rand(ComplexF64, Nr1, Nr2, Npw)
+\end{lstlisting}
+
+hash
+\begin{lstlisting}[language=julia]
+hash(矩阵)
+\end{lstlisting}
+
+当前时间 \verb|time()|， 零向量 \verb|zeros(整数)|
+
+矩阵切割 \verb|Psi[:, j, :]|
+
+\verb|size(Psi, 维度)|
