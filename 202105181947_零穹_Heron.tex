@@ -1,0 +1,18 @@
+% 海伦公式
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Heron's_formula}{相关页面}．}若已知三角形的边长， 其面积可以用海伦公式计算
+\begin{equation}
+A = \sqrt{s(s-a)(s-b)(s-c)}
+\end{equation}
+其中 $s = (a+b+c)/2$．
+\addTODO{证明}
+\subsubsection{推导}
+\begin{equation}
+\begin{aligned}
+A&=\frac{1}{2}\text{底}\times\text{高}\\
+&=\frac{1}{2}ab\sin\theta\\
+&=\frac{1}{2}ab\sqrt{1-\cos^2\theta}\\
+&=\frac{1}{2}ab\sqrt{1-\frac{1}{4a^2b^2}(a^2+b^2-c^2)^2}\\
+&=\frac{1}{2}\sqrt{a}
+\end{aligned}
+\end{equation}
