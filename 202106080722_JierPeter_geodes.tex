@@ -1,0 +1,68 @@
+% 测地线
+% geodesic|联络|直线|匀速直线运动|相对论|流形|manifold|connection|Christoffel 符号
+
+\pentry{Christoffel符号\upref{CrstfS}}
+
+\subsection{基本概念}
+
+测地线是欧几里得空间中匀速直线运动的推广，而不仅仅是直线的推广．
+
+在欧几里得空间中，如何确定一个匀速直线运动呢？当然是速度向量保持不变的运动．什么叫速度向量保持不变呢？那当然是速度随时间求导的结果为零咯．由于速度是一种切向量，而随时间求导就是沿着运动轨迹的协变导数，因此我们自然可以将匀速直线运动的概念推广到任意带仿射联络的流形上．
+
+\begin{definition}{测地线}
+令$(M, \nabla)$是一个带仿射联络的流形．对于参数曲线$c:I\to M$，它每个点上的切向量$T(t)=\frac{\dd}{\dd t}c(t)$构成一个沿$c$的切向量场．如果协变导数$\frac{D}{\dd t}T(t)$处处为零，那么我们说这条参数曲线$c$是一条\textbf{测地线（geodesic）}．
+\end{definition}
+
+\begin{theorem}{匀速性}\label{geodes_the1}
+如果$(M, \nabla, <*, *>)$是一个带黎曼度量的黎曼流形，$c:I\to M$是其上一条测地线，那么$\sqrt{<c'(t), c'(t)>}$是一个常数．
+
+定义$\abs{c'(t)}=\sqrt{<c'(t), c'(t)>}$为该测地线的\textbf{速率（speed）}．
+\end{theorem}
+
+\autoref{geodes_the1} 的证明很简单，只需要应用协变导数对黎曼度量的Leibniz律（相容性）和测地线的定义即可．
+
+
+
+如果$c:I\to M$是一个测地线，而$u:I\to I$是一个光滑函数，那么$c(u(t))=c\circ u$就被称作$c(t)=c$的一个\textbf{重新参数化（reparametrization）}．如果已知$c$是一个测地线，那么什么情况下重新参数化的$c\circ u$是一个测地线呢？答案很简单，$u$必须是一个线性函数，即存在实数$a, b$使得$u(t)=at+b$．证明需要用到测地线的定义和协变导数的链式法则，我们留作习题．
+
+\begin{exercise}{测地线的重新参数化}
+令$c:I\to M$是一个测地线，而$u:I\to I$是一个光滑函数，证明$c\circ u$是一个测地线\textbf{当且仅当}存在实数$a, b$使得$u(t)=at+b$．
+\end{exercise}
+
+\subsection{测地线方程}
+
+实践中，比如广义相对论中，我们更关心的是在具体的图中，该如何计算测地线．
+
+考虑一个带仿射联络的流形$(M, \nabla)$，和它的一个图$(U, \varphi)$．令$c:I\to U$是$M$上的一条曲线，那么$\varphi\circ c$就是欧几里得空间$\varphi(U)$上的一条曲线．由于是欧几里得空间，我们可以用坐标来表示这个曲线：$\varphi(c(t))=y^i(t)$．
+
+也就是说，在$M$上，这条曲线可以表示为$c(t)=y^i(t)\partial_i$，其中$\partial_i$是点$\varphi(c(t))$处坐标偏微分算子对应的切向量，它们构成$U$的一个局部坐标系；各$y^i$是$U$上的光滑函数，同时还随着$t$变化而变化．
+
+这样一来，在$M$上就有$c$的切向量：
+\begin{equation}
+\begin{aligned}
+T(t)&=\frac{D}{\dd t}c(t)=\varphi^{-1}(\frac{\dd}{\dd t}\varphi(c(t)))\\
+&=\dot{y}^i\partial_i|_{c(t)}
+\end{aligned}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
