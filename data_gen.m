@@ -1,5 +1,5 @@
 % generate a table, columns: date, author, file
-% 202004190112_JierPeter_GroupN.tex
+% e.g. 202004190112_JierPeter_GroupN.tex
 
 function data = data_gen
 cd(mfilepath);

@@ -1,0 +1,40 @@
+% 复变函数
+% 复数|复变函数|导数
+
+% 未完成：太简略了，解析是什么意思？ 怎么求导？ 为什么各个方向导数都是一样的？
+
+\pentry{复数\upref{CplxNo}}
+复变函数是自变量和函数值都在复数域内取值的函数（$f:\mathbb Z \to \mathbb Z$），通常表示为
+\begin{equation}
+w = f(z)
+\end{equation}
+若把自变量 $z$ 拆分成实部 $x$ 和虚部 $y$， 即 $z = x + \I y$， 且函数 $f$ 也拆分成实部函数 $u(x,y)$ 和虚部函数 $v(x,y)$，则复变函数可记为
+\begin{equation}\label{Cplx_eq1}
+w = u(x,y) + \I v(x,y)
+\end{equation}
+例如，复指数函数\upref{CExp} 被定义为
+\begin{equation}\label{Cplx_eq3}
+w = \E^z = \E^x \cos y + \I \E^x\sin y
+\end{equation}
+
+\subsection{作为实函数拓展}
+复变函数中很多函数与我们原来我们学过的函数同名，只是定义域和值域从实数拓展到了复数． 例如三角函数，对数函数，指数函数等．这些新函数的定义必须要与原来的函数“兼容”，即当自变量被限制在实数范围内取值时，这些函数与原来的实函数相同．
+
+例如，当复指数函数\autoref{Cplx_eq3} 的自变量只在实轴上取值（即 $y = 0$） 时，该函数变为我们原来所熟悉的实函数 $\E^x$． 
+
+又如，复正弦函数\upref{CTrig} 可记为
+\begin{equation}
+\sin z = \sin(x + \I y) = \sin x\cosh y + \I\cos x\sinh y
+\end{equation}
+其中 $\sinh $ 和 $\cosh $ 是双曲正弦和双曲余弦函数．当 $y = 0$ 时，该函数变为 $\sin x$ 
+所以从这个意义上来说，与实变函数同名的复变函数只是把函数的定义域从实数域拓展到了复数域．
+
+\subsection{复数与矢量场}
+当我们把复变函数记为\autoref{Cplx_eq1} 的形式后， 可以把它看作一个平面矢量场矢量场\upref{Vfield}， 即复平面上的每一点对应一个几何矢量． 令实轴和虚轴分别为 $x$ 轴和 $y$ 轴， 其单位矢量分别为 $\uvec x$ 和 $\uvec y$， 令位置矢量 $\bvec r = x \uvec x + y \uvec y$， 那么这个矢量场就可以表示为
+\begin{equation}
+\bvec w(\bvec r) = u(\bvec r) \uvec x + v(\bvec r) \uvec y
+\end{equation}
+矢量场可以用于把复变函数在一张图中可视化， 但更常用的可视化还是分别画出两个标量场 $u(\bvec r)$ 和 $v(\bvec r)$．
+
+\subsection{复变函数的导数}
+由于复变函数相当于两个实数自变量的实值函数，一般情况下求导变得比较复杂， 它不但取决于自变量， 还取决于求导的方向， 这有点类似于方向导数\upref{DerDir}．但如果复变函数在某个区域上\textbf{解析}，那么在该区域上导数与方向无关．对于复数域初等基本函数，求导的结果也和实数域的求导一样． 详见 “复变函数的导数 柯西—黎曼条件\upref{CauRie}”．

@@ -1,0 +1,10 @@
+% SLISC 容器的切割
+
+如果我们想把矩阵的一行输入到某个函数中怎么办呢？ 如果我们不使用任何容器而是用指针， han
+\begin{lstlisting}[language=cpp]
+Long N1 = 10, Long N2 = 10;
+Doub *a;
+new Doub a[N1*N2];
+// 给 a 赋值
+delete a[];
+\end{lstlisting}

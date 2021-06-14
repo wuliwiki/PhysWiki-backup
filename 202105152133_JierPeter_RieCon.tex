@@ -1,0 +1,26 @@
+% 黎曼联络
+% 仿射联络|Riemannian connection|联络|挠率|度量|黎曼度量|Riemannian metric|流形|manifold
+
+\pentry{仿射联络\upref{affcon}，}
+
+\subsection{黎曼度量}
+
+\textbf{黎曼度量与伪黎曼度量}\upref{RiMetr}词条中包含了黎曼度量的概念，但其中使用了高度凝练的术语，对初学者并不友好，因此我们在这里顺便给出更通俗的定义．
+
+\begin{definition}{黎曼度量}
+给定一个实流形$M$，定义其上一个映射$g$，它将$M$上任意点处的两个切向量映射为一个数字．如果$g$满足对于任意向量$x, y$，都有：
+\begin{enumerate}
+\item \textbf{对称性}：$g(x, y)=g(y, x)$；
+\item \textbf{正定性}：$g(x, y)\geq 0$，且仅在$x=0$时有$g(x, x)=0$．
+\end{enumerate}
+则称$g$是$M$上的一个黎曼度量．
+\end{definition}
+
+从定义可知，黎曼度量实际上就是规定了“如何做内积”，进而得到“切向量的长度”、“切向量之间的角度”等概念．注意，黎曼度量只对同一个切空间中的向量有用，不同切空间的向量之间无法定义黎曼度量．
+
+如果在某个切点附近给定一个图（chart），那么黎曼度量可以表达为这个图中的一个矩阵$g_{ab}$，而该切点处两个切向量$x^a, y^b$的内积就是$g_{ab}x^ay^b$．
+
+
+
+
+

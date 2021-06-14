@@ -1,0 +1,174 @@
+% 傅科摆
+% Fouclt|傅科摆|科里奥利力|几何推导
+\usepackage[utf8]{inputenc}
+\usepackage{xltxtra}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\renewcommand{\i}{\vec i}
+\renewcommand{\j}{\vec j}
+\renewcommand{\k}{\vec k}
+
+\pentry{单摆\upref{Pend}}
+
+傅科摆是首个直接证明地球自转的实验． 试想如果把一个不受任何阻力的单摆放在地球的北极， 那么地球每自转一定角度， 单摆的摆平面不变， 所以以地球为参考系观察， 摆平面将反方向转动， 这样就能证明地球在自转． 现实中， 为了能克服阻力和微扰长时间摆动， 通常使用质量较大， 摆臂较长的摆作为傅科摆．
+
+但若傅科摆被放在北纬 $\alpha$ 角处， 摆平面的将会以怎样的角速度转动呢？ 事实证明， 若令地球自转的角速度为 $\omega_0$， 则单摆相对地面转动的角速度 $\omega$ 将等于
+
+\begin{equation}
+\omega = \omega_0 \sin\alpha
+\end{equation}
+
+\subsection{傅科摆角速度的一种几何推导}
+\pentry{球坐标系\upref{Sph}， 连续叉乘的化简\upref{TriCro}}
+设 $\bvec R$ 为地心指向傅科摆的矢量， $\hat {\bvec R}$ 是其单位矢量， 当地纬度为 $\alpha$， 地轴指向北的单位矢量为 $\uvec k$， 有
+\begin{equation}
+\uvec k\vdot \uvec R = \cos(\pi/2 - \alpha) = \sin\alpha
+\end{equation}
+
+若把任意矢量 $\bvec P$ 围绕某单位矢量 $\uvec M$ 以右手定则旋转角微元 $\dd{\theta}$， 有
+\begin{equation}\label{Fouclt_eq2}
+\dd{\bvec P} = \uvec M \cross \bvec P \dd{\theta}
+\end{equation}
+开始时， 令傅科摆在最低点的速度方向的单位向量为 $\uvec A$ （$\uvec A\vdot \bvec R = 0$）， 在傅科摆下方的水平地面上标记单位向量 $\uvec B$， 使开始时 $\uvec B = \uvec A$． 当傅科摆随地球在准静止状态下移动位移 $\dd{\bvec s}$ （$\dd{\bvec s} \vdot\bvec R = 0$）后， 由\autoref{Fouclt_eq2} 可得
+
+\begin{equation}
+\dd{\uvec A} = \uvec M\cross \uvec A\vdot \dd{\theta} = 
+\frac{\bvec R\cross \dd{\bvec s}}{\abs{\bvec R\cross \dd{\bvec s}}} \cross \uvec A \frac{\dd{s}}{R}
+\end{equation}
+注意这只是一个比较符合物理直觉的假设， 这里并不给出证明． 当地球转动 $\dd{\theta}$ 时， 上式中 $\dd{\bvec s} = \uvec k \cross \bvec R \dd{\theta}$， 而地面上的标记 $\uvec B$ 也围绕地轴转动， 所以 $\dd{\uvec B} = \uvec k \cross \uvec A \dd{\theta}$．
+
+下面计算 $\dd{\uvec A} - \dd{\uvec B}$． 因为 $\bvec R\vdot \dd{\bvec s} = 0$， 所以 $\abs{\bvec R \cross \dd{\bvec s}} = R\dd{s}$， 所以
+\begin{equation}\ali{
+\dd{\uvec A} &= \frac{\bvec R\cross \dd{\bvec s}}{R^2}\cross\uvec A =
+\frac{1}{R^2}\bvec R\cross(\uvec k\cross\bvec R \dd{\theta})\cross \uvec A\\
+&= \uvec R\cross(\uvec k\cross\uvec R)\cross\uvec A \dd{\theta} =
+[(\uvec R\vdot\uvec R)\uvec k - (\uvec R\vdot \uvec k)\uvec R] \cross \uvec A \dd{\theta}\\
+&= (\uvec k - \uvec R\sin\alpha) \cross \uvec A \dd{\theta}
+}\end{equation}
+其中第二行使用了 “连续叉乘的化简\upref{TriCro}”．
+\begin{equation}
+\dd{\uvec A} - \dd{\uvec B} = (\uvec k - \uvec R\sin\alpha)\cross \uvec A \dd{\theta} - \uvec k \cross \uvec A \dd{\theta} = -\sin\alpha \uvec R \cross \uvec A \dd{\theta}
+\end{equation}
+所以地球转过 $\dd{\theta}$ 角以后， $\uvec A$ 与 $\uvec B$ 之间的夹角为
+\begin{equation}
+\dd{\gamma} = \abs{\dd{\uvec A} - \dd{\uvec B}} = \sin\alpha \dd{\theta}
+\end{equation}
+两边除以 $\dd{t}$ 得角速度
+\begin{equation}
+\omega = \omega_0 \sin\alpha
+\end{equation}
+
+\subsection{傅科摆角速度的牛顿力学上的推导}
+
+
+\title{计算位于武汉的傅科摆摆平面旋转的周期}
+\author{杨赖源}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\songti
+以地面为参考系，以武汉为原点，取地球表面坐标系，如图\ref{fig1}．
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{global.jpg}
+    \caption{地球表面参考系}
+    \label{fig1}
+\end{figure}
+
+设武汉的纬度为$\varphi$，地球的自传角速度为$\omega$，摆的质量为$m$，摆相对于的位矢为$\vec r$，重力加速度为$\vec g$，地球摆所受绳的拉力为$\vec T$，科里奥利力为$\vec{F_{co}}$．其中$\vec g\approx -g \vec k$．则
+
+\begin{align}
+    \text{地球角速度}\vec\omega&=-\omega\cos\varphi \vec i +\omega\sin\varphi \j\\
+    \text{摆的位矢}\vec r&=x \vec i+y\vec j+z\vec k\\
+    \text{摆的速度}\vec v&=\doc x\vec i+\doc y\vec j+\doc z\vec k\\
+    \text{摆的加速度}\vec a&=\ddot x \vec i+\ddot y \j+\ddot z \k
+\end{align}
+\begin{align}
+\text{科里奥利力}\vec{F_{co}} &=
+        -2m\vec\omega \times \vec v=
+        \begin{vmatrix}
+        \i &\vec j &\k\\
+        -\omega\cos\varphi &\omega\sin\varphi & 0\\
+        \dot x &\dot y &\dot z
+        \end{vmatrix} \notag \\
+        &=2m\omega\left[\dot y\sin\varphi\i-\left(\dot z\cos\varphi+\dot x\sin\varphi \right)\j+\dot y\cos\varphi\k \right]
+\end{align}
+  设绳长为$L$，当摆到达点$\left( x,y,z \right)$时，所受拉力$\vec T$如图\ref{fig2}
+  
+  \begin{figure}[h]
+      \centering
+      \includegraphics[scale=0.25]{T2}
+      \caption{拉力$\vec T$}
+      \label{fig2}
+  \end{figure}
+  
+  \begin{align}
+      T_x&=-T\sin\alpha\cos\beta=-T\frac{\sqrt{x^2+y^2}}{L}\frac{x}{\sqrt{x^2+y^2}}=-\frac{x}{L}T \label{eqTx}\\
+      T_y&=-T\sin\alpha\cos\beta=-\frac{y}{L}T \label{eqTy}\\
+      T_z&=T\cos\alpha=\frac{L-z}{L}T \label{eqTz}
+  \end{align}
+ 
+ 所以有
+ \begin{align}
+     m\ddot x&=-\frac{x}{L}T+2m\omega\dot y\sin\varphi \label{eqmx}\\
+     m\ddot y&=-\frac{y}{L}T-2m\omega \left( \dot z\cos \varphi+\dot x\sin \varphi \right) \label{eqmy} \\
+     m\ddot z&=\frac{L-z}{L}T+2m\omega\dot y\cos\varphi-mg \label{eqmz}
+ \end{align}
+ 
+ 因为$z\ll L$，而且$z$方向上的振动幅度很小，所以$\frac{L-z}{L} \approx 1$，$\dot z=\ddot z \approx 0$
+ 
+ 于是式\ref{eqmz}可以化为
+ \begin{equation}
+     0=T+2m\omega\dot y\cos\varphi-mg \label{eqmz2}
+ \end{equation}
+ 又有$2m\omega\dot y\cos\varphi \ll mg$，所以由式\ref{eqmz2}可得
+ \begin{equation}
+     T\approx mg \label{eqmz3}
+ \end{equation}
+ 
+ 将式\ref{eqmz3}代入式\ref{eqmx}和式\ref{eqmy}，并注意到$\dot z \approx 0$，所以
+ \begin{gather}
+     \ddot x-2\omega\sin\varphi\dot y+\frac{g}{L}x=0 \label{eqmx2}\\
+     \ddot y+2\omega\sin\varphi\dot x+\frac{g}{L}y=0 \label{eqmy2}
+ \end{gather}
+ 式\ref{eqmx2}\times $y$- \text{式}\ref{eqmy2}\times $x$ \text{可得}
+
+ \begin{equation}
+     \ddot x y-x\ddot y=2\omega\sin\varphi \left(\dot y y+\dot x x \right)
+ \end{equation}
+ 
+ 两边积分得
+ \begin{equation}
+     \dot x y-x\dot y=\omega \sin\varphi \left( x^2+y^2 \right)+C,C\in\mathbb{R} \label{integral}
+ \end{equation}
+ 
+ 令$x=r\cos\theta, y=r\sin\theta$
+ 
+ 所以$\dot x=\dot r\cos\theta-r\dot \theta\sin\theta, \dot y=\dot r \sin \theta +\dot r \cos \theta$
+ 
+ 代入式\ref{integral}，得
+ \begin{equation}
+     -r^2\dot \theta=r^2\omega\sin\varphi +C, C\in\mathbb{R}
+ \end{equation}
+ 令$t=0$时，有$r=0$，则$C=0$
+ 
+ 所以
+ \begin{equation}
+     \dot \theta=-\omega\sin\varphi
+ \end{equation}
+ $\dot\theta$代表摆旋转时的角速度，
+ 所以摆旋转的周期为
+ \begin{equation}
+     T=\left|\frac{2\pi}{-\omega\sin\varphi}\right|=\frac{24h}{\sin\varphi}
+ \end{equation}
+ 
+ 在武汉，$\varphi \approx 30^{\circ}40'$
+ 所以
+ \begin{equation}
+     T\approx\frac{24h}{\sin 30^{\circ}40'}=47.1h
+ \end{equation}
+\end{document}

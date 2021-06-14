@@ -1,0 +1,74 @@
+% 黎曼联络
+% 仿射联络|Riemannian connection|联络|挠率|度量|黎曼度量|Riemannian metric|流形|manifold
+
+\pentry{仿射联络\upref{affcon}，线性代数}
+
+\subsection{黎曼流形}
+
+\textbf{黎曼度量与伪黎曼度量}\upref{RiMetr}词条中包含了黎曼度量的概念，但其中使用了高度凝练的术语，对初学者并不友好，因此我们在这里顺便给出更通俗的定义．
+
+\begin{definition}{黎曼度量}
+给定一个实流形$M$，定义其上一个映射$g$，它将$M$上任意点处的两个切向量映射为一个数字．如果$g$满足对于任意向量$x, y$，都有：
+\begin{enumerate}
+\item \textbf{对称性}：$g(x, y)=g(y, x)$；
+\item \textbf{正定性}：$g(x, y)\geq 0$，且仅在$x=0$时有$g(x, x)=0$．
+\end{enumerate}
+则称$g$是$M$上的一个\textbf{黎曼度量（Riemannian metric）}．
+\end{definition}
+
+从定义可知，黎曼度量实际上就是规定了“如何做内积”，进而得到“切向量的长度”、“切向量之间的角度”等概念．注意，黎曼度量只对同一个切空间中的向量有用，不同切空间的向量之间无法定义黎曼度量．
+
+如果在某个切点附近给定一个图（chart），那么黎曼度量可以表达为这个图中的一个矩阵$g_{ab}$，而该切点处两个切向量$x^a, y^b$的内积就是$g_{ab}x^ay^b$．
+
+\textbf{对称性}意味着$g_{ab}\equiv g_{ba}$．如果将$g_{ab}$写成方阵\footnote{注意，按照我们的规范表达，$g_{ab}$应为“行矩阵的行矩阵”，所以这里说的方阵实际上是指把第$a$行$b$列的元素定义为$g_{ab}$．当然，反过来把第$b$行$a$列的元素定义为$g_{ab}$也行．}，那么它就是线性代数中讨论的\textbf{正定矩阵}．这就是\textbf{黎曼度量与伪黎曼度量}\upref{RiMetr}词条中“对称”与“正定”二词的含义．“截面”实际上就是指这是一个映射．
+
+
+\begin{definition}{黎曼流形}
+给定实流形$M$．若在$M$上处处定义一个黎曼度量$g$，且在任意图中$g$的坐标都是光滑函数，则称$(M, g)$为一个\textbf{黎曼流形（Riemannian manifold）}．
+\end{definition}
+
+
+
+
+
+\subsection{黎曼联络}
+
+\begin{definition}{黎曼联络}
+给定黎曼流形$(M, g)$，如果$M$上有一个仿射联络$\nabla$，满足以下条件：
+\begin{enumerate}
+\item \textbf{挠率为零（无挠）}：对于任意光滑向量场$X, Y\in\mathfrak{X}(M)$，都有$\nabla_XY-\nabla_YX={[X, Y]}$；
+\item \textbf{与黎曼度量相容}：对于任意光滑向量场$X, Y, Z\in\mathfrak{X}(M)$，都有$Zg(X, Y)=g(\nabla_ZX, Y)+g(X, \nabla_ZY)$．
+\end{enumerate}
+则称$\nabla$是$(M, g)$上的一个\textbf{黎曼联络（Riemannian connection）}．
+\end{definition}
+
+黎曼联络中的“相容”条件，实际上就是方向导数对内积的Leibniz律．注意$g(X, Y)$是$M$上的一个光滑函数，而$Zg(X, Y)$就是对这个函数沿着$Z$的方向求方向导数的结果．我们已经知道，光滑函数的求导不依赖于图的选择，因此$Zg(X, Y)$不必表达成$\nabla_Zg(X, Y)$的形式．
+
+同一个流形上可能有多个不同的仿射联络，但是一旦确定了黎曼度量，则也就唯一确定了一个黎曼联络．我们通过一系列命题来讨论这件事．
+
+\begin{theorem}{}
+给定一个黎曼流形$(M, g)$，其上有一个仿射联络$\nabla$．如果有对于任意光滑切向量场$X, Y, Z\in\mathfrak{X}(M)$，有：
+\begin{enumerate}
+\item $\nabla_XY-\nabla_YX-[X, Y]=f$，其中$f\in\C^\infty(M)$是一确定的光滑函数；
+\item $Zg(X, Y)=g(\nabla_ZX, Y)+g(X, \nabla_ZY)$．
+\end{enumerate}
+则$\nabla$存在且唯一确定．
+\end{theorem}
+
+\textbf{证明}：
+
+只需要证明，根据已知条件，我们可以用黎曼度量$g$计算出$\nabla$即可．
+
+首先列出\textbf{两组}条件：
+
+\begin{equation}
+\nabla_XY-\nabla_YX-[X, Y]=f
+\end{equation}
+和
+\begin{equation}
+Xg(Y, X
+\end{equation}
+\textbf{证毕}．
+
+
+

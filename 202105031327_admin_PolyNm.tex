@@ -1,0 +1,15 @@
+% 多项式定理
+
+\pentry{二项式定理\upref{BiNor}}
+
+我们来吧二项式定理拓展到多项式的情况， 即
+\begin{equation}
+\qty(\sum_{i = 0}^m a_i)^N = N! \sum_{\{n_i\}}^* \prod_{i = 1}^m \frac{a_i^{n_i}}{n_i!}
+\end{equation}
+
+\subsection{证明}
+首先把指数写成相乘的形式(注意哑标需要各不相同, 否则下面会出错)
+\begin{equation}
+\qty(\sum_i^m a_i)^N = \qty(\sum_{i_1}^m a_{i_1})\qty(\sum_{i_2}^m a_{i_2})\dots \qty(\sum_{i_N}^m a_{i_N}) = \sum_{i_1}^m \sum_{i_2}^m\dots \sum_{i_N}^m a_{i_1} a_{i_2}\dots a_{i_N}
+\end{equation}
+

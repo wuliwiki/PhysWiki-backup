@@ -1,0 +1,32 @@
+% SLISC 的 matt 和 matb 文件格式
+
+\pentry{SLISC 简介}
+
+SLISC 库提供了两种特殊的文件格式用于储存各种变量和矩阵， 保存时可以保存变量名， 读取时可以指定要读取的变量名． 两种文件分别使用拓展名 \verb|.matt| 和 \verb|.matb|． 其中 mat 表示 matrix， t 表示 text， t 表示 binary， 顾名思义， 第一种是文本文件， 第二种是二进制文件．
+
+\begin{lstlisting}[language=cpp]
+#include "SLISC/matb.h"
+using namespace slisc;
+
+int main()
+{
+    {
+        // 随便初始化一些变量， 目前支持 SLISC 库中的绝大部分标量和密矩阵
+        Int i = 1; Doub d = 3.1; Comp c(1, 2);
+        VecInt v(3); linspace(3, 1, 3); CmatInt a(2,2); linspace(a);
+
+        Matb matb("test.matb", 'w'); // 打开 matb 文件， 使用写入模式
+        // 相当于 Matb matb; matb.open("test.matb", 'w');
+        save(i, "i", matb); // 保存变量， 指定变量名, 可以是任意字符串
+        save(d, "d", matb);
+        save(c, "c", matb);
+        save(v, "c", matb);
+        save(a, "a", matb);
+        matb.close(); // 在 destructor 中会自动调用， open() 时也会自动调用
+    }
+    
+
+    matb.open("test.matb", 'w'); // 重新用读取模式打开
+
+}
+\end{lstlisting}

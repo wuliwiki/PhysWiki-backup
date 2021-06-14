@@ -1,0 +1,112 @@
+% Julia 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{lstlisting}[language=julia]
+println("hello world")
+\end{lstlisting}
+
+\begin{lstlisting}[language=julia]
+function sphere_vol(r)
+    return 4/3*pi*r^3
+end
+\end{lstlisting}
+
+\subsection{变量类型}
+
+
+
+Julia 是动态类型的语言． 具体类型不能互相作为子类， 只能作为抽象类的子类．
+
+可以在 literal、 变量、 表达式、 函数定义后面加上 \verb|::变量类型| 用于确认它具有该类型， 如果类型不符会产生异常． 如果 \verb|变量类型| 是抽象的， 那么表达式只需要是它的一个 sub type．
+
+只有 “值” 有类型， 而不是变量具有类型．
+
+抽象和具体的类都可以使用其他类作为参数
+
+\verb|Int8|, \verb|UInt8|, \verb|Int16|, \verb|UInt16|, \verb|Int32|, \verb|UInt32|, \verb|Int64|, \verb|UInt64|, \verb|Int128|, \verb|UInt128|, \verb|Float16|, \verb|Float32|, \verb|Float64|, \verb|ComplexF64|
+
+\verb|ComplexF16|, \verb|ComplexF32| 和 \verb|ComplexF64| 是 \verb|Complex{Float16}|, \verb|Complex{Float32}| 和 \verb|Complex{Float64}| 的别名．
+
+\verb|BigInt| 是任意大小的整数， \verb|BigFloat| 是任意精度浮点数．
+
+\begin{lstlisting}[language=julia]
+julia> BigFloat(2.1) # 2.1 here is a Float64
+2.100000000000000088817...
+
+julia> BigFloat("2.1") # the closest BigFloat to 2.1
+2.099999999999999999999999999...99999999999999999999986
+
+julia> BigFloat("2.1", RoundUp)
+2.100000000000000000000000000...00000000000000000000021
+
+julia> BigFloat("2.1", RoundUp, precision=128)
+2.100000000...00000000000007
+\end{lstlisting}
+
+\subsubsection{抽象类型}
+声明抽象类型
+\begin{lstlisting}[language=julia]
+abstract type 子类名 <: 母类名 end
+\end{lstlisting}
+例子
+\begin{lstlisting}[language=julia]
+abstract type Number end
+abstract type Real     <: Number end
+abstract type AbstractFloat <: Real end
+abstract type Integer  <: Real end
+abstract type Signed   <: Integer end
+abstract type Unsigned <: Integer end
+\end{lstlisting}
+最高级的抽象类是 \verb|Any|， 这里的 \verb|Number| 就是 \verb|Any| 的子类．
+
+\subsection{原始类型}
+原始类型（primitive type）是有 bit 组成的具体类型． Julia 可以自定义原始类型． 定义原始类型的格式为
+\begin{lstlisting}[language=julia]
+primitive type 类名 比特数 end
+primitive type 类名 <: 父类名 比特数 end
+\end{lstlisting}
+例如
+\begin{lstlisting}[language=julia]
+primitive type Float16 <: AbstractFloat 16 end
+primitive type Float32 <: AbstractFloat 32 end
+primitive type Float64 <: AbstractFloat 64 end
+
+primitive type Bool <: Integer 8 end
+primitive type Char <: AbstractChar 32 end
+
+primitive type Int8    <: Signed   8 end
+primitive type UInt8   <: Unsigned 8 end
+primitive type Int16   <: Signed   16 end
+primitive type UInt16  <: Unsigned 16 end
+primitive type Int32   <: Signed   32 end
+primitive type UInt32  <: Unsigned 32 end
+primitive type Int64   <: Signed   64 end
+primitive type UInt64  <: Unsigned 64 end
+primitive type Int128  <: Signed   128 end
+primitive type UInt128 <: Unsigned 128 end
+\end{lstlisting}
+
+\subsection{复合类型}
+
+
+
+
+随机数
+\begin{lstlisting}[language=julia]
+rand(ComplexF64, Nr1, Nr2, Npw)
+\end{lstlisting}
+
+hash
+\begin{lstlisting}[language=julia]
+hash(矩阵)
+\end{lstlisting}
+
+当前时间 \verb|time()|， 零向量 \verb|zeros(整数)|
+
+矩阵切割 \verb|Psi[:, j, :]|
+
+\verb|size(Psi, 维度)|
+

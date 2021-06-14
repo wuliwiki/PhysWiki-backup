@@ -1,0 +1,45 @@
+% Mathematica 基础
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{复数\upref{CplxNo}}
+
+\begin{itemize}
+\item 快捷键 \verb|Shift + Enter| 执行选中的行
+\item 函数 \verb|N[表达式, 有效位数]| 把表达式的结果变为数值， 四舍五入到指定的有效数字， 第二个参数可省略． 例如 \verb|N[Pi]| 计算圆周率的前 5 位， \verb|N[Pi, 1000]| 计算 1000 位．
+\item 用 \verb|(*注释*)| 写注释． 注释不会被执行． 也可以选中后按 \verb|Alt + /|．
+\item 快捷键 \verb|Ctrl+L| 可以调用最近的输入或输出．
+\item 简单的不定积分 \verb|Integrate[1/(x^3-1),x]|， 定积分 \verb|Integrate[f,{x, xmin, xmax}]|, 重积分 \verb|Integrate[f,{x, xmin, xmax},{y, ymin, ymax}]|
+\item 简单的画图 \verb|Plot3D[Sin[y+Sin[3x]], {x,-3,3}, {y,-3,3}]|
+\end{itemize}
+
+常数都以大写字母开头．
+\begin{lstlisting}[language=Mathematica]
+Pi // 圆周率
+E // 自然对数
+Degree // 1° 角的弧度
+I // 虚数单位
+Infinity // 无穷
+\end{lstlisting}
+例如 \verb|Sin[20 Degree] // N| 计算 $\sin(\pi/9)$ 的数值结果．
+
+
+\subsection{算符}
+\begin{itemize}
+\item \verb|!=|
+\item 连接字符串 \verb|"abc" <> "defg" <> "hij"|
+\end{itemize}
+
+\subsection{常用函数}
+\begin{itemize}
+\item 函数参数中， 下标在上标之前给出， 例如勒让德多项式 $P_n^m(x)$ 为 \verb|LegendreP[n, m, x]|．
+\item \verb|a + I b| 表示复数
+\item \verb|Re[z]， Im[z]| 计算复数的实部和虚部
+\item \verb|Conjugate[z]| 复共轭
+\item \verb|Abs[z]| 复数的绝对值
+\item \verb|Arg[z]| 复数的幅角
+\item \verb|Factor[x^25-1]| 因式分解
+\end{itemize}
+

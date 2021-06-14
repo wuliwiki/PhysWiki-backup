@@ -1,0 +1,99 @@
+% SLISC 容器的基本运算
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\verb|Long size(T_I v)| 相当于 \verb|std::vector| 的 \verb|.size()|， 但返回 \verb|Long| 类型， 这是为了避免使用 \verb|unsigned| 类型．
+
+\verb|Tr sum_abs(T_I v)| 绝对值求和
+
+\verb|Ts max(T_I v)|， \verb|Ts min(T_I v)| 最大元素和最小元素
+
+\verb|Ts max(Long_O ind, T_I v)|， \verb|Ts min(Long_O ind, T_I v)| 最大元素和最小元素（同时求出其位置）
+
+\verb|Tr max_abs(T_I v)| 最大绝对值
+
+\verb|void mod(T_O v, T1_I v1, Ts1_I s)| 求余
+
+\verb|void mod(T1_O v, Ts1_I s)| 求余
+
+\verb|void real(T_O v, T1_I v1)| 提取实部
+
+\verb|void imag(T_O v, T1_I v1)| 提取虚部
+
+\verb|void abs(T_IO v)| 求绝对值
+
+\verb|void abs(T_O v, T1_I v1)| 求绝对值
+
+\verb|Tret sum(T_I v)| 求和
+
+\verb|Tret prod(T_I v)| 求积
+
+\verb|Tr norm2(T_I v)| 绝对值平方和
+
+\verb|Tr norm(T_I a)|
+
+\verb|void resize_cpy(Tv_IO v, Long_I N, T_I val = 0)|
+
+\verb|void resize_cpy(Tv_IO v, Long_I N1, Long_I N2, T_I val = 0)|
+
+\verb|void resize_cpy(Tv_IO v, Long_I N1, Long_I N2, Long_I N3, T_I val = 0)|
+
+\verb|void linspace(Tv_O v, Ts_I first, Ts_I last)|
+
+\verb|void flip(Tv_IO v)|
+
+\verb|void flip(T_O v, T1_I v1)|
+
+\verb|void reorder(Tv_O v, To_I order)|
+
+\verb|void trans(T_IO v)|
+
+\verb|void trans(T_O v, T1_I v1)|
+
+\verb|void conj(T_IO v)|
+
+\verb|void conj(T_O v, T1_I v1)|
+
+\verb|void her(T_IO v)|
+
+\verb|void her(T_O v, T1_I v1)|
+
+\verb|void operator+=(T_IO v, Ts_I s)|， \verb|void operator-=(T_IO v, Ts_I s)|， \verb|void operator*=(T_IO v, Ts_I s)|， \verb|void operator/=(T_IO v, Ts_I s)|
+
+\verb|void operator+=(T_IO v, Ts_I s)|， \verb|void operator-=(T_IO v, Ts_I s)|， \verb|void operator*=(T_IO v, Ts_I s)|， \verb|void operator/=(T_IO v, Ts_I s)|
+
+\verb|void operator+=(T_O &v, T1_I v1)|， \verb|void operator+=(T_O &v, T1_I v1)|， \verb|void operator-=(T_O &v, T1_I v1)|， \verb|void operator*=(T_O &v, T1_I v1)|， \verb|void operator/=(T_O &v, T1_I v1)|
+
+\verb|void plus(T_O v, T1_I v1, Ts2_I s)|， \verb|void minus(T_O v, T1_I v1, Ts2_I s)|， \verb|void times(T_O v, T1_I v1, Ts2_I s)|， \verb|void divide(T_O v, T1_I v1, Ts2_I s)|
+
+\verb|void pow(T_IO v, Ts_I s)|
+
+\verb|void pow(T_O v, T1_I v1, Ts_I s)|
+
+\verb|T dot(T1_I v1, T2_I v2)|
+
+\verb|void cumsum(T_O v, T1_I v1)|
+
+\verb|void mul(T_O y, T1_I a, T2_I x)|
+
+\verb|void mul(T_IO y, T1_I a, T2_I x, Ts1_I alpha, Ts_I beta)|
+
+\verb|void mul(T_O &y, T1_I x, T2_I a)|
+
+\verb|void mul(T_O y, T1_I a, T2_I x)|
+
+\verb|void mul_gen(Ty_O &y, Ta_I a, Tx_I x, Tsa_I alpha = 1, Tsa_I beta = 0)|
+
+\verb|void mul_sym(Ty_IO &y, Ta_I a, Tx_I x, Tsa_I alpha = 1, Tsa_I beta = 0)|
+
+\verb|void mul_gen(Ty_O y, Ta_I a, Tx_I &x)|
+
+\verb|void uniq_elm(T_IO v)|
+
+\verb|void uniq_rows(T_O a, T1_I a1)|
+
+\verb|void exp(T_IO v)|
+
+\verb|void exp(T_O v, T1_I v1)|

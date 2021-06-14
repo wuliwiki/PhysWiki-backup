@@ -1,0 +1,47 @@
+% 李群的李代数
+% 李群|李代数|Lie group|Lie algebra|切空间|tangent space|向量场|vector field|李括号|Lie bracket
+
+\pentry{李群\upref{LieGrp}，李代数\upref{LieAlg}}
+
+\subsection{光滑向量场}
+
+我们先回顾光滑向量场的两条性质．
+
+\begin{lemma}{提升映射与向量场的交换性}\label{LieGA_lem1}
+设$F:M\to N$是一个\textbf{微分同胚}，那么对于任意光滑函数$f\in C^{\infty}(M)$和光滑向量场$X\in\mathfrak{X}(M)$，都有：
+\begin{equation}
+(Xf)\circ F^{-1}=F_*(X)(f\circ F^{-1})
+\end{equation}
+其中$F_*:TM\to TN$是$F$的微分．
+\end{lemma}
+
+\autoref{LieGA_lem1} 根据“向量场对光滑函数作用”的定义就可以证出．
+
+\begin{lemma}{微分和李括号的交换性}
+设$F:M\to N$是一个\textbf{微分同胚}，那么对于任意光滑向量场$X, Y\in\mathfrak{X}(M)$，有$F_*([X, Y])=[F_*(X), F_*([X, Y])]$．
+\end{lemma}
+
+\textbf{证明}：
+
+我们只需要证明$F_*(XY)(f\circ F^{-1})=F_*(X)F_*(Y)(f\circ F^{-1})$对于任意$f\in C^{\infty}(M)$成立即可．
+
+由\autoref{LieGA_lem1} ，
+\begin{equation}
+\begin{aligned}
+F_*(XY)(f\circ F^{-1})&=(XYf)\circ F^{-1}\\
+&=F_*(X)(Yf\circ F^{-1})\\
+&=F_*(X)(F_*(Y)(f\circ F^{-1}))\\
+&=F_*(X)F_*(Y)(f\circ F^{-1})
+\end{aligned}
+\end{equation}
+
+\textbf{证毕}．
+
+\subsection{李群上的左不变向量场}
+
+\begin{definition}{左不变向量场}
+给定李群$G$，对于任意$g\in G$，定义映射$l_g:G\to G$为\textbf{左平移映射}，即对于任意$x\in G$，都有$$
+\end{definition}
+
+
+

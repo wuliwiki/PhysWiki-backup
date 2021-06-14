@@ -1,0 +1,44 @@
+% 测地线
+% geodesic|联络|直线|匀速直线运动|相对论|流形|manifold|connection|Christoffel 符号
+
+\pentry{仿射联络（切丛）\upref{affcon}}
+
+测地线是欧几里得空间中匀速直线运动的推广，而不仅仅是直线的推广．
+
+在欧几里得空间中，如何确定一个匀速直线运动呢？当然是速度向量保持不变的运动．什么叫速度向量保持不变呢？那当然是速度随时间求导的结果为零咯．由于速度是一种切向量，而随时间求导就是沿着运动轨迹的协变导数，因此我们自然可以将匀速直线运动的概念推广到任意带仿射联络的流形上．
+
+\begin{definition}{测地线}
+令$(M, \nabla)$是一个带仿射联络的流形．对于参数曲线$c:I\to M$，它每个点上的切向量$T(t)=\frac{\dd}{\dd t}c(t)$构成一个沿$c$的切向量场．如果协变导数$\frac{D}{\dd t}T(t)$处处为零，那么我们说这条参数曲线$c$是一条\textbf{测地线（geodesic）}．
+\end{definition}
+
+\begin{theorem}{匀速性}\label{geodes_the1}
+如果$(M, \nabla, <*, *>)$是一个带黎曼度量的黎曼流形，$c:I\to M$是其上一条测地线，那么$\sqrt{<c'(t), c'(t)>}$是一个常数．
+
+定义$\abs{c'(t)}=\sqrt{<c'(t), c'(t)>}$为该测地线的\textbf{速率（speed）}．
+\end{theorem}
+
+\autoref{geodes_the1} 的证明很简单，只需要应用协变导数对黎曼度量的Leibniz律（相容性）和测地线的定义即可．
+
+
+
+如果$c:I\to M$是一个测地线，而$u:I\to I$是一个光滑函数，那么$c(u(t))$就被称作$c(t)$的一个\textbf{重新参数化（reparametrization）}．如果
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

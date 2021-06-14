@@ -1,0 +1,49 @@
+% SLISC 的稀疏矩阵
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{SLISC 的密矩阵类\upref{SliMat}}
+
+当一个矩阵对象中有大量 0 元的时候， 用密矩阵数据结构会浪费内存和计算量． COO 是一种常用的稀疏矩阵， 
+
+\begin{lstlisting}[language=cpp]
+class McooChar : public VbaseChar
+{
+private:
+    typedef VbaseChar Base;
+    using Base::m_p;
+    using Base::m_N;
+    Long m_N0, m_N1, m_Nnz;
+    VecLong m_row, m_col;
+public:
+    using Base::p;
+    McooChar(): m_N0(0), m_N1(0), m_Nnz(0) {};
+    McooChar(Long_I N0, Long_I N1);
+    McooChar(Long_I N0, Long_I N1, Long_I Ncap);
+    Long *row_p();
+    const Long *row_p() const;
+    Long *col_p();
+    const Long *col_p() const;
+    // inline void operator<<(McooChar &rhs);
+    void push(Char_I s, Long_I i, Long_I j);
+    void set(Char_I s, Long_I i, Long_I j);
+    Long n0() const;
+    Long n1() const;
+    Long size() const;
+    Long nnz() const;
+    Long capacity() const;
+    Long find(Long_I i, Long_I j) const;
+    Char &ref(Long_I i, Long_I j);
+    Char operator()(Long_I i, Long_I j) const;
+    Char &operator[](Long_I ind);
+    Char operator[](Long_I ind) const;
+    Long row(Long_I ind) const;
+    Long col(Long_I ind) const;
+    void trim(Long_I Nnz);
+    void resize(Long_I N);
+    void reserve(Long_I N);
+    void reshape(Long_I N0, Long_I N1);
+};
+\end{lstlisting}
