@@ -1,0 +1,47 @@
+% 狄拉克方程
+% dirac function
+
+\subsection{背景}
+薛定谔方程并不能描述高速运动的微观粒子，而且由于不满足洛伦兹协变性，无法保证在别的惯性系成立．自然人们希望有满足狭义相对论及量子力学的理论出现．1927年， Klein-Gordon 方程被顺势提出．该方程满足狭义相对论中的质壳条件($E^{2}=\boldsymbol{p}^{2}+m^{2}$)，描述的是无自旋的自由粒子:
+\begin{equation}\label{qed4_eq1}
+\left(\frac{\partial^{2}}{\partial t^{2}}-\nabla^{2}+m^{2}\right) \phi(\boldsymbol{x}, t)=0
+\end{equation}
+然而它产生两个无法忽视的问题:
+
+\begin{enumerate}
+\item \textbf{负能解}
+\autoref{qed4_eq1} 的平面波解为$\phi_{\boldsymbol{p}}(\boldsymbol{x}, t)=\frac{1}{\sqrt{V}} e^{-i\left(E_{\boldsymbol{p}} t-\boldsymbol{p} \cdot \boldsymbol{x}\right)}$，能量本征值为
+$E_{\boldsymbol{p}}=\pm \sqrt{\boldsymbol{p}^{2}+m^{2}}$，然而负能量在量子力学理论中没有物理意义．
+\item \textbf{负概率密度}
+K-G方程的荷密度为$\rho \equiv i\left(\phi^{*} \frac{\partial \phi}{\partial t}-\phi \frac{\partial \phi^{*}}{\partial t}\right)$，代入平面波函数解，显然荷密度可以取为负值．
+\end{enumerate}
+\subsection{狄拉克方程}
+狄拉克提出，在三维空间中运动的自由粒子应满足：
+\begin{equation}
+E=\boldsymbol{\alpha} \cdot \boldsymbol{p}+\beta m=\alpha_{x} p_{x}+\alpha_{y} p_{y}+\alpha_{z} p_{z}+\beta m
+\end{equation}
+平方后有：\begin{equation}
+\begin{aligned}
+E^{2} &=\alpha_{x}^{2} p_{x}^{2}+\alpha_{y}^{2} p_{y}^{2}+\alpha_{z}^{2} p_{z}^{2}+\beta^{2} m^{2} \\
+&+\left(\alpha_{x} \alpha_{y}+\alpha_{y} \alpha_{x}\right) p_{x} p_{y}+\left(\alpha_{y} \alpha_{z}+\alpha_{z} \alpha_{y}\right) p_{y} p_{z}+\left(\alpha_{x} \alpha_{z}+\alpha_{z} \alpha_{x}\right) p_{x} p_{z} \\
+&+\left(\alpha_{x} \beta+\beta \alpha_{x}\right) p_{x} m+\left(\alpha_{y} \beta+\beta \alpha_{y}\right) p_{y} m+\left(\alpha_{z} \beta+\beta \alpha_{z}\right) p_{z} m
+\end{aligned}
+\end{equation}
+若质壳关系依然成立，需要：
+\begin{equation}
+\begin{aligned}
+\beta^{2} &=1 & & \\
+\alpha^{j 2} &=1 & &(j=1,2,3) \\
+\alpha^{j} \alpha^{k}+\alpha^{k} \alpha^{j} &=0 & &(j, k=1,2,3, j \neq k) \\
+\alpha^{j} \beta+\beta \alpha^{j} &=0 & &(j=1,2,3)
+\end{aligned}
+\end{equation}
+显然，$\boldsymbol{\alpha}, \beta$必须（至少）为四阶矩阵．
+\subsubsection{描述对象}
+\begin{enumerate}
+\item \textbf{XXXX}
+\item \textbf{xxxx}
+\end{enumerate}
+\subsubsection{对费米子负能解的解释——空穴理论}
+
+

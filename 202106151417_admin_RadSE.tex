@@ -1,0 +1,84 @@
+% 球坐标系中的定态薛定谔方程
+% 球坐标|柱坐标|定态薛定谔方程|拉普拉斯算子|径向动量
+
+\pentry{定态薛定谔方程\upref{SchEq}， 球坐标系中的亥姆霍兹方程\upref{SphHHz}， 球坐标系中的角动量算符\upref{SphAM}}
+
+本文使用原子单位制\upref{AU}． 我们希望在球坐标中求解定态薛定谔方程
+\begin{equation}\label{RadSE_eq2}
+-\frac{1}{2m}\laplacian \psi(\bvec r) + V(\bvec r)\psi(\bvec r) = E\psi(\bvec r)
+\end{equation}
+当势能 $V(\bvec r)$ 处处为零时， 这就变成了球坐标系中的亥姆霍兹方程\upref{SphHHz}． 以下考虑球对称势能 $V(\bvec r) = V(r)$， 即势能只与到原点的距离有关． 此时定态波函数在球坐标系中可记为
+\begin{equation}
+\Psi(\bvec r) = \frac{1}{r}\psi_{n,l}(r) Y_{l,m}(\uvec r)
+\end{equation}
+其中 $\psi_{n,l}(r)$ 称为\textbf{约化径向波函数（scaled radial wave function）}， 满足\textbf{径向薛定谔方程}
+\begin{equation}\label{RadSE_eq1}
+-\frac{1}{2m} \dv[2]{\psi_l}{r} + \qty[V(r) + \frac{l(l + 1)}{2mr^2}]\psi_l = E_l\psi_l
+\end{equation}
+$l$ 叫做\textbf{角量子数（angular quantum number）}． 对每个固定的 $l$， 该式可能存在若干个不同的能级， 每个能级可能对应多个束缚态． 这些能级的序号一般记为 $n$， 称为\textbf{主量子数（principal quantum number）}， 主量子数一般从 0 开始．
+
+\subsubsection{一些例子}
+若势能 $V(r)$ 在整个空间都是有限值， 对于每个较小的 $l$， 可能不存在束缚态， 也可能存在有限个束缚态， 即有限个 $n$． 束缚态能量 $E_{n,l}$ 由这两个量子数共同决定． 随着 $l$ 不断增加， 方括号中的等效势能越来越浅， 最终会导致径向方程不存在束缚态解． 一个简单的例子是有限深球势阱\upref{FiSph}．
+
+一个重要的例子是氢原子： 由于 $1/r$ 势能的特殊性， 它不但有无穷个束缚态， 而且束缚态能量和 $l$ 无关， 详见 “类氢原子的定态波函数\upref{HWF}”． 另一些例子 “无限深球势阱\upref{ISphW}” 以及 “三维量子简谐振子（球坐标系）\upref{SHOSph}”， 由于简谐振的 $V(r\to \infty)$ 为无穷大， 所以同样存在无穷个束缚态．
+
+\subsection{散射态}
+当\autoref{RadSE_eq1} 中 $E_l > V(+\infty)$ 时， 
+
+\subsection{推导}
+求解过程也和求解亥姆霍兹方程类似．
+
+使用球坐标的拉普拉斯算子（\autoref{SphNab_eq4}~\upref{SphNab}） 可以将哈密顿算符表示为
+\begin{equation}
+H = -\frac{1}{2m} \laplacian + V(\bvec r) =  K_r + \frac{L^2}{2mr^2} + V(\bvec r)
+\end{equation}
+其中径向动量算符和角动量平方算符为（\autoref{SphAM_eq1}~\upref{SphAM}）分别为
+\begin{equation}
+K_r =-\frac{1}{2m} \laplacian_r =  - \frac{1}{2m} \qty(\pdv[2]{r} + \frac2r \pdv{r}) = -\frac{1}{2mr^2} \dv{r} \qty(r^2\pdv{r})
+\end{equation}
+\begin{equation}\label{RadSE_eq3}
+L^2 = -\laplacian_\Omega = -\qty[ \frac{1}{\sin\theta} \pdv{\theta} \qty(\sin \theta \pdv{u}{\theta}) + \frac{1}{\sin^2 \theta} \pdv[2]{u}{\phi}]
+\end{equation}
+注意角动量算符不含 $r$．
+
+定态薛定谔方程\autoref{RadSE_eq2} 变为
+\begin{equation}
+\qty(K_r + \frac{L^2}{2mr^2} + V - E)\Psi(\bvec r) = 0
+\end{equation}
+我们假设势能函数只与粒子到原点的距离有关， 即 $V = V(r)$． 两边乘以 $r^2$ 可以将 $r$ 与角向变量 $\theta, \phi$ （简写为 $\uvec r$）分离， 令 $\Psi = R(r)Y(\uvec r)$．
+
+解得 $Y(\uvec r)$ 为球谐函数 $Y_{l,m}(\uvec r)$ 满足
+\begin{equation}
+L^2 Y_{l,m}(\uvec r) = l(l+1) Y_{l,m}(\uvec r)
+\end{equation}
+分离变量后 $R(r)$ 满足的方程一般被称为\textbf{径向薛定谔方程}
+\begin{equation}\label{RadSE_eq6}
+K_r R_l(r) + \qty[V(r) + \frac{l(l+1)}{2mr^2} ]R_l(r) = ER(r)
+\end{equation}
+我们可以通过变量替换将其化为更简洁的形式． 实际上是不同 $l$ 的一系列方程．
+
+定义
+\begin{equation}
+\psi_l(r) = r R_l(r)
+\end{equation}
+代入\autoref{RadSE_eq6}， 第一项变为
+\begin{equation}
+K_r R_l =  - \frac{1}{2m} \qty(\dv[2]{R_l}{r} + \frac2r \dv{R_l}{r}) = -\frac{1}{2mr^2} \dv{r} \qty(r^2\dv{R_l}{r}) =  -\frac{1}{2mr} \dv[2]{\psi_l}{r}
+\end{equation}
+所以\autoref{RadSE_eq6} 两边乘 $r$ 后化简就得到\autoref{RadSE_eq1}． 这是径向薛定谔方程更常见的形式． 我们可以把该方程想象成是求解一维势能中粒子的能量本征态（束缚态或者散射态）． 方括号中的势能可以称为\textbf{一维等效势能}， 取决于 $l$ 量子数．
+
+% 未完成， 讨论一下束缚态和连续态
+% 令束缚态的解为 $u_{n,l}(r)$， 对应能量（本征值）为 $E_n$
+
+总波函数体积分要求
+\begin{equation}
+\int \abs{R}^2 \abs{Y}^2 r^2 \dd{\Omega}\dd{r}  = 1
+\end{equation}
+球谐函数已经满足 $\int \abs{Y}^2 \dd{\Omega} = 1$，  所以， 要求
+\begin{equation}
+\int \abs{R}^2 r^2 \dd{r}  = 1
+\end{equation}
+即
+\begin{equation}
+\int \abs{\psi_l(r)}^2 \dd{r}  = 1
+\end{equation}
