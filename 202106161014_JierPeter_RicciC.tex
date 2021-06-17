@@ -1,0 +1,105 @@
+% Ricci曲率
+% 里奇曲率|曲率|测地线|广义相对论|引力|爱因斯坦场方程|relativity|gravity|Einstein Field Equation|geodesic|curvature|differential geometry|manifold|流形|联络|connection
+
+\pentry{仿射联络（切丛）\upref{affcon}}
+
+本节中默认$(M, \nabla)$是一个配备了仿射联络$\nabla$的流形$M$．
+
+\subsection{再论曲率映射}
+
+我们在这里重新誊写一遍\textbf{仿射联络（切丛）}\upref{affcon}中定义的\textbf{曲率}映射．
+
+\begin{definition}{曲率}
+定义$R:\mathfrak{X}(M)\times\mathfrak{X}(M)\to\opn{End}(\mathfrak{X}(M))$为：对于任意$X, Y\in\mathfrak{X}(M)$，有$R(X, Y)=\nabla_X\nabla_Y-\nabla_Y\nabla_X-\nabla_{[X, Y]}$，称该映射为$(M, \nabla)$的\textbf{曲率（curvature）}．
+\end{definition}
+
+整体来看，曲率就是把两个光滑向量场映射为一个光滑向量场．一个自然的问题就是，这个映射，是$C^{\infty}$线性的吗？答案是肯定的，这一点由以下定理描述．
+
+\begin{theorem}{曲率的线性性}\label{RicciC_the1}
+令$f, g, h$为$M$上的光滑函数，$X, Y, Z$为$M$上的光滑向量场．则我们有：$R(fX, gY)hZ=fgh\cdot R(X, Y)Z$．
+\end{theorem}
+
+\textbf{证明}：
+
+由于$\nabla_{fX}=f\nabla_X$，且$[fX, gY]=fg[X, Y]+f(Xg)Y-g(Yf)X$
+
+故有
+\begin{equation}
+\begin{aligned}
+&\nabla_{fX}\nabla_{gY}-\nabla_{gY}\nabla_{fX}-\nabla_{[fX, gY]}\\=&f\nabla_X(g\nabla_Y)-g\nabla_Y(f\nabla_X)-fg\nabla_{[X, Y]}-\nabla_{f(Xg)Y-g(Yf)X}\\
+\\=&fg\nabla_X\nabla_Y+f(Xg)\nabla_Y-gf\nabla_Y\nabla_X-g(Yf)\nabla_X\\&-fg\nabla_{[X, Y]}-f(Xg)\nabla_Y+g(Yf)\nabla_X\\
+=&fg\nabla_X\nabla_Y-gf\nabla_Y\nabla_X-fg\nabla_{[X, Y]}\\
+=&fg(\nabla_X\nabla_Y-\nabla_Y\nabla_X-\nabla_{[X, Y]})
+\end{aligned}
+\end{equation}
+这就证明了$R(fX, gY)=fgR(X, Y)$．接下来证明$R(X, Y)hZ=hR(X, Y)Z$．
+
+考虑到
+\begin{equation}
+\begin{aligned}
+\nabla_X\nabla_Y(hZ)&=\nabla_X(h\nabla_YZ+(Yh)Z)\\
+&=h\nabla_X\nabla_YZ+(Xh)\nabla_YZ+(Yh)\nabla_XZ+(XYh)Z
+\end{aligned}
+\end{equation}
+
+故
+\begin{equation}
+\begin{aligned}
+(\nabla_X\nabla_Y-\nabla_Y\nabla_X)hZ=& h\nabla_X\nabla_YZ-h\nabla_Y\nabla_XZ+\\&(Xh)\nabla_YZ-(Yh)\nabla_XZ+\\&(Yh)\nabla_XZ-(Xh)\nabla_YZ+\\&(XYh)z-(YXh)z\\
+=& h(\nabla_X\nabla_Y-\nabla_Y\nabla_X)Z+([X, Y]h)Z
+\end{aligned}
+\end{equation}
+
+于是最后有
+\begin{equation}
+\begin{aligned}
+&(\nabla_X\nabla_Y-\nabla_Y\nabla_X-\nabla_{[X, Y]})hZ\\
+&=h(\nabla_X\nabla_Y-\nabla_Y\nabla_X)Z+([X, Y]h)Z-h\nabla_{[X, Y]}Z-([X, Y]h)Z\\
+&=h(\nabla_X\nabla_Y-\nabla_Y\nabla_X-\nabla_{[X, Y]})Z
+\end{aligned}
+\end{equation}
+
+从而得证$R(X, Y)hZ=hR(X, Y)Z$．
+
+\textbf{证毕}．
+
+\autoref{RicciC_the1} 意味着，曲率是一个$M$上光滑向量场的线性映射，也就是说，是一个张量场．又因为曲率将三个向量场映射为一个向量场，我们可以用抽象指标将曲率张量场表示为$R^r_{ijk}$．其中，如果将$X, Y, Z$分别用抽象指标表示为$x^i, y^j, z^k$，那么$R(X, Y)Z=R^r_{ijk}x^iy^jz^k$．
+
+
+\subsubsection{曲率张量场的坐标}
+
+在给定图中，联络$\nabla$由Christoffel符号$\Gamma^k_{ij}$完全刻画，那么我们应该也能用Christoffel符号计算出曲率张量场的坐标．记住，$\Gamma$中每个元素的类型是$M$上的光滑向量场．
+
+\begin{equation}
+\begin{aligned}
+\nabla_{\partial_i}\nabla_{\partial_j}\partial_k
+\end{aligned}
+\end{equation}
+
+
+考虑到偏微分的交换性，$[\partial_i, \partial_j]=0$．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

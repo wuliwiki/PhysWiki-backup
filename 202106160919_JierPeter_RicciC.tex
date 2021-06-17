@@ -1,0 +1,51 @@
+% Ricci曲率
+% 里奇曲率|曲率|测地线|广义相对论|引力|爱因斯坦场方程|relativity|gravity|Einstein Field Equation|geodesic|curvature|differential geometry|manifold|流形|联络|connection
+
+\pentry{仿射联络（切丛）\upref{affcon}}
+
+本节中默认$(M, \nabla)$是一个配备了仿射联络$\nabla$的流形$M$．
+
+\subsection{再论曲率映射}
+
+我们在这里重新誊写一遍\textbf{仿射联络（切丛）}\upref{affcon}中定义的\textbf{曲率}映射．
+
+\begin{definition}{曲率}
+定义$R:\mathfrak{X}(M)\times\mathfrak{X}(M)\to\opn{End}(\mathfrak{X}(M))$为：对于任意$X, Y\in\mathfrak{X}(M)$，有$R(X, Y)=\nabla_X\nabla_Y-\nabla_Y\nabla_X-\nabla_{[X, Y]}$，称该映射为$(M, \nabla)$的\textbf{曲率（curvature）}．
+\end{definition}
+
+整体来看，曲率就是把两个光滑向量场映射为一个光滑向量场．一个自然的问题就是，这个映射，是$C^{\infty}$线性的吗？答案是肯定的，这一点由以下定理描述．
+
+\begin{theorem}{曲率的线性性}
+令$f, g, h$为$M$上的光滑函数，$X, Y, Z$为$M$上的光滑向量场．则我们有：$R(fX, gY)hZ=fgh\cdot R(X, Y)Z$．
+\end{theorem}
+
+\textbf{证明}：
+
+由于$\nabla_{fX}=f\nabla_X$，且$[fX, gY]=f(Xg)Y+fg\nabla_XY-g(Yf)X-gf\nabla_YX=$
+
+\textbf{证毕}．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
