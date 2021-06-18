@@ -1,0 +1,51 @@
+% 爱因斯坦场方程
+% 引力场|引力|gravity|场方程|Ricci张量|测地线|geodesic|广义相对论|相对论|relativity|时空|spacetime|弯曲|曲率
+
+\pentry{测地线\upref{geodes}，尘埃云的能动张量\upref{SRFld}}
+
+\subsection{能动张量}
+
+爱因斯坦场方程的引出过程中，我们考虑的是最简单的宏观模型，即\textbf{尘埃云的能动张量}\upref{SRFld}中所介绍的\textbf{理想流体}．对于任何物质，其四动量的各分量，都会随着参考系的不同而有不同取值，因此这些量只能是流形上某种量在具体坐标系中的坐标分量而已．这样一来，在流形上描述能量质量分布的量，就不能是简单的光滑函数，或者说标量场，而只能是更高阶的张量场．能描述理想流体四动量分布的张量，可以是四动量本身，也可以是能动张量，而我们会选择能动张量，这样才能和Ricci曲率张量的阶数吻合．
+
+能动张量能如何描述物质分布的性质呢？
+
+\begin{definition}{能量密度}
+令$T_{ab}$为一理想流体在时空流形上的能动张量场，$u^a$是该流体在各时空点处局部质心系的四速度，则$T_{ab}u^au^b$是该流体在该处的\textbf{能量密度}．
+\end{definition}
+
+这一定义是合理的．考虑到局部质心系中$u^a=\pmat{1&0&0&0}\Tr$，根据理想流体的能动张量的定义，可以计算出$T_{ab}u^au^b$就是能量密度分布，而这是张量场的抽象指标分布，不依赖于参考系的选择，所以是合理的推广表达．
+
+\subsubsection{守恒定律}
+
+理想流体的能动张量，满足方程
+\begin{equation}\label{EinEqn_eq1}
+\partial^aT_{ab}=0
+\end{equation}
+
+\autoref{EinEqn_eq1} 的理解可以类比向量场的散度$\partial_av^a$．如果向量场$v^a$描述了某种东西的流，比如说流体的质量流，那么$\partial_av^a$就是流体质量的流失速率，在$\partial_av^a=0$的地方自然就有质量密度守恒．
+
+根据指标的升降法则，对于任何张量$\bvec{T}$，我们定义$\partial^a\bvec{T}=\eta^{ab}\partial_a\bvec{T}$，这样子我们就可以把\autoref{EinEqn_eq1} 理解为$\eta^{ai}\partial_i(T_b)^a$，相当于用余切向量场$T_b$取代了光滑函数$v$，形式不变，同样表达了某种量的守恒．
+
+什么东西守恒呢？
+
+利用\autoref{SRFld_eq4}~\upref{SRFld}，$T_{ab}=\rho U_aU_b+p g_{ab}+p U_aU_b$，把\autoref{EinEqn_eq1} 展开，我们能得到：
+\begin{equation}
+\begin{aligned}
+\partial^aT_{ab}=&\partial^a(\rho U_aU_b+p g_{ab}+p U_aU_b)\\
+=&U_aU_b\partial^a\rho+\rho U_b\partial^aU_a+\rho U_b\partial^aU_b+\\
+&g_{ab}\partial^ag_{ab}+p\partial^ag_{ab}+\\
+&U_aU_b\partial^ap+p U_b\partial^aU_a+p U_b\partial^aU_b
+\end{aligned}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
