@@ -1,0 +1,30 @@
+% 投资管理多因素
+
+\subsection{投资比例}
+（1）建立多因素模型
+
+设有$I_1,I_2,...,I_k$共$k$种不相关的经济因素共同影响资产收益，建立风险资产收益率受这$k$种经济因素共同影响的多因素模型
+\begin{equation}
+R_i=\alpha_i+\beta_{i1}I_1+...+\beta_{ik}I_k+\epsilon_i
+\end{equation}
+
+
+
+不难计算这种多因素模型中随机变量$R_i$的数字特征：
+
+①期望收益率：$\hat{R_i}=\alpha_i+\sum_{l=1}^{k}\hat\beta_{il}E(I_i)$
+
+②方差：$\sigma_i^2=\beta_{i1}^2\sigma_{I1}^2+...+\beta_{ik}^2\sigma^2_{Ik}+\sigma^2_{\varepsilon i}$
+
+③协方差：$\sigma_{ij}=\beta_{i1}\beta_{j1}\sigma^2_{I1}+\beta_{i2}\beta_{j2}\sigma_{I2}^2+...+\beta_{ik}\beta_{jk}\sigma_{Ik}^2$  $(i\neq j)$
+
+
+合并上式左边第一项和第三项，移项，并两边同除以$\sigma^2_{\varepsilon i}$得
+\begin{equation}
+x_i=\frac{E(R_i)-r_f}{\sigma^2_{\varepsilon i}}-\frac{1}{\sigma^2_{\varepsilon i}}\sum_{j=1}^{n}x_j(\beta_{i1}\beta_{j1}\sigma_{I1}^2+...+\beta_{ik}\beta_{jk}\sigma^2_{Ik})
+\end{equation}
+
+重见上式为
+\begin{equation}
+x_i=\frac{E(R_i)-r_f}{\sigma^2_{\varepsilon i}}-\frac{\beta_{i1}\sigma^2_{I1}}{\sigma^2_{\varepsilon i}}\sum_{j=1}^{n}x_j\beta_{jk}
+\end{equation}
