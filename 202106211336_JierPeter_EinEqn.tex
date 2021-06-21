@@ -1,0 +1,116 @@
+% 爱因斯坦场方程
+% 引力场|引力|gravity|场方程|Ricci张量|测地线|geodesic|广义相对论|相对论|relativity|时空|spacetime|弯曲|曲率
+
+\pentry{引力的弱场近似\upref{WeakG}，尘埃云的能动张量\upref{SRFld}，曲率张量场\upref{RicciC}}
+
+\subsection{爱因斯坦张量}
+
+我们直接介绍一个有用的性质，在稍后猜测爱因斯坦场方程的时候我们自然会讨论到它的用处．
+
+\begin{definition}{Ricci标量曲率}
+给定流形上的Ricci曲率场$R_{ij}$，则有光滑函数$R=g^{ij}R_{ij}$，称之为流形上的\textbf{标量曲率（scalar curvature）}．
+\end{definition}
+
+考虑黎曼曲率张量的第二Bianchi恒等式\autoref{RicciC_eq8}~\upref{RicciC}：
+\begin{equation}
+\nabla_\lambda R_{\mu\nu\rho\sigma}+\nabla_\rho R_{\mu\nu\sigma\lambda}+\nabla_\sigma R_{\mu\nu\lambda\rho}=0
+\end{equation}
+
+等式两端同时乘以$g^{\nu\sigma}g^{\mu\lambda}$后，考虑到联络对度量的相容性\footnote{即$\nabla_ag_{ij}=0$．}，得到\footnote{注意负号的来源：$g^{\nu\sigma}g^{\mu\lambda}R_{\mu\nu\sigma\lambda}=-g^{\nu\sigma}g^{\mu\lambda}R_{\nu\mu\sigma\lambda}=-g^{\mu\lambda}R_{\mu\lambda}=R$}：
+\begin{equation}
+\begin{aligned}
+0&=g^{\nu\sigma}g^{\mu\lambda}(\nabla_\lambda R_{\mu\nu\rho\sigma}+\nabla_\rho R_{\mu\nu\sigma\lambda}+\nabla_\sigma R_{\mu\nu\lambda\rho})\\
+&=\nabla^\mu R_{\mu\rho}-\nabla_\rho R+\nabla^{\nu}R_{\nu\rho}
+\end{aligned}
+\end{equation}
+
+也就是说
+\begin{equation}\label{EinEqn_eq1}
+\nabla^\mu R_{\rho\mu}=\frac{1}{2}\nabla_\rho R
+\end{equation}
+
+这么一来，如果我们定义一个张量
+\begin{equation}
+G_{\mu\nu}=R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}
+\end{equation}
+那么\autoref{EinEqn_eq1} 就可以写为
+\begin{equation}\label{EinEqn_eq2}
+\nabla^\mu G_{\mu\nu}=0
+\end{equation}
+
+这个张量$G_{\mu\nu}$就被称为\textbf{爱因斯坦张量（Einstein tensor）}，由于度量和Ricci张量的对称性，它也是对称的．\autoref{EinEqn_eq2} 就是我们稍后要用到的有用性质．
+
+
+
+\subsection{能动张量}
+
+爱因斯坦场方程的引出过程中，我们考虑的是最简单的宏观模型，即\textbf{尘埃云的能动张量}\upref{SRFld}中所介绍的\textbf{理想流体}．对于任何物质，其四动量的各分量，都会随着参考系的不同而有不同取值，因此这些量只能是流形上某种量在具体坐标系中的坐标分量而已．这样一来，在流形上描述能量质量分布的量，就不能是简单的光滑函数，或者说标量场，而只能是更高阶的张量场．能描述理想流体四动量分布的张量，可以是四动量本身，也可以是能动张量，而我们会选择能动张量，这样才能和Ricci曲率张量的阶数吻合．
+
+%能动张量的讨论尚未确定最终流程
+
+
+
+
+\subsection{爱因斯坦场方程}
+
+\textbf{引力的弱场近似}\upref{WeakG}一节中，我们看到了作为平直时空的微小扰动，带曲率时空中的测地线确实能描述稳定、低速、弱场近似下的引力效应．我们现在希望利用这个原则，将它推广到任意情况下的时空中去．
+
+曲率是引力的体现，而引力是由物质产生的．牛顿引力论中描述物质的引力效应使用的是物质的质量，在牛顿理论中这是时空中的一个光滑函数．问题是，从狭义相对论中我们就知道，描述物质分布时统一的、无视坐标系选择的量，应该是四动量和能动张量．那么我们在推测场方程的时候，应该用四动量还是能动张量呢？四动量是$(1, 0)$型张量，能动张量是$(0, 2)$型的，前者的类型是无法和任何曲率张量匹配的．因此我们选择用能动张量来描述物质分布．
+
+初步的猜测是，将Ricci张量和能动张量匹配，得到如下场方程：
+\begin{equation}\label{EinEqn_eq3}
+R_{\mu\nu}=KT_{\mu\nu}
+\end{equation}
+其中$R_{\mu\nu}$是Ricci张量场，$T_{\mu\nu}$是物质分布的能动张量场，$K$是常数．
+
+但这个式子有个问题，它不满足四动量守恒假设．四动量守恒假设体现为$\nabla^\mu T_{\mu\nu}=0$，而如果\autoref{EinEqn_eq3} 要满足四动量守恒，就只有$K=0$一种情况，整个式子就毫无意义了．因此，我们根据\autoref{EinEqn_eq2} 做一点小小的修正，得到：
+\begin{equation}
+G_{\mu\nu}=KT_{\mu\nu}
+\end{equation}
+这就是我们所\textbf{猜想}的，曲率依赖于物质分布的方式．
+
+最后一步就是要得到这个常数$K$．思路很简单，取稳定、低速、弱场近似，把场方程回归到牛顿引力方程：
+\begin{equation}
+\nabla^2\Phi=4\pi G\rho
+\end{equation}
+其中$G$是牛顿万有引力常数，$\rho$是物质质量密度在牛顿时空中的分布，是个光滑函数．
+
+
+在稳定、低速、弱场近似下，$T_{00}=\rho$，而$h_{00}=-2\Phi$\footnote{见\textbf{引力的弱场近似}\upref{WeakG}最后的讨论．}．而度量张量为$g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$．
+
+
+我们多花一点步骤来计算一下$G_{\mu\nu}$：
+
+
+\subsubsection{弱场近似下爱因斯坦张量和引力势的关系}
+
+
+
+根据\autoref{CrstfS_eq3}~\upref{CrstfS}，誊抄如下：
+\begin{equation}
+\Gamma^{r}_{ij}=\frac{1}{2}g^{kr}(\partial_ig_{jk}+\partial_jg_{ki}-\partial_kg_{ij})
+\end{equation}
+我们的稳定、低速、弱场近似下的Christoffel符号为：
+\begin{equation}
+\Gamma^{r}_{ij}=\frac{1}{2}\eta^{kr}(\partial_ih_{jk}+\partial_jh_{ki}-\partial_kh_{ij})
+\end{equation}
+再代入\textbf{曲率张量场}\upref{RicciC}中的\autoref{RicciC_eq9}~\upref{RicciC}，誊抄如下：
+\begin{equation}
+R_{jk}=R_{kj}=\partial_i\Gamma^i_{jk}-\partial_j\Gamma^{i}_{ik}+\Gamma^s_{jk}\Gamma^i_{is}-\Gamma^s_{ik}\Gamma^i_{js}
+\end{equation}
+由于$h_{\mu\nu}$很小，我们忽略掉高阶项$\Gamma^s_{jk}\Gamma^i_{is}-\Gamma^s_{ik}\Gamma^i_{js}$，得：
+\begin{equation}
+\begin{aligned}
+R_{\mu\nu}&=\partial_\lambda\Gamma^\lambda_{\mu\nu}-\partial_{\mu}\Gamma^\lambda_{\lambda\nu}\\
+&=\frac{1}{2}[\eta^{\lambda\alpha}\partial_\lambda()]
+\end{aligned}
+\end{equation}
+
+
+
+
+
+
+
+
+

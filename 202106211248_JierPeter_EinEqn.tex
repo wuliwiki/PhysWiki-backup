@@ -1,0 +1,54 @@
+% 爱因斯坦场方程
+% 引力场|引力|gravity|场方程|Ricci张量|测地线|geodesic|广义相对论|相对论|relativity|时空|spacetime|弯曲|曲率
+
+\pentry{引力的弱场近似\upref{WeakG}，尘埃云的能动张量\upref{SRFld}，曲率张量场\upref{RicciC}}
+
+\subsection{爱因斯坦张量}
+
+我们直接介绍一个有用的性质，在稍后猜测爱因斯坦场方程的时候我们自然会讨论到它的用处．
+
+\begin{definition}{Ricci标量曲率}
+给定流形上的Ricci曲率场$R_{ij}$，则有光滑函数$R=g^{ij}R_{ij}$，称之为流形上的\textbf{标量曲率（scalar curvature）}．
+\end{definition}
+
+考虑黎曼曲率张量的第二Bianchi恒等式\autoref{RicciC_eq8}~\upref{RicciC}：
+\begin{equation}
+\nabla_\lambda R_{\mu\nu\rho\sigma}+\nabla_\rho R_{\mu\nu\sigma\lambda}+\nabla_\sigma R_{\mu\nu\lambda\rho}=0
+\end{equation}
+
+等式两端同时乘以$g^{\nu\sigma}g^{\mu\lambda}$后，考虑到联络对度量的相容性\footnote{即$\nabla_ag_{ij}=0$．}，得到\footnote{注意负号的来源：$g^{\nu\sigma}g^{\mu\lambda}R_{\mu\nu\sigma\lambda}=-g^{\nu\sigma}g^{\mu\lambda}R_{\nu\mu\sigma\lambda}=-g^{\mu\lambda}R_{\mu\lambda}=R$}：
+\begin{equation}
+\begin{aligned}
+0&=g^{\nu\sigma}g^{\mu\lambda}(\nabla_\lambda R_{\mu\nu\rho\sigma}+\nabla_\rho R_{\mu\nu\sigma\lambda}+\nabla_\sigma R_{\mu\nu\lambda\rho})\\
+&=\nabla^\mu R_{\mu\rho}-\nabla_\rho R+\nabla^{\nu}R_{\nu\rho}
+\end{aligned}
+\end{equation}
+
+也就是说
+\begin{equation}
+\nabla^\mu R_{\rho\mu}=\frac{1}{2}\nabla_\rho R
+\end{equation}
+
+
+
+
+\subsection{能动张量}
+
+爱因斯坦场方程的引出过程中，我们考虑的是最简单的宏观模型，即\textbf{尘埃云的能动张量}\upref{SRFld}中所介绍的\textbf{理想流体}．对于任何物质，其四动量的各分量，都会随着参考系的不同而有不同取值，因此这些量只能是流形上某种量在具体坐标系中的坐标分量而已．这样一来，在流形上描述能量质量分布的量，就不能是简单的光滑函数，或者说标量场，而只能是更高阶的张量场．能描述理想流体四动量分布的张量，可以是四动量本身，也可以是能动张量，而我们会选择能动张量，这样才能和Ricci曲率张量的阶数吻合．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
