@@ -1,0 +1,23 @@
+% 中奖概率
+
+每 $\Delta t$ 时间有 $\Delta P$ 的概率中奖， 考虑极限 $\Delta t\to 0$ 的情况， 假设
+\begin{equation}
+\lim_{\Delta t\to 0}\frac{\Delta P}{\Delta t} = \lambda
+\end{equation}
+
+
+1. 求第一次中奖时间概率分布 $f(t)$
+
+画出概率树， 在第 $N$ 次开奖时中奖的概率为 $(1-\Delta P)^{N-1} \Delta P$， 即在时间 $t = N\Delta t$ 中奖的概率为
+\begin{equation}
+(1-\lambda\Delta t)^{\frac{t}{\Delta t}-1} \lambda\Delta t
+= [(1-\lambda\Delta t)^{\frac{1}{\lambda\Delta t}}]^{t\lambda} \frac{\lambda\Delta t}{1-\lambda\Delta t}
+\end{equation}
+$\Delta t\to 0$ 的极限为 $\lambda\E^{-\lambda t}\Delta t$， 所以概率分布为
+\begin{equation}
+f(t) = \lambda\E^{-\lambda t}
+\end{equation}
+验证归一化：
+\begin{equation}
+\int \lambda\E^{-\lambda t}
+\end{equation}

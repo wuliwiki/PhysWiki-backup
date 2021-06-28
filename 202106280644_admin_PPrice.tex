@@ -1,0 +1,25 @@
+% 中奖概率
+
+假设某种彩票每 $\Delta t$ 开奖一次， 开奖时每张彩票有 $\Delta P$ 的概率中奖，  令 $\lambda = {\Delta P}/{\Delta t}$， 为了让问题更连续， 考虑极限 $\Delta t\to 0$ 的情况， 即开奖时间无限短， 即单位时间中奖概率为 $P$．
+
+
+1. 求第一次中奖时间概率分布 $f(t)$ 以及期望值
+
+画出概率树， 在第 $N$ 次开奖时中奖的概率为 $(1-\Delta P)^{N-1} \Delta P$， 即在时间 $t = N\Delta t$ 中奖的概率为
+\begin{equation}
+(1-\lambda\Delta t)^{\frac{t}{\Delta t}-1} \lambda\Delta t
+= [(1-\lambda\Delta t)^{\frac{1}{\lambda\Delta t}}]^{t\lambda} \frac{\lambda\Delta t}{1-\lambda\Delta t}
+\end{equation}
+$\Delta t\to 0$ 的极限为 $\lambda\E^{-\lambda t}\Delta t$， 所以概率分布为
+\begin{equation}
+f(t) = \lambda\E^{-\lambda t}
+\end{equation}
+验证归一化：
+\begin{equation}
+\int_0^{+\infty} f(t) \dd{t} = \int_0^{+\infty} \lambda\E^{-\lambda t} \dd{t} = 1
+\end{equation}
+
+期望值：
+\begin{equation}
+\int_0^{+\infty} t f(t) \dd{t} = \int_0^{+\infty}t \lambda\E^{-\lambda t} \dd{t} = \frac{1}{\lambda}
+\end{equation}
