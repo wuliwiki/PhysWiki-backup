@@ -1,0 +1,43 @@
+% 椭圆坐标系
+\pentry{椭圆的三种定义\upref{Elips3}、正交曲线坐标系\upref{CurCor}}
+\begin{issues}
+\issueDraft
+\end{issues}
+\subsection{椭圆坐标系}
+椭圆坐标系中点的位置可由 $(\xi,\eta,z)$ 这3个有序实数表示．$\xi$的等值曲面为一组共焦椭圆柱面族，焦距为 $2c$；$\eta$ 的等值曲面为一组共焦的双曲柱面族，其焦点与椭圆柱面族焦点相重．而 $z$轴一般与直角坐标系 $z$ 轴重合．
+
+椭圆坐标与直角坐标的关系为
+\begin{equation}\label{EliCor_eq1}
+\left\{\begin{aligned}
+&x=c\cosh\xi\cdot\cos\eta\\
+&y=c\sinh\xi\cdot\sin\eta\\
+&z=z
+\end{aligned}\right.
+\end{equation}
+其中 $\xi\geq0,0\leq\eta<2\pi,-\infty<z<+\infty$
+\addTODO{图}
+\subsection{椭圆坐标系中的单位矢量}
+容易证明椭圆坐标系是一个正交曲线坐标系．在某点 $\bvec{r}$ 处，坐标轴$\xi$、$\eta$、$z$的方向分别为$\pdv{\bvec{r}}{\xi}$、$\pdv{\bvec{r}}{\eta}$、$\pdv{\bvec{r}}{z}$．由\autoref{EliCor_eq1} 
+\begin{equation}\label{EliCor_eq2}
+\left\{
+    \begin{aligned}
+    &\dd x=c\sinh\xi\cdot\cos\eta\dd\xi-c\cosh\xi\sin\eta\dd\eta\\
+    &\dd y=c\cosh\xi\cdot\cos\eta\dd\xi+c\sinh\xi\cdot\cos\eta\dd\eta\\
+    &\dd z=\dd z
+    \end{aligned}\right.
+\end{equation}
+
+令3个椭圆坐标 $\xi$、 $\eta$、 $z$ 对应的单位矢量为 $\uvec{\xi}$、 $\uvec{\eta}$、 $\uvec{z}$，则
+\begin{equation}
+\left\{
+    \begin{aligned}
+    &\uvec{\xi}=\frac{\sinh\xi\cdot\cos\eta\uvec{x}+c\cosh\xi\cdot\cos\eta\uvec{y}\\
+    &\uvec{\eta }=-c\cosh\xi\sin\eta\uvec{x}+c\sinh\xi\cdot\cos\eta\dd\uvec{y}\\
+    &\uvec{z}=\uvec{z}
+    \end{aligned}\right.
+\end{equation}
+
+
+参考 wikipedia， 参考抛物线坐标系， 球坐标系等写法
+
+写出梯度散度旋度， 引用 “正交曲线坐标系中的矢量算符\upref{CVecOp}”
