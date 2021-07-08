@@ -1,0 +1,31 @@
+% 巴拿赫不动点定理
+
+\pentry{
+度量空间中的概念\upref{Metri2}
+完备度量空间\upref{cauchy}
+}
+
+\textbf{巴拿赫不动点定理 (Banach fixed point theorem)} 又称作\textbf{压缩映像原理 (contraction mapping principle)}. 它是完备度量空间理论中的基本定理, 在分析数学的诸多分支中均有应用.
+
+\subsection{两个著名例子}
+\subsubsection{落在地面上的地图}
+这是数学科普中常见的命题: \textbf{将一座公园的地图铺开在公园地面上, 则地面上恰有唯一一点与地图上对应的点重合.} 借助一点线性代数知识, 这个命题是不难验证的.
+
+\subsubsection{函数的迭代}
+
+\subsection{定理的表述与辨析}
+\begin{theorem}{巴拿赫不动点定理}
+设$(X,d)$是完备度量空间\upref{cauchy}, $T:X\to X$是连续映射. 如果存在一个数$q\in(0,1)$使得$d(Tx,Ty)\leq qd(x,y)$对于任意的$x,y\in X$都成立, 那么映射$T$有唯一的不动点, 即满足$x=Tx$的点. 而且, 对于任意$x_0\in X$, 点列$\{T^nx_0\}_{n\in\mathbb{N}}$都收敛到这个不动点.
+\end{theorem}
+证明是直接的计算: 根据度量空间中的三角不等式, 显然有
+$$
+\begin{aligned}
+d(T^nx_0,T^{n+k}x_0)
+&\leq \sum_{j=1}^k d(T^{n+j-1}x_0,T^{n+j}x_0)\\
+&\leq \sum_{j=1}^k q^{n+j-1}d(x_0,Tx_0)\\
+&\leq \frac{q^n}{1-q}d(x_0,Tx_0).
+\end{aligned}
+$$
+于是点列$\{T^nx_0\}_{n\in\mathbb{N}}$是柯西序列, 在完备度量空间$X$之中自然收敛到某个$x_*\in X$. 在公式$T^{n+1}x_0=T(T^nx_0)$中令$n\to\infty$就立刻看出$x_*=Tx_*$. 不动点的唯一性则由$d(Tx,Ty)\leq qd(x,y)$立刻得到. \textbf{证毕.}
+
+从许多个意义上来说, 巴拿赫不动点定理都是最优的, 因为取消任何一条假设都能够让定理不成立.
