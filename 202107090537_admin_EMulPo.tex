@@ -1,0 +1,40 @@
+% 电多极展开
+% 偶极子|多极子|球谐函数|电势
+
+\pentry{球谐函数\upref{SphHar}}
+
+若空间中的一个球内（$r < a$） 存在静止的电荷分布 $\rho(\bvec r)$， 那么球外的电势 $V(\bvec r)$（$r > a$）可以展开为径向函数和球谐函数之积的形式
+\begin{equation}\label{EMulPo_eq2}
+V(\bvec r) = \sum_{l = 0}^\infty \frac{1}{r^{l+1}}\sum_{m = -l}^l C_{l,m} Y_{l,m}(\uvec r)
+\end{equation}
+其中常数 $C_{l,m}$ 为
+\begin{equation}
+C_{l,m} = \frac{1}{(2l+1)\epsilon_0} \int \rho(\bvec r) r^l Y_{l,m}^*(\uvec r) \dd[3]{r}
+\end{equation}
+
+当 $m = 0$ 时， $l = 1$ 的项就是电单极子（各向同性）， $l = 2$ 的项就是电偶极子\upref{eleDP2}（$\propto\cos \theta$）， $l = N$ 的项叫做电 $N$ 极子．
+
+\subsubsection{内展开}
+相反， 若 $\rho(\bvec r)$ 只存在于 $r > a$ 的球外空间， 那么可以把球内部的电势 $V(\bvec r)$ 展开位
+\begin{equation}
+V(\bvec r) = \sum_{l = 0}^\infty r^l \sum_{m = -l}^l C_{l,m} Y_{l,m}(\uvec r)
+\end{equation}
+其中
+\begin{equation}\label{EMulPo_eq3}
+C_{l,m} = \frac{1}{(2l+1)\epsilon_0} \int \rho(\bvec r) \frac{1}{r^{l+1}} Y_{l,m}^*(\uvec r) \dd[3]{r}
+\end{equation}
+
+虽然把\autoref{EMulPo_eq2} 到\autoref{EMulPo_eq3} 合并就可以得到一般情况的展开（球内外都允许电荷分布）， 但这并没有太大价值， 因为在一般的应用中 $C_{l,m}$ 都是预先计算好的．
+
+\subsection{推导}
+首先我们给出单个点电荷势能的展开公式
+\begin{equation}\label{EMulPo_eq1}
+\frac{1}{\abs{\bvec r - \bvec r'}} = 4\pi \sum_{l=0}^{\infty} \frac{1}{2l+1} \frac{r_<^l}{r_>^{l+1}} \sum_{m = -l}^l Y_{l,m}^*(\uvec r') Y_{l,m}(\uvec r)
+\end{equation}
+其中 $r_< := \min\qty{r, r'}$， $r_> := \max\qty{r, r'}$．
+
+若我们要求电荷必须在 $r' < a$ 的球内而 $V(\bvec r)$ 必须在球外计算， 那么 $r_> = r, r_< = r'$， 根据库仑势能有
+\begin{equation}
+V(\bvec r) = \frac{1}{4\pi\epsilon_0}\int \frac{\rho(\bvec r')}{\abs{\bvec r - \bvec r'}} \dd[3]{r'}
+\end{equation}
+把\autoref{EMulPo_eq1} 代入可得\autoref{EMulPo_eq2}．
