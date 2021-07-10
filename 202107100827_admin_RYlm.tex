@@ -1,0 +1,22 @@
+% 实球谐函数
+
+\pentry{球谐函数\upref{SphHar}}
+
+球谐函数中唯一的复数因子是 $\E^{\pm\I m}$（见球谐函数表\upref{YlmTab}）， 如果我们需要一套实数的球谐函数作为基底（例如展开实函数）， 可以通过欧拉公式（\autoref{CExp_eq2}~\upref{CExp}）把该因子变为 $\sin(m\phi)$ 和 $\cos(m\phi)$
+\begin{equation}
+\E^{\pm\I m \phi} = \cos(m\phi) \pm \I \sin(m\phi)
+\end{equation}
+为了区分， 我们把实球谐函数记为 $\ma$ 定义
+\begin{equation}
+\mathcal Y_{l,m} = \leftgroup{
+&\frac{1}{\sqrt{2}}[(-1)^{m} Y_{l,m} + Y_{l,-m}] \quad &(m > 0)\\
+&Y_{l,0} \qquad &(m = 0)\\
+&\frac{1}{\sqrt{2} \I}[(-1)^{m} Y_{l,-m} - Y_{l,m}]  &(m < 0)
+}\end{equation}
+从球谐函数表\upref{YlmTab} 中可知， 上式方括号中第一项 $\sim \E^{\I \phi}$， 第二项 $\sim \E^{-\I \phi}$， 所以 $m > 0$ 时 $Y_{l,0} \sim \cos(m\phi)$， $m < 0$ 时 $Y_{l,0} \sim \sin(m\phi)$， $m = 0$ 时与 $\phi$ 无关．
+
+仍然满足归一化条件
+\begin{equation}
+\int \mathcal Y_{l',m'}\Cj(\uvec r) \mathcal Y_{l,m}(\uvec r) \dd{\Omega} = \delta_{l,l'}\delta_{m,m'}
+\end{equation}
+

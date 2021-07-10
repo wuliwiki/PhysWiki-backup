@@ -1,0 +1,85 @@
+% 经典场论基础
+% 经典场
+
+
+\subsection{拉格朗日场论}
+这一节里面，我们复习一下经典场的知识，为后面的量子场论做铺垫．首先要复习的一个重要的量就是拉式量了，定义如下
+\begin{equation}
+S = \int L dt = \int \mathcal L(\phi,\partial_\mu \phi)d^4 x
+\end{equation}
+经典场论的重要原理是变分原理$\delta S = 0$．
+\begin{equation}
+\begin{aligned}
+0 &=\delta S \\
+&=\int d^{4} x\left\{\frac{\partial \mathcal{L}}{\partial \phi} \delta \phi+\frac{\partial \mathcal{L}}{\partial\left(\partial_{\mu} \phi\right)} \delta\left(\partial_{\mu} \phi\right)\right\} \\
+&=\int d^{4} x\left\{\frac{\partial \mathcal{L}}{\partial \phi} \delta \phi-\partial_{\mu}\left(\frac{\partial \mathcal{L}}{\partial\left(\partial_{\mu} \phi\right)}\right) \delta \phi+\partial_{\mu}\left(\frac{\partial \mathcal{L}}{\partial\left(\partial_{\mu} \phi\right)} \delta \phi\right)\right\}
+\end{aligned}
+\end{equation} 
+最后一项是一个表面项，这里我们考虑边界条件是$\delta \phi$为零的构型，这一项就可以忽略.现在我们看前两项．因为对于任意的$\delta \phi$这个式子都为零，所以我们必须让$\delta \phi$前面的系数为零，这样，我们就推出了著名的欧拉-拉格朗日方程
+\begin{equation}
+\partial_\mu \bigg( \frac{\partial \mathcal L}{\partial(\partial_\mu\phi)} \bigg) - \frac{\partial \mathcal L}{\partial \phi} = 0 
+\end{equation}
+
+\subsection{哈密顿场论}
+拉式量的方法的优点是所有的量都是明显洛仑兹不变的．哈密顿场论的优点是更容易过度到量子力学．
+
+对于一个分立系统，我们可以定义共轭动量
+\begin{definition}{共轭动量}
+对于每个动力学变量$q$，我们可以定义它的相应的共轭动量
+\begin{equation}
+p \equiv \frac{\partial L}{\partial \dot q}
+\end{equation}
+\end{definition}
+那么哈密顿量的定义如下
+\begin{definition}{哈密顿量}
+\begin{equation}
+H \equiv \sum p \dot q - L
+\end{equation}
+\end{definition}
+上面的定义也可以推广到连续系统．只要假设空间坐标$\mathbf x$是分立的就可以了，这样对于连续系统，我们可以定义如下的共轭动量
+\begin{definition}{连续系统的共轭动量}
+\begin{equation}
+\begin{aligned}
+p(\mathbf x) & \equiv \frac{\partial L}{\partial \dot \phi(\mathbf x)} = \frac{\partial}{\partial \dot \phi(\mathbf x)} \int \mathcal L(\phi(\mathbf y),\dot \phi(\mathbf y)) d^3 y \\
+& \sim \frac{\partial}{\partial \dot \phi(\mathbf x)} \sum_{\mathbf y} \mathcal L(\phi(\mathbf y,\dot \phi(\mathbf y))) d^3 y=\pi(\mathbf x) d^3 x
+\end{aligned}
+\end{equation}
+其中
+\begin{equation}
+\pi(\mathbf x) \equiv \frac{\partial \mathcal L}{\partial \dot \phi(\mathbf x)}
+\end{equation}
+是与$\phi(\mathbf x)$共轭的哈密顿量密度．
+\end{definition}
+因此哈密顿量为
+\begin{equation}
+H = \int d^3 x\,\, p(\mathbf x) \dot \phi(\mathbf x) - L
+\end{equation}
+现在我们来看一个简单的例子．
+\begin{align}\nonumber
+\mathcal L & = \frac{1}{2} \dot \phi^2 - \frac{1}{2} (\nabla \phi)^2 - \frac{1}{2} m^2 \phi^2 \\
+& = \frac{1}{2} (\partial_\mu\phi)^2 - \frac{1}{2} m^2 \phi^2
+\end{align}
+根据这个拉式量可以写出运动方程
+\begin{equation}
+\bigg( \frac{\partial^2}{\partial t^2} - \nabla^2 +m^2 \bigg)\phi = 0~,\quad (\partial^\mu\partial_\mu+m^2)\phi = 0
+\end{equation}
+这就是克莱因戈登方程．这个标量场对应的哈密顿量为
+\begin{equation}
+H =  \int d^3x \mathcal H = \int d^3 x \bigg[ \frac{1}{2} \pi^2 + \frac{1}{2} (\nabla \phi)^2 + \frac{1}{2} m^2 \phi^2 \bigg] 
+\end{equation} 
+
+\subsection{诺特定理}
+每个\textbf{连续对称性}都有着\textbf{相应的守恒定律}．
+
+
+
+
+
+
+
+
+
+
+
+
+
