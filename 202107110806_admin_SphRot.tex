@@ -1,0 +1,19 @@
+% 球坐标的旋转变换
+
+\pentry{}
+
+绕 $y$ 轴右手定则旋转 $\beta$， 得
+\begin{align}\label{SphRot_eq1}
+\leftgroup{
+&\theta' = \arccos(-\sin\beta \sin\theta \cos\phi + \cos\beta \cos\theta)\\
+&\phi' = \Arctan(\sin\theta \sin\phi, \cos\beta\sin\theta\cos\phi + \sin\beta\cos\theta)
+}\end{align}
+
+推导：
+\begin{equation}
+\pmat{\sin\theta'\cos\phi'\\ \sin\theta' \sin\phi'\\ \cos\theta'}
+=
+\pmat{\cos\beta & 0 & \sin\beta\\ 0 & 1 & 0\\ -\sin\beta & 0 & \cos\beta}
+\pmat{\sin\theta\cos\phi\\ \sin\theta \sin\phi\\ \cos\theta}
+\end{equation}
+对比各分量可得\autoref{SphRot_eq1} 
