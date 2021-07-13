@@ -1,0 +1,42 @@
+% 电场波动方程
+% 麦克斯韦方程组|波动方程|电场|介质|电位移矢量
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{麦克斯韦方程组（介质）\upref{MWEq1}， 一种矢量算符的运算方法\upref{MyNab}}
+
+真空中
+\begin{equation}
+\curl(\curl\bvec E) = -\pdv{t} (\curl\bvec B) = -\mu_0 \pdv{t} (\curl\bvec H)
+= -\mu_0 \pdv[2]{t} \bvec D
+\end{equation}
+化简得
+\begin{equation}
+\laplacian \bvec E - \frac{1}{c^2} \pdv[2]{\bvec E}{t} = 0
+\end{equation}
+所以电场的各个分量分别满足三维波动方程．
+
+通解 $\bvec E = \bvec E_0 \cos(\bvec k \bvec r - \omega t)$． 注意 $\bvec E_0$ 和 $\bvec k$ 未必垂直． 但是如何说明垂直？ 必须要垂直的应该．
+
+求出磁场的表达式．
+
+\subsection{介质中}
+
+非线性光学中一般认为介质具有 $\mu = \mu_0$，且假设 $\div\bvec E = 0$ 仍然成立
+
+介质中没有自由电荷或自由电流．
+
+类似真空情况的推导过程，有
+\begin{equation}
+\curl(\curl\bvec E) = -\pdv{t} (\curl\bvec B) = -\mu_0 \pdv{t} (\curl\bvec H)
+= -\mu_0 \pdv[2]{t} \bvec D
+\end{equation}
+
+把电位移矢量的定义 $\bvec D = \epsilon_0\bvec E + \bvec P$ 代入上式，化简为
+
+\begin{equation}
+\curl(\curl\bvec E) = -\pdv{t} (\curl\bvec B) = -\mu_0 \pdv{t} (\curl\bvec H)
+= -\mu_0 \pdv[2]{t} \bvec D
+\end{equation}
