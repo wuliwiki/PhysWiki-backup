@@ -1,0 +1,18 @@
+% 有界算子的谱
+\pentry{巴拿赫定理\upref{BanThm}} 
+\textbf{线性算子的谱 (spectrum)} 推广了矩阵的本征值\upref{MatEig}这一概念. 它对于了解线性算子如何作用于线性空间有着重要意义. 在这一章中, 我们主要讨论复巴拿赫空间上有界线性算子的谱. 无界算子的谱将留待后续章节讨论.
+
+\subsection{定义}
+\begin{definition}{有界算子的谱}
+设$X$是复巴拿赫空间, $T:X\to X$是有界线性算子. 复数$\lambda\in\mathbb{C}$称为算子$T$的一个\textbf{谱点 (spectral point)}, 如果$\lambda-T$不是可逆映射. $T$的全体谱点的集合记为$\sigma(T)$, 称为\textbf{谱集 (spectrum)}, 而补集$\mathbb{C}\setminus\sigma(T)$称作\textbf{预解集 (resolvent set)}, 有时记为$\rho(T)$.
+\end{definition}
+
+既然$T-\lambda$是有界算子, 根据开映像原理, 如果逆映射$(T-\lambda)^{-1}$存在, 那么它也必然是连续的. 因此$T$的谱集可以等价地定义为使得$(\lambda-T)^{-1}$不是有界线性算子的那些$\lambda$的集合.
+
+有界算子$T$的谱集$\sigma(T)$可以分成三个互不相交的部分:
+
+\begin{enumerate}
+\item 点谱$\sigma_p(T)$, 即使得$\text{Ker}(\lambda-T)$为非平凡子空间的那些谱点的集合, 也即$T$的特征值的集合.
+
+\item 
+\end{enumerate}
