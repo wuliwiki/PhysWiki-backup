@@ -1,0 +1,10 @@
+% Matlab 符号计算和任意精度计算（笔记）
+
+Matlab 的符号计算需要符号计算工具箱， 取决于你的证书类型， 可能需要额外购买． 
+
+\begin{itemize}
+\item Matlab 中用于储存符号计算表达式的变量类型为 \verb|sym|． 可以用 \verb|syms 变量1 变量2 ...| 声明变量类型为 \verb|sym|． 例如 \verb|syms x y z;|． Matlab 的大部分自带算符和函数支持 \verb|sym| 类型的变量， 例如 \verb|x^2| 就是 \verb|sym| 类型的表达式 $x^2$， $x$ 并不是一个数值而是符号． 若此时令 \verb|expr = x^2|， 那么用 \verb|class(expr)| 可以验证 \verb|expr| 的类型也是 \verb|sym|．
+\item 除了使用 \verb|syms| 一次声明几个符号变量， 也可以使用 \verb|sym(字符串)|． 例如 \verb|syms x; expr = x^2;| 得到的 \verb|expr| 和 \verb|expr = sym('x')^2;| 得到的 \verb|expr| 是等效的．
+\item  对表达式求导如 \verb|diff(sym('x')^2)|． 若要求偏导， \verb|diff(sym('x')^2 * sym('y')^3)| 默认对 \verb|x| 求偏导， 结果是 $2x y^3$． 也可以声明对 \verb|y| 求偏导， 如 \verb|diff(sym('x')^2 * sym('y')^3)， sym('y')|， 或者更简洁地， \verb|diff(sym('x')^2 * sym('y')^3)， 'y'|． 建议总是声明哪个变量求偏导．
+\item  要把一个数字作为符号， 用 \verb|sym(数值)|． 例如 \verb|sqrt(sym(2))| 的结果是表达式 $\sqrt 2$， 而不同于数值计算中的 \verb|sqrt(2) = 1.414...|． 由于符号计算是精确无误差的， 无理数 $\sqrt{2}$ 并不会被自动转换为小数形式． 另一个例子， \verb|d = 3.1; sqrt(sym(d))| 得到的是表达式 $961/100$．
+\end{itemize}

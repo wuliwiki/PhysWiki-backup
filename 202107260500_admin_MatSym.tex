@@ -1,0 +1,14 @@
+% Matlab 符号计算和任意精度计算（笔记）
+
+Matlab 的符号计算需要符号计算工具箱， 取决于你的证书类型， 可能需要额外购买． 
+
+\begin{itemize}
+\item Matlab 中用于储存符号计算表达式的变量类型为 \verb|sym|． 可以用 \verb|syms 变量1 变量2 ...| 声明变量类型为 \verb|sym|． 例如 \verb|syms x y z;|． Matlab 的大部分自带算符和函数支持 \verb|sym| 类型的变量， 例如 \verb|x^2| 就是 \verb|sym| 类型的表达式 $x^2$， $x$ 并不是一个数值而是符号． 若此时令 \verb|expr = x^2|， 那么用 \verb|class(expr)| 可以验证 \verb|expr| 的类型也是 \verb|sym|．
+\item  对表达式求导如 \verb|syms x; diff(x)|．
+\end{itemize}
+
+  另有同名函数 \verb|sym(输入)| 用于创建符号变量， 例如 \verb|expr = sym('x')|， 那么用 \verb|class(expr)| 检查 \verb|expr| 的类型就会返回 \verb|'sym'|． 注意当\verb|输入|是字符串时，只能是一个变量名而不是表达式． 如果要让 \verb|expr| 表示 $x^2$， 那么可以输入 \verb|expr = sym('x')^2|． 更多的例子如 \verb|expr = sin(2*sym('x'))|．
+
+\verb|sym(输入)| 中的 \verb|输入| 也可以是数值， 例如 \verb|sqrt(sym(2))| 的结果是表达式 $\sqrt 2$， 而不同于数值计算的 \verb|sqrt(2) = 1.414...|．
+
+
