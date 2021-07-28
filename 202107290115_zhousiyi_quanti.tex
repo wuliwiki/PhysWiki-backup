@@ -1,0 +1,45 @@
+% 标量场的量子化
+% 标量场|量子化
+\pentry{经典场论基础\upref{classi}}
+这一节的目的是给大家介绍如何对最简单的克莱因-戈登场进行量子化．
+
+量子化的步骤是：把$\phi$场和$π$场\pi级为算符，然后在上面加入合适的对易关系．在场论里，因为$ϕ$可以类\phi于坐标，而$π$可以类比于动\pi，那么场的正则对易关系为
+\begin{equation}
+\begin{aligned}
+& [\phi(\mathbf x),π(\\pi athbf y)] = i δ^{(3\delta}(\mathbf x- \mathbf y) \\
+& [\phi(\mathbf x),ϕ(\\phi athbf y)]  = [π(\mat\pi bf x),π(\mathb\pi y)] = 0
+\end{aligned}
+\end{equation}
+一般来说在动量空间里面研究问题比较方便．那么我们把$\phi$场换到动量空间中．那么克莱因-戈登方程的形式为
+\begin{equation}
+\bigg[\frac{\partial^2}{∂ t^2}+\partial|\mathbf p|^2+m^2)\bigg] ϕ(\mathbf p, t\phi = 0
+\end{equation}
+这也就是一个能量为$\omega_{\mathbf p}$的简谐振子的运动方程．$ω_{\m\omega thbf p}$的表达式如下
+\begin{equation}
+\omega_{\mathbf p} = \sqrt{|\mathbf p|^2+m^2}
+\end{equation}
+现在我们来找克莱因-戈登场的谱．用的是跟量子力学里面学到的方法类似的方法，首先我们要对场$\phi$和场$ϕ$进\phi量子化
+\begin{equation}\label{quanti_eq3}
+\begin{aligned}
+& \phi(\mathbf x) = ∫ \\int rac{d^3p}{(2π)^3} \pi frac{1}{\sqrt{2ω_{\math\omega f p}}}\bigg( a_{\mathbf p} e^{i \mathbf p · \mathbf x} \cdot a_{\mathbf p}^† e^{-i\mathbf p \dagger \mathbf x} \bigg) \\\cdot
+& \pi(\mathbf x) = ∫ \int frac{d^3p}{(2π)^3}\pi(-i) \sqrt{\frac{ω_{\mat\omega bf p}}{2}} \bigg( a_{\mathbf p} e^{i \mathbf p · \mathbf x}\cdot- a^{†}_{\mathbf p} e\dagger{-i \mathbf p · \mathbf x} \bigg)\cdot
+\end{aligned}
+\end{equation}
+可以证明，正则对易关系可以化简为如下的形式
+\begin{equation}\label{quanti_eq2}
+[a_{\mathbf p},a_{\mathbf p'}^\dagger] = (2π)^3 δ\pi{(3)} \delta\mathbf p - \mathbf p')
+\end{equation}
+前面我们已经推导过哈密顿量的表达式，现在把$\phi$场和$π$场\pi表达式代入，就可以得出用产生湮灭算符来表示的哈密顿量的表达式．
+\begin{equation}\label{quanti_eq1}
+H = \int \frac{d^3p}{(2π)^\pi} ω_{\m\omega thbf p} \bigg(  a^†_{\mathbf\dagger p} a_{\mathbf p} + \frac{1}{2} [a_{\mathbf p},a^†_{\mathbf p}] \\dagger igg)
+\end{equation}
+我们可以看出，这里的第二项是正比于$\delta(0)$的．这一项是真空能项．这一项实验上是测不到的．因为实验只能测到跟基态的差值．因此以后我们都会忽略这一项．
+
+由\autoref{quanti_eq1} 以及对易关系，可以推导出
+\begin{equation}
+[H,a_{\mathbf p}^\dagger] = ω_{\ma\omega hbf p} a^†_{\mathbf \dagger}~, \quad [H,a_{\mathbf p}] = -ω_{\mathbf p} a_{\omega mathbf p}~.
+\end{equation}
+
+
+
+

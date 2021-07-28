@@ -1,0 +1,20 @@
+% Arb 任意精度计算库
+
+\pentry{}
+
+Arb 是一款支持任意精度计算的 C/C++ 程序， 支持对计算进行严谨的误差估计， 即每个任意精度浮点数 $z$ 都会伴随一个误差半径 $r$， 使得精确结果必定落在复平面上以 $z$ 为圆心半径为 $r$ 的圆盘中． 通过增加浮点数的精度， 就可以用数值方法无限逼近理论值． Arb 还提供了许多特殊函数的计算， 例如 $\Gamma$ 函数\upref{Gamma}， 超几何函数\upref{HypGeo} 等， 以及常用的线性代数功能和离散傅里叶变换\upref{DFT}等．
+
+的官方主页为 \href{https://arblib.org/}{arblib.org}， 包含详细的文档．
+
+\subsection{安装}
+以 Ubuntu 为例， 最方便的安装方式就是（包含所有 dependency）
+\begin{lstlisting}[language=bash]
+sudo apt-get install libflint-arb-dev libflint-arb2 libmpfr-dev libflint-dev
+\end{lstlisting}
+但目前这并不是最新版本（例如没有实现库仑函数\upref{CulmF}）． 要获得最新版本， 可以直接从 \href{https://github.com/fredrik-johansson/arb/}{GitHub} 下载源码编译（使用 gcc 编译器即可）， 可以用 \verb|./configure --help| 查看编译选项， 若安装到默认目录则不需要编译选项．
+\begin{lstlisting}[language=bash]
+./configure [编译选项];
+make -j4;
+sudo make install;
+\end{lstlisting}
+其中 \verb|-j4| 是使用 4 线程进行编译， 也可以改成其他数字．
