@@ -1,0 +1,49 @@
+% 时空中的标量场
+% 标量|场论|时空
+
+\pentry{标量场的谱\upref{spectr}}
+在海森堡绘景下，算符$\phi$和$\pi$对时间的依赖关系为
+\begin{equation}
+\phi(x) = \phi(\mathbf x, t) = e^{i H t}\phi(\mathbf x)e^{-iHt}~.
+\end{equation}
+运动方程为 
+\begin{equation}
+i \frac{\partial}{\partial t}\mathcal O = [\mathcal O, H]~.
+\end{equation}
+由此我们可以计算出$\phi$和$\pi$的时间依赖
+\begin{equation}
+\begin{aligned}
+i \frac{\partial}{\partial t} \phi(\mathbf x,t) & = \bigg[\phi(\mathbf x,t),\int d^3 x' \bigg\{ \frac{1}{2} \pi^2 (\mathbf x',t) + \frac{1}{2} (\nabla \phi(\mathbf x',t))^2 + \frac{1}{2} m^2 \phi^2(\mathbf x',t) \bigg\}\bigg] \\
+& = \int d^3 x' \bigg(i \delta^{(3)} (\mathbf x - \mathbf x') \pi(\mathbf x',t) \bigg) \\
+& = i \pi (\mathbf x, t)~.
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+i\frac{\partial}{\partial t} \pi(\mathbf x, t) & = \bigg[ \pi(\mathbf x,t), \int d^3 x' \bigg\{  \frac{1}{2} \pi^2 (\mathbf x', t) + \frac{1}{2} \phi(\mathbf x, t) (-\nabla^2 + m^2 ) \phi(\mathbf x', t) \bigg\} \bigg] \\
+& = \int d^3 x' \bigg( - i \delta^{(3)} (\mathbf x - \mathbf x') (-\nabla^2+m^2) \phi(\mathbf x',t) \bigg)~.
+\end{aligned}
+\end{equation}
+综上我们可以得知
+\begin{equation}
+\frac{\partial^2}{\partial t^2} \phi = (\nabla^2 - m^2)\phi~.
+\end{equation}
+这就是著名的克莱因-戈登方程．
+
+我们可以把$\phi$场和$\pi$场用产生湮灭算符表示出来．首先我们可以写出
+\begin{equation}
+H a_{\mathbf p} = a_{\mathbf p} (H - E_{\mathbf p})
+\end{equation}
+因此
+\begin{equation}
+H^n a_{\mathbf p} = a_{\mathbf p} (H - E_{\mathbf p})^n
+\end{equation}
+于是我们可以推出
+\begin{equation}
+e^{iHt} a_{\mathbf p} e^{-iHt} = a_{\mathbf p} e^{-i E_{\mathbf p}t}~, \quad e^{iHt} a^\dagger_{\mathbf p} e^{-iHt} = a^\dagger_{\mathbf p} e^{iE_{\mathbf p}t} ~.
+\end{equation}
+
+
+
+
+

@@ -1,0 +1,38 @@
+% 概率密度函数
+% latex
+\pentry{此文件保存为学习人工智能的监督学习和非监督学习算法的笔记页，概率密度函数是学习人工智能的基础函数．\upref{Sample}}
+
+\begin{definition}{为什么求总似然的时候，要用正态分布的概率密度函数？}
+由于中心极限定理，假设所有假设样本之间都为独立事件，并且误差变量随机产生，那样就服从正态分布！
+\end{definition}
+
+\begin{theorem}{为什么采用概率密度相乘而不是概率直接相乘？}
+由于概率并不好求，所以找到了概率密度最大的时候也就相当于找到了概率最大的时候！
+\end{theorem}
+
+\begin{equation}
+y^{\left(i\right)}=\theta^T x^{\left(i\right)} + \varepsilon^{\left(i\right)} 
+\end{equation}
+
+\begin{equation}
+p\left(\epsilon^{\left(i\right)}\right)=\frac{1}{\sqrt{2\pi}\sigma}exp\left(-\frac{\left(\epsilon^{\left(i\right)}\right)^2}{2\sigma^2}\right)
+\end{equation}
+
+\begin{equation}
+p\left(y^{\left(i\right)}|\quad x^{\left(i\right)};\theta\right)=\frac{1}{\sqrt{2\pi}\sigma}exp\left(-\frac{\left(y^{\left(i\right)}-\theta^Tx^{\left(i\right)}\right)^2}{2\sigma^2}\right)
+\end{equation}
+
+\begin{equation}
+\ali{
+L\left(\theta\right)&=\prod_{i=1}^m p\left(y^{\left(i\right)} | x^{\left(i\right)};\theta\right)\\
+&=\prod_{i=1}^m \frac{1}{\sqrt{2\pi}\sigma}exp\left(-\frac{\left(\epsilon^{\left(i\right)}\right)^2}{2\sigma^2}\right)
+}
+\end{equation}
+
+\begin{definition}{取极值}
+如果想要取得总似然的最大值，最好的模拟方法不是求得连乘的最大值，而是求得连加的最大值，要想得到这样的过程，我们应该对函数极值两侧取对数．
+\end{definition}
+
+\begin{equation}
+
+\end{equation}
