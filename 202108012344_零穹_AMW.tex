@@ -1,0 +1,49 @@
+% 不对称势阱
+\pentry{有限深方势阱\upref{FSW}}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/AMW_1.pdf}
+\caption{一维不对称势阱} \label{AMW_fig1}
+\end{figure}
+本节我们来解下面的一维不对称势阱的离散谱（束缚态），\autoref{AMW_fig1} ．
+\begin{equation}
+V(x)=\left\{\begin{aligned}
+&V_1\quad(x<0)\\
+&0\\
+&V_2\quad(x>L)
+\end{aligned}\right.
+\end{equation}
+
+\textbf{解：}对于离散谱，能量 $E$ 需小于无穷远处势能，故 $E<V_1$. 
+
+在 $x<0$ 区域内的其薛定谔方程为
+\begin{equation}
+\frac{\hbar^2}{2m}\dv[2]{\psi(x)}{x}+(E-V_1)\psi(x)=0
+\end{equation}
+波函数为
+\begin{equation}
+\psi=C_1 e^{\kappa_1 x},\quad \kappa_1=\frac{1}{\hbar}\sqrt{2m(V_1-E)}
+\end{equation}
+
+在 $x>L$ 区域内的其薛定谔方程为
+\begin{equation}
+\frac{\hbar^2}{2m}\dv[2]{\psi(x)}{x}+(E-V_2)\psi(x)=0
+\end{equation}
+波函数为
+\begin{equation}
+\psi=C_2 e^{-\kappa_2 x},\quad \kappa_2=\frac{1}{\hbar}\sqrt{2m(V_2-E)}
+\end{equation}
+
+在阱内 $0 < x < L$ ，薛定谔方程为
+\begin{equation}
+\frac{\hbar^2}{2m}\dv[2]{\psi(x)}{x}+E\psi(x)=0
+\end{equation}
+$\psi$ 可取以下形式：
+\begin{equation}
+\psi=C\sin(kx+\delta),\quad k=\frac{\sqrt{2mE}}{\hbar}
+\end{equation}
+
+根据势阱边上 $\psi'/\psi$ 的连续性条件，得
+\begin{equation}
+k\cot\delta=\kappa_1=\sqrt{\frac{2m}{\hbar^2}V_1-k^2},\quad k\cot
+\end{equation}
