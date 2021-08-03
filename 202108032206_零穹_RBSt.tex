@@ -1,0 +1,64 @@
+% 刚体的静力平衡
+% 静力平衡|合外力|刚体|合力矩
+
+\pentry{角动量定理\upref{AMLaw}}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Mechanical_equilibrium}{相关页面}和 \cite{新力}．}在惯性系中， 如果刚体所受的所有合外力与合外力矩\upref{Torque}都为零， 则我们说它处于\textbf{静力平衡（static equilibrium）}． 其中合外力（矩）是指所有施加在刚体上的力（矩）的矢量和．
+
+\begin{theorem}{刚体的静力平衡}
+若一个刚体处于静力平衡， 那么它将保持静止或者做以下两种运动的组合： 1. 质心做匀速运动， 2. 绕质心做定轴匀速转动．
+\end{theorem}
+
+注意在非惯性系中， 若加入惯性力的修正， 该结论仍然成立． 另外注意当合外力为零时， 合外力矩与参考点（参考系）的选取无关（\autoref{Torque_eq5}~\upref{Torque}）．
+
+\textbf{证明}：把刚体看做由许多质点组成，合外力为零时刚体动量守恒\upref{PLaw}， 而动量等于 “质心的动量” \upref{SysMom}
+$\bvec p_c = M_c \bvec v_c$，所以质心做匀速运动或不动．
+
+刚体合外力矩为零时，其角动量守恒\upref{AMLaw}，而刚体的角动量等于质心的角动量 $\bvec L_c =\bvec r_c\cross \bvec p_c$ 加上质心系中的角动量（\autoref{AngMom_eq3}~\upref{AngMom}）． 当质心匀速直线运动或不动时 $\bvec L_c$ 不变，所以质心系中刚体的角动量也不变，所以刚体绕质心做匀速转动或不转动． 证毕．
+
+\begin{example}{轻杆三力平衡}
+如图， 一个长度为 $L$ 质量不计的细杆， 中间和两端受力分别为 $\bvec F_1, \bvec F_2, \bvec F_3$．
+\addTODO{图， 选取不同受力点}
+\end{example}
+
+\addTODO{吊桥例题， 见 EP1 20201021， 缆绳受力与重物位置的关系．}
+
+\begin{example}{}\label{RBSt_ex1}
+如\autoref{RBSt_fig1}， 一个质量为 $m$ 的线轴被斜挂在墙上， 线轴与墙面的摩擦系数为 $\mu$，线轴的大圆半径为 $R$， 小圆半径为 $r$， 求当角 $\alpha$ 满足什么条件时， 线轴才能不滑落．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/RBSt_1.pdf}
+\caption{线轴的平衡} \label{RBSt_fig1}
+\end{figure}
+
+我们先来看线轴受哪几个力：重力 $mg$， 绳的拉力 $T$， 墙的支持力 $N$ 和摩擦力 $f$． 由摩擦系数的定义和刚体平衡条件可得
+\begin{equation}
+\begin{cases}
+f \leqslant \mu N & \text{（摩擦系数）}\\
+N - T\sin\alpha = 0 & \text{（水平方向受力平衡）}\\
+T\cos\alpha + f - mg = 0 & \text{（竖直方向受力平衡）}\\
+Tr - fR = 0 & \text{（力矩平衡）}
+\end{cases}
+\end{equation}
+其中最后一条力矩平衡是以圆心为原点计算力矩， 虽然原则上我们可以取任意点计算力矩， 但取在圆心计算最为简单． 除了 $\alpha$ 我们有三个未知数 $T, f, N$， 用以上三条等式恰好可以把这三个未知数消去， 可得关于 $\alpha$ 的不等式
+\begin{equation}
+\sin\alpha \geqslant \frac{r}{\mu R}
+\end{equation}
+
+一个有趣的地方在于， 不等式中没有出现质量 $m$． 事实上， 我们不使用那条含有 $mg$ 的等式也可以顺利得到答案．
+\end{example}
+\begin{example}{二人抬物}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/RBSt_2.pdf}
+\caption{二人高低抬物}} \label{RBSt_fig2}
+\end{figure}
+如\autoref{RBSt_fig2} ，有二人一高一低抬起一物体缓慢移动，试比较二人出力的大小．
+
+\textbf{解：}由于二人抬物缓慢移动，故物体可看成每一时刻处于平衡状态．物体受三个力：二人的支持力和物体自身的重力，三力平衡这三力必处于一平面上，并且二人对物体的力的作用点必和物体质心在一条直线上（否则两支持力作用点连线上必存在一点，使得两支持力对该点合力矩为零，此时物体重力对该点将有一力矩，而这是不可能的）．以 $\bvec{F_1}$ 代表高处的力，$\bvec{F_2}$ 代表低处的力， $\bvec{G}$为物体重力．以物体质心为原点，水平向右为 $x$ 轴正方向，竖直向上为 $y$ 轴正方向．设 $\bvec{F_1}$  与 $x$ 轴正方向夹角为 $\theta_1$， $\bvec{F_2}$ 与 $x$ 轴正方向夹角 $\theta_2$，$F_1$作用点距离质心距离为 $l_1$，$F_2$距离质心位置为 $l_2$.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/RBSt_3.pdf}
+\caption{二人高低抬物受力示意图} \label{RBSt_fig3}
+\end{figure}
+\end{example}
