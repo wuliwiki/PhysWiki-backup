@@ -1,0 +1,141 @@
+% 刚体的静力平衡
+% 静力平衡|合外力|刚体|合力矩
+
+\pentry{角动量定理\upref{AMLaw}}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Mechanical_equilibrium}{相关页面}和 \cite{新力}．}在惯性系中， 如果刚体所受的所有合外力与合外力矩\upref{Torque}都为零， 则我们说它处于\textbf{静力平衡（static equilibrium）}． 其中合外力（矩）是指所有施加在刚体上的力（矩）的矢量和．
+
+\begin{theorem}{刚体的静力平衡}
+若一个刚体处于静力平衡， 那么它将保持静止或者做以下两种运动的组合： 1. 质心做匀速运动， 2. 绕质心做定轴匀速转动．
+\end{theorem}
+至于定理中的哪种情况会发生， 取决于初始时刚体的状态： 若刚体开始静止， 那么受力平衡条件下它将保持静止， 反之则保持平动和转动．
+
+注意在非惯性系中， 若加入惯性力的修正， 该结论仍然成立． 另外注意当合外力为零时， 合外力矩与参考点（参考系）的选取无关（\autoref{Torque_eq5}~\upref{Torque}）．
+
+\textbf{证明}：把刚体看做由许多质点组成，合外力为零时刚体动量守恒\upref{PLaw}， 而动量等于 “质心的动量” \upref{SysMom}
+$\bvec p_c = M_c \bvec v_c$，所以质心做匀速运动或不动．
+
+刚体合外力矩为零时，其角动量守恒\upref{AMLaw}，而刚体的角动量等于质心的角动量 $\bvec L_c =\bvec r_c\cross \bvec p_c$ 加上质心系中的角动量（\autoref{AngMom_eq3}~\upref{AngMom}）． 当质心匀速直线运动或不动时 $\bvec L_c$ 不变，所以质心系中刚体的角动量也不变，所以刚体绕质心做匀速转动或不转动． 证毕．
+
+\begin{example}{轻杆三力平衡}
+如图， 一个长度为 $L$ 质量不计的细杆， 中间和两端受力分别为 $\bvec F_1, \bvec F_2, \bvec F_3$．
+\addTODO{图， 选取不同受力点}
+\end{example}
+
+\addTODO{吊桥例题， 见 EP1 20201021， 缆绳受力与重物位置的关系．}
+
+\begin{example}{}\label{RBSt_ex1}
+如\autoref{RBSt_fig1}， 一个质量为 $m$ 的线轴被斜挂在墙上， 线轴与墙面的摩擦系数为 $\mu$，线轴的大圆半径为 $R$， 小圆半径为 $r$， 求当角 $\alpha$ 满足什么条件时， 线轴才能不滑落．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/RBSt_1.pdf}
+\caption{线轴的平衡} \label{RBSt_fig1}
+\end{figure}
+
+我们先来看线轴受哪几个力：重力 $mg$， 绳的拉力 $T$， 墙的支持力 $N$ 和摩擦力 $f$． 由摩擦系数的定义和刚体平衡条件可得
+\begin{equation}
+\begin{cases}
+f \leqslant \mu N & \text{（摩擦系数）}\\
+N - T\sin\alpha = 0 & \text{（水平方向受力平衡）}\\
+T\cos\alpha + f - mg = 0 & \text{（竖直方向受力平衡）}\\
+Tr - fR = 0 & \text{（力矩平衡）}
+\end{cases}
+\end{equation}
+其中最后一条力矩平衡是以圆心为原点计算力矩， 虽然原则上我们可以取任意点计算力矩， 但取在圆心计算最为简单． 除了 $\alpha$ 我们有三个未知数 $T, f, N$， 用以上三条等式恰好可以把这三个未知数消去， 可得关于 $\alpha$ 的不等式
+\begin{equation}
+\sin\alpha \geqslant \frac{r}{\mu R}
+\end{equation}
+
+一个有趣的地方在于， 不等式中没有出现质量 $m$． 事实上， 我们不使用那条含有 $mg$ 的等式也可以顺利得到答案．
+\end{example}
+\begin{example}{二人抬物}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/RBSt_2.pdf}
+\caption{二人高低抬物}} \label{RBSt_fig2}
+\end{figure}
+如\autoref{RBSt_fig2} ，有二人一高一低抬起一物体缓慢移动，试比较二人出力的大小．
+
+\addTODO{太复杂，需要大改}
+\textbf{解：}由于二人抬物缓慢移动，故物体可看成每一时刻处于平衡状态．物体受三个力：二人的支持力和物体自身的重力，三力平衡这三力必处于一平面上，并且二人对物体的力的作用点必和物体质心在一条直线上（否则两支持力作用点连线上必存在一点，使得两支持力对该点合力矩为零，此时物体重力对该点将有一力矩，而这是不可能的）．
+
+如\autoref{RBSt_fig3} 所示，以 $\bvec{F_1}$ 代表高处的力，$\bvec{F_2}$ 代表低处的力， $\bvec{G}$为物体重力．以物体质心为原点，水平向右为 $x$ 轴正方向，竖直向上为 $y$ 轴正方向．设 $\bvec{F_1}$  与 $x$ 轴正方向夹角为 $\theta_1$， $\bvec{F_2}$ 与 $x$ 轴正方向夹角 $\theta_2$，$\bvec{F_1}$作用点距离质心距离为 $l_1$，$\bvec{F_2}$距离质心位置为 $l_2$，作用点连线与水平方向夹角为 $\theta$.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/RBSt_3.pdf}
+\caption{二人高低抬物受力示意图} \label{RBSt_fig3}
+\end{figure}
+则
+\begin{equation}
+\begin{aligned}
+&\bvec{F_1}=(F_1\cos\theta_1,F_1\sin\theta_1)\\
+&\bvec{F_2}=(F_2\cos\theta_2,F_2\sin\theta_2)\\
+&\bvec{G}=(0,-G)\\
+&\bvec{r_1}=(-l_1\cos\theta,l_1\sin\theta)\\
+&\bvec{r_2}=(l_2\cos\theta,-l_2\sin\theta)
+\end{aligned}
+\end{equation}
+其中 $\bvec{r_1},\bvec{r_2}$ 为高，低作用点位矢．
+
+由物体平衡条件有
+\begin{equation}
+\begin{aligned}
+\sum_i\bvec{F_i}&=\bvec0:(F_1\cos\theta_1+F_2\cos\theta_2,F_1\sin\theta_1+F_2\sin\theta_2-G)=(0,0)\\
+\sum_i\bvec{M_i}&=\bvec0:\bvec{r_1}\times \bvec F_1+\bvec{r_2}\times \bvec F_2\\
+&=(-l_1F_1\cos\theta\sin\theta_1-l_1F_1\sin\theta\cos\theta_1+l_2F_2\cos\theta\sin\theta_2+l_2F_2\sin\theta\cos\theta_2)\uvec{e}_z\\
+&=\bvec 0
+\end{aligned}
+\end{equation}
+整理得
+\begin{equation}
+\frac{F_1}{F_2}=-\frac{\cos\theta_2}{\cos\theta_1};\quad
+F_1\sin\theta_1+F_2\sin\theta_2=G;\quad
+\frac{F_1}{F_2}=\frac{l_2\sin(\theta+\theta_2)}{l_1\sin(\theta+\theta_1)}
+\end{equation}
+
+式中，方程有三个，未知量应是四个：$F_1,F_2,\theta_1,\theta_2$．其它量作为参数而出现（当二人抬物体时作用点就已确定，此时 $l_1,l_2$确定，这些肉眼可观测的量我们将其作为参量）．于是，我们可用 $\theta_2$表示其它三个量
+\begin{equation}
+\tan\theta_1=-\frac {l_1
+ \tan  \theta +l_2\tan\theta +l_2\tan
+\theta_2}{l_1}
+\end{equation}
+\end{example}
+
+\begin{example}{二人抬物}
+两个人分别通过一个受力点保持一个刚体的静力平衡， 若已知质心的位置和两个受力点的位置（三者在同一竖直平面上）， 试分析谁出的力更大． 分为两种情况讨论： 1. 每个人只允许在竖直方向上出力， 2. 允许任意方向的力．
+
+令重心距两个受力点的水平距离为 $d_1, d_2$， 如果两个受力点只有竖直方向的力（向上为正）， 那么受力平衡得
+\begin{equation}
+F_1 + F_2 = Mg
+\end{equation}
+以重物的质心为坐标原点， 则重力力矩为零， 力矩平衡为
+\begin{equation}
+F_2 d_2 - F_1 d_1 = 0
+\end{equation}
+解得
+\begin{equation}
+F_1 = \frac{d_2}{d_1 + d_2}Mg \qquad F_2 = \frac{d_1}{d_1 + d2}Mg
+\end{equation}
+可见力 $F_i$ 和 $d_i$ 成反比， 重心离谁的水平距离越近， 谁的受力就越大．
+
+作为一个特例， 若二人搬的是均匀长方体， 由图可知， 若搬箱子底部， 则 $F_1 > F_2$， 若拉箱子顶部， 则 $F_1 < F_2$． （图未完成）
+
+再来看一般情况， 每个人施加的力除了竖直分量还有水平分量． 令水平的力为 $F_1', F_2'$ （向外为正）， 两受力点到质心的高度差为 $h_1, h_2$ （受力点低于质心为正）， 由水平方向和竖直方向的受力平衡和力矩平衡得
+\begin{equation}
+\begin{aligned}
+&F_1' = F_2'\\
+&F_1 + F_2 = Mg\\
+&F_2 d_2 + F_2' h_2 - F_1 d_1 - F_1' h_1 = 0
+\end{aligned}
+\end{equation}
+这里四个未知的力只有三条约束方程， 所以有一个自由度\upref{DoF}． 令参数为 $F' = F_1' = F_2'$， 解得
+\begin{equation}
+\begin{aligned}
+F_1 = \frac{Mg d_2 + F'(h_2 - h_1)}{d_1 + d_2}\\
+F_2 = \frac{Mg d_1 - F'(h_2 - h_1)}{d_1 + d_2}
+\end{aligned}
+\end{equation}
+我们发现， 由于 $F'$ 可取任意实数， 所以无论两个受力点在哪里， 只要 $h_1 \ne h_2$ 总能通过调节 $F'$ 使 $\abs{F_1} > \abs{F_2}$， 即第一人的合力 $\sqrt{F_1^2 + F'^2}$ 大于第二人； 或者 $\abs{F_1} < \abs{F_2}$， 即第一人的合力小于第二人．
+
+至于 $d_1, d_2, h_1, h_2$ 如何计算： 画出以质心和两个受力点为顶点的三角形， 解出每个顶点的 $x, y$ 坐标即可．
+\end{example}
