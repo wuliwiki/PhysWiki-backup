@@ -1,0 +1,43 @@
+% 三维直角坐标系中的亥姆霍兹方程
+% 直角坐标系|亥姆霍兹方程
+\pentry{一维齐次亥姆霍兹方程\upref{HmhzEq}}
+三维直角坐标系中的亥姆霍兹方程为
+\begin{equation}\label{RHM_eq2}
+\laplacian u+k^2u=0
+\end{equation}
+这里，$k$为常实数．
+\subsection{通解}
+使用分离变量法进行求解，令
+\begin{equation}\label{RHM_eq1}
+u(x,y,z)=X(x)Y(y)Z(z)\quad
+k^2=k_x^2+k_y^2+k_z^2
+\end{equation}
+于是方程分解为3个独立的一维齐次亥姆霍兹方程\upref{HmhzEq}
+\begin{equation}
+\begin{aligned}
+\dv[2]{X}{x}+k_x^2X=0\\
+\dv[2]{Y}{y}+k_y^2Y=0\\
+\dv[2]{X}{x}+k_x^2Z=0
+\end{aligned}
+\end{equation}
+由\autoref{HmhzEq_eq1}~\upref{HmhzEq}，其实数解分别为
+\begin{equation}
+\begin{aligned}
+&X(x)=C_1\cos k_xx+C_1'\sin k_xx\\
+&Y(y)=C_2\cos k_yy+C_2'\sin k_yy\\
+&Z(z)=C_3\cos k_zz+C_3'\sin k_zz
+\end{aligned}
+\end{equation}
+这里，$C_i,C_i'$为常实数．由\autoref{RHM_eq1} ，得\autoref{RHM_eq2} 通解
+\begin{equation}
+u(x,y,z)=(C_1\cos k_xx+C_1'\sin k_xx)(C_2\cos k_yy+C_2'\sin k_yy)(C_3\cos k_zz+C_3'\sin k_zz)
+\end{equation}
+\begin{example}{矩形波导中的电磁波}
+在高频电力系统中，为解决电磁波向外辐射的损耗以及与环境的干扰问题，常常采用波导进行电磁波的传输，波导是一根空心金属管，截面通常为矩形或圆形．如图是一矩形波导，其长宽为$a,b$，以长边为 $x$方向，短边为 $y$ 方向；$z$轴沿传播方向
+\begin{equation}
+\begin{aligned}
+&E_x=C_1\cos k_xx+C_1'\sin k_xx\\
+&E_y=C_2\cos k_yy+C_2'\sin k_yy\\
+&E_z=C_3\cos k_zz+C_3'\sin k_zz
+\end{aligned}
+\end{equation}
