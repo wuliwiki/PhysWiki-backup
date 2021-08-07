@@ -1,0 +1,117 @@
+% 类氢原子的束缚态
+% 氢原子|波函数|束缚态|薛定谔方程
+
+\pentry{球坐标系中的定态薛定谔方程\upref{RadSE}， 原子单位制\upref{AU}} % 预备知识未完成
+
+本文使用原子单位制\upref{AU}．\textbf{类氢原子（hydrogen-like atom）}被定义为原子核有 $Z$ 个质子（核电荷为 $+Ze$） 有一个核外电子的原子/离子， 例如氢原子和失去一个电子的氦原子 $\mathrm{He}^+$， 失去两个电子的锂离子 $\mathrm{Li}^{++}$． % 这个定义应该放在玻尔模型里面
+
+类氢原子的定态薛定谔方程为
+\begin{equation}\label{HWF_eq1}
+-\frac{1}{2m} \laplacian \psi(\bvec r) - \frac{Z}{r} \psi(\bvec r) = E \psi(\bvec r)
+\end{equation}
+类氢原子是唯一存在解析解的原子（离子）．
+
+我们这里只讨论束缚态， 即 $E < 0$ 的解．  从数学上， $E$ 取小于零的任意值时我们都能找到解， 但只有当 $E$ 取特定离散值的时候这些波函数才能归一化（否则没有物理意义）． 由于类氢原子具有球对称性， 球坐标下的波函数具有最简单的形式． 波函数的表达式为
+\begin{equation}\label{HWF_eq3}
+\psi_{nlm} (r,\theta ,\phi) = R_{nl}(r) Y_{l,m}(\theta, \phi)
+\end{equation}
+其中 $n$ 是\textbf{主量子数}（$n = 1, 2, \dots$）， $l$ 是\textbf{角量子数}（$l = 0, 1, \dots, n - 1$）， $m$ 是\textbf{磁量子数}（$m = -l, -l+1, \dots, l$）． $R_{nl}(r)$ 是归一化的\textbf{径向波函数}， $Y_{l,m}(\theta, \phi)$ 是归一化的\textbf{球谐函数}（见“球谐函数列表\upref{YlmTab}”）．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/HWF_2.png}
+\caption{氢原子波函数的概率密度 $\abs{\psi_{nlm}(\bvec r)}^2$ 的 $x$-$z$ 截面， 大小成比例． 每个图中的三个数字分别是量子数 $n, l, m$， 电子出现在白色圆圈内部的概率为 0.95． 色条对应的数值是线性的， 每个子图中的色条取值范围不相同． 源码见 “氢原子波函数画图程序（Matlab）\upref{Hplot}”．} \label{HWF_fig2}
+\end{figure}
+
+\subsubsection{径向波函数 $R_{nl}(r)$}
+
+如果忽略原子核的运动， 以下的 $a$ 是玻尔半径（原子单位中 $a=1$）， 如果不忽略， $a$ 就是约化玻尔半径．% 两个链接未完成
+注意 $Z$ 和 $a$ 的作用是把径向波函数关于原点收缩 $Z/a$ 倍（并保持波函数归一化）．
+\begin{equation}\label{HWF_eq2}
+R_{nl}(r) = \sqrt{\qty(\frac{2 Z}{na})^3 \frac{(n - l - 1)!}{2n (n + l)!}} \qty(\frac{2Zr}{na})^l  L_{n-l-1}^{2l+1}\qty(\frac{2Zr}{na}) \E^{-Zr/(na)}
+\end{equation}
+其中 $L_n^l(x)$ 是\textbf{连带拉盖尔多项式（associated Laguerre polynomial）}． % 链接未完成
+
+$Z = 1$ 时 $r R_{n,l}(r)$ 的函数图\footnote{我们以后会看到 $r R_{l,m}(r)$ 比 $R_{l,m}(r)$ 更常用}如\autoref{HWF_fig1}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=13cm]{./figures/HWF_1.pdf}
+\caption{径向波函数函数图（使用原子单位\upref{AU}， $a = 1$）} \label{HWF_fig1}
+\end{figure}
+
+以下给出前几个径向波函数， 注意所有径向波函数的值都是实数．
+\begin{equation} % 已数值验证归一化和正交性
+n = 1 \qquad
+R_{10}(r) = 2\qty(\frac{Z}{a})^{3/2}\exp(-Zr/a)
+\end{equation}
+\begin{equation}
+n = 2 \qquad
+\leftgroup{
+R_{20}(r) &= \frac{1}{\sqrt 2} \qty(\frac{Z}{a})^{3/2} \qty(1 - \frac12 \frac{Zr}{a}) \exp(-\frac{Zr}{2a})\\
+R_{21}(r) &= \frac{1}{2\sqrt{6}} \qty(\frac{Z}{a})^{3/2} \frac{Zr}{a} \exp(-\frac{Zr}{2a})
+}\end{equation}
+\begin{equation}
+n = 3 \qquad
+\leftgroup{
+R_{30}(r) &= \frac{2}{3\sqrt {3}} \qty(\frac{Z}{a})^{3/2} \qty(1 - \frac23 \frac{Zr}{a} + \frac{2}{27} \frac{Z^2r^2}{a^2}) \exp(-\frac{Zr}{3a})\\
+R_{31}(r) &= \frac{8}{27\sqrt 6} \qty(\frac{Z}{a})^{3/2} \qty(1 - \frac16 \frac {Zr}{a}) \frac {Zr}{a} \exp(-\frac{Zr}{3a})\\
+R_{32}(r) &= \frac{4}{81\sqrt {30}} \qty(\frac{Z}{a})^{3/2} \frac{Z^2r^2}{a^2} \exp(-\frac{Zr}{3a})}
+\end{equation}
+更多 $R_{n,l}$ 表达式可以用 Mathematica\upref{Mma} 或者 \href{https://www.wolframalpha.com/}{Wolfram Alpha} 生成， 函数定义如
+\begin{lstlisting}[language=Mathematica]
+HydrogenR[Z_, n_, l_, r_] := Sqrt[(2*Z/n)^3*
+   Factorial[n-l-1]/(2*n*Factorial[n+l])] (2*Z*r/n)^l*
+   LaguerreL[n-l-1, 2l+1, 2Z*r/n]*Exp[-Z*r/n]
+\end{lstlisting}
+或者用 Matlab 进行数值计算
+\begin{lstlisting}[language=matlab, caption=hydrogen\_Rnl.m]
+function ret = hydrogen_Rnl(Z,n,l,r)
+ret = sqrt((2*Z/n)^3*factorial(n-l-1)/(2*n*factorial(n+l))) *...
+        (2*Z*r/n).^l .* laguerreL(n-l-1, 2*l+1, 2*Z*r/n) .* exp(-Z*r/n);
+end
+\end{lstlisting}
+
+\subsection{性质}
+我们要求氢原子每个束缚态满足归一化条件
+\begin{equation}
+\int \abs{\Psi_{n,l,m}(\bvec r)} \dd[3]{r} = \int \int_0^\infty \abs{R_{n,l}(r) Y_{l,m}(\uvec r)}^2 r^2 \dd{r}\dd{\Omega} = 1
+\end{equation}
+根据\autoref{RadSE_eq5}~\upref{RadSE} 和\autoref{RadSE_eq7}~\upref{RadSE} 有
+\begin{equation}
+\int_0^\infty R_{n', l}\Cj(r) R_{n,l}(r) r^2 \dd{r} = \delta_{n,n'}
+\end{equation}
+注意对相同的 $n$ 和不同的 $l$， 径向波函数并不正交．
+
+\subsection{径向概率分布}
+我们来求径向概率分布 $P(r)$． $P(r)$ 的定义为： 发现粒子在 $r \in [a, b]$ （厚球壳）内的概率为 $\int_a^b P(r) \dd{r}$． 由于波函数的模长平方就是三维的概率密度， 有
+\begin{equation}
+\int_a^b P(r) \dd{r} = \int_a^b \int \abs{\frac1r \psi_{l,m}(r) Y_{l,m}(\uvec r)}^2 \dd{\Omega} r^2 \dd r
+= \int_a^b \abs{\psi_{l,m}(r)}^2 \dd{r}
+\end{equation}
+对任意 $a, b > 0$ 都成立， 所以有
+\begin{equation}
+P(r) = \abs{\psi_{l,m}(r)}^2
+\end{equation}
+
+任意波函数可以表示为所有本征波函数的叠加
+\begin{equation}
+\Psi(\bvec r) = \frac1r \sum_{l,m} \psi_{l,m}(r) Y_{l,m}(\uvec r)
+\end{equation}
+其径向概率分布为
+\begin{equation}\label{HWF_eq4}
+\int_a^b P(r) \dd{r} = \int_a^b \int \abs{\frac1r \sum_{l,m}\psi_{l,m}(r) Y_{l,m}(\uvec r)}^2 \dd{\Omega} r^2 \dd r
+= \sum_{l,m} \int_a^b \abs{\psi_{l,m}(r)}^2 \dd{r}
+\end{equation}
+对任意 $a, b > 0$ 都成立， 所以有
+\begin{equation}
+P(r) = \sum_{l,m} \abs{\psi_{l,m}(r)}^2
+\end{equation}
+
+\subsection{动量表象\ 动量分布}
+要求动量表象下的波函数， 我们需要将位置表象的波函数投影到归一化的动量的本征矢上， 即三维傅里叶变换
+\begin{equation}
+\psi_{nlm}(\bvec p) = \braket{\bvec p}{\psi} = \frac{1}{\sqrt{2\pi}} \int \exp(-\I \bvec p \vdot \bvec r) \psi(\bvec r) \dd[3]{r}
+\end{equation}
+这个积分在球坐标中完成才是最方便的， 具体方法我们将举例子说明（见\autoref{Pl2Ylm_ex1}~\upref{Pl2Ylm}）．
+
+正如位置表象下位置的分布函数是 $\abs{\psi(\bvec r)}^2$， 动量表象下动量的分布函数是 $\abs{\psi(\bvec p)}^2$ （也符合测量理论）．
