@@ -1,0 +1,32 @@
+% 绳结问题
+
+\pentry{力的分解与合成\upref{Fdecom}}
+
+作为力的分解与合成的一个应用， 考虑 $N$ 根质量和粗细不计的绳子的末端连接到一个质量不计的绳结， 假设每根绳子拉绳结的力为 $\bvec F_i$， 那么绳结受力平衡的充分必要条件是合力为零
+\begin{equation}
+\sum_{i=1}^N \bvec F_i = \bvec 0
+\end{equation}
+显然， 当 $N = 2$ 时， 两个拉力必须等大反向．
+
+\begin{example}{三点拉绳}
+从 $P_1,P_2,P_3$ 三点以固定大小的力 $F_1, F_2, F_3$ 拉一个绳结， 求绳结平衡的条件以及平衡位置．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6.5cm]{./figures/Knot_1.pdf}
+\caption{三点拉绳示意图} \label{Knot_fig1}
+\end{figure}
+
+解： 首先平衡位置必定在三角形内． 绳结到三点的单位矢量分别为 $\uvec r_1, \uvec r_2, \uvec r_3$， 那么
+\begin{equation}
+F_1 \uvec r_1 + F_2 \uvec r_2 + F_3 \uvec r_3 = \bvec 0
+\end{equation}
+根据该关系以及矢量相加的平行四边形法则\upref{GVecOp}， 容易求出 $\uvec r_1, \uvec r_2, \uvec r_3$ 两两之间的夹角， 记为 $\theta_{12}, \theta_{23}, \theta_{13}$． 但 $F_1, F_2, F_3$ 必须满足任意两个之和大于第三个才可能有解．
+
+然后根据根据 $\theta_{12}$ 过 $P_1, P_2$ 作一条弧线， 半径为（\autoref{SphTri_eq1}~\upref{SphTri}）
+\begin{equation}
+R = \frac{l_{12}}{\sin\theta_{12}}
+\end{equation}
+那么绳结必定落在弧线上． 接下来在三角形内的弧线上移动绳结， 若满足另外一个角 $\theta_{23}$ 或 $\theta_{13}$ 的值， 就可以找到平衡点， 若不存在， 则无平衡点．
+\end{example}
+
+另一个例题见\autoref{Spring_ex1}~\upref{Spring}．
