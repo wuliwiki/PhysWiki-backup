@@ -1,0 +1,24 @@
+% 格林函数法解非齐次偏微分方程
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{狄拉克 delta 函数\upref{Delta}}
+
+弦的方程
+\begin{equation}\label{GreenF_eq1}
+-\laplacian y = f(x)
+\end{equation}
+
+格林函数法， 先令格林函数 $G(x_0, x)$ 满足
+\begin{equation}
+-\laplacian G(x_0, x) = \delta(x - x_0)
+\end{equation}
+这相当于弦上只有一点受力．
+
+一个连续的受力分布 $f(x)$ 可以分解为许多不同位置的 $x_0$ 的线性组合（积分）
+\begin{equation}
+f(x) = \int_a^b f(x_0) \delta(x - x_0) \dd{x_0}
+\end{equation}
+由于\autoref{GreenF_eq1} 的方程是线性的， 

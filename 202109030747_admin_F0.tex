@@ -1,0 +1,20 @@
+% 零函数
+
+\begin{issues}
+\issueDraft
+\issueOther{这主要是为了解决简并空间散射态的归一化问题}
+\end{issues}
+
+\pentry{狄拉克 delta 函数\upref{Delta}}
+我们用函数列严格定义狄拉克 $\delta$ 函数， 那么类似地， 下面我们也定义一类函数， 姑且称为\textbf{零函数}． 它的性质比 $\delta$ 函数更简单
+\begin{definition}{零函数}
+对任何性质良好的函数\footnote{例如平方可积， 可以做傅里叶变换．} $f: \mathbb R \to \mathbb C$， 若函数列 $z_n: \mathbb R \to \mathbb C$ （$n = 1, 2, \dots$） 满足
+\begin{equation}
+\lim_{n\to \infty}\int_{-\infty}^{\infty} z_n(x) f(x) = 0
+\end{equation}
+那么就把 $z_n(x)$ 称为\textbf{零函数}．
+\end{definition}
+
+\begin{example}{}
+正弦函数 $\sin(nx + \phi)$， $\cos(nx + \phi)$ 都是这样的函数．
+\end{example}

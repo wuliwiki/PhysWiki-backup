@@ -1,0 +1,33 @@
+% 零函数
+
+\begin{issues}
+\issueDraft
+\issueOther{这主要是为了解决简并空间散射态的归一化问题}
+\end{issues}
+
+\pentry{狄拉克 delta 函数\upref{Delta}}
+我们用函数列严格定义狄拉克 $\delta$ 函数， 那么类似地， 下面我们也定义一类函数， 姑且称为\textbf{零函数}． 它的性质比 $\delta$ 函数更简单
+\begin{definition}{零函数}
+对任何性质良好的函数\footnote{例如迪利克雷条件．} $f: \mathbb R \to \mathbb C$， 若函数列 $z_n: \mathbb R \to \mathbb C$ （$n = 1, 2, \dots$） 满足
+\begin{equation}
+\lim_{n\to \infty}\int_{-\infty}^{\infty} z_n(x) f(x) = 0
+\end{equation}
+那么就把 $z_n(x)$ 称为\textbf{零函数}．
+\end{definition}
+
+\begin{example}{}
+简谐函数 $\sin(nx + \phi)$， $\exp(\I n x)$ 都是零函数． 更一般地， 若 $f(x)$ 是一个性质良好的函数， $f(x)\sin(nx + \phi)$ 和 $f(x)\exp(\I n x)$ 也都是零函数．
+\end{example}
+
+为什么定义零函数呢？ 我们可以以此判断一组连续的函数基底（例如量子力学的一维散射态）是否正交． 在 $\delta$ 函数中， 我们知道若两个含参数的函数满足
+\begin{equation}
+\int_{-\infty}^{\infty} f^*(k_1, x) f(k_2, x)\dd{x} = \delta(k_2 - k_1)
+\end{equation}
+那么它们就是正交归一的． 正交归一的好处是， 若一个函数可以用一组 $f(k, x)$ 展开
+\begin{equation}
+g(x) = \int_{-\infty}^{\infty} C(k) f(k, x) \dd{k}
+\end{equation}
+那么就有
+\begin{equation}
+C(k) = \int_{-\infty}^{\infty} f^*(k, x)g(x)\dd{x}
+\end{equation}

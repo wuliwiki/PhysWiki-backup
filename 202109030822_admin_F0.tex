@@ -1,0 +1,67 @@
+% 零函数
+
+\begin{issues}
+\issueDraft
+\issueOther{这主要是为了解决简并空间散射态的归一化问题}
+\end{issues}
+
+\pentry{狄拉克 delta 函数\upref{Delta}}
+我们用函数列严格定义狄拉克 $\delta$ 函数， 那么类似地， 下面我们也定义一类函数， 姑且称为\textbf{零函数}． 它的性质比 $\delta$ 函数更简单
+\begin{definition}{零函数}
+对任何性质良好的函数\footnote{例如迪利克雷条件．} $f: \mathbb R \to \mathbb C$， 若函数列 $z_n: \mathbb R \to \mathbb C$ （$n = 1, 2, \dots$） 满足
+\begin{equation}\label{F0_eq2}
+\lim_{n\to \infty}\int_{-\infty}^{\infty} z_n(x) f(x) = 0
+\end{equation}
+那么就把 $z_n(x)$ 称为\textbf{零函数（列）}， 简记为 $z(x)$．
+\end{definition}
+
+\begin{example}{}
+显然， $z_n(x) = 0$ 是一个零函数（列）． 简谐函数 $\sin(nx + \phi)$， $\exp(\I n x)$ 都是零函数． 更一般地， 若 $f(x)$ 是一个性质良好的函数， $f(x)\sin(nx + \phi)$ 和 $f(x)\exp(\I n x)$ 也都是零函数．
+
+笔者不会证明， 但从函数图像上这是符合直觉的： 若一个函数乘以一个另快速震荡的函数， 且震荡频率越来越快， 那么\autoref{F0_eq2} 的积分极限为零．
+\end{example}
+
+为什么定义零函数呢？ 我们可以以此判断一组连续的函数基底（例如量子力学的一维散射态）是否正交． 在 $\delta$ 函数中， 我们知道若两个含参数的函数满足（链接到具体）
+\begin{equation}\label{F0_eq1}
+\int_{-\infty}^{\infty} f^*(k_1, x) f(k_2, x)\dd{x} = \delta(k_2 - k_1)
+\end{equation}
+那么它们就是正交归一的． 正交归一的好处是， 若一个函数可以用一组 $f(k, x)$ 展开
+\begin{equation}
+g(x) = \int_{-\infty}^{\infty} C(k) f(k, x) \dd{k}
+\end{equation}
+那么就有系数公式
+\begin{equation}
+C(k) = \int_{-\infty}^{\infty} f^*(k, x)g(x)\dd{x}
+\end{equation}
+具体过程见傅里叶变换\upref{FTExp} 的证明（使用 $\delta$ 函数）．
+
+但若我们有两组正交归一的函数 $f_1(k, x)$ 和 $f_2(k, x)$ 组成的正交归一基底呢？ 若一个函数可以这两组函数展开
+\begin{equation}\label{F0_eq3}
+g(x) = \int_{-\infty}^{\infty} C_1(k) f_1(k, x) \dd{k} + \int_{-\infty}^{\infty} C_2(k) f_2(k, x) \dd{k}
+\end{equation}
+那么两组函数基底间满足什么条件才可以使以下系数公式仍然成立呢？
+\begin{equation}\label{F0_eq4}
+C_i(k) = \int_{-\infty}^{\infty} f_i^*(k, x)g(x)\dd{x} \qquad (i = 1,2)
+\end{equation}
+可以证明除了要求 $f_1, f_2$ 分别满足\autoref{F0_eq1}， 还需要保证 $f_1, f_2$ 之间满足以下正交条件为
+\begin{equation}
+\int_{-n}^{+n} f_1^*(k_1, x) f_2(k_2, x) \dd{x} = z_n(k_2 - k_1)
+\end{equation}
+或者简写为（就和\autoref{F0_eq1} 一样）
+\begin{equation}
+\int_{-\infty}^{\infty} f_1^*(k_1, x) f_2(k_2, x) \dd{x} = z(k_2 - k_1)
+\end{equation}
+这是相当于\autoref{F0_eq1} 的只有正交没有归一的版本．
+
+\subsubsection{证明}
+把\autoref{F0_eq3} 代入\autoref{F0_eq4} 右边， 以 $i = 1$ 为例， 得
+\begin{equation}
+\begin{aligned}
+&\int_{-\infty}^{\infty} C_1(k') \int_{-\infty}^{\infty} f_1^*(k, x) f_1(k', x)\dd{x} \dd{k'} + \int_{-\infty}^{\infty} C_2(k') \int_{-\infty}^{\infty} f_1^*(k, x)f_2(k', x)\dd{x} \dd{k'}\\
+&= \int_{-\infty}^{\infty} C_1(k') \delta(k' - k) \dd{k} + \int_{-\infty}^{\infty} C_2(k') z(k' - k) \dd{k}\\
+&= C_1(k)
+\end{aligned}
+\end{equation}
+证毕．
+
+这个过程和傅里叶变换\upref{FTExp} 的证明类似， 只是我们要保证第二个积分必须为零．
