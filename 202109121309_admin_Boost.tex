@@ -1,0 +1,24 @@
+% C++ Boost 库笔记
+
+\begin{itemize}
+\item 安装 \verb|sudo apt install libboost-all-dev| 或者指定版本号如 \verb|libboost1.65-all-dev|
+\end{itemize}
+
+\subsection{filesystem3}
+一个获取文件大小的程序（同时显示 boost 版本号）
+\begin{lstlisting}[language=cpp, caption=test_filesystem3.cpp]
+#include <iostream>
+#include <boost/filesystem.hpp>
+using namespace std;
+using namespace boost::filesystem;
+
+int main(int argc, char* argv[])
+{
+	cout << "boost version: " << BOOST_VERSION / 100000 << "."
+        << (BOOST_VERSION / 100) % 1000 << "." << BOOST_VERSION % 100 << endl;
+	cout << file_size(argv[1]) << endl;
+	return 0;
+}
+\end{lstlisting}
+
+编译 \verb|g++ test_filesystem3.cpp -o filesize -lboost_system -lboost_filesystem|， 运行 \verb|./filesize filesize|．
