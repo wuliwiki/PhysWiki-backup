@@ -1,0 +1,103 @@
+% 一阶常微分方程解法：变量可分离方程
+% 常微分方程|ordinary differential equation|ODE|初等解法|变量分离法
+
+形如$\frac{\dd y}{\dd x}=f(x)g(y)$的微分方程，称作\textbf{变量可分离}方程．这类方程是最容易解的．
+
+对方程两边进行移项，得到$\frac{1}{g(y)}\dd y=f(x)\dd x$，这样就把变量分离开了．两边同时求积分，得到等式
+\begin{equation}\label{ODEa1_eq1}
+\int\frac{1}{g(y)}\dd y=\int f(x)\dd x+C
+\end{equation}
+其中$C$是积分常数．
+
+可见，\autoref{ODEa1_eq1} 的左边是$y$的函数，右边是$x$的函数，只要能把这两个积分写出来，那么微分方程也就解出来了．
+
+\begin{example}{}
+考虑方程$\frac{\dd y}{\dd x}=xy$．
+
+分离变量后有
+\begin{equation}
+\int\frac{1}{y}\dd y=\int x\dd x+C
+\end{equation}
+
+算出积分后可得
+\begin{equation}
+\ln\abs{y}=\frac{1}{2}x^2+C
+\end{equation}
+
+即
+\begin{equation}
+\abs{y}=\E^{\frac{1}{2}x^2}\cdot\E^C
+\end{equation}
+
+将$\E^C$重新记为一个新的常数$K$，那么该方程的通解最终就可以表示为
+\begin{equation}
+y=\pm K\E^{\frac{1}{2}x^2}
+\end{equation}
+\end{example}
+
+\begin{exercise}{}
+求解方程$\frac{\dd y}{\dd x}=\frac{x}{y}$．答案是$\abs{x}=\abs{y}$，也可以写成$x^2=y^2$．
+\end{exercise}
+
+\begin{exercise}{}
+求解方程$\frac{\dd v}{\dd t}=\frac{t^2}{v+b}$．答案是$3v^2+6bv=2t^3$，也可以写成$t=(\frac{3}{2}v^2+3bv)^{1/3}$.
+\end{exercise}
+
+\subsection{可化为变量可分离形式的方程}
+
+\begin{theorem}{}\label{ODEa1_the1}
+形如$\frac{\dd y}{\dd x}=g(\frac{y}{x})$的方程，可以化为变量可分离的形式．
+\end{theorem}
+
+\textbf{证明}：
+
+定义一个新的变量$u=\frac{y}{x}$，于是$y=ux$，于是$\dd y=u\dd x+x\dd u$．
+
+于是原方程可写为
+\begin{equation}
+u+x\frac{\dd u}{\dd x}=g(u)
+\end{equation}
+也就是
+\begin{equation}
+\frac{\dd u}{\dd x}=\frac{g(u)-u}{x}
+\end{equation}
+
+这是一个关于$x$和$u$的变量可分离方程．
+
+\textbf{证毕}．
+
+\begin{example}{}
+考虑方程$\frac{\dd y}{\dd x}=\frac{y}{x}+\sin\frac{y}{x}$．
+
+根据\autoref{ODEa1_the1} 的证明结论，取$u=y/x$，将方程改写为
+\begin{equation}
+\frac{\dd u}{\dd x}=\frac{\sin u}{x}
+\end{equation}
+
+进行变量分离后，得
+\begin{equation}
+\int\frac{1}{\sin u}\dd u=\ln\abs{x}+C
+\end{equation}
+
+
+
+
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
