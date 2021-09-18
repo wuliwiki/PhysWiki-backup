@@ -1,0 +1,64 @@
+% 一阶常微分方程解法：恰当方程
+% 恰当方程|微分方程|ODE|ordinary differential equation|exact equation|积分因子|integral factor
+
+\pentry{常微分方程简介\upref{ODEint}}
+
+\subsection{恰当方程的概念}
+
+考虑一个二元函数$u(x, y)$，其全导数为
+\begin{equation}
+\dd u=\frac{\partial u}{\partial x}\dd x+\frac{\partial u}{\partial y}\dd y
+\end{equation}
+
+由多元微积分知识可知，$\frac{\partial^2 u}{\partial x\partial y}=\frac{\partial^2 u}{\partial y\partial x}$．因此，如果一个形如
+\begin{equation}\label{ODEa3_eq1}
+M(x, y)\dd x+N(x, y)\dd y=0
+\end{equation}
+的常微分方程满足
+\begin{equation}\label{ODEa3_eq2}
+\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}
+\end{equation}
+那么就可以存在一个$u(x, y)$，使得$M=\partial u/\partial x$和$N=\partial u/\partial y$．
+
+这样一来，\autoref{ODEa3_eq1} 就相当于
+\begin{equation}
+\dd u=0
+\end{equation}
+其解就是$u=C$，$C$为积分常数．
+
+也就是说，对于这样的方程，我们只需要求出$u$就能求解．
+
+\begin{definition}{恰当方程}
+将形如\autoref{ODEa3_eq1} 且满足\autoref{ODEa3_eq2} 的方程，称为\textbf{恰当方程（exact equation）}．
+\end{definition}
+
+$u$是很好解的，取$M$或$N$做积分即可：
+\begin{equation}
+u=\int M\dd x+C_1=\int N\dd y+C_2
+\end{equation}
+
+\begin{example}{}
+考虑方程$\frac{\dd y}{\dd x}=\frac{y}{3y^2-x}$．
+
+移项后得到$y\dd x+(x-3y^2)\dd y=0$．
+
+记$M=y$，$N=x-3y^2$，则容易验证$\partial M/\partial y=\partial N/\partial x=$
+
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
