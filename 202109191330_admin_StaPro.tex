@@ -1,0 +1,37 @@
+% 状态量和过程量
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+系统关于时间的变化可以看作状态空间中一点经过的轨迹． 若定义一个量只和该点在状态空间的位置有关， 那么它就是状态量， 若它和状态空间中的运动轨迹有关， 它就是过程量．
+
+一类常见的情况是， 一个系统的状态用矢量 $\bvec x = (x_1, x_2, \dots, x_N)$ 描述， 在一个特定的过程中， $x_i$ 都是时间的函数． 定义一个量为
+\begin{equation}\label{StaPro_eq1}
+Q_{12} = \int_{\mathcal L} \sum_i f_i(x_1, \dots, x_N) \dd{x_i} = \int_{t_1}^{t_2} \sum_i f_i(x_1, \dots, x_N) \dv{x_i}{t} \dd{t}
+\end{equation}
+$\mathcal L$ 表示状态点的 “运动方程” $x_i(t)$ （$i = 1,\dots, N$） 以及起点终点 $\bvec x(t_1), \bvec x(t_2)$． 易得，积分结果只和路径的形状有关而与状态点在轨迹上运动的快慢无关． 所以这里的 $t$ 可以看作轨迹的参数随时间变化而未必是时间本身．
+
+从定义上来说， $Q$ 是一个过程量， 但如果在某个系统中它可以表示为某个状态量的增量， 那么\textbf{对这个系统}区分 $Q$ 是状态量和过程量将没有太大意义： 任何状态量在不同时间的差都能看作一个这样的过程量； 这个过程量只要固定了起点也能变为一个状态量． 此时\autoref{StaPro_eq1} 积分的结果不取决于路径， 只取决于初末状态． 把该状态量记为 $V(\bvec x)$， 那么总有
+\begin{equation}
+Q_{12} = V(\bvec x(t_2)) - V(\bvec x(t_1))
+\end{equation}
+例如在二维或三维状态空间， 若令矢量函数为 $\bvec f(\bvec x) = \sum_i f_i(\bvec x) \uvec x_i$， 那么当旋度 $\curl \bvec f = \bvec 0$ 时， $\bvec f(\bvec x)$ 就是一个保守场， 必存在势函数 $V(\bvec x)$． 对于高维情况， 外导数\upref{ExtDer} 
+
+但事实上远非所有情况下\autoref{StaPro_eq1} 的积分都可以表示为两个状态量之差． 此时积分的结果必须取决于路径的形状， 那么区分状态量和过程量就至关重要． 例如， 虽然我们往往写出微分关系
+\begin{equation}
+dQ = \sum_i f_i(x_1, \dots, x_N) \dd{x_i}
+\end{equation}
+但是却不可能把 $Q$ 表示为 $x_i$ 的函数， $f_i$ 也不能看作偏导 $\pdv*{Q}{x_i}$．
+
+一个具体的例子是力场对质点的做功． 如果是保守场， 那么做功就是势能之差， 如果是非保守场， 做功只能由具体路径决定． 此时 “功” 和 “能” 的区分就很重要了．
+
+另一个例子是热力学第一定律往往记为
+\begin{equation}
+\dd{Q} = P\dd{V} + \dd{E}
+\end{equation}
+但状态空间中的环积分并不总是为零， 例如卡诺热机． 所以 $Q$ 不能看作 $V, E$ 的函数， 也不能记
+\begin{equation}
+\qty(\pdv{Q}{V})_E = P \qquad \qty(\pdv{Q}{E})_V = 1 \qquad \text{（错）}
+\end{equation}
+
