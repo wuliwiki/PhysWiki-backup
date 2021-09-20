@@ -1,0 +1,102 @@
+% 一阶隐式常微分方程
+% 隐式方程|ODE|differential euqation
+
+\pentry{一阶常微分方程解法：常数变易法\upref{ODEa2}，一阶常微分方程解法：恰当方程\upref{ODEa3}}
+
+我们之前讨论的常微分方程都是显式写出导函数表达式的，即$\frac{\dd y}{\dd x}=F(x, y)$的形式．很多时候，一阶微分方程常被写为$F(x, y, \frac{\dd y}{\dd x})=0$ 的形式，如果这样的方程可以被改写为显式的形式，那么我们就可以尝试用预备知识中介绍过的方法来解方程；但如果难以改写或者解出来的形式极为复杂，那我们也可以尝试\textbf{换元}的方法．
+
+本节介绍四种一阶隐式方程和它们的换元方法．
+
+\subsection{第一种}
+
+第一个要讨论的是形如
+\begin{equation}\label{ODEa4_eq2}
+y=f(t, \frac{\dd y}{\dd t})
+\end{equation}
+的方程．这里自变量用的是通常代表时间的$t$，为的是提示该怎么换元——如果$y$是位移，那$\dd y/\dd t$就是速度，这就是我们要的变换．
+
+令$v=\frac{\dd y}{\dd t}$，则原方程变为$y=f(t, v)$．在方程两边同时对$t$求导，得到
+\begin{equation}\label{ODEa4_eq1}
+v=\frac{\partial f(t, v)}{\partial t}+\frac{\partial f(t, v)}{\partial v}\frac{\dd v}{\dd t}
+\end{equation}
+
+\autoref{ODEa4_eq1} 就是一个关于$t, v$的一阶微分方程，用我们之前讨论过的方法就可以解出，再将解出的$v$代回\autoref{ODEa4_eq2} 即可得到原方程的通解．
+
+\begin{example}{}
+
+
+考虑方程
+\begin{equation}\label{ODEa4_eq3}
+y=\qty(\frac{\dd y}{\dd x})^2+2x\frac{\dd y}{\dd x}
+\end{equation}
+令$v=\frac{\dd y}{\dd x}$，代入\autoref{ODEa4_eq3} ，并两端对$x$求导，则\autoref{ODEa4_eq3} 化为
+\begin{equation}
+v=2v\frac{\dd v}{\dd x}+2v+2x\frac{\dd v}{\dd x}
+\end{equation}
+整理一下，得
+\begin{equation}
+v\dd x+(2v+2x)\dd v=0
+\end{equation}
+这不是一个恰当方程\footnote{$\frac{\frac{\partial (2v+2x)}{\partial x}-\frac{\partial v}{\partial v}}{v}=\frac{1}{v}$是$v$的函数，因此我们可以为它找到一个积分因子$f(v)$．}，不过我们可以给它添加一个积分因子$f(v)=\E^{\int 1/v \dd v}=v$，把它变成一个恰当方程
+\begin{equation}
+v^2\dd x+(2v^2+2xv)\dd v=0
+\end{equation}
+
+令$u(x, v)=v^2x+\frac{2}{3}v^3$，那么$\dd u=v^2\dd x+(2v^2+2xv)\dd v$．
+
+因此，\autoref{ODEa4_eq3} 的通解为$u=C$，即
+\begin{equation}
+\leftgroup{
+    \begin{aligned}
+    v^2x+\frac{2}{3}v^3&=C\\
+    v^2+2xv&=y
+    \end{aligned}
+}
+\end{equation}
+
+
+
+\end{example}
+
+
+\begin{example}{}
+考虑方程
+\begin{equation}
+\frac{1}{2}x^2\frac{\dd p}{\dd x}=y
+\end{equation}
+令$p=\dd y/\dd x$，两边对$x$求导，则原方程化为
+\begin{equation}
+x\frac{\dd p}{\dd x}-p\frac{\dd p}{\dd x}+x=p
+\end{equation}
+整理得
+\begin{equation}
+(x-p)(\frac{\dd p}{\dd x}+1)=0
+\end{equation}
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
