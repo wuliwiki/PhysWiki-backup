@@ -1,0 +1,80 @@
+% 一致收敛与极限换序
+% 一致收敛|换序|limit|微积分|数学分析
+
+\pentry{一致收敛\upref{UniCnv}}
+
+\subsection{极限换序}
+
+函数、数列等有多个自变量存在时，我们有可能会需要考虑多重极限．比如说对于一个二元函数$f(x, y)$，设它的定义域是$x>0, y>0$，那么我们如何计算$x\to 0, y\to 0$时$f$的极限值呢？我们可以用以下式子来计算：
+\begin{equation}\label{UniCo2_eq1}
+\lim\limits_{y\to 0}\lim\limits_{x\to 0}f(x, y)
+\end{equation}
+
+其中，对于任意$y>0$，$f(x, y)$可以认为是关于$x$的一元函数，这样我们就可以计算出$\lim\limits_{x\to 0}f(x, y)$．对于每个$y>0$，可以定义$g(y)=\lim\limits_{x\to 0}f(x, y)$，因此对二元函数$f$进行第一个求极限后，得到的是一个一元函数$g$．这样，我们同样也能计算出$\lim\limits_{y\to 0}g(y)$，这也就是\autoref{UniCo2_eq1} .
+
+从直观的几何角度来理解，$\lim\limits_{x\to 0}f(x, y)$就像是求出了$x$轴上的一个函数，然后$\lim\limits_{y\to 0}\lim\limits_{x\to 0}f(x, y)$就是这个函数的一个极限．
+
+我们也可以反过来，用
+\begin{equation}\label{UniCo2_eq2}
+\lim\limits_{x\to 0}\lim\limits_{y\to 0}f(x, y)
+\end{equation}
+来计算$f$的二重极限，这个时候就相当于先求了$y$轴上的一个函数，再求它的极限．
+
+随之而来的问题是，\autoref{UniCo2_eq1} 和\autoref{UniCo2_eq2} 的值一样吗？换个说法就是，$f(x, y)$的二重极限可以交换次序吗？答案时“不一定”，取决于函数的性质．\autoref{UniCo2_ex1} 就是一个反例．
+
+\begin{example}{}\label{UniCo2_ex1}
+考虑函数$f(x, y)=x^y$．我们有：
+\begin{equation}
+\lim\limits_{x\to 0}f(x, y)=0
+\end{equation}
+和
+\begin{equation}
+\lim\limits_{y\to 0}f(x, y)=1
+\end{equation}
+
+这就导致
+\begin{equation}
+\begin{aligned}
+\lim\limits_{y\to 0}\lim\limits_{x\to 0}f(x, y)&=0\\
+&\not = 1\\
+&=\lim\limits_{x\to 0}\lim\limits_{y\to 0}f(x, y)
+\end{aligned}
+\end{equation}
+
+因此，对于这个$f(x, y)$，极限是不可以随便换序的．
+
+\end{example}
+
+
+
+\subsection{一致收敛的极限换序}
+
+可以极限换序的函数，性质非常良好．一致收敛的函数列就拥有这个良好的性质．
+
+\begin{theorem}{}
+在开区间$(a, b)$
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
