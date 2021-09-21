@@ -1,0 +1,50 @@
+% 一致收敛
+% 数学分析|一致收敛|极限
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\addTODO{需添加预备知识，收敛或逐点收敛．}
+
+函数列$f_n$逐点收敛到$f$，只要求对于任意固定的$x_0$，数列$\{f_n(x_0)\}$收敛到$f(x_0)$即可．接下来介绍的\textbf{一致收敛}则是一个更强的要求．
+
+一个函数列 $f_n(x)$ 一致收敛到 $f(x)$ 的定义是： 当对于任意 $\epsilon > 0$， 存在 $N$， 当 $n \geqslant N$ 时对任意 $x$ 都有
+\begin{equation}
+\abs{f_n(x) - f(x)} < \epsilon
+\end{equation}
+或者记为
+\begin{equation}
+\lim_{n\to\infty} \qty(\max \abs{f_n(x) - f(x)}) = 0
+\end{equation}
+
+一致收敛是比（逐点）收敛更强的条件．
+
+\begin{example}{逐点收敛但不一致收敛的例子}\label{UniCnv_ex1}
+在区间$(0, 1)$上考虑函数列$f_n(x)=x^n$和函数$f(x)=0$，则容易验证$f_n$逐点收敛到$f$．
+
+但是，对于任意$\epsilon>0$和任意$f_n$，总可以找到$x\in(\epsilon^{1/n}, 1)$，使得$f_n(x)>\epsilon$．因此按照定义，$f_n$\textbf{不}一致收敛到$f$．
+
+\end{example}
+
+\begin{example}{逐点收敛但不一致收敛的例子}\label{UniCnv_ex2}
+在区间$[0, 1]$上考虑函数列$f_n(x)=\sin(\pi\cdot x^n)$和函数$f(x)=0$，则容易验证$f_n$逐点收敛到$f$．
+
+但是，对于任意$\epsilon>0$和任意$f_n$，总可以找到$x=\frac{1}{2^n}$，使得$f_n(x)=1>\epsilon$．因此按照定义，$f_n$\textbf{不}一致收敛到$f$．
+
+\end{example}
+
+逐点收敛只考虑，是不是每个点都收敛．而一致收敛的威力在于，有一个统一的进度，每个点收敛的进度不得比这更慢．\autoref{UniCnv_ex1} 和\autoref{UniCnv_ex2} 里举出的反例就是如此，不管你怎么取$\epsilon$作为限定，总存在跟不上进度的点，导致这种限定不是\textbf{一致}的．
+
+一致收敛还可以从“函数之间的距离”角度来考虑．
+
+
+
+
+
+
+
+
+
+
+
