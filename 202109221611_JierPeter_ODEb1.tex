@@ -1,0 +1,64 @@
+% 线性微分方程的一般理论
+% 常微分方程|ODE|differential equation|常数变易法|朗斯基行列式|齐次|解的结构
+
+\begin{definition}{}
+设各$a_i(x)$和$f(t)$都是区间$[a, b]$上的连续函数，则称
+\begin{equation}\label{ODEb1_eq1}
+\qty(\frac{\mathrm{d}^n y}{\dd x^n})+a_1\qty(\frac{\mathrm{d}^{n-1} y}{\dd x^{n-1}})+a_2\qty(\frac{\mathrm{d}^{n-2} y}{\dd x^{n-2}})+\cdots+a_nx=f(x)
+\end{equation}
+为区间$[a, b]$上的\textbf{线性微分方程（linear differential equation）}．
+
+当$f(x)=0$时，称\autoref{ODEb1_eq1} 为\textbf{齐次的（homogeneous）}，否则称为\textbf{非齐次的（inhomogeneous）}．
+\end{definition}
+
+任取$x_0\in[a, b]$，如果已知该点处$y, \qty(\frac{\mathrm{d} y}{\dd x}), \qty(\frac{\mathrm{d}^{2} y}{\dd x^{2}}), \cdots, \qty(\frac{\mathrm{d}^{n-1} y}{\dd x^{n-1}})$的$n$个值，那么我们可以唯一确定\autoref{ODEb1_eq1} 满足这些初值的特解．这一解的存在与唯一性定理将在线性方程组相关章节讨论．
+
+\addTODO{引用相关的存在与唯一性定理．}
+
+\subsection{齐次线性微分方程的解的性质与结构}
+
+区间$[a, b]$上的齐次线性方程形如
+\begin{equation}\label{ODEb1_eq2}
+\qty(\frac{\mathrm{d}^n y}{\dd x^n})+a_1\qty(\frac{\mathrm{d}^{n-1} y}{\dd x^{n-1}})+a_2\qty(\frac{\mathrm{d}^{n-2} y}{\dd x^{n-2}})+\cdots+a_nx=0
+\end{equation}
+
+\begin{theorem}{解的线性叠加原理}
+如果$y_1(x), y_2(x), \cdots, y_k(x)$是\autoref{ODEb1_eq2} 的$k$个解，而$c_1, c_2, \cdots, c_k$是$k$个常数，那么$c_1y_1(x)+c_2y_2(x)+\cdots+c_ky_k(x)$也是一个解．
+\end{theorem}
+
+证明很简单，利用求导的线性性即可．
+
+线性叠加原理，就是解进行“数乘”和“加法”后仍为解，意味着\autoref{ODEb1_eq2} 的全体解构成了一个线性空间．如果我们能找到这个线性空间的一组基，也就相当于了解了整个线性空间．这样的基向量，被称为\textbf{基解}，一切解都可以表示为它们的线性组合．
+
+\begin{definition}{线性相关性}
+对于区间$[a, b]$上的函数$y_i(x)$，如果存在一组\textbf{不全为零}的常数$c_i$，使得$c_1y_1(x)+\cdots+c_ky_k(x)=0$，那么称$y_1, \cdots, y_k$是\textbf{线性相关}的，否则是\textbf{线性无关}的．
+\end{definition}
+
+\begin{theorem}{}\label{ODEb1_the1}
+如果$y_1(x), y_2(x), \cdots, y_n(x)$是\autoref{ODEb1_eq2} 的$n$个线性无关的解，那么它们构成了一组基解．
+\end{theorem}
+
+\autoref{ODEb1_the1} 证明思路提示：我们已经知道，\autoref{ODEb1_eq2} 的每个解由$n$个初值唯一确定．在初值点$x_0$，给定chu'zhi'tiao'jian$y_1(x_0), y_2(x_0), \cdots, y_n(x_0)$，如果$c_1y_1(x)+\cdots+c_ny_n(x)$满足全部$n$个初值条件，那么
+\begin{equation}
+\leftgroup{
+c_1y_1(x_0)+\cdots+c_ny_n(x_0)
+}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
