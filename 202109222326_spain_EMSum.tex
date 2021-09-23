@@ -1,0 +1,23 @@
+% Euler-Maclaurin求和公式
+
+\subsubsection{Euler求和公式}
+\begin{theorem}{}
+    设函数 $f:X\to Y$ 在区间$[0,+\infty)$上连续可微,则有如下Euler求和公式成立	
+        \begin{equation}\autoref{EMSum_eq1} 
+            \sum_{k=1}^{n}f(k)=\int_{0}^{n}f(x)\,\dd x
+            +\frac{f(n)-f(0)}{2}+\int_{0}^{n}\psi(x)f'(x)\dd x
+        \end{equation}
+    其中 $\psi(x)=x-\lfloor x \rfloor-1/2=\{x\}-1/2$
+\end{theorem}
+证明如下：将区间$[0,n]$划分为长度为$1$的小区间$[k-1,k](k=1,2,\cdots,n)$,则
+​\[
+\int_{k-1}^{k}\psi(x)f'(x)\,\dd x
+=\frac{f(k)+f(k-1)}{2}-\int_{k-1}^{k}f(x)\,\dd x
+\]
+​对$k$从1到$n$求和,于是
+​\[
+\int_{0}^{n}\psi(x)f'(x)\,\dd x
+=\sum_{k=1}^{n}f(k)-\frac{f(n)-f(0)}{2}-\int_{0}^{n}f(x)\,\dd x
+\]
+这样就证明了Euler求和公式．注意到\autoref{EMSum_eq1} 右端积分比较复杂，在不需要知道其
+精确结果的情况下，  

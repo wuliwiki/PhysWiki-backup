@@ -1,0 +1,74 @@
+% Euler-Maclaurin求和公式
+\pentry{渐近展开\upref{Asympt}}
+\subsubsection{Euler求和公式}
+\begin{theorem}{}
+    设函数 $f:X\to Y$ 在区间$[0,+\infty)$上连续可微,则有如下Euler求和公式成立	
+        \begin{equation}\label{EMSum_eq1} 
+            \sum_{k=1}^{n}f(k)=\int_{0}^{n}f(x)\,\dd x
+            +\frac{f(n)-f(0)}{2}+\int_{0}^{n}\psi(x)f'(x)\dd x
+        \end{equation}
+    其中 $\psi(x)=x-\lfloor x \rfloor-1/2=\{x\}-1/2$
+\end{theorem}
+证明如下：将区间$[0,n]$划分为长度为$1$的小区间$[k-1,k](k=1,2,\cdots,n)$,则
+​\[
+    \int_{k-1}^{k}\psi(x)f'(x)\,\dd x
+    =\frac{f(k)+f(k-1)}{2}-\int_{k-1}^{k}f(x)\,\dd x
+\]
+​对$k$从1到$n$求和,于是
+​\[
+    \int_{0}^{n}\psi(x)f'(x)\,\dd x
+    =\sum_{k=1}^{n}f(k)-\frac{f(n)-f(0)}{2}-\int_{0}^{n}f(x)\,\dd x
+\]
+这样就证明了Euler求和公式．
+\\注意到\autoref{EMSum_eq1} 右端积分比较复杂，一般情况下，仅仅估计其上界便可得到较为不错的结果．设函数 $f\in{C^1[0,+\infty)}$ ,再设函数
+$\varphi(x)=\displaystyle{\int_{0}^{x}\psi(t)\,\dd t}$,
+易知该函数是周期为$1$的函数,且
+ $-1/8\leqslant\varphi(x)\leqslant 0$,因此
+\[
+    \left|\int_{0}^{n}\psi(x)f'(x)\,\dd x\right|
+    =\left|\int_{0}^{n}\varphi(x)D^2(f)\mathrm{d}x\right|
+    \leqslant\frac{|f'(n)-f'(0)|}{8}
+\]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/EMSum_1.pdf}
+\caption{请添加图片描述} \label{EMSum_fig1}
+\end{figure}
+
+在实际情况中，更为常见的是函数 $f$ 在$[1,+\infty)$ 上可微，则补充定义$ f\equiv 0,x\in[0,1)$.在 \autoref{EMSum_eq1} 式中令$n=1$,从而
+\[
+    \int_{0}^{1-\delta}\psi(x)f'(x)\mathrm{d}x
+    =\frac{f(1-\delta)+f(0)}{2}-\int_{0}^{1-\delta}f(x)\,\dd x=0
+\]
+由于令$\delta\to0+0$时，极限存在且为$0$,则对于在区间$[1,+\infty)$连续可微函数$f$就有
+\begin{equation}\label{EMSum_eq2}
+    \sum_{k=1}^{n}f(k)
+    =\int_{1}^{n}f(x)\,\dd x+\frac{f(n)+f(1)}{2}+\int_{1}^{n}\psi(x)f'(x)\,\dd x
+\end{equation}
+在 \autoref{EMSum_eq2}  式中,若积分$\displaystyle{\int_{1}^{\infty}\psi(x)f'(x)\,\dd x}$收敛,则
+\begin{equation}\label{EMSum_eq3}
+    \sum_{k=1}^{n}f(k)=\int_{1}^{n}f(x)\,\dd x
+    +\frac{f(n)}{2}-\int_{n}^{\infty}\psi(x)f'(x)\,\dd x
+    +\int_{1}^{\infty}\psi(x)f'(x)\,\dd x+\frac{f(1)}{2}
+\end{equation}
+
+\begin{exercise}{}
+Euler-Mascheroni常数\autoref{Masche_eq1}~\upref{Masche}由调和级数与自然对数的差值的极限所给出，利用\autoref{EMSum_eq3} 和该常数可以给出类调和级数前$n$项和较好的计算公式，即
+\begin{equation}\label{EMSum_eq4}
+    H_{n}=\sum_{k=1}^{n}\frac{1}{k}=\log n+\frac{1}{2n}+C_{2}
+    +\int_{n}^{\infty}\frac{\psi(x)}{x^2}\,\dd x
+\end{equation}
+其中
+\begin{equation}\label{EMSum_eq5}
+    C_{2}=\frac{1}{2}-\int_{1}^{\infty}\frac{\psi(x)}{x^2}\,\dd x
+\end{equation}
+由Dirichlet定理可知，\autoref{EMSum_eq5} 积分存在，因此将\autoref{EMSum_eq4} 结合
+Euler-Mascheroni常数代入\autoref{EMSum_eq3} 就有$C_{2}=\gamma$,从而
+\begin{equation}
+    H_{n}=\log n+\frac{1}{2n}+\gamma+\int_{n}^{\infty}\frac{\psi(x)}{x^2}\,\dd x
+\end{equation}
+\end{exercise}
+
+
+
+
