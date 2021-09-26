@@ -1,0 +1,90 @@
+% 拉普拉斯变换与常系数线性微分方程
+% Laplace Transformation|常微分方程|ODE|非齐次方程
+
+\pentry{常系数线性微分方程\upref{ODEb2}，拉普拉斯变换的性质\upref{ProLap}}
+
+\subsection{拉普拉斯变换}
+
+\subsubsection{导数定理}
+
+拉普拉斯变换的导数定理（见\textbf{拉普拉斯变换}\upref{LapTra}）使得我们可以把常系数线性微分方程化为代数方程，不论是否齐次．在\textbf{常系数线性微分方程}\upref{ODEb2}中，我们通过把方程写为算子$\frac{\dd }{\dd t}$的代数方程，实现了化微分方程为代数方程，但这种操作对非齐次方程没有用．拉普拉斯变换是另一种化为代数方程的思路，而且不拘泥于齐次与否．
+
+引用\textbf{拉普拉斯变换的性质}\upref{ProLap}，将导数定理誊写如下：
+\begin{theorem}{拉普拉斯变换的导数定理}\label{ODELap_the1}
+设$[0, +\infty]$上有$k$次可导函数$f(t)$，其拉普拉斯变换为
+\begin{equation}
+\mathscr{L}(f(t))=F(s)=\int^{+\infty}_0f(t)\E^{-st}\dd t
+\end{equation}
+
+则有
+\begin{equation}
+\mathscr{L}(\frac{\dd}{\dd t}f(t))=sF(s)-f(0)
+\end{equation}
+\end{theorem}
+
+由\autoref{ODELap_the1} ，容易计算得
+\begin{equation}
+\begin{aligned}
+\mathscr{L}(\frac{\mathrm{d}^2}{\dd t^2}f(t))&=s\mathscr{L}(\frac{\dd}{\dd t}f(t))-f'(0)\\
+&=s^2F(s)-sf(0)-f'(0)
+\end{aligned}
+\end{equation}
+
+以此类推，可得：
+
+\begin{corollary}{}
+\begin{equation}
+\mathscr{L}(\frac{\mathrm{d}^k}{\dd t^k}f(t))=
+\end{equation}
+
+
+
+
+\end{corollary}
+
+
+
+
+\subsubsection{常见函数的拉普拉斯变换}
+
+\begin{example}{幂函数}
+\begin{equation}
+\mathscr{L}(t^n)=\frac{n!}{s^{n+1}}
+\end{equation}
+
+这一事实可以通过应用分部积分得证：
+\begin{equation}
+\begin{aligned}
+\mathscr{L}(t^n)&=\int_0^{+\infty}t^n\E^{-st}\dd t\\
+&=-\frac{1}{s}t^n\E^{-st}|^{+\infty}_0+\frac{n}{s}\int_0^{+\infty}t^{n-1}\E^{-st}\dd t\\
+&=\frac{n}{s}\int_0^{+\infty}t^{n-1}\E^{-st}\dd t\\
+&=\frac{n}{s}\mathscr{L}(t^{n-1})
+\end{aligned}
+\end{equation}
+\end{example}
+
+\begin{example}{指数函数}
+\begin{equation}
+\mathscr{L}(\E^{at})=\frac{1}{s-a}
+\end{equation}
+
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
