@@ -1,0 +1,73 @@
+% 一阶常系数线性微分方程组
+% 常微分方程|ODE|ordinary differential equation|方程组|线性变换|矩阵|矩阵指数
+
+\pentry{矩阵指数\upref{MatExp}，常系数线性微分方程\upref{ODEb2}}
+
+一阶常系数线性微分方程组形如
+\begin{equation}\label{ODEb3_eq1}
+\leftgroup{
+    \frac{\dd}{\dd t}x_1&=a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n\\
+    \frac{\dd}{\dd t}x_2&=a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n\\
+    &\vdots\\
+    \frac{\dd}{\dd t}x_n&=a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n
+}
+\end{equation}
+其中各$x_i$是关于$t$的未知函数，各$a_{ij}$是已知常数．我们要研究的是如何解出这个方程组中的各未知函数．
+
+别看这个方程有那么多变量$x_i(t)$，实际上我们可以把它们放到一起，构成一个$n$维向量$\bvec{x}(t)=(x_1(t), x_2(t), \cdots, x_n(t))$，这样就可以理解为还是只有一个自变量，只不过自变量从标量变成向量了．
+
+以上述向量理解的方式来看，\autoref{ODEb3_eq1} 右边部分就是一个线性变换$\mat{M}\bvec{x}(t)$，其中
+\begin{equation}\label{ODEb3_eq4}
+\mat{M}=\pmat{
+    &a_{11} &a_{12} &\cdots &a_{1n}\\
+    &a_{21} &a_{22} &\cdots &a_{2n}\\
+    &\vdots &\vdots &\ddots &\vdots\\
+    &a_{n1} &a_{n2} &\cdots &a_{nn}
+    }
+\end{equation}
+是已知常数矩阵．
+
+这样，我们就还可以把\autoref{ODEb3_eq1} 写成
+\begin{equation}\label{ODEb3_eq3}
+\frac{\dd}{\dd t}\bvec{x}=\mat{M}\bvec{x}
+\end{equation}
+的形式，看起来和一元方程
+\begin{equation}\label{ODEb3_eq2}
+\frac{\dd}{\dd t}x=ax
+\end{equation}
+非常像．
+
+\autoref{ODEb3_eq2} 的通解是$x=C\E^{at}$，其中$C$为常数．事实上，\autoref{ODEb3_eq3} 的通解也可以类似地用矩阵指数来表示：
+\begin{equation}
+\bvec{X}=C\E^{\mat Mt}
+\end{equation}
+
+\begin{definition}{基解矩阵}
+如果$n\times n$矩阵$\mat X$的每一列作为一个向量，都是\autoref{ODEb3_eq1} 或者说\autoref{ODEb3_eq3} 的线性无关解\footnote{于是有了$n$个线性无关解，根据方程组的存在与唯一性定理，任何一个解都可以用基解矩阵里的列向量线性组合得出．}，那么称$\mat X$是 \autoref{ODEb3_eq1} 或者说\autoref{ODEb3_eq4} 的\textbf{基解矩阵}．
+\end{definition}
+
+\begin{theorem}{}
+
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
