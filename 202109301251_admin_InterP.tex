@@ -1,0 +1,17 @@
+% 多项式插值
+
+\pentry{范德蒙矩阵\ 范德蒙行列式\upref{VandDe}}
+
+若有 $n$ 个数据点 $x_1, \dots, x_n$， $y_1, \dots, y_n$（$x_i$ 互不相等）， 使用多项式 $c_0 + c_1 x + \dots, c_{m-1}x^{m-1}$ 插值． 需要用 $m-1$ 阶多项式插值， 可以列出线性方程组
+\begin{equation}
+\pmat{1 & x_1 & x_1^2 & \dots & x_1^{m-1}\\
+1 & x_2 & x_2^2 & \dots & x_2^{m-1}\\
+1 & x_3 & x_3^2 & \dots & x_3^{m-1}\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+1 & x_n & x_n^2 & \dots & x_n^{m-1}}
+\pmat{c_0\\ c_1\\ c_2\\ \vdots \\ c_{m-1}}
+=
+\pmat{y_0\\ y_1\\ y_2\\ \vdots \\ y_{m-1}}
+\end{equation}
+现在来讨论什么时候该方程有唯一解． 事实上系数矩阵就是范德蒙矩阵\upref{VandDe}， 当 $x_i$ 互不相等时， 它的秩等于 $\min\qty{m, n}$． 所以当 $m > n$ 时， 
+
