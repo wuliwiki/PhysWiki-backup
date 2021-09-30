@@ -1,0 +1,22 @@
+% 堆放排列组合
+% 排列组合|堆放排列组合
+
+\pentry{隔板法（排列组合）\upref{BarCom}， 范德蒙恒等式\upref{ChExpn}}
+
+如果有 $n$ （$n=1,2\dots$）个不加区分的小球， 有 $N$ 个有编号的盒子， 每个盒子能装的个数不限（可为空）， 那么把所有小球都放到盒子里有几种不同方法？
+
+现在把所有的情况根据非空盒子的个数分类． 非空盒子个数可能为1个（ $n$ 个小球都在里面）， 2个， 一直到 $\min\qty{n,N}$ 个（若 $n\leqslant N$ 则每个小球都在不同的盒子）． 如果用 $i$ 个盒子装小球， 那么首先从 $N$ 个盒子里面选择 $i$ 个会有 $C_n^i$ 种情况． 然后要考虑这 $i$ 个有编号盒子装 $n$ 个小球（不为空）又有几种情况． 用隔板法\upref{BarCom}得到共有 $C_{n-1}^{i-1}$ 种情况． 所以一个 $i$ 对应 $C_N^i C_{n-1}^{i-1}$ 种情况．
+
+最后把所有不同 $i$ 的情况数加在一起， 得出所有情况的总数为
+\begin{equation}
+\sum_{i = 1}^{\min\qty{n,N}} C_N^i C_{n-1}^{i-1}
+\end{equation}
+又由于 $C_a^b = a!/[(a-b)!b!] = C_a^{a-b}$， 上式可变为
+\begin{equation}
+\sum_{i=1}^{\min\qty{n,N}}  C_N^i C_{n-1}^{n-i}
+\end{equation}
+又由范德蒙恒等式\upref{ChExpn}， 上式变为
+\begin{equation}
+\sum_{i=1}^n C_N^i C_{n-1}^{n-i} = C_{N+n-1}^n = \frac{(N+n-1)!}{n!(N - 1)!}
+\end{equation}
+这就是最后的答案．
