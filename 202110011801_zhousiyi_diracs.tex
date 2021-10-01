@@ -1,0 +1,30 @@
+% 狄拉克方程的自由粒子解
+% 狄拉克方程|解|自由粒子
+
+现在我们来讨论狄拉克方程的平面波解．解的形式如下
+\begin{equation}
+\psi(x) = u(p)e^{-ip\cdot x}~, \quad p^2 = m^2~.
+\end{equation}
+我们现在主要考虑正频率的解，也就是$p^0>0$的解．我们把上式代入狄拉克方程中，得
+\begin{equation}\label{diracs_eq1}
+(\gamma^\mu p_\mu - m) u(p) = 0~.
+\end{equation}
+我们可以先在静止系中分析这个方程，其中$p=p_0=(m,\boldsymbol 0 )$. 任意动量$p$的解可以通过boost $\Lambda_{\frac{1}{2}}$来得到．在静止系中，\autoref{diracs_eq1} 式变为
+\begin{equation}
+(m\gamma^0-m)u(p_0) = m\begin{pmatrix}
+-1 & -1 \\
+ 1 & -1
+\end{pmatrix}u(p_0) = 0 ~.
+\end{equation}
+解为
+\begin{equation}
+u(p_0) = \sqrt{m} \begin{pmatrix}
+\xi \\ \xi
+\end{pmatrix}~.
+\end{equation}
+其中$\xi$是任意的两分量的旋量．我们取归一化条件$\xi^\dagger \xi =1$. $\xi$在旋转生成元的作用下按照普通的两分量旋量进行变换．$\xi = \begin{pmatrix}
+1 \\0
+\end{pmatrix}$时，粒子在3-方向具有朝上的自旋．
+
+使用狄拉克方程过后，我们可以选择$u(p)$中四个分量的其中两个分量．因为自旋为$1/2$的粒子只有两个物理态-自旋向上和向下．
+
