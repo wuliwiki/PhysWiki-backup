@@ -1,0 +1,28 @@
+% 用 Matlab 制作 gif 动画
+
+这里给出一个 Matlab 代码 \verb|im2gif.m|， 通过选中文件夹中的多个图片来生成 gif 动画．
+\begin{lstlisting}[language=matlab, caption=im2gif.m]
+function im2gif()
+% === 参数 =====
+fname = 'animation.gif'; % 文件名
+Ncolor = 64; % 颜色数（最大 256）
+dt = 0.1; % 间隔时间
+% ================
+[filename,path] = uigetfile('*.*', 'multiselect', 'on');
+cd(path);
+I = imread(filename{1});
+[X,cmap] = rgb2ind(I,Ncolor,'nodither');
+imwrite(X, cmap, fname, 'gif', 'Loopcount', inf, 'DelayTime', dt);
+figure;
+for ii = 2:numel(filename)
+    if strcmp(filename{ii}, fname)
+        continue;
+    end
+    I = imread(filename{ii});
+    [X,cmap] = rgb2ind(I,Ncolor,'nodither');
+    imshow(X, cmap); drawnow;
+    imwrite(X, cmap, fname, 'gif', 'WriteMode', ....
+            'append', 'DelayTime', dt);
+end
+end
+\end{lstlisting}
