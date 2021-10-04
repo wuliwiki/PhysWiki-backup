@@ -1,0 +1,66 @@
+% 不含时微扰理论
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\footnote{参考 \cite{GriffQ} 相关章节．}不含时微扰理论．
+
+\begin{equation}\label{TIPT_eq3}
+H = H_0 + \lambda H^1
+\end{equation}
+\begin{equation}
+E_n = E_n^0 + \lambda E_n^1 + \lambda^2 E_n^2 + \dots
+\end{equation}
+令 $\psi_n^0$ 是 $H_0$ 的任意一组完备正交归一基底．
+\begin{equation}
+\psi_n = \psi_n^0 + \lambda\psi_n^1 + \lambda^2 \psi_n^2 + \dots
+\end{equation}
+\begin{equation}
+H \psi_n = E_n \psi_n
+\end{equation}
+令 $\lambda \to 0$， 忽略 $\order{\lambda^2}$， 有
+\begin{equation}
+H^0\psi_n^1 + H^1 \psi_n^0 = E_n^0 \psi_n^1 + E_n^1 \psi_n^0
+\end{equation}
+要使其恒成立， 就要求投影到任意 $\psi_m^0$ 上都成立：
+\begin{equation}\label{TIPT_eq1}
+\mel{\psi_m^0}{H^0}{\psi_n^1} + \mel{\psi_m^0}{H^1}{\psi_n^0} = E_n^0 \braket{\psi_m^0}{\psi_n^1} + E_n^1 \braket{\psi_m^0}{\psi_n^0}
+\end{equation}
+第一项利用厄米算符的性质
+\begin{equation}
+\mel{\psi_m^0}{H^0}{\psi_n^1} = \braket{H^0\psi_m^0}{\psi_n^1} = E_m^0\braket{\psi_m^0}{\psi_n^1}
+\end{equation}
+所以\autoref{TIPT_eq1} 化简为
+\begin{equation}\label{TIPT_eq2}
+\mel{\psi_m^0}{H^1}{\psi_n^0} = (E_n^0 - E_m^0) \braket{\psi_m^0}{\psi_n^1} + E_n^1 \delta_{m,n}
+\end{equation}
+
+\subsection{非简并情况}
+$H_0$ 非简并时， 当 $m\ne n$ 就有 $E_n^0 - E_m^0$． 所以右边第一项对角线元素全为零． 所以考虑对角线上的元素（$m = n$）有
+\begin{equation}\label{TIPT_eq6}
+E_n^1 = \mel{\psi_n^0}{H^1}{\psi_n^0}
+\end{equation}
+对 $m \ne n$ 即 $E_m^0 \ne E_n^0$ 的元素有
+\begin{equation}\label{TIPT_eq4}
+\braket{\psi_m^0}{\psi_n^1} = \frac{\mel{\psi_m^0}{H^1}{\psi_n^0}}{E_n^0 - E_m^0} \qquad (E_m^0 \ne E_n^0)
+\end{equation}
+于是， 要满足\autoref{TIPT_eq2}， 只需要令
+\begin{equation}\label{TIPT_eq5}
+\ket{\psi_n^1} = \sum_m^{E_m^0 \ne E_n^0} \braket{\psi_m^0}{\psi_n^1} \ket{\psi_m^0}
+\end{equation}
+即可． 注意\autoref{TIPT_eq5} 再加上任意 $c \psi_n^0$ 同样能使\autoref{TIPT_eq2} 成立， 说明\autoref{TIPT_eq2} 的解不止一个．
+
+\subsection{简并情况}
+$H_0$ 简并时， 当 $m\ne n$ 也未必有 $E_n^0 \ne E_m^0$， 这使得\autoref{TIPT_eq4} 和\autoref{TIPT_eq5} 失效（分母为零）， 所以要重新推导一次． 以下假设 $\psi_n^0$ 是按照不同简并空间排序的． 那么 $\mel{\psi_n^0}{H^1}{\psi_n^0}$ 可以根据本征子空间值划分为分块矩阵．
+
+注意我们只需要通过某种方法找到\autoref{TIPT_eq2} 的某个解即可． 既然简并， 那么每个简并子空间中正交归一基底都是有一定自由度的． 为了让问题更简单， 我们在每个子空间中也要求 $\psi_n^0$ 基底下 $H^1$ 是对角化的， 即 $\mel{\psi_n^0}{H^1}{\psi_n^0}$ 的对角块都是对角化的（每个块是第 $i,j$ 个子空间之间的耦合）． 注意这并不要求 $[H^0, H^1] = 0$ 对易， 因为对易要求 $\mel{\psi_n^0}{H^1}{\psi_n^0}$ 彻底对角化． 这样， 通常就能在简并子空间中唯一地确定 $\psi_n^0$．
+
+这样得到的 $\psi_n^0$ 叫做\textbf{好量子态}， $n$ 叫做\textbf{好量子数（good quantum number）}．
+
+现在对\autoref{TIPT_eq2} 考虑对角块， 有 $E_n^0 = E_m^0$， 所以同样有\autoref{TIPT_eq6}， 只是现在， 这就是对角块中的对角元， 也就是 $H^1$ 在该简并子空间中的本征值． 在同一个简并子空间中， 为了简洁我们也可以令 $\braket{\psi_m^0}{\psi_n^1} = 0$．
+
+在非对角子空间中， 有 $E_n^0 \ne E_m^0$， 所以同样有\autoref{TIPT_eq4}， 和\autoref{TIPT_eq5}． 但注意此时 $E_n^0 \ne E_m^0$ 只是 $m \ne n$ 的充分非必要条件， 也就是更强的条件．
+
+
+\addTODO{接下来的一个应用问题： 含时薛定谔方程中如果开始时波函数处于任意一个态 $\psi$， 然后非常缓慢地增加 $H'$ 的强度， $\psi$ 会如何变化？ 是否先分解为好量子态的线性组合， 然后再对修正后的好量子态做同样的线性组合？}

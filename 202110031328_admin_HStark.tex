@@ -1,0 +1,33 @@
+% 类氢原子斯塔克效应（微扰）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{不含时微扰理论\upref{TIPT}}
+
+微扰理论（$\mathcal{E_z}$ 是 $z$ 方向电场）：
+\begin{equation}
+H' = \mathcal{E_z} z
+\end{equation}
+矩阵元为
+\begin{equation}\label{HStark_eq1}
+H'_{l',l} = \mathcal{E_z}\mel{\psi_{n,l',m}}{z}{\psi_{n,l,m}}
+\end{equation}
+
+
+\begin{example}{氢原子 $n=2$ 的斯塔克效应}
+根据\autoref{HDipM_tab1}~\upref{HDipM}， \autoref{HStark_eq1} 为
+\begin{equation}
+\mat H' = -3\mathcal{E_z}\pmat{0 & 1\\ 1 & 0}
+\end{equation}
+本征值为 $E_{\pm}^1 = \mp 3\mathcal{E_z}$， 好本征态为 $\ket{2\pm} = (\ket{20} \pm \ket{21})/{\sqrt 2}$．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/HStark_1.png}
+\caption{$\ket{2+}$ 的概率密度函数的 $x$-$z$ 切面， 可见电子向下偏移， 电场向上为正， 所以本征能量变小 $-3\mathcal{E_z}$． $\ket{2+}$ 态刚好上下翻转， 本征能量变大 $3\mathcal{E_z}$．} \label{HStark_fig1}
+\end{figure}
+
+不要以为\autoref{HStark_fig1} 是施加电场的结果， $\ket{2\pm}$
+\end{example}
