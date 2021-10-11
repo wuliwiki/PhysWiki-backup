@@ -1,0 +1,53 @@
+% Baker-Hausdorff公式
+% Baker|Hausdorff|定理
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+
+Baker-Hausdorff公式是一个相当有用的公式．在数学上，它可用于给出李群-李代数对应的深层结果的相对简单的证明；在量子力学中，它可实现系统哈密顿量在薛定谔绘景和海森堡绘景的转换，并在微扰论中也有诸多应用．本节将给出该公式的一个证明和由它导出的一些重要的结果．
+
+\textbf{Baker-Hausdorff公式}是指
+\begin{equation}
+\begin{aligned}
+\E ^{A}B\E^{-A}=\sum_{n=0}^{\infty}\frac{1}{n!}A_n\\
+A_n\equiv\underbrace{[A,[A,\cdots,[A}_{n\text{个}},B]]\cdots]
+\end{aligned}
+\end{equation}
+
+\subsection{证明}
+在证明之前，先来证明下面的引理．
+\begin{lemma}{}\label{BAHA_lem1}
+\begin{equation}\label{BAHA_eq1}
+A_n\equiv\underbrace{[A,[A,\cdots,[A}_{n\text{个}},B]]=\sum_{m=0}^{n}(-1)^{n-m}C_{n}^{m}A^mBA^{n-m}
+\end{equation}
+\end{lemma}
+\textbf{证明：}我们用数学归纳法来证明．
+$A_0,A_1$显然成立：
+\begin{equation}
+\begin{aligned}
+A_0&=B=\sum_{m=0}^{0}(-1)^{0-m}C_{0}^{m}A^mBA^{0-m}\\
+A_1=&[A,B]=AB-BA=\sum_{m=0}^{1}(-1)^{1-m}C_{1}^{m}A^mBA^{1-m}
+\end{aligned}
+\end{equation}
+
+假设对 $n=k-1$ 时\autoref{BAHA_eq1} 成立，则
+\begin{equation}
+\begin{aligned}
+A_k&=[A,A_{k-1}]=AA_{k-1}-A_{k-1}A\\
+&=A\sum_{m=0}^{k-1}(-1)^{k-1-m}C_{k-1}^{m}A^mBA^{k-1-m}-\qty(\sum_{m=0}^{k-1}(-1)^{k-1-m}C_{k-1}^{m}A^mBA^{k-1-m})A\\
+&=\sum_{m=0}^{k-1}(-1)^{k-1-m}C_{k-1}^{m}A^{m+1}BA^{k-1-m}-\sum_{m=0}^{k-1}(-1)^{k-1-m}C_{k-1}^{m}A^mBA^{k-m}\\
+&=A^{k}B+\sum_{m=0}^{k-2}(-1)^{k-1-m}\qty(C_{k-1}^{m}+C_{k-1}^{m+1})A^{m+1}BA^{k-1-m}-(-1)^{k-1}BA^k\\
+&=A^{k}B+\sum_{m=0}^{k-2}(-1)^{k-1-m}C_{k}^{m+1}A^{m+1}BA^{k-1-m}-(-1)^{k-1}BA^k\\
+&=A^{k}B+\sum_{m=1}^{k-1}(-1)^{k-m}C_{k}^{m}A^{m}BA^{k-m}+(-1)^{k}BA^k\\
+&=\sum_{m=0}^{k}(-1)^{k-m}C_{k}^{m}A^{m}BA^{k-m}
+\end{aligned}
+\end{equation}
+
+由数学归纳法原理，引理得证．现在，我们利用\autoref{BAHA_lem1} 来证明Baker-Hausdorff公式．
+\subsubsection{Baker-Hausdorff公式的证明}
+由\autoref{BAHA_lem1} 
+\begin{equation}
+[\E^A,B]=
+\end{equation}
