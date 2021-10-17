@@ -1,6 +1,6 @@
 % list all entries edited by each author
 % data columns: author, entry, hours
-function author_entry
+function data = author_entry
 clc
 cd(mfilepath);
 % for each author and entry, max # of backup files to omit
