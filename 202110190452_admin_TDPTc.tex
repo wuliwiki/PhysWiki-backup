@@ -1,0 +1,30 @@
+% 含时微扰理论
+
+\pentry{1}
+
+一般波函数表示为束缚态的求和以及连续态的积分
+\begin{equation}
+\ket{\Psi(t)} = \sum_n c_n(t)\ket{n}\E^{-\I\omega_n} + \int c_{\bvec k}(t)\ket{\bvec k}\E^{-\I k^2 t/2} \dd[3]{k}
+\end{equation}
+其中 $\ket{n}$， $\ket{\bvec k}$ 一起构成一组正交归一基． 为了书写方便我们把上式记为
+\begin{equation}
+\ket{\Psi(t)} = \sumint_\alpha c_\alpha(t) \ket{\alpha(t)} = \sumint_\alpha c_\alpha(t) \ket{\alpha}\E^{-\I\omega_\alpha t} 
+\end{equation}
+$\alpha$ 既包括离散的部分又包括连续的部分， $\sumint$ 对离散的项求和， 对连续的项积分．
+
+无误差的薛定谔方程（\autoref{TDPT_eq11}~\upref{TDPT}） 变为
+\begin{equation}
+\sumint_\alpha c_\alpha(t) H'(t) \ket{\alpha(t)} = \I \hbar \sumint_\alpha \dot c_\alpha(t) \ket{\alpha(t)}
+\end{equation}
+投影后（\autoref{TDPT_eq2}~\upref{TDPT}） 变为
+\begin{equation}
+\sumint_\alpha c_\alpha(t) \mel{\alpha'}{H'(t)}{\alpha} \E^{\I \omega_{\alpha',\alpha} t} = \I \hbar \dot c_{\alpha'} (t)
+\end{equation}
+各阶分离后（\autoref{TDPT_eq6}~\upref{TDPT}）变为
+\begin{equation}
+\dot c_{\alpha'}^{(n)} = \frac{1}{\I\hbar} \sumint_\alpha \mel{\alpha'}{H'(t)}{\alpha} \E^{\I \omega_{\alpha',\alpha} t} c_{\alpha}^{(n-1)} 
+\end{equation}
+令 $H'(t) = W f(t)$， $\mathcal F[f(t)] = \tilde f(\omega)$， 简单的一阶微扰为
+\begin{equation}
+\dot c_{\alpha'}^{(1)} = \frac{1}{\I\hbar} \mel{\alpha'}{H'(t)}{\alpha} 
+\end{equation}
