@@ -1,0 +1,50 @@
+% gongshi
+
+\section{Problem 2}
+\subsection{A}
+Prooving Mercer's Theorem.\\
+For any valid kernel we have that the function has a feature map $\phi$.
+So kernel matrix K is equal to $\phi\big( \overrightarrow{x_i}\big) \cdot \phi\big( \overrightarrow{x_j}\big)$.
+In order to be a $n\times n$ array the $\phi\big( \overrightarrow{x_i}\big)$ will be a column vector.
+So K=$V^TV$. From the tranverse matrix definition we know that if $V$ has real values then $V^TV$ is 
+PSD. As $V$ has real values and also all $c \in \mathbb{R}^n$ then $c^TKc \geq 0$.
+
+\begin{enumerate}[label=\alph*]
+\item ) $k_1$ has a feature map $\Phi_1$ and an inner product $\langle\rangle H_{k_1}$.\\
+So $ak_1(x,\widetilde{x}) = \langle \sqrt{a}\Phi_1{x}, \sqrt{a}\Phi_1{\widetilde{x}} \rangle H_{k_1}$. \\
+The same can be done for $bk_2(x,\widetilde{x})$.\\
+We have at the end 
+$\langle \sqrt{a}\Phi_1{x}, \sqrt{a}\Phi_1{\widetilde{x}} \rangle H_{k_1} + \langle \sqrt{b}\Phi_2{x}, \sqrt{b}\Phi_2{\widetilde{x}} \rangle H_{k_2}$\\
+$= \langle [\sqrt{a}\Phi_1{x},\sqrt{b}\Phi_2{x}], [\sqrt{a}\Phi_1{\widetilde{x}},\sqrt{b}\Phi_2{\widetilde{x}}] \rangle$
+Where this on its own is a inner product of a new kernel.
+\item ) As the already valid kernels are equal to their respective feature functions.
+$k_1(x,\widetilde{x}) = a(x)^T*a(\widetilde{x})\\
+k_2(x,\widetilde{x}) = b(x)^T*b(\widetilde{x})$
+As this 2 functions have n,m size as arrays respectively the whole system can be written as
+\begin{align*}
+k(x,\widetilde{x}) &= k_1(x,\widetilde{x})*k_2(x,\widetilde{x})\\
+		   &= a(x)^T*a1(\widetilde{x}) * b(x)^T*b(\widetilde{x})\\
+		   &= \Big( \sum_{i=1}^{n} a_i(x)*a_i(\widetilde{x} \Big)*\Big( \sum_{j=1}^{m} b_j(x)*b_j(\widetilde{x} \Big)\\
+		   &= \sum_{i=1}^{n}\sum_{j=1}^{m}[a_i(x)*b_j(x)] * [a_i(\widetilde{x})*b_j(\widetilde{x})]\\
+		   &= \sum_{i=1}^{n}\sum_{j=1}^{m} c_{i_j}(x)*c_{i_j}(\widetilde{x})\\
+		   &= c(x)^T*c(\widetilde{x})\\
+\end{align*}
+So the product can also be represented by its feature function. It is a valid kernel
+\item ) This proof comes form the a),b). As the polynomial will be something like $ax^n+b^{n-1}+....+c$.\\
+From a) we know that $ax+bx$ is a valid kernel. Also the kernel that are in power $(n,n-1)$ are also valid kernels
+because of b). Therefore all the summations are producing a valid kernel.
+\item ) As c) is creating a valid kernel basically this follows is as exp is a function with positive coefficient.\\
+Moreover $exp(x) = \lim_{i \to \infty} \big( 1+x+ \ldots + \frac{x^i}{i!} \big)$.\\
+So d) is a valid kernel.
+\end{enumerate}
+\subsection{B}
+This function is an RBF function with $\sigma = 1$
+So the expansion of our formula is 
+\begin{align*}
+exp\Big( -\frac{1}{2} \lVert{x}\rVert^2\Big) * exp\Big( -\frac{1}{2} \lVert{y}\rVert^2\Big) * \sum_{i=0}^{\infty} \frac{(xy)^i}{i} &= \\
+exp\Big( -\frac{1}{2} \lVert{x}\rVert^2\Big) * exp\Big( -\frac{1}{2} \lVert{y}\rVert^2\Big) * (1 + \frac{x*y}{1!} + \frac{{x*y}^2}{2!}) + \ldots) &= \\
+exp\Big( -\frac{1}{2} \lVert{x}\rVert^2\Big) * exp\Big( -\frac{1}{2} \lVert{y}\rVert^2\Big) * (1*1 + \frac{x}{\sqrt{1!}}* \frac{y}{\sqrt{1!}} +  \frac{x^2}{\sqrt{2!}}* \frac{y^2}{\sqrt{2!}} + \ldots) &= \\
+\phi(x) * \phi(y)\\
+\end{align*}
+
+where $\phi(x) = \Big[ 1,\frac{x}{\sqrt{1!}},\frac{x^2}{\sqrt{2!}}, \ldots \Big]$
