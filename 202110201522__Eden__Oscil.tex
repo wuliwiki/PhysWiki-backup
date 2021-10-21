@@ -1,0 +1,57 @@
+% 小振动
+% 小振动
+
+\pentry{拉格朗日方程\upref{Lagrng}}
+
+\subsection{一维振动}
+一维谐振子的拉格朗日量为
+\begin{equation}
+L=\frac{1}{2}m\cdot{x}^2-\frac{1}{2}kx^2
+\end{equation}
+其运动方程为 $m\ddot {x}+kx=0$，或写作 $\ddot{x}+\omega^2 x=0$，其中 $\omega=\sqrt{k/m}$ 为该系统的固有频率．
+
+受迫振动的拉格朗日量为 
+\begin{equation}
+L=\frac{1}{2}m\dot{x}^2-\frac{1}{2}kx^2+xF(t)
+\end{equation}
+其运动方程为$m\ddot{x}+kx=F(t)$，或写作 $\ddot{x}+\omega^2 x=\frac{F(t)}{m}$．
+当 $F(t)=f\cos(\gamma t+\beta)$ 时，解为（齐次方程的通解+特解）
+\begin{equation}
+x(t)=a\cos(\omega t+\alpha)+\frac{f\cos(\gamma t+\beta)}{m(\omega^2-\gamma^2)}
+\end{equation}
+特别地，当 $\omega=\gamma$，上式不再成立，解为
+\begin{equation}
+x(t)=a \cos(\omega t+\alpha)+\frac{ft \sin(\omega t+\beta)}{2m\omega}
+\end{equation}
+特解部分的振幅随时间线性增长．这就是共振现象．在实际力学系统中会有阻尼，则有新的运动方程．
+
+\subsection{小振动体系的运动方程}
+考虑 $n$ 个质点组成的\textbf{理想、完整、稳定}约束力学体系，主动力都是\textbf{保守力}．系统的广义坐标数与自由度数相同：$s=d$．取 $s$ 个广义坐标 $q_1,\cdots,q_s$，设坐标的变换方程为
+\begin{equation}
+x_i = x_i(\bvec q),\ \ \  i=1,2,\cdots,3n
+\end{equation}
+
+设整个体系在某个\textbf{平衡位置}附近运动，并取这个平衡位置为广义坐标的零点：$\bvec q=\bvec 0$（当然，平衡位置不取为零点也可以计算分析）．
+
+由于主动力是保守力，可以用势能 $V(\bvec q)$ 描述．在平衡位置处对 $V(\bvec q)$ 作泰勒展开：
+
+\begin{equation}
+V(\bvec q)\approx V(0)+\left[\frac{\partial V}{\partial q_\alpha}\right]_\bvec {q=0} q_\alpha+\frac{1}{2}\left[\frac{\partial^2V}{\partial q_\alpha\partial q_\beta}\right]_\bvec{q=0}q_\alpha q_\beta+\cdots
+\end{equation}
+
+当体系处于平衡时，由虚功原理，$Q_\alpha=-\frac{\partial V}{\partial q_\alpha}=0$,所以 $V(\bvec q)$ 可以只保留到二阶项：
+\begin{equation}
+V(\bvec q)=\frac{1}{2}V_{\alpha\beta}q_\alpha q_\beta
+\end{equation}
+其中 $[V]_{\alpha\beta}$ 是对称矩阵．体系的动能 $T=\frac{1}{2}m_i\dot{x}_i^2=\frac{1}{2}m_i((\partial \dot{x_i} / \partial \dot{q}_\alpha) \dot{q}_\alpha)^2= \frac{1}{2}m_i((\partial x_i/\partial q_\alpha)\dot{q}_\alpha)^2$．由于系统在平衡位置附近，我们可以设常数矩阵 $T_{\alpha,\beta}=\left.m_i(\partial x_i/\partial q_\alpha)(\partial x_i/\partial q_\beta)\right|_{\bvec q=\bvec 0}$，所以有体系的动能 $T=\frac{1}{2}T_{\alpha\beta} \dot{q}_\alpha \dot{q}_\beta$．其中 $[T]_{\alpha\beta}$ 为对称矩阵，且正定（无论怎样取 $\dot{q}_\alpha$，$T_{\alpha\beta} \dot{q}_\alpha \dot{q}_\beta$ 的值都 $\ge0$）．
+
+因此体系\textbf{在平衡位置附近}的拉格朗日量为
+\begin{equation}
+L\approx\frac{1}{2}T_{\alpha\beta}\dot{q}_\alpha \dot{q}_\beta-\frac{1}{2}V_{\alpha\beta}q_\alpha q_\beta
+\end{equation}
+于是拉格朗日方程是关于 $s$ 个广义坐标的二阶齐次线性微分方程组
+\begin{equation}
+T_{\alpha\beta}\ddot{q}_\beta+V_{\alpha\beta}q_\beta=0
+\end{equation}
+
+未完成
