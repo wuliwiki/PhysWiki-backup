@@ -1,0 +1,30 @@
+% 态函数
+% 态函数|状态量|内能|熵
+\pentry{热力学第一定律\upref{Th1Law}}
+
+\subsection{内能和态函数}
+如果某个函数只和系统的热力学参量有关，也就是只和系统状态有关，我们称它为\textbf{态函数}．热力学研究的就是热力学系统的态函数之间的关系．
+
+我们可以用几个宏观的热力学参量\footnote{例如体积，温度，压强等等}来完整地刻画一个热力学平衡系统．例如，对于一个无外场的孤立气体系统\footnote{我们考虑在重力场下的大气，情况肯定会有所不同，压强会随高度的变化而变化}，压强 $P$ 和温度 $T$ 足以刻画这个气体系统的一切宏观特征．对于理想气体，有状态方程\upref{PVnRT} $PV=nRT$，压强 $P$ 和温度 $T$ 足以描绘整个理想气体系统（对任意均匀的单元系统也有类似的结论）．因此可以写出 $E$ 的全微分形式：
+\begin{equation}
+\dd E=\left(\frac{\partial E}{\partial T}\right)_p \dd T + \left(\frac{\partial E}{\partial P}\right)_T \dd P
+\end{equation}
+
+如果将 $E$ 看成是熵 $S$ \upref{Entrop} 和体积 $V$ 的函数，则可以写成
+\begin{equation}
+\dd E=T\dd S-P\dd V
+\end{equation}
+
+这里 $S=\left(\frac{\partial E}{\partial T}\right)_V$，除此以外熵还有统计物理的定义．如果这个全微分刚好对应系统的一个可逆过程，那么我们可以看出 $\delta W$ 就是 $P\dd V$，由热力学第一定律，就有 $\delta Q=T\dd S$，这给出了熵的另一个定义——对于可逆过程 $\delta Q/T$ 的积分．
+
+由热力学第二定律\upref{Td2Law}，对于不可逆的热力学过程，有 $\delta Q<T\dd S$．所以代入第一定律可以得到 $T\dd S\ge \dd E+\delta W=\dd E+P\dd V$，等号在可逆过程中成立．
+
+
+
+
+
+虽然 $\delta W$ 是过程量，但 $\delta W/P=\dd V$ 是全微分（$V$ 是态函数）．$\delta Q/T=\dd S$ 也是全微分，其中 $S$ 为热力学熵\upref{Entrop}．
+
+
+
+\addTODO{需要加一个范德瓦尔斯气体的词条，作为经典例子}

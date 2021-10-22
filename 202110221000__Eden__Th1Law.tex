@@ -1,0 +1,33 @@
+% 热力学第一定律
+% 热力学第一定律|能量守恒|做功|传热|内能
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{压力体积图\upref{PVgraf}， 理想气体内能\upref{IdgEng}}
+
+\textbf{热力学第一定律}是\textbf{能量守恒}在热力学中的形式． \textbf{热量}是指当热学系统出现温度差时引起的能量转移． 热力学第一定律表明， 外部对系统传递的热量 $Q$ 等于系统对外做功 $W$ 加上系统的\textbf{内能} $E$ 增加：
+\begin{equation}\label{Th1Law_eq1}
+\Delta Q = W + \Delta E
+\end{equation}
+系统的内能有时也用 $U$ 表示． 热力学第一定律的另一种表述是：\textbf{第一类永动机}是不可能造成的．
+\addTODO{什么是第一类永动机？链接到永动机词条}
+
+虽然功和热都是能量的转移， 但热是通过微观粒子的无规则相互作用传递的， 而功\upref{Fwork}在热力学中特指宏观的作用力和宏观位移产生的． 对于容器中的气体， 把系统的压强记为 $P$， 体积记为 $V$， 对外做功可以写成积分形式：
+\begin{equation}
+W = \int_{V_1}^{V_2} P \dd{V}
+\end{equation}
+热力学第一定律写成微分形式是
+\begin{equation}\label{Th1Law_eq2}
+\dd Q = \dd W + \dd E = P\dd V + \dd E
+\end{equation}
+注意 $Q$ 和 $W$ 和系统变化的过程本身有关： 也就是说即使系统的初末状态确定， 中间的过程不一样也会导致它们的不同． 这样的量被称为\textbf{过程量}\upref{StaPro}． $E$ 前面用的是全微分符号，是因为内能 $E$ 之和系统的状态有关， 被称为\textbf{状态量}\upref{StaPro}． 所以 $\Delta E$ 也只与系统的初始和最终的状态有关， 与中间的过程无关．
+
+\addTODO{写一些理想气体的例题， 例如 PV 图种， 计算两点间延着不同轨迹的热量}
+
+
+对理想气体\upref{Igas}， 令分子自由度为 $i$， 有
+\begin{equation}
+E = \frac{i}{2}n RT
+\end{equation}
