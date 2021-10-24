@@ -1,0 +1,143 @@
+% WKB 近似
+
+\begin{issues}
+\issueDraft
+\end{issues}
+在某些定态问题中，WKB近似方法可以比较容易地求解薛定谔方程．该方法基于将波函数按 $\hbar$ 作幂级数展开，就其本身而言，有两个基本问题：1．在远离转折点处的近似解；2．在转折点处的连接条件．并通过这两个问题求解薛定谔方程．
+
+经典区域
+\begin{equation}
+\psi(x) \approx \frac{C}{\sqrt{p(x)}} \exp(\pm \I \int p(x) \dd{x})
+\end{equation}
+
+隧道区域
+\begin{equation}
+\psi(x) \approx \frac{C}{\sqrt{\abs{p(x)}}} \exp(\pm \int p(x) \dd{x})
+\end{equation}
+
+在二者的转折点， 假设势能为线性函数， 其解是艾里函数 $\opn{Ai}$， 详见 “线性势能的定态薛定谔方程\upref{LinPot}”．
+
+从经典到非经典区域
+\begin{equation}
+\psi(x) = \leftgroup{
+&\frac{B}{\sqrt{p(x)}} \exp(\I \int_{-x}^{x_0} p(x')\dd{x'}) + \frac{C}{\sqrt{p(x)}} \exp(-\I \int_{-x}^{x_0} p(x')\dd{x'}) \qquad &(x < x_0)\\
+&\frac{D}{\sqrt{\abs{p(x)}}} \exp(-\int_{x_0}^x \abs{p(x')} \dd{x'})  \qquad &(x > x_0)
+}\end{equation}
+衔接以后
+\begin{equation}
+\psi(x) = \leftgroup{
+&\frac{2D}{\sqrt{p(x)}} \sin(\int_{x}^{x_0} p(x')\dd{x'} + \frac{\pi}{4}) \quad &(x < x_0)\\
+&\frac{D}{\sqrt{\abs{p(x)}}} \exp(-\int_{x_0}^x \abs{p(x')} \dd{x'}) \quad &(x > x_0)
+}\end{equation}
+\subsection{证明}
+\subsubsection{WKB近似解}
+薛定谔方程
+\begin{equation}\label{WKB_eq2}
+\I\hbar\pdv{\psi}{t}=-\frac{\hbar^2}{2m}\Delta\psi+V(\bvec{r})\psi
+\end{equation}
+的解一般总能写成如下形式
+\begin{equation}\label{WKB_eq1}
+\psi(\bvec r,t)=A\E^{\I W(\bvec r,t)/\hbar}
+\end{equation}
+\autoref{WKB_eq1} 代入\autoref{WKB_eq2} 得到 $W$ 满足的方程
+\begin{equation}\label{WKB_eq3}
+\pdv{W}{t}+\frac{1}{2m}(\nabla W)^2+V-\frac{\I\hbar}{2m}\Delta W=0
+\end{equation}
+在经典极限($\hbar\rightarrow 0$)下，\autoref{WKB_eq3} 等同 $W$ (称为主函数)的哈密顿方程
+\begin{equation}
+\pdv{W}{t}+\frac{1}{2m}(\nabla W)^2+V=0
+\end{equation}
+如果 $\psi$ 是能量本征函数 $u(\bvec E)\E^{-\I Et/\hbar}$，则 $W$ 可写成
+\begin{equation}
+W(\bvec r,t)=S(\bvec r)-Et
+\end{equation}
+在这种情况下，我们有
+\begin{equation}
+u(\bvec r)=A\E^{\I S(\bvec r)}
+\end{equation}
+且
+\begin{equation}
+\frac{1}{2m}(\nabla S)^2-\qty[E-V(\bvec r)]-\frac{\I\hbar}{2m}\Delta S=0
+\end{equation}
+
+在一维情况下，WKB 方法得到 $S$ 的按 $\hbar$ 幂展开式的头两项可以清楚的给出．下面以一维定态为例．
+
+一维薛定谔方程可写为
+\begin{equation}\label{WKB_eq4}
+\begin{aligned}
+&\dv[2]{u}{x}+\qty[k(x)]^2u=0\\
+&k(x)\equiv\left\{\begin{aligned}
+&\qty[\frac{2m}{\hbar^2}\qty(E-V(x))]^{1/2},\quad \text{when}\; E>V(x)\\
+&-\I\kappa(x)\equiv-\I\qty[\frac{2m}{\hbar^2}(V(x)-E)]^{1/2},\quad \text{when}\; E<V(x)
+\end{aligned}\right.
+\end{aligned}
+\end{equation}
+
+我们寻求\autoref{WKB_eq4} 如下形式的解
+\begin{equation}\label{WKB_eq10}
+u(x)=A\E^{\I S(x)/\hbar}
+\end{equation}
+将上式代入\autoref{WKB_eq4} ，得
+\begin{equation}\label{WKB_eq6}
+\I\hbar S''-S'^2+\hbar^2\qty[k(x)]^2=0
+\end{equation}
+其中，撇号表示对 $x$ 求导．将 $S(x)$ 按 $\hbar$ 之幂作级数展开
+\begin{equation}\label{WKB_eq5}
+S(x)=\sum_{n=0}\hbar^nS_n(x)
+\end{equation}
+\autoref{WKB_eq5} 代入\autoref{WKB_eq6} 得
+\begin{equation}
+\sum_{n=0}\qty(\I S_n''-\sum_{i=0}^{n+1}S_{n+1-i}'S_i')\hbar^{n+1}+\hbar^2\qty[k(x)]^2-S_0'^2=0
+\end{equation}
+按幂次将上式分解为多个全微分方程
+\begin{equation}
+\begin{aligned}
+-S_0'^2+\hbar^2\qty[k(x)]^2&=0\\
+\hbar\qty(\I S_0''-2S_0'S_1')&=0\\
+\cdots
+\end{aligned}
+\end{equation}
+为求出一级近似解，通过比较系数，给出头两个方程
+\begin{equation}\label{WKB_eq7}
+\begin{aligned}
+-S_0'^2+\hbar^2k^2=0;\\
+\I S_0''-2S_0'S_1'=0
+\end{aligned}
+\end{equation}
+容易求得\autoref{WKB_eq7} 第一式的解为
+\begin{equation}\label{WKB_eq8}
+S_0(x)=\pm\hbar\int^x k(y)dy
+\end{equation}
+利用上式和\autoref{WKB_eq7} 第一式可得\autoref{WKB_eq7} 第二式的解
+\begin{equation}\label{WKB_eq9}
+S_1(x)=\frac{\I}{2}\ln k(x)
+\end{equation}
+\autoref{WKB_eq8} 和\autoref{WKB_eq9} 已经将任意常数略去了．将 $S_0$ 和 $S_1$ 的结果代入\autoref{WKB_eq10} ，可得 $u(x)$ 的一级近似解
+\begin{equation}\label{WKB_eq11}
+u(x)=A\E^{\I(S_0+\hbar S_1)/\hbar}=\frac{A}{\sqrt{k}} \E^{\pm\I\int^x k(y)dy}
+\end{equation}
+\subsubsection{解的渐进性质}
+欲使\autoref{WKB_eq11} 的解成立，显然必须要求展开式\autoref{WKB_eq5} 是合理的．为了保证一级近似解适用，应该要求
+\begin{equation}\label{WKB_eq13}
+\abs{\frac{\hbar(\I S_0''-2S_0'S_1')}{-S_0'^2+\hbar^2k^2}}<<1
+\end{equation}
+由\autoref{WKB_eq8} 和\autoref{WKB_eq9} 
+\begin{equation}\label{WKB_eq12}
+S_0'=\pm\hbar k,\quad S_0''=\pm\hbar k',\quad S_1'=\frac{\I k'}{2k}
+\end{equation}
+\autoref{WKB_eq12} 代入\autoref{WKB_eq13} ，得
+\begin{equation}
+\abs{\frac{k'}{k^2}}<<1
+\end{equation}
+引入波长 $\lambda=\frac{2\pi}{\abs{k}}$ ，则
+\begin{equation}\label{WKB_eq14}
+\frac{\lambda}{2\pi}\abs{\frac{k'}{k}}<<1
+\end{equation}
+将\autoref{WKB_eq4} 代入\autoref{WKB_eq14} 
+\begin{equation}\label{WKB_eq15}
+\frac{\lambda}{2\pi}\abs{\frac{\dv{V}{x}}{2(E-V)}}<<1
+\end{equation}
+\autoref{WKB_eq14} 表明，在可以和 $\lambda$ 相比的小距离中，“动量”的相对变化 $k'/k$ 要十分小．为保证这一点，只要 $V(x)$ 随 $x$ 变化得十分缓慢，而粒子的“动能” $(E-V)$ 又很大，使得 $\dv{V}{x}$ 与 “动能”相比要小得多，则\autoref{WKB_eq14} 和\autoref{WKB_eq15} 才成立．这表明，WKB近似方法的适用有着它的适用范围．
+
+以上的讨论完全适用于中心力场的径向方程，因为z
+\addTODO{Griffiths 例题 Potential well with one vertical wall.}
