@@ -1,0 +1,48 @@
+% 洛朗级数
+% 复变函数|留数|residue|全纯函数|级数
+
+\pentry{全纯函数，柯西积分定理\upref{CauGou}}
+
+如果一个单复变函数处处解析，那它处处都可以展开成泰勒级数的形式．但我们常遇到的很多函数并不是处处解析的，从而在非解析点处无法泰勒展开．但是我们依然有一种类似级数的办法来展开其中一些函数，这就是\textbf{洛朗级数}．
+
+\begin{definition}{洛朗级数}
+形如
+\begin{equation}
+f(z)=\sum\limits_{n=-\infty}^{\infty} a_n(z-c)^n
+\end{equation}
+的单复变函数，被称为一个关于点$c\in\mathbb{C}$的\textbf{洛朗级数（Laurent series）}，其中$a_n$都是常数．
+
+
+\end{definition}
+
+容易看到，洛朗级数就是将泰勒级数的幂次拓展到了负的情况．在$z\neq c$的点处，$f(z)$可以看成两个级数$\sum\limits_{n=0}^{\infty} a_n(z-c)^n$和$\sum\limits_{n=1}^{\infty} a_{-n}\qty(\frac{1}{z-c})^n$的和；在$z=c$处则是发散的．
+
+最简单的一个非泰勒级数的洛朗级数例子，大概就是$f(z)=1/z$．
+
+\begin{example}{}
+考虑$f(z)=1/z$的围道积分．
+
+令积分路径为$\Gamma(t)=\rho\E^{\I t}$，其中$\rho$是一个常数．$\Gamma$就是一个半径为$\rho$的逆时针路径．$f$沿$\Gamma$的围道积分就是：
+\begin{equation}
+\begin{aligned}
+\int_{\Gamma}\frac{1}{z}\dd z&=\int^{2\pi}_0\frac{1}{\rho\E^{\I t}}\cdot\frac{\dd\rho\E^{\I t}}{\dd t}\dd t
+\end{aligned}
+\end{equation}
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

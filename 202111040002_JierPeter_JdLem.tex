@@ -1,0 +1,42 @@
+% Jordan 引理
+% 复变函数|围道积分|约尔当引理|若尔当引理|若当引理|Jordan's lemma
+
+\pentry{留数定理\upref{ResThe}}
+
+Jordan 引理可以结合\textbf{留数定理}\upref{ResThe}，利用围道积分来处理一些复杂的实函数定积分．
+
+\begin{theorem}{Jordan 引理}
+如果$g(z)$是一个连续的\footnote{更一般地，只要要求存在一个半径$r$，使得$g$在“复平面的上半平面”和“以$r$为半径的圆弧之外的区域”的交集里连续，即可．}函数，且总有$\lim\limits_{\abs{z}\to\infty}g(z)=0$，那么对于任何正实数$a$就有
+\begin{equation}
+\lim\limits_{R\to \infty}\int_{C(R)}g(z)\E^{az\I}\dd z=0
+\end{equation}
+其中$C(R)$是半径为$R$的半圆弧路径，圆心为原点，坐落于复平面上半平面，路径方向顺逆时针都一样．
+
+
+\end{theorem}
+
+\textbf{证明}：
+
+$C(R)$上从$\theta_1$到$\theta_2$的一段圆弧上的积分为：
+
+\begin{equation}
+\int_{\theta_1}^{\theta_2}g(z)\E^{az\I}\frac{\dd R\E^{\theta\I}}{\dd \theta}\dd\theta
+\end{equation}
+
+考虑复变函数的柯西不等式：
+
+\textbf{证毕}．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
