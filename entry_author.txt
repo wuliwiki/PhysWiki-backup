@@ -16,6 +16,7 @@ Abstra  0.33  addis
 AccGau  1.58  addis         
 AccTra  2.83  addis         
 Adiab   0.92  addis         
+Adiab   0.67  _Eden_        
 Adibat  0.33  addis         
 AiryF   3.5   addis         
 AiryF   1.67  切糕糕           
@@ -89,6 +90,7 @@ Boost   2.17  addis
 Boost   0.5   小时            
 BornSc  0.33  addis         
 Brachi  3.67  addis         
+Brachi  0.17  零穹            
 BscAlg  0.5   JierPeter     
 BscAlg  0.17  addis         
 Bubble  0.17  addis         
@@ -130,7 +132,7 @@ CapRea  0.42  addis
 CardiN  0.42  JierPeter     
 Carnot  0.83  FFjet         
 Carnot  0.58  addis         
-Carnot  0.17  _Eden_        
+Carnot  0.42  _Eden_        
 Cat     0.42  vitalyr       
 Cat     0.17  addis         
 CatTns  0.42  JierPeter     
@@ -336,13 +338,14 @@ EnerVi  0.58  FFjet
 EngNor  5.5   addis         
 Entrop  1.42  FFjet         
 Entrop  0.83  addis         
-Entrop  0.58  _Eden_        
+Entrop  0.83  _Eden_        
 EnvSol  0.92  JierPeter     
 EqEng   0.25  addis         
 EqMoKp  0.92  addis         
 EqPre   0.75  FFjet         
 EqPre   0.33  addis         
 EqTemp  0.42  FFjet         
+EqTemp  0.17  _Eden_        
 EqVol   0.58  FFjet         
 Erf     0.25  addis         
 EsstCr  0.5   JierPeter     
@@ -562,6 +565,7 @@ IdNCE   1.33  addis
 IdPar   10.42 addis         
 IdParS  0.17  addis         
 IdSDp   1.08  addis         
+IdSDp   0.92  _Eden_        
 IdeaS   0.5   FFjet         
 IdeaS   0.17  addis         
 IdeaS   0.17  _Eden_        
@@ -597,7 +601,7 @@ JConst  0.33  addis
 JacCon  0.33  addis         
 JcbDet  0.17  addis         
 JcbDet  0.17  JierPeter     
-JdLem   3.92  JierPeter     
+JdLem   4.17  JierPeter     
 JierGT  0.17  addis         
 JuFunc  0.17  addis         
 JuType  1.92  addis         
@@ -683,11 +687,12 @@ LoGaug  0.5   JierPeter
 Lorenz  0.33  addis         
 LornzT  3.33  addis         
 LornzT  0.5   JierPeter     
-LrzAct  1.08  shizy0808     
+LrzAct  1.25  shizy0808     
 LrzAct  0.25  admin         
 LstSqr  2.58  addis         
 LumiMe  0.17  FFjet         
 MBisec  0.17  addis         
+MBsta   1.58  _Eden_        
 MIfFor  0.17  addis         
 MIthm   0.17  addis         
 MM      0.75  xuke0422      
@@ -743,6 +748,7 @@ Metri2  2.75  addis
 Metric  4     addis         
 MinSpa  0.67  JierPeter     
 Mma     9.58  addis         
+Mma     2.25  admin         
 MnfAlg  1     JierPeter     
 MoMaMo  0.25  FFjet         
 MoMaMo  0.17  addis         
@@ -811,6 +817,8 @@ ODEb3   1.5   JierPeter
 ODEb4   1.75  JierPeter     
 ODEint  0.5   JierPeter     
 ODEsys  0.67  addis         
+OFS     3.5   零穹            
+OFS     0.17  admin         
 ObSys   1.17  JierPeter     
 Ode2    0.17  addis         
 Ode2N   0.17  addis         
@@ -868,7 +876,7 @@ Pendu3  0.33  FFjet
 Perm    0.33  JierPeter     
 PhRoc   2.08  addis         
 PhShi1  0.17  addis         
-PhSpace 1     _Eden_        
+PhSpace 1.08  _Eden_        
 PhSpace 0.25  addis         
 PhoGas  0.5   addis         
 PiLin   1.83  DTSIo         
@@ -1097,6 +1105,7 @@ Snel    0.5   FFjet
 SolAng  0.17  零穹            
 SolAng  0.17  addis         
 SpcLad  3.42  addis         
+SpcLad  0.17  admin         
 SpeMat  1.58  DTSIo         
 SpePrj  1.25  DTSIo         
 SpePrj  0.25  addis         
@@ -1177,7 +1186,7 @@ TestT   0.17  addis
 Th1Law  1.5   _Eden_        
 Th1Law  0.83  admin         
 Th1Law  0.5   addis         
-ThCapa  2.5   _Eden_        
+ThCapa  2.58  _Eden_        
 ThCapa  1.25  addis         
 TherEq  1.25  _Eden_        
 ThreeJ  0.5   addis         
@@ -1210,7 +1219,7 @@ Torque  1.08  addis
 TotDer  0.33  addis         
 TrLgdr  0.92  JierPeter     
 TrLgdr  0.58  addis         
-TrTnsr  2.25  JierPeter     
+TrTnsr  2.58  JierPeter     
 TrTnsr  0.17  addis         
 Traglt  0.92  JierPeter     
 TransM  1     JierPeter     
@@ -1219,6 +1228,7 @@ Tri2St  1.25  coppersoulfate
 Tri2St  0.5   addis         
 TriCro  0.42  addis         
 TriEqv  0.67  addis         
+TriInt  0.17  admin         
 TriLim  0.33  addis         
 TriVM   0.42  addis         
 TrigH   0.42  addis         
@@ -1332,6 +1342,7 @@ asd     0.17  addis
 asdad   0.17  张耀中           
 asdf    0.17  addis         
 atmDen  1.25  addis         
+atmDen  0.33  _Eden_        
 atpNt   0.17  addis         
 axioms  0.33  addis         
 axioms  0.17  JierPeter     
@@ -1395,7 +1406,7 @@ elecdy  0.92  水铭
 elecdy  0.17  addis         
 encode  2.75  addis         
 eq      0.17  addis         
-equcri  0.92  _Eden_        
+equcri  1.42  _Eden_        
 factor  0.33  addis         
 field   0.75  JierPeter     
 field   0.58  addis         
@@ -1411,7 +1422,7 @@ gdbcpp  1.83  addis
 geodes  1.33  JierPeter     
 geodes  0.17  addis         
 heatc   3.33  _Eden_        
-hhh     2.42  shiyue        
+hhh     2.5   shiyue        
 hhh     0.17  addis         
 hhh     0.17  Chain         
 homomo  0.58  addis         
@@ -1439,13 +1450,13 @@ latxIn  3     addis
 licens  2.42  addis         
 linDpe  0.75  addis         
 main    24.42 addis         
-main    5.83  JierPeter     
+main    5.92  JierPeter     
 main    5.33  DTSIo         
 main    1.08  zhousiyi      
 main    1.08  jingyuan      
+main    1.08  admin         
 main    1     xzllxls       
 main    0.83  _Eden_        
-main    0.75  admin         
 main    0.67  零穹            
 main    0.25  水铭            
 main    0.25  mingqiyan     
@@ -1456,6 +1467,8 @@ map     0.67  JierPeter
 matb    1.17  addis         
 math    0.17  fsf王          
 meromo  0.33  addis         
+mmaio   0.67  graviton      
+mmaio   0.33  admin         
 mn2lin  0.33  addis         
 moTDSE  2.5   addis         
 motint  0.92  addis         
@@ -1495,6 +1508,7 @@ sftens  1.17  _Eden_
 shenry  0.17  hfb25         
 shenry  0.17  addis         
 sinc    0.58  addis         
+sinc    0.17  admin         
 spacet  0.25  addis         
 spectr  4.5   zhousiyi      
 spinMt  0.92  addis         
@@ -1534,4 +1548,4 @@ xiu     0.42  stevenxiu
 xwLogo  0.58  addis         
 ynfx    1.67  零穹            
 ynfx    0.25  addis         
-zeeman  0.33  addis     
+zeeman  0.33  addis         
