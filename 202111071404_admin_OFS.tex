@@ -1,0 +1,60 @@
+% 正交函数系 2
+% 正交；函数系；贝塞尔不等式
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+若函数系 
+\begin{equation}\label{OFS_eq1}
+\qty{\varphi_n(x)}\quad(n\in \mathbb{N})
+\end{equation}
+中各函数及其平方在区间 $\qty[a,b]$ 上皆可积分，且满足
+\begin{equation}
+\int_a^b\varphi_n(x)\varphi_m(x)\dd x=
+\left\{
+    \begin{aligned}
+    &0\quad &m\neq n\\
+   &\lambda_n>0\quad &m=n
+    \end{aligned}
+\right.
+\end{equation}
+则称函数系$\qty{\varphi_n(x)}$ 为\textbf{正交函数系}．当 $\lambda_n=1(n\in\mathbb{N})$ 时，该函数系称为\textbf{正交规范系}(或\textbf{正交标准系})．显然，任意的正交函数系都可化为正交规范系 
+\begin{equation}
+\qty{\frac{\varphi_n(x)}{\sqrt{\lambda_n}}}\quad(n\in \mathbb{N})
+\end{equation}
+
+设 $f(x)$ 是任一实函数，在区间 $[a,b]$ 内是连续的，则数值
+\begin{equation}
+c_k=\frac{1}{\lambda_k}\int_a^b f(x)\varphi_k(x)\dd x\quad (k\in \mathbb{N})
+\end{equation}
+称为函数 $f(x)$ 关于函数系\autoref{OFS_eq1} 的\textbf{傅里叶系数}．由 $c_k$ 的定义，我们有等式
+\begin{equation}\label{OFS_eq2}
+\int_a^b\qty[f(x)-\sum_{k=1}^nc_k\varphi_k(x)]^2\dd x=\int_a^b\qty[f(x)]^2\dd x-\sum_{k=1}^nc_k^2\lambda_k
+\end{equation}
+
+根据\autoref{OFS_eq2} ，可得
+\begin{equation}\label{OFS_eq3}
+\sum_{k=1}^\infty c_k^2\lambda_k\leq\int_a^b\qty[f(x)]^2\dd x
+\end{equation}
+对于正交规范系, $\lambda_k=1$，此时\autoref{OFS_eq3} 便是所谓的\textbf{贝塞尔（bessel）不等式}. 
+
+若对任何在区间 $[a,b]$ 定义的连续函数 $f(x)$，\autoref{OFS_eq3} 中的等号成立，则称函数系 $\qty{\varphi_n(x)}$ 是\textbf{完整的}(或\textbf{完备的})．
+\begin{example}{三角函数系}
+试证明：在区间 $[-\pi,\pi]$ 上，三角函数系
+\begin{equation}
+\qty{\cos nx,\sin nx}\quad(n\in \mathbb{N})
+\end{equation}
+是正交函数系．
+
+\textbf{证明}：
+\begin{equation}
+\begin{aligned}
+\int_{-\pi}^{\pi}\cos nx\dd x&=\frac{\sin nx}{n}\bigg\vert_{-\pi}^{\pi}=0\quad (n\neq 0)\\
+\int_{-\pi}^{\pi}\sin nx\dd x&=-\frac{\cos nx}{n}\bigg\vert_{-\pi}^{\pi}=0
+\end{aligned}
+\end{equation}
+
+\end{example}
+
+
