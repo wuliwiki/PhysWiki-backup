@@ -1,0 +1,42 @@
+% 圆锥曲线和圆锥
+
+\pentry{椭圆的四种定义\upref{Elips3}， 抛物线的三种定义\upref{Para3}， 双曲线的三种定义\upref{Hypb3}， 平面旋转变换\upref{Rot2DT}}
+
+圆锥曲线之所以叫做圆锥曲线， 是因为它们可以由平面截取圆锥面得到， 如\autoref{ConSec_fig1}． 然而由于这涉及较为繁琐的计算， 所以初学时我们往往使用更简单的定义， 例如 “圆锥曲线的极坐标方程\upref{Cone}” 中的定义或者直接在 $x$-$y$ 直角坐标系中使用二次方程定义（见预备知识）． 以下我们来证明双圆锥被平面切出的任意曲线都是圆锥曲线．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/ConSec_1.png}
+\caption{圆锥的有限截面是一个椭圆（来自 Wikipedia）}} \label{ConSec_fig1}
+\end{figure}
+
+双圆锥面如\autoref{ConSec_fig2} 所示． 在直角坐标系 $x$-$y$-$z$ 中， 为了方便我们使用顶角（两条母线的最大夹角）为 $\pi/2$ 的圆锥
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/ConSec_2.png}
+\caption{\autoref{ConSec_eq4} 表示的双圆锥面（修改自 Wikipedia）} \label{ConSec_fig2}
+\end{figure}
+其方程为
+\begin{equation}\label{ConSec_eq4}
+z_1^2 = x_1^2 + y_1^2
+\end{equation}
+对其他顶角的圆锥， 我们只需要把 $z$ 轴缩放一下即可．
+
+
+
+我们可以再列出一个一般的平面方程与\autoref{ConSec_eq4} 联立得到方程组， 但这样解出来的椭圆将与 $x$-$y$ 平面不平行． 所以更方便的办法是先把圆锥旋转一下， 再用某个和 $x$-$y$ 平面平行的平面 $z = z_0$ 去截出椭圆． 这样就可以 关于 $y$ 轴的旋转变换\upref{Rot2DT}为\footnote{\autoref{ConSec_eq1} 和\autoref{ConSec_eq2} 事实上是一个特殊的三维旋转矩阵\upref{Rot3D}．}
+\begin{equation}\label{ConSec_eq1}
+\pmat{x_1\\z_1} = \pmat{\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta}\pmat{x\\z}
+\end{equation}
+\begin{equation}\label{ConSec_eq2}
+y_1 = y
+\end{equation}
+代入\autoref{ConSec_eq4} 得
+\begin{equation}
+(\sin\theta\cdot x + \cos\theta\cdot z)^2 = (\cos\theta\cdot x - \sin\theta\cdot z)^2 + y^2
+\end{equation}
+这相当于把圆锥关于 $y$ 轴用右手定则\upref{RHRul}旋转了 $\theta$． 化成标准形式为
+\begin{equation}
+\frac{(x - \tan2\theta \cdot z)^2}{(z/\cos2\theta)^2} + \frac{y^2}{z^2/\cos2\theta} = 1
+\end{equation}
+离心率为 $\sqrt{2}\sin\theta$， 可见 $\theta \to \pi/4$ 的极限情况下， 离心率等于 $1$， 椭圆趋近于抛物线． 当 $\theta > \pi/4$ 时， 式中 $\cos2\theta < 0$， 上式变为双曲线方程．
