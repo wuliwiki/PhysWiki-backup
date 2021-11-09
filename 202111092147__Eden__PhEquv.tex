@@ -1,0 +1,56 @@
+% 相变平衡条件
+% 相平衡|单元系|多元系
+\pentry{热动平衡判据\upref{equcri}，吉布斯自由能\upref{GibbsG}}
+%需要增加一个介绍相变的词条%
+\subsection{单元系相变平衡条件}
+单元系的意思是系统只有一种化学组分，但有多个相．例如冰水混合物是一元二相系，水与水蒸气组成的体系是一元二相系．水的三相图（$P$-$V$ 图）中，有最主要的三条线区分开三个区域——固态、液态、气态（见\autoref{PhEquv_fig1}，图片来源自维基百科\href{https://en.wikipedia.org/wiki/Triple_point}{相关页面}．）．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/PhEquv_1.png}
+\caption{水的相图}} \label{PhEquv_fig1}
+\end{figure}
+
+两相分界线处是两相共存的平衡态．对于单元复相系（多个相共存），满足力学平衡和热学平衡条件（用 $\alpha,\beta$ 表示两个相）：
+\begin{equation}\label{PhEquv_eq1}
+p^{\alpha}=p^{\beta}, 
+T^{\alpha}=T^{\beta}
+\end{equation}
+同一种化学组分的摩尔吉布斯函数是压强和体积的函数\autoref{GibbsG_eq1}~\upref{GibbsG}．所以有化学平衡条件
+\begin{equation}\label{PhEquv_eq2}
+\mu^{\alpha}=\mu^\beta
+\end{equation}
+\autoref{PhEquv_eq2} 被称为\textbf{相变平衡条件}．
+
+我们可以从\textbf{熵判据}（一个孤立系统处于平衡态，当且仅当它的熵处于极值状态，任意一个可能的微小变动（我们称为虚位移）导致的 $\delta S=0$）来更精细地分析系统的平衡条件（这帮助我们从另一个视角重新看待为什么单元多相平衡系统要满足力学平衡和热学平衡条件）．对于单元多相系中的某两相，用 $U^\alpha,V^\alpha,n^\alpha$ 表示 $\alpha$ 相的内能、体积、物质的量，对 $\beta$ 相也类似地定义 $U^\beta,V^\beta,n^\beta$．用熵判据（热动平衡判据\upref{equcri}）进行计算：
+\begin{equation}
+\begin{aligned}
+&\delta S^\alpha=\frac{\delta U^\alpha}{T^\alpha}+\frac{P^\alpha\delta V^\alpha}{T^{\alpha}}-\frac{\mu^\alpha\delta n^\alpha}{T^{\alpha}}\\
+&\delta S^\beta=\frac{\delta U^\beta}{T^\beta}+\frac{P^\beta\delta V^\beta}{T^{\beta}}-\frac{\mu^\beta\delta n^\beta}{T^{\beta}}\\
+&\delta U^\alpha+\delta U^\beta=0,\delta V^\alpha+\delta V^\beta=0,\delta n^\alpha+\delta n^\beta=0
+\end{aligned}
+\end{equation}
+
+所以 $\delta S$ 可以表示为
+\begin{equation}
+\begin{aligned}
+&\delta S=\delta S^\alpha+\delta S^\beta\\&=\delta U^\alpha\left(\frac{1}{T^\alpha}-\frac{1}{T^\beta}\right)+\delta V^\alpha\left(\frac{P^\alpha}{T^\alpha}-\frac{P^\beta}{T^\beta}\right)
+-\delta n^\alpha\left(\frac{\mu^\alpha}{T^\alpha}-\frac{\mu^\beta}{T^\beta}\right)
+\end{aligned}
+\end{equation}
+
+根据熵判据，对于任何可能的虚位移（系统可能发生的微小变动），$\delta S$ 都为 $0$．由此我们可以得到三个平衡条件：
+
+\begin{equation}
+T^\alpha=T^\beta,\ \ \ P^\alpha=P^\beta,\ \ \ \mu^\alpha=\mu^\beta
+\end{equation}
+
+由此我们得出了相变平衡条件．我们可以用这一结论来解决复相系统的各种问题，例如，若一个冰水混合物系统处于相平衡，那么在这种温度压强情况下下冰的摩尔化学势一定等于水的摩尔化学势．利用这个原理，可以推出 $p$-$T$ 图上两相平衡曲线的斜率，得到\textbf{克拉伯龙方程}\upref{Clapey}．
+
+\subsection{多元系相变平衡条件}
+
+让我们从一个例子出发来审视多元系相变问题的复杂之处．设一个开口玻璃管底端有半透膜将管中糖的水溶液与容器内的水隔开，半透膜只让水透过，不让糖透过．实验发现，糖水溶液的液面比容器内水的液面上升一个高度 $h$．
+\addTODO{画图！}
+
+这个实验事实表明半透膜上方的水压要比下方的水压大 $p-p_0=\rho g h$．这一压强差也被称为渗透压．在压强差存在的情况下，两侧水的化学势“似乎”不再相同了\footnote{事实上我们应该重新审视多元系化学势、压强、温度的定义和关系．}．之前我们得到的单元体系平衡条件很难用来分析这种情况，很难用来解释为什么半透膜的上下表面会产生一个压强差，更别提定量计算了．
+
+另一个例子是饱和蒸气压\upref{VaporP}．实验表明，水的饱和蒸气压随水温度变化而变化（处于气液相变平衡线上，它的方程可以由克拉伯龙方程\upref{Clapey}计算），在这个压强和温度下，蒸气和液体可以平衡共存．但让我们来考虑这样一个问题，如果蒸气中混入了空气，会变成什么情况呢？考虑水蒸气中混入了大量空气，水蒸气的量变的微不足道，而同时维持体系的压强不变．这时系统显然不处于相平衡．那么问题来了，混入了空气后水蒸气的化学势是否改变了\footnote{这里已经在我们的确需要审视化学势以及吉布斯函数的概念，．}？
