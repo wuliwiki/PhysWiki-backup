@@ -1,0 +1,116 @@
+% 格林函数与静电边值问题
+% 格林函数|静电学|边值问题|泊松方程
+
+\pentry{静电势的泊松方程\upref{EPoiEQ}}
+
+静电学问题中有一类非常常见的边值问题，例如已知接地导体的空腔中有电荷分布，求空腔内的电势；求带电导体在空间中产生的电场等．使用格林定理可以帮助我们高效率地计算边值问题．
+
+设真空中的电荷分布为 $\rho(\bvec r)$，则空间中的静电势满足泊松方程
+\begin{equation}\label{EleGr_eq1}
+\nabla^2 \phi = -\frac{\rho}{\epsilon_0}
+\end{equation}
+
+定义函数 $\psi(\bvec r,\bvec r')$：
+\begin{equation}
+\psi(\bvec r,\bvec r')=\frac{1}{|\bvec r-\bvec r'|}
+\end{equation}
+它则满足以下泊松方程（下式中 $\nabla'^2$ 代表以 $r'$ 为自变量的拉普拉斯算子）
+\begin{equation}\label{EleGr_eq2}
+\nabla'^2 \psi(\bvec r,\bvec r')=-4\pi\delta(\bvec r-\bvec r')
+\end{equation}
+
+\begin{theorem}{格林定理}
+设 $\phi,\psi$ 为区域 $V$ 上的标量函数，则通常有
+\begin{equation}\label{EleGr_eq3}
+\int_V (\phi \nabla^2 \psi -\psi\nabla^2\phi)\dd V=\int_{\partial V}(\phi \nabla \psi-\psi\nabla\phi)\dd {\bvec S} 
+\end{equation}
+\end{theorem}
+\textbf{证明：} 由高斯定理，$\int_V \nabla\cdot \bvec F\dd V=\int_{\partial V}\bvec F \dd {\bvec S}$，
+\begin{equation}
+\begin{aligned}
+\int_{\partial V}&(\phi\nabla\psi-\psi\nabla\phi)\dd{\bvec S}=\int_V \nabla \cdot (\phi\nabla\psi-\psi\nabla\phi)\dd V\\
+&=\int_V((\nabla\phi)\cdot(\nabla\psi)+\phi\nabla^2\psi-(\nabla\psi)\cdot(\nabla\phi)-\psi\nabla^2\phi)\dd V\\
+&=\int_V(\phi\nabla^2\psi-\psi\nabla^2\phi)\dd V
+\end{aligned}
+\end{equation}
+
+下面我们用格林定理来解决静电边值问题．下面的体积分以及面积分都是以 $r'$ 为自变量作积分．将 \autoref{EleGr_eq1} \autoref{EleGr_eq2} 中的 $\phi,\psi$ 代入 \autoref{EleGr_eq3}  中，等式左边为
+\begin{equation}
+\begin{aligned}
+&\int_V(\phi(\bvec r')\nabla'^2\psi(\bvec r,\bvec r')-\psi(\bvec r,\bvec r')\nabla'^2\phi(\bvec r'))\dd V
+\\
+&=\int_V(-\phi(\bvec r')4\pi \delta(\bvec r-\bvec r')+\psi(\bvec r,\bvec r')\frac{1}{\epsilon_0}\rho(\bvec r'))\dd V\\
+&=-4\pi\phi(\bvec r)+\frac{1}{\epsilon_0}\int_V\frac{\rho(\bvec r')}{|\bvec r-\bvec r'|}\dd V
+\end{aligned}
+\end{equation}
+等式右边为
+\begin{equation}
+\begin{aligned}
+&\int_{\partial V}(\phi(\bvec r')\nabla'\psi(\bvec r')-\psi(\bvec r')\nabla'\phi(\bvec r'))\cdot \dd {\bvec S}\\
+&=\int_{\partial V}\qty(\phi(\bvec r')\nabla'\frac{1}{|\bvec r-\bvec r'|}-\frac{1}{|\bvec r-\bvec r'|}\nabla'\phi(\bvec r'))\dd {\bvec S}
+\end{aligned}
+\end{equation}
+因此有
+\begin{equation}
+\phi(\bvec r)=\frac{1}{4\pi\epsilon_0}\int_V\frac{\rho(\bvec r')}{|\bvec r-\bvec r'|}\dd V+\frac{1}{4\pi}\int_{\partial V}\qty(\frac{1}{|\bvec r-\bvec r'|}\nabla'\phi(\bvec r')-\phi(\bvec r')\nabla'\frac{1}{|\bvec r-\bvec r'|})\dd {\bvec S}
+\end{equation}
+上式中第一项描述了区域内电荷密度对电势的贡献，第二项描述了区域边界上的面电荷密度对区域内电势的贡献．
+
+不难看出，为了得到 $V$ 内部的 $\phi(\bvec r)$，我们需要同时代入 $\phi$ 和 $\partial \phi/\partial n$ 在边界上的取值．但一般情况下我们只知道其中之一，如果同时给定 $\phi$ 和 $\partial \phi/\partial n$ 在边界上的取值会因过约束而导致矛盾．根据静电势的唯一性定理（在词条\upref{EPoiEQ}中有定理的描述和证明），只要知道 $\phi$ 或 $\partial \phi/\partial n$ 其中之一在边界上的取值，就可以得出唯一的电势分布．下面我们分别对它们进行讨论．
+
+\subsection{Dirichlet边界条件下的Green函数}
+
+我们需要找到一个新的函数来替换之前的 $\psi$．定义 $G_D(\bvec r,\bvec r')$ 满足以下条件：
+\begin{equation}
+\begin{cases}
+\nabla'^2G_D(\bvec r,\bvec r')=-4\pi\delta(\bvec r-\bvec r')\\
+G_D(\bvec r,\bvec r')|_{\partial V}=0
+\end{cases}
+\end{equation}
+
+我们称 $G_D(\bvec r,\bvec r')$ 为格林函数．用 $G_D$ 代替 $\psi$ 代入格林定理，可以得到
+\begin{equation}\label{EleGr_eq4}
+\phi(\bvec r)=\frac{1}{4\pi\epsilon_0}\int_V \rho(\bvec r')G_D(\bvec r,\bvec r')\dd V-\frac{1}{4\pi}\int_{\partial V} \phi(\bvec r')\nabla'G_D(r,r')\dd {\bvec S}
+\end{equation}
+
+对于某个特定区域形状（$\partial V$ 的形状），我们可以预先求出它的格林函数 $G_D(\bvec r,\bvec r')$．在求解具体问题时，给定任意的电荷分布 $\rho(\bvec r')$ 以及 Dirichlet 边界条件 $\phi(\bvec r')|_{\partial V}$ ，都可以用\autoref{EleGr_eq4} 求出电势分布．这就是格林函数方法的高效之处\footnote{大多数情况下手算仍是极其复杂的，但用计算机可以方便求解．}．
+
+大部分情况下手动解出格林函数是极其困难的，但对于一些特殊的边界，有很漂亮的格林函数．例如下面这个例子．
+
+\begin{example}{无限大导体平面的 Dirichlet Green 函数}
+
+\end{example}
+
+
+\subsection{Neumann 边界条件下的 Green 函数}
+定义 $G_N(\bvec r,\bvec r')$ 满足以下条件：
+\begin{equation}\label{EleGr_eq5}
+\begin{cases}
+\nabla'^2G_N(\bvec r,\bvec r')=-4\pi\delta(\bvec r-\bvec r')\\
+\left.\frac{\partial G_N(\bvec r,\bvec r')}{\partial n}\right|_{\partial V}=const
+\end{cases}
+\end{equation}
+第二个条件之所以写 $const$ 而不写 $0$，是因为这将违反高斯定律．我们可以根据高斯定律计算这个 $const$ 的值：
+\begin{equation}
+\begin{aligned}
+&\int_V \nabla'^2 G_N(\bvec r,\bvec r')\dd V=\int_{\partial V}\frac{\partial G_N(\bvec r,\bvec r')}{\partial n}\dd S=\int_{\partial V}const \dd S=const\cdot A\\
+&\int_V \nabla'^2 G_N(\bvec r,\bvec r')\dd V=-4\pi\\
+&\Rightarrow const=\frac{-4\pi}{A}
+\end{aligned}
+\end{equation}
+其中 $A$ 为 $\partial V$ 的表面积．所以可以把\autoref{EleGr_eq5} 改写为
+\begin{equation}
+\begin{cases}
+\nabla'^2G_N(\bvec r,\bvec r')=-4\pi\delta(\bvec r-\bvec r')\\
+\left.\frac{\partial G_N(\bvec r,\bvec r')}{\partial n}\right|_{\partial V}=-\frac{4\pi}{A}
+\end{cases}
+\end{equation}
+代入格林定理后有
+\begin{equation}
+\phi(\bvec r)=\frac{1}{4\pi\epsilon_0}\int_V \rho(\bvec r')G_N(\bvec r,\bvec r')\dd V+\frac{1}{4\pi}\int_{\partial V} G_N(r,r')\nabla'\phi(\bvec r')\dd {\bvec S}+\frac{1}{A}\int_{\partial V}\phi(\bvec r')
+\end{equation}
+
+注意，上式的最后一项只是一个常数，而静电势函数在 Neumann 边界问题中是无关紧要的（任意加减一个常数都仍然满足泊松方程和边界条件）．所以可以直接将解写为
+\begin{equation}
+\phi(\bvec r)=\frac{1}{4\pi\epsilon_0}\int_V \rho(\bvec r')G_N(\bvec r,\bvec r')\dd V+\frac{1}{4\pi}\int_{\partial V} G_N(r,r')\nabla'\phi(\bvec r')\dd {\bvec S}
+\end{equation}

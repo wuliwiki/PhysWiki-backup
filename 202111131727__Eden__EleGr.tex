@@ -1,0 +1,49 @@
+% 格林函数与静电边值问题
+% 格林函数|静电学|边值问题|泊松方程
+
+\pentry{静电势的泊松方程\upref{EPoiEQ}}
+
+静电学问题中有一类非常常见的边值问题，例如已知接地导体的空腔中有电荷分布，求空腔内的电势；求带电导体在空间中产生的电场等．使用格林定理可以帮助我们高效率地计算边值问题．
+
+设真空中的电荷分布为 $\rho(\bvec r)$，则空间中的静电势满足泊松方程
+\begin{equation}\label{EleGr_eq1}
+\nabla^2 \phi = -\frac{\rho}{\epsilon_0}
+\end{equation}
+
+定义函数 $\psi(r,r')$：
+\begin{equation}
+\psi(r,r')=\frac{1}{|r-r'|}
+\end{equation}
+它则满足以下泊松方程
+\begin{equation}\label{EleGr_eq2}
+\nabla'^2 \psi(r,r')=-4\pi\delta(r-r')
+\end{equation}
+
+\begin{theorem}{格林定理}
+设 $\phi,\psi$ 为区域 $V$ 上的标量函数，则通常有
+\begin{equation}\label{EleGr_eq3}
+\int_V (\phi \nabla^2 \psi -\psi\nabla^2\phi)\dd V=\int_{\partial V}(\phi \nabla \psi-\psi\nabla\phi)\dd {\bvec S} 
+\end{equation}
+\end{theorem}
+\textbf{证明：} 由高斯定理，$\int_V \nabla\cdot \bvec F\dd V=\int_{\partial V}\bvec F \dd {\bvec S}$，
+\begin{equation}
+\begin{aligned}
+\int_{\partial V}&(\phi\nabla\psi-\psi\nabla\phi)\dd{\bvec S}=\int_V \nabla \cdot (\phi\nabla\psi-\psi\nabla\phi)\dd V\\
+&=\int_V((\nabla\phi)\cdot(\nabla\psi)+\phi\nabla^2\psi-(\nabla\psi)\cdot(\nabla\phi)-\psi\nabla^2\phi)\dd V\\
+&=\int_V(\phi\nabla^2\psi-\psi\nabla^2\phi)\dd V
+\end{aligned}
+\end{equation}
+
+下面我们用格林定理来解决静电边值问题．将 \autoref{EleGr_eq1} \autoref{EleGr_eq2} 中的 $\phi,\psi$ 代入 \autoref{EleGr_eq3}  中，等式左边为
+\begin{equation}
+\begin{aligned}
+&\int_V(\phi(r')\nabla'^2\psi(r,r')-\psi(r,r')\nabla'^2\phi(r'))\dd V
+\\
+&=\int_V(-\phi(r')4\pi \delta(r-r')+\psi(r,r')\frac{1}{\epsilon_0}\rho(r'))\dd V\\
+&=-4\pi\phi(r)+\frac{1}{\epsilon_0}\int_V\psi(r,r')\rho(r')\dd V
+\end{aligned}
+\end{equation}
+等式右边为
+\begin{equation}
+\int_{\partial V}
+\end{equation}
