@@ -1,0 +1,93 @@
+% hhh
+
+Exercise 9.1 仅考虑电子自旋，其受到沿x轴方向的均匀磁场B的作用，哈密顿量为
+$$
+\hat{H}=\frac{e B}{\mu c} \hat{s}_{x}=\frac{e B \hbar}{2 \mu c} \hat{\sigma}_{x}
+$$
+当$t=0$时，电子处于自旋向上的状态，（$\hat{s}_z$的本征值为$\hbar/2$）,求$t>0$时，自旋各分量的平均值．
+
+设哈密顿量的本征值为$E$，本征态为$\psi$，即
+\begin{align}
+	\hat{H}\psi =E\psi \,\,\quad
+	\frac{eB}{2\mu c}\hat{\sigma}_x\psi =E\psi
+\end{align}
+$\psi$可由$\chi _{\frac{1}{2}}$和$\chi _{-\frac{1}{2}}$展开
+\begin{align}
+	\psi =c_1\chi _{\frac{1}{2}}+c_2\chi _{-\frac{1}{2}}
+\end{align}
+
+接下来求$\hat{\sigma}_x$的本征态和本征值：
+
+把（2）带入（1）中
+$$
+\hat{\sigma}_x\left( c_1\chi _{\frac{1}{2}}+c_2\chi _{-\frac{1}{2}} \right) =E\left( c_1\chi _{\frac{1}{2}}+cc_2\chi _{-\frac{1}{2}} \right)
+$$
+由于
+$$
+\left( \begin{matrix}{}
+	0&		1\\
+	1&		0\\
+\end{matrix} \right) \left( \begin{array}{l}
+	1\\
+	0\\
+\end{array} \right) =\left( \begin{array}{l}
+	0\\
+	1\\
+\end{array} \right) \quad \left( \begin{matrix}{}
+	0&		1\\
+	1&		0\\
+\end{matrix} \right) \left( \begin{array}{l}
+	0\\
+	1\\
+\end{array} \right) =\left( \begin{array}{l}
+	1\\
+	0\\
+\end{array} \right) 
+$$
+$$
+\hat{\sigma}_x\chi _{\frac{1}{2}}=\chi _{-\frac{1}{2}}\quad \hat{\sigma}_x\chi _{-\frac{1}{2}}=\chi _{\frac{1}{2}}
+$$
+整理得
+\begin{align}
+\left( c_2-Ec_1 \right) \chi _{\frac{1}{2}}+\left( c_1-Ec_2 \right) \chi _{-\frac{1}{2}}=0
+\end{align}
+所以
+$$
+c_2=Ec_1\quad	c_1=Ec_2\\
+$$
+$$E=\pm 1$$
+当$E=1$时，
+$$
+\left( c_2-c_1 \right) \chi _{\frac{1}{2}}+\left( c_1-c_2 \right) \chi _{-\frac{1}{2}}=0$$$$
+c_1=c_2
+$$
+又由于正交归一条件$\abs{c_1}^2+\abs{c_2}=1$得
+$$
+c_1=c_2=\frac{1}{\sqrt{2}}
+$$
+所以
+$$
+\psi_1=\frac{1}{\sqrt{2}}\chi _{\frac{1}{2}}+\frac{1}{\sqrt{2}}\chi _{-\frac{1}{2}}
+$$
+当$E=-1$时，
+$$
+\left( c_2+c_1 \right) \chi _{\frac{1}{2}}+\left( c_1+c_2 \right) \chi _{-\frac{1}{2}}=0$$$$
+c_1=-c_2
+$$
+又由于正交归一条件$\abs{c_1}^2+\abs{c_2}=1$得
+$$
+c_1=-c_2=\frac{1}{\sqrt{2}}
+$$
+所以
+$$
+\psi_2=\frac{1}{\sqrt{2}}\chi _{\frac{1}{2}}-\frac{1}{\sqrt{2}}\chi _{-\frac{1}{2}}
+$$
+
+综上可知，$\hat{H}$的值及对应得本征态为
+\begin{align}
+E_1&=\frac{eB\hbar}{2\mu c}=\hbar \omega\\
+E_2&=-\frac{eB\hbar}{2\mu c}=-\hbar \omega\\
+w=\frac{eB}{2\mu c}
+\end{align}
+
+Exercise 9.2 在$(\hat{l}^2,\hat{l}_z)$表象中，$l=1$的子空间是几维的？求$\hat{l}_x$在该空间中的矩阵形式，并求出$\hat{l}_x$的本征值与本征态．
