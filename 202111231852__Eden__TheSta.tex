@@ -1,0 +1,21 @@
+% 热力学量的统计表达式（玻尔兹曼分布）
+% 热力学量|统计力学|配分函数|玻尔兹曼分布
+
+\pentry{玻尔兹曼分布（统计力学）\upref{MBsta}}
+
+满足经典极限\footnote{在玻尔兹曼分布\upref{MBsta} 词条中谈到了玻色分布和费米分布的表达式，式中如果 $e^\alpha\gg 1$，那么将过度到经典情况的玻尔兹曼分布．我们称这个条件为经典极限．}的大量粒子组成的系统中，粒子遵从玻尔兹曼分布．我们可以试图用统计力学中配分函数来推出一切热力学量．
+
+配分函数表达式为：
+\begin{equation}
+Z_1=\sum_l \omega_l e^{-\beta \epsilon_l}
+\end{equation}
+
+式中 $\omega_l$ 为能级的简并度．根据玻尔兹曼分布，每个能级上的粒子数为 $e^{-\alpha-\beta\epsilon_l}$．于是有
+\begin{equation}
+\begin{aligned}
+&N=\sum_l \omega_l e^{-\alpha-\beta\epsilon_l}=e^{-\alpha} Z_1\\
+&E=\sum_l \epsilon_l \omega_l e^{-\alpha-\beta\epsilon_l}=-e^{-\alpha}\frac{\partial Z_1}{\partial \beta}=-\frac{N}{Z_1}\frac{\partial Z_1}{\partial \beta}=-N\frac{\partial \ln Z_1}{\partial \beta}
+\end{aligned}
+\end{equation}
+
+对于一个粒子数 $N$ 和内能 $E$ 确定的系统，$\alpha,\beta$ 可以由上面两个表达式确定．
