@@ -1,0 +1,38 @@
+% 矢量叉乘分配律的几何证明
+% 线性代数|矢量|叉乘|cross product|叉积|cross product|向量积|vector product|矢量积|分配率|投影
+
+\pentry{矢量的叉乘\upref{Cross}}
+以下从几何意义来证明 $\bvec A \cross (\bvec B + \bvec C) = \bvec A \cross \bvec B + \bvec A \cross \bvec C$ 
+
+\begin{figure}[ht]
+\vskip-10pt
+\centering
+\includegraphics[width=10cm]{./figures/CrossP_1.pdf}
+\caption{把 $\bvec B,\bvec C,\bvec D$ 投影到与 $\bvec A$ 垂直的平面上}
+\end{figure}
+
+首先令
+\begin{equation}
+\bvec D = \bvec B + \bvec C
+\end{equation}
+把矢量 $\bvec B,\bvec C,\bvec D$ 在与矢量 $\bvec A$ 垂直的平面上投影，分别得到 $\bvec B',\bvec C',\bvec D'$． 显然，$\bvec D'=\bvec B'+\bvec C'$， 这是因为平行线投影到平面后仍然是平行线， 所以平行四边形投影后还是平行四边形， 根据矢量加法的平行四边形法则\upref{GVecOp}． 接下来有
+\begin{equation}
+\begin{aligned}
+&\bvec A \cross \bvec B = \bvec A \cross \bvec B'\\
+&\bvec A \cross \bvec C = \bvec A \cross \bvec C'\\
+&\bvec A \cross \bvec D = \bvec A \cross \bvec D'
+\end{aligned}
+\end{equation} 
+这是叉乘的一个基本的性质， 详见\autoref{Cross_sub1}~\upref{Cross}．
+
+所以，要证明
+\begin{equation}
+\bvec A \cross \bvec D = \bvec A \cross \bvec B + \bvec A \cross \bvec C
+\end{equation}
+只需要证明
+\begin{equation}
+\bvec A \cross \bvec D' = \bvec A \cross \bvec B' + \bvec A \cross \bvec C'
+\end{equation}
+即可．
+
+由于 $\bvec B', \bvec C', \bvec D'$ 都与 $\bvec A$ 垂直，所以 $\bvec A$ 与之叉乘的效果相当于 $\bvec B', \bvec C', \bvec D'$ 的模长分别乘以 $\abs {\bvec A}$， 且绕 $\bvec A$ 逆时针分别旋转 $90^\circ$． 所以上式就是在说， 若已知 $\bvec B' + \bvec C' = \bvec D'$， 那么把它们分别乘以常数并旋转 $90^\circ$ 后这个加法仍然成立． 这是显然的． 证毕．
