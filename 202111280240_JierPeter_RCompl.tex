@@ -1,0 +1,89 @@
+% 实数的完备公理
+% 戴德金分割|区间套|闭区间套|确界原理|单调有界定理|有限覆盖定理|聚点定理|致密性定理|柯西收敛准则|Cauchy收敛准则
+
+
+
+
+我们常见到一种争论，$0.\dot{9}$到底等不等于$1$．实际上这个问题无法证明，而是被当作定义实数的公理之一，我们称之为完备性公理．你可以留意一下各种各样所谓的“证明”，认为$0.\dot{9}\neq 1$的论证通常都是否认了完备公理，而认为$0.\dot{9}=1$的都默认了完备公理．
+
+用$0.\dot{9}=1$来当作完备公理很不好用，我们通常使用本节介绍的的完备公理来描述实数的完备性，这些公理彼此是等价的，并且都可以推出$0.\dot{9}=1$．
+
+\subsection{完备公理的表述}
+
+由于几个完备公理是等价的，可以互推，因此实际建立理论时只挑其中一个作为公理体系的一部分，其它的都当作定理，这也导致我们也常把这几条公理称为“定理”．因此，我们使用“定理”的格式来列举这几条完备公理．
+
+\begin{theorem}{确界原理}\label{RCompl_the1}
+实数集的任何有界子集，必有一个实数上确界（见\textbf{上确界与下确界}\upref{SupInf}）．
+\end{theorem}
+
+\begin{theorem}{单调有界收敛定理}\label{RCompl_the2}
+单调有界数列必有极限．
+\end{theorem}
+
+\begin{theorem}{（闭）区间套定理}\label{RCompl_the3}
+设$a_n$是单调递增数列，$b_n$是单调递减数列，$b_n-a_n$恒为正数且收敛到$0$，且$[a_{n+1}, b_{n+1}]$都是$[a_n, b_n]$的真子集．称这样的集合$\{[a_n, b_n]_{n=1}^\infty\}$为一个\textbf{（闭）区间套}．
+
+对于任意的区间套$\{[a_n, b_n]\}$，存在唯一的实数$x_0$使得$x_0\in [a_n, b_n]$对任意正整数$n$成立．
+\end{theorem}
+
+\begin{theorem}{Heine-Borel有限覆盖定理}\label{RCompl_the4}
+设$[a, b]$是一个区间，$C$是$[a, b]$的一个开覆盖\footnote{即$C$是开集的集合，使得$C$中所有开集的并包含了$[a, b]$．实数轴上的开集是指开区间的并．}，那么$C$中存在有限个开集，使得其并集包含了$[a, b]$．
+\end{theorem}
+
+\begin{theorem}{Bolzano致密性定理}\label{RCompl_the5}
+有界无穷数列必有收敛子列．
+\end{theorem}
+
+\begin{theorem}{Weierstrass聚点定理}\label{RCompl_the6}
+有界无穷点集必有聚点．
+\end{theorem}
+
+\begin{theorem}{Cauchy收敛准则}\label{RCompl_the7}
+数列$\{a\}_n$收敛，当且仅当对于任意$\epsilon>0$，存在$N_\epsilon$使得对于任意$m, n>N_\epsilon$，都有$\abs{a_m-a_n}<\epsilon$．
+\end{theorem}
+
+以上七条就是最常见的实数完备公理，任取其一都可以用来定义实数的完备性、而把其它的当成定理．
+
+\subsection{完备性定理的互相推出}
+
+\subsubsection{\autoref{RCompl_the1} $\to$ \autoref{RCompl_the2} }
+
+首先，确界原理也等价于“有界子集必有下确界”，只需要对子集里各实数取负值构成新的有界子集，取到新子集的上确界再取负值，就得到原子集的下确界了．因此我们这里不妨设单调有界数列是单调不减的，单调不增的证明方式完全一致．
+
+取单调不增有界数列的全体函数值$\{a_n\}$，构成实数集的一个子集$S$．由于是有界数列，故$S$是有界点集.于是由\autoref{RCompl_the1} ，$S$有一个上确界$a$．
+
+由数列单调性，$\abs{a-a_n}$随着$n$的增大而减小．同时由上确界的定义，对于任意的$\epsilon>0$，都存在$N_\epsilon$，使得只要$n>N_\epsilon$就有$\abs{a-a_n}<\epsilon$，而这就是$\{a_n\}$收敛于$a$的定义．
+
+\subsubsection{\autoref{RCompl_the2} $\to$ \autoref{RCompl_the3} }
+
+区间套中的$\{a_n\}$和$\{b_n\}$都是单调有界数列\footnote{比如说，$\{b_n\}$是单调不增的，因此$b_1$是其上界；同时由于$b_n>a_1$，$a_1$也就是其下界．}，由\autoref{RCompl_the2} 可知它们都收敛．
+
+设$\{a_n\}$收敛到$a$，$\{b_n\}$收敛到$b$．
+
+由单调性，对任意$n$都有$\abs{b_n-a_n}\geq\abs{b-a}$以及$a, b\in [a_n, b_n]$．但是由区间套的定义，$\abs{b_n-a_n}$趋于零，故$\abs{b-a}=0$，即$a=b$．
+
+这么一来，$a=b$就是区间套中唯一的公共元素．
+
+\subsubsection{\autoref{RCompl_the3} $\to$ \autoref{RCompl_the4} }
+
+设$S$是$[a, b]$的一个开覆盖．不失一般性，不妨设$S$中的元素都是开区间\footnote{可以这样简化是因为开集都是开区间的并集．}．设$(x_1, a_1), (b_1, y_1)\in S$是两个开集，满足$a\in (x_1, a_1), b\in (b_1, y_1)$．
+
+如果$[a, b]\subseteq (x_1, a_1)\cup (b_1, y_1)$，那么$\{(x_1, a_1), (b_1, y_1)\}$就是一个有限子覆盖．如若不然，即$a_1<b_1$，则我们可以继续选出$S$中的开区间$(x_2, a_2)$和$(b_2, y_2)$，使得$a_1\in(x_2, a_2)$且$b_1\in(b_2, y_2)$．以此类推，$a_{k-1}\in(x_k, a_k)$且$b_{k-1}\in(b_k, y_k)$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
