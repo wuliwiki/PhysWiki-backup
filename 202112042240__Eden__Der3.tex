@@ -1,0 +1,26 @@
+% 导数的运算法则
+% 导数|导函数|数学分析|differential|calculus
+
+\pentry{函数的极限（简明微积分），\upref{FunLim}导数（简明微积分）\upref{Der}，导数（数学分析）\upref{Der2}}
+
+若函数 $f(x),g(x)$ 在 $x_0$ 处可导，那么下列各式在 $x_0$ 处成立，
+
+\begin{enumerate}
+\item 
+\begin{equation}
+(f\pm g)'(x)=f'(x)\pm g'(x)
+\end{equation}
+\item 
+\begin{equation}
+(f\cdot g)'(x)=f'(x)\cdot g(x)+f(x)\cdot g'(x)
+\end{equation}
+\item 
+\begin{equation}
+\qty(\frac{f}{g})'(x)=\frac{f'(x)g(x)-f(x)g'(x))}{g(x)^2}
+\end{equation}
+\item \textbf{复合函数求导法则}：若 $f(x)$ 在 $u_0$ 处可导，$g(x)$ 在 $x_0$ 处可导，且 $g(x_0)=u_0$．那么 
+\begin{equation}
+(f\circ g)'(x_0)=f'(g(x_0))g'(x_0)
+\end{equation}
+物理书上喜欢将它简记为 $\frac{\dd f}{\dd x}=\frac{\dd f}{\dd g} \frac{\dd g}{\dd x}$．
+\end{enumerate}
