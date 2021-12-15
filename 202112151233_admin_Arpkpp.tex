@@ -1,0 +1,7 @@
+% Arpack++2 大型本征方程库
+
+Arpack 最初是一个 Fortran 语言编写的， 用于求解大型本征方程的程序库．
+\begin{itemize}
+\item 它可以求出指定值附近的若干本征值和本征矢
+\item 它可以不需要输入矩阵本身而是输入矩阵对矢量的映射函数． 也就是你只需要提供一个函数 \verb|v = F(u)| 给 Arpack 即可， 其中 \verb|v| 就是矩阵乘以 \verb|u| 得到的矢量．
+\end{itemize}
