@@ -276,10 +276,10 @@ $P(n_1, l_1, m_1, \bvec k_2)$ 中， 探测器实际捕获的是一个立体角�
 \subsection{XUV-only 分波延迟}
 解析表达式见论文． 现在讨论如何从波函数中提取每个 $\gamma = (n_1, l_1, m_1, l_2, m_2)$ 分波的延迟． 首先需要使用\autoref{HeAnal_eq6} 的角向基底． 投影后得（bra 未对称化）
 \begin{equation}
-\braket{n_1,l_1,m_1,l_2,m_2,\bvec r_2}{\Psi} = \frac{1}{r_2} \psi_\gamma(r_2) Y_{l_2,m_2}(\uvec r_2)
+\braket{n_1,l_1,m_1,\bvec r_2}{\Psi} = \frac{1}{r_2} \sum_{l_2,m_2}\psi_{l_2,m_2}(r_2) Y_{l_2,m_2}(\uvec r_2)
 \end{equation}
 \begin{equation}
-\psi_\gamma(r_2) = \int_0^\infty r_1 R_{n_1,l_1}(r_1) \psi_{l_1,l_2}^{m_1,m_2}(r_1,r_2)\dd{r_1}
+\psi_{l_2,m_2}(r_2) = \int_0^\infty r_1 R_{n_1,l_1}(r_1) \psi_{l_1,l_2}^{m_1,m_2}(r_1,r_2)\dd{r_1}
 \end{equation}
 于是该分波的单电子分布为
 \begin{equation}

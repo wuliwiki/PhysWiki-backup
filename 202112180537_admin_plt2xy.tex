@@ -1,0 +1,52 @@
+% 用 Matlab 手动提取图片中的曲线坐标
+
+\pentry{Matlab 画图\upref{MatPlt}}
+
+以下给出一个 Matlab 代码用于手动提取图片中的曲线坐标． 要使用， 把当前目录
+
+\begin{lstlisting}[language=matlab]
+% Data Extractor for Plot
+% x and y are both scaled to the range [0,1]
+function [x,y] = plot2data
+if nargout~=2
+    error('Must use 2 output variables, or data will be lost');
+end
+disp('select image file')
+[filename,path]=uigetfile('*.*');
+cd(path);
+I = imread(filename);
+figure; imshow(I); hold on;
+disp('zoom in to select origin (7second)');
+pause(7);
+disp('select origin')
+P0 = ginput(1); scatter(P0(1),P0(2));
+
+disp('zoom in to select x maximum (7sec)');
+pause(7);
+disp('select x maximum')
+Px = ginput(1); scatter(Px(1),Px(2));
+
+disp('zoom in to select y maximum (7sec)');
+pause(7);
+disp('select y maximum')
+Py = ginput(1); scatter(Py(1),Py(2));
+P = [];
+while 1
+    disp('zoom in to select points (7sec)');
+    pause(7);
+    disp('select points')
+    temp = ginput;
+    if ~isempty(temp)
+        scatter(temp(:,1),temp(:,2));
+        P = [P; temp];
+        save plot2data.mat
+    end
+    temp = input('continue:[],end:1');
+    if ~isempty(temp)
+        break;
+    end
+end
+x = (P(:,1)-P0(1))/(Px(1)-P0(1));
+y = (P(:,2)-P0(2))/(Py(2)-P0(2));
+end
+\end{lstlisting}
