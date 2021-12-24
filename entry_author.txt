@@ -15,6 +15,7 @@ AU      6     addis
 Abc     0.17  addis         
 AbsInd  0.42  JierPeter     
 AbsInd  0.33  addis         
+Abstra  0.5   lrqlrqlrq     
 Abstra  0.33  addis         
 AccGau  1.58  addis         
 AccTra  5.83  addis         
@@ -35,7 +36,7 @@ AnalNt  1.17  addis
 AngMo   0.83  零穹            
 AngMom  1.33  addis         
 AprPtr  0.17  addis         
-ArbLib  1.5   addis         
+ArbLib  1.42  addis         
 ArcSpl  0.33  addis         
 Arctan  0.5   addis         
 Arpkpp  1.92  addis         
@@ -92,6 +93,7 @@ Blendr  1     addis
 BlkMat  0.17  addis         
 Bloch   1     addis         
 BndSho  0.75  addis         
+BohMag  0.33  admin         
 BohMag  0.25  addis         
 BohrEc  2.67  addis         
 BohrMd  0.92  addis         
@@ -133,7 +135,7 @@ COrNoB  2.42  addis
 CPow    0.17  addis         
 CSI0    0.33  addis         
 CSN10   2.58  xzllxls       
-CSN12   0.58  xzllxls       
+CSN12   2.58  xzllxls       
 CSNeq   0.92  addis         
 CTrig   0.42  addis         
 CVecOp  1.42  addis         
@@ -410,6 +412,7 @@ Fdecom  0.67  addis
 FiSph   0.33  addis         
 Fibre   0.5   JierPeter     
 FinStr  0.5   addis         
+FineSt  0.5   admin         
 FlCode  0.42  addis         
 FldExp  1.67  JierPeter     
 FldExp  0.25  addis         
@@ -427,6 +430,7 @@ FreGrp  0.83  JierPeter
 FrePrd  0.5   JierPeter     
 FreeP   0.17  addis         
 FreeP1  1     addis         
+FreeP1  0.17  admin         
 Fresnl  0.25  addis         
 FrobTh  2.5   DTSIo         
 FrobTh  0.92  addis         
@@ -510,9 +514,10 @@ HarFun  0.25  addis
 HarmF   2.25  addis         
 HeAna2  8.42  addis         
 HeAnal  10    addis         
+HeAnal  1.25  admin         
 HeComu  2.33  addis         
 HeSI    0.92  addis         
-HeTDSE  7.33  addis         
+HeTDSE  7.25  addis         
 Heatco  0.33  addis         
 Heatco  0.25  FFjet         
 HelDe   0.42  addis         
@@ -527,6 +532,7 @@ HermiP  0.42  addis
 Heron   2.17  零穹            
 Heron   0.42  addis         
 Heron   0.25  hfb25         
+HfineS  1.17  lrqlrqlrq     
 HigDer  0.33  addis         
 HionCr  5.5   addis         
 HlmPr2  3.08  addis         
@@ -546,6 +552,8 @@ Homeul  0.25  addis
 Homt3   0.75  JierPeter     
 Hplot   0.5   addis         
 HsAmPg  0.83  jingyuan      
+HsAnTf  1.83  jingyuan      
+HsAnTf  0.25  admin         
 HsAngl  0.67  jingyuan      
 HsAngl  0.17  addis         
 HsBN    1.67  jingyuan      
@@ -557,6 +565,7 @@ HsDRV   1.25  jingyuan
 HsDRV   0.17  addis         
 HsGmPg  0.33  jingyuan      
 HsMOv   0.25  jingyuan      
+HsPbEc  0.5   jingyuan      
 HsPm    0.33  jingyuan      
 HsPm    0.17  addis         
 HsRdNc  0.83  jingyuan      
@@ -565,7 +574,7 @@ HsSeFu  0.5   jingyuan
 HsSet   2.17  jingyuan      
 HsSet   0.17  aluo          
 HsSet   0.17  addis         
-HsTrFu  0.25  jingyuan      
+HsTrFu  0.42  jingyuan      
 HsTrFu  0.17  addis         
 HsbPic  0.67  addis         
 Htunnl  0.92  addis         
@@ -573,7 +582,7 @@ Huygen  0.5   FFjet
 Huygen  0.25  addis         
 Hy1D2D  0.42  addis         
 HyIon2  2     addis         
-HyTDSE  6.42  addis         
+HyTDSE  6.33  addis         
 HydroL  0.25  addis         
 HypGeo  0.33  addis         
 Hypb3   0.25  addis         
@@ -672,7 +681,7 @@ LapTra  0.17  addis
 LapTra  0.17  JierPeter     
 Laplac  0.42  addis         
 Latex1  0.17  addis         
-LaurSr  0.75  JierPeter     
+LaurSr  0.67  JierPeter     
 Lebesg  0.42  addis         
 Legen   1.17  addis         
 LenGau  1.75  addis         
@@ -735,6 +744,7 @@ MaInte  0.42  addis
 MagGau  0.5   addis         
 MagMat  0.17  addis         
 MagMom  0.75  addis         
+MagMom  0.17  lrqlrqlrq     
 MagneF  0.58  addis         
 Make    0.42  addis         
 Make0   0.67  addis         
@@ -744,6 +754,7 @@ Manif   0.42  addis
 Manif   0.42  DTSIo         
 Masche  0.25  零穹            
 Mat     1.42  addis         
+MatEig  1.5   admin         
 MatEig  1     addis         
 MatEig  0.17  JierPeter     
 MatExp  1.33  JierPeter     
@@ -1184,7 +1195,7 @@ SubSpc  0.25  addis
 SufCnd  0.33  addis         
 SunDia  1.08  addis         
 SupInf  0.75  JierPeter     
-SupInf  0.58  DTSIo         
+SupInf  0.5   DTSIo         
 SupInf  0.25  addis         
 SurInt  0.42  addis         
 SverAd  0.83  Li.W          
@@ -1273,6 +1284,7 @@ TransM  0.17  addis
 Tri2St  1.25  coppersoulfate
 Tri2St  0.58  addis         
 TriCro  0.42  addis         
+TriEqv  1.17  admin         
 TriEqv  0.67  addis         
 TriInt  0.17  addis         
 TriLim  0.33  addis         
@@ -1366,6 +1378,7 @@ Worcod  0.17  addis
 WordLe  0.17  xzllxls       
 WpEng   1.75  addis         
 WrGuid  3.17  addis         
+WrGuid  0.17  admin         
 Wv2D    0.17  addis         
 WvPck   0.33  addis         
 YlmNum  0.33  addis         
@@ -1373,7 +1386,8 @@ YlmTab  0.75  addis
 Young   1.42  FFjet         
 Young   0.67  addis         
 YoungM  0.42  addis         
-ZemEff  4.83  lrqlrqlrq     
+ZemEff  8.67  lrqlrqlrq     
+ZemEff  0.33  admin         
 ZemEff  0.17  addis         
 a       0.5   addis         
 aa      0.25  addis         
@@ -1499,9 +1513,9 @@ linDpe  0.75  addis
 main    28    addis         
 main    6.58  JierPeter     
 main    5.75  DTSIo         
+main    1.33  jingyuan      
 main    1.25  _Eden_        
 main    1.08  zhousiyi      
-main    1.08  jingyuan      
 main    1     xzllxls       
 main    0.67  零穹            
 main    0.25  水铭            
@@ -1531,6 +1545,7 @@ permu   1     zhaojiayu
 permut  0.92  jingyuan      
 permut  0.67  addis         
 plan    0.25  addis         
+plt2xy  0.5   admin         
 poison  0.42  addis         
 powerS  0.75  addis         
 proj3D  1.92  addis         
@@ -1568,6 +1583,7 @@ statef  0.33  _Eden_
 symetr  2.5   addis         
 t       1.33  addis         
 tDelay  1.33  addis         
+tDelay  0.83  admin         
 tabtkd  0.17  addis         
 templt  0.33  addis         
 test    1.25  addis         
