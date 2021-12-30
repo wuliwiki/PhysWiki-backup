@@ -1,0 +1,54 @@
+% JavaScript 笔记
+
+\pentry{HTML 基础}
+JavaScript 常见于网页中， 一般浏览器都可以运行． 我们以 Chrome 浏览器为例演示 \verb|Hello World| 程序．
+
+\begin{lstlisting}[language=js]
+<!DOCTYPE html>
+<html>
+	<body>
+		<div id = a></div>
+		<script>
+            console.log("hello world 1");
+            window.alert("hello world 2");
+			document.getElementById("a").innerHTML = "hello world 3";
+            document.write("hello world 4");
+		</script>
+	</body>
+</html>
+\end{lstlisting}
+把这段程序复制到一个文本文件， 并命名为 \verb|test.html|， 用 Chrome 打开即可自动运行． 按 F12 可打开调试窗口和命令行．
+
+\verb|<script>...</script>| 中的 4 行程序就是 JavaScript， 它们这里分别演示了用 4 种不同的方法显示 “hello world”：
+\begin{enumerate}
+\item 输出到命令行（需要 F12 才能看到）
+\item 弹出提示窗
+\item 插入到 \verb|<div>...</div>| 元素中
+\item 插入到 \verb|<script>| 之前
+\end{enumerate}
+
+\subsection{常识}
+\begin{itemize}
+\item \verb|<body>| 中任意位置可以包含任意多个 \verb|<script>|
+\item 用 \verb|<script src="路径/文件名.js 或者 url.js"></script>| 插入代码文件
+\item 在第一行插入 \verb|'use strict'| 后使用严格语法． 例如不声明的变量会出错．
+\item 命令后的 \verb|;| 不是必须的， 可用于在同一行中分隔两个命令．
+\end{itemize}
+
+\subsection{变量}
+\begin{itemize}
+\item 声明变量 \verb|let a = 1, b = 2| 或者用 \verb|const| 和 \verb|var|
+\item \verb|var| 是全局变量， 且可以重新声明， \verb|let| 和 \verb|const| 是局部的
+\item \verb|typeof| 获取变量类型
+\item 自带类型有 \verb|number| （不区分整数和浮点数，浮点是双精度）， \verb|string| （单引号双引号通用， 没有 char）
+\item 所有自定义的类型都叫做 \verb|object|
+\item 合并字符串用 \verb|字符串 + 字符串|， 也可以 \verb|字符串 + 数字|
+\end{itemize}
+
+\subsection{math.complex}
+\begin{itemize}
+\item \verb|let c = math.complex(2, 3)| 生成复数
+\item \verb|c.re| 和 \verb|c.im| 获取实部和虚部， 可以赋值 \verb|c.re = 5|． 也可以用 \verb|math.re(c)| 和 \verb|math.im(c)|， 不能赋值．
+\item 共轭 \verb|c.conjugate()| 或者 \verb|math.conj(c)|， 绝对值 \verb|math.abs(c)|， 加法 \verb|math.add(a, b)|， 乘法 \verb|math.multiply(a, b)|， 除法 \verb|math.divide(a, b)|， 根号 \verb|math.sqrt(-4)|， 倒数 \verb|a.inverse()|．
+\end{itemize}
+

@@ -1,0 +1,21 @@
+% JavaScript 笔记
+
+\pentry{HTML 基础}
+JavaScript 常见于网页中， 一般浏览器都可以运行． 我们以 Chrome 浏览器为例演示 \verb|Hello World| 程序．
+
+\begin{lstlisting}[language=js]
+<!DOCTYPE html>
+<html>
+	<body>
+		<div id = 1></div>
+		<script>
+			elm = document.getElementById("1");
+   			elm.innerHTML = "hello world 1!";
+			document.write("hello world 2!")
+			console.log("hello world 3!");
+			window.alert("hello world 4!");
+		</script>
+	</body>
+</html>
+\end{lstlisting}
+其中 \verb|<...>...</...>| 是 HTML 网页的元素

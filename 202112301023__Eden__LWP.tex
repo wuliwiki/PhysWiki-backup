@@ -1,0 +1,18 @@
+% 李纳-维谢尔势
+% 李纳-维谢尔势|带电粒子的辐射
+
+\pentry{电磁场推迟势\upref{RetPt0}}
+
+对于一个给定的电荷电流分布（作为关于时空坐标 $x^\mu$ 的函数），可以根据\textbf{推迟势}算出电磁势$V,\bvec A$（作为关于时空坐标 $x^\mu$ 的函数）．
+\begin{equation}
+V(\bvec r,t)=\frac{1}{4\pi\epsilon_0}\int \frac{\rho(\bvec r',t-|\bvec r-\bvec r'|/c)}{|\bvec r-\bvec r'|}\dd V'
+\end{equation}
+
+\begin{equation}
+\bvec A(\bvec r,t)=\frac{\mu_0}{4\pi}\int \frac{\bvec J(\bvec r',t-|\bvec r-\bvec r'|/c)}{|\bvec r-\bvec r'|}\dd V'
+\end{equation}
+
+或者写成四维协变形式：设四维电磁势 $A^\mu=(V/c,\bvec A)$，四维电荷电流密度 $J^\mu=(\rho c,\bvec J)$，那么
+\begin{equation}
+A^\mu=\frac{1}{4\pi\epsilon_0c^2}\int \frac{J^\mu(\bvec r',t-|\bvec r-\bvec r'|/c)}{|\bvec r-\bvec r'|}\dd V'
+\end{equation}
