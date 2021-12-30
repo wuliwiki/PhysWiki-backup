@@ -1,0 +1,73 @@
+% 带电粒子的辐射
+% 带电粒子的辐射|李纳维谢尔势
+
+\pentry{李纳维谢尔势\upref{LWP}}
+
+我们继续使用自然单位制，令 $\mu_0=\epsilon_0=c=1$ 来简化表达．依照习惯，上下标使用希腊字母如 $\mu, \nu$ 时，取值范围为 $\{0, 1, 2, 3\}$；使用拉丁字母如 $i, j$ 时，取值范围为 $\{1, 2, 3\}$．约定闵氏时空度规为 $(-1,1,1,1)$．
+
+根据李纳维谢尔势公式，运动电荷将向外辐射电磁场，从而产生能量损耗．下面我们将定量地推导由运动电荷带来的空间的电磁场分布．
+
+\begin{equation}
+\begin{aligned}
+\phi(\bvec r,t)=\frac{q}{|\bvec r-\bvec r'|-\bvec v'\cdot (\bvec r-\bvec r')}\\
+\bvec A(\bvec r,t)=\frac{q\bvec v'}{|\bvec r-\bvec r'|-\bvec v'\cdot (\bvec r-\bvec r')}
+\end{aligned}
+\end{equation}
+
+其中 $\bvec r',\bvec v'$ 是 $t'$ 时刻粒子的位置和速度，满足 $t-t'=|\bvec r-\bvec r'|$．下面将用 $\bvec R$ 来表示 $\bvec r-\bvec r'$，表示 $t'$ 处电荷位置到当前位置的位矢．那么电磁势可以写为
+\begin{equation}
+\begin{aligned}
+\phi(\bvec r,t)=\frac{q}{R-\bvec v'\cdot \bvec R}\\
+\bvec A(\bvec r,t)=\frac{q\bvec v'}{R-\bvec v'\cdot \bvec R}
+\end{aligned}
+\end{equation}
+
+现在只要利用 $\bvec E=-\nabla \phi-\frac{\partial \bvec A}{\partial t},\bvec B=\nabla\times \bvec A$ 就可以计算空间的电磁场分布了．但这里要注意的是，$\nabla$ 是对 $\bvec r$ 作空间梯度，当 $\bvec r$ 做 $\dd r$ 的变化时，相应的 $t',\bvec r',\bvec v'$ 也跟着发生变化（必须保证 $t'$ 时刻的粒子可以通过光速传播到当前时空点，即 $t-t'=|\bvec r-\bvec r'|$）．下面我们依次计算几个物理量（由于 $\phi,\bvec A$ 是关于 $\bvec r,t$ 的函数，下面公式中出现的偏微分都是在保持另一个变量不变的情况下计算偏导数）：
+\begin{equation}
+\begin{aligned}
+&R=\sqrt{(x-x')^2+(y-y')^2+(z-z')^2},\\
+&\begin{cases}
+\frac{\partial R}{\partial t}=\frac{\partial R}{\partial t'}\frac{\partial t'}{\partial t}=\frac{\bvec v'\cdot (\bvec r'-\bvec r)}{R}\frac{\partial t'}{\partial t}=\frac{-\bvec v'\cdot \bvec R}{R}\frac{\partial t'}{\partial t}\\
+\frac{\partial R}{\partial t}=\frac{\partial (t-t')}{\partial t}=1-\frac{\partial t'}{\partial t},\\
+\end{cases}
+\end{aligned}
+\end{equation}
+由此得到
+\begin{equation}
+\begin{aligned}
+&\frac{\partial R}{\partial t}=\frac{\bvec v'\cdot \bvec R}{R}\qty(\frac{\partial R}{\partial t}-1)\\
+\Rightarrow 
+&\frac{\partial R}{\partial t}=\frac{-\bvec v'\cdot \bvec R}{R-\bvec v'\cdot \bvec R},\  
+\frac{\partial t'}{\partial t}=\frac{R}{R-\bvec v'\cdot \bvec R}
+\end{aligned}
+\end{equation}
+下一步，计算 $\partial _i R=\frac{\partial R}{\partial x_i}$：
+\begin{equation}
+\begin{aligned}
+\partial_i R&=\frac{2(x_j-x_j')\partial_i(x_j-x'_j)}{2R}=\frac{1}{R} (x_j-x_j')(\delta_{ij} - \partial_i x_j')\\
+&=\frac{1}{R}(x_i-x_i'-(x_j-x_j')\partial_i x_j')\\
+&=\frac{1}{R}\qty(R_i-R_j\frac{\partial x_j'}{\partial t'}\partial_{i} t')\\
+&=\frac{1}{R}(R_i+R_jv_j'\partial_i R)\\
+\Rightarrow & \partial_i R=-\partial_i t'=\frac{R_i}{R-\bvec v'\cdot \bvec R}
+\end{aligned}
+\end{equation}
+类似地，计算 $\partial_i R_j,\partial_i v'_j$ 等公式：
+\begin{equation}
+\begin{aligned}
+&\partial_i R_j=\partial_i(x_j-x_j')=\delta_{ij}-\frac{\partial x_j'}{\partial t'}\partial_i t'=\delta_{ij}+\frac{v'_jR_i}{R-\bvec v'\cdot \bvec R}
+\\
+&\frac{\partial R_j}{\partial t}=\frac{\partial R_j}{\partial t'}\frac{\partial t'}{\partial t}=-\frac{v'_jR}{R-\bvec r'\cdot \bvec R}
+\\
+&\partial_i v'_j=a'_j\partial_i t'=-\frac{a'_jR_i}{R-\bvec v'\cdot \bvec R}\\
+&\frac{\partial v'_j}{\partial t}=a_j'\frac{\partial t'}{\partial t}=\frac{a_j'R}{R-\bvec v'\cdot \bvec R}
+\end{aligned}
+\end{equation}
+有了这些公式，就可以计算电场了：
+\begin{equation}
+\begin{aligned}
+E_i&=-\partial_i \phi - \frac{\partial A_i}{\partial t}\\
+&=\frac{q \partial_i (R-\bvec v'\cdot \bvec R)}{(R-\bvec v'\cdot \bvec R)^2}-\frac{q\frac{\partial v'_i}{\partial t}(R-\bvec v'\cdot \bvec R)-qv_i\partial_i(R-\bvec v'\cdot \bvec R)}{(R-\bvec v'\cdot \bvec R)^2}\\
+&=\frac{q(1-v'_i)}{(R-\bvec v'\cdot \bvec R)^3}\qty(R_i-R_j(-a_j'R_i)-v'_j(\delta_{ij}(R-\bvec v'\cdot \bvec R)+v'_jR_i))\\
+&\ \ \ \ -\frac{q}{(R-\bvec v'\cdot \bvec R)^3}\qty(a'_iR(R-\bvec v'\cdot \bvec R))
+\end{aligned}
+\end{equation}
