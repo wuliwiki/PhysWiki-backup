@@ -1,0 +1,17 @@
+% jQuery 笔记
+
+\pentry{JavaScript 入门笔记\upref{JS}}
+
+\begin{itemize}
+\item jQuery 命令通常在 document ready 内部使用 \verb|$(document).ready(function(){/*jQuery 命令*/});|， 另一种等效的格式为 \verb|$(function(){/*jQuery 命令*/})|
+\item Selector: \verb|$("p")| 选择所有 \verb|<p>...</p>| 元素． 例程： \verb|$(document).ready(function(){$("button").click(function(){$("p").hide();});});| 其中 \verb|click(回调函数)| 设置按钮的回调函数， 即 \verb|$("p").hide()|， 隐藏所有段落．
+\item \verb|$("#id")| 选中所有指定 id 的元素
+\item \verb|$(".class")| 选中所有指定 class 的元素
+\end{itemize}
+
+事件
+\begin{itemize}
+\item \verb|$(document).ready()| 网页渲染完成
+\item \verb|*.click()| 按下， \verb|*.dbclick()| 双击
+\item \verb|*.mouseenter()| 鼠标进入元素． \verb|*.mouseleave()| 离开元素． 例子： \verb|$(document).ready(function(){$("#p1").mouseenter(function(){做一些事});});|
+\end{itemize}
