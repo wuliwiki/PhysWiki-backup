@@ -1,0 +1,24 @@
+% 两体问题（用分析力学方法求解）
+% 两体问题|开普勒问题|卢瑟福散射
+
+\pentry{拉格朗日方程\upref{Lagrng}}
+
+两体问题研究的对象是两个可以看成质点的物体，质量分别为 $m_1,m_2$，位矢分别为 $\bvec r_1,\bvec r_2$．它们之间的相互作用势是 $V(r)=V(|\bvec r_1-\bvec r_2|)$，也就是说只和两者的距离有关．开普勒问题\upref{CelBd}、卢瑟福散射\upref{RuthSc} 都属于两体问题．
+
+在这个词条中我们将用分析力学的方法来解决两体问题．设 $\bvec r_c$ 为质心位置，设 $\bvec r$ 为它们的相对位置，那么有
+\begin{equation}
+\left\{
+\begin{aligned}
+&\bvec r_c=\frac{m_1\bvec r_1+ m_2\bvec r_2}{m_1+m_2}\\
+&\bvec r=\bvec r_2-\bvec r_1
+\end{aligned}
+\right.
+\end{equation}
+那么体系的动能为质心动能加上系统相对于质心参考系的动能．
+\begin{equation}
+\begin{aligned}
+T&=\frac{1}{2}m_1 \dot{\bvec r_1}^2+\frac{1}{2}m_2 \dot{\bvec r_2}^2\\
+&=\frac{1}{2}(m_1+m_2)\dot{\bvec r_c}^2+\frac{1}{2}\frac{m_1m_2}{m_1+m_2}\dot{\bvec r}^2\\
+&=\frac{1}{2}M \dot{\bvec{\bvec r_c}}^2+\frac{1}{2}\mu \dot{\bvec{\bvec r}}^2
+\end{aligned}
+\end{equation}
