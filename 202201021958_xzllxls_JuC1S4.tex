@@ -1,0 +1,12 @@
+% 改进第一个程序
+% 改进 程序 初步
+
+本文授权转载自郝林的 《Julia 编程基础》． 原文链接：\href{https://github.com/hyper0x/JuliaBasics/blob/master/book/ch01.md}{第1章：起步}．
+
+我们应该对上述程序的功能稍作改进．因为它现在只能向Julia打招呼，不论执行它的人是谁．我们需要让它根据执行人给定的参数值来自定义它打招呼的对象．顺便说一句，我会把这一程序的改进版本放在\verb|src/ch01/args|路径下．
+
+首先，我们要改变一下调用\verb|println|函数时传给它的那个参数．修改后的调用表达式如下：
+\begin{lstlisting}[language=julia]
+println("Hey, $(name)!")
+\end{lstlisting}
+我只改动了几个字符，即：把Julia改成了\verb|$(name)|．后者代表了一个插值（interpolation）．对于插值来说，前缀\verb|$|(和后缀)之间的内容可以是一个变量的名称，也可以是一个表达式．在这里，我放入的是变量name的名字．在\verb|println|函数向目的地输送内容之前，它会把name替换成该变量在那一刻时的值．
