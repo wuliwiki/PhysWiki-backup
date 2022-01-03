@@ -1,0 +1,93 @@
+% test
+% test|测试|编辑器
+
+\subsubsection{一些符号}
+参考 \href{https://docs.julialang.org/en/v1/manual/unicode-input/}{Julia 符号表}和 \href{https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols}{LaTeX 符号表}， 以及 \href{http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm}{MathJax 符号表}．
+
+\begin{equation}
+\cap, \bigcap, \cup, \bigcup, \vee, \wedge, \int, \iint, \iiint, \oint
+\end{equation}
+\begin{equation}
+\diamond, \ominus, \triangleleft, \triangleright, \Longleftarrow, \Longrightarrow, \iff, \leftrightarrow, \updownarrow, \cdots
+\end{equation}
+\begin{equation}
+\ddots, \top, \bot, \measuredangle
+\end{equation}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/test_1.png}
+\caption{小时百科} \label{test_fig1}
+\end{figure}
+
+\subsubsection{化学式}
+编辑器预览的 MathJax 3 开始支持化学式了． 但是网站用的 2 还不支持． 也不确定 LaTeX 是否支持．
+\begin{equation}
+\ce{SO4^2- + Ba^2+ -> BaSO4 v}
+\end{equation}
+
+\subsubsection{公式中的链接}
+公式里面居然可以用 \verb|\href|， 这个功能很强大， 但不知道 texlive 是否支持．
+\begin{equation}
+\href{https://wuli.wiki/online}{a}^2 + b^2 = c^2
+\end{equation}
+
+\subsubsection{付费内容}
+我们要学习的公式为
+\begin{equation}\label{test_eq1}
+a = 1
+\end{equation}
+
+\begin{example}{}
+请问 $a$ 为多少？
+\pay
+
+实际答案就是
+\begin{equation}\label{test_eq2}
+a + 1 = 2
+\end{equation}
+\paid
+\end{example}
+
+\begin{equation}\label{test_eq3}
+b = 3
+\end{equation}
+
+相对于数字货币，各国政府发行的货币称为法币． 法币的出现最早在 1694 年的英国， 在此之前的漫长岁月中， 人类基本在使用一些天然的物质充当货币， 如早期的贝壳， 直到黄金． 直到今天， 黄金仍然承担着货币的角色， 各个国家的国库中依然存有大量的黄金作为法币的信用保证．
+
+黄金能作为等价物是大家的共识， 但注意它没有任何政府背书或发行， 且总量基本固定． 那么它作为货币时， 价值体现在哪里呢？ 简单来说就体现在它的记账功能． 如果直接以商品交换商品， 效率非常低， 因为很难配对到合适的人． 黄金或者一般等价物的使用， 相当于产生了不可篡改账本， 安全地记录每个人所拥有的资源．
+
+黄金使交易更便捷， 从而对古代经济发展起到了重大的助推作用．为什么不能用纸和笔记账？ 因为不安全——陌生人难以辨认真伪， 很可能造假， 也可能被大量增发． 可见要让大家都信任一个中立的记账系统， 它必须具有以下特点
+\begin{enumerate}
+\item \textbf{安全性}： 不能伪造， 不能被篡改， 不能被发行者大量增发， 不会变质． 黄金在这点上的优势无疑是巨大的， 黄金几乎无法人工合成（只有核反应才能合成极少量）， 金矿勘探和开采的难度非常大， 在自然条件下可以稳定存放． 但有一个缺点就是鉴别真伪成本较高， 需要彻底熔化或者使用现代仪器．
+\item \textbf{便携}： 由于黄金总量相对较少， 所以用作货币单价很高， 只需携带少量即可满足日常需求． 但这比起当代电子设备还是不够方便．
+\item \textbf{转账方便}： 黄金交易在古代的确是算非常方便， 但在比起比起电子转账同样差很多．
+\end{enumerate}
+
+综上，黄金的价值就在于它利用其出色的物理特性， 在历史上相当长的时间里充当账本的角色， 极大地促进了人类社会的早期发展． 需要指出的是这个 “账本” 只记录每人的余额而不记录转账历史， 这是又一缺点．
+
+\begin{equation}
+1+1=2
+\end{equation}
+
+相对于数字货币，各国政府发行的货币称为法币． 法币的出现最早在 1694 年的英国， 在此之前的漫长岁月中， 人类基本在使用一些天然的物质充当货币， 如早期的贝壳， 直到黄金． 直到今天， 黄金仍然承担着货币的角色， 各个国家的国库中依然存有大量的黄金作为法币的信用保证．
+
+黄金能作为等价物是大家的共识， 但注意它没有任何政府背书或发行， 且总量基本固定． 那么它作为货币时， 价值体现在哪里呢？ 简单来说就体现在它的记账功能． 如果直接以商品交换商品， 效率非常低， 因为很难配对到合适的人． 黄金或者一般等价物的使用， 相当于产生了不可篡改账本， 安全地记录每个人所拥有的资源．
+
+黄金使交易更便捷， 从而对古代经济发展起到了重大的助推作用．为什么不能用纸和笔记账？ 因为不安全——陌生人难以辨认真伪， 很可能造假， 也可能被大量增发． 可见要让大家都信任一个中立的记账系统， 它必须具有以下特点
+\begin{enumerate}
+\item \textbf{安全性}： 不能伪造， 不能被篡改， 不能被发行者大量增发， 不会变质． 黄金在这点上的优势无疑是巨大的， 黄金几乎无法人工合成（只有核反应才能合成极少量）， 金矿勘探和开采的难度非常大， 在自然条件下可以稳定存放． 但有一个缺点就是鉴别真伪成本较高， 需要彻底熔化或者使用现代仪器．
+\item \textbf{便携}： 由于黄金总量相对较少， 所以用作货币单价很高， 只需携带少量即可满足日常需求． 但这比起当代电子设备还是不够方便．
+\item \textbf{转账方便}： 黄金交易在古代的确是算非常方便， 但在比起比起电子转账同样差很多．
+\end{enumerate}
+
+综上，黄金的价值就在于它利用其出色的物理特性， 在历史上相当长的时间里充当账本的角色， 极大地促进了人类社会的早期发展． 需要指出的是这个 “账本” 只记录每人的余额而不记录转账历史， 这是又一缺点．
+
+\begin{equation}
+3\E>2\pi
+\end{equation}
+
+
+引用\autoref{test_eq1}， 以及隐藏的\autoref{test_eq2}． 注意\autoref{test_eq3} 的序号在隐藏后不会改变．
+
+引用外部公式 \autoref{AU_eq6}~\upref{AU}
