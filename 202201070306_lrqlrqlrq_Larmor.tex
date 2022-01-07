@@ -1,0 +1,33 @@
+% 拉莫尔进动
+% 自旋1|磁场中的电子2
+
+\textbf{拉莫尔（Larmor）进动}假定有一个自旋为$1/2$的粒子静止处于均匀磁场：
+\begin{equation}
+\bvec B =B_0\hat{z}
+\end{equation}
+静止在磁场中的带点自旋粒子的哈密顿为：
+\begin{equation}
+H = -\gamma\bvec B\cdot S
+\end{equation}
+其中$\gamma$为磁旋比 \upref{BohMag}，由此可得：
+\begin{equation}
+\bvec H = -\gamma B_0S_z=-\frac{\gamma B_0\hbar}{2}\pmat{1&0\\0&-1}
+\end{equation}
+注意到$\bvec H$有着和$S_z$相同的本征矢：
+\begin{equation}
+\chi_+ = \pmat{1\\0}:E_+=-(\gamma B_0\hbar)/2; \ \chi_- = \pmat{0\\1}:E_-=+(\gamma B_0\hbar)/2; 
+\end{equation}
+显然和经典情况一致，在偶极矩平行于磁场时能量时最低的．
+
+由于哈密顿量和时间无关，因此含时薛定谔方程为：
+\begin{equation}
+\I \hbar \pdv{\chi}{t}=\bvec H\chi
+\end{equation}
+它的一般解可以被表示为定态的线性组合：
+\begin{equation}
+\chi(t)=a\chi_+\E^{-\I E_+t/\hbar}+b\chi_-\E^{-\I E_-t/\hbar}=\pmat{a\E^{\I \gamma B_0t/2}\\b\E^{-\I \gamma B_0t/2}}
+\end{equation}
+其中的常数$a,b$是由初始条件所确定的：
+\begin{equation}
+\chi(0)=\pmat{a\\b}
+\end{equation}
