@@ -1,0 +1,206 @@
+% 德鲁德模型
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+汤姆逊（J.J.Thomsom）在1987年发现了电子，这对物质结构的物理理论产生了直接且深刻的影响．显然的也就引出了金属导电性和其内部自由电子的存在息息相关．
+
+在汤姆逊的发现三年之后，德鲁德（Drude）较为成功的借鉴了理想气体动力学理论的思想和假设，并且将其运用在对金属的研究上．
+
+德鲁德的自由电子气体模型简单地将金属看作是由\textbf{价电子（Valence electron）}所构成的基本均匀的电子气体．\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Drude_model}{相关页面}．}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/DrudeM_1.pdf}
+\caption{德鲁德模型电子（此处以蓝色显示）不断在较重的静止晶体离子（以红色显示）之间反弹．} \label{DrudeM_fig1}
+\end{figure}
+\subsection{假设}
+\begin{enumerate}
+\item \textbf{独立电子近似（Independent electron approximation）}：电子之间不会相遇，不存在任何相互作用．
+\item \textbf{自由电子近似}：1.电子和离子之间不会相遇；2.电子在每次碰撞前后都是沿着直线运动；
+\item \textbf{Jellium 近似}：正电荷，也就是原子核被假定均匀分布在空间中;电子密度在空间中也是一个均匀的量．由于正电荷的均匀分布，因此其对电子施加的电场为零
+\item 德鲁德模型中的碰撞和经典动力学理论的碰撞是一样的，是在一个瞬间对电子的速度产生的变化的原因．碰撞如\autoref{DrudeM_fig1} 所示．
+\item 类似于理想气体的碰撞：假设电子仅仅只需通过碰撞就能够达到和其周围环境的热力学平衡．电子会“忘记”碰撞前的速度，也就是电子碰撞前后的速度互不相关．电子碰撞之后的速度由能量（温度）决定：
+\begin{equation}
+\frac{3}{2}k_BT = \frac{1}{2}mv_0^2
+\end{equation}
+\item 假设电子在单位时间碰撞的概率为$1/\tau $，也就是说电子在一段无穷小的时间段$dt$内碰撞的概率是$dt/\tau$．其中$\tau$是弛豫时间，或者称之为平均自由时间．
+\end{enumerate}
+\subsection{模型的建立}
+首先，我们先来直接看到电子密度$n$的公式为：
+\begin{equation}
+n=N_A\frac{Z\rho_m}{A}
+\end{equation}
+
+其中$N_A=6.022\times 10^{23}$（阿伏伽德罗常数）表示每摩尔金属元素的原子个数，单位是$\rm{atoms/mole}$．$\rho_m$是元素的质量密度，单位是$\rm{g/cm^3}$.$A$是元素的相对原子量，单位是$\rm{g/mole}$．不难看出单位体积下物质的数量为$\rho_m/A$.由于$Z$是每个原子所提供的价电子数量，因此我们也就有了上述电子密度的公式．
+
+接下来我们将每个电子平均的体积近似的看作成一个半径为$r_s$的球体，并且用其来表示电子密度的大小，也就是电子之间平均间隔的大小：
+
+\begin{equation}
+\frac{V}{N}=\frac{1}{n}=\frac{4}{3}\pi r_s^3 \Rightarrow r_s=\left(\frac{3}{4\pi n}\right)^\frac{1}{3}
+\end{equation}
+其中$V$是金属体积，$N$是总体导电的电子数量．由于$r_s$的大小大约在$0.1\rm{nm}$左右，因此我们习惯用Ångström单位$\buildrel _{\circ} \over {\mathrm{A}}=0.1\rm{nm}$，或者波尔半径$a_0=0.529\times 10^{-1}\rm{nm}$用作长度计量单位．
+
+上述的模型不难让我直接就联想到了这似乎能够揭示金属电阻的某些性质．
+
+\subsection{金属DC电路的导电率}
+
+根据欧姆定律，穿过导线的电流$I$和电势$V$成正比:$V=IR$，其中的电阻就是$R$．德鲁德模型就能够解释这一现象并且不通过实验测量估计出电阻的大小．
+
+在考虑电阻的时候，一般我们不考虑导线的形状，而是定性的考虑导线的金属构成．我们将导线材质本身的电阻率$\rho$定义为一个在电场$\bvec E$和电流密度$\bvec j$的某一点上的正比常数：
+\begin{equation}\label{DrudeM_eq1}
+\bvec E =\rho \bvec j
+\end{equation}
+
+其中电流密度$\bvec j$是与电荷流动方向平行的向量，它的大小是单位时间穿过垂直于流动单位平面的电荷数量．因此，对于一个穿过长度为$L$并且横截面为$A$的导线上的均匀电流$I$，它的电流密度是$j=I/A$.由于穿过导线的电势为:$V=EL$，结合\autoref{DrudeM_eq1} 可得：
+\begin{equation}
+V=\frac{I\rho L}{A}; R = \frac{\rho L}{A}
+\end{equation}
+
+现在从之前电子密度的角度出发，我们考虑单位体积内的电子数量$n$一直以速度$\bvec v$运动，那么电流密度是平行于$\bvec v$的．接下来，在一段时间$dt$内的电子将会在$\bvec v$的方向上向前移动$v dt$的距离，使得有$n(v dt)A$个电子在$dt$时间内穿过垂直于流动方向的截面$A$．由于单个电子的电荷为$-e$，因此我们就得到了电流密度为：
+\begin{equation}\label{DrudeM_eq2}
+\bvec j = -ne\bvec v
+\end{equation}
+
+由于金属中任意点的电子总是沿着不同方向运动且有着不同的热能，因此净电流密度也是\autoref{DrudeM_eq2} 这里的$\bvec v$是平均电子速度．在没有电场影响的情况下，一个电子运动方向更倾向于和其他电子的运动方向不同，因此显然平均的$\bvec v$是零，净电流密度也是零．在电场$E$的作用下，电子的平均速度显然和电场是相反的，这就引出了后面的计算．
+
+考虑一个典型的电子最后一次碰撞后经过的时间为$t$，它在碰撞之后的速度为:
+\begin{equation}
+\bvec v = \bvec v_0 + (-e\bvec E t/m)
+\end{equation}
+
+其中，$v_0$是碰撞后一瞬间的速度．$-e\bvec E t/m$是电场贡献的，根据$ma = F = -e\bvec E$．由于我们假设一个电子可以是在任意方向上发生碰撞的，因此每个电子的$\bvec v_0$对平均电子速度没有贡献．由于两次碰撞之间的平均时间$t$是弛豫时间$\tau$，因此：
+\begin{equation}
+\bvec v_{avg} = -\frac{e\bvec E \tau}{m}; \ \bvec j =\left(\frac{ne^2\tau}{m}\right)\bvec E
+\end{equation}
+这一结论带来和电阻率$\rho$对立的导电率$\sigma = 1/\rho$:
+\begin{equation}\label{DrudeM_eq4}
+\bvec j = \sigma \bvec E; \ \sigma = \frac{ne^2\tau}{m}
+\end{equation}
+接下来我们也就可以用电阻率估计出弛豫时间的大小：
+\begin{equation}
+\tau \frac{m}{\rho n e^2}
+\end{equation}
+我们可以通过测量导电率计算出弛豫时间，进而得到平均自由程的大小：
+\begin{equation}
+l=v_0\tau
+\end{equation}
+其中$v_0$是平均电子速度，$l$是电子两次撞击之间平均移动的距离．
+
+在任意$t$时刻下，平均电子的速度$\bvec=\bvec p(t)/m$，其中$\bvec p$是单位电子的总动量，也就是说总的动能=电子数$\times$单位电子的总动量，因此：
+\begin{equation}
+\bvec j= -\frac{ne\bvec p(t)}{m}
+\end{equation}
+
+设单位电子的总动量经过一段无穷小时间$dt$后为：$\bvec p (t+dt)$，那么在$t$时刻选取的一个电子在$t+dt$时间发生碰撞的概率将会是$dt/\tau$. 因此，电子在$t+dt$时间内不发生碰撞的概率为$1-dt/\tau$.
+
+尽管电子没有发生碰撞，它仍然会受到来自均匀电场或者/和磁场的力$\bvec f(t)$，使得我们需要附加的动量$\bvec f(t)dt - O(dt)^2$.
+
+因此在不考虑在$t$到$t+dt$时间段内碰撞过程中的动量的贡献，我们有：
+
+\begin{equation}
+\bvec p(t+dt)=\left(1-\frac{dt}{\tau}\right)\left[\bvec p(t)+\bvec f(t)dt - O(dt)^2\right]
+\end{equation}
+注意到$(dt/\tau)\bvec f(t)dt$并不会影响线性项，因此：
+\begin{equation}
+\bvec p(t+dt)-\bvec p(t)=-\left(\frac{dt}{\tau}\right)\bvec p(t)+\bvec f(t)dt - O(dt)^2
+\end{equation}
+两边同时除以$dt$，并且取$dt\rightarrow 0$的极限可得：
+\begin{equation}\label{DrudeM_eq3}
+\dv{\bvec p(t)}{t}= -\frac{\bvec p(t)}{\tau}+\bvec f(t)
+\end{equation}
+
+也就是说我们在单位电子的总动量的运动方程中引入了一个分数阶带阻尼项来描述电子碰撞的带来的衰减影响．
+\subsection{霍尔效应和磁阻}
+一些预备的介绍请阅读霍尔效应\upref{Hallef}，接下来我们将用德鲁德模型去解释霍尔效应．首先，我们先来看到霍尔效应实验的结构如下图所示，
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/DrudeM_2.pdf}
+\caption{霍尔效应实验的基本设置简化图} \label{DrudeM_fig2}
+\end{figure}
+在导线的$x$轴方向上施加电场$E_x$并且穿过导线有着同样沿着$x$轴的电流密度$j_x$．此外，我们在$z$轴方向上有一个磁场$\bvec H$，使得有洛伦兹力：
+\begin{equation}
+-\frac{e}{c}\bvec v \cross H
+\end{equation}
+注意电子运动的方向和电流的方向正好\textbf{相反}，导致电子会向$y$轴的负方向偏移．随着电子不断在导线一侧聚集，导线的$y$轴方向上就会形成一个transverse 横向电场，也称作Hall场 $E_y$，使得其与洛伦兹力互相平衡，最终电流还是仅仅只在$x$轴方向上流动．接下来我们考虑在外磁场$H$作用下，电阻率的变化，也就是横向磁阻：
+\begin{equation}
+\rho(H)=\frac{E_x}{j_x}
+\end{equation}
+由于横向电场$E_y$平衡了洛伦兹力，因此磁场$\bvec H$和电流密度$j_x$应当和$E_y$成正比，那么我们就称这一系数为\textbf{霍尔系数}：
+\begin{equation}\label{DrudeM_eq5}
+R_H = \frac{E_y}{j_xH}
+\end{equation}
+注意到这里的霍尔系数是负的，因为霍尔场$E_y$是沿着$y$轴的负方向．
+
+在计算霍尔系数和磁阻之前，我们需要先找到电流密度$j_x,j_y$和电场的分量$E_x,E_y$，以及施加磁场$\bvec H$．我们考虑在每一个电子上的力都是和位置无关的：
+\begin{equation}
+\bvec f = -e\left(\bvec E +\bvec v\cross \frac{\bvec H}{c}\right)
+\end{equation}
+因此，根据\autoref{DrudeM_eq3} 可得：
+\begin{equation}
+\dv{\bvec p}{t}=-e\left(\bvec E +\frac{\bvec P}{mc}\cross \bvec H\right)-\frac{\bvec p}{\tau}
+\end{equation}
+在稳态时的电流是与时间无关的，因此$p_x,p_y$满足：
+\begin{align}
+0=-eE_x-\omega_c p_y -\frac{p_x}{\tau}\\
+0=-eE_y+\omega_c p_y -\frac{p_y}{\tau}
+\end{align}
+其中的
+\begin{equation}
+\omega_c = \frac{eH}{mc}
+\end{equation}
+是\textbf{回旋频率（cyclotron frequency）}.我们将等式的两侧同时乘以$-ne\tau/m$并且引入之前讨论的电流密度\autoref{DrudeM_eq2} 
+\begin{align}
+\sigma_0 E_x = \omega_c \tau j_y+j_x\\
+\sigma_0 E_y = \omega_c \tau j_x+j_y
+\end{align}
+其中的$\sigma_0$是我们在DC的讨论中的导电率\autoref{DrudeM_eq4}．根据我们之前的要求，当达到平衡态时，电流仅仅只在$x$方向流动，因此$j_y = 0$，那么显然就有：
+\begin{equation}
+ E_y = \frac{\omega_c \tau }{\sigma_0}j_x=\frac{H}{nec}j_x
+\end{equation}
+带回到\autoref{DrudeM_eq5} 可得：
+\begin{equation}
+R_H=-\frac{1}{nec}
+\end{equation}
+
+\subsection{金属AC电路的导电率}
+\begin{example}{}
+(a). 证明随机选取的电子在时间间隔$t$内没有碰撞的概率为$e^{t/\tau}$．
+
+(b). 证明在接下来的时间间隔$t$内，它没有碰撞的概率是相同的．
+\end{example}
+\begin{example}{}
+\textbf{计算在电子两次碰撞在离子之间的时间段$t$的平均损耗的能量：}
+
+首先，我们假设碰撞前的平均速度为$\bvec v_0$，可得碰撞之后的平均速度的为$\bvec v_f=\bvec v_0 -\frac{e\bvec E \tau}{m}$,那么就有动能的变化为：
+\begin{align}
+\Delta \bvec T &= \bvec T_i-\bvec T_f=\frac{1}{2}m\left(\left(\bvec v_0 -\frac{e\bvec E \tau}{m}\right)^2-\bvec v_0^2\right)\\
+&=\frac{1}{2}m\left(-2\bvec v_0\frac{e\bvec E \tau}{m}+\left(\frac{e\bvec E \tau}{m}\right)^2\right)\\
+\end{align}
+由于在碰撞前的速度$\bvec v_0$的方向是“混乱”的，因此$\langle \bvec v_0\rangle = 0$，那么不考虑势能就有：
+\begin{equation}
+\langle \Delta \bvec T \rangle = \frac{(e\bvec E \tau)^2}{2m}
+\end{equation}
+\end{example}
+\begin{exercise}{}
+紧接着上一个例题，现在我们试图证明每个电子在每次碰撞所损耗的平均能量为：$(eE\tau)^2/m$，并且每秒每立方厘米上的平均能量损耗为：
+\begin{equation}
+\left(\frac{ne^2\tau}{m}\right)=\sigma E^2
+\end{equation}
+之前我们讨论了在时间段$[t, t + dt]$内两次连续碰撞的概率
+为$p(t)=(dt/\tau)e^{- t/\tau}$，那么每次碰撞所损耗的平均能量：
+\begin{align}
+\int_0^\infty p(t) \langle\Delta\bvec T\rangle\\
+\int_0^\infty \left(\frac{dt}{\tau}e^{- t/\tau}\right)\frac{(e\bvec E \tau)^2}{2m}
+\end{align}
+
+\begin{equation}
+\int_0^\infty x^n e^{-ax^p}dx = \frac{\Gamma\left(\frac{n+1}{p}\right)}{pa^{\left(\frac{n+1}{p}\right)}}
+\end{equation}
+
+\end{exercise}
+
+
+
+
+
