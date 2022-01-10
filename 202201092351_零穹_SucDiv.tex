@@ -1,0 +1,24 @@
+% 辗转相除法
+% 互素|最大公因式|算法|辗转相除
+
+\pentry{多项式的整除\upref{ExDiv}}
+本节将证明最大公因式的存在性，并介绍最大公因式的算法程序——辗转相除法．简单来说，所谓的\textbf{辗转相除法}是指多次利用带余除法计算两个多项式的最大公因式的算法．
+
+为证明最大公因式的存在，我们先来证明下面一个定理．
+\begin{theorem}{}
+设 $f(x),g(x),q(x),r(x)\in\mathbb{F}[x]$，并且
+\begin{equation}\label{SucDiv_eq1}
+f(x)=q(x)g(x)+r(x)
+\end{equation}
+则 $f(x),g(x)$ 与 $g(x),r(x)$ 有相同的公因式．
+\end{theorem}
+\textbf{证明：}1.$\phi(x)|g(x),\phi(x)|f(x)\Rightarrow \phi(x)|g(x),\phi(x)|r(x)$ 的证明：
+
+因为$\phi(x)|g(x),\phi(x)|f(x)$ ，由整除的性质3多项式的整除\upref{ExDiv} ，$\phi(x)$ 必整除 $f(x),g(x)$ 的组合
+\begin{equation}
+\phi(x)|f(x)-q(x)g(x)\Rightarrow \phi(x)|r(x)
+\end{equation}
+
+2.$\phi(x)|g(x),\phi(x)|r(x)\Rightarrow\phi(x)|g(x),\phi(x)|f(x)$ 的证明：同样有整除的性质3，立即证得．
+
+下面利用
