@@ -1,0 +1,41 @@
+% 角动量的叠加（入门版）
+
+\subsection{两个粒子自旋角动量的叠加}
+假设氢原子处于基态（这样就不用考虑轨道角动量），其电子和质子都是自旋为$1/2$的粒子．这两个粒子都可以自旋向上或者自旋向下，也就是说由四种自旋的可能性：
+\begin{equation}
+\chi^{(1)}_+\chi^{(2)}_+\equiv\uparrow\uparrow;\ \chi^{(1)}_+\chi^{(2)}_-\equiv\uparrow\downarrow;\ \chi^{(1)}_-\chi^{(2)}_+\equiv\downarrow\uparrow;\ \chi^{(1)}_-\chi^{(2)}_-\equiv\downarrow\downarrow
+\end{equation}
+更严格地讲，每一个粒子是处在上自旋和下自旋线性组合的状态，两个粒子构成的体系是上面
+四个态的线性组合态．你应当对我们接下来的操作和推导产生怀疑，不过在介绍严格可靠的形式化之前，我们先用没有严格数学依据和不优雅的箭头做一个初步的介绍．其中$\chi^{(1)}$也就是第一个箭头代表电子自旋，第二个$\chi^{(2)}$代表质子自旋．
+
+我们将这个氢原子的总角动量定义为：
+\begin{equation}
+\bvec S \equiv \bvec S^{(1)}+\bvec S^{(2)}
+\end{equation}
+上面的四个组合态都是$S_z$的本征态，也就有：
+\begin{equation}
+S_z\chi_1\chi_2=(S_z^{(1)}+S_z^{(2)})\chi_1\chi_2=(S_z^{(1)}\chi_1)\chi_2+\chi_1(S_z^{(2)}\chi_2)
+\end{equation}
+\textbf{注意：}$S_z^{(1)}$仅作用于$\chi_1$；$S_z^{(2)}$仅作用于$\chi_2$．那么我们就得到了该系统$S_z$的本征值：$m\hbar$中的$m=m_1+m_2$：
+\begin{equation}
+m=1: \ \uparrow\uparrow;\quad m=0: \ \uparrow\downarrow \rm{or} \downarrow\uparrow;\quad m=-1:\ \downarrow\downarrow
+\end{equation}
+
+我们将$s=1$称作三重态，因为它有对应的三个$|s\ m\rangle$态分别为：
+\begin{align}
+&|1 \ 1\rangle =\uparrow\uparrow\\
+&|1 \ 0\rangle=\frac{1}{\sqrt{2}}(\uparrow\downarrow+\downarrow\uparrow)\\
+&|1 -1\rangle=\downarrow\downarrow
+\end{align}
+此外，还有一个单重态$s=0$：
+\begin{equation}
+|0\ 0\rangle = \frac{1}{\sqrt{2}}(\uparrow\downarrow-\downarrow\uparrow)
+\end{equation}
+上面我们将两个自旋为$s=1/2$叠加，得到了自旋$s=1$（三重态）和$s=0$（单重态）的过程，可以严格的被数学上的张量积形式化描述：
+\begin{equation}
+(s=\frac{1}{2})\otimes(s=\frac{1}{2})=(s=1)\oplus (s=0)
+\end{equation}
+
+
+\subsection{自旋角动量和轨道角动量的叠加}
+等等．你应该要感到疑惑．对于给定的这两个粒子，其自旋角动量与空间波函数无关，而其轨道角动量与空间波函数无关．
