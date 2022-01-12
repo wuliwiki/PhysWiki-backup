@@ -1,0 +1,38 @@
+% 拉普拉斯算符
+% 梯度|散度|拉普拉斯方程
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{梯度、梯度定理\upref{Grad}， 散度、散度定理\upref{Divgnc}}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Laplace_operator}{相关页面}．}我们令一个标量函数 $u(x, y, z)$ 的\textbf{梯度的散度}为它的\textbf{拉普拉斯（Laplacian）}， 合成的算符（类比复合函数）叫做\textbf{拉普拉斯算符}， 记为 $\laplacian$ 或 $\Delta$．
+\begin{equation}
+\Delta u = \laplacian u = \div (\grad u) = \pdv[2]{u}{x} + \pdv[2]{u}{y} + \pdv[2]{u}{z}
+\end{equation}
+也可以记
+\begin{equation}
+\begin{aligned}
+\laplacian &= \Nabla \vdot \Nabla = \qty(\uvec x\pdv{x} + \uvec y\pdv{y} + \uvec z\pdv{z})^2\\
+&= \pdv[2]{u}{x} + \pdv[2]{u}{y} + \pdv[2]{u}{z}
+\end{aligned}
+\end{equation}
+这些定义也容易拓展到 $N = 1, 2, \dots$ 元函数上．
+
+柱坐标系中的拉普拉斯算符见\autoref{CylNab_eq4}~\upref{CylNab}， 球坐标中的拉普拉斯算符见\autoref{SphNab_eq4}~\upref{SphNab}．
+
+\subsection{在物理中的应用}
+在静电学中， 电势的梯度是电场的负， 而电场的散度是电荷密度除以电介质常数 $\epsilon_0$， 这样就得到了静电场的泊松方程\upref{EPoiEQ}
+\begin{equation}
+\laplacian V = -\frac{\rho}{\epsilon_0}
+\end{equation}
+由于万有引力和库仑力都服从平方反比定律， 所以引力势能和质量密度也有类似的关系
+\begin{equation}
+\laplacian V = -\frac{\rho}{\epsilon_0}
+\end{equation}
+
+在热力学中， 温度和能量密度 $u$ 成正比， 温度的梯度和能流密度成正比， 而能流密度的散度和能量密度的变化率成正比， 于是有热传导方程\upref{heatc}
+\begin{equation}
+\laplacian u = \kappa \pdv{u}{t}
+\end{equation}
