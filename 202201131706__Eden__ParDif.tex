@@ -1,0 +1,20 @@
+% 偏导数（微分学）
+% 多元微积分|导数|偏导数|混合偏导|数学分析
+
+\pentry{导数（数学分析）\upref{Der2}，偏导数（简明微积分）\upref{ParDer}}
+
+导数的几何意义是一元函数在某一点处的斜率，而我们可以将这个概念推广到多元函数．$n$ 元实函数是指从 $\mathbb{R} ^n$ 到 $\mathbb{R}$ 的映射：
+\begin{equation}
+\begin{aligned}
+f:\mathbb{R} ^n&\rightarrow \mathbb{R}\\
+(x_1,x_2,\cdots,x_n)&\mapsto f(x_1,x_2,\cdots,x_n)
+\end{aligned}
+\end{equation}
+我们定义 $f$ 对 $x_i$ 的\textbf{偏导数}为
+\begin{equation}
+\lim\limits_{x'_i\rightarrow x_{i}}\frac{f(x_1,\cdots,x'_i,\cdots,x_n)-f(x_1,\cdots,x_i,\cdots,x_n)}{x'_i-x_i}
+\end{equation}
+如果该极限存在，那么函数在这一点处对 $x_i$ 的偏导数存在，记为
+\begin{equation}
+\frac{\partial f(x_1,\cdots,x_n)}{\partial x_i}=\left.\frac{\partial f}{\partial x_i}\right|_{(x_1,\cdots,x_n)}
+\end{equation}

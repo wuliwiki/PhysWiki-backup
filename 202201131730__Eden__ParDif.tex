@@ -1,0 +1,42 @@
+% 偏导数（微分学）
+% 多元微积分|导数|偏导数|混合偏导|数学分析
+
+\pentry{导数（数学分析）\upref{Der2}，偏导数（简明微积分）\upref{ParDer}}
+\subsection{从导数到偏导数}
+导数的几何意义是一元函数在某一点处的斜率，而我们可以将这个概念推广到多元函数．$n$ 元实函数是指从 $\mathbb{R} ^n$ 的一个子集 $U$ 到 $\mathbb{R}$ 的映射：
+\begin{equation}
+\begin{aligned}
+f:U\subset \mathbb{R} ^n&\rightarrow \mathbb{R}\\
+(x_1,x_2,\cdots,x_n)&\mapsto f(x_1,x_2,\cdots,x_n)
+\end{aligned}
+\end{equation}
+我们定义 $f$ 对 $x_i$ 的\textbf{偏导数}为
+\begin{equation}
+\lim\limits_{x'_i\rightarrow x_{i}}\frac{f(x_1,\cdots,x'_i,\cdots,x_n)-f(x_1,\cdots,x_i,\cdots,x_n)}{x'_i-x_i}
+\end{equation}
+如果该极限存在，那么函数在 $\bvec x_0=(x_1,\cdots,x_n)$ 处对 $x_i$ 的偏导数存在，记为
+\begin{equation}
+\frac{\partial f(x_1,\cdots,x_n)}{\partial x_i}=\left.\frac{\partial f}{\partial x_i}\right|_{(x_1,\cdots,x_n)}=f'_{x_i}(x_1,\cdots,x_n)
+\end{equation}
+
+在讨论多元函数时，我们约定用粗体字（例如 $\bvec x$）来表示 $\mathbb{R}^n$ 中的一个向量．对于给定的 $\bvec x=(x_1,\cdots,x_n)$，如果构造一元函数 $g(x)=f(x_1,\cdots,x_{i-1},x,x_{i+1},\cdots,x_n)$，那么根据一元函数导数的定义，容易发现
+\begin{equation}
+\left.\frac{\partial f}{\partial x_i}\right|_{\bvec x}=\left.\frac{\dd g}{\dd x}\right|_{x_i}
+\end{equation}
+因此我们可以使用一元函数的求导公式来进行偏导数的计算．固定其他 $x_j(j\neq i)$ 不动，对 $x_i$ 求导，得到的结果就是我们要求的偏导数．
+
+如果多元函数 $f(\bvec x)$ 在开集 $U$ 上有定义，且在 $U$ 上每一点处都有对 $x_i$ 的偏导数，那么偏导数就是一个新的 $n$ 元函数：
+\begin{equation}
+\begin{aligned}
+\frac{\partial f}{\partial x_i}: U&\rightarrow \mathbb{R}\\
+\bvec x&\mapsto \frac{\partial f(\bvec x)}{\partial x_i}
+\end{aligned}
+\end{equation}
+因此我们可以定义二阶偏导数（如果存在的话），甚至更高阶的偏导数．例如，如果再对 $\partial f/\partial x_i$ 求对 $x_j$ 的偏导数，则可以记为
+\begin{equation}
+\frac{\partial}{\partial x_j} \frac{\partial f(\bvec x)}{\partial x_i}=\left.\frac{\partial^2 f}{\partial x_j\partial x_i }\right|_{\bvec x}
+\end{equation}
+
+有时对于性质较好的函数 $f(\bvec x)$（例如 $f$ 是 $n$ 元连续函数），可以将它想象成欧几里德空间 $\mathbb{R}^{n+1}$ 中的一个曲面，曲面上的点 $(x_1,\cdots,x_n,x_{n+1})$ 意味着 $x_{n+1}=f(x_1,\cdots,x_n)$．那么偏导数的几何意义就是曲面在某一个方向上的斜率 $\dd x_{n+1}/\dd x_i$．$n$ 个偏导数 $\partial f/\partial x_1,\cdots,\partial f/\partial x_n$ 代表了曲面在 $n$ 个平行于坐标轴的方向上的斜率．
+
+\subsection{方向导数}
