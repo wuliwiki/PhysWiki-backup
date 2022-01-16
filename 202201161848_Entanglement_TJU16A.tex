@@ -1,0 +1,52 @@
+% 天津大学 2016 年考研量子力学答案
+% 考研|天津大学|量子力学|2016|答案
+
+\begin{issues}
+\issueDraft
+\issueTODO
+\end{issues}
+
+
+\subsection{ }
+\begin{enumerate}
+\item 
+\item 不计自旋，守恒量有$\hat H,\hat {L^2},\hat {L_z} $．
+\item $\because \quad A^{\dagger} = A,B^{\dagger} = B,(AB)^{\dagger} \neq AB $ \\
+$\therefore (1)\quad (AB)^{\dagger} = B^*A^* = BA $，不是厄米算符． \\
+$\quad (2)\quad (AB+BA)^{\dagger} = B^*A^*+A^*+B^* = AB+BA $，是厄米算符． \\
+$\quad (3)\quad (AB-BA)^{\dagger} = B^*A^*-A^*B^* = -(AB-BA) $，不是厄米算符． \\
+$\quad (4)\quad (ABA)^{\dagger} = (ABA)^* = ABA $，是厄米算符． \\
+$\quad (5)\quad [i(AB-BA)]^{\dagger} = -i(BA-AB) = i(AB-BA) $，是厄密算符．
+\end{enumerate}
+\subsection{ }
+\begin{enumerate}
+\item 由$\psi (x,0) = \frac{1}{\sqrt{2}}[\varphi_{0}(x) + \varphi_{1}(x)] $可得任意时刻的波函数为：\\
+$\psi(x,t) = \frac{1}{\sqrt{2}}\left[\varphi_{0}(x)e^{-\frac{iE_{0}t}{\hbar}} + \varphi_{1}(x)e^{-\frac{iE_{1}t}{\hbar}} \right] $
+\item 由谐振子的基本性质，有：\\
+$x\psi_{n} = \frac{1}{\alpha} \left[\sqrt{\frac{n}{2}\psi_{n-1}(x)} + \sqrt{\frac{n+1}{2}\psi_{n+1}(x)} \right] $ \\
+所以任意时刻坐标的平均值为：\\
+\begin{equation}
+\begin{aligned}
+\bar{x} =& \int^{\infty}_{-\infty} \psi^{*}(x)\psi \dd{x} \\
+=& \frac{1}{2\alpha} \int^{\infty}_{-\infty} \left[\varphi^{*}_{0}(x)+\varphi^{*}_{1}(x)\right](x)\left[\varphi_{0}(x)+\varphi_{1}(x)\right] \dd{x} \\
+=& \frac{1}{2\alpha} \left[\sqrt{\frac{1}{2}}\delta_{00}+\sqrt{\frac{1}{2}}\delta_{11} \right] \\
+=& \frac{\sqrt{2}}{2} \alpha
+\end{aligned}
+\end{equation}
+其中$\alpha = \sqrt{\frac{m\omega}{\hbar}} $．
+\end{enumerate}
+\subsection{ }
+由一维无限深势阱基本结论得：\\
+
+$E^{0}_{n} = \frac{n^{2} \pi^{2} \hbar^{2}}{2ma^{2}},\quad n = 1,2,3\cdots $ \\
+
+$\psi^{0}_{n} = \sqrt{\frac{2}{a}} \sin{\frac{n \pi x}{a}}\quad n = 1,2,3\cdots $ \\
+
+能量的一级修正为：\\
+\begin{equation}
+\begin{aligned}
+E^{(1)}_{n} =& \int^{a}_{\frac{a}{2}} \psi^{(0)*}_{n} (H') \psi^{(0)}_{n} \dd{x} \\
+=& \frac{2}{a} \int^{a}_{\frac{a}{2}} V_{0} \sin^{2}{\frac{n \pi x}{a}} \dd{x}
+\end{aligned}
+\end{equation}
+
