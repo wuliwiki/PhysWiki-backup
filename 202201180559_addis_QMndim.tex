@@ -1,4 +1,4 @@
-% 单粒子多维薛定谔方程
+% 薛定谔方程（单粒子多维）
 % 量子力学|梯度|张量积空间|本征值
 
 \begin{issues}
@@ -46,3 +46,20 @@
 \exp(\I \bvec k \vdot \bvec r) = \exp(\I k_x x) \exp(\I k_y y) \exp(\I k_z z)
 \end{equation}
 对应的矢量本征值为 $\bvec p = \hbar\bvec k$．
+
+于是动能算符也自然地变为
+\begin{equation}
+\frac{\uvec p^2}{2m} = \frac{\uvec p \vdot \uvec p}{2m} = -\frac{1}{2m} \qty(\pdv[2]{x} + \pdv[2]{y} + \pdv[2]{z})
+\end{equation}
+
+\subsection{单粒子多维定态薛定谔方程}
+二维或三维的情况下， 波函数是位置矢量\upref{Disp} $\bvec r$ 的函数 $\Psi(\bvec r)$
+\begin{equation}
+T = -\frac{\hbar^2}{2m} \laplacian \qquad V = V(\bvec r)
+\end{equation}
+定态薛定谔方程为
+\begin{equation}\label{QMndim_eq4}
+-\frac{\hbar^2}{2m} \laplacian {\Psi} + V(\bvec r)\Psi = E \Psi
+\end{equation}
+例子： 三维简谐振子（球坐标）\upref{SHOSph}．
+\addTODO{散射态？ 无穷简并}
