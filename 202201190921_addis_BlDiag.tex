@@ -1,0 +1,22 @@
+% 块对角矩阵
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{分块矩阵\upref{BlkMat}， 矩阵与线性映射\upref{MatLS}， 子空间的直和、补空间\upref{DirSum}}
+若 $N$ 维线性空间 $V$ 中有若干 $N_i$ 维子空间 $V_i$（$i=1,\dots,n$）， 满足
+\begin{equation}
+V = V_1 \oplus V_2 \oplus \dots \oplus V_n
+\end{equation}
+每个 $V_i$ 的一组基底为 $v_{i,j}$ （$j=1,\dots,N_i$）． 那么所有的 $v_{i,j}$ 是 $V$ 的一组基底， 注意基底不需要是正交归一的． 定义基底的顺序为
+\begin{equation}
+v_{1,1},\dots, v_{1,N_1}, v_{2,1}, \dots, v_{2,N_2}, \dots
+\end{equation}
+此时若线性映射 $A: V\to V$ 在每个 $V_i$ 中都闭合． 那么 $A$ 关于这组基底的矩阵就是块对角矩阵， 第 $i$ 块的大小为 $N_i$． 第 $i$ 块对较快就是算符 $A:V_i\to V_i$ 关于基底 $v_{i,j}$ （$j=1,\dots,N_i$） 的矩阵．
+
+证明留作习题．
+
+\subsection{块对角厄米矩阵的本征问题}
+\pentry{厄米矩阵的本征问题\upref{HerEig}}
+若一个厄米矩阵 $\mat H$ 是块对角的， 那么每个对角块 $\mat H_i$ 也显然是厄米矩阵． 只需要分别解每个 $\mat H_i$ 的本征方程， 得到相同大小的本征矢列矩阵 $\mat P_i$， 然后按相同顺序拼成块对角矩阵 $\mat P$， 就是 $\mat H$ 的本征矢列矩阵．

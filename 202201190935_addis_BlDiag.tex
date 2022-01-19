@@ -1,0 +1,24 @@
+% 块对角矩阵
+
+\pentry{分块矩阵\upref{BlkMat}， 矩阵与线性映射\upref{MatLS}， 子空间的直和、补空间\upref{DirSum}}
+
+块对角矩阵一般是指由方形对角块组成的分块方阵， 例如
+\begin{equation}\label{BlDiag_eq1}
+\mat A = \pmat{1 & 1 & 0 & 0 & 0 & 0\\ 1 & 1 & 0 & 0 & 0 & 0\\ 0 & 0 & 2 & 0 & 0 & 0\\ 0 & 0 & 0 & 3 & 3 & 3 \\ 0 & 0 & 0 & 3 & 3 & 3\\ 0 & 0 & 0 & 3 & 3 & 3}
+\end{equation}
+也就是除了对角线上的方块（包括单个对角元）外， 其他矩阵元都为零．
+
+下面来看如何把块对角矩阵与线性映射联系起来：
+\begin{theorem}{}\label{BlDiag_the1}
+若 $N$ 维线性空间 $V$ 中有若干 $N_i$ 维子空间 $V_i$（$i=1,\dots,n$）， 满足
+\begin{equation}
+V = V_1 \oplus V_2 \oplus \dots \oplus V_n
+\end{equation}
+每个 $V_i$ 的一组基底为 $v_{i,j}$ （$j=1,\dots,N_i$）． 那么所有的 $v_{i,j}$ 是 $V$ 的一组基底， 注意基底不需要是正交归一的． 定义基底的顺序为
+\begin{equation}
+v_{1,1},\dots, v_{1,N_1}, v_{2,1}, \dots, v_{2,N_2}, \dots
+\end{equation}
+此时若线性映射 $A: V\to V$ 在每个 $V_i$ 中都闭合． 那么 $A$ 关于这组基底的矩阵就是块对角矩阵， 第 $i$ 块的大小为 $N_i$． 第 $i$ 块对角块就是算符 $A:V_i\to V_i$ 关于基底 $v_{i,j}$ （$j=1,\dots,N_i$） 的矩阵．
+\end{theorem}
+
+证明留作习题． 请试着用\autoref{BlDiag_eq1} 的矩阵作为\autoref{BlDiag_the1} 的例子．
