@@ -1,0 +1,21 @@
+% 变分的变换
+% 拉格朗日变换|黎曼变换
+
+\pentry{变分\upref{Varia}}
+在变分\upref{Varia}一节中，我们得到泛函 
+\begin{equation}
+J(y)=\int_a^bF(x,y,y')\dd x
+\end{equation}
+变分的表达式\autoref{Varia_eq5}~\upref{Varia}，即
+\begin{equation}\label{VarCha_eq1}
+\delta J=\int_a^b\qty[F_y(x,y,y')\delta y+F_{y'}(x,y,y')\delta y']\dd x
+\end{equation}
+利用分部积分\autoref{IntBP_eq1}~\upref{IntBP}，可以将上式积分号下只表达为 $\delta y$ （\textbf{拉格朗日变换}）或 $\delta y'$ （\textbf{黎曼变换}）的线性函数\autoref{LinMap_def1}~\upref{LinMap}．这就是这里说的\textbf{变分的变换}.
+
+\begin{\begin{enumerate}
+若在点 $a$ 及 $b$ 上，$\delta y=0$，那么
+\item 拉格朗日变换：$\delta J=\int_a^b\qty(F_y-\dv{}{x}F_{y'})\delta y\dd x$
+\end{enumerate}
+
+
+注意，在引出\autoref{VarCha_eq1} 时，仅假定 $y(x)$ 是 $C_1$ 类的，即 $y(x)$ 具有连续微商 $y'(x)$, 而没有假定 $y'(x)$ 可微分．这将使我们看到，拉格朗日变换是不合法的，取而代之的将是黎曼变换． 

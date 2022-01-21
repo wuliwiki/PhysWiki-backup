@@ -105,6 +105,11 @@ J(y+t\eta)-J(y)=t\int_a^b\qty(F_y\eta+F_{y'}\eta')\dd x+\epsilon_t
 于是变分是函数 $\varepsilon(t)=J(y+t\eta)$ 对于 $t$ 在 $t=0$ 时的微商．于是，得到变分的另一定义：变分是函数 $\varphi(t)=J(y+t\eta)$ 对于参变数 $t$ 当 $t=0$ 时的微商．
 \subsubsection{函数的变分}
 在泛函的变分 $\delta J$ 的表式\autoref{Varia_eq4} 中，函数 $y(x)$ 的改变量 $\eta(x)$ 称为 $y(x)$ 的\textbf{变分}，记作 $\delta y(x)$，即
-\begin{equation}
+\begin{equation}\label{Varia_eq6}
 \delta y(x)=\eta(x)=\overline{y}(x)-y(x)
+\end{equation}
+
+因此，变分 $\delta J$ \autoref{Varia_eq4} 可写为
+\begin{equation}\label{Varia_eq5}
+\delta J=\int_a^b\qty[F_y(x,y,y')\delta y+F_{y'}(x,y,y')\delta y']\dd x
 \end{equation}
