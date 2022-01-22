@@ -1,0 +1,24 @@
+% 欧拉方程（变分学）
+% 欧拉方程|正规点
+
+\pentry{变分的变换（变分学）\upref{VarCha}}
+由属于 $C_1$ 类的所有过给定点 $a,b$ 的曲线构成的可取曲线族\autoref{DesCur_sub1}~\upref{DesCur}中，给出泛函 
+\begin{equation}
+J(y)=\int_a^bF(x,y,y')\dd x
+\end{equation}
+的相对弱极值\autoref{AbPol_sub1}~\upref{AbPol}的可取曲线满足的方程便是\textbf{欧拉方程}．其具有下面的形式
+\begin{equation}\label{ElueEV_eq1}
+F'_y-\dv{}{x}F'_{y'}=0
+\end{equation}
+在引出欧拉方程的过程中，我们也将得到在变分的基本定理\upref{VarDef}一节中开头提到但未详细说明的结论，其可归为下面的定理.
+\begin{theorem}{}
+设 $F(x,y,y')$ 及其二阶偏微商对于 $a\leq x\leq b$ 及任意的 $y,y'$ 连续，泛函
+\begin{equation}
+J(y)=\int_a^b F(x,y,y')\dd x
+\end{equation}
+的可取曲线族由属于 $C_1$ 类的所有过点 $a,b$ 的曲线构成．若 $y=y(x)$ 给出 $J(y)$ 的相对弱极值，则函数 $y(x)$ 满足欧拉方程\autoref{ElueEV_eq1} .
+并在 $F_{y'y'}\neq0$ 的一切 $x$ 值上， $y''(x)$ 存在且连续．
+
+\end{theorem}
+满足欧拉方程的曲线便称为\textbf{极值曲线}．
+\subsection{证明}
