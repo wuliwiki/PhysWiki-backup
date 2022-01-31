@@ -1,0 +1,17 @@
+% 交错级数的收敛性判别
+
+\pentry{绝对收敛与条件收敛\upref{Convg}}
+
+在词条 绝对收敛与条件收敛\upref{Convg}中已经解释过, 条件收敛级数的收敛性完全是由相邻项的正负抵消导致的, 而其各项绝对值组成的级数并不收敛. 在这种情况下, 仍然有两个判别法能够判断级数是否收敛.
+
+\begin{theorem}{阿贝尔-迪利克雷判别法 (Abel-Dirichlet Test)}
+设$\{a_n\}$是单调下降的实数序列, $\{b_n\}$是复数序列.
+
+\begin{enumerate}
+\item 如果$a_n$单调下降至零, 而且存在常数$M>0$使得
+$$
+\left|\sum_{n=1}^N b_n\right|\leq M
+$$
+对于任意$N$都成立, 那么级数$\sum_{n=1}^\infty a_nb_n$收敛.
+\end{enumerate}
+\end{theorem}
