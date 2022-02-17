@@ -247,11 +247,28 @@
 \item 3.24 各项为非负的级数收敛， 当且仅当其部分和构成有界数列．
 
 \item 3.25 (a) 如果 $N_0$ 是某个固定的正整数． $n \geqslant N_0$ 时 $\abs{a_n}\leqslant c_n$ 而且 $\sum c_n$ 收敛， 那么 $\sum a_n$ 也收敛． (b) 如果当 $n\geqslant N_0$ 时 $a_n\geqslant d_n\geqslant 0$ 而且 $\sum d_n$ 发散， 那么 $\sum a_n$ 也发散．
+
+\item 如果 $f$ 在 $p$ 有极限， 那么它是唯一的
+
+\item $\lim_{x\to p}f(x)=A$， $\lim_{x\to p}g(x)=B$， 那么 (a) $\lim_{x\to p}(f+g)(x)=A+B$， (b) $\lim_{x\to p}(fg)(x)=AB$， (c) $\lim_{x\to p}(f/g)(x)=A/B$（若 $B\ne 0$）．
+
+\item 4.6 连续性： $\lim_{x\to p}f(x)=f(p)$．
+
+\item 4.7 $h(x) = g(f(x))$． 如果 $f$ 在点 $p$ 连续， 且 $g$ 在点 $f(p)$ 连续， 那么 $h$ 在点 $p$ 连续．
+
+\item 4.8 定理： $f:X\to Y$ 连续， 当且仅当对 $Y$ 的每个开集 $V$， $f^{-1}(V)$ 是 $X$ 中的开集．
 \end{itemize}
 
 \addTODO{以下所有内容}
 
 \subsection{Chap 4. 连续性}
+
+\begin{itemize}
+\item 4.1 \textbf{函数的极限}：令 $f:E\subset X\to Y$， $X,Y$ 为度量空间， 且 $p$ 是 $E$ 的极限点． 凡是我们写当 $x\to p$ 时 $f(x)\to q$， 或 $\lim_{x\to p}f(x)=q$， 就是存在 $q\in Y$ 具有以下性质： 对每个 $\epsilon>0$， 存在 $\delta>0$， 使 $d_{Y}(f(x),q)<\epsilon$ 对满足 $0<d_X(x,p)<\delta$ 的一切点 $x\in E$ 成立．
+
+\item 4.2 $\lim_{x\to p}f(x)=q$ 当且仅当 $\lim_{n\to\infty} f(p_n)=q$ 对 $E$ 中满足 $p_n\ne p$， $\lim_{n\to\infty} p_n=p$ 的每个序列 $\{p_n\}$ 成立．
+\end{itemize}
+
 
 \subsection{Chap 5. 微分法}
 
@@ -309,10 +326,62 @@
 \subsection{Chap 9. 多元函数}
 
 \begin{itemize}
-\item 9.1 (a) 向量空间 (b) 线性组合； 若 $S \subset R^n$， $E$ 是 $S$ 内元素的所有线性组合的集， 就说 $S$ \textbf{生成} $E$．
+\item 9.1 (a) 向量空间 (b) 线性组合； 若 $S \subset R^n$， $E$ 是 $S$ 内元素的所有线性组合的集， 就说 $S$ \textbf{生成} $E$． (c) 线性无关 (d) 维度 (e) 基； 坐标
+
+\item 9.3 基底和线性无关向量的一些定理
+
+\item 9.4 线性变换（线性算子）
+
+\item 9.5 线性算子是 1-1 的当且仅当值域是定义域
+
+\item 9.6 (a) $L(X,Y)$ 代表所有 $X$ 到 $Y$ 的线性变换构成的集． $L(X,X)$ 写成 $L(X)$． 线性变换的线性组合． (b) 线性变换的乘积． (c) 范数 $\norm{A}$ 为所有数 $\abs{A\bvec x}$ 的最小上界， 其中 $x$ 取遍 $R^n$ 中所有 $\abs{\bvec x}\leqslant 1$ 的向量． 对 $x\in R^n$ 有不等式 $\abs{A\bvec x}\leqslant \norm{A}\abs{\bvec x}$
+
+\item 9.7 (a) $A\in L(R^n,R^m)$， 则 $\norm{A}<\infty$ 且 $A$ 是一致连续映射． (b) $\norm{A+B}\leqslant \norm{A}+\norm{B}$， $\norm{cA} = \abs{c}\norm{A}$． 以 $\norm{A-B}$ 作为距离， 那么 $L(R^n,R^m)$ 就是一个度量空间． (c) $\norm{BA} \leqslant \norm{B}\norm{A}$
+
+\item 9.8 设 $\Omega$ 为 $R^n$ 上所有可逆线性算子的集合． (a) 若 $A\in\Omega$， $B\in L(R^n)$， 而且 $\norm{B-A}\cdot\norm{A^{-1}}<1$， 则 $B\in \Omega$． (b) $\Omega$ 是 $L(R^n)$ 的开子集， 映射 $A\to A^{-1}$ 在 $\Omega$ 上是连续的．
+
+\item 9.9 \textbf{矩阵}： $A\bvec x_j = \sum_{i=1}^m a_{ij}\bvec y_i$ （$1\leqslant j\leqslant n$）； $\norm{A}\leqslant \qty{\sum_{i,j}a_{ij}^2}^{1/2}$
+
+\item 9.11 设 $E$ 是 $R^n$ 中的开集， $\bvec f: E\to R^m$， $x\in E$． 如果存在把 $R^n$ 映入 $R^m$ 的线性变换 $A$， 使得 $\lim_{\bvec h\to 0} \abs{\bvec f(\bvec x+\bvec h) - \bvec f(\bvec x) - A\bvec h}/{\abs{\bvec h}} = 0$， 就说 $\bvec f$ 在 $\bvec x$ 处\textbf{可微}， 并写成\footnote{$A$ 的矩阵就是雅可比矩阵} $\bvec f'(\bvec x) = A$． （注： $A_{ij} = \pdv*{f_i}{x_j}$）
+
+\item 一元函数的可导和可微等价．
+
+\item 9.13 上面的极限能被写成 $\bvec f(\bvec x+\bvec h) - \bvec f(\bvec x) = \bvec f'(\bvec x)\bvec h + \bvec r(\bvec h)$， 其中余项 $\bvec r(\bvec h)$ 满足 $\lim_{\bvec h\to0} \abs{\bvec r(\bvec h)}/\abs{\bvec h} = 0$．
+
+\item 9.16 \textbf{偏导数}
+
+\item 9.17 若 $\bvec f$ 在点 $x\in E$ 可微， 那么偏导数 $D_jf_i(x)$ 存在， 且 $\bvec f'(\bvec x)\bvec e_j = \sum_{i=1}^m (D_jf_i)(\bvec x)\bvec u_i$ （$1\leqslant j\leqslant n$）
+
+\item 9.18 例： 设 $\gamma$ 是把开区间 $(a,b)\subset R^1$ 映入开集 $E\subset R^n$ 内的可微映射， 即 $\gamma$ 是 $E$ 内的可微曲线． 令 $f$ 为域 $E$ 上的实值可微函数． 于是 $f$ 是从 $E$ 到 $R^1$ 内的可微映射． 定义 $g(t) = f(\gamma(t))$ （$a< t<b$）． 于是由链式法则得到 $g'(t) = \bvec f'(\gamma(t))\gamma'(t)$ （$a<t<b$）．
+
+\item \textbf{梯度} $(\grad f)(\bvec x) = \sum_{i=1}^n (D_i f)(\bvec x)\bvec e_i$
+
+\item 9.20 设 $\bvec f$ 是开集 $E\subset R^n$ 到 $R^m$ 内的可微映射． 如果 $\bvec f'$ 是把 $E$ 映入 $L(R^n,R^m)$ 的连续映射， 就说 $\bvec f$ 是在 $E$ 内\textbf{连续可微}的． 更明确地， 它要求对每个 $x\in E$ 以及 $\epsilon > 0$， 存在 $\delta >0$， 使当 $y\in E$ 以及 $\abs{\bvec x-\bvec y}<\delta$ 时， $\norm{\bvec f'(\bvec y)-\bvec f'(\bvec x)} < \epsilon$． 我们也说 $\bvec f$ 是 $\mathscr C'$ 映射， 或者 $\bvec f\in \mathscr'(E)$．
+
+\item 9.21 设 $\bvec f$ 把开集 $E\subset R^n$ 映入 $R^m$ 内． 那么当且仅当 $\bvec f$ 的所有偏导数 $D_jf_i$ （$i\leqslant i\leqslant m, 1\leqslant j\leqslant n$）在 $E$ 上都存在并且连续时， $\bvec f\in \mathscr C'(E)$．
+
+\item 9.22 设 $X$ 是度量为 $d$ 的度量空间． 如果 $\varphi:X\to X$， 并且存在 $c<1$， 对一切 $x,y\in X$， 使得 $d(\varphi(x),\varphi(y))\leqslant cd(x,y)$， 那么， 就说 $\varphi$ 是 $X$ 到 $X$ 内的一个\textbf{凝缩函数}．
+
+\item 9.23 如果 $X$ 是完备度量空间， $\varphi$ 是 $X$ 到 $X$ 内的凝缩函数， 那么存在唯一满足 $\varphi(x)=x$ 的 $x\in X$． 也就是说 $\varphi$ 有唯一的不动点．
+
+\item 粗略地说， 反函数定理说的是， 一个连续可微映射 $\bvec f$， 在使线性变换 $\bvec f'(\bvec x)$ 可逆的点 $\bvec x$ 的邻域内是可逆的． （且反函数也是连续可微的）
+
+\item 9.24 设 $\bvec f$ 把开集 $E\subset R^n$ 映入 $R^m$ 内的 $\mathscr C'$ 映射， 对某个 $a\in E$， $\bvec f'(\bvec a)$ 可逆， 且 $\bvec b = \bvec f(\bvec a)$． 那么 (a) 在 $R^n$ 内存在开集 $U$ 和 $V$， 使得 $a\in U, b\in V$ ， $\bvec f$ 在 $U$ 上是 1-1 的， 并且 $f(U) = V$； (b) 若 $\bvec g$ 是 $\bvec f$ 的逆， 他在 $V$ 内由 $\bvec g(f(\bvec x)) = x$ （$\bvec x\in U$） 确定， 那么 $\bvec g\in \mathscr C'(V)$．
 \end{itemize}
 
-
 \subsection{Chap 10. 微分形式的积分}
+
+\begin{itemize}
+\item 10.1 设 $I^k$ 是 $R^k$ 中的 $k$-方格， 它由满足 $a_i\leqslant x_i \leqslant b_i$（$i=1,\dots,k$） 的一切 $\bvec x=(x_1,\dots,x_k)$ 组成， $I^j$ 是 $R^j$ 中的 $j$-方格， 它由前 $j$ 个不等式来确定， $f$ 是 $I^k$ 上的连续函数． 令 $f = f_k$， 而用下式定义 $I^{k-1}$ 上的函数 $f_{k-1}$： $f_{k-1}(x_1,\dots,x_{k-1}) = \int_{a_k}^{b_k} f_k(x_1,\dots,x_{k-1},x_k)\dd{x_k}$． $f_k$ 在 $I^k$ 上的一致连续性表明 $f_{k-1}$ 在 $I^{k-1}$ 上连续． 因此， 我们能够重复应用这种手续， 得到 $I^j$ 上的连续函数 $f_j$，…… $k$ 步以后， 就能得到一个数 $f_0$， 我们就把这个数叫做 $f$ 在 $I^k$ 上的积分， 并写成 $\int_{I^k} f(x)\dd{x}$ 或者 $\int_{I^k} f$．
+
+\item 10.2 对每个 $f\in \mathscr C(I^k)$， 积分结果与顺序无关．
+
+\item 10.3 $R^k$ 上一个（实或复）函数 $f$ 的\textbf{支集}， 是使 $f(x)\ne 0$ 的一切点集的闭包． 如果 $f$ 是带有紧支集的连续函数， 令 $I^k$ 是含有 $f$ 的支集的任意 $k$-方格， 并定义 $\int_{R^k}f = \int_{I^k}f$． 这样定义的积分显然与 $I^k$ 的选择无关．
+
+\item 10.5 \textbf{本源映射}： $\bvec G(\bvec x) = \bvec x + [g(\bvec x)-x_m]\bvec e_m$．
+
+\item 10.6 在 $R^n$ 上， 只把标准基的某一对成员交换， 而其他成员不变的线性算子 $B$ 叫做\textbf{对换}． $B$ 也可以看成是交换两个坐标， 而基不变．
+\end{itemize}
+
 
 \subsection{Chap 11. Lebesgue 理论}
