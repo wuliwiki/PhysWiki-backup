@@ -1,0 +1,21 @@
+% 端点可变问题
+% 端点可变|泛函极值|全微分
+\pentry{极端曲线\upref{ExtCur}}
+\subsection{问题的提出}在前面的问题中，总是取以两个固定点为端点的曲线作为可取曲线\upref{DesCur}．现在，我们研究以更广泛的曲线作为可取曲线的泛函极值问题．
+
+设函数 $F(x,y,y')$ 满足普通的连续性及可微性条件；此外，在 $xOy$ 平面上，给定两个 $C_1$ 类的曲线 $\varphi$ 及 $\psi$：
+\begin{equation}
+y=\varphi(x),\quad y=\psi(x)
+\end{equation}
+在此规定下，我们的问题可叙述如下：
+
+取端点分别在曲线 $\varphi$ 及曲线 $\psi$ 上的 $C_1$ 类中全体曲线 $\gamma$，作为可取曲线族．现在要求泛函
+\begin{equation}\label{EPQue_eq1}
+J(\gamma)=\int_\gamma F(x,y,y')
+\end{equation}
+的极值，其中积分是沿曲线 $\gamma$ 而取的．
+
+注意到：若某一以 $A$ 和 $B$ 为端点的曲线 $\gamma_0$ 是本问题的解，即 $\gamma_0$ 给积分\autoref{EPQue_eq1} 以极值，那么这一曲线 $\gamma_0$ 也在连接 $A_0$ 及 $B_0$ 的所有 $C_1$ 类曲线中，给 $J$ 以极值．由最简单问题时的欧拉定理\upref{ElueEV}，曲线 $\gamma_0$ 满足欧拉方程
+\begin{equation}
+F_y-\dv{}{x}F_{y'}=0
+\end{equation}

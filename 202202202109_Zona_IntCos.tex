@@ -1,0 +1,60 @@
+% 干涉，光强的余弦平方分布
+% 光的矢量叠加；远场光强
+
+\addTODO{巴俾涅原理，线偏振光，辐照度}
+\pentry{电场波动方程\upref{EWEq}，平面简谐波\upref{PWave}}
+\subsection{干涉}
+
+光是一种电磁波，满足由麦克斯韦方程组导出的电场波动方程\upref{EWEq}．它服从重要的\textbf{叠加原理}．简单地说，干涉就是两束或多束光波的相互作用，这种相互作用产生的总辐照度不等于各束光波的辐照度之和．今后我们将在衍射中了解到巴俾涅原理．
+
+考虑多个光源产生的场$\bvec E_1$ , $\bvec E_2$ , ...空间一点的总电场强度 $\bvec E$ 由下式给出：
+
+$$ \bvec E = \bvec E_1 + \bvec E_2 + \cdots$$
+
+光扰动以大约$\Si{10}^{14}$ Hz 的频率随时间飞快地变化，使得每时每刻的实际光场无法探测． 另一方面， 辐照度 $I$ 则可以使用各种探头直接测量． 因此， 研究干涉最好从辐照度的角度研究．
+
+\subsection{余弦平方分布}
+
+考虑由两个点光源 $S_1$ 和 $S_2$ 在均匀介质（即各向同性介质）中发射同一频率的平面波． 令 $S_1$ 与 $S_2$ 的间隔为 $a$， 且 $ a \gg \lambda $（ $\lambda$ 是光的波长 ），考虑简单的线偏振波：
+
+$$ \bvec E_1 ( \bvec r , t) = \bvec E_{01} \cos (\bvec k_1 \vdot \bvec r_1 - \omega t + \varepsilon_1 )$$
+$$ \bvec E_2 ( \bvec r , t) = \bvec E_{02} \cos (\bvec k_2 \vdot \bvec r_2 - \omega t + \varepsilon_2 )$$
+
+则 $ $ P $ $ 点的辐照度由下式给出：
+$$ I = \epsilon v \langle \bvec E^2 \rangle _T $$
+$\langle \bvec E^2 \rangle _T$ 的含义为电场强度的平方在一段时间内的平均值． 我们只关注 $ I $ 与 $ \bvec E $ 的关系，因此忽略常系数 $ \epsilon v$， 便于讨论． 
+
+ $ P $ 点的合场强为$ \bvec E = \bvec E_1 + \bvec E_2 $ ， 则辐照度  
+\begin{aligned}
+I = \langle( \bvec E_1 + \bvec E_2)\vdot( \bvec E_1 + \bvec E_2 )\rangle _T \\
+ = \langle \bvec E_1^2 \rangle _T + \langle \bvec E_2^2 \rangle _T + 2\langle \bvec E_1 \vdot \bvec E_2 \rangle _T = I_1 + I_2 + I_{12}
+\end{aligned}
+
+其中 $ I _{12} =2 \langle \bvec E_1 \vdot \bvec E_2 \rangle _T$为\textbf{干涉项}.
+
+将 $\bvec E_1$ 和 $ \bvec E_2$ 的表达式代入 $I_{12}$可得：
+$$I_{12} = \bvec E_{01}\bvec E_{02} \cos\delta$$
+$$\delta = (\bvec k_1 \vdot \bvec r_1 - \bvec k_2 \vdot \bvec r_2 ) + \varepsilon_1 - \varepsilon_2 $$
+
+常见情况为 $\bvec E_1 \backslash\backslash\bvec E_2$，则 $ I_{12} = E_{01} E_{02}\cos\delta$．
+
+由于$\langle \bvec E^2 \rangle _T = \dfrac{1}{2}E^2$，所以 $ E_1 = \sqrt{2I_1}$ ，  $ E_2 = \sqrt{2I_2}$，则
+$$  I = I_1 + I_2 + 2\sqrt{I_1 I_2}\cos\delta$$
+
+（1）当 $\delta = 0, 2\pi, 4\pi, \cdots$ 时，$\cos \delta = 1$，得到 $ I_{max} = I_1 + I_2 +2\sqrt{I_1 I_2}$，这种情况称为\textbf{完全相长干涉}；
+
+（2）当 $\delta = -\pi, \pi, 3\pi, \cdots$ 时，$\cos \delta = 0$，得到 $ I_{min} = I_1 + I_2 $，这种情况称为\textbf{完全相消干涉}．
+
+更特殊一些，若 $S_1$ 和 $S_2$ 发出的光场到达 $ P $ 点的振幅相同， 则 $ I_1 = I_2 \equiv I_0$， 则
+$$ I = 2 I_0 ( 1 + \cos\delta ) = 4 I_0 \cos ^2\dfrac { \delta } { 2 } $$
+
+考虑更一般的球面波， 上式同样成立． 从 $ S_1 $ 和 $ S_2 $ 发出的球面波分别表示为：
+
+$$ \bvec E_1 = \bvec E_{ 01 } ( r_1 ) \exp( \bvec k_1 \vdot \bvec r_1 + \varepsilon_1 )$$
+$$ \bvec E_2 = \bvec E_{ 02 } ( r_2 ) \exp( \bvec k_2 \vdot \bvec r_2 + \varepsilon_2 )$$
+
+其$ r $ 是在 $ P $ 点重叠的球形波阵面的半径． 电场的振幅与 $ r $ 成反比. 这时， $ \delta = k ( r_1 - r_2 ) + ( \varepsilon_1 - \varepsilon_2 )$.  请读者自行验算．
+
+我们先关注比较特殊的情况， 若 $ a \ll r $， 可视 $ \bvec E_1$ 、 $ \bvec E_2$ 在小区域内为常量； 若 $ \bvec E_{01} = \bvec E_{02} $ , $ I_1 = I_2$
+
+
