@@ -1,0 +1,85 @@
+% 可测集合
+% 实变函数|Lebesgue积分
+
+\pentry{集合的测度（实变函数）\upref{SetMet}}
+
+
+在\textbf{集合的测度（实变函数）}\upref{SetMet}中我们提到，Lebesgue积分是对值域作分划．但是值域作分划以后，有可能出现\autoref{SetMet_ex1}~\upref{SetMet}那样病态的两个集合，它们互不相交，但其并集的测度小于各自测度之和．这就好比对定义域作分划的Riemann积分中，两根柱子的总面积小于单个柱子的面积之和，非常不符合直觉，而且会导致无法建立自洽的理论．
+
+因此，讨论Lebesgue积分时，我们要对集合的性质作出限制，只讨论所谓的\textbf{可测集合（measurable set）}，以及进而导出的\textbf{可测函数（measurable function）}．
+
+\begin{definition}{可测集}\label{MsbSet_def1}
+
+设$E$为$\mathbb{R}^n$的子集，满足：对于$\mathbb{R}^n$的任意子集$A$，都有
+\begin{equation}
+\opn{m^*}(A\cap E)+\opn{m^*}(A\cap E^C)=\opn{m^*}A
+\end{equation}
+那么称$E$为\textbf{可测集}\footnote{$E^C$表示$E$的补集．}．
+
+不是可测集的集合，就称为\textbf{不可测集}．
+
+\end{definition}
+
+这个定义初看很绕口，我们在这儿多加些解释．可测集$E$可以看成一种分割，它可以把任何集合$A$都分成两部分，使得分出来的两部分的测度之和就等于$A$的测度．像\autoref{SetMet_ex1}~\upref{SetMet}中最后构造的两个集合$\bigcup_{i=1}^k S_i$和$S_{k+1}$，它们都是\textbf{不可测集}，只需要取$A=\bigcup^{k+1}_{i=1} S_i$再比较\autoref{MsbSet_def1} 即可证明这一点．
+
+看起来可测集的定义要求很严格，对$A$毫无约束，那么可测集存在吗？答案是肯定的，最简单的例子就是测度为零的集合，又叫零测集．
+
+\begin{example}{可测集的例子：零测集}
+
+如果$\opn{m^*}E=0$，那么$E$是可测的．
+
+任取$A\in\mathbb{R}^n$，那么由外测度的单调性，$\opn{m^*}(A\cap E)=0$．
+
+又由外测度的次可加性，
+\begin{equation}\label{MsbSet_eq1}
+\begin{aligned}
+\opn{m^*}(A)&=\opn{m^*}([A\cap E]\cup[A\cap E^C])\\
+&\leq \opn{m^*}(A\cap E)+\opn{m^*}(A\cap E^C)\\
+&=\opn{m^*}(A\cap E^C)
+\end{aligned}
+\end{equation}
+
+再由单调性知，\autoref{MsbSet_eq1} 中的不等号应为等号．由此得证．
+
+\end{example}
+
+零测集是可测的，这很显然，但我们毕竟是要研究积分，总要讨论非零的测度．那么有没有非零测的集合也是可测集呢？答案也是肯定的．
+
+\begin{example}{可测集的例子：区间}\label{MsbSet_ex1}
+
+任意区间$I$都是可测的．
+
+任取$A\in\mathbb{R}^n$，不失一般性\footnote{这里不失一般性是因为，就算$A$中有点在$I$的边界上，由于边界是零测集，故从$A$中挖去这些点后，其外测度依然不变．}地，设$A$中没有任何点在区间$I$的边界上．那么我们总可以从覆盖$A$的开集中挖去$I$的边界点，剩下的依然是覆盖$A$的开集．这样的开集总是被$I$分成不相交的两部分，这两部分也都是开集．由开集\textbf{体积}的完全可加性即可最终证出$\opn{m^*}(A\cap I)+\opn{m^*}(A\cap I^C)=\opn{m^*}A$．
+
+\end{example}
+
+更进一步，我们还可以通过已知的可测集来构造新的可测集，这由以下定理保证：
+
+\begin{theorem}{可测集的性质}
+
+\begin{enumerate}
+\item $E$可测，则$E^C$可测；
+\item 
+\end{enumerate}
+
+\end{theorem}
+
+\textbf{证明}：
+
+\begin{enumerate}
+\item 由\autoref{MsbSet_def1} 中$E$和$E^C$地位的对称性直接可得．注意$(E^C)^C=E$．
+\item 
+\end{enumerate}
+
+\textbf{证毕}．
+
+
+
+
+
+
+
+
+
+
+
