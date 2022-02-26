@@ -1,0 +1,33 @@
+% Berkeley-ECS 方法
+
+\footnote{参考 Renate Pazourek Thesis Eq 3.36}要把最后的波函数 $\ket{\Psi(t_0)}$ 投影到精确散射态 $\ket{\varphi_{\alpha,E}}$ 上， 而避免计算精确散射态， 可以先解
+\begin{equation}\label{BerECS_eq1}
+(E-H)\ket{\Psi_{SC}(E)} = \ket{\Psi(t_0)}
+\end{equation}
+根据\autoref{LipSch_eq2}~\upref{LipSch}， 形式上这相当于计算
+\begin{equation}
+\ket{\Psi_{SC}(E)} = G^+(E)\ket{\Psi(t_0)}
+\end{equation}
+但这并不重要， 数值上仍然直接解非齐次线性方程组\autoref{BerECS_eq1} 即可．
+
+下一步， 把末态投影到精确散射态上得
+\begin{equation}\label{BerECS_eq2}
+\begin{aligned}
+&\quad \braket{\varphi_{\alpha,E}}{\Psi(t_0)} = \mel{\varphi_{\alpha,E}}{E-H}{\Psi_{SC}(E)}\\
+&= \mel*{\varphi_{\alpha,E}}{\frac{\laplacian}{2}}{\Psi_{SC}(E)} + \mel*{\varphi_{\alpha,E}}{E-V}{\Psi_{SC}(E)}
+\end{aligned}
+\end{equation}
+由于 $(-\laplacian/2+V)\varphi_{\alpha,E} = E\varphi_{\alpha,E}$
+\begin{equation}
+\mel*{\varphi_{\alpha,E}}{E-V}{\Psi_{SC}(E)} = -\braket*{\frac{\laplacian}{2} \varphi_{\alpha,E}}{\Psi_{SC}(E)}
+\end{equation}
+
+根据格林第二恒等式
+\begin{equation}
+\int (u\laplacian v - v\laplacian u)\dd{V} = \oint (u\grad v - v\grad u) \dd{\bvec S}
+\end{equation}
+可以把\autoref{BerECS_eq2} 写成面积分
+\begin{equation}
+\braket{\varphi_{\alpha,E}}{\Psi(t_0)} = 
+\end{equation}
+
