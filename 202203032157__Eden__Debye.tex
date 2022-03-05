@@ -1,0 +1,18 @@
+% 晶格热容的德拜理论
+% 晶格振动|德拜|热容
+
+\pentry{玻尔兹曼分布（统计力学）\upref{MBsta}，晶格热容的爱因斯坦理论\upref{EScap}}
+
+根据量子理论，晶格的各个简谐振动模式的能量本征值都是量子化的，为
+\begin{equation}
+\qty(n_j+\frac{1}{2})\hbar \omega_j
+\end{equation}
+固体的一部分内能来自于晶格的振动，因此我们这里考虑的晶格热容就与这些简谐振动模式有关．我们需要知道晶格内能关于温度 $T$ 的函数，那么我们希望知道在特定温度下不同简谐振动模式的平均热能．根据玻尔兹曼分布，能量本征值 $\epsilon$ 出现的概率与 $e^{-\epsilon}$ 成正比，因此我们有
+\begin{equation}
+\overline E_j(T)=\frac{1}{2}\hbar \omega_j + \frac{\sum_{n_j} n_j\hbar \omega_j e^{-n_j \hbar \omega_j / kT}}{\sum_{n_j} e^{-n_j \hbar \omega_j / kT}}
+\end{equation}
+$\overline E_j$ 代表简谐振动模式 $j$ 的平均能量．令 $\beta=1/kT$，上式可以写成
+\begin{equation}
+\overline E_j(T)=\frac{1}{2}\hbar \omega_j - \frac{\partial}{\partial \beta} \ln \sum_{n_j} e^{-n_j\beta\hbar\omega_j}=\frac{1}{2}\hbar \omega_j - \frac{\partial}{\partial \beta} \ln Z
+\end{equation}
+$Z$ 就是单个振动模式下的配分函数．

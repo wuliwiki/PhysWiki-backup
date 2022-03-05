@@ -1,0 +1,95 @@
+% Rudin 实分析与复分析笔记 1
+
+\subsection{Chap 1. 抽象积分}
+\begin{itemize}
+\item (a) 对每一个复数 $z, e^{z} \neq 0$. (b) $\exp$ 的导数是它自己. (c) $\exp$ 限制在实轴上是单调增加的正函数, 且当 $x \rightarrow \infty$ 时, $\mathrm{e}^{x} \rightarrow \infty$; 当 $x \rightarrow-\infty$ 时, $\mathrm{e}^{x} \rightarrow 0$.
+(d) 存在一个正数 $\pi$ 使得 $\mathrm{e}^{\pi / 2}=\mathrm{i}$, 并使得 $\mathrm{e}^{z}=1$ 当且仅当 $z /(2 \pi \mathrm{i})$ 是整数.（e） $\exp$ 是周期函数，其周期是 $2 \pi \mathrm{i}$. (f) 映射 $t \rightarrow \mathrm{e}^{\mathrm{i}}$ 将实轴映到单位圆上. （g）若 $w$ 是复数且 $w \neq 0$, 则存在某个 $z$ 使 $w=\mathrm{e}^{z}$.
+
+\item 1.2 (a) 集 $X$ 的子集族 $\tau$ 称为 $X$ 上的一个拓扑, 若 $\tau$ 具有如下三个性质：(i) $\varnothing \in \tau$ 及 $X \in \tau$. (ii) 若 $V_{1} \in \tau, i=1, \cdots, n$, 则 $V_{1} \cap V_{2} \cap \cdots \cap V_{n} \in \tau$. (iii) 若 $\left\{V_{a}\right\}$ 是由 $\tau$ 的元素构成的集族 (有限、可数或不可数), 则 $\bigcup_{a} V_{a} \in \tau$. (b) 若 $\tau$ 是 $X$ 上的拓扑, 则称 $X$ 为一个拓扑空间, 且 $\tau$ 的元素称为 $X$ 的开集. (c) 若 $X$ 和 $Y$ 为拓扑空间, 且 $f$ 是 $X$ 到 $Y$ 内的映射, 而对 $Y$ 的每一个开集 $V, f^{-1}(V)$ 是 $X$ 的开集, 则称 $f$ 为连续的.
+
+\item 1.3 (a) 集 $X$ 的子集族 $\mathfrak{M}$ 称为 $X$ 的一个 $\sigma$-代数, 若 $\mathfrak{M}$ 具有如下性质: (i) $X \in \mathfrak{M}$. (ii) 若 $A \in \mathfrak{M}$, 则 $A^{c} \in \mathfrak{M}$, 其中 $A^{c}$ 是 $A$ 关于 $X$ 的余集. (iii) 若 $A=\bigcup_{n=1}^{\infty} A_{n}$ 且 $A_{n} \in \mathfrak{M}, n=1,2,3, \cdots$, 则 $A \in \mathfrak{M}$. (c) 若 $X$ 是可测空间， $Y$ 是拓扑空间， $f$ 是 $X$ 到 $Y$ 内的映射，而对 $Y$ 的每一个开集 $V$, $f^{-1}(V)$ 是 $X$ 的可测集, 则 $f$ 称为可测的.
+
+\item 1.5 设 $X$ 和 $Y$ 是拓扑空间, $f$ 是 $X$ 到 $Y$ 内的映射. 当且仅当 $f$ 在 $X$ 的每一点连续时, 映射 $f$ 是连续的.
+
+\item 1.7 设 $Y$ 和 $Z$ 为拓扑空间, 且 $g: Y \rightarrow Z$ 是连续的. (a) 若 $X$ 是拓扑空间, $f: X \rightarrow Y$ 是连续的, 且 $h=g \circ f$, 则 $h: X \rightarrow Z$ 是连续的. (b) 若 $X$ 是可测空间, $f: X \rightarrow Y$ 是可测的, 且 $h=g \circ f$, 则 $h: X \rightarrow Z$ 是可测的. 简言之, 连续函数的连续函数是连续的; 可测函数的连续函数是可测的.
+
+\item 1.10 若 $\mathscr{F}$ 为 $X$ 的任意子集族, 则在 $X$ 内存在一个最小的 $\sigma$-代数 $\mathfrak{M}^{*}$, 使得 $M \subset M^{*}$. $\mathfrak{M}^{*}$ 有时称为由 $\mathscr{F}$ 生成的 $\sigma$-代数.
+
+\item 1.30 我们定义 $L^{1}(\mu)$ 是所有使得 $\int_{X}|f| \mathrm{d} \mu<\infty$ 的、 $X$ 上的复可测函数 $f$ 的集族.
+
+\item 1.31 若 $f=u+\mathrm{i} v$, 这里 $u$ 和 $v$ 是 $X$ 上的实可测函数, 且 $f \in L^{1}(\mu)$, 则对每一个 可测集 $E$ 定义 $\int_{E} f \mathrm{~d} \mu=\int_{E} u^{+} \mathrm{d} \mu-\int_{E} u^{-} \mathrm{d} \mu+\mathrm{i} \int_{E} v^{+} \mathrm{d} \mu-\mathrm{i} \int_{E} v^{-} \mathrm{d} \mu$
+
+\item 1.32 设 $f$ 和 $g \in L^{1}(\mu)$, 且 $\alpha$ 和 $\beta$ 是复数, 则 $\alpha f+\beta g \in L^{1}(\mu)$, 且 $\int_{x}(\alpha f+\beta g) \mathrm{d} \mu=\alpha \int_{x} f \mathrm{~d} \mu+\beta \int_{x} g \mathrm{~d} \mu$
+
+\item 1.34 勒贝格控制收敛定理 设 $\left\{f_{n}\right\}$ 是 $X$ 上的复可测函数序列, 使得 $f(x)=\lim _{n \rightarrow \infty} f_{n}(x)$ 对每一个 $x \in X$ 成立. 若存在一个函数 $g \in L^{1}(\mu)$ 使得 $\left|f_{\mathrm{n}}(x)\right| \leqslant g(x) \quad(n=1,2,3, \cdots ; x \in X)$, 则 $f \in L^{1}(\mu)$, $\lim _{n \rightarrow \infty} \int_{x}\left|f_{n}-f\right| \mathrm{d} \mu=0$, 并且 $\lim _{n \rightarrow \infty} \int_{X} f_{n} \mathrm{~d} \mu=\int_{X} f \mathrm{~d} \mu$.
+
+\item 1.35 设 $P$ 是对于点 $x$ 可以具有或者不具有的一种性质. 譬如, 若 $f$ 是一个给定的 函数, $P$ 可以是性质“ $f(x)>0$ ”, 若 $\left\{f_{n}\right\}$ 是给定的函数序列, $P$ 可以是性质“ $\left\{f_{n}(x)\right\}$ 收敛”. 如果 $\mu$ 是一个 $\sigma$-代数 $\mathfrak{M}$ 上的测度, $E \in \mathfrak{M}$, “$P$ 在 $E$ 上几乎处处成立” (简记为 “ $P$ 在 $E$ 上 a. e. 成立") 这句话意味着 : 存在一个 $N \in \mathfrak{M}$, 使得 $\mu(N)=0, N \subset E$, 并且 $P$ 在 $E-N$ 的每一 点上成立. 当然 “几乎处处” 这个概念非常强烈地依赖于所给定的测度. 当明确要求指出测度的 时侯, 我们将记作 “a. e. $[\mu]$”.
+
+\item 1.36 设 $(X, \mathfrak{M}, \mu)$ 是一个测度空间, $\mathfrak{M}^*$  是所有这样的 $E \subset X$ 的集族, 对于 $E$ 存 在集 $A$ 和 $B \in \mathfrak{M}$, 使得 $A \subset E \subset B$, 且 $\mu(B-A)=0$, 在这种情况下, 定义 $\mu(E)=\mu(A)$, 则 $\mathfrak{M}^{*}$ 是一个 $\sigma$-代数, 且 $\mu$ 是 $\mathfrak{M}^{*}$ 上的一个测度.
+
+\item 1.38 设 $\left\{f_{n}\right\}$ 是一个在 $X$ 上几乎处处有定义的复可测函数序列, 满足 $\sum_{n=1}^{\infty} \int_{X}\left|f_{n}\right| \mathrm{d} \mu<\infty$, 则级数 $f(x)=\sum_{n=1}^{\infty} f_{n}(x)$ 对几乎所有的 $x$ 收敛, $f \in L^{1}(\mu)$, 并且 $\int_{X} f \mathrm{~d} \mu=\sum_{n=1}^{\infty} \int_{x} f_{n} \mathrm{~d} \mu$
+
+\item 1.41 设 $\left\{E_{k}\right\}$ 是在 $X$ 内的可测集序列, 满足 $\sum_{k=1}^{\infty} \mu\left(E_{k}\right)<\infty$, 则几乎所有的 $x \in X$, 至多属于有限个集 $E_{k}$.
+\end{itemize}
+
+\subsection{Chap 2. 正博雷尔测度}
+\begin{itemize}
+\item 2.3 设 $X$ 是拓扑空间. (a) 集 $E \subset X$ 是闭的, 如果它的余集 $E^{c}$ 是开的. （因此, $\varnothing$ 和 $X$ 是闭集, 闭集的有限并是闭集，闭集的任意交是闭集. )（b）集 $E \subset X$ 的闭包 $\bar{E}$ 是 $X$ 中包含 $E$ 的最小闭集. (下述推理证明了 $\bar{E}$ 存在: $X$ 中包含 $E$ 的所有闭子集的集族 $\Omega$ 是非空的, 因为 $X \in \Omega$. 令 $\bar{E}$ 是 $\Omega$ 的一切元素的交.) (c) 集 $K \subset X$ 是紧的, 如果 $K$ 的每个开覆盖包含有限子覆盖. 特别地, 如果 $X$ 本身是紧的, 则 $X$ 称为紧空间. (d) 点 $p \in X$ 的一个邻域是 $X$ 的任意一个包含 $p$ 的开子集. (使用这个词并不是十分标准; 有些人对任意包含一个含 $p$ 的开集的集使用“ $p$ 的邻域” 这个词. ) (e) $X$ 是一个\textbf{豪斯多夫空间}, 如果下述条件成立: 若 $p, q \in X$, 且 $p \neq q$, 则 $p$ 有一个 邻域 $U, q$ 有一个邻域 $V$, 使得 $U \cap V=\varnothing$. (f) $X$ 是局部紧的, 如果 $X$ 的每一点有一个邻域, 它的闭包是紧的. 每个紧空间是局部紧的.
+\end{itemize}
+
+\subsection{Chap 3. $L^p$-空间}
+
+\subsection{Chap 4. 希尔伯特空间的初等理论}
+
+\subsection{Chap 5. 巴拿赫空间技巧的例子}
+
+\subsection{Chap 6. 复测度}
+
+\subsection{Chap 7. 微分}
+
+\subsection{Chap 8. 积空间上的积分}
+
+\subsection{Chap 9. 傅里叶变换}
+
+\begin{itemize}
+\item 9.1 本章我们将从以前的记号出发, 并用字母 $m$ 记 $R^{1}$ 上的勒贝格测度被 $\sqrt{2 \pi}$ 除的 结果, 而不是 $R^{1}$ 上的勒贝格测度. 这个约定简化了一些结果的外貌, 例如反演定理和 Plancherel 定理. 因此, 我们将用记号 $\int_{-\infty}^{\infty} f(x) \mathrm{d} m(x)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} f(x) \mathrm{d} x$, 其中 $\mathrm{d} x$ 是通常的勒贝格测度，并定义 $\|f\|_{p}=\left\{\int_{-\infty}^{\infty}|f(x)|^{p} \mathrm{~d} m(x)\right\}^{1 / p} \quad(1 \leqslant p<\infty)$, $(f * g)(x)=\int_{-\infty}^{\infty} f(x-y) g(y) \mathrm{d} m(y) \quad\left(x \in R^{1}\right)$ 和 $\hat{f}(t)=\int_{-\infty}^{\infty} f(x) \mathrm{e}^{-i xt} \mathrm{~d} m(x) \quad\left(t \in R^{1}\right)$. 本章中, 我们将用 $L^{p}$ 代替 $L^{p}\left(R^{1}\right)$, 而 $C_{0}$ 将记 $R^{1}$ 上所有在无穷远点为零的连续函数的空间. 如果 $f \in L^{1}$, 则最后的积分对每个实数 $t$ 都是完全确定的. 函数 $\hat{f}$ 称为 $f$ 的傅里叶变换. 注意, 术语 “傅里叶变换” 也用于把 $f$ 映为 $\hat{f}$ 的映射.
+
+\item 9.2 设 $f \in L^{1}, \alpha$ 和 $\lambda$ 是实数. (a) 如果 $g(x)=f(x) e^{i \alpha x}$, 则 $\hat{g}(t)=\hat{f}(t-\alpha)$. (b) 如果 $g(x)=f(x-\alpha)$, 则 $\hat{g}(t)=\hat{f}(t) \mathrm{e}^{-i\alpha x}$. (c) 如果 $g \in L^{1}, h=f * g$, 则 $\hat{h}(t)=\hat{f}(t) \hat{g}(t)$. 因此, 傅里叶变换用特征标来乘化为平移, 反之亦然, 并把卷积化为点态相乘的积. (d) 如果 $g(x)=\overline{f(-x)}$, 则 $\hat{g}(t)=\overline{\hat{f}(t)}$. (e) 如果 $g(x)=f(x / \lambda)$ 且 $\lambda>0$, 则 $\hat{g}(t)=\lambda \hat{f}(\lambda t)$. (f) 如果 $g(x)=-\mathrm{i} x f(x)$ 且 $g \in L^{1}$, 则 $\hat{f}$ 是可徽的, 且 $\hat{f}^{\prime}(t)=\hat{g}(t)$.
+
+\item 9.6 如果 $f \in L^{1}$, 则 $\hat{f \in C_{0}}$, 且 $\|\hat{f}\|_{\infty} \leqslant\|f\|_{1}$.
+
+\item 9.11 \textbf{反演定理}： 如果 $f \in L^{1}$ 和 $\hat{f} \in L^{1}$, 且 $g(x)=\int_{-\infty}^{\infty} \hat{f}(t) \mathrm{e}^{itx} \mathrm{d} m(t) \quad\left(x \in R^{1}\right)$ 则 $g \in C_{0}$ 和 $f(x)=g(x)$ a. e.
+
+\item 9.13 对每个 $f \in L^{2}$ 都能对应一个函数 $\hat{f} \in L^{2}$, 使得下述性质成立: (a) 如果 $f \in L^{1} \cap L^{2}$, 则 $\hat{f}$ 是 $f$ 的前面定义过的傅里叶变换. (b) 对每个 $f \in L^{2},\|\hat{f}\|_{2}=\|f\|_{2}$. (c) 映射 $f \rightarrow \hat{f}$ 是一个 $L^{2}$ 到 $L^{2}$ 上的希尔伯特空间的同构. (d) 在 $f$ 和 $\hat{f}$ 之间存在下述对称关系: 如果 $\varphi_{A}(t)=\int_{-A}^{A} f(x) \mathrm{e}^{-ixt} \mathrm{~d} m(x)$ 和 $\psi_{A}(x)=\int_{-A}^{A} \hat{f}(t) \mathrm{e}^{-ix t} \mathrm{~d} m(t)$, 则当 $A \rightarrow \infty$ 时, $\left\|\varphi_{A}-\hat{f}\right\|_{2} \rightarrow 0$ 和 $\left\|\psi_{A}-f\right\|_{2} \rightarrow 0$.
+
+\item 9.14 如果 $f \in L^{2}$ 和 $\hat{f} \in L^{1}$, 则 $f(x)=\int_{-\infty}^{\infty} \hat{f}(t) \mathrm{e}^{i x t} \mathrm{~d} m(t)$ a. e.
+
+\item 9.18 \textbf{巴拿赫代数 ${L}^{1}$} 设 $A$ 是一个巴拿赫空间, 如果 $A$ 中定义了一种乘法, 并满足不等式 $\|x y\| \leqslant\|x\|\|y\| \quad(x,y \in A)$, 结合律 $x(y z)=(x y) z$, 分配律 $x(y+z)=x y+x z$, $(y+z)x=y x+z x$ $(x, y, z \in A)$ 和关系 $(\alpha x) y=x(\alpha y)=\alpha(x y)$, 其中 $\alpha$ 是任意标量, 则称 $A$ 为巴拿赫代数.
+
+\item 9.20 \textbf{复同态} 巴拿赫代数上最重要的复函数是 $A$ 到复数域内的同态. 确切地说是存在保持乘法的线性泛函, 即是说, 此函数 $\varphi$ 对所有的 $x, y \in A$ 和一切标量 $\alpha, \beta$, 有 $\varphi(\alpha x+\beta y)=\alpha \varphi(x)+\beta \varphi(y), \varphi(x y)=\varphi(x) \varphi(y)$
+
+\item 9.23 $L^{1}$ 上的每个复同态 $\varphi$ (除 $\varphi=0$ 外), 都对应有唯一的 $t \in R^{1}$, 使得 $\varphi(f)=\hat{f}(t)$
+\end{itemize}
+
+\subsection{Chap 10. 全纯函数的初等性}
+
+
+\subsection{Chap 11. 调和函数}
+
+\subsection{Chap 12. 最大模原理}
+
+\subsection{Chap 13. 有理函数逼近}
+
+\subsection{Chap 14. 共形映射}
+
+\subsection{Chap 15. 全纯函数的零点}
+
+\subsection{Chap 16. 解析延拓}
+
+\subsection{Chap 17. $H^p$-空间}
+
+\subsection{Chap 18. 巴拿赫代数的初等理论}
+
+\subsection{Chap 19. 全纯傅里叶变换}
+
+\subsection{Chap 20. 用多项式一致逼近}

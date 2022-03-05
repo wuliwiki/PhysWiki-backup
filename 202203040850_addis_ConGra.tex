@@ -1,0 +1,9 @@
+% 共轭梯度法解线性方程组
+
+\pentry{正定矩阵\upref{DefMat}}
+
+要求解对称正定矩阵（SPD） $\mat A$， 的线性方程组 $\mat A \bvec x = \bvec b$， 只需要令
+\begin{equation}
+f(x) = \frac{1}{2}\bvec x\Tr \mat A\bvec x - \bvec b\Tr \vdot \bvec x
+\end{equation}
+容易证明 $\grad f = \mat A \bvec x - \bvec b$．
