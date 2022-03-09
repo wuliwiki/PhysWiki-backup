@@ -1,0 +1,74 @@
+% 可测函数
+% 叶葛洛夫定理|Egoroff|Lusin|测度|Lebesgue积分|实变函数|广义实数
+
+为了引入新的积分思想，我们首先要讨论可测函数的相关概念．
+
+\subsection{广义实数}
+
+为了方便将来的讨论，我们将实数扩充为“广义实数”，即在实数集合中再添加$\pm\infty$这两个元素．
+
+$\pm\infty$的运算规则简述如下：
+
+\begin{equation}
+(\pm\infty)+( \pm \infty)=\pm \infty
+\end{equation}
+
+\begin{equation}
+(\pm\infty)(\pm\infty)=+\infty
+\end{equation}
+
+\begin{equation}
+(\pm\infty)(\mp\infty)=-\infty
+\end{equation}
+
+设$a, b, c$都是实数，且$b<0<c$，则还有：
+
+\begin{equation}
+a+(\pm\infty)=\pm\infty
+\end{equation}
+
+\begin{equation}
+b(\pm\infty)=\mp\infty
+\end{equation}
+
+\begin{equation}
+c(\pm\infty)=\pm\infty
+\end{equation}
+
+而$(\pm\infty)+(\mp\infty)$是不允许的运算，多数情况下$0\cdot(\pm\infty)$也是不允许的．
+
+这样一来，我们就可以不再局限于实数集，而是在广义实数集上定义函数．
+
+
+
+\subsection{可测函数}
+
+可测函数是构造Lebesgue积分思想的砖块，就像“柱子的面积”是Riemann积分思想的砖块一样．
+
+\begin{definition}{可测函数}\label{MsbFun_def1}
+设$f$是$E\subseteq\mathbb{R}^n$上的函数（值域为广义实数集），其定义域$E$为一个可测集．如果对于任意实数$a$，都有$\{x\in E|f(x)\geq a\}$是可测集，那么称$f$是$E$上的\textbf{可测函数（measurable function）}．
+\end{definition}
+
+
+可测函数要保持的性质是，在对值域进行分划的时候，各分划区间通过逆映射对应的“底面”是可测集，这样才能满足可加性．\autoref{MsbFun_def1} 中的限制看起来没有“任意分划得到的底面都是可测集”，但实际上定义到这个程度已经够了，这可以从下面的
+
+
+\begin{theorem}{}
+设$E$是$\mathbb{R}^n$上的可测集，$f$是$E$上的一个函数，则以下命题等价：
+\begin{enumerate}
+\item $f$是可测函数；
+\item 对于任意实数$a$，$\{x\in E|f(x)>a\}$是可测集；
+\item 对于任意实数$a$，$\{x\in E|f(x)\leq a\}$是可测集；
+\item 对于任意实数$a$，$\{x\in E|f(x)<a\}$是可测集．
+\end{enumerate}
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
