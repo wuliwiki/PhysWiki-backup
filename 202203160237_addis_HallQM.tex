@@ -1,0 +1,19 @@
+% Hall 量子力学笔记
+
+\subsection{A.2 Measure Theory}
+
+\begin{itemize}
+\item \textbf{Measure space} $(X,\Omega,\mu)$. \textbf{Integrable} $\int_X \abs{\psi} \dd{\mu} < \infty$.
+
+\item \textbf{generated}
+
+\item A measure $\mu$ on a measurable space $(X, \mu)$ is said to be \textbf{$\sigma$-finite} if $X$ can be written as a countable union of measurable sets of finite measure.
+
+\item Definition A.5 Suppose $\mu$ and $\nu$ are two $\sigma$-finite measures on a measure space $(X, \Omega)$. Then we say that $\mu$ is \textbf{absolutely continuous} with respect to $\nu$ if for all $E \in \Omega$, if $\nu(E)=0$ then $\mu(E)=0$. We say that $\mu$ and $\nu$ are \textbf{equivalent} if each measure is absolutely continuous with respect to the other.
+
+\item Theorem A.6 (\textbf{Radon-Nikodym}) Suppose $\mu$ and $\nu$ are two $\sigma$-finite measures on a measure space $(X, \Omega)$ and that $\mu$ is absolutely continuous with respect to $\nu$. Then there exists a non-negative, measurable function $\rho$ on $X$ such that $\mu(E)=\int_{E} \rho d \nu$, for all $E \in \Omega$. The function $\rho$ is called the \textbf{density} of $\mu$ with respect to $\nu$.
+
+\item Definition A.7 A collection $\mathcal{M}$ of subsets of a set $X$ is called a monotone class if $\mathcal{M}$ is closed under countable increasing unions and countable decreasing intersections.
+\end{itemize}
+
+

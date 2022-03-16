@@ -17,7 +17,7 @@
 
 \item 若 $\sigma$-代数的定义中， 只要求对有限并封闭， 则称为一个\textbf{代数}．
 
-\item 1.7 设 $Y$ 和 $Z$ 为拓扑空间, 且 $g: Y \rightarrow Z$ 是连续的. (a) 若 $X$ 是拓扑空间, $f: X \rightarrow Y$ 是连续的, 且 $h=g \circ f$, 则 $h: X \rightarrow Z$ 是连续的. (b) 若 $X$ 是可测空间, $f: X \rightarrow Y$ 是可测的, 且 $h=g \circ f$, 则 $h: X \rightarrow Z$ 是可测的. 简言之, 连续函数的连续函数是连续的; 可测函数的连续函数是可测的.
+\item 1.7 简言之, 连续函数的连续函数是连续的; 可测函数的连续函数是可测的. 设 $Y$ 和 $Z$ 为拓扑空间, 且 $g: Y \rightarrow Z$ 是连续的. (a) 若 $X$ 是拓扑空间, $f: X \rightarrow Y$ 是连续的, 且 $h=g \circ f$, 则 $h: X \rightarrow Z$ 是连续的. (b) 若 $X$ 是可测空间, $f: X \rightarrow Y$ 是可测的, 且 $h=g \circ f$, 则 $h: X \rightarrow Z$ 是可测的. 
 
 \item 1.8 设 $u$ 和 $v$ 是可测空间 $X$ 上的实可测函数, 设 $\Phi$ 是平面到拓扑空间 $Y$ 内的连续映射, 且对 $x \in X$ 定义 $h(x)=\Phi(u(x), v(x))$, 则 $h: X \rightarrow Y$ 是可测的.
 
@@ -32,7 +32,7 @@
 
 \item 1.11 设 $X$ 为拓扑空间． 由定理 1.10, 在 $X$ 内存在一个最小的 $\sigma$-代数 $\mathscr B$， 使得 $X$ 内每一个开集都属于 $\mathscr B$． 就称 $\mathscr B$ 的元素为 $X$ 的\textbf{博雷尔集（Borel set）}．
 
-\item 特别地, 闭集是博雷尔集 (由定义, 它是开集的余集), 且闭集的一切可数并及开集的一切可数交都是博雷尔集. 后两者分别称为 $F_{\sigma}$ 集及 $G_{\delta}$ 集, 并且起着重要的作用. 该记号来源于豪斯多夫 (Hausdorff). 字母 $F$ 及 $G$ 分别用于闭集及开集, 而 $\sigma$ 用于并 (Summe), $\delta$ 用于交 (Durchschnitt). 例如，每个半开区间 $[a, b)$ 是 $R^{1}$ 内的一个 $G_{\delta}$ 集和一个 $F_{\sigma}$ 集.
+\item 特别地, 每个闭集是博雷尔集 (由定义, 它是开集的余集), 且闭集的一切可数并 $F_{\sigma}$ 及开集的一切可数交 $G_{\delta}$ 都是博雷尔集. 该记号来源于豪斯多夫 (Hausdorff). 字母 $F$ 及 $G$ 分别用于闭集及开集, 而 $\sigma$ 用于并 (Summe), $\delta$ 用于交 (Durchschnitt). 例如，每个半开区间 $[a, b)$ 是 $R^{1}$ 内的一个 $G_{\delta}$ 集和一个 $F_{\sigma}$ 集.
 
 \item 因为 $\mathscr{B}$ 是 $\sigma$-代数, 我们现在可以把 $X$ 看做一个可测空间, 而博雷尔集则起着可测集的作用. 更简洁地, 考虑可测空间 $(X, \mathscr{B})$. 若 $f: X \rightarrow Y$ 是 $X$ 的连续映射, 其中 $Y$ 为任意拓扑空间, 由定义, 显然对 $Y$ 内每个开集 $V, f^{-1}(V) \in \mathscr{B}$. 换句话说, $X$ 的每个连续映射是博雷尔可测的. 博雷尔可测映射通常称为\textbf{博雷尔映射}或\textbf{博雷尔函数}.
 
@@ -60,7 +60,7 @@ $\mu\left(A_{1} \cup \cdots \cup A_{n}\right)=\mu\left(A_{1}\right)+\cdots+\mu\l
 这些性质除 (c) 外, 对复测度也成立; (b) 称为\textbf{有限可加性}; (c) 称为\textbf{单调性}.
 
 \item 1.20 测度空间的简单例子.
-(a) $X$ 为任意集，对任意 $E \subset X$, 若 $E$ 为无穷集, 定义 $\mu(E)=\infty$, 当 $E$ 为有限集时, 令 $\mu(E)$ 为 $E$ 的点数. 这个 $\mu$ 称为 $\mathrm{X}$ 上的\textbf{计数测度}.
+(a) $X$ 为任意集，对任意 $E \subset X$, 若 $E$ 为无穷集, 定义 $\mu(E)=\infty$, 当 $E$ 为有限集时, 令 $\mu(E)$ 为 $E$ 的点数. 这个 $\mu$ 称为 $X$ 上的\textbf{计数测度}.
 (b) 固定 $x_{0} \in X$, 对任意 $E \subset X$, 若 $x_{0} \in E$, 定义 $\mu(E)=1$; 若 $x_{0} \notin E$, 定义 $\mu(E)=0$. 这 个 $\mu$ 称为集中在 $x_{0}$ 的\textbf{单位质量}.
 (c) 令 $\mu$ 是集 $\{1,2,3, \cdots\}$ 上的计数测度, 令 $A_{n}=\{n, n+1, n+2, \cdots\}$, 则 $\cap A_{n}=\varnothing$, 但对 $n=1,2,3, \cdots, \mu\left(A_{n}\right)=\infty$. 这表明定理 1.19 (e) 中的假设并非多余的.
 
@@ -70,26 +70,32 @@ $\mu\left(A_{1} \cup \cdots \cup A_{n}\right)=\mu\left(A_{1}\right)+\cdots+\mu\l
 
 \item 1.32 设 $f$ 和 $g \in L^{1}(\mu)$, 且 $\alpha$ 和 $\beta$ 是复数, 则 $\alpha f+\beta g \in L^{1}(\mu)$, 且 $\int_{x}(\alpha f+\beta g) \mathrm{d} \mu=\alpha \int_{x} f \mathrm{~d} \mu+\beta \int_{x} g \mathrm{~d} \mu$
 
-\item 1.34 \textbf{勒贝格控制收敛定理}：设 $\left\{f_{n}\right\}$ 是 $X$ 上的复可测函数序列, 使得 $f(x)=\lim _{n \rightarrow \infty} f_{n}(x)$ 对每一个 $x \in X$ 成立. 若存在一个函数 $g \in L^{1}(\mu)$ 使得 $\left|f_{\mathrm{n}}(x)\right| \leqslant g(x) \quad(n=1,2,3, \cdots ; x \in X)$, 则 $f \in L^{1}(\mu)$, $\lim _{n \rightarrow \infty} \int_{x}\left|f_{n}-f\right| \mathrm{d} \mu=0$, 并且 $\lim _{n \rightarrow \infty} \int_{X} f_{n} \mathrm{~d} \mu=\int_{X} f \mathrm{~d} \mu$.
+\item 1.34 \textbf{勒贝格控制收敛定理}：设 $\left\{f_{n}\right\}$ 是 $X$ 上的复可测函数序列, 使得 $f(x)=\lim _{n \rightarrow \infty} f_{n}(x)$ 对每一个 $x \in X$ 成立. 若存在一个函数 $g \in L^{1}(\mu)$ 使得 $\left|f_{n}(x)\right| \leqslant g(x) \quad(n=1,2,3, \cdots ; x \in X)$, 则 $f \in L^{1}(\mu)$, $\lim _{n \rightarrow \infty} \int_{x}\left|f_{n}-f\right| \mathrm{d} \mu=0$, 并且 $\lim _{n \rightarrow \infty} \int_{X} f_{n} \mathrm{~d} \mu=\int_{X} f \mathrm{~d} \mu$.
 
-\item 1.35 设 $P$ 是对于点 $x$ 可以具有或者不具有的一种性质. 譬如, 若 $f$ 是一个给定的 函数, $P$ 可以是性质“ $f(x)>0$ ”, 若 $\left\{f_{n}\right\}$ 是给定的函数序列, $P$ 可以是性质“ $\left\{f_{n}(x)\right\}$ 收敛”. 如果 $\mu$ 是一个 $\sigma$-代数 $\mathfrak{M}$ 上的测度, $E \in \mathfrak{M}$, “$P$ 在 $E$ 上几乎处处成立” (简记为 “ $P$ 在 $E$ 上 a. e. 成立") 这句话意味着 : 存在一个 $N \in \mathfrak{M}$, 使得 $\mu(N)=0, N \subset E$, 并且 $P$ 在 $E-N$ 的每一 点上成立. 当然 “几乎处处” 这个概念非常强烈地依赖于所给定的测度. 当明确要求指出测度的时侯, 我们将记作 “a. e. $[\mu]$”.
+\item 1.35 设 $P$ 是对于点 $x$ 可以具有或者不具有的一种性质. 譬如, 若 $f$ 是一个给定的函数, $P$ 可以是性质“ $f(x)>0$ ”, 若 $\left\{f_{n}\right\}$ 是给定的函数序列, $P$ 可以是性质“ $\left\{f_{n}(x)\right\}$ 收敛”. 如果 $\mu$ 是一个 $\sigma$-代数 $\mathfrak{M}$ 上的测度, $E \in \mathfrak{M}$, “$P$ 在 $E$ 上几乎处处成立” (简记为 “ $P$ 在 $E$ 上 a. e. 成立") 这句话意味着 : 存在一个 $N \in \mathfrak{M}$, 使得 $\mu(N)=0, N \subset E$, 并且 $P$ 在 $E-N$ 的每一点上成立. 当然 “几乎处处” 这个概念非常强烈地依赖于所给定的测度. 当明确要求指出测度的时侯, 我们将记作 “a. e. $[\mu]$”.
 
-\item 1.36 设 $(X, \mathfrak{M}, \mu)$ 是一个测度空间, $\mathfrak{M}^*$  是所有这样的 $E \subset X$ 的集族, 对于 $E$ 存 在集 $A$ 和 $B \in \mathfrak{M}$, 使得 $A \subset E \subset B$, 且 $\mu(B-A)=0$, 在这种情况下, 定义 $\mu(E)=\mu(A)$, 则 $\mathfrak{M}^{*}$ 是一个 $\sigma$-代数, 且 $\mu$ 是 $\mathfrak{M}^{*}$ 上的一个测度.
+\item 1.36 设 $(X, \mathfrak{M}, \mu)$ 是一个测度空间, $\mathfrak{M}^*$  是所有这样的 $E \subset X$ 的集族, 对于 $E$ 存在集 $A$ 和 $B \in \mathfrak{M}$, 使得 $A \subset E \subset B$, 且 $\mu(B-A)=0$, 在这种情况下, 定义 $\mu(E)=\mu(A)$, 则 $\mathfrak{M}^{*}$ 是一个 $\sigma$-代数, 且 $\mu$ 是 $\mathfrak{M}^{*}$ 上的一个测度.
 
-\item 1.38 设 $\left\{f_{n}\right\}$ 是一个在 $X$ 上几乎处处有定义的复可测函数序列, 满足 $\sum_{n=1}^{\infty} \int_{X}\left|f_{n}\right| \mathrm{d} \mu<\infty$, 则级数 $f(x)=\sum_{n=1}^{\infty} f_{n}(x)$ 对几乎所有的 $x$ 收敛, $f \in L^{1}(\mu)$, 并且 $\int_{X} f \mathrm{~d} \mu=\sum_{n=1}^{\infty} \int_{x} f_{n} \mathrm{~d} \mu$
+\item 1.38 设 $\left\{f_{n}\right\}$ 是一个在 $X$ 上几乎处处有定义的复可测函数序列, 满足 $\sum_{n=1}^{\infty} \int_{X}\left|f_{n}\right| \mathrm{d} \mu<\infty$, 则级数 $f(x)=\sum_{n=1}^{\infty} f_{n}(x)$ 对几乎所有的 $x$ 收敛, $f \in L^{1}(\mu)$, 并且 $\int_{X} f \mathrm{~d} \mu=\sum_{n=1}^{\infty} \int_{X} f_{n} \mathrm{~d} \mu$
 
 \item 1.41 设 $\left\{E_{k}\right\}$ 是在 $X$ 内的可测集序列, 满足 $\sum_{k=1}^{\infty} \mu\left(E_{k}\right)<\infty$, 则几乎所有的 $x \in X$, 至多属于有限个集 $E_{k}$.
 \end{itemize}
 
 \subsection{Chap 2. 正博雷尔测度}
 \begin{itemize}
-\item 2.3 设 $X$ 是拓扑空间. (a) 集 $E \subset X$ 是闭的, 如果它的余集 $E^{c}$ 是开的. （因此, $\varnothing$ 和 $X$ 是闭集, 闭集的有限并是闭集，闭集的任意交是闭集. )（b）集 $E \subset X$ 的闭包 $\bar{E}$ 是 $X$ 中包含 $E$ 的最小闭集. (下述推理证明了 $\bar{E}$ 存在: $X$ 中包含 $E$ 的所有闭子集的集族 $\Omega$ 是非空的, 因为 $X \in \Omega$. 令 $\bar{E}$ 是 $\Omega$ 的一切元素的交.) (c) 集 $K \subset X$ 是紧的, 如果 $K$ 的每个开覆盖包含有限子覆盖. 特别地, 如果 $X$ 本身是紧的, 则 $X$ 称为紧空间. (d) 点 $p \in X$ 的一个邻域是 $X$ 的任意一个包含 $p$ 的开子集. (使用这个词并不是十分标准; 有些人对任意包含一个含 $p$ 的开集的集使用“ $p$ 的邻域” 这个词. ) (e) $X$ 是一个\textbf{豪斯多夫空间}, 如果下述条件成立: 若 $p, q \in X$, 且 $p \neq q$, 则 $p$ 有一个邻域 $U, q$ 有一个邻域 $V$, 使得 $U \cap V=\varnothing$. (f) $X$ 是\textbf{局部紧}的, 如果 $X$ 的每一点有一个邻域, 它的闭包是紧的. 每个紧空间是局部紧的.
+\item 2.1 \textbf{复向量空间}， 线性空间到标量域的线性变换叫做\textbf{线性泛函}
+
+\item 2.2 作为线性泛函的积分： 1.32 说明 $L^1(\mu)$ 对任何正测度 $\mu$ 都是一个向量空间， 而映射 $f \rightarrow \int_{x} f \mathrm{~d} \mu$ 是 $L^1(\mu)$ 上的一个线性泛函. 类似地, 如果 $g$ 是任何有界可测函数, 则映射 $f \rightarrow \int_{x} f g \mathrm{~d} \mu$ 也是 $L^1(\mu)$ 上的一个线性泛函. 某种意义上， 这是 $L^1(\mu)$ 上我们唯一感兴趣的一种泛函.
+
+\item 另一个例子：设 $C$ 是单位区间 $I=[0,1]$ 上一切连续复函数的集. 两个连续函数的和是连续的,一个连续函数的任何标量积也是连续的. 因此, $C$ 是一个向量空间. 如果 $\Lambda f=\int_{0}^{1} f(x) \mathrm{d} x \quad(f \in C)$ 是通常的黎曼积分, 则 $\Lambda$ 显然是 $C$ 上的线性泛函; $\Lambda$ 有一个附带的有趣的性质: 它是一个\textbf{正线性泛函}. 也就是说, 当 $f \geqslant 0$ 时, 有 $\Lambda f \geqslant 0$.
+
+\item 2.3 设 $X$ 是拓扑空间. (a) 集 $E \subset X$ 是闭的, 如果它的余集 $E^{c}$ 是开的. （因此, $\varnothing$ 和 $X$ 是闭集, 闭集的有限并是闭集，闭集的任意交是闭集. )（b）集 $E \subset X$ 的\textbf{闭包} $\bar{E}$ 是 $X$ 中包含 $E$ 的最小闭集. (下述推理证明了 $\bar{E}$ 存在: $X$ 中包含 $E$ 的所有闭子集的集族 $\Omega$ 是非空的, 因为 $X \in \Omega$. 令 $\bar{E}$ 是 $\Omega$ 的一切元素的交.) (c) 集 $K \subset X$ 是\textbf{紧的}, 如果 $K$ 的每个开覆盖包含有限子覆盖. 特别地, 如果 $X$ 本身是紧的, 则 $X$ 称为\textbf{紧空间}. (d) 点 $p \in X$ 的一个\textbf{邻域}是 $X$ 的任意一个包含 $p$ 的开子集. (使用这个词并不是十分标准; 有些人对任意包含一个含 $p$ 的开集的集使用“ $p$ 的邻域” 这个词. ) (e) $X$ 是一个\textbf{豪斯多夫空间}, 如果下述条件成立: 若 $p, q \in X$, 且 $p \neq q$, 则 $p$ 有一个邻域 $U, q$ 有一个邻域 $V$, 使得 $U \cap V=\varnothing$. (f) $X$ 是\textbf{局部紧}的, 如果 $X$ 的每一点有一个邻域, 它的闭包是紧的. 每个紧空间是局部紧的.
 
 \item 2.5 设 $X$ 是豪斯多夫空间. $K \subset X, K$ 是紧的, 且 $p \in K^{c}$, 则存在开集 $U$ 和 $W$, 使得 $p \in U, K \subset W$, 并且 $U \cap W=\varnothing$.
 
-\item 2.6 设 $\left\{K_{a}\right\}$ 是豪斯多夫空间紧子集的集族, $\cap_{a} K_{a}=\varnothing$, 则 $\left\{K_{a}\right\}$ 族中存在有限个 集, 它们的交也是空的.
+\item 2.6 设 $\left\{K_{a}\right\}$ 是豪斯多夫空间紧子集的集族, $\cap_{a} K_{a}=\varnothing$, 则 $\left\{K_{a}\right\}$ 族中存在有限个集, 它们的交也是空的.
 
-\item 2.8 设 $f$ 是拓扑空间上的实函数 (或广义实函数). 如果对每个实数 $\alpha,\{x: f(x)>$ $\alpha\}$ 是开的, 则称 $f$ 为下半连续的. 如果对每个实数 $\alpha,\{x: f(x)<\alpha\}$ 是开的, 则称 $f$ 为上半连续的. 显然, 一个实函数是连续的, 当且仅当它同时是上半连续和下半连续的.
+\item 2.8 设 $f$ 是拓扑空间上的实函数 (或广义实函数). 如果对每个实数 $\alpha,\{x: f(x)>$ $\alpha\}$ 是开的, 则称 $f$ 为\textbf{下半连续的}. 如果对每个实数 $\alpha,\{x: f(x)<\alpha\}$ 是开的, 则称 $f$ 为\textbf{上半连续的}. 显然, 一个实函数是连续的, 当且仅当它同时是上半连续和下半连续的.
 
 \item 2.9 拓扑空间 $X$ 上的复函数 $f$ 的\textbf{支集}是集 $\{x: f(x) \neq 0\}$ 的闭包. 记 $X$ 上支集是紧的所有连续复函数的集为 $C_{c}(X)$.
 
