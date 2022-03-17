@@ -1,0 +1,38 @@
+% Hall 量子力学笔记
+
+\subsection{A.2 Measure Theory}
+
+\begin{itemize}
+\item \textbf{度量空间（measure space）} $(X,\Omega,\mu)$. \textbf{可积（integrable）} $\int_X \abs{\psi} \dd{\mu} < \infty$.
+
+\item \textbf{生成（generated）}的 $\sigma$-代数
+
+\item A measure $\mu$ on a measurable space $(X, \mu)$ is said to be \textbf{$\sigma$-finite} if $X$ can be written as a countable union of measurable sets of finite measure.
+
+\item Definition A.5 Suppose $\mu$ and $\nu$ are two $\sigma$-finite measures on a measure space $(X, \Omega)$. Then we say that $\mu$ is \textbf{absolutely continuous} with respect to $\nu$ if for all $E \in \Omega$, if $\nu(E)=0$ then $\mu(E)=0$. We say that $\mu$ and $\nu$ are \textbf{equivalent} if each measure is absolutely continuous with respect to the other.
+
+\item Theorem A.6 (\textbf{Radon-Nikodym}) Suppose $\mu$ and $\nu$ are two $\sigma$-finite measures on a measure space $(X, \Omega)$ and that $\mu$ is absolutely continuous with respect to $\nu$. Then there exists a non-negative, measurable function $\rho$ on $X$ such that $\mu(E)=\int_{E} \rho d \nu$, for all $E \in \Omega$. The function $\rho$ is called the \textbf{density} of $\mu$ with respect to $\nu$.
+
+\item Definition A.7 A collection $\mathcal{M}$ of subsets of a set $X$ is called a monotone class if $\mathcal{M}$ is closed under countable increasing unions and countable decreasing intersections.
+\end{itemize}
+
+\subsection{A.3 Elementary Functional Analysis}
+
+\begin{itemize}
+\item If $X$ is a compact metric space, let $\mathcal{C}(X ; \mathbb{R})$ and $\mathcal{C}(X ; \mathbb{C})$ denote the space of continuous real- and complex-valued continuous functions, respectively. A subset $\mathcal{A}$ of $\mathcal{C}(X ; \mathbb{F})$ is called an \textbf{algebra} if it is closed under pointwise addition, pointwise multiplication, and multiplication by elements of $\mathbb{F}$, where $\mathbb{F}=\mathbb{R}$ or $\mathbb{C}$. An algebra $\mathcal{A}$ is said to \textbf{separate points} if for any two distinct points $x$ and $y$ in $X$, there exists $f \in \mathcal{A}$ such that $f(x) \neq f(y)$. We use on $\mathcal{C}(X ; \mathbb{F})$ the supremum norm, given by $\|f\|_{\text {sup }}:=\sup _{x \in X}|f(x)|$, and $\mathcal{C}(X, \mathbb{F})$ is complete with respect to the associated distance function, $d(f, g)=\|f-g\|_{\text {sup }}$.
+
+\item Theorem A.11 (\textbf{Stone-Weierstrass}, Real Version) Let $X$ be a compact metric space and let $\mathcal{A}$ be an algebra in $\mathcal{C}(X ; \mathbb{R})$. If $\mathcal{A}$ contains the constant functions and separates points, then $\mathcal{A}$ is dense in $\mathcal{C}(X ; \mathbb{R})$ with respect to the supremum norm.
+
+\item Theorem A.12 (Stone-Weierstrass, Complex Version) Let $X$ be a compact metric space and let $\mathcal{A}$ be an algebra in $\mathcal{C}(X ; \mathbb{C})$. If $\mathcal{A}$ contains the constant functions, separates points, and is closed under complex conjugation, then $\mathcal{A}$ is dense in $\mathcal{C}(X ; \mathbb{C})$ with respect to the supremum norm.
+
+\item Definition A.13 For any $\psi \in L^{1}\left(\mathbb{R}^{n}\right)$, define the Fourier transform of $\psi$ to be the function $\hat{\psi}$ on $\mathbb{R}^{n}$ given by $\hat{\psi}(\mathbf{k})=(2 \pi)^{-n / 2} \int_{-\infty}^{\infty} e^{-i \mathbf{k} \cdot \mathbf{x}} \psi(\mathbf{x}) d \mathbf{x}$
+
+\item Proposition A.14 For any $\psi \in L^{1}\left(\mathbb{R}^{n}\right)$, the Fourier transform $\hat{\psi}$ of $\psi$ has the following properties: (1) $|\hat{\psi}(\mathbf{k})| \leq(2 \pi)^{-n / 2}\|\psi\|_{L^{1}}$, (2) $\hat{\psi}$ is continuous, and (3) $\hat{\psi}(\mathbf{k})$ tends to zero as $|\mathbf{k}|$ tends to $\infty$.
+\end{itemize}
+
+\subsubsection{A.3.2 The Fourier Transform}
+
+\begin{itemize}
+\item 
+\end{itemize}
+

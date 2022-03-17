@@ -1,0 +1,66 @@
+% Hall 量子力学笔记
+
+\subsection{A.2 Measure Theory}
+
+\begin{itemize}
+\item \textbf{度量空间（measure space）} $(X,\Omega,\mu)$. \textbf{可积（integrable）} $\int_X \abs{\psi} \dd{\mu} < \infty$.
+
+\item \textbf{生成（generated）}的 $\sigma$-代数
+
+\item 可测空间 $(X, \mu)$ 的度量 $\mu$ 被称为 $\sigma$-有限， 如果 $X$ 可是可数个有限测度集的并．
+
+\item Definition A.5 Suppose $\mu$ and $\nu$ are two $\sigma$-finite measures on a measure space $(X, \Omega)$. Then we say that $\mu$ is \textbf{绝对连续（absolutely continuous）} with respect to $\nu$ if for all $E \in \Omega$, if $\nu(E)=0$ then $\mu(E)=0$. We say that $\mu$ and $\nu$ are \textbf{equivalent} if each measure is absolutely continuous with respect to the other.
+
+\item Theorem A.6 (\textbf{Radon-Nikodym}) Suppose $\mu$ and $\nu$ are two $\sigma$-finite measures on a measure space $(X, \Omega)$ and that $\mu$ is absolutely continuous with respect to $\nu$. Then there exists a non-negative, measurable function $\rho$ on $X$ such that $\mu(E)=\int_{E} \rho d \nu$, for all $E \in \Omega$. The function $\rho$ is called the \textbf{密度（density）} of $\mu$ with respect to $\nu$.
+
+\item Definition A.7 A collection $\mathcal{M}$ of subsets of a set $X$ is called a monotone class if $\mathcal{M}$ is closed under countable increasing unions and countable decreasing intersections.
+\end{itemize}
+
+\subsection{A.3 Elementary Functional Analysis}
+
+\begin{itemize}
+\item If $X$ is a compact metric space, let $\mathcal{C}(X ; \mathbb{R})$ and $\mathcal{C}(X ; \mathbb{C})$ denote the space of continuous real- and complex-valued continuous functions, respectively. A subset $\mathcal{A}$ of $\mathcal{C}(X ; \mathbb{F})$ is called an \textbf{algebra} if it is closed under pointwise addition, pointwise multiplication, and multiplication by elements of $\mathbb{F}$, where $\mathbb{F}=\mathbb{R}$ or $\mathbb{C}$. An algebra $\mathcal{A}$ is said to \textbf{separate points} if for any two distinct points $x$ and $y$ in $X$, there exists $f \in \mathcal{A}$ such that $f(x) \neq f(y)$. We use on $\mathcal{C}(X ; \mathbb{F})$ the supremum norm, given by $\|f\|_{\text {sup }}:=\sup _{x \in X}|f(x)|$, and $\mathcal{C}(X, \mathbb{F})$ is complete with respect to the associated distance function, $d(f, g)=\|f-g\|_{\text {sup }}$.
+
+\item Theorem A.11 (\textbf{Stone-Weierstrass}, Real Version) Let $X$ be a compact metric space and let $\mathcal{A}$ be an algebra in $\mathcal{C}(X ; \mathbb{R})$. If $\mathcal{A}$ contains the constant functions and separates points, then $\mathcal{A}$ is dense in $\mathcal{C}(X ; \mathbb{R})$ with respect to the supremum norm.
+
+\item Theorem A.12 (Stone-Weierstrass, Complex Version) Let $X$ be a compact metric space and let $\mathcal{A}$ be an algebra in $\mathcal{C}(X ; \mathbb{C})$. If $\mathcal{A}$ contains the constant functions, separates points, and is closed under complex conjugation, then $\mathcal{A}$ is dense in $\mathcal{C}(X ; \mathbb{C})$ with respect to the supremum norm.
+
+\item Definition A.13 For any $\psi \in L^{1}\left(\mathbb{R}^{n}\right)$, define the Fourier transform of $\psi$ to be the function $\hat{\psi}$ on $\mathbb{R}^{n}$ given by $\hat{\psi}(\mathbf{k})=(2 \pi)^{-n / 2} \int_{-\infty}^{\infty} e^{-i \mathbf{k} \cdot \mathbf{x}} \psi(\mathbf{x}) d \mathbf{x}$
+
+\item Proposition A.14 For any $\psi \in L^{1}\left(\mathbb{R}^{n}\right)$, the Fourier transform $\hat{\psi}$ of $\psi$ has the following properties: (1) $|\hat{\psi}(\mathbf{k})| \leq(2 \pi)^{-n / 2}\|\psi\|_{L^{1}}$, (2) $\hat{\psi}$ is continuous, and (3) $\hat{\psi}(\mathbf{k})$ tends to zero as $|\mathbf{k}|$ tends to $\infty$.
+\end{itemize}
+
+\subsubsection{A.3.2 The Fourier Transform}
+
+\begin{itemize}
+\item Definition A.13 For any $\psi \in L^{1}\left(\mathbb{R}^{n}\right)$, define the Fourier transform of $\psi$ to be the function $\hat{\psi}$ on $\mathbb{R}^{n}$ given by $\hat{\psi}(\mathbf{k})=(2 \pi)^{-n / 2} \int_{-\infty}^{\infty} e^{-i \mathbf{k} \cdot \mathbf{x}} \psi(\mathbf{x}) d \mathbf{x}$
+
+\item Proposition A.14 For any $\psi \in L^{1}\left(\mathbb{R}^{n}\right)$, the Fourier transform $\hat{\psi}$ of $\psi$ has the following properties: (1) $|\hat{\psi}(\mathbf{k})| \leq(2 \pi)^{-n / 2}\|\psi\|_{L^{1}}$, (2) $\hat{\psi}$ is continuous, and (3) $\hat{\psi}(\mathbf{k})$ tends to zero as $|\mathrm{k}|$ tends to $\infty$.
+
+\item Definition A.15 The \textbf{Schwartz space} $\mathcal{S}\left(\mathbb{R}^{n}\right)$ is the space of all $C^{\infty}$ functions $\psi$ on $\mathbb{R}^{n}$ such that $\lim _{x \rightarrow \pm \infty}\left|\mathbf{x}^{\mathbf{j}} \partial^{\mathbf{k}} \psi(\mathrm{x})\right|=0$ for all $n$-tuples of non-negative integers $\mathbf{j}$ and $\mathbf{k}$. Here if $\mathbf{j}=\left(j_{1}, \ldots, j_{n}\right)$ then $\mathrm{x}^{\mathbf{j}}=x_{1}^{j_{1}} 	\cdots x_{n}^{j_{n}}$ and $\partial^{\mathbf{j}}=\left(\frac{\partial}{\partial x_{1}}\right)^{j_{1}} \cdots\left(\frac{\partial}{\partial x_{n}}\right)^{j_{n}}$. An element of the Schwartz space is called a \textbf{Schwartz function}.
+
+\item Proposition A.16 If $\psi$ belongs to $\mathcal{S}\left(\mathbb{R}^{n}\right)$, then $\hat{\psi}$ also belongs to $\mathcal{S}\left(\mathbb{R}^{n}\right)$.
+
+\item Proposition A.17 If $\psi$ is a Schwartz function, the following properties hold
+1. We have $\widehat {\left({\frac{\partial \psi}{\partial x_{j}}}\right)}	 (\mathbf{k})=i k_{j} \hat{\psi}(\mathbf{k})$ 2. The function $\hat{\psi}$ is differentiable at every point and the Fourier transform of the function $x_{j} \psi(x)$ is given by $\widehat{x_{j} \psi}(\mathbf{k})=-i \frac{\partial}{\partial k_{j}} \hat{\psi}(\mathbf{k})$
+
+\item Theorem A.18 The Fourier transform on $\mathcal{S}\left(\mathbb{R}^{n}\right)$ has the following properties.
+1. The Fourier transform maps the Schwartz space onto the Schwartz space.
+2. For all $\psi \in \mathcal{S}\left(\mathbb{R}^{n}\right)$, the function $\psi$ can be recovered from its Fourier transform by the Fourier inversion formula: $\psi(\mathrm{x})=(2 \pi)^{-n / 2} \int_{-\infty}^{\infty} e^{i \mathbf{k} \cdot \mathbf{x}} \hat{\psi}(k) d \mathbf{k}$
+3. For all $\psi \in \mathcal{S}\left(\mathbb{R}^{n}\right)$, we have the \textbf{Plancherel theorem}: $\int_{\mathbb{R}^{n}}|\psi(\mathbf{x})|^{2} d \mathbf{x}=\int_{\mathbb{R}^{n}}|\hat{\psi}(\mathbf{k})|^{2} d \mathbf{k}$
+
+\item （私货） an \textbf{isometry} (or \textbf{congruence}, or \textbf{congruent transformation}) is a distance-preserving transformation between metric spaces
+
+\item Theorem A.19 The Fourier transform extends to an isometric map $\mathcal{F}$ of $L^{2}\left(\mathbb{R}^{n}\right)$ onto $L^{2}\left(\mathbb{R}^{n}\right)$. This map may be computed as $\mathcal{F}(\psi)(\mathbf{k})=(2 \pi)^{-n / 2} \lim _{A \rightarrow \infty} \int_{|\mathbf{x}| \leq A} e^{-i \mathbf{k} \cdot \mathbf{x}} \psi(\mathbf{x}) d \mathbf{x}$, where the limit is in the norm topology of $L^{2}\left(\mathbb{R}^{n}\right)$. The inverse map $\mathcal{F}^{-1}$ may be computed as $\left(\mathcal{F}^{-1} f\right)(\mathrm{x})=(2 \pi)^{-n / 2} \lim _{A \rightarrow \infty} \int_{|\mathbf{x}| \leq A} e^{i \mathbf{k} \cdot \mathbf{x}} f(\mathbf{k}) d \mathbf{k}$
+
+\item （私货） \textbf{Lebesgue's dominated convergence theorem}: Let $\left(f_{n}\right)$ be a sequence of complex-valued measurable functions on a measure space $(S, \Sigma$, $\mu)$. Suppose that the sequence converges pointwise to a function $f$ and is dominated by some integrable function $g$ in the sense that $\left|f_{n}(x)\right| \leq g(x)$ for all numbers $n$ in the index set of the sequence and all points $x \in S$. Then $f$ is integrable (in the Lebesgue sense) and
+$\lim _{n \rightarrow \infty} \int_{S}\left|f_{n}-f\right| d \mu=0$ which also implies $\lim _{n \rightarrow \infty} \int_{S} f_{n} d \mu=\int_{S} f d \mu$
+
+\item If $\psi$ belongs to $L^{1}\left(\mathbb{R}^{n}\right) \cap L^{2}\left(\mathbb{R}^{n}\right)$, then by dominated convergence, the above limit coincides with the $L^{1}$ Fourier transform in Definition A.13.
+
+\item Definition A.20 For two measurable functions $\phi$ and $\psi$, define the \textbf{convolution} $\phi * \psi$ of $\phi$ and $\psi$ by the formula $(\phi * \psi)(\mathbf{x})=\int_{\mathbb{R}^{n}} \phi(\mathbf{x}-\mathbf{y}) \psi(\mathbf{y}) d \mathbf{y}$ provided that the integral is absolutely convergent for all $\mathrm{x}$.
+
+\item Proposition A.21 Suppose that $\phi$ and $\psi$ belong to $L^{1}\left(\mathbb{R}^{n}\right) \cap L^{2}\left(\mathbb{R}^{n}\right)$. Then $\phi * \psi$ is defined and belongs to $L^{1}\left(\mathbb{R}^{n}\right) \cap L^{2}\left(\mathbb{R}^{n}\right)$ and we have $(2 \pi)^{-n / 2} \mathcal{F}(\phi * \psi)=\mathcal{F}(\phi) \mathcal{F}(\psi)$. This result is proved by plugging $\phi * \psi$ into the definition of the Fourier transform, writing $e^{-i \mathbf{k} \cdot \mathbf{x}}$ as $e^{-i \mathbf{k} \cdot \mathbf{y}} e^{-i \mathbf{k} \cdot(\mathbf{x}-\mathbf{y})}$, and using Fubini's theorem.
+
+\item Proposition A.22 For all $a>0$ and $b \in \mathbb{C}$, we have $\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-x^{2} /(2 a)} e^{b x} d x=\sqrt{a} e^{a b^{2} / 2}$
+\end{itemize}

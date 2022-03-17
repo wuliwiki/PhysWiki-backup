@@ -1,0 +1,54 @@
+% Hall 量子力学笔记
+
+\subsection{A.2 Measure Theory}
+
+\begin{itemize}
+\item \textbf{度量空间（measure space）} $(X,\Omega,\mu)$. \textbf{可积（integrable）} $\int_X \abs{\psi} \dd{\mu} < \infty$.
+
+\item \textbf{生成（generated）}的 $\sigma$-代数
+
+\item 可测空间 $(X, \mu)$ 的度量 $\mu$ 被称为 $\sigma$-有限， 如果 $X$ 可是可数个有限测度集的并．
+
+\item Definition A.5 Suppose $\mu$ and $\nu$ are two $\sigma$-finite measures on a measure space $(X, \Omega)$. Then we say that $\mu$ is \textbf{绝对连续（absolutely continuous）} with respect to $\nu$ if for all $E \in \Omega$, if $\nu(E)=0$ then $\mu(E)=0$. We say that $\mu$ and $\nu$ are \textbf{equivalent} if each measure is absolutely continuous with respect to the other.
+
+\item Theorem A.6 (\textbf{Radon-Nikodym}) Suppose $\mu$ and $\nu$ are two $\sigma$-finite measures on a measure space $(X, \Omega)$ and that $\mu$ is absolutely continuous with respect to $\nu$. Then there exists a non-negative, measurable function $\rho$ on $X$ such that $\mu(E)=\int_{E} \rho d \nu$, for all $E \in \Omega$. The function $\rho$ is called the \textbf{密度（density）} of $\mu$ with respect to $\nu$.
+
+\item Definition A.7 A collection $\mathcal{M}$ of subsets of a set $X$ is called a monotone class if $\mathcal{M}$ is closed under countable increasing unions and countable decreasing intersections.
+\end{itemize}
+
+\subsection{A.3 Elementary Functional Analysis}
+
+\begin{itemize}
+\item If $X$ is a compact metric space, let $\mathcal{C}(X ; \mathbb{R})$ and $\mathcal{C}(X ; \mathbb{C})$ denote the space of continuous real- and complex-valued continuous functions, respectively. A subset $\mathcal{A}$ of $\mathcal{C}(X ; \mathbb{F})$ is called an \textbf{algebra} if it is closed under pointwise addition, pointwise multiplication, and multiplication by elements of $\mathbb{F}$, where $\mathbb{F}=\mathbb{R}$ or $\mathbb{C}$. An algebra $\mathcal{A}$ is said to \textbf{separate points} if for any two distinct points $x$ and $y$ in $X$, there exists $f \in \mathcal{A}$ such that $f(x) \neq f(y)$. We use on $\mathcal{C}(X ; \mathbb{F})$ the supremum norm, given by $\|f\|_{\text {sup }}:=\sup _{x \in X}|f(x)|$, and $\mathcal{C}(X, \mathbb{F})$ is complete with respect to the associated distance function, $d(f, g)=\|f-g\|_{\text {sup }}$.
+
+\item Theorem A.11 (\textbf{Stone-Weierstrass}, Real Version) Let $X$ be a compact metric space and let $\mathcal{A}$ be an algebra in $\mathcal{C}(X ; \mathbb{R})$. If $\mathcal{A}$ contains the constant functions and separates points, then $\mathcal{A}$ is dense in $\mathcal{C}(X ; \mathbb{R})$ with respect to the supremum norm.
+
+\item Theorem A.12 (Stone-Weierstrass, Complex Version) Let $X$ be a compact metric space and let $\mathcal{A}$ be an algebra in $\mathcal{C}(X ; \mathbb{C})$. If $\mathcal{A}$ contains the constant functions, separates points, and is closed under complex conjugation, then $\mathcal{A}$ is dense in $\mathcal{C}(X ; \mathbb{C})$ with respect to the supremum norm.
+
+\item Definition A.13 For any $\psi \in L^{1}\left(\mathbb{R}^{n}\right)$, define the Fourier transform of $\psi$ to be the function $\hat{\psi}$ on $\mathbb{R}^{n}$ given by $\hat{\psi}(\mathbf{k})=(2 \pi)^{-n / 2} \int_{-\infty}^{\infty} e^{-i \mathbf{k} \cdot \mathbf{x}} \psi(\mathbf{x}) d \mathbf{x}$
+
+\item Proposition A.14 For any $\psi \in L^{1}\left(\mathbb{R}^{n}\right)$, the Fourier transform $\hat{\psi}$ of $\psi$ has the following properties: (1) $|\hat{\psi}(\mathbf{k})| \leq(2 \pi)^{-n / 2}\|\psi\|_{L^{1}}$, (2) $\hat{\psi}$ is continuous, and (3) $\hat{\psi}(\mathbf{k})$ tends to zero as $|\mathbf{k}|$ tends to $\infty$.
+\end{itemize}
+
+\subsubsection{A.3.2 The Fourier Transform}
+
+\begin{itemize}
+\item Definition A.13 For any $\psi \in L^{1}\left(\mathbb{R}^{n}\right)$, define the Fourier transform of $\psi$ to be the function $\hat{\psi}$ on $\mathbb{R}^{n}$ given by $\hat{\psi}(\mathbf{k})=(2 \pi)^{-n / 2} \int_{-\infty}^{\infty} e^{-i \mathbf{k} \cdot \mathbf{x}} \psi(\mathbf{x}) d \mathbf{x}$
+
+\item Proposition A.14 For any $\psi \in L^{1}\left(\mathbb{R}^{n}\right)$, the Fourier transform $\hat{\psi}$ of $\psi$ has the following properties: (1) $|\hat{\psi}(\mathbf{k})| \leq(2 \pi)^{-n / 2}\|\psi\|_{L^{1}}$, (2) $\hat{\psi}$ is continuous, and (3) $\hat{\psi}(\mathbf{k})$ tends to zero as $|\mathrm{k}|$ tends to $\infty$.
+
+\item Definition A.15 The \textbf{Schwartz space} $\mathcal{S}\left(\mathbb{R}^{n}\right)$ is the space of all $C^{\infty}$ functions $\psi$ on $\mathbb{R}^{n}$ such that $\lim _{x \rightarrow \pm \infty}\left|\mathbf{x}^{\mathbf{j}} \partial^{\mathbf{k}} \psi(\mathrm{x})\right|=0$ for all $n$-tuples of non-negative integers $\mathbf{j}$ and $\mathbf{k}$. Here if $\mathbf{j}=\left(j_{1}, \ldots, j_{n}\right)$ then $\mathrm{x}^{\mathbf{j}}=x_{1}^{j_{1}} 	\cdots x_{n}^{j_{n}}$ and $\partial^{\mathbf{j}}=\left(\frac{\partial}{\partial x_{1}}\right)^{j_{1}} \cdots\left(\frac{\partial}{\partial x_{n}}\right)^{j_{n}}$. An element of the Schwartz space is called a \textbf{Schwartz function}.
+
+\item Proposition A.16 If $\psi$ belongs to $\mathcal{S}\left(\mathbb{R}^{n}\right)$, then $\hat{\psi}$ also belongs to $\mathcal{S}\left(\mathbb{R}^{n}\right)$.
+
+\item Proposition A.17 If $\psi$ is a Schwartz function, the following properties hold
+1. We have $\widehat {\left({\frac{\partial \psi}{\partial x_{j}}}\right)}	 (\mathbf{k})=i k_{j} \hat{\psi}(\mathbf{k})$ 2. The function $\hat{\psi}$ is differentiable at every point and the Fourier transform of the function $x_{j} \psi(x)$ is given by $\widehat{x_{j} \psi}(\mathbf{k})=-i \frac{\partial}{\partial k_{j}} \hat{\psi}(\mathbf{k})$
+
+\item Theorem A.18 The Fourier transform on $\mathcal{S}\left(\mathbb{R}^{n}\right)$ has the following properties.
+1. The Fourier transform maps the Schwartz space onto the Schwartz space.
+2. For all $\psi \in \mathcal{S}\left(\mathbb{R}^{n}\right)$, the function $\psi$ can be recovered from its Fourier transform by the Fourier inversion formula: $\psi(\mathrm{x})=(2 \pi)^{-n / 2} \int_{-\infty}^{\infty} e^{i \mathbf{k} \cdot \mathbf{x}} \hat{\psi}(k) d \mathbf{k}$
+3. For all $\psi \in \mathcal{S}\left(\mathbb{R}^{n}\right)$, we have the \textbf{Plancherel theorem}: $\int_{\mathbb{R}^{n}}|\psi(\mathbf{x})|^{2} d \mathbf{x}=\int_{\mathbb{R}^{n}}|\hat{\psi}(\mathbf{k})|^{2} d \mathbf{k}$
+
+\item （私货） an isometry (or congruence, or congruent transformation) is a distance-preserving transformation between metric spaces
+\end{itemize}
+
