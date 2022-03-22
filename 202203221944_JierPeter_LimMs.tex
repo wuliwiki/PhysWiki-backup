@@ -1,0 +1,33 @@
+% 依测度收敛
+% 实变函数|测度|极限|收敛
+
+\pentry{可测函数\upref{MsbFun}}
+
+我们已经知道，函数有“逐点收敛”和“一致收敛”等不同的收敛方式．逐点收敛的概念最简单，但是性质不太好；一致收敛的性质就非常好．
+
+现在我们有了外测度的概念，就可以构造一种新的收敛方式．
+
+\begin{definition}{依测度收敛}
+
+设$E\subseteq \mathbb{R}^n$是可测集，$f$和$f_i$都是其上的\textbf{几乎处处有限的}可测函数，其中$i$取遍全体正整数．如果对于任意固定的$\epsilon>0$，有
+\begin{equation}
+\lim\limits_{i\to\infty}\opn{m}\{x\in E|\abs{f_i(x)-f(x)}\geq\epsilon\}=0
+\end{equation}
+则称函数列$\{f_i\}$\textbf{依测度收敛}到函数$f$，记为$f_i\overset{\opn{m}}\to f$（于$E$）．
+
+\end{definition}
+
+简单来说，依测度收敛就是指任取一个精度范围$\epsilon$，$f_i(x)$偏离$f(x)$超过精度范围的$x$称为“不听话”的点，那么随着$i$增大，不听话的点构成的集合的外测度趋于零．
+
+
+
+
+
+
+
+
+
+
+
+
+
