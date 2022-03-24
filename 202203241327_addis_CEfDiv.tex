@@ -1,0 +1,35 @@
+% 点电荷的散度
+% 点电荷|散度|无穷大|狄拉克 delta 函数
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{电场的高斯定律证明\upref{EGausP}}
+
+在电场的高斯定律证明\upref{EGausP}， 我们看到通常意义下， 如果取一个包含点电荷的闭合高斯面， 那么散度定理（\autoref{Divgnc_eq1}~\upref{Divgnc}）并不能直接使用， 因为在点电荷处电场的散度没有定义， 而在曲面内的其他位置电场的散度处处为零．
+
+但是我们可以先把每个点电荷替换成一个半径为 $R$ 的带电小球， 然后令 $R\to 0$ 即可．
+
+
+
+
+未完成： 参考 \cite{GriffE}
+
+========= 回收内容 ==============
+
+相同． 同样， 这个结论也包含．
+
+可以推出原点处有无穷大的散度， 使得积分后恰好等于 $q/\epsilon_0$． 这让我们马上想到（三维）狄拉克 $\delta$ 函数\upref{Delta}， 在原点处为无穷大， 但体积分为有限值
+\begin{equation}
+\int \delta(\bvec r)\dd{V} = 1
+\end{equation}
+
+所以如果我们假设电场在原点处的散度为
+\begin{equation}
+\div \bvec E = \frac{q}{\epsilon_0}\delta(\bvec r)
+\end{equation}
+那么恰好可使电场满足散度定理
+\begin{equation}
+\int \div \bvec E \dd{V} = \frac{q}{\epsilon_0}
+\end{equation}
