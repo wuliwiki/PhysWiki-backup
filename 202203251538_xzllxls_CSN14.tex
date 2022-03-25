@@ -1,0 +1,36 @@
+% 2014 年计算机学科专业基础综合全国联考卷
+% 2014 计算机 考研 真题 全国卷
+
+\subsection{一、单项选择题}
+第1～40 小题，每小题2 分，共80 分．下列每题给出的四个选项中，只有一个选项最符合试题要求．
+
+1．下列程序段的时间复杂度是:
+\begin{lstlisting}[language=cpp]
+count=0;
+for(k=1;k<=n;k*=2)
+  for(j=1;j<=n;j++)
+    count++;
+\end{lstlisting}
+A．$O(log2n)$ $\quad$ B．$O(n)$ $\quad$ C．$O(nlog2n)$ $\quad$ D．$O(n2)$
+
+2．假设栈初始为空，将中缀表达式$a/b+(c*d-e*f)/g$转换为等价的后缀表达式的过程中，当扫描到$f$时，栈中的元素依次是． \\
+A．$+ ( * -$  $\quad$ B．$+ ( - *$  $\quad$ C．$/ + ( * - *$  $\quad$ D．$/ + - *$
+
+3．循环队列放在一维数组$A[0...M-1]$中，$end1$指向队头元素，$end2$指向队尾元素的后一个位置．假设队列两端均可进行入队和出队操作，队列中最多能容纳$M-1$ 个元素．初始时为空．下列判断队空和队满的条件中，\textbf{正确}的是． \\
+A．队空：end1 == end2； 队满：end1 == (end2+1)mod M \\
+B．队空：end1 == end2； 队满：end2 == (end1+1)mod (M-1) \\
+C．队空：end2 == (end1+1)mod M； 队满：end1 == (end2+1)mod M \\
+D．队空：end1 == (end2+1)mod M；队满：end2 == (end1+1)mod (M-1)
+
+4．若对如下的二叉树进行中序线索化，则结点$x$的左、右线索指向的结点分别是:
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/CSN14_1.png}
+\caption{第3题图} \label{CSN14_fig1}
+\end{figure}
+A．e、c $\quad$ B．e、a $\quad$ C．d、c $\quad$ D．b、a
+
+5．将森林F转换为对应的二叉树T，F中叶结点的个数等于． \\
+A．T 中叶结点的个数 $\quad$ B．T 中度为1 的结点个数 \\
+C．T 中左孩子指针为空的结点个数 $\quad$ D．T 中右孩子指针为空的结点个数
+
