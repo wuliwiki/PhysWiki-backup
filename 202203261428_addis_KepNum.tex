@@ -1,0 +1,97 @@
+% 开普勒问题数值模拟（Matlab）
+
+\begin{issues}
+\issueOther{应该计算含时运动方程}
+\end{issues}
+
+\pentry{Matlab 画图\upref{MatPlt}， 开普勒问题\upref{CelBd}， 圆锥曲线的极坐标方程\upref{Cone}}
+
+本文给出计算开普勒问题中轨道的算法和代码． 本文所有符号和定义沿用 “开普勒问题\upref{CelBd}”．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=11cm]{./figures/KepNum_1.pdf}
+\caption{在同一位置以同一初速度不同仰角发射的椭圆轨道， 虚线为参考圆（例如地球表面）．} \label{KepNum_fig1}
+\end{figure}
+
+若 $F(r)$ 是平方反比的力（斥力为正引力为负）， 即
+\begin{equation}
+F(r) = \frac{k}{r^2}
+\end{equation}
+其中 $k$ 为非零实数． $k>0$ 表示斥力， $k<0$ 表示引力． 由于质点的运动只和初始位置、速度和 $k$ 有关， 与质点的质量无关， 所以我们令 $m=1$ 并不影响一般性． 令发射位置的极坐标\upref{Polar}为 $(R,\alpha)$， 初速度为 $v_0$， 发射仰角为 $\beta$ （顺时针为正， $\beta=0$ 时速度延逆时针方向）．
+
+所以质点机械能为动能加势能 $E = v_0^2/2 + k/R$， 角动量（逆时针为正）为 $L = v_0 R\cos\beta$． 于是离心率 $e$ 可由\autoref{CelBd_eq2}~\upref{CelBd} 计算， 半通径 $p$ 由\autoref{CelBd_eq3}~\upref{CelBd}计算． 然后代入圆锥曲线的极坐标方程（\autoref{Cone_eq5}~\upref{Cone}） 即可得到轨道方程． 然而由于发射点已经选好， 实际的轨道还需要旋转一个角度 $\theta_0$ （逆时针为正）， 即轨道方程变为
+\begin{equation}
+r(\theta)  = \frac{p}{1 - e\cos (\theta-\theta_0)}
+\end{equation}
+要求 $\theta_0$， 可以代入初始条件， 即 $r(\alpha) = R$． 得
+\begin{equation}
+\theta_0 = \alpha \pm \arccos(\frac{1-p/R}{e})
+\end{equation}
+这里有两个解是因为圆锥曲线和半径为 $R$ 的圆必定有两个交点． 我们需要根据发射角度来判断哪个是发射点， 稍作分析易得当 $\cos\beta \geqslant 0$ 时上式取正号， 否则取负号．
+
+以下 Matlab 程序支持对同一发射位置画出多组不同初速度和仰角的轨道．
+
+\begin{lstlisting}[language=matlab]
+% 已知初始位置、发射速度、发射方向， 求轨道以及运动方程
+function kepler
+% === 参数设置 ===
+k = -1; % -GMm, (m=1)
+R = 1; alpha = 0; % 初始位置（极坐标）
+v0 = 1.1; % 初速度（支持行矢量）
+beta = linspace(0, 4*pi/11, 6); % 发射仰角（支持行矢量）
+% ==============
+
+if isscalar(v0)
+    v0 = repmat(v0, size(beta));
+elseif isscalar(beta)
+    beta = repmat(beta, size(v0));
+elseif ~all(size(v0)==size(beta))
+    error('v0 和 beta 的尺寸必须一样，或者其中之一为标量');
+end
+
+% 画参考圆
+close all; figure;
+tmp = linspace(0, 2*pi, 500);
+plot(R*cos(tmp), R*sin(tmp), 'k--'); hold on;
+scatter(0, 0); axis equal;
+xlabel x; ylabel y;
+
+for i = 1:6
+    kepler1(k, R, alpha, v0(i), beta(i)); hold on;
+end
+end
+
+function kepler1(k, R, alpha, v0, beta)
+E = v0^2/2 + k/R; % 轨道总机械能
+L = v0*cos(beta)*R; % 角动量
+e = sqrt(1 + 2*E*L^2/k^2); % 离心率
+p = L^2/abs(k); % 半通径
+
+% 画图
+dth = pi/20; Nth = 1000;
+if e < 1
+    th = linspace(0, 2*pi, Nth);
+elseif e == 1
+    th = linspace(dth, 2*pi-dth, Nth);
+else
+    th1 = atan(sqrt(e^2-1));
+    th = linspace(th1+dth, 2*pi-th1-dth, Nth);
+end
+
+% 计算圆锥曲线需要旋转的角度 th0
+if e == 0
+    th0 = 0;
+elseif cos(beta) >= 0
+    th0 = alpha + acos((1-p/R)/e);
+else
+    th0 = alpha - acos((1-p/R)/e);
+end
+th0 = real(th0);
+scatter(R*cos(alpha), R*sin(alpha));
+
+th = th + th0;
+r = p./(1 - e*cos(th-th0));
+x = r .* cos(th); y = r .* sin(th);
+plot(x, y); axis equal;
+end
+\end{lstlisting}
