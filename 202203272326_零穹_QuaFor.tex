@@ -1,0 +1,34 @@
+% 二次型
+% 二次型|规范型|对角型
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\pentry{双线性型（2-线性函数）\upref{Tensor}}
+\begin{definition}{二次型}
+域 $\mathbb{F}$ 上有限维空间 $V$ 上的函数 $q:V\rightarrow\mathbb{F}$ ，若它满足如下两个性质：
+\begin{enumerate}
+\item $q(-\bvec{v})=q(\bvec v),\quad \forall\bvec v\in V$;
+\item 由公式
+\begin{equation}\label{QuaFor_eq1}
+f(\bvec x,\bvec y)=\frac{1}{2}\qty[q(\bvec x+\bvec y)-q(\bvec x)-q(\bvec y)]
+\end{equation}
+决定的映射 $f:V\times V\rightarrow\mathbb{F}$ 是 $V$ 上的双线性型（显然是对称的）．
+\end{enumerate}
+则称 $q$ 是 $V$ 上的\textbf{二次型}，并称 $f$ 的秩为 $q$ 的秩：rank $q$=rank $f$．
+\end{definition}
+利用\autoref{QuaFor_eq1} ，由 $q$ 得到的对称的双线性型 $f$ 称为\textbf{极化的}，或 $f$ 是与二次型 $q$ \textbf{配极} 的双线性型．
+\begin{example}{}
+设 $f$ 是 $V$ 上任意一个对称的对称的双线性型，令
+\begin{equation}
+q_f(\bvec x)=f(\bvec x,\bvec x)
+\end{equation}
+就得到一个满足二次型定义的函数 $q_f:V\rightarrow\mathbb{F}$ ，因为
+\begin{equation}
+\begin{aligned}
+q_f(-\bvec{x})=f(-\bvec{x},-\bvec{x})=f(\bvec{x},\bvec{x})=q_f(\bvec{x}) \quad \forall\bvec x\in V
+\end{aligned}
+\end{equation}
+
+\end{example}

@@ -1,0 +1,21 @@
+% 多重线性映射
+% 线性映射|线性型
+\pentry{矢量空间\upref{LSpace}}
+\subsection{多重线性映射}
+\begin{definition}{多重线性映射}
+设 $V_1,\cdots,V_p;U$ 为域\upref{field} $\mathbb{F}$ 上的矢量空间\upref{LSpace}．映射
+\begin{equation}
+f:V_1\times V_2\times\cdots\times V_p\rightarrow U
+\end{equation}
+称为\textbf{多重线性的}（\textbf{$p$-线性}），如果对任意指数 $i=1,\cdots,p$ 及任意固定的向量 $\bvec{a_j}\in V_j\quad(1\leq j\leq p,j\neq i)$ ，映射
+\begin{equation}
+f_i:\bvec{v}\rightarrow f(\bvec{a_1},\cdots,\bvec{a_{i-1}};\bvec{v},\bvec{a_{i+1}},\cdots,\bvec{a_p})
+\end{equation}
+都是线性型（线性函数）．即
+\begin{equation}
+f_i(\alpha\bvec x+\beta\bvec y)=\alpha f_i(\bvec x)+\beta f_i(\bvec y)
+\end{equation}
+
+\end{definition}
+
+\subsection{多重线性型}

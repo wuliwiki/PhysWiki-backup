@@ -6,25 +6,26 @@
 \begin{equation}
 t = \sqrt{\frac{m}{2}} \int_{r_0}^r \frac{\dd{r'}}{\sqrt{E - k/r' - L^2/(2mr'^2)}}
 \end{equation}
-该式对任何圆锥曲线轨道都适用， 其中 $r_0$ 是轨道离中心最近的一点， 令质点经过该点时 $t= 0$． 把这个积分的结果 $t(r)$ 取反函数， 就可以得到 $r(t)$． 同理， 有
+该式对任何圆锥曲线轨道都适用， 其中 $r_0$ 是轨道的近日点， 对应 $\theta = \pi$． 令质点经过近日点时 $t= 0$． 把这个积分的结果 $t(r)$ 取反函数， 就可以得到 $r(t)$． 同理， 有
 \begin{equation}
 \dd{t} = \frac{mr^2}{L}\dd{\theta}
 \end{equation}
 将\autoref{Cone_eq5}~\upref{Cone}代入， 积分得
 \begin{equation}
-t = \frac{L^3}{mk^2} \int_{\theta_0}^\theta \frac{\dd{\theta'}}{(1 - e\cos \theta')^2 }
+t = \frac{L^3}{mk^2} \int_{\pi}^\theta \frac{\dd{\theta'}}{(1 - e\cos \theta')^2 }
 \end{equation}
+以下我们令 $\Delta \theta = \theta - \pi$， 且 $\Delta \theta$ 和 $\Delta t$ 的取值区间关于原点对称． 由于轨道的对称性可知 $\theta(t)$ 是一个奇函数． 以下默认质点绕中心天体逆时针转动， 即 $\theta(t)$ 单调递增． 若要考虑顺时针， 取 $-\theta(t)$ 即可．
 
-对\textbf{抛物线}（$e = 1$）， 有
+对\textbf{抛物线}（$e = 1$）， 假设逆时针运动， ， 有
 \begin{equation}\label{EqMoKp_eq3}
-t = \frac{L^3}{2mk^2} \qty(\tan\frac{\theta}{2} +  \frac{1}{3}\tan^3 \frac{\theta}{2})\quad (-\pi<\theta<\pi)
+t = \frac{L^3}{2mk^2} \qty(\tan\frac{\Delta\theta}{2} +  \frac{1}{3}\tan^3 \frac{\Delta\theta}{2})\quad (-\pi<\Delta\theta<\pi)
 \end{equation}
 
 对于\textbf{椭圆}（$e < 1$）， 可以用一个参数\textbf{偏近点角（eccentric anomaly）} $\psi$ 来代替 $\theta$ 会更方便． $\psi$ 的定义为
 \begin{equation}\label{EqMoKp_eq1}
 r = a(1-e\cos\psi)
 \end{equation}
-其中 $a$ 是半长轴． 当 $\theta$ 从 $0$ 变化到 $2\pi$ 时， $\psi$ 也从 $0$ 变化到 $2\pi$， 只是速度不一样．
+其中 $a$ 是半长轴． 当 $\Delta\theta = \theta - \pi$ 从 $-\pi$ 变化到 $\pi$ 时， $\psi$ 也从 $-\pi$ 变化到 $\pi$， 只是速度不一样．
 \begin{equation}
 t = \sqrt{\frac{ma^3}{-k}} (\psi - e \sin\psi)
 \end{equation}
