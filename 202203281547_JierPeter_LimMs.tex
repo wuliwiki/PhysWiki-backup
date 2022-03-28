@@ -1,0 +1,70 @@
+% 依测度收敛
+% 实变函数|测度|极限|收敛
+
+\pentry{可测函数\upref{MsbFun}}
+
+我们已经知道，函数有“逐点收敛”和“一致收敛”等不同的收敛方式．逐点收敛的概念最简单，但是性质不太好；一致收敛的性质就非常好．
+
+现在我们有了外测度的概念，就可以构造一种新的收敛方式．
+
+\begin{definition}{依测度收敛}
+
+设$E\subseteq \mathbb{R}^n$是可测集，$f$和$f_i$都是其上的\textbf{几乎处处有限的}可测函数，其中$i$取遍全体正整数．如果对于任意固定的$\epsilon>0$，有
+\begin{equation}
+\lim\limits_{i\to\infty}\opn{m}\{x\in E|\abs{f_i(x)-f(x)}\geq\epsilon\}=0
+\end{equation}
+则称函数列$\{f_i\}$\textbf{依测度收敛}到函数$f$，记为$f_i\overset{\opn{m}}\to f$（于$E$）．
+
+\end{definition}
+
+简单来说，依测度收敛就是指任取一个精度范围$\epsilon$，$f_i(x)$偏离$f(x)$超过精度范围的$x$称为“不听话”的点，那么随着$i$增大，不听话的点构成的集合的外测度趋于零．
+
+类似地，一致收敛可以简单解释为：任取一个精度范围$\epsilon$，$f_i(x)$偏离$f(x)$超过精度范围的$x$称为“不听话”的点，那么随着$i$增大，不听话的点构成的集合趋于空集．
+
+发现没？简单说法里，一致收敛和依测度收敛的简单解释，只有最后一句有差别．从这个差别可以容易看出，一致收敛能推出依测度收敛．更进一步，几乎处处一致收敛也能推出依测度收敛．
+
+我们把上述讨论总结成以下定理：
+
+
+
+\begin{theorem}{}
+
+设$E\subseteq \mathbb{R}^n$是测度有限的可测集，$f$和各$f_i$都是其上的\textbf{几乎处处有限的}可测函数，其中$i$取遍全体正整数．如果$f_i$\textbf{一致收敛}到$f$a. e.  ，那么$f_i\overset{\opn{m}}\to f$．
+
+\end{theorem}
+
+
+
+在讨论依测度收敛的相关问题的时候，“几乎处处”和“处处”可以看成是等价的，因为这两个限定词在测度意义上没有任何区别．
+
+实际上，几乎处处收敛也是能推出依测度收敛的：
+
+\begin{theorem}{}\label{LimMs_the1}
+
+设$E\subseteq \mathbb{R}^n$是测度有限的可测集，$f$和各$f_i$都是其上的\textbf{几乎处处有限的}可测函数，其中$i$取遍全体正整数．如果$f_i\to f $a. e. ，那么$f_i\overset{\opn{m}}\to f$．
+
+
+
+\end{theorem}
+
+\textbf{证明}：
+
+只需讨论$f$在$E$上恒等于$0$的情况．
+
+对于任意固定的$\epsilon>0$，由Egoroff定理知，存在一个可测集$E_\epsilon$使得$\opn{m}E_\epsilon<\epsilon/1024$，且$\{f_n\}$在$E-E_\epsilon$上一致收敛于$f$．
+
+由\autoref{LimMs_the1} ，$\{f_n\}$在$E-E_\epsilon$上依测度收敛．因此，存在$N_\epsilon$使得对于任意$n>N_\epsilon$，都有$\opn{m}(\abs{f_i}>\epsilon/1024)$
+
+\textbf{证毕}．
+
+
+
+
+
+
+
+
+
+
+
+

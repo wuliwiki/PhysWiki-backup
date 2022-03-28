@@ -1,0 +1,25 @@
+% 二次型的规范型
+% 二次型|规范型
+
+\pentry{二次型\upref{QuaFor}}
+在规范基底\upref{QuaFor}下，二次型有比较简单的形式，这在理论和应用上都有重要价值．
+\begin{theorem}{}
+矢量空间 $V$ 上每个对称的双线性型 $f$ 都有规范基底．
+\end{theorem}
+\textbf{证明：} 对 $V$ 的维度 $n$ 应用数学归纳法．当 $n=1$ 时命题显然．
+
+如果 $f(\bvec x,\bvec y)=0$ 对所有 $\bvec x,\bvec y\in V$ 都成立（即 $f=0$），定理显然对任意基底都适用．如果 $f\neq 0$ ，那么对应二次型也不为0（\autoref{QuaFor_the1}~\upref{QuaFor}）．于是存在这么一个向量 $\bvec e_1$ ，使得 $f(\bvec e_1,\bvec e_1)\neq0$ ．于是，线性函数
+\begin{equation}
+f_1:\bvec x\mapsto f(\bvec x,\bvec e_1)
+\end{equation}
+非零（$f_1(\bvec e_1)\neq0$）．由\autoref{MatLS2_cor1}~\upref{MatLS2}，线性子空间
+\begin{equation}
+L=\mathrm{Ker} f_1=\{\bvec x_1\in V|f_1(\bvec x)=0\}
+\end{equation}
+的维数是 $n-1$ ．其中，$n$ 是矢量空间 $V$ 的维数．
+
+根据归纳法假设对 $L$ 必有基底 $(\bvec e_2,\cdots,\bvec e_n)$，在此基底下，$f$ 限制在 $L$ 上的矩阵是对角的，即 
+\begin{equation}
+f(\bvec e_i,\bvec e_j)=0,\quad i,j=2,\cdots ,n,\quad i\neq j
+\end{equation}
+按
