@@ -1,0 +1,25 @@
+% 斜对称双线性型的规范型
+% 斜对称|双线性型|辛平面|规范型
+
+\pentry{二次型的规范型\upref{GuaOQu}}
+在二次型\upref{QuaFor}一节中，已经知道每一对称双线性型 $f$ 对应一个二次型 $q$ ，并且每一对称双线性型 $f$ 都有一规范基底，在此基底下，二次型 $q$ 呈现一种简单的形式
+\begin{equation}
+q(\bvec x)=\sum_{i}f_{ii}x_i^2
+\end{equation}
+现在我们转向斜对称的双线性型\autoref{MulMap_def1}~\upref{MulMap}，也就是满足 
+\begin{equation}
+f(\bvec x,\bvec y)=-f(\bvec y,\bvec x)\quad \forall \bvec x,\bvec y\in V
+\end{equation}
+的2-线性函数．
+
+若 $V_0$ 是斜对称双线性型 $f$ 的\textbf{核}，也就是子空间\upref{SubSpc}
+\begin{equation}
+V_0=\mathrm{Ker} f=\{\bvec v\in V|f(\bvec v,\bvec x)=0,\forall\bvec x\in V\}
+\end{equation}
+那么 $f$ 在 $V_0$ 的补空间（\autoref{DirSum_def1}~\upref{DirSum}） $V_1$ 上的限制 $f|_{V_1}$ 必为非退化的斜对称型．这是因为，如果 $\bvec a\neq0\in V_1$ 且 $f(\bvec a,\bvec x_1)=0$ 对所有的 $\bvec x_1\in V$ 都成立（这句话意味着 $f$ 是退化的，因为它将非零向量 $\bvec a$ 映射到零向量），那么任意向量 $\bvec x=\bvec x_0+\bvec x_1\in V \;(\bvec x_0\in V_0)$ ，有
+\begin{equation}
+f(\bvec a,\bvec x)=f(\bvec a,\bvec x_0+\bvec x_1)=f(\bvec a,\bvec x_0)+f(\bvec a,\bvec x_1)=-f(\bvec x_0,\bvec a)=0
+\end{equation}
+ 这就是说 $\bvec a\in V_0$，而这是不可能的．
+
+ 上面论断使得我们可将对 $f$ 的研究归结为非退化的情形．即认为 $f:V\times V\rightarrow\mathbb{F}$ 是个非退化的双线性型．
