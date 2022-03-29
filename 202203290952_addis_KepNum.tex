@@ -28,13 +28,13 @@ F(r) = \frac{k}{r^2}
 
 所以质点机械能为动能加势能 $E = v_0^2/2 + k/R$， 角动量（逆时针为正）为 $L = v_0 R\cos\beta$． 于是离心率 $e$ 可由\autoref{CelBd_eq2}~\upref{CelBd} 计算， 半通径 $p$ 由\autoref{CelBd_eq3}~\upref{CelBd}计算． 然后代入圆锥曲线的极坐标方程（\autoref{Cone_eq5}~\upref{Cone}） 即可得到轨道方程． 然而由于发射点已经选好， 实际的轨道还需要旋转一个角度 $\theta_0$ （逆时针为正）， 即轨道方程变为
 \begin{equation}\label{KepNum_eq1}
-r(\theta)  = \frac{p}{1 - e\cos (\theta-\theta_0)}
+r(\theta)  = \frac{-s p}{1 - e\cos (\theta-\theta_0)}
 \end{equation}
-要求 $\theta_0$， 可以代入初始条件， 即 $r(\alpha) = R$． 得
+其中当 $k>0$ 时 $s=1$， $k<0$ 时 $s=-1$． 要求 $\theta_0$， 可以代入初始条件， 即 $r(\alpha) = R$． 得
 \begin{equation}
-\theta_0 = \alpha \pm \arccos(\frac{1-p/R}{e})
+\theta_0 = \alpha \pm \arccos(\frac{1+ sp/R}{e})
 \end{equation}
-这里有两个解是因为圆锥曲线和半径为 $R$ 的圆必定有两个交点． 我们需要根据发射角度来判断哪个是发射点， 稍作分析易得当 $\cos\beta \geqslant 0$ 时上式取正号， 否则取负号．
+这里有两个解是因为圆锥曲线和半径为 $R$ 的圆必定有两个交点． 我们需要根据发射角度来判断哪个是发射点， 稍作分析易得当 $s\cdot\sin2\beta \geqslant 0$ 时上式取负号， 否则取正号．
 
 \subsection{运动的计算}
 
@@ -67,9 +67,9 @@ axis_param = 'auto'; % 坐标范围 [xmin,xmax,ymin,ymax] 或 'auto'
 
 % 匹配 v0 和 beta 的尺寸
 if isscalar(v0)
-    v0 = repmat(v0, size(beta));
+    v0 = v0*ones(size(beta));
 elseif isscalar(beta)
-    beta = repmat(beta, size(v0));
+    beta = beta*ones(size(v0));
 elseif ~all(size(v0)==size(beta))
     error('v0 和 beta 的尺寸必须一样，或者其中之一为标量');
 end
@@ -98,7 +98,7 @@ for it = 1:10000000
         end
         exit = false;
         th = th_cell{i}(it);
-        r = p_list(i) / (1 - e_list(i)*cos(th - th0_list(i)));
+        r = -sign(k) * p_list(i) / (1 - e_list(i)*cos(th - th0_list(i)));
         if (~isnan(h(i))), delete(h(i)); end
         h(i) = scatter(r*cos(th), r*sin(th), 'r^');
     end
@@ -111,6 +111,7 @@ end
 end
 
 % 计算并画出一条轨道
+% 轨道方程为 r = -sign(k) * p / (1 - e*cos(th - th0));
 function [p, e, th0, t, th_t] = kepler1(k, R, alpha, v0, beta, t_max, Nt)
 E = v0^2/2 + k/R; % 轨道总机械能
 L = v0*cos(beta)*R; % 角动量
@@ -124,42 +125,54 @@ if e < 1 % 椭圆
 elseif e == 1 % 抛物线
     th = linspace(dth, 2*pi-dth, Nth);
 else % 双曲线
-    th1 = atan(sqrt(e^2-1)); % 渐进张角的一半
-    th = linspace(th1+dth, 2*pi-th1-dth, Nth);
+    gamma = atan(sqrt(e^2-1)); % 渐进张角 atan(b/a)
+    if k < 0
+        th = linspace(gamma+dth, 2*pi-gamma-dth, Nth);
+    else
+        th = linspace(-gamma+dth, gamma-dth, Nth);
+    end
 end
 
 % 计算圆锥曲线需要旋转的角度 th0
-if e == 0
+if e == 0 % 圆
     th0 = 0;
-elseif cos(beta) >= 0
-    th0 = alpha + acos((1-p/R)/e);
 else
-    th0 = alpha - acos((1-p/R)/e);
+    if sin(2*beta)*sign(k) >= 0
+        th0 = alpha - acos((1 + sign(k)*p/R)/e);
+    else
+        th0 = alpha + acos((1 + sign(k)*p/R)/e);
+    end
 end
-th0 = real(th0);
+th0 = real(mod(real(th0)+pi, 2*pi) - pi);
 scatter(R*cos(alpha), R*sin(alpha));
 th = th + th0;
 
 % 画出轨道
-r = p./(1 - e*cos(th-th0));
+r = -sign(k) * p./(1 - e*cos(th-th0));
 x = r .* cos(th); y = r .* sin(th);
 plot(x, y); axis equal;
 
 % 含时运动
 % 时间格点
 rot_dir = sign(cos(beta)); % 1: 逆时针 -1: 顺时针
-t0 = rot_dir*t_Dth(p, e, k, alpha-th0-pi); % 初始时间
+if k < 0
+    Dth0 = alpha-th0-pi;
+else
+    Dth0 = alpha-th0;
+end
+t0 = rot_dir*t_Dth(p, e, k, Dth0); % 初始时间
 t = linspace(t0, t0+t_max, Nt);
-th_t = rot_dir*Dth_t(p, e, k, dth, t) + th0 + pi;
+if k < 0
+    th_t = rot_dir*Dth_t(p, e, k, dth, t) + th0 + pi;
+else
+    th_t = rot_dir*Dth_t(p, e, k, dth, t) + th0;
+end
 end
 
 % 求 t(\Delta\theta)
 % Dth 支持矢量
 % 对椭圆 Dth 支持任意实数，会自动 wrap 到 (-pi, pi]
 function t = t_Dth(p, e, k, Dth)
-if k > 0
-    error('k > 0 情况未实现!');
-end
 if Dth ~= pi
     Dth = mod(Dth+pi, 2*pi) - pi;
 end
@@ -176,6 +189,12 @@ elseif e > 1 && k < 0 % 双曲线 (k<0)
     r = p./(1 + e*cos(Dth));
     xi = sign(Dth).*real(acosh((1 + r/a)/e));
     t = sqrt(a^3/(abs(k)))*(e*sinh(xi) - xi);
+elseif e > 1 && k > 0 % 双曲线 (k>0)
+    % 此时 Dth = th
+    a = p/(e^2-1);
+    r = p./(1 - e*cos(Dth));
+    xi = sign(Dth).*acosh((-r/a-1)/e);
+    t = sqrt(a^3/(abs(k)))*(e*sinh(xi) + xi);
 else
     error('参数错误或未实现!');
 end
@@ -195,7 +214,11 @@ elseif e == 1 % 抛物线
     Dth_range = [-pi+dth, pi-dth];
 else % 双曲线
     th1 = atan(sqrt(e^2-1)); % 渐进张角的一半
-    Dth_range = [-pi+th1+dth, pi-th1-dth];
+    if k < 0
+        Dth_range = [-pi+th1+dth, pi-th1-dth];
+    else
+        Dth_range = [-th1+dth, th1-dth];
+    end
 end
 % 二分法解方程
 for i = 1:N
@@ -205,7 +228,10 @@ end
 end
 \end{lstlisting}
 
-这里给出另一组参数， 计算以 $45^\circ$ 仰角， 模拟不同初速度发射的情况， 替换到以上代码中即可．
+
+
+
+这里给出另一组参数，计算以 $45^\circ$ 仰角和不同初速度发射的情况，替换到以上代码中即可．
 \begin{lstlisting}[language=matlab]
 % === 参数设置 ===
 k = -1; % -GMm, (m=1)

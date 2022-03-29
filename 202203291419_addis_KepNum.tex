@@ -1,5 +1,9 @@
 % 开普勒问题的数值计算（Matlab）
 
+\begin{issues}
+\issueOther{搞一个卢瑟福散射的模拟， 支持不同的入射距离， 初速度相同}
+\end{issues}
+
 \pentry{Matlab 画图\upref{MatPlt}， 开普勒问题\upref{CelBd}}
 
 本文讨论开普勒问题中， 若已知初始位置和初速度矢量， 求轨道方程和动画的算法并给出 Matlab 代码． 以下所有符号和定义沿用 “开普勒问题\upref{CelBd}”．
@@ -36,15 +40,15 @@ r(\theta)  = \frac{-s p}{1 - e\cos (\theta-\theta_0)} \qquad (r > 0)
 
 \pentry{开普勒问题的运动方程\upref{EqMoKp}}
 
-我们使用 “开普勒问题的运动方程\upref{EqMoKp}” 给出的方法求解三种圆锥曲线的含时运动． 沿用其中的符号定义， 令 $t=0$ 时质点位于近日点， 对应极角为 $\theta_0 + \pi$． 令相对近日点的极角增量为 $\Delta\theta = \theta - \theta_0 - \pi$． 接下来， 先计算函数 $t(\Delta\theta)$， 默认逆时针旋转， 然后数值求解反函数 $\Delta\theta(t)$ 即可． 若要考虑顺时针旋转， 乘以 $-1$ 即可． 易得 $\cos\beta > 0$ 时质点绕中心天体逆时针运动， $\cos\beta < 0$ 时顺时针运动．
+我们使用 “开普勒问题的运动方程\upref{EqMoKp}” 给出的方法求解三种圆锥曲线的含时运动． 沿用其中的符号定义， 令 $t=0$ 时质点位于近日点，  $k<0$ 时近日点对应极角 $\theta_0 + \pi$， 令相对近日点的极角增量为 $\Delta\theta = \theta - \theta_0 - \pi$； $k>0$ 时近日点对应极角 $\theta_0$， 令 $\Delta\theta = \theta - \theta_0$． 接下来， 先计算函数 $t(\Delta\theta)$， 默认逆时针旋转， 然后数值求解反函数 $\Delta\theta(t)$ 即可． 若要考虑顺时针旋转， 函数值乘以 $-1$ 即可． 易得 $\cos\beta > 0$ 时质点绕中心天体逆时针运动， $\cos\beta < 0$ 时顺时针运动．
 
 \textbf{抛物线}： 时间 $t$ 在 $(-\infty,\infty)$ 取值， \autoref{EqMoKp_eq3}~\upref{EqMoKp}就是 $t(\Delta\theta)$．
 
-\textbf{椭圆}： 时间 $t$ 在 $[-T/2,T/2]$ 取值， 周期 $T$ 由\autoref{Keple2_eq1}~\upref{Keple2} 计算． 由\autoref{EqMoKp_eq1}~\upref{EqMoKp} 和\autoref{EqMoKp_eq5}~\upref{EqMoKp} 计算 $t(\Delta\theta)$．
+\textbf{椭圆}： 时间 $t$ 在 $[-T/2,T/2]$ 取值， 周期 $T$ 由\autoref{Keple2_eq1}~\upref{Keple2} 计算． 由于这是周期运动， 其他任意时间都可以加减整数个周期后落到 $[-T/2,T/2]$ 中． 由\autoref{EqMoKp_eq1}~\upref{EqMoKp} 和\autoref{EqMoKp_eq5}~\upref{EqMoKp} 计算 $t(\Delta\theta)$．
 
-\textbf{双曲线}： 时间 $t$ 在 $(-\infty,\infty)$ 取值， 使用\autoref{EqMoKp_eq2}~\upref{EqMoKp} 到\autoref{EqMoKp_eq6}~\upref{EqMoKp} 可得 $k<0$ 和 $k>0$ 时的 $t(\Delta\theta)$．
+\textbf{双曲线}： 时间 $t$ 在 $(-\infty,\infty)$ 取值， 使用\autoref{EqMoKp_eq2}~\upref{EqMoKp} 到\autoref{EqMoKp_eq6}~\upref{EqMoKp} 可得 $k<0$ 和 $k>0$ 两种情况时的 $t(\Delta\theta)$．
 
-发射质点的初始时刻为 $t_0 = t(\alpha - \theta_0 - \pi)$． 同样求出 $t_0$， 生成时间格点 $t_i$ （$i=1,2,\dots$）， 解方程得到对应的 $\theta_i$ 即可．
+发射质点的初始时刻为 $t_0 = \leftgroup{&t(\alpha - \theta_0 - \pi) \quad (k<0)\\&t(\alpha - \theta_0)\quad (k>0)}$． 同样求出 $t_0$， 生成时间格点 $t_i$ （$i=1,2,\dots$）， 解方程得到对应的 $\theta_i$ 即可．
 
 以下 Matlab 程序支持对同一发射位置画出多组不同初速度和仰角的轨道． 相比于使用解微分方程的方法（\autoref{OdeRK4_sub1}~\upref{OdeRK4}）计算轨道和运动， 该程序计算的轨道和运动都可以达到 13 位有效数字以上． 然而缺点是只能计算理想的开普勒问题， 无法拓展到非平方反比力， 也无法拓展到三体乃至多体运动．
 
