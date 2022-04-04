@@ -1,0 +1,34 @@
+% 自由高斯波包（量子）的动画绘制（Matlab）
+
+\pentry{一维自由高斯波包（量子）\upref{GausWP}， Matlab 画图\upref{MatPlt}}
+
+以下代码绘制自由粒子的高斯波包（\autoref{GausWP_eq4}~\upref{GausWP}）的动画．
+
+\begin{lstlisting}[language=matlab]
+% === 参数 (原子单位) ===
+m = 1;
+x0 = 0;
+p0 = 2;
+sig_x = 2;
+xmin = -10; xmax = 100; Nx = 500;
+tmin = 0; tmax = 35; Nt = 150;
+ax = [xmin, xmax, -0.5, 0.5];
+% ==============
+
+close all;
+t = linspace(tmin, tmax, Nt);
+x = linspace(xmin, xmax, Nx);
+figure; set(gcf, 'Unit', 'Normalized', 'Position', [0.1, 0.1, 0.4, 0.3]);
+for it = 1:Nt
+    psi = 1/(2*pi*sig_x^2)^0.25/sqrt(1 + 1i*t(it)/(2*m*sig_x^2))...
+      *exp(-(x-x0-p0*t(it)/m).^2/(2*sig_x)^2/(1 + 1i*t(it)/(2*m*sig_x^2)))...
+      .*exp(1i*p0*(x-p0*t(it)/(2*m)));
+    clf;
+    plot(x, real(psi)); hold on;
+    plot(x, imag(psi));
+    axis(ax); xlabel 'x [au]'; ylabel \psi;
+    title(['t = ' num2str(t(it), '%.2f') ' [au]']);
+    set(gca, 'FontSize', 12);
+    saveas(gcf, [num2str(it) '.png']);
+end
+\end{lstlisting}
