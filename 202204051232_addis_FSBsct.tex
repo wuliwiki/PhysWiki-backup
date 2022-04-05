@@ -1,0 +1,94 @@
+% 方势垒散射数值计算
+% 方势垒|散射|数值计算
+
+\begin{issues}
+\issueDraft
+\issueOther{未完成： 需要改进程序， 计算波函数随时间的变化． （给系数加上 $\exp(-\I E t)$ 即可）}
+\end{issues}
+
+\pentry{方势垒定态波函数程序\upref{FSBplt}}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/FSBsct_1.png}
+\caption{运行结果} \label{FSBsct_fig1}
+\end{figure}
+
+需要使用 “方势垒定态波函数程序\upref{FSBplt}” 中的 \verb|FSB.m| 和 \verb|FSB2.m|．
+\begin{lstlisting}[language=matlab, caption=FSBsct.m]
+% 使用类 sin，cos 基底
+clear; close all;
+
+% === params ====
+k0 = 4; a = 1/6;
+Nk = 300; kmax = k0 + 12*a; kmin = max(kmax/Nk, k0 - 12*a);
+x0 = 0;
+Nx = 2000; xmin = x0-6/a; xmax = x0+6/a;
+psi = @(x)exp(1i*k0*x).*exp(-(a*(x-x0)).^2);
+L = 3; V0 = 1; m = 1;
+% ==============
+
+% plot FFT
+k = linspace(kmin, kmax, Nk); dk = k(2)-k(1);
+[g1, k1] = FFT(fftresize(psi(x),Nx*2), dx);
+g = interp1(k1, g1, k);
+figure; plot(k, abs(g), '.');
+axis([kmin, kmax, 0, max(abs(g))*1.1]);
+xlabel k; title 'FFT of \psi(x)';
+
+A = zeros(1,Nk); B = A;
+E = k.^2/(2*m);
+psi1 = zeros(size(x));
+for i = 1:Nk
+    A(i) = integral(@(x)psi(x).*FSB(x,E(i),L,m,V0,0), ...
+            xmin, xmax, 'RelTol', 1e-16);
+    B(i) = integral(@(x)psi(x).*FSB(x,E(i),L,m,V0,1), ...
+            xmin, xmax, 'RelTol', 1e-16);
+    psi1 = psi1 + dk*A(i)*FSB(x,E(i),L,m,V0,0) ...
+                + dk*B(i)*FSB(x,E(i),L,m,V0,1);
+end
+figure; plot(x, real(psi(x)));
+hold on; plot(x, real(psi1), '--');
+plot([xmin, -L,-L, L, L, xmax], [0, 0, 0.5, 0.5, 0, 0], 'b');
+axis([xmin,xmax,-1,1]);
+title 'reconstruction of \psi(x)'
+\end{lstlisting}
+
+\begin{lstlisting}[language=matlab]
+% 使用类 exp(ikx), exp(-ikx) 基底
+clear; close all;
+
+% === params ====
+k0 = 4; a = 1/6;
+Nk = 300; kmax = k0 + 12*a; kmin = max(kmax/Nk, k0 - 12*a);
+x0 = 0;
+Nx = 2000; xmin = x0-6/a; xmax = x0+6/a;
+psi = @(x)exp(1i*k0*x).*exp(-(a*(x-x0)).^2);
+L = 3; V0 = 1; m = 1;
+% ==============
+
+% plot FFT
+k = linspace(kmin, kmax, Nk); dk = k(2)-k(1);
+[g1, k1] = FFT(fftresize(psi(x),Nx*2), dx);
+g = interp1(k1, g1, k);
+figure; plot(k, abs(g), '.');
+axis([kmin, kmax, 0, max(abs(g))*1.1]);
+xlabel k; title 'FFT of \psi(x)';
+
+C1 = zeros(1,Nk); C2 = C1;
+E = k.^2/(2*m);
+psi1 = zeros(size(x));
+for i = 1:Nk
+    C1(i) = integral(@(x)psi(x).*conj(FSB2(x,E(i),L,m,V0,1)), ...
+            xmin, xmax, 'RelTol', 1e-16);
+    C2(i) = integral(@(x)psi(x).*conj(FSB2(x,E(i),L,m,V0,-1)), ...
+            xmin, xmax, 'RelTol', 1e-16);
+    psi1 = psi1 + dk*C1(i)*FSB2(x,E(i),L,m,V0,1) ...
+                + dk*C2(i)*FSB2(x,E(i),L,m,V0,-1);
+end
+figure; plot(x, real(psi(x)));
+hold on; plot(x, real(psi1), '--');
+plot([xmin, -L,-L, L, L, xmax], [0, 0, 0.5, 0.5, 0, 0], 'b');
+axis([xmin,xmax,-1,1]);
+title 'reconstruction of \psi(x)'
+\end{lstlisting}
