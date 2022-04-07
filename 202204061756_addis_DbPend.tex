@@ -1,0 +1,73 @@
+% 双摆的数值计算（Matlab）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{双摆和三摆\upref{Pendu3}}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/DbPend_1.png}
+\caption{运行结果， 蓝色曲线显示双摆末端的轨迹．} \label{DbPend_fig1}
+\end{figure}
+
+\begin{lstlisting}[language=matlab]
+% 双摆运动
+function double_pendulum
+% === 参数设置 ===
+m1 = 1; l1 = 1; % 摆 1
+m2 = 1; l2 = 1; % 摆 2
+th10 = pi; th20 = pi; % 初始角度
+w10 = -4; w20 = 6; % 初始角速度
+g = 9.8; % 重力加速度
+tmin = 0; tmax = 10; Nt = 200; % 时间网格
+Nsmooth = 4; % 轨迹平滑（每两帧之间轨迹的线段数）
+% ==============
+close all;
+Y0 = [th10; th20; w10; w20];
+options = odeset('RelTol',1e-6);
+[T, Y] = ode45(@(t,Y)odefun(t, Y, m1, m2, l1, l2, g), ...
+        [tmin,tmax], Y0, options);
+Th1 = Y(:,1); Th2 = Y(:,2); W1 = Y(:,3); W2 = Y(:,4);
+Ek = 0.5*m1*(l1*W1).^2 + 0.5*m2*((l1*W1.*cos(Th1)+l2*W2.*cos(Th2)).^2 ...
+    + (l1*W1.*sin(Th1) + l2*W2.*sin(Th2)).^2);
+V = -m1*g*l1*cos(Th1) - m2*g*(l1*cos(Th1) + l2*cos(Th2));
+figure; plot(T, Ek + V); xlabel time; title 'total energy';
+t = linspace(tmin, tmax, Nt);
+tt = linspace(tmin, tmax, Nsmooth*Nt-3);
+th1 = interp1(T, Th1, t, 'spline');
+thth1 = interp1(T, Th1, tt, 'spline');
+th2 = interp1(T, Th2, t, 'spline');
+thth2 = interp1(T, Th2, tt, 'spline');
+x1 = l1*sin(th1); y1 = -l1*cos(th1);
+xx1 = l1*sin(thth1); yy1 = -l1*cos(thth1);
+x2 = x1 + l2*sin(th2); y2 = y1 - l2*cos(th2);
+xx2 = xx1 + l2*sin(thth2); yy2 = yy1 - l2*cos(thth2);
+figure;
+for it = 1:Nt
+    clf;
+    plot([0, x1(it)], [0, y1(it)], 'k'); hold on;
+    scatter(x1(it), y1(it), 'k');
+    plot([x1(it), x2(it)], [y1(it), y2(it)], 'k');
+    scatter(x2(it), y2(it), 'k');
+    plot(xx2(1:Nsmooth*it-3), yy2(1:Nsmooth*it-3));
+    axis equal; axis([-1,1,-1,1]*(l1+l2)*1.1);
+    title(['t = ' num2str(t(it), '%.2f')]);
+    xlabel x; ylabel y;
+    saveas(gcf, [num2str(it) '.png']);
+end
+end
+
+function dY = odefun(~, Y, m1, m2, l1, l2, g)
+th1 = Y(1); th2 = Y(2); w1 = Y(3); w2 = Y(4);
+alpha = th2 - th1;
+dw1 = (m2*l2*sin(alpha)*w2^2 - (m1+m2)*g*sin(th1) ...
+    + m2*(l1*sin(alpha)*w1^2+g*sin(th2))*cos(alpha))...
+    /(m1*l1+m2*l1*sin(alpha)^2);
+dw2 = (((m1+m2)*g*sin(th1)-m2*l2*sin(alpha)*w2^2)*cos(alpha)...
+    - (m1+m2)*(l1*sin(alpha)*w1^2+g*sin(th2)))...
+    /(m1*l2 + m2*l2*sin(alpha)^2);
+dY = [w1; w2; dw1; dw2];
+end
+\end{lstlisting}
