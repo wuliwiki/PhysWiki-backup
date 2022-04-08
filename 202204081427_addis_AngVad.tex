@@ -1,0 +1,22 @@
+% 旋转的叠加、角速度的矢量叠加
+
+\pentry{速度的参考系变换\upref{Vtrans}， 刚体的瞬时转轴\upref{InsAx}}
+
+我们首先约定以下的黑体字母表示几何矢量\upref{GVec}而非坐标， 与参考系无关． 在 $S'$ 参考系中， 刚体绕原点以角速度 $\bvec \omega'$ 旋转， 而 $S'$ 参考系相对于 $S$ 参考系以角速度 $\bvec \omega_r$ 旋转， 那么可以证明刚体相对于 $S$ 参考系的角速度矢量就是
+\begin{equation}\label{AngVad_eq1}
+\bvec \omega = \bvec \omega' + \bvec \omega_r
+\end{equation}
+
+\textbf{证明}：可以直接使用 “速度的参考系变换\upref{Vtrans}” 中的\autoref{Vtrans_eq2} ： 设某时刻刚体上任意一点的位置矢量为 $\bvec r$， 那么该点在 $S'$ 系中速度为 $\bvec v' = \bvec\omega'\cross\bvec r$， 而该时刻 $S'$ 系中位于 $\bvec r$ 的固定点相对于 $S$ 系的速度为 $\bvec v_r = \bvec\omega_r\cross\bvec r$． 于是根据速度叠加原理有
+\begin{equation}
+\bvec v = \bvec v' + \bvec v_r = \bvec\omega'\cross\bvec r + \bvec\omega_r\cross\bvec r
+= (\bvec\omega' + \bvec\omega_r)\cross\bvec r
+\end{equation}
+而直接在 $S$ 系中考虑刚体的旋转有 $\bvec v = \bvec\omega\cross\bvec r$． 由于该分析对任何 $\bvec r$ 都成立， 显然\autoref{AngVad_eq1} 是成立的．
+
+\begin{example}{进动陀螺的角速度}\label{AngVad_ex1}
+参考\autoref{InsAx_ex2}~\upref{InsAx}， 倾斜放置的陀螺， 若其底端位于坐标原点， 陀螺在 $S'$ 系中绕其对称轴的角速度为 $\bvec \omega'$， 而 $S'$ 绕 $S$ 关于 $z$ 轴旋转的角速度为 $\bvec \omega_r$， 那么在 $S$ 系中， 陀螺的角速度为
+\begin{equation}
+\bvec \omega = \bvec \omega' + \bvec \omega_r
+\end{equation}
+\end{example}
