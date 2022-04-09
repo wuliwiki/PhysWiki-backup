@@ -1,0 +1,26 @@
+% 欧拉角
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+$z$-$y$-$z$ 欧拉角 $\psi,\theta,\phi$ 与旋转矩阵
+
+绕 $z$ 轴旋转矩阵
+\begin{equation}
+\pmat{x'\\ y' \\ z'} =
+\begin{pmatrix}
+\cos\theta & - \sin\theta & 0\\
+\sin\theta &\cos\theta & 0\\
+0 & 0 & 1
+\end{pmatrix}\pmat{x\\ y\\ z}
+\end{equation}
+
+
+由于角速度可以矢量叠加\upref{InsAx}， 角速度矢量为
+\begin{equation}
+\bvec\omega
+= \dot\psi\uvec r + \dot\theta\uvec\phi + \dot\phi\uvec z
+= (\dot\psi + \dot\phi\cos\theta)\uvec r - \dot\phi\sin\theta\ \uvec\theta +
+ \dot\theta\uvec\phi
+\end{equation}

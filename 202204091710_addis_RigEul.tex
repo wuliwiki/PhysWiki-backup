@@ -1,0 +1,15 @@
+% 刚体定点旋转的运动方程（欧拉角）
+
+\pentry{刚体的运动方程\upref{RBEqM}， 欧拉角\upref{EulerA}}
+
+首先摆放刚体， 使得三个主轴分别与 $x,y,z$ 轴重合． 然后使用 $z$-$y$-$z$ 欧拉角描述刚体每个时刻的位置． 若已知角速度， 欧拉角的时间导数为（\autoref{EulerA_eq2}~\upref{EulerA}）
+\begin{equation}
+\dot\psi = \omega_r + \omega_\theta \cot\theta,\qquad
+\dot\theta = \omega_\phi,\qquad
+\dot\phi = -\frac{\omega_\theta}{\sin\theta}
+\end{equation}
+在体坐标系中使用（\autoref{RBEqM_eq6}~\upref{RBEqM}）得
+\begin{equation}
+\dot{\bvec \omega} = \mat I_0^{-1} \qty[\bvec \tau  - \bvec\omega\cross \mat I_0 \bvec\omega]
+\end{equation}
+
