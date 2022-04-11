@@ -23,7 +23,7 @@
 
 现代四元数的定义是把每一个四元数看成一个实数和一个三维实矢量的组合：$(a_0, \bvec{a})$．在这个语境下，$\I$，$\mathrm{j}$，$\mathrm{k}$ 被看成是一个标准正交基中的矢量，为了避免将来的混淆，把这三个基矢量重新表示成 $1, \uvec i, \uvec j$ 和 $\uvec k$ 后，四元数的运算可以定义如下：
 
-\begin{definition}{四元数的四则运算}\label{Quat_def1}
+\begin{definition}{四元数的加法和乘法}\label{Quat_def1}
 记四元数集合为 $\mathbb{H}=\{(a_0, \bvec{a})|a_0\in\mathbb{R}, \bvec{a}\in\mathbb{R}^3\}$， $\forall(a_0, \bvec{a}), (b_0, \bvec{b})\in\mathbb{H}$， 加法定义为
 \begin{equation}
 (a_0, \bvec{a})+ (b_0, \bvec{b})=(a_0+b_0,\ \ \bvec{a}+\bvec{b})
@@ -47,11 +47,15 @@ ab = (ab, \bvec 0) = (a,\bvec 0)(b,\bvec 0) = (b,\bvec 0)(a,\bvec 0)
 \begin{equation}
 \lambda\bvec v = (0, \lambda\bvec v) = (\lambda, \bvec 0)(0, \bvec v) = (0, \bvec v)(\lambda, \bvec 0)
 \end{equation}
-而两个矢量（对应的四元数）相乘却是以前没有见过的
+标量与四元数相乘也类似
+\begin{equation}
+\lambda (a_0, \bvec a) = (\lambda,\bvec 0) (a_0, \bvec a) = (a_0, \bvec a)(\lambda,\bvec 0) = (\lambda a_0, \lambda\bvec a)
+\end{equation}
+而两个矢量（的四元数）相乘却是以前没有见过的， 要区别于点乘和叉乘
 \begin{equation}
 \bvec a\bvec b = (0, \bvec a)(0, \bvec b) = (-\bvec a\vdot\bvec b,\ \bvec a\cross\bvec b)
 \end{equation}
-另外若令 $\bvec a$ 的模长为 $a$， 单位矢量 $\uvec a = \bvec a/a$， 有
+另外若令 $\bvec a$ 的模长为 $a$， 单位矢量 $\uvec a = \bvec a/a$， 使用四元数乘法有
 \begin{equation}
 \bvec a^{n} = (0, \bvec a)^{n} =
 \leftgroup{
@@ -71,7 +75,7 @@ ab = (ab, \bvec 0) = (a,\bvec 0)(b,\bvec 0) = (b,\bvec 0)(a,\bvec 0)
 \begin{definition}{共轭、模方和模}\label{Quat_def2}
 \begin{itemize}
 \item 令四元数为 $A=a_0+\bvec{a}$，记 $\widetilde{A}=a_0-\bvec{a}$，称为 $A$ 的\textbf{共轭（conjugate）}．
-\item 记 $||A||=||\widetilde{A}||=A\widetilde{A}=\widetilde{A}A=a_0^2+ \abs{\bvec{a}}^2$，称为 $A$ 的\textbf{模方}．
+\item 记 $||A||=a_0^2+ \abs{\bvec{a}}^2$，称为 $A$ 的\textbf{模方}．
 \item 记 $|A|=\sqrt{||A||}$，称为 $A$ 的\textbf{模}．
 \end{itemize}
 \end{definition}
@@ -80,12 +84,31 @@ ab = (ab, \bvec 0) = (a,\bvec 0)(b,\bvec 0) = (b,\bvec 0)(a,\bvec 0)
 \begin{itemize}
 \item 证明四元数满足乘法分配律
 \item 证明四元数满足乘法结合律
-\item 证明 $||A||=||\widetilde{A}||=\widetilde{A}A=a_0^2 + \abs{\bvec{a}}^2$
+\item 证明 $||A||=||\widetilde{A}||=\widetilde{A}A=A\widetilde{A}$ （类比复数）
+\item 证明 $\abs{AB} = \abs{A}\abs{B}$， 即 $\norm{AB} = \norm{A}\norm{B}$ （类比复数）
 \item 若将单位矢量 $\uvec e$ 看作四元数（标部为零）， 证明 $\uvec{e}^2=-1,\ \uvec{e}^3=-\uvec{e}$
 \end{itemize}
 \end{exercise}
 
-\subsection{四元数乘法的矩阵表示}
+\subsection{四元数的逆和除法}
+和复数类似， 定义非零四元数 $A$ 的逆 $A^{-1}$ 满足
+\begin{equation}\label{Quat_eq3}
+AA^{-1} = A^{-1}A = 1 \qquad (B \ne 0)
+\end{equation}
+易得每个非零四元数都有唯一的逆
+\begin{equation}
+A^{-1} = \frac{\tilde A}{\abs{A}^2} \qquad (A \ne 0)
+\end{equation}
+代入\autoref{Quat_eq3} 即可证明． 证明\textbf{逆元的唯一性}： 假设 $B_1, B_2$ 都是 $A$ 的逆元， 那么 $AB_1 = AB_2$， 等式两边左乘 $B_1$， 得 $B_1 = B_2$． 证毕．
+
+定义四元数的除法为
+\begin{equation}
+\frac{A}{B} = AB^{-1} = \frac{A\tilde B}{\abs{B}^2} \qquad (B \ne 0)
+\end{equation}
+
+根据以上讨论不难发现， 所有的非零四元数及其乘法运算构成一个群\upref{Group}．
+
+\subsubsection{四元数乘法的矩阵表示}
 四元数乘法 $(a_0,\bvec a)(a_0,\bvec b) = (a_0,a_1,a_2,a_3)(b_0,b_1,b_2,b_3)$ 可以看作是一个线性变换， 用矩阵乘法表示为
 \begin{equation}
 \begin{aligned}
@@ -104,8 +127,6 @@ b_3 & -b_2 & b_1 & b_0
 }]\Tr
 \end{aligned}
 \end{equation}
-使用该形式， 可以求 $(a_0, \bvec a)$ 的逆——令 $(a_0,\bvec a)(a_0,\bvec b) = (1,0,0,0)$， 解线性方程组即可．
-\addTODO{是否所有非零四元数都存在逆？}
 
 \subsection{四元数的指数表示}
 
@@ -129,6 +150,8 @@ b_3 & -b_2 & b_1 & b_0
 \end{exercise}
 
 由于四元数的加法满足交换律，而乘法一般不满足，因此一般情况下四元数并不满足 $\E^{A+B} = \E^A \E^B$．因此，四元数的指数表示法在计算中其实用得不多． \autoref{Quat_eq2} 中的第一个等号成立是因为 $a_0\bvec a = \bvec a a_0$ 满足交换律．
+
+与复数类似， 任何四元数都可以表示为模长乘以一个模长等于 $1$ 的四元数： $A = \abs{A} q$． 其中 $q$ 类似于复数的 $\E^{\I\theta}$． 而由于 $\abs{q} = q\tilde q = \tilde q q = 1$， 可见 $q$ 的共轭就是它的逆 $q^{-1} = \tilde q$． 这可以类比 $\E^{\I\theta}$ 的逆就是它的复共轭． $\E^{\I\theta}$ 可以代表一个角度为 $\theta$ 的平面旋转， 而在 “四元数与旋转矩阵\upref{QuatN}” 中会看到， 任意模长为 $1$ 的四元数都可以表示一个唯一的三维旋转．
 
 \subsection{四元数的拓展}
 
