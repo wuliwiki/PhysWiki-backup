@@ -1,0 +1,18 @@
+% 二维波动方程的简单数值解（Matlab）
+
+\begin{equation}
+\laplacian u - \frac{1}{v_0^2}\pdv[2]{u}{t} = 0
+\end{equation}
+
+\begin{equation}
+\pdv[2]{u}{t} = v_0^2\laplacian u
+\end{equation}
+时间差分得
+\begin{equation}
+u(t_{i+1}) = v_0^2\Delta t^2\laplacian u(t_i) + 2u(t_{i}) - u(t_{i-1})
+\end{equation}
+其中
+\begin{equation}
+\laplacian u(t_i) = \frac{u(x_{i+1}, t_i) + u(x_{i-1}, t_i) - u(x_{i}, t_i)}{\Delta x^2}
++ \frac{u(y_{i+1}, t_i) + u(y_{i-1}, t_i) - u(y_{i}, t_i)}{\Delta y^2}
+\end{equation}
