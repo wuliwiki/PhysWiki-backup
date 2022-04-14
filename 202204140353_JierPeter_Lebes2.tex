@@ -1,0 +1,43 @@
+% Lebesgue积分的一些补充性质
+% Levi定理|Lebesgue基本定理|Fatou引理
+
+\pentry{Lebesgue 积分\upref{Lebes1}}
+
+由描述Lebesgue积分几何意义的\autoref{Lebes1_the3}~\upref{Lebes1}，容易推得以下定理：
+
+\begin{theorem}{Levi定理}
+
+设$\{f_k\}$是可测集$E$上的一列\textbf{单调不减}的\textbf{非负可测}函数，则有
+\begin{equation}
+\int_E  \qty[\lim\limits_{k\to \infty} f_k(x)] \dd x = \lim\limits_{k\to \infty}\int_E f_k(x) \dd x
+\end{equation}
+
+\end{theorem}
+
+简单来说，Levi定理就是指单调不减的非负可测函数列具有“可极限换序”的性质．
+
+由Levi定理可以直接得到以下推论：
+
+\begin{corollary}{Lebesgue基本定理}
+
+设$\{f_k\}^\infty_{k=1}$是可测集$E$上的一列\textbf{非负可测}函数，则有
+
+\begin{equation}
+\int_E  \qty[\sum\limits_{k=1}f_k(x)] \dd x = \sum\limits_{k=1} \int_E f_k(x) \dd x
+\end{equation}
+
+\end{corollary}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
