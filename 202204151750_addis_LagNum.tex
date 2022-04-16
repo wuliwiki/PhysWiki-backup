@@ -1,0 +1,22 @@
+% 拉格朗日方程的数值解
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{拉格朗日方程\upref{Lagrng}}
+
+问题的关键是如何列出一阶常微分方程组
+\begin{equation}
+\dv{t} \pdv{L}{\dot q_i} = \pdv{L}{q_i}
+\quad (i=1,\dots,N)
+\end{equation}
+根据全微分， 左边有
+\begin{equation}
+\dv{t} \pdv{L}{\dot q_i} = \sum_j\pdv{q_j}\pdv{L}{\dot q_i}\dot q_j + \sum_j\pdv{\dot q_j}\pdv{L}{\dot q_i}\ddot q_j + \pdv{t}\pdv{L}{\dot q_i}
+\end{equation}
+代入得
+\begin{equation}
+\sum_j\pdv{\dot q_j}\pdv{L}{\dot q_i}\ddot q_j = \pdv{L}{q_i} - \sum_j\pdv{q_j}\pdv{L}{\dot q_i}\dot q_j - \pdv{t}\pdv{L}{\dot q_i}
+\end{equation}
+这样， 二阶导数只存在于左边的 $\ddot q_j$， 其他项都只有一阶导数和广义坐标本身．

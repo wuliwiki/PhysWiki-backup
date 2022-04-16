@@ -1,0 +1,53 @@
+% 用傅里叶级数画画（Matlab）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{傅里叶级数（指数）\upref{FSExp}， 用 FFT 计算傅里叶变换（Matlab）\upref{FFTft}}
+
+复平面上一条任意的连续曲线， 都可以看成复值函数 $z(t)$． 把它展开为傅里叶级数， 那么级数的每一项就代表复平面上的一个做圆周运动的矢量．
+
+用 FFT 代替定积分， 计算傅里叶展开系数． 然后再把系数的模长按照从大到小排序．
+
+\begin{lstlisting}[language=matlab, caption=FFTplt]
+close all;
+% ==== 参数设置 ====
+load logo_curve.mat x y;
+Nt = 500;
+% ================
+x = (x - mean(x))*481/290;
+y = y - mean(y);
+N = numel(x);
+z = x + 1i*y;
+[C, w] = FFT(z, 1, 1);
+C = sqrt(2*pi)/N * C(:); w = w(:);
+
+t = linspace(1,N,Nt);
+z1 = sum(C.*exp(1i*w.*t), 1);
+figure; plot(x, y); hold on;
+plot(real(z1),imag(z1));
+
+th = linspace(0, 2*pi, 200);
+costh = cos(th); sinth = sin(th);
+N1 = round(N/2-1);
+[~, order] = sort(abs(C), 'descend');
+C1 = C(order);
+w1 = w(order);
+z1 = sum(C1.*exp(1i*w1.*t), 1);
+plot(real(z1),imag(z1));
+
+for it = 1:Nt
+    z1 = [0; cumsum(C1.*exp(1i*w1*t(it)), 1)];
+    clf;
+    plot(x, y); hold on; axis equal;
+    for i = 1:numel(z1)-1
+        A = abs(z1(i+1)-z1(i)); x0 = real(z1(i)); y0 = imag(z1(i));
+        plot(x0+A*costh, y0+A*sinth, 'g');
+    end
+    plot(real(z1), imag(z1), '.-');
+    scatter(real(z1(end)), imag(z1(end)), 'o');
+    axis([-0.7, 0.7, -0.4, 0.7]);
+    saveas(gcf, [num2str(it), '.png']);
+end
+\end{lstlisting}
