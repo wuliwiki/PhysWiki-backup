@@ -12,14 +12,14 @@ f_q = \frac{1}{\sqrt{N}}\sum_{p=0}^{N-1} \exp(\frac{2\pi\I}{N} p q) g_p
 
 \subsection{离散傅里叶变换与傅里叶变换}
 \pentry{傅里叶变换（指数函数）\upref{FTExp}}
-在详细分析 DFT 的性质之前， 我们先看看它与解析的傅里叶变换如何对应． 函数 $f(x)$ 和 $g(k)$ 间的傅里叶变换为
+在详细分析 DFT 的性质之前， 我们先看看它与解析的傅里叶变换如何对应． 函数 $f(x)$ 和 $g(k)$ 间的傅里叶变换\upref{FTExp}为
 \begin{equation}\label{DFT_eq3}
 g(k) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} f(x)\E^{-\I kx} \dd{x}
 \end{equation}
 \begin{equation}\label{DFT_eq4}
 f(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} g(k)\E^{\I kx} \dd{k}
 \end{equation}
-如果 $f(x)$ 和 $g(k)$ 分别只在区间 $[-L_x/2, L_x/2]$ 和 $[-L_k/2, L_k/2]$ 内不为零， 积分就可以只在这两个区间内进行．
+如果 $f(x)$ 和 $g(k)$ 分别只在区间 $[-L_x/2, L_x/2]$ 和 $[-L_k/2, L_k/2]$ 内不为零， 积分就可以只在这两个区间内进行． 如果函数不为零的区间 $[a,b]$ 并不关于原点对称， 那么使用平移公式（\autoref{FTExp_eq4}~\upref{FTExp}）即可．
 
 \subsubsection{格点}
 \begin{figure}[ht]
@@ -53,7 +53,11 @@ f(x_q) = \frac{1}{\sqrt{2\pi}} \sum_p g(k_p) \E^{\I k_p x_q} \Delta k
 \begin{equation}\label{DFT_eq8}
 \Delta x\Delta k = \frac{2\pi}{N}
 \end{equation}
-但我们会发现这里的 $p, q$ 可以是负整数， 而 DFT 中的 $p, q$ 都是非负整数． 但稍加计算就会发现当 $p$ 或 $q$ 是负值时， 把它们加上 $N$， 指数项并不改变， 例如 $k_{p+N} x_q = k_p x_q + 2\pi$， 并不影响指数项． 所以， 我们只要将所有小于零的格点编号加上 $N$ 并重新排列即可． 例如 $N = 4$ 时， $x$ 格点为 $x_{-2}, x_{-1}, x_0, x_1$， 令 $x_2 = x_{-2}, x_3 = x_{-1}$， 这四个格点的名字就变为 $x_0, x_1, x_2, x_3$， 数值不变． 现在再来对比 DFT 和\autoref{DFT_eq6} \autoref{DFT_eq7}， 就只是相差两个常数了．
+但我们会发现这里的 $p, q$ 可以是负整数， 而 DFT 中的 $p, q$ 都是非负整数． 但稍加计算就会发现当 $p$ 或 $q$ 是负值时， 把它们加上 $N$， 指数项并不改变， 例如 $k_{p+N} x_q = k_p x_q + 2\pi$， 并不影响指数项． 所以， 我们只要将所有小于零的格点编号加上 $N$ 并重新排列即可． 例如 $N = 4$ 时， $x$ 格点为 $x_{-2}, x_{-1}, x_0, x_1$， 令 $x_2 = x_{-2}, x_3 = x_{-1}$， 这四个格点的名字就变为 $x_0, x_1, x_2, x_3$， 数值不变． 现在再来对比 DFT 和\autoref{DFT_eq6} \autoref{DFT_eq7}， 就只是相差两个常数了：
+\begin{equation}
+g(k_i) = \sqrt{\frac{N}{2\pi}} \Delta x \cdot g_i, \qquad
+f(x_i) = \sqrt{\frac{N}{2\pi}} \Delta k \cdot f_i
+\end{equation}
 
 \autoref{DFT_eq8} 是 DFT 一个重要的性质． 结合\autoref{DFT_eq5} 得
 \begin{equation}\label{DFT_eq9}
@@ -65,8 +69,14 @@ N\Delta x \Delta k = L_x \Delta k = L_k \Delta x = \frac{L_x L_k}{N} = 2\pi
 
 以后如无特殊说明， 默认 DFT 前后各将数列的左半右半交换一次．
 
+\subsection{离散傅里叶变换与傅里叶级数}
+要用 DFT 计算傅里叶级数\upref{FSExp} 的系数（\autoref{FSExp_eq2}~\upref{FSExp}）， 只需要把\autoref{DFT_eq3} 前面的系数乘以 $\sqrt{2\pi}/L_x$ 即可， 所以
+\begin{equation}
+C_i = \frac{\sqrt{2\pi}}{L_x} g(k_i) = \frac{\sqrt{N}}{L_x} \Delta x \cdot g_i
+\end{equation}
+
 \subsection{变换矩阵}
-\pentry{酉矩阵}% 链接未完成
+\pentry{正交矩阵、酉矩阵\upref{UniMat}}
 DFT 显然是一个线性变换， 我们来看变换矩阵的性质． 把变换和逆变换的系数矩阵用
  $\mat F$ 和 $\mat F^{-1}$ 来表示， 令列矢量 $\bvec f = (f_0,f_1,\dots,f_{N-1})\Tr$， $\bvec g = (g_0,g_1,\dots,g_{N-1})\Tr$， 变换和逆变换分别记为
 \begin{equation}
@@ -181,7 +191,3 @@ g(k) = \frac{1}{\sqrt2}\E^{-(k-100)^2/4}
 所以 $\Delta x = L_x/N = 0.313...$， $\Delta k = L_k/N = 2\pi/L_x = 0.628...$． 现在我们就可以生成 $x, k$ 的格点并且做 FFT 了．
 % 未完成： 接下来说明如何使用 matlab 的 fft(), ifft() 以及 fftshift, ifftshift. 给出代码．
 \end{example}
-
-\subsection{傅里叶级数}
-要用 DFT 计算傅里叶级数\upref{FSExp} 的系数（\autoref{FSExp_eq2}~\upref{FSExp}）
-\addTODO{……}
