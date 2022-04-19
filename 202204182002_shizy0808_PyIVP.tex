@@ -1,0 +1,29 @@
+% Python求解常微分方程组的初值问题
+% 常微分方程组|Python|数值解
+这里我们再次以“天体运动的简单数值计算\upref{KPNum0}” 中的问题为例，利用\verb |Python|语言实现该微分方程组的求解．
+\begin{equation}\label{PyIVP_eq}
+\begin{cases}
+x' = v_x\\
+y' = v_y\\
+v'_x = -GMx/(x^2 + y^2)^{3/2}\\
+v'_y = -GMy/(x^2 + y^2)^{3/2}
+\end{cases}
+\end{equation}
+中的 $x, y, v_x, v_y$．
+
+在对该问题求解之前，我们先简单介绍\verb|Python|中关于微分方程数值求解库极相关函数的用法．一般，最常用的数值计算库为\verb|scipy|,而微分方程求解对应的模块为\verb|scipy.integrate.solve_ivp|.
+
+ \verb|solve_ivp|的一般格式为
+ \begin{lstlisting}[language=python]
+ solve_ivp(fun, t_span, y0, method='RK45', t_eval=None,
+        dense_output=False, events=None, 
+        vectorized=False, args=None, **options)
+ \end{lstlisting}
+ 其中，
+\begin{itemize}
+\item \verb|fun|是微分方程(组)的右端；
+\item  \verb|t_span=(t0,tf)|代表积分区间为\verb|t0|到\verb|tf|;
+\item  \verb|y0|为初始条件；
+\item \verb|method|为数值积分方法，这里可以使用的积分方法有\verb|RK45|、\verb|RK23|、\verb|DOP853|(8阶显式龙格库塔法)、\verb|Radau|(5阶Radau IIA族的隐式Runge-Kutta方法)、\verb|BDF|(隐式多步变阶)、\verb|LSODA|(具有自动刚度检测和切换的Adams/BDF方法)等．需要主要的是显式Runge-Kutta方法(\verb|RK23、RK45、DOP853|)应用于非刚性问题，隐式方法(\verb|Radau、BDF|)应用于刚性问题.
+\item t_eval是可选参数，需要数组类型数据．如果给定就在这些时间点进行求解，否则求解器自己选择时间点进行求解．
+\end{itemize}

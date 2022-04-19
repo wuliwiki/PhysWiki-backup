@@ -1,0 +1,78 @@
+% Python求解常微分方程组的初值问题
+% 常微分方程组|Python|数值解
+这里我们再次以“天体运动的简单数值计算\upref{KPNum0}” 中的问题为例，利用\verb |Python|语言实现该微分方程组的求解．
+\begin{equation}\label{PyIVP_eq}
+\begin{cases}
+x' = v_x\\
+y' = v_y\\
+v'_x = -GMx/(x^2 + y^2)^{3/2}\\
+v'_y = -GMy/(x^2 + y^2)^{3/2}
+\end{cases}
+\end{equation}
+中的 $x, y, v_x, v_y$．
+
+在对该问题求解之前，我们先简单介绍\verb|Python|中关于微分方程数值求解库极相关函数的用法．一般，最常用的数值计算库为\verb|scipy|,而微分方程求解对应的模块为\verb|scipy.integrate.solve_ivp|.
+
+ \verb|solve_ivp|的一般格式为
+ \begin{lstlisting}[language=python]
+ solve_ivp(fun, t_span, y0, method='RK45', t_eval=None,
+        dense_output=False, events=None, 
+        vectorized=False, args=None, **options)
+ \end{lstlisting}
+ 其中，输入参数分别为
+\begin{itemize}
+\item \verb|fun|是微分方程(组)的右端；
+\item  \verb|t_span=(t0,tf)|代表积分区间为\verb|t0|到\verb|tf|;
+\item  \verb|y0|为初始条件；
+\item \verb|method|为数值积分方法，这里可以使用的积分方法有\verb|RK45|、\verb|RK23|、\verb|DOP853|(8阶显式龙格库塔法)、\verb|Radau|(5阶Radau IIA族的隐式Runge-Kutta方法)、\verb|BDF|(隐式多步变阶)、\verb|LSODA|(具有自动刚度检测和切换的Adams/BDF方法)等．需要主要的是显式Runge-Kutta方法(\verb|RK23、RK45、DOP853|)应用于非刚性问题，隐式方法(\verb|Radau、BDF|)应用于刚性问题.
+\item \verb|t_eval|是可选参数，需要数组类型数据．如果给定就在这些时间点进行求解，否则求解器自己选择时间点进行求解．
+\item \verb|dense_output|为布尔类型,默认为假，是否计算连续解．
+\item \verb|args|为元祖类型的参数，用于向微分方程传递必要的参数
+\item 后面还有许多可选参数，很少会使用．
+\end{itemize}
+函数返回值分别为
+\begin{itemize}
+\item  \verb|t| 返回计算的时间点数据，是一个\verb|ndarray|数据类型,长度为\verb|(n_points,)|.
+
+yndarray, shape (n, n_points)
+Values of the solution at t.
+
+solOdeSolution or None
+Found solution as OdeSolution instance; None if dense_output was set to False.
+
+t_eventslist of ndarray or None
+Contains for each event type a list of arrays at which an event of that type event was detected. None if events was None.
+
+y_eventslist of ndarray or None
+For each value of t_events, the corresponding value of the solution. None if events was None.
+
+nfevint
+Number of evaluations of the right-hand side.
+
+njevint
+Number of evaluations of the Jacobian.
+
+nluint
+Number of LU decompositions.
+
+statusint
+Reason for algorithm termination:
+
+-1: Integration step failed.
+
+0: The solver successfully reached the end of tspan.
+
+1: A termination event occurred.
+
+messagestring
+Human-readable description of the termination reason.
+
+successbool
+True if the solver reached the interval end or a termination event occurred (status >= 0).
+\end{itemize}
+
+
+基于对\verb|solve_ivp|的使用说明，我们接下来对微分方程组\ref{PyIVP_eq} 进行数值计算．具体代码如下：
+\begin{lstlisting}[language=python]
+
+\end{lstlisting}
