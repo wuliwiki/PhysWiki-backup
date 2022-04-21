@@ -1,0 +1,23 @@
+% 虚位移、虚功原理
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{拉格朗日方程（额外广义力）\upref{LagEqQ}}
+
+在拉格朗日方程（\autoref{LagEqQ_eq1}~\upref{LagEqQ}）
+\begin{equation}\label{VirWrk_eq1}
+\dv{t} \pdv{L}{\dot q_i} = \pdv{L}{q_i} + Q_i^{(e)}
+\qquad (i=1,\dots,N)
+\end{equation}
+中， 若 $L$ 不直接含时， 且系统不随时间变化（即每个广义坐标 $q_i$ 不随时间变化）， 那么所有的广义力恒为零
+\begin{equation}\label{VirWrk_eq2}
+Q_i = -\pdv{V}{q_i} + Q_i^{(e)} = 0 \qquad (i = 1,\dots,N)
+\end{equation}
+
+证明： 在静止的系统中， 显然\autoref{VirWrk_eq1} 左边第一项为零， 而右边第一项中
+\begin{equation}
+\eval{\pdv{T}{q_i}}_{\dot q = 0} = 0
+\end{equation}
+这是因为 $\dot q = 0$ 时， 动能 $T$ 恒为零（每个质点不显含时间）． 所以\autoref{VirWrk_eq2} 成立． 证毕．

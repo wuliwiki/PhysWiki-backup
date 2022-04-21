@@ -1,0 +1,16 @@
+% 拉格朗日方程（广义力）
+
+\pentry{欧拉—拉格朗日方程\upref{Lagrng}}
+
+在之前的讨论中， 在列拉格朗日方程时， 所有的系统外力都可以纳入势能项 $V$ 中． 然而许多情况中还可能出现种种非保守力， 例如摩擦力等． 这时就需要引入\textbf{广义力（generalized force）}的概念． 若系统的广义坐标为 $q_i$， 则每个广义坐标对应的广义力定义为
+\begin{equation}
+Q_i = \sum_j \bvec F_j \vdot \pdv{\bvec r_j}{q_i} \qquad (i=1,\dots,N)
+\end{equation}
+若考虑势能项 $V$ 外的
+
+ 拉格朗日方程可以拓展为
+\begin{equation}
+\dv{t} \pdv{L}{\dot q_i} = \pdv{L}{q_i} + Q_i
+\qquad (i=1,\dots,N)
+\end{equation}
+

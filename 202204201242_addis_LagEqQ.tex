@@ -1,0 +1,41 @@
+% 拉格朗日方程（额外广义力）
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\pentry{欧拉—拉格朗日方程\upref{Lagrng}}
+
+在之前的讨论中， 所有的系统外力都可以纳入势能项 $V$ 中． 这些里一般来说是保守力， 然而许多情况中还可能出现种种非保守力， 例如摩擦力等， 较难用势能描述． 这时引入\textbf{广义力（generalized force）}的概念会更方便． 若系统的广义坐标为 $q_i$， 则每个广义坐标对应的广义力定义为
+\begin{equation}
+Q_i^{(e)}(q, \dot q, t) = \sum_j \bvec F_j^{(e)} \vdot \pdv{\bvec r_j}{q_i} \qquad (i=1,\dots,N)
+\end{equation}
+其中 $\bvec F_j$ 是除约束力的系统外力， 作用点为 $\bvec r_j$． 从虚功的角度， 广义力等于虚功对广义坐标的导数． 和之前一样， 为了书写方便式中 $q$ 代表 $q_1, \dots, q_N$， $\dot q$ 也同理．
+\addTODO{虚功和虚功原理在哪里介绍？}
+
+若非约束力 $\bvec F_j^{(e)}$ 不包含于势能项 $V$， 那么拉格朗日方程（\autoref{Lagrng_eq1}~\upref{Lagrng}）可以拓展为
+\begin{equation}\label{LagEqQ_eq1}
+\dv{t} \pdv{L}{\dot q_i} = \pdv{L}{q_i} + Q_i^{(e)}
+\qquad (i=1,\dots,N)
+\end{equation}
+证明见 “拉格朗日方程的证明、达朗贝尔定理\upref{dAlbt}”．
+
+事实上， 在证明中会发现 $\pdv*{L}{q_i} = \pdv*{T}{q_i} + \pdv*{V}{q_i}$ 的第二项同样也是广义力
+\begin{equation}
+Q_i^{(V)} = \pdv{V}{q_i} = \sum_j \bvec F_j^{(V)} \vdot \pdv{\bvec r_j}{q_i}
+\end{equation}
+那么如果令总广义力为
+\begin{equation}
+Q_i = Q_i^{(V)} + Q_i^{(e)}
+\end{equation}
+那么拉格朗日方程\autoref{LagEqQ_eq1} 也可以完全抛开势能的概念写成
+\begin{equation}\label{LagEqQ_eq2}
+\dv{t} \pdv{L}{\dot q_i} = \pdv{T}{q_i} + Q_i
+\qquad (i=1,\dots,N)
+\end{equation}
+
+
+\begin{example}{受阻耦合弹簧振子}
+\autoref{Lagrng_ex2}~\upref{Lagrng} 中， 若两个滑块受到于速度相反， 大小恒定的摩擦力 $\bvec f$， 以及与速度平方成正比的空气阻力 $\alpha v^2$， 求运动方程．
+\addTODO{未完成}
+\end{example}
