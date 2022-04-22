@@ -1,0 +1,42 @@
+% 虚位移、虚功原理
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\pentry{广义力\upref{LagEqQ}}
+
+在拉格朗日方程（\autoref{LagEqQ_eq1}~\upref{LagEqQ}）（$i=1,\dots,N$， 下同）
+\begin{equation}\label{VirWrk_eq1}
+\dv{t} \pdv{L}{\dot q_i} = \pdv{L}{q_i} + Q_i^{(e)}
+\end{equation}
+中， 假设系统中没有含时约束， 即每个质点的位置 $\bvec r_i$ 不显含时， 且 $V$ 不显含 $\dot q$． 若系统不随时间变化（即每个广义坐标 $q_i$ 不随时间变化）， 那么每个广义力都恒为零
+\begin{equation}\label{VirWrk_eq2}
+Q_i = -\pdv{V}{q_i} + Q_i^{(e)} = 0
+\end{equation}
+而根据广义力的定义（\autoref{LagEqQ_eq3}~\upref{LagEqQ}）， 有
+\begin{equation}
+Q_i = \sum_j \bvec F_j^{(a)} \vdot \pdv{\bvec r_j}{q_i} = 0
+\end{equation}
+其中 $\bvec F_j^{(a)}$ 是作用于点 $\bvec r_j$ 的所有非约束力的合力． 也可以写成类似于微分形式
+\begin{equation}\label{VirWrk_eq3}
+\sum_j \bvec F_j^{(a)} \vdot \delta \bvec r_j = 0
+\end{equation}
+这里之所以把 $\bvec r_j$ 的微小增量记为 $\delta \bvec r_j$ 而不是微分 $\dd{\bvec r_j}$， 是因为他们是一些假想的位移， 而现实中系统中所有的点 $\bvec r_j$ 都不随时间变化， 有 $\dd{\bvec r_i} = \bvec 0$， 所以要加以区分． 这种假想的位移就叫做\textbf{虚位移（virtual displacement）}， 而式子左边的求和就叫做\textbf{虚功（virtual work）}． 所以\autoref{VirWrk_eq3} （或者等价的\autoref{VirWrk_eq2}）称为\textbf{虚功原理（principle of virtual work）}． 虚功原理给出了使一个系统ba
+
+\subsubsection{证明虚功原理}
+在静止的系统中， 显然\autoref{VirWrk_eq1} 左边第一项为零， 而右边第一项中
+\begin{equation}
+\eval{\pdv{T}{q_i}}_{\dot q = 0} = 0
+\end{equation}
+这是因为 $\dot q = 0$ 时， 动能 $T$ 恒为零（每个质点不显含时间）． 所以\autoref{VirWrk_eq2} 成立． 证毕．
+
+\addTODO{高低不同的两点间悬挂一条质量不计的细线， 线比两点之间的距离要长． 一个质点在细线上无摩擦滑动， 求平衡点．}
+
+\subsection{虚功和实功的关系}
+某个力 $\bvec F_j$ 作用点为 $\bvec r_i$， 对系统的功率为
+\begin{equation}
+\dot W = \bvec F_j \vdot \dot {\bvec r}_j
+= \bvec F_j \vdot \sum_i \qty(\pdv{\bvec r_j}{q_i} \dot q_i + \pdv{\bvec r_j}{t})
+= \sum_i \qty(\bvec F_j \vdot \pdv{\bvec r_j}{q_i}) \dot q_i + \sum_i 
+\end{equation}
