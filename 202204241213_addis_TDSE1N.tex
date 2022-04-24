@@ -1,0 +1,20 @@
+% 一维薛定谔方程的简单数值解（Matlab）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{薛定谔方程（单粒子一维）\upref{TDSE11}， 一维波动方程的简单数值解（Matlab）\upref{W1dNum}}
+
+本文使用原子单位制\upref{AU}． 本文演示如何用差分法解一维薛定谔方程． 注意这是一种误差较大的方法，仅用于教学． 一些改进算法如 Crank-Nicolson 算法解一维含时薛定谔方程\upref{CraNic}， 以及Lanczos 算法\upref{Lanc}．
+\begin{equation}
+-\frac{1}{2m}\pdv[2]{x}\psi + V(x,t)\psi = \I\pdv{t}\psi
+\end{equation}
+把波函数取离散值， 令 $\psi_{i,n} = \psi(x_i,t_n)$． 用有限差分表示二阶导数（\autoref{DerDif_eq5}~\upref{DerDif}）， 得
+\begin{equation}
+-\frac{1}{2m}\frac{\psi_{i-1,n} - 2\psi_{i,n} + \psi_{i+1,n}}{\Delta x^2} + V_{i,n}\psi_{i,n} = \I \frac{\psi_{i, n+1} - \psi_{i, n}}{\Delta t}
+\end{equation}
+于是
+\begin{equation}
+\psi_{i, n+1} = \frac{\I\Delta t}{2m\Delta x^2} (\psi_{i-1,n} - 2\psi_{i,n} + \Delta t\psi_{i+1,n}) + (1-\I \Delta t V_{i,n})\psi_{i,n}
+\end{equation}
