@@ -1,0 +1,46 @@
+% Crank-Nicolson 算法解一维含时薛定谔方程
+% 算法|薛定谔方程|数值解|偏微分方程
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{薛定谔方程\upref{TDSE}， 矩阵\upref{Mat}}
+
+\footnote{参考 \cite{NR3}．}薛定谔方程为
+\begin{equation}
+-\frac12 \pdv[2]{\psi}{x} + V\psi = \I \pdv{\psi}{t}
+\end{equation}
+用 Crank-Nicolson 或 Caley scheme\footnote{二者是一回事， 见 \cite{NR3} 19.2 节．} 得到的结果是
+\begin{equation}\label{CraNic_eq2}
+\qty(1+\frac{\I}{2}\mat H_{n+1}\Delta t)\bvec\psi_{n+1} = \qty(1-\frac{\I}{2}\mat H_n\Delta t)\bvec\psi_n
+\end{equation}
+其中 $\bvec\psi_n$ 是时刻 $t_n$ 的波函数列矢量（已知）， $\bvec\psi_{n+1}$ 为时刻 $t_{n+1}$ 的波函数列矢量（未知）， $\mat H_n$ 是 $t_n$ 时刻的哈密顿矩阵．
+
+但事实上， 还可以继续减少计算量． 若近似认为 $\mat H_{n+1}\approx \mat H_{n}$（会有些许误差）， 将\autoref{CraNic_eq2} 整理后得
+\begin{equation}\label{CraNic_eq5}
+\qty(\frac12 + \frac{\I}{4}\mat H_n\Delta t)\qty(\bvec\psi_{n+1}+\bvec\psi_n) = \bvec\psi_n
+\end{equation}
+解这个方程， 再减去 $\bvec \psi_n$ 即可．
+
+\subsection{等间距网格}
+对于等间距网格， 可以用差分法（\autoref{DerDif_eq5}~\upref{DerDif}）计算二阶导数， 表示为矩阵有
+\begin{equation}
+\mat D_2 = \frac{1}{\Delta x^2}\pmat{-2 & 1 & 0 & 0 & \dots\\
+1 & -2 & 1 & 0 & \dots\\
+0 & 1 & -2 & 1 & \dots\\
+0 & 0 & 1 & -2 & \dots\\
+\vdots & \vdots & \vdots & \vdots & \ddots}
+\end{equation}
+那么 $\mat H_n = -\mat D_2/(2m) + \mat V_n$， 其中 $\mat V_n$ 是对角矩阵， 第 $i$ 个对角元为 $V(x_i, t_n)$． 现在， 就可以代入\autoref{CraNic_eq2} 或\autoref{CraNic_eq5} 求解了．
+
+\subsection{虚时间}
+使用虚时间后， \autoref{CraNic_eq2} 和\autoref{CraNic_eq5} 分别变为
+\begin{equation}
+\qty(1+\frac12\mat H\Delta t)\bvec\psi_{n+1} = \qty(1-\frac12\mat H\Delta t)\bvec\psi_n
+\end{equation}
+\begin{equation}
+\qty(\frac12 + \frac14\mat H\Delta t)\qty(\bvec\psi_{n+1}+\bvec\psi_n) = \bvec\psi_n
+\end{equation}
+
+（代码未完成）

@@ -1,0 +1,23 @@
+% 高阶微分（多元函数）
+% 多元函数|高阶微分
+\subsection{二阶微分}
+\pentry{全微分（简明微积分）\upref{TDiff}}
+设在区域 $\mathcal{D}$ 中给定一函数 $u=f(x_1,\cdots,x_n)$ ，它有着一阶连续偏导数\upref{ParDif}．那时，称为全微分 $\dd{u}$ 的，就是如下表达式\autoref{TDiff_eq1}~\upref{TDiff}
+\begin{equation}
+\dd{u}=\sum_{i=1}^n \pdv{u}{x_i}\dd{x_i}
+\end{equation}
+式中的 $\dd{x_i}\quad(i=1,\cdots,n)$ 是自变量 $x_i$ 的任意增量．
+
+可以看出，$\dd{u}$ 也是一个 $x_1,\cdots,x_n$ 的函数．若假定 $u$ 有二阶连续偏导数，则 $\dd{u}$ 就有一阶连续偏导数，于是就能说微分 $\dd{u}$ 的全微分 $\dd{(\dd u)}$ ，它称为 $u$ 的\textbf{二阶微分}，用记号 $\mathrm{d}^2u$ 表示．
+
+\textbf{需重点指出}，在这时增量 $\dd{x_1},\cdots,\dd{x_n}$ 被看着常数，且当由一个微分转移到下一微分时，仍保持同一数值．
+
+利用微分法则（链接），就有
+\begin{equation}
+\begin{aligned}
+\dd{^2u}&=\dd{(\dd{u})}=\dd{\qty(\sum_{i=1}^n \pdv{u}{x_i}\dd{x_i})}\\
+&=\sum_{i=1}^n \dd{\qty(\pdv{u}{x_i})}\dd{x_i}\\
+&=\sum_{i=1}^n\qty(\sum_{j=1}^n\pdv{^2u}{x_i\partial x_j} \dd{x_j})\dd{x_i}\\
+&=\sum_{i,j=1}^n\pdv{^2u}{x_i\partial x_j} \dd{x_i}\dd{x_j}
+\end{aligned}
+\end{equation}

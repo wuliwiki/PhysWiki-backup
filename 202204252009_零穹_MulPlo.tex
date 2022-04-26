@@ -1,0 +1,88 @@
+% 多元函数的极值
+% 极值|充要条件|二次型
+
+
+\pentry{二元函数的极值（简明微积分）\upref{F2Exm}}
+\subsection{极值}
+设函数 $u=f(x_1,\cdots,x_n)$ 定义于区域 $\mathcal{D}$ 中，且 $(x_1^0,\cdots,x_n^0)$ 是这区域的内点．
+
+\begin{definition}{极值}\label{MulPlo_def1}
+若点 $(x_1^0,\cdots,x_n^0)$ 有这样一个领域
+\[(x_1^0-\delta,x_1^0+\delta;\cdots;x_n^0-\delta,x_n^0+\delta)\]
+使对于其中一切点都能成立不等式
+\begin{equation}
+\begin{aligned}
+f(x_1,\cdots,x_n)&\leq f(x_1^0,\cdots,x_n^0)\\
+&(\geq)
+\end{aligned}
+\end{equation}
+就说，函数 $f(x_1,\cdots,x_n)$ 在点 $(x_1^0,\cdots,x_n^0)$ 处有\textbf{极大值}（\textbf{极小值}）.
+
+若在除去点 $(x_1^0,\cdots,x_n^0)$ 本身以外区域中的每一点都能成立严格不等式
+\begin{equation}
+\begin{aligned}
+f(x_1,\cdots,x_n)&< f(x_1^0,\cdots,x_n^0)\\
+&(>)
+\end{aligned}
+\end{equation}
+就说，函数 $f(x_1,\cdots,x_n)$ 在点 $(x_1^0,\cdots,x_n^0)$ 处有\textbf{真正的}极大值（极小值）；否则，极大值（极小值）就称为\textbf{广义的}．
+
+极大值和极小值总称为\textbf{极值}．
+\end{definition}
+\subsection{极值的必要条件}
+\begin{theorem}{}
+若函数 $f$ 在某一点 $(x_1^0,\cdots,x_n^0)$ 处有极值，且在这一点处存在着（有限）偏导数
+\[f'_{x_1}(x_1^0,\cdots,x_n^0),\cdots,f'_{x_n}(x_1^0,\cdots,x_n^0)\]
+则这些偏导数都为0．
+\end{theorem}
+\textbf{证明：}令 $x_2=x_2^0,\cdots,x_n=x_n^0$ ，而 $x_1$ 仍保持为变量；那么，就得到 $x_1$ 的一元函数：
+\begin{equation}
+u=f(x_1,x_2^0,\cdots,x_n^0)
+\end{equation}
+因为函数在点 $(x_1^0,\cdots,x_n^0)$ 有极值（为明确，设为极大值）存在，由极值\autoref{MulPlo_def1} ，在点 $x_1=x_1^0$ 的某一领域 $(x_1^0-\delta,x_1^0+\delta)$ 内，必成立不等式
+\begin{equation}
+f(x_1,x_2^0\cdots,x_n^0)\leq f(x_1^0,\cdots,x_n^0)
+\end{equation}
+于是上述一元函数在点 $x_1=x_1^0$ 将有极大值，由费马定理\autoref{MeanTh_the1}~\upref{MeanTh}，就得
+\begin{equation}
+f'_{x_1}(x_1^0,\cdots,x_n^0)=0
+\end{equation}
+同样的方法可证明在点 $(x_1^0,\cdots,x_n^0)$ 处其它偏导数也都为0．
+
+\textbf{证毕！}
+
+于是，一阶偏导数等于0是极值存在的必要条件．
+
+因此，对极值的“怀疑”就是那些一阶偏导数全为0的点，它们的坐标可由解方程组
+\begin{equation}
+\begin{aligned}
+f'_{x_1}(x_1,\cdots,x_n)&=0,\\
+&\vdots\\
+f'_{x_n}(x_1,\cdots,x_n)&=0
+\end{aligned}
+\end{equation}
+求出．这种点称为\textbf{静止点}．
+\subsection{极值的充分条件}
+设函数 $f(x_1,\cdots,x_n)$ 是在某一静止点 $(x_1^0,\cdots,x_n^0)$ 的领域内定义着的连续并有一阶及二阶连续导数．
+\begin{issues}
+\issueOther{需链接多元函数的泰勒公式}
+\end{issues}
+按照多元函数的泰勒公式展开下式到二阶项（由于是在静止点，一阶项为0）
+\begin{equation}
+\Delta=f(x_1,\cdots,x_n)-f(x_1^0,\cdots,x_n^0)
+\end{equation}
+得
+\begin{equation}
+\begin{aligned}
+\Delta=&\frac{1}{2}\mathrm{d}^2 f(x_0+\theta\Delta x_0,\cdots,x_n+\theta\Delta x_n)\\
+=&\frac{1}{2}[f''_{x_1^2}\Delta x_1^2+f''_{x_2^2}\Delta x_2^2+\cdots+f''_{x_n^2}\Delta x_n^2+2f''_{x_1x_2}\Delta x_1\Delta x_2\\
+&+2f''_{x_1x_3}\Delta x_1\Delta x_3+\cdots+2f''_{x_{n-1}x_n}\Delta x_{n-1}\Delta x_n\large]
+ \\
+ =&\frac{1}{2}\sum_{i,k=1}^nf''_{x_ix_k}\Delta x_i\Delta x_k \quad (0<\theta<1)
+\end{aligned}
+\end{equation}
+式中的 $\Delta x_i=x_i-x_i^0$ ，一切导数都在某一点
+\begin{equation}
+(x_1^0+\theta\Delta x_1,\cdots,x_n^0+\theta\Delta x_n) \quad (0<\theta<1)
+\end{equation}
+计算它们的数值．
