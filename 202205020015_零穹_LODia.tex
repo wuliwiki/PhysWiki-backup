@@ -1,0 +1,34 @@
+% 线性算子对角化的充要条件
+% 对角化|充要条件
+\pentry{特征矢量与特征多项式\upref{EigVM}}
+\begin{definition}{}
+ $n$ 维矢量空间 $V$ 中，若有一基底，使得在该基底下，线性算子 $\mathcal{A}$ 对应的矩阵 $A$ 取对角形式
+ \begin{equation}
+ A=\begin{pmatrix}
+ \lambda_1&0&\cdots&0\\
+ 0&\lambda_2&\cdots&0\\
+ \vdots&\vdots&\cdots&\vdots\\
+ 0&0&\cdots&\lambda_n
+ \end{pmatrix}
+ \end{equation}
+ 则称算子 $\mathcal{A}$ 是\textbf{可对角化}的．
+\end{definition}
+\begin{theorem}{线性算子可对角化的充要条件}
+定义在域 $\mathbb{F}$ 上的 $n$ 维矢量空间，其上的线性算子 $\mathcal{A}$ 可对角化的充要条件为：$\mathcal{A}$ 的特征多项式\upref{EigVM} $\mathrm{det}{\mathcal{A}-t \mathcal{E}}$ 的 所有根都在 $\mathbb{F}$ 上，且每个特征值 $\lambda$ 的几何重数等于代数重数\upref{EigVM}．
+\end{theorem}
+\subsection{证明}
+先引入一个引理
+\begin{lemma}{}
+属于不同特征值的特征矢量必然线性无关，且 $\sum\limits_{i=1}^nV^{\lambda_i}$ 是直和（各 $\lambda_i$ 不相同）．
+\end{lemma}
+\textbf{证明：}对每个 $V^{\lambda_i}$ 选取一个特征矢量 $\bvec{e_i}$ ，现证明它们线性无关．
+
+当 $m=1$ 时显然．对 $m$ 用数学归纳法，设存在线性关系式
+\begin{equation}\label{LODia_eq1}
+\sum_{i=1}^{m}\alpha_i\bvec e_i=\bvec 0
+\end{equation}
+对某一系数 $\alpha_i$ 不为0，不失一般性，设 $\alpha_1\neq0$．两边作用 $\mathcal A$：
+\begin{equation}\label{LODia_eq2}
+\sum_{i=1}^m\alpha_i\lambda_i\bvec e_i=\bvec 0
+\end{equation}
+$\lambda_m\times$\autoref{LODia_eq1} -(3)$
