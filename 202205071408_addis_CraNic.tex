@@ -1,0 +1,131 @@
+% Crank-Nicolson 算法解一维含时薛定谔方程（Matlab)
+% 算法|薛定谔方程|数值解|偏微分方程
+
+\pentry{薛定谔方程（单粒子一维）\upref{TDSE11}}
+
+\footnote{参考 \cite{NR3}．}本文使用原子单位制\upref{AU}． 薛定谔方程为
+\begin{equation}
+-\frac12 \pdv[2]{\psi}{x} + V\psi = \I \pdv{\psi}{t}
+\end{equation}
+传播子作用于波函数为
+\begin{equation}
+\psi(x,t+\Delta t) = \exp(-\I H \Delta t)\psi(x,t)
+\end{equation}
+用 Crank-Nicolson 或 Caley scheme\footnote{二者是一回事， 见 \cite{NR3} 19.2 节．} 得到的结果是
+\begin{equation}\label{CraNic_eq2}
+\qty(1+\frac{\I}{2}\mat H_{n+1}\Delta t)\bvec\psi_{n+1} = \qty(1-\frac{\I}{2}\mat H_n\Delta t)\bvec\psi_n
+\end{equation}
+其中 $\bvec\psi_n$ 是时刻 $t_n$ 的波函数列矢量（已知）， $\bvec\psi_{n+1}$ 为时刻 $t_{n+1}$ 的波函数列矢量（未知）， $\mat H_n$ 是 $t_n$ 时刻的哈密顿矩阵．
+
+但事实上， 还可以继续减少计算量． 若近似认为\footnote{或者更公平地， 把\autoref{CraNic_eq5} 中 $\mat H_n$ 改为 $\mat H_{n+1/2}$， 即 $(t_n+t_{n+1})/2$ 时的哈密顿矩阵．} $\mat H_{n+1}\approx \mat H_{n}$， 将\autoref{CraNic_eq2} 整理后得
+\begin{equation}\label{CraNic_eq5}
+\qty(\frac12 + \frac{\I}{4}\mat H_n\Delta t)\qty(\bvec\psi_{n+1}+\bvec\psi_n) = \bvec\psi_n
+\end{equation}
+解这个方程， 再减去 $\bvec \psi_n$ 即可．
+
+\subsection{等间距网格}
+对于等间距坐标网格 $x_1,x_2,\dots$， 可以用差分法（\autoref{DerDif_eq5}~\upref{DerDif}）计算二阶导数， 表示为矩阵有
+\begin{equation}
+\mat D_2 = \frac{1}{\Delta x^2}\pmat{-2 & 1 & 0 & 0 & \dots\\
+1 & -2 & 1 & 0 & \dots\\
+0 & 1 & -2 & 1 & \dots\\
+0 & 0 & 1 & -2 & \dots\\
+\vdots & \vdots & \vdots & \vdots & \ddots}
+\end{equation}
+那么 $\mat H_n = -\mat D_2/(2m) + \mat V_n$， 其中 $\mat V_n$ 是对角矩阵， 第 $i$ 个对角元为 $V(x_i, t_n)$． 现在， 就可以代入\autoref{CraNic_eq2} 或\autoref{CraNic_eq5} 求解了．
+
+\subsection{虚时间法}
+\pentry{虚时间法求基态波函数\upref{ImgT}}
+虚时间法用于求解势阱中的基态， 使用虚时间后， \autoref{CraNic_eq2} 和\autoref{CraNic_eq5} 分别变为
+\begin{equation}
+\qty(1+\frac12\mat H\Delta t)\bvec\psi_{n+1} = \qty(1-\frac12\mat H\Delta t)\bvec\psi_n
+\end{equation}
+\begin{equation}
+\qty(\frac12 + \frac14\mat H\Delta t)\qty(\bvec\psi_{n+1}+\bvec\psi_n) = \bvec\psi_n
+\end{equation}
+
+\subsection{代码}
+\pentry{Matlab 的稀疏矩阵\upref{MatSpa}}
+Matlab 代码如下， 使用\autoref{CraNic_eq5}， 以及 Matlab 的稀疏矩阵\upref{MatSpa}． 势能函数可以在 \verb|V_fun| 中设置， 我们以方势垒为例， 所有参数和 “高斯波包的方势垒散射数值计算（Matlab）\upref{FSBsct}” 相同． 不同的是， 由于我们使用迪利克雷边界条件， 波函数到达边界后会发生全反射． 要避免反射， 可以用开放边界条件（未完成）以及吸收势能（未完成）．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/CraNic_1.png}
+\caption{运行结果} \label{CraNic_fig1}
+\end{figure}
+
+\begin{lstlisting}[language=matlab, caption=TDSE\_cn1d.m]
+% 数值解拉格朗日方程
+% 拉格朗日量 L(qqt), qqt = [q, dq, t]
+% 一阶偏微分 dL(i,qqt), 若不支持 i > N， 返回 nan
+% 二阶偏微分 d2L(i,j,qqt) 可选, i = N+1:2*N, j = 1:2*N+1
+% 广义力 Q(i, qqt) 可选
+function [t, qq] = lagr_solve(L, qq0, tmin, tmax, Nt, RelTol, dL, d2L, Q)
+h = 1e-6; % 差分长度
+N = numel(qq0)/2;
+if ~exist('d2L', 'var') || isempty(d2L)
+    if isnan(dL(N+1,[qq0, tmin]))
+        d2L = @(i,j,qqt)D2_ij(L,i,j,qqt,h);
+    else
+        d2L = @(i,j,qqt)d2L_dif1(dL,i,j,qqt,h);
+    end
+end
+if ~exist('Q', 'var') || isempty(Q)
+    Q = @(i,qqt) 0;
+end
+options = odeset('RelTol', RelTol);
+[T, QQ] = ode45(@(t,qq)ode_fun(t, qq, d2L, Q), ...
+        [tmin, tmax], qq0, options);
+t = linspace(tmin, tmax, Nt);
+qq = zeros(Nt, 2*N);
+for i = 1:2*N
+    qq(:,i) = interp1(T, QQ(:,i), t, 'spline');
+end
+end
+
+function dqq = ode_fun(t, qq, d2L, Q)
+    N = numel(qq)/2;
+    dqq = zeros(N, 1);
+    dqq(1:N) = qq(N+1:end);
+    qqt = [qq, t];
+    A = zeros(N, N);
+    for i = N+1:2*N
+        for j = i:2*N
+            A(i,j) = d2L(i, j, qqt);
+            if i ~= j
+                A(j,i) = A(i,j);
+            end
+        end
+    end
+    b = zeros(N, 1);
+    for i = 1:N
+        b(i) = dL(i, qqt) - d2L(i+N,2*N+1) + Q(i,qqt);
+        for j = 1:N
+            b(i) = b(i) - d2L(N+i,j)*qqt(j+N);
+        end
+    end
+    dqq(N:end) = A \ b;
+end
+
+% d^2 L / d(qqt_i)d(qqt_j)
+% dL is dL/d(qqt_i)
+function ret = d2L_dif1(dL, i, j, qqt, h)
+qqt(j) = qqt(j) + h;
+L2 = dL(i, qqt, h);
+qqt(j) = qqt(j) - 2*h;
+L1 = dL(i, qqt, h);
+ret = (L2 - L1) / (2*h);
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=matlab, caption=D\_i.m]
+% 数值偏微分
+function ret = D_i(f, i, x, h)
+f2 = f(x);
+x(i) = x(i) - h;
+f1 = f(x);
+x(i) = x(i) + 2*h;
+f3 = f(x);
+ret = (f1 -2*f2 + f3)/(2*h);
+end
+\end{lstlisting}

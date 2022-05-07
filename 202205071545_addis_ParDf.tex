@@ -1,0 +1,45 @@
+% 偏导与差分
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{多元泰勒展开\upref{NDtalr}， 导数与差分\upref{DerDif}}
+
+对于可微的二元函数 $f(x,y)$， 可以证明
+\begin{equation}
+\begin{aligned}
+\pdv{}{x}{y} f(x_0,y_0) = \lim_{a\to 0}\lim_{b\to 0}\frac{1}{4ab}[-& f(x_0-a,\ y_0+b) + f(x_0+a,\  y_0+b)\\
+& f(x_0-a,\  y_0-b) - f(x_0+a,\  y_0-b)]
+\end{aligned}
+\end{equation}
+对每个 $f$ 使用多元泰勒展开\upref{NDtalr}即可证明．
+
+\subsubsection{Matlab 代码}
+\begin{lstlisting}[language=matlab, caption=D2\_ij.m]
+% 数值二阶偏导
+% D^2 f / D(x_i)D(x_j)
+function ret = D2_ij(f, i, j, x, h)
+if i == j
+    h = (x(i) + h) - x(i);
+    f2 = f(x);;
+    x(i) = x(i) + h;
+    f3 = f(x);
+    x(i) = x(i) - 2*h;
+    f1 = f(x);
+    ret = (f1 + f3 - 2*f2)/h^2;
+else % i ~= j
+    x(i) = x(i) - 0.5*h; x(j) = x(j) - 0.5*h;
+    hi = (x(i) + h) - x(i);
+    hj = (x(j) + h) - x(j);
+    f1 = f(x);
+    x(i) = x(i) + hi;
+    f2 = f(x);
+    x(j) = x(j) + hj;
+    f3 = f(x);
+    x(i) = x(i) - hi;
+    L4 = f(x);
+    ret = (f1 - f2 + f3 - L4)/(hi*hj);
+end
+end
+\end{lstlisting}
