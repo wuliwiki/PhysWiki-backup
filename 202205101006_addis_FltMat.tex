@@ -90,10 +90,11 @@ end
 % 双精度转换为变精度浮点数
 % vpa(x) 会对 x 进行猜测和近似，该函数不会
 function ret = num2vpa(x, digi)
+[N, Npow] = num2bin2(x);
 if nargin == 1
-    ret = vpa(num2sym(x));
+    ret = vpa(N)*2^vpa(Npow);
 elseif nargin == 2
-    ret = vpa(num2sym(x), digi);
+    ret = vpa(N, digi)*2^vpa(Npow, digi);
 end
 end
 \end{lstlisting}

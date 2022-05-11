@@ -1,0 +1,26 @@
+% 半双线性形式
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\textbf{半双线性形式（sequilinear form）}是双线性映射的一个变形． 它关于第一个变量是反线性（也叫共轭线性 conjugate linear）的， 关于第二个变量是线性的．
+\begin{definition}{}
+复数域上的线性空间 $V$ 中， 若映射 $f:V\times V\to \mathbb C$ 对任意 $u, v, w\in V$， $a,b\in \mathbb C$ 满足
+\begin{equation}\label{sequil_eq2}
+f(au+bv, w) = a^*f(u, w) + b^*f(v, w)
+\end{equation}
+\begin{equation}\label{sequil_eq1}
+f(u, av+bw) = af(u, v) + bf(u, w)
+\end{equation}
+其中 $a^*$ 是 $a$ 的复共轭\upref{CplxNo}， 那么就说该映射是\textbf{半双线性的（sequilinear）}．
+\end{definition}
+
+任意半双线性形式 $L(u, v)$ 可以唯一地由 $f(x) = L(x, x)$ 确定：
+\begin{equation}
+\begin{aligned}
+L(u, v) =\frac{1}{2}[L(u+v, u+v)-L(u, u)-L(v, v)]\\
+-\frac{\I}{2}[L(u+i v, u+i v)-L(u, u)-L(i v, i v)]
+\end{aligned}
+\end{equation}
+这叫做\textbf{极化恒等式（polarization identity）}． 这可以由定义直接证明．

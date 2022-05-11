@@ -1,0 +1,11 @@
+% Matlab 性能优化（profiling）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{Matlab 的程序调试及其他功能\upref{MatOtr}}
+
+一个最简单的方法是 \verb|tic, toc|． 但是缺点是过于简单， 若要统计层层调用的函数中具体哪里是性能瓶颈比较困难．
+
+另一个方法是 \verb|profile viewer|． 运行以后弹出统计窗口． 会统计一段时间内每个被调用函数的耗时．
