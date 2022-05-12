@@ -1,0 +1,29 @@
+% 含连续态的微扰理论
+% 微扰理论|散射态|波函数|量子力学
+
+\begin{issues}
+\issueOther{合并到含时微扰理论\upref{TDPTc}}
+\end{issues}
+
+\pentry{不含时微扰理论}
+
+一般的束缚+连续微扰理论． 假设我们有两个束缚态和连续态， 总的波函数可以写成
+\begin{equation}
+\ket{\psi} = \sum_n c_n\ket{n} + \int c_{\bvec k}\ket{\bvec k} \dd[3]{k}
+\end{equation}
+
+$\mat H'$  “矩阵” 可以想象成是这个样子的
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/PTCont_1.pdf}
+\caption{$\mat H'$ 矩阵的结构} 
+\end{figure}
+
+方格子代表 $C_{ij} = \bra{i} H' \ket{j}$， 横条代表 $H_{\I\bvec k'} = \mel{i}{H'}{\bvec k'}$，  纵条代表 $H_{\bvec k j} = \mel{\bvec k}{H'}{j}$． 
+
+\begin{equation}
+c_i^{(n + 1)}(t) = \frac{1}{\I\hbar} \int \dd{t'} \qty(\sum_{j \ne i} H'_{ij} C_j^{(n)} + \int H_{\I\bvec k'} \phi ^{(n)} (\bvec k') \dd[3]{k'} )
+\end{equation}
+\begin{equation}
+c^{(n+1)}_{\bvec k} = \frac{1}{\I\hbar} \int \dd{t'} \qty(\sum_j H'_{\bvec kj} C_j^{(n)} + \int H_{\bvec k\bvec k'} \phi ^{(n)}(\bvec k') \dd[3]{k'})
+\end{equation}
