@@ -1,0 +1,113 @@
+% Fortran 入门笔记
+
+\subsection{常识}
+\begin{itemize}
+\item Fortran 代码不区分大小写
+\item 感叹号用于写注释
+\item `&` 用于续行, 如果一个 token 需要续行, 那么下一行的行首也需要 `&`. 另外, 必须放在注释前面.
+\item 程序首尾  `program <name> ....  end program <name>`, 或者直接用 `end`
+\item 没有子程序的时候, `program <name>` 可以省略, 最后一行 `end program <name>` 也可以省略
+\item `print*, <item1>, <item2>....` 星号代表默认格式
+\item 用 `read*, item1, item2, ...` 来输入变量, 要先定义变量类型. 
+\item `read` 读取 character 类型的时候, 只能读取字母, 不能有任何其他符号
+\item 字符串可以用单引号也可以用双引号
+\item 可以用 `;` 符号在一行写多个语句, 叫 statement separator. 同一行中的每个 statement 不能超过 132 个字符
+\item `stop` 可用于终止主程序, `return` 终止子程序
+\item 所有的小括号前面可以有空格
+\item `include "<file>"` 就是把文件的内容复制到当前位置, 应该相当于 C++ 的 #include
+\end{itemize}
+
+\subsection{算符}
+\begin{itemize}
+\item 指数算符是 `**`
+\item 比较算符有: `==   >=   <=  /= `.  注意不等是用斜杠不是感叹号. 感叹号是用于注释的
+\item 逻辑算符有 `.and.   .or.   .not.   .eqv.` (同或)  `.neqv.` (异或)
+\item `//` 用于连接字符串
+\end{itemize}
+
+\subsection{结构}
+\begin{itemize}
+\item `if (<logical>) then ....  else .... end if` 注意要有括号
+\item `if (<logical>) then ... else if (<logical>) then ... else ... end if`
+\item `if` 前面可以加上 `<name>:` 如果这样做,  end if 后面也一定要加上 `<name>`  , 也可以选择在 `else if .. then` 或 `else` 后面加上 `<name>`. 注意只有开头有冒号, 后面没有冒号 .
+\item select case, 见 http://www.tutorialspoint.com/fortran/select_case_construct.htm
+\item do 循环:   `do ii = 1,3; ...; end do;` 也可以设置步长 `ii = int1, int2, step`. 其中 `step` 可以是负值.
+\item do while 循环: `do while (<logical>) ....  end do`
+\item `exit` 相当于 C 语言的 break, `exit <name>` 用于退出指定循环.
+\item `cycle` 相当于 C 语言的 continue
+\item do 前面可以加上 `<name>:` 如果这样, `end do` 后面也一定要加上 `<name>`
+\item `cycle` 执行下一个当前循环, `cycle <name>` 执行下一个指定循环
+\item `do` 后面什么都不加相当于无条件循环, 需要用 `exit` 退出.
+\item statement label 是在 statement 前面的 1-5 位数字.
+\item `go to <label>` 可以使程序跳转到 `<label>` 的语句.
+\end{itemize}
+
+\subsection{数据类型}
+\begin{itemize}
+\item `integer, real, complex, character, logical` 是五种 intrinsic types, 前三种是 numeric, 剩下的是 non-numeric.
+\item 从 fortran90 开始, 所有变量都要定义. 用 implicit none 语句可以使未定义的变量出错. 亲自证明了不声明变量类型会导致很严重的错误且很难调试.
+\item 除了 imlicit none, 另一种声明如 implicit double precision (a-h,o-z), 作用是默认所有 a-h, o-z 开头的变量都是 double precision, 而 i-n 开头的所有变量都是普通 integer*4. 这种做法不建议使用.
+\item 所有的变量只能在 implicit none 后面紧接着, 不能在程序中定义.
+\item 声明变量格式:  `<类型> :: a=1, b=2, ....`  初值可选
+\item 变量声明时 `::` 可以省略
+\item 5 种基本变量类型可以定义 constant 格式, 如  `real, parameter :: pi = 3.1415927`
+\item 声明变量后, 也可以把某个变量变成常数, 直接用 parameter (var1 = 1, var2 = 2) 即可. 括号不可省略
+\item `selected_int_kind(8)` 可以返回 integer 类型的 kind, 是的 integer 有 8 位有效数字
+\item `selected_real_kind(15, 307)` 可以返回 real 类型的 kind, 使得 real 有 15 位有效数字和最大指数 307
+\item `huge()` 可以测试某个变量的最大值
+\item `tiny()` 可以测试某个变量的最小值
+\item `<类型>(kind=..) :: <name>` 的括号中 kind = 可以省略, 直接写数字. 这个数字叫做 kind type parameter
+\item `kind()` 函数可以检查某个变量的字节数.
+\item `precision()` 函数可以检查某个变量的精度(小数位数)
+\item 整型和整型相除得到整数, real 和 整型相除得到 real. real 赋值给 integer 向下取整.
+\item `1` 和 `2` 都是整型! 尤其注意 `1/2 = 0` 而不是 1.   至少要加个小数点 !
+\item literal constant 指的是程序中写入的值, 例如 `123, 'good', 1.7e-6` 等.
+\item 声明矩阵的时候, 只能直接用 constant 指定矩阵大小和初值.
+\end{itemize}
+
+\subsubsection{real}
+\begin{itemize}
+\item 指定 literal constant 的类型: 1.3e8 只有 real(4) 的精度 (7位有效数字, 默认), 1.3d8 是 real(8) 的精度(16位有效数字, 即 double), 1.3q8 是 real(16) 的精度(33位有效数字). d 代表 double, q 代表 quad. 另外也可以用 1.3e8_16 的格式 , 得到类型  real(16) 与 1.3q8 等效, 这么做的好处是可以用一个常数变量 (parameter) 来指定数据类型,例如 1.3e8_rk 
+\item real 的默认是单精度 real(4). 双精度 real(8) 需要声明.
+\item real 直接赋值溢出会出错, 算符运算结果溢出产生 Infinity
+\item underflow, 例如 1e-40. 会产生 warning.
+\item 强制类型转换 real (var, kind)
+\end{itemize}
+
+\subsubsection{integer}
+\begin{itemize}
+\item `integer(kind = <n>)` 设置占用的字节, 可以取 1, 2, 4, 8 或者 16. 即最大值. 默认为 
+   kind = 4. (huge 约 2E9)
+\item 强制类型转换 int() 注意不是 integer()
+\item `nint()` 采用四舍五入进行类型转换, 而 int() 采用向下取整
+\item literal constants 设定 kind 用下划线, 例如 `3_4` 是 `kind = 4` 的整数 3.
+\end{itemize}
+
+\subsubsection{other}
+\begin{itemize}
+\item literal constant 是 (<实部>, <虚部>). 赋值时如果需要包含变量, 用强制类型转换 cmplx (Re, Im, 8) 其中 kind = 8 是 double complex
+\item literal constant 是 .true. 或 .false.
+\item 强制类型转换 logical (var, kind)
+\end{itemize}
+
+\subsubsection{char}
+\begin{itemize}
+\item `character (len = <n>)` 其中 n 是最大长度, 可以等于任意正整数, 默认为 1.  `len =` 可以省略
+\item character 不是一个数组, 是一个独立的变量, 所以不能只改变其中一个元素. 声明数组: character(5) :: char(3,3) 生成 3*3 的矩阵, 每个矩阵元是 len=5.
+\item `str(n:m)` 获取 character 类型变量 str 的第 n 到第 m 个字符, 注意不能用 str(n) 用而是用 str(n:n)
+\item `str(1,2)(n:m)` 获取 character 矩阵的 (1,2) 元的第 n 到第 m 个字符
+\item `str = 'some caracters'` 用于赋值（用双引号也行）, 字符串左对齐， 剩下的位置补 null (ascii 的 0), 如果长度超出, 多出的部分被截去，且不会报错．
+\item str = str1(n:m) 同样是左对齐，但是后面补空格
+\item 要获取某个字符的 ascii 代码, 用 iachar()， 如 iachar(str(1,2)(3:3)) . 如果输入的变量有多于一个字符, 返回首字符的 ascii 代码
+\item 用 `//` 可以链接两个字符变量，然后把所有的 null 变为空格
+\item 用 `trim()` 可以把字符变量最后的空格或者 null 去掉并返回 len 较短的字符常量
+\item `len()` 可以用于返回字符变量/常量的长度, 如 len('1234 ') 返回 5, len(trim('1234 ')) 返回 4
+\item `write(var, *) var1, var2, ...` 可以像输出到命令行一样将字符串或变量写到 character 变量中
+\end{itemize}
+
+\subsection{全局变量}
+\begin{itemize}
+\item `common/group/var1, var2, ...` 其中 var1, var2 的变量名在不同的声明中可以不一致, 但是 group 的名字要一样
+\item 全局数组 `common/grou/var1(N1), var2(N2)` 变量要在 common 之前再定义一次
+\end{itemize}
+

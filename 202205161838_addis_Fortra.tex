@@ -1,0 +1,41 @@
+% Fortran 入门笔记
+
+\subsection{常识}
+\begin{itemize}
+\item Fortran 代码不区分大小写
+\item 感叹号用于写注释
+\item `&` 用于续行, 如果一个 token 需要续行, 那么下一行的行首也需要 `&`. 另外, 必须放在注释前面.
+\item 程序首尾  `program <name> ....  end program <name>`, 或者直接用 `end`
+\item 没有子程序的时候, `program <name>` 可以省略, 最后一行 `end program <name>` 也可以省略
+\item `print*, <item1>, <item2>....` 星号代表默认格式
+\item 用 `read*, item1, item2, ...` 来输入变量, 要先定义变量类型. 
+\item `read` 读取 character 类型的时候, 只能读取字母, 不能有任何其他符号
+\item 字符串可以用单引号也可以用双引号
+\item 可以用 `;` 符号在一行写多个语句, 叫 statement separator. 同一行中的每个 statement 不能超过 132 个字符
+\item `stop` 可用于终止主程序, `return` 终止子程序
+\item 所有的小括号前面可以有空格
+\item `include "<file>"` 就是把文件的内容复制到当前位置, 应该相当于 C++ 的 #include
+\end{itemize}
+
+\subsection{算符}
+\begin{itemize}
+\item 指数算符是 `**`
+\item 比较算符有: `==   >=   <=  /= `.  注意不等是用斜杠不是感叹号. 感叹号是用于注释的
+\item 逻辑算符有 `.and.   .or.   .not.   .eqv.` (同或)  `.neqv.` (异或)
+\item `//` 用于连接字符串
+\end{itemize}
+
+\subsection{结构}
+\begin{itemize}
+\item `if (<logical>) then ....  else .... end if` 注意要有括号
+\item `if (<logical>) then ... else if (<logical>) then ... else ... end if`
+\item `if` 前面可以加上 `<name>:` 如果这样做,  end if 后面也一定要加上 `<name>`  , 也可以选择在 `else if .. then` 或 `else` 后面加上 `<name>`. 注意只有开头有冒号, 后面没有冒号 .
+\item select case, 见 http://www.tutorialspoint.com/fortran/select_case_construct.htm
+\item do 循环:   `do ii = 1,3; ...; end do;` 也可以设置步长 `ii = int1, int2, step`. 其中 `step` 可以是负值.
+\item do while 循环: `do while (<logical>) ....  end do`
+\item `exit` 相当于 C 语言的 break, `exit <name>` 用于退出指定循环.
+\item `cycle` 相当于 C 语言的 continue
+\item do 前面可以加上 `<name>:` 如果这样, `end do` 后面也一定要加上 `<name>`
+\item `cycle` 执行下一个当前循环, `cycle <name>` 执行下一个指定循环
+\item `do` 后面什么都不加相当于无条件循环, 需要用 `exit` 退出.
+\end{itemize}
