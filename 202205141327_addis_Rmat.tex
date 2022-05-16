@@ -1,0 +1,15 @@
+% R-矩阵法（量子力学）
+
+\subsection{一维薛定谔方程}
+一个算符是否为厄米算符与边界条件有关． 例如
+\begin{equation}
+H = -\frac{1}{2m}\dv[2]{x} + V(r)
+\end{equation}
+要证明厄米性， 用分部积分法得
+\begin{equation}\label{Rmat_eq1}
+\int_{-\infty}^{+\infty} uHv\dd{x} - \int_{-\infty}^{+\infty} vHu\dd{x}
+= \eval{-\frac{1}{2m}[uv' - u'v]}_{-\infty}^{+\infty}
+\end{equation}
+由于我们假设波函数在无穷远处消失， 则该式为零， 说明 $H$ 是厄米的． 但如果在有限区间 $[0, a]$ 中， 则波函数的边界条件必须满足 $\eval{[uv' - u'v]}_{0}^{a} = 0$ 才能保证厄米性．
+
+但若边界条件不符合该要求， 为了在 $[0,a]$ 内构造一组离散的正交归一基底， 我们可以拼凑一个厄米算符． 把

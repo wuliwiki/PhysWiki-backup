@@ -1,0 +1,92 @@
+% 分裂域
+% splitting field|正规扩张|regular extension
+
+
+\pentry{域的扩张\upref{FldExp}}
+
+本节我们要介绍一个在代数中非常基础且重要的概念：分裂域．简单来说，分裂域就是在一个域中添加某个多项式的全体根所得到的扩域．
+
+\begin{definition}{分裂域}
+给定域$\mathbb{F}$及其上一个多项式$f(x)$．若存在扩域$\mathbb{K}/\mathbb{F}$，使得$f(x)$在$\mathbb{K}$上可以分解为$f(x)=\prod_{i=1}^n (x-a_i)$，且$\mathbb{K}=\mathbb{F}(a_1, a_2, \cdots, a_n)$，则称$\mathbb{K}$是$f(x)\in \mathbb{F}[x]$上的\textbf{分裂域（splitting field）}．
+\end{definition}
+
+定义看起来有些绕口，先说$f$在$\mathbb{K}$中可以分解，也就是说每一个根都存在，再说$\mathbb{K}$可以看成用这些根对$\mathbb{F}$进行扩域的结果．这么定义是因为我们要先确定元素$a_i$都存在，而为此就需要先确定$\mathbb{K}$存在．但是定义中只说了“若$\mathbb{K}$”存在，这个假设到底成立与否呢？答案是肯定的．
+
+\begin{theorem}{分裂域的存在性}
+给定域$\mathbb{F}$及其上一个多项式$f(x)$，则$f(x)\in \mathbb{F}[x]$上的分裂域存在．
+\end{theorem}
+
+\textbf{证明}：
+
+当$\opn{deg}f=1$时，定理自然成立，此时$f\in\mathbb{F}[x]$的分裂域就是其本身．
+
+首先在环$\mathbb{F}[x]$上对元素$f(x)$进行因式分解\footnote{也就是画出它的一棵\textbf{真因子树}\upref{FctTre}．}，得到其不可约因子．任选其中一个不可约因子$h(x)$，如果$\opn{deg} h = 1$，则跳过本段接下来的步骤．构造环$R_1=\mathbb{F}(x)/<h(x)>=\mathbb{F}(a_1)$，再取其分式域$\mathbb{F}_1$，则$\mathbb{F}_1$就是$\mathbb{F}$的单扩张$\mathbb{F}(a_1)$．
+
+由\textbf{多项式环}\upref{RPlynm}的\autoref{RPlynm_the1}~\upref{RPlynm}，$(x-a_1)|h(x)$，因此在$\mathbb{F}_1$上可以分解出$h_1(x)=h(x)/(x-a_1)$．如果$\opn{deg}h_1 = 1$，则跳过本段接下来的步骤．对$h_1(x)$进行相同的操作：构造环$R_2=\mathbb{F}(x)/<h_1(x)>=\mathbb{F}(a_2)$，再取其分式域$\mathbb{F}_2=\mathbb{F}_1(a_2)=\mathbb{F}(a_1, a_2)$．
+
+以此类推，直到$h(x)$在$\mathbb{F}_{k_1}$上分解为一阶多项式之积．
+
+接下来，取$f$在$\mathbb{F}_{k_1}$上的不可约因子$g(x)$，如果$\opn{deg} g = 1$，则跳过本段接下来的步骤．执行相同的扩域操作，直到得到$\mathbb{F}_{k_1+k_2}$，使得$g$在$\mathbb{F}_{k_1+k_2}$上分解为一阶多项式之积．
+
+以此类推，最终可以得到$\mathbb{F}_k$，使得$f$在$\mathbb{F}_k$上可以分解为一阶多项式之积．则$\mathbb{F}_k$就是$f\in\mathbb{F}[x]$的分裂域．
+
+\textbf{证毕}．
+
+
+\begin{example}{分裂域的一个例子}
+
+
+在有理数域$\mathbb{Q}$上有多项式$f(x)=(x^2-2)^2(x^2-3)(x^2-6)(x^2+1)$，其在$\mathbb{Q}$上有五个不可约因子：$(x^2-2), (x^2-2), (x^2-3), (x^2-6), (x^2+1)$．
+
+考虑因子$(x^2-2)$，得到扩域$\mathbb{Q}(\sqrt{2})$．在$\mathbb{Q}(\sqrt{2})$有分解：
+\begin{equation}
+f(x)=(x+\sqrt{2})^2(x-\sqrt{2})^2(x^2-3)(x^2-6)(x^2+1)
+\end{equation}
+
+取其不可约因子$x^2-3$，得到扩域$\mathbb{Q}(\sqrt{2}, \sqrt{3})$．
+
+在$\mathbb{Q}(\sqrt{2}, \sqrt{3})$上，$f$有分解：
+
+\begin{equation}
+\begin{aligned}
+f(x)=&(x+\sqrt{2})^2(x-\sqrt{2})^2(x+\sqrt{3})(x-\sqrt{3})\times\\
+&(x+\sqrt{2}\sqrt{3})(x-\sqrt{2}\sqrt{3})(x^2+1)
+\end{aligned}
+\end{equation}
+
+取其不可约因子$x^2+1$，得到扩域$\mathbb{Q}(\sqrt{2}, \sqrt{3}, \I)$．
+
+则$\mathbb{Q}(\sqrt{2}, \sqrt{3}, \I)=\{a+A\I+(b+B\I)\sqrt{2}+(c+C\I)\sqrt{3}+(d+D\I)\sqrt{6}|a, A, b, B, c, C, d, D\in\mahtbb{Q}\}$就是$f\in\mathbb{Q}[x]$的分裂域．
+
+\end{example}
+
+\begin{corollary}{}
+设$\mathbb{K}$是$f(x)\in \mathbb{F}[x]$上的分裂域，则$[\mathbb{K}:\mathbb{F}]\leq \opn{deg}f$．
+\end{corollary}
+
+\begin{corollary}{}
+设$\mathbb{K}$是$f(x)\in \mathbb{F}[x]$上的分裂域，$\mathbb{M}$是$\mathbb{K}$和$\mathbb{F}$之间的\textbf{中间域}，则$\mathbb{K}$也是$f(x)\in \mathbb{E}[x]$上的分裂域．
+\end{corollary}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

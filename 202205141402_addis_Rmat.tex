@@ -1,0 +1,37 @@
+% R-矩阵法（量子力学）
+
+\subsection{一维薛定谔方程}
+一个算符是否为厄米算符与边界条件有关． 例如
+\begin{equation}
+H = -\frac{1}{2m}\dv[2]{x} + V(r)
+\end{equation}
+要证明厄米性， 用分部积分法得
+\begin{equation}\label{Rmat_eq1}
+\int_{-\infty}^{+\infty} uHv\dd{x} - \int_{-\infty}^{+\infty} vHu\dd{x}
+= \eval{-\frac{1}{2m}[uv' - u'v]}_{-\infty}^{+\infty}
+\end{equation}
+由于我们假设波函数在无穷远处消失， 则该式为零， 说明 $H$ 是厄米的． 但如果在有限区间 $[0, a]$ 中， 则波函数的边界条件必须满足 $\eval{[uv' - u'v]}_{0}^{a} = 0$ 才能保证厄米性．
+
+但若边界条件不符合该要求， 为了在 $[0,a]$ 内构造一组离散的正交归一基底， 我们可以拼凑一个厄米算符． 为了方便起见， 我们要求 $u(0) = v(0) = 0$． 把\autoref{Rmat_eq1} 移项并修改积分区间得
+\begin{equation}
+\qty[\int_{0}^{a} uHv\dd{x} + \frac{1}{2m}u(a)v'(a)] - \qty[\int_{0}^{a} vHu\dd{x} + \frac{1}{2m}u'(a)v(a)]
+= 0
+\end{equation}
+而又可以通过狄拉克 $\delta$ 函数\upref{Delta} 表示为
+\begin{equation}
+\int_{0}^{a} u\qty[H + \frac{\delta(x-a)}{2m}\dv{x}] v\dd{x} -
+\int_{0}^{a} v\qty[H + \frac{\delta(x-a)}{2m}\dv{x}] u\dd{x} = 0
+\end{equation}
+所以无论波函数在 $x=a$ 端的边界条件如何， 方括号中的算符都是厄米的． 令\textbf{布洛赫算符（Bloch operator）}为
+\begin{equation}
+\mathscr L = \delta(x-a)\dv{x}
+\end{equation}
+那么修正后的哈密顿算符（厄米算符）就是 $H + \mathscr L/(2m)$． 于是本征方程为
+\begin{equation}\label{Rmat_eq2}
+\qty(H + \frac{\mathscr L}{2m})\chi_j = \frac{k_j^2}{2m} \chi_j
+\end{equation}
+本征值为 ${k_i^2}/{2m}$． 于是 $\chi_i$ 就构成一组 $[0, a]$ 内的正交归一基底， 满足 $\int_0^a \chi_i \chi_j \dd{x} = \delta_{ij}$． 把\autoref{Rmat_eq2} 左乘 $u_j$ 并在 $[0,a]$ 积分得\footnote{该积分实际上是在区间 $[0,a+\epsilon]$ 积分然后令 $\epsilon\to 0^+$．}
+\begin{equation}
+\mel{u_i}{2mH + \mathscr L}{u_j} = k_i^2 \delta_{ij}
+\end{equation}
+这组基底如何具体计算呢？ 首先还是要明确 $x=a$ 处的边界条件． 
