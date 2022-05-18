@@ -1,0 +1,61 @@
+% 完备域
+% complete domain|可分多项式|reducible polynomial|微商|形式微商|导数|多项式|重根|自同构|形式求导|形式微分
+
+\pentry{分裂域\upref{SpltFd}}
+
+由\autoref{SpltFd_the1}~\upref{SpltFd}可见，不可约多项式在其分裂域中有无重根，决定了该分裂域的自同构数量．一个域的全体自同构配合映射的复合，能构成一个群，域的许多性质都蕴含在这个群的结构中．群的元素数量自然是其重要性质之一．
+
+综上所述，研究多项式的重根是非常重要的课题．
+
+\subsection{可分多项式}
+
+为了研究重根，我们借用微积分的知识，引入\textbf{形式微商}的概念
+
+\begin{definition}{形式微商}\label{CmplD_def1}
+
+设$\mathbb{F}$是一个域，$f\in\mathbb{F}[x]$．若$f$表达为
+\begin{equation}
+f(x) = \sum_{i=0}^n a_ix^i
+\end{equation}
+其中各$a_i\in\mathbb{F}$，那么定义\textbf{形式微商}算子$\opn{D}:\mathbb{F}[x]\to\mathbb{F}[x]$为：
+\begin{equation}
+\opn{D}f = \sum_{i=0}^{n-1} a_{i+1}x^i
+\end{equation}
+
+形式微商也可称为“形式求导”、“形式微分”等．
+
+\end{definition}
+
+\autoref{CmplD_def1} 形式微商就是直接套用微积分中的求导操作，只不过这里没有求导的概念，而是就进行多项式变换，其形式就是求导或者求导的推广，因此才叫\textbf{形式}微商．
+
+\begin{example}{}
+考虑域$\mathbb{Z}_3$上的多项式$f(x)=x^5+2x^2-x-2$，则
+\begin{equation}
+\opn{D}f(x) = 2x^4+x-1
+\end{equation}
+
+显然，这和真正的求导不同．一方面我们没有在域$\mathbb{Z}_3$上定义极限的概念，另一方面实数域上$f$的导函数应该是$5x^4+4x-1$．
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

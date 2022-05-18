@@ -1,0 +1,56 @@
+% 泊松分布
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+在一段时间内， 若一个事件在接下来的任意时刻都有均等的几率发生， 且发生次数不限， 那么在一段时间内发生 $k$ 次的概率为
+\begin{equation}
+f(\lambda, k) = \frac{\E^{-\lambda}\lambda^k}{k!} \qquad (k = 0,1,2,\dots)
+\end{equation}
+其中 $\lambda$ 是一个常参数， 该分布的平均值和方差都是 $\lambda$．
+
+具体而言， 若在一段极小时间 $\Delta t$ 内发生的概率为 $\Delta P$， 那么令 $\alpha = \dv*{P}{t}$， 若考察的时长为 $T$， 那么
+\begin{equation}
+\lambda = \alpha T
+\end{equation}
+
+
+证明方差需要使用
+\begin{equation}
+\begin{aligned}
+\sum_{k=0}^\infty \frac{k^2\lambda^{k}}{k!}
+&= \sum_{k=0}^\infty \frac{(k+1)\lambda^{k+1}}{k!}
+= \lambda \sum_{k=0}^\infty \frac{(k+1)\lambda^k}{k!}\\
+&= \lambda\dv{\lambda} \sum_{k=0}^\infty \frac{\lambda^{k+1}}{k!}
+= \lambda \dv{\lambda} (\lambda \E^{\lambda})
+= \lambda(\lambda+1)\E^{\lambda}
+\end{aligned}
+\end{equation}
+
+\subsection{推导}
+若 $\dv*{P}{t} = \alpha$． 令 $\lambda = \alpha T$， 那么第一次出现的时间分布为
+\addTODO{为什么？}
+\begin{equation}
+f(t) = \alpha\E^{-\alpha t}
+\end{equation}
+在时间 $[0,T]$ 内不发生的概率为
+\begin{equation}
+P_0(T) = \int_{T}^\infty f(t) \dd{t} = \E^{-\lambda}
+\end{equation}
+例如一半可能性不发生的时间为 $T_{1/2} = \ln 2/\alpha$．
+
+在时间 $[0,T]$ 内发生一次的概率为
+\begin{equation}
+P_1(T) = \int_{0}^{T} f(t') P_0(T-t')\dd{t'} = \lambda \E^{-\lambda}
+\end{equation}
+即假设事件在 $t'$ 时刻发生一次， 在接下来的长度为 $T-t'$ 的时间段内不发生．
+
+在时间 $[0,T]$ 内发生两次的概率为
+\begin{equation}
+P_2(T) = \int_{0}^{T} f(t') P_1(T-t')\dd{t'} = \frac{\lambda^2}{2}\E^{-\lambda}
+\end{equation}
+递归可得
+\begin{equation}
+P_N(k) = \frac{\lambda^k}{k!}\E^{-\lambda}
+\end{equation}

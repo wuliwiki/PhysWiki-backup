@@ -1,0 +1,31 @@
+% 卡方分布
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/Chi2_1.pdf}
+\caption{卡方概率密度函数（\autoref{Chi2_eq1}）， 来自 Wikipedia} \label{Chi2_fig1}
+\end{figure}
+
+\begin{equation}\label{Chi2_eq1}
+f_k(x) = \frac{1}{2^{k/2}\Gamma(k/2)}x^{k/2-1}\E^{-x/2} \qquad (x > 0)
+\end{equation}
+期望值 $k$， 方差 $2k$． 上式也记为 $\chi_x^2(k)$．
+
+
+若把 要检验 $N$ 次试验中， 
+\begin{equation}
+\sum_{i=1}^k C_i \qty(\frac{f_i}{n} - p_i)^2
+\end{equation}
+令 $C_i = n/p_i$． 于是 Pearson's cumulative test statistic 为
+\begin{equation}
+\chi^2 = \sum_i \frac{n}{p_i} \qty(\frac{f_i}{n} - p_i)^2 = \qty(\sum_i \frac{f_i^2}{np_i}) - n
+\end{equation}
+当 $n$ 足够大， 上式近似服从 $\chi^2(k-1)$ 分布．
+
+对于\textbf{显著水平（significance level）} $\alpha$， 当 $\chi^2 \geqslant \chi_\alpha^2(k-1)$ 时就拒绝．
+
+\addTODO{如何检测两个随机变量是否独立？}

@@ -1,0 +1,23 @@
+% 泊松分布
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{equation}
+f(\lambda, k) = \frac{\E^{-\lambda}\lambda^k}{k!}
+\end{equation}
+平均值和方差都是 $\lambda$．
+
+证明需要使用
+\begin{equation}
+\begin{aligned}
+\sum_{k=0}^\infty \frac{k^2\lambda^{k}}{k!}
+&= \sum_{k=0}^\infty \frac{(k+1)\lambda^{k+1}}{k!}
+= \lambda \sum_{k=0}^\infty \frac{(k+1)\lambda^k}{k!}\\
+&= \lambda\dv{\lambda} \sum_{k=0}^\infty \frac{\lambda^{k+1}}{k!}
+= \lambda \dv{\lambda} (\lambda \E^{\lambda})
+= \lambda(\lambda+1)\E^{\lambda}
+\end{aligned}
+\end{equation}
+

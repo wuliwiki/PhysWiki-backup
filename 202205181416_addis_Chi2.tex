@@ -1,0 +1,43 @@
+% 卡方分布
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/Chi2_1.pdf}
+\caption{卡方概率密度函数（\autoref{Chi2_eq1}）， 来自 Wikipedia} \label{Chi2_fig1}
+\end{figure}
+
+\begin{equation}\label{Chi2_eq1}
+f_k(x) = \frac{1}{2^{k/2}\Gamma(k/2)}x^{k/2-1}\E^{-x/2} \qquad (x > 0)
+\end{equation}
+期望值 $k$， 方差 $2k$．
+
+累计分布函数为（Matlab 的 \verb|gammainc(x/2,k/2)|）
+\begin{equation}
+F_k(x) = \frac{\gamma(k/2, x/2)}{\Gamma(k/2)}
+\end{equation}
+其中 $\gamma$ 为下不完全 $\Gamma$ 函数\upref{IncGam}．
+
+
+若要检验 $N$ 次试验中， 划分成 $k$ 个区间， 落入每个区间的数量是 $f_i$， 理论概率密度函数在每个区间的积分为 $p_i$， 那么 $f_i/N$ 应该接近于 $p_i$， 可以用以下函数判断有多接近
+\begin{equation}
+\sum_{i=1}^k C_i \qty(\frac{f_i}{N} - p_i)^2
+\end{equation}
+令 $C_i = N/p_i$． 于是 Pearson's cumulative test statistic 为
+\begin{equation}
+\chi^2 = \sum_{i=1}^k \frac{N}{p_i} \qty(\frac{f_i}{N} - p_i)^2 = \sum_{i=1}^k \frac{f_i^2}{Np_i} - N
+\end{equation}
+当 $N$ 足够大， 上式的值近似服从 $\chi^2(k-1)$ 分布．
+
+对于\textbf{显著水平（significance level）} $\alpha$， 当 $\chi^2 \geqslant \chi_{\alpha+}^2(k-1)$ 或者 $\chi^2 \leqslant \chi_{\alpha-}^2(k-1)$ 时就拒绝假设． 其中 $\chi_{\alpha\pm}^2(k-1)$ 满足
+\begin{equation}
+1 - F_{k-1}(x) = \int_{\chi_{\alpha+}^2(k-1)}^\infty f_{k-1}(x) \dd{x} = \alpha
+\end{equation}
+\begin{equation}
+F_{k-1}(x) = \int_0^{\chi_{\alpha-}^2(k-1)} f_{k-1}(x) \dd{x} = \alpha
+\end{equation}
+
+\addTODO{如何检测两个随机变量是否独立？}
