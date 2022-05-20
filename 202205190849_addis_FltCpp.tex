@@ -1,0 +1,22 @@
+% 浮点数测试（C++）
+
+\pentry{双精度和变精度浮点数测试（Matlab）\upref{FltMat}}
+
+double 和 “双精度和变精度浮点数测试（Matlab）\upref{FltMat}” 中的结果一样．
+
+long double 是 64 bit 浮点 + 15 bit 指数， 十进制大约是 18 位有效数字． 然而 sizeof 却是 16 字节， 但实际上只使用了不到 10 字节．
+
+\begin{lstlisting}
+sizeof(Doub) = 8
+sizeof(Ldoub) = 16
+std::numeric_limits<Doub>::denorm_min() = 4.940656458e-324
+std::numeric_limits<Ldoub>::denorm_min() = 3.645199532e-4951
+std::numeric_limits<Doub>::max() = 1.797693135e+308
+std::numeric_limits<Ldoub>::max() = 1.189731495e+4932
+std::numeric_limits<Doub>::min() = 2.225073859e-308
+std::numeric_limits<Ldoub>::min() = 3.362103143e-4932
+std::numeric_limits<Doub>::epsilon() = 2.220446049e-16
+std::numeric_limits<Ldoub>::epsilon() = 1.084202172e-19
+std::numeric_limits<Doub>::digits10 = 15
+std::numeric_limits<Ldoub>::digits10 = 18
+\end{lstlisting}

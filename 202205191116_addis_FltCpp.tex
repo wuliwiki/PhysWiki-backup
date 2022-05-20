@@ -1,0 +1,59 @@
+% 浮点数测试（C++）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{双精度和变精度浮点数测试（Matlab）\upref{FltMat}}
+
+double 和 “双精度和变精度浮点数测试（Matlab）\upref{FltMat}” 中的结果一样．
+
+g++ 在 64bit 机器上， long double 一般是 64 bit 浮点 + 15 bit 指数， 十进制大约是 18-19 位有效数字． 然而 sizeof 却是 16 字节， 但实际上只使用了不到 10 字节．
+
+\begin{lstlisting}
+sizeof(Doub) = 8
+sizeof(Ldoub) = 16
+
+std::numeric_limits<Doub>::max() = 1.797693135e+308
+std::numeric_limits<Ldoub>::max() = 1.189731495e+4932
+
+std::numeric_limits<Doub>::min() = 2.225073859e-308
+std::numeric_limits<Ldoub>::min() = 3.362103143e-4932
+
+std::numeric_limits<Doub>::denorm_min() = 4.940656458e-324
+std::numeric_limits<Ldoub>::denorm_min() = 3.645199532e-4951
+
+std::numeric_limits<Doub>::epsilon() = 2.220446049e-16
+std::numeric_limits<Ldoub>::epsilon() = 1.084202172e-19
+
+std::numeric_limits<Doub>::digits10 = 15
+std::numeric_limits<Ldoub>::digits10 = 18
+\end{lstlisting}
+
+然而 \verb|sqrt| 函数似乎并不会提高精度（仍然是 16 位）：
+\begin{lstlisting}
+sqrt(2.)       = 1.4142135623730951454
+sqrt(Ldoub(2)) = 1.4142135623730951454
+precise val    = 1.4142135623730950488...
+\end{lstlisting}
+
+
+\subsection{四精度}
+如果想完全利用 16 字节， 见 Boost\upref{Boost} 的 \verb|float128| 类型． 相当于 FORTRAN 的 \verb|QUAD real|． 有 112 bit 小数， 15 bit 指数和 1 bit 正负号（\autoref{FltCpp_fig1} ）．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/FltCpp_1.png}
+\caption{见 Wikipedia }} \label{FltCpp_fig1}
+\end{figure}
+
+\begin{lstlisting}
+FLT128_MAX = +1.18973149535723176509e+4932
+FLT128_MIN = +3.36210314311209350626e-4932
+FLT128_EPSILON = +1.92592994438723585306e-34 // 2e-112
+FLT128_DENORM_MIN = +6.47517511943802511092e-4966
+FLT128_MANT_DIG = +1.13000000000000000000e+02 // 包括正负位
+FLT128_MAX_EXP = +1.63840000000000000000e+04 // 2e14
+FLT128_DIG = +3.30000000000000000000e+01 // 33-34 位十进制有效数字
+\end{lstlisting}
+
