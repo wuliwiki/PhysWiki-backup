@@ -1,0 +1,20 @@
+% 求解任意三角形面积
+% 三角形|算法|行列式|线性代数|数形结合|向量|矩阵|面积
+
+\pentry{矢量叉乘\upref{Cross}}
+
+有些时候我们拿到一个三角形，不知道它的面积如何计算，有些人就会暴力地补成一个矩形，剪掉两个三角形，结果就特别复杂．如果我们学会了线性代数，解决这个问题就异常简单．
+首先需要定义矢量的叉乘．
+\begin{definition}{矢量叉乘} \label{TriAre_def1}
+要确定一个几何矢量，只需分别确定模长和方向．
+
+若$\bvec A \cross \bvec B = \bvec C $
+\begin{enumerate}s
+\item $\bvec C$ 的模长等于 $\bvec A, \bvec B$ 的模长之积与夹角 $\theta$ （$0 \leqslant \theta \leqslant \pi$）的正弦值相乘．
+\begin{equation}\label{TriAre_eq1}
+\abs{\bvec C}  = \abs{\bvec A} \abs{\bvec B} \sin\left<A, B \right>
+\end{equation}
+\item $\bvec C$ 的方向垂直于 $\bvec A, \bvec B$ 所在的平面，且由右手定则\upref{RHRul}决定．
+\end{enumerate}
+\end{definition}
+

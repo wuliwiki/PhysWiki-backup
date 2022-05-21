@@ -1,0 +1,69 @@
+% 求解任意三角形面积
+% 三角形|算法|行列式|线性代数|数形结合|向量|矩阵|面积
+
+\pentry{矢量叉乘\upref{Cross}}
+
+有些时候我们拿到一个三角形，不知道它的面积如何计算，有些人就会暴力地补成一个矩形，剪掉两个三角形，结果就特别复杂．如果我们学会了线性代数，解决这个问题就异常简单．
+首先需要定义矢量的叉乘．
+
+本网站的矢量叉乘\upref{Cross}中\autoref{Cross_def1} （略有改动）：
+\begin{definition}{矢量叉乘} \label{TriAre_def1}
+若$\vec a \cross \vec b = \vec c $
+\begin{enumerate}s
+\item $\vec c$ 的模长等于 $\vec a, \vec b$ 的模长之积与夹角 $\theta$ （$0 \leqslant \theta \leqslant \pi$）的正弦值相乘．
+\begin{equation}\label{TriAre_eq1}
+\abs{\vec c}  = \abs{\vec a} \abs{\vec b} \sin\left<a, b \right>
+\end{equation}
+\item $\vec c$ 的方向垂直于 $\vec a, \vec b$ 所在的平面，且由右手定则\upref{RHRul}决定．
+\end{enumerate}
+\end{definition}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/TriAre_1.png}
+\caption{矢量叉乘与三角形面积} \label{TriAre_fig1}
+\end{figure}
+如\autoref{TriAre_fig1} 所示，
+\begin{equation}
+\begin{aligned}
+\lvert\vec a \cross \vec b\rvert &= \lvert\vec b\rvert \lvert\vec a\rvert\sin\theta \\
+&= \lvert\vec b\rvert BH \\
+&= AC \cdot BH \\
+&= S_{ABCD}
+\end{aligned}
+\end{equation}
+
+所以两个矢量的叉乘大小等于两者夹成的平行四边形的面积．
+\begin{lemma}{行列式计算叉乘}
+用行列式可以计算叉乘：
+\begin{equation}
+\lvert\lvert \begin{bmatrix}
+\uvec i & \uvec j & \uvec k \\
+x_a & y_a & z_a\\
+x_b & y_b & z_b
+\end{bmatrix}\rvert\rvert = \lvert\lvert \vec a \cdot \vec b \rvert\rvert
+\end{equation}
+\end{lemma}
+
+设$A(x_0, y_0), B(x_1, y_1), C(x_2, y_2)$，可得
+\begin{equation}
+\begin{aligned}
+\vec{AB}=\begin{pmatrix}x_1-x_0 \\ y_1-y_0\\0\end{pmatrix}\\
+\vec{AC}=\begin{pmatrix}x_2-x_0 \\ y_2-y_0\\0\end{pmatrix}\\
+\end{aligned}
+\end{equation}
+
+因此:
+\begin{equation}
+\begin{aligned}
+S_{ABCD}&=\lvert\lvert \begin{bmatrix}
+\uvec i & \uvec j & \uvec k \\
+x_1-x_0 & y_1-y_0 & 0\\
+x_2-x_0 & y_2-y_0 & 0
+\end{bmatrix}\rvert\rvert \\
+&= \lvert \begin{bmatrix}
+1 & 1 & 1 \\
+x_1-x_0 & y_1-y_0 & 0\\
+x_2-x_0 & y_2-y_0 & 0
+\end{bmatrix}\rvert
+\end{aligned}
+\end{equation}

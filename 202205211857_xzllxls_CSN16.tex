@@ -1,0 +1,143 @@
+% 2016 年计算机学科专业基础综合全国联考卷
+% 2016 计算机 考研 全国联考
+
+\subsection{一、单项选择题}
+1～40小题，每小题2分，共80分．下列每题给出的四个选项中．只有一个选项符合试题要求．
+
+1．已知表头元素为c的单链表在内存中的存储状态如下表所示．
+\begin{table}[ht]
+\centering
+\caption{第1题表}\label{CSN16_tab1}
+\begin{tabular}{|c|c|c|}
+\hline
+地址 & 元素 & 链接地址 \\
+\hline
+1000H & a & 1010H \\
+\hline
+1004H & b & 100CH \\
+\hline
+1008H & c & 1000H \\
+\hline
+100CH & d & NULL \\
+\hline
+1010H & e & 1004H \\
+\hline
+1014H &   &  \\
+\hline
+\end{tabular}
+\end{table}
+现将f存放于1014H处并插入到单链表中，若f在逻辑上位于a和e之间，则a，e，f的“链接地址”依次是 \\
+A．1010H，1014H，1004H $\qquad$ B．1010H，1004H，1014H \\
+C．1014H，1010H，1004H $\qquad$ D．1014H，1004H，1010H
+
+2．已知一个带有表头结点的双向循环链表L，结点结构为 \\
+\begin{table}[ht]
+\centering
+\caption{第2题表}\label{CSN16_tab2}
+\begin{tabular}{|c|c|c|}
+\hline
+prev & data & next \\
+\hline
+\end{tabular}
+\end{table}
+其中，prev和next分别是指向其直接前驱和直接后继结点的指针．现要删除指针p所指的结点，正确的语句序列是 \\
+A. p->next->prev=p->prev; p->prev->next=p->prev; free (p); \\
+B. p->next->prev=p->next; p->prey-> next=p->next; free (p); \\
+C. p->next->prev=p->next; p->prev->next=p->prev; free (p); \\
+D. p-> next-> prey=p->prey; p->prev->next=p->next; free (p);
+
+3．设有如下图所示的火车车轨，入口到出口之间有n条轨道，列车的行进方向均为从左至右，列车可驶入任意一条轨道．现有编号为1～9的9列列车，驶入的次序依次是8，4，2，5，3，9，1，6，7．若期望驶出的次序依次为1～9，则n至少是 \\
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/CSN16_1.png}
+\caption{第3题图} \label{CSN16_fig1}
+\end{figure}
+A. 2 $\qquad$ B．3 $\qquad$ C．4 $\qquad$ D．5
+
+4．有一个$100$阶的三对角矩阵$M$，其元素$m_{i,j}$($1$≤$i$≤$100$,$1$≤$j$≤$100$)按行优先次序压缩存入下标从$0$开始的一维数组Ⅳ中．元素$m_{30}$,$30$在$N$中的下标是 \\
+A.86 $\qquad$ B．87 $\qquad$ C．88 $\qquad$ D．89
+
+5．若森林F有15条边、25个结点，则F包含树的个数是 \\
+A．8 $\qquad$ B．9 $\qquad$ C．10 $\qquad$ D．11
+
+6．下列选项中，不．是下图深度优先搜索序列的是 \\
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/CSN16_2.png}
+\caption{请添加图片描述} \label{CSN16_fig2}
+\end{figure}
+A．$V_1$，$V_5$，$V_4$，$V_3$，$V_2$ \\
+B．$V_1$，$V_3$，$V_2$，$V_5$，$V_4$ \\
+C．$V_1$，$V_2$，$V_5$，$V_4$，$V_3$ \\
+D．$V_1$，$V_2$，$V_3$，$V_4$，$V_5$
+
+7．若将n个顶点e条弧的有向图采用邻接表存储，则拓扑排序算法的时间复杂度是 \\
+A．$O(n)$ $\qquad$ B．$O(n+e)$ $\qquad$ C．$O(n^2)$ $\qquad$ D．$O(n\times e)$
+
+8．使用迪杰斯特拉(Dijkstra)算法求下图中从顶点1到其他各顶点的最短路径，依次得到的各最短路径的目标顶点是 \\
+A．5，2，3，4，6 $\qquad$ B．5，2，3，6，4 \\
+C．5，2，4，3，6 $\qquad$ D．5，2，6，3，4
+
+9．在有n(n>1000)个元素的升序数组A中查找关键字x．查找算法的伪代码如下所示． \\
+\begin{lstlisting}[language=cpp]
+k=0;
+while(k<n且A[k]<x)k=k+3；
+if(k<n且A[k]==x)查找成功；
+else if(k-1<n且A[k-1]==x)查找成功；
+  else if(k-2<n且A[k-2]==x)查找成功；
+    else查找失败；
+\end{lstlisting}
+本算法与折半查找算法相比，有可能具有更少比较次数的情形是 \\
+A．当x不在数组中 $\qquad$ B．当x接近数组开头处 \\
+C．当x接近数组结尾处 $\qquad$ D．当x位于数组中间位置
+
+10．$B^+$树\textbf{不同}于B树的特点之一是 \\
+A．能支持顺序查找 \\
+B．结点中含有关键字 \\
+C．根结点至少有两个分支 \\
+D．所有叶结点都在同一层上
+
+11．对10TB的数据文件进行排序，应使用的方法是 \\
+A．希尔排序 $\qquad$ B．堆排序 \\
+C．快速排序 $\qquad$ D．归并排序
+
+12．将高级语言源程序转换为机器级目标代码文件的程序是 \\
+A．汇编程序 $\qquad$ B．链接程序 \\
+C．编译程序 $\qquad$ D．解释程序
+
+13．有如下C语言程序段： \\
+\begin{lstlisting}[language=cpp]
+short si=-32767;
+unsigned short usi=si;
+\end{lstlisting}
+执行上述两条语句后，usi的值为
+A．-32767 $\qquad$ B．32767 $\qquad$ C．32768 $\qquad$ D．32769
+
+14．某计算机字长为32位，按字节编址，采用小端(Little Endian)方式存放数据．假定有一个double型变量，其机器数表示为1122 3344 5566 7788H，存放在0000 8040H开始的连续存储单元中，则存储单元0000 8046H中存放的是 \\
+A．22H $\qquad$ B．33H $\qquad$ C．66H $\qquad$ D．77H
+
+15．有如下C语言程序段： \\
+\begin{lstlisting}[language=cpp]
+for(k=0；k<1000；k++)
+  a[k]=a[k]+32；
+\end{lstlisting}
+若数组a及变量k均为int型，int型数据占4 B，数据Cache采用直接映射方式、数据区大小为1 KB、块大小为16 B，该程序段执行前Cache为空，则该程序段执行过程中访问数组a的Cache缺失率约为 \\
+A．1.25％ $\qquad$ B．2.5％ $\qquad$ C．12.5％ $\qquad$ D．25％
+
+16．某存储器容量为64 KB，按字节编址，地址4000H～5FFFH为ROM 区，其余为RAM区．若采用8 K×4位的SRAM芯片进行设计，则需要该芯片的数量是 \\
+A．7 $\qquad$ B．8 $\qquad$ C．14 $\qquad$ D．16
+
+17．某指令格式如下所示．
+\begin{table}[ht]
+\centering
+\caption{第17题表}\label{CSN16_tab3}
+\begin{tabular}{|c|c|c|c|}
+\hline
+OP & M & I & D \\
+\hline
+\end{tabular}
+\end{table}
+其中M为寻址方式，I为变址寄存器编号，D为形式地址．若采用先变址后间址的寻址方式，则操作数的有效地址是 \\
+A．I+D $\qquad$ B．(I)+D $\qquad$ C．((I)+D) $\qquad$ D．((I))+D
+
+

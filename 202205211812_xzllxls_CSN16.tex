@@ -1,0 +1,58 @@
+% 2016 年计算机学科专业基础综合全国联考卷
+% 2016 计算机 考研 全国联考
+
+\subsection{一、单项选择题}
+1～40小题，每小题2分，共80分．下列每题给出的四个选项中．只有一个选项符合试题要求．
+
+1．已知表头元素为c的单链表在内存中的存储状态如下表所示．
+\begin{table}[ht]
+\centering
+\caption{第1题表}\label{CSN16_tab1}
+\begin{tabular}{|c|c|c|}
+\hline
+地址 & 元素 & 链接地址 \\
+\hline
+1000H & a & 1010H \\
+\hline
+1004H & b & 100CH \\
+\hline
+1008H & c & 1000H \\
+\hline
+100CH & d & NULL \\
+\hline
+1010H & e & 1004H \\
+\hline
+1014H &   &  \\
+\hline
+\end{tabular}
+\end{table}
+现将f存放于1014H处并插入到单链表中，若f在逻辑上位于a和e之间，则a，e，f的“链接地址”依次是 \\
+A．1010H，1014H，1004H $\qquad$ B．1010H，1004H，1014H \\
+C．1014H，1010H，1004H $\qquad$ D．1014H，1004H，1010H
+
+2．已知一个带有表头结点的双向循环链表L，结点结构为 \\
+\begin{table}[ht]
+\centering
+\caption{第2题表}\label{CSN16_tab2}
+\begin{tabular}{|c|c|c|}
+\hline
+prev & data & next \\
+\hline
+\end{tabular}
+\end{table}
+其中，prev和next分别是指向其直接前驱和直接后继结点的指针．现要删除指针p所指的结点，正确的语句序列是 \\
+A. p->next->prev=p->prev; p->prev->next=p->prev; free (p); \\
+B. p->next->prev=p->next; p->prey-> next=p->next; free (p); \\
+C. p->next->prev=p->next; p->prev->next=p->prev; free (p); \\
+D. p-> next-> prey=p->prey; p->prev->next=p->next; free (p);
+
+3．设有如下图所示的火车车轨，入口到出口之间有n条轨道，列车的行进方向均为从左至右，列车可驶入任意一条轨道．现有编号为1～9的9列列车，驶入的次序依次是8，4，2，5，3，9，1，6，7．若期望驶出的次序依次为1～9，则n至少是 \\
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/CSN16_1.png}
+\caption{第3题图} \label{CSN16_fig1}
+\end{figure}
+A. 2 $\qquad$ B．3 $\qquad$ C．4 $\qquad$ D．5
+
+4．有一个$100$阶的三对角矩阵$M$，其元素$m_{i,j}$($1$≤$i$≤$100$，$1$≤$j$≤$100$)按行优先次序压缩存入下标从0开始的一维数组$Ⅳ$中．元素$m_{30}$,$30$在$N$中的下标是 \\
+A.86 $\qquad$ B．87 $\qquad$ C．88 $\qquad$ D．89
