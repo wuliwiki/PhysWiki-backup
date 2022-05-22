@@ -1,0 +1,36 @@
+% SLISC 的 bit 工具
+
+\pentry{SLISC 库概述\upref{SLISC}}
+\footnote{参考 \cite{NR3}}这里给出一些可以读取和操作单个比特的工具函数， 它们定义在 SLISC0 库中 \verb|Bit.h| 中．
+
+\begin{itemize}
+\item \verb|Bool little_endian()| 检测系统是否为 little endian
+\item \verb|void change_endian(Char *data, Long_I elm_size, Long_I Nelm)| 切换 endian
+\item \verb|Uchar bit2uchar(Char_I c)| 把 Char 变为 Uchar， 每个 bit 不变
+\item \verb|Char bit2char(Uchar_I uc)|
+\item \verb|Bool bitR(Char_I byte, Int_I i)| extract a bit at the i-th place from the right
+\item \verb|Bool bitR(const Char *byte, Int_I i)|
+\item \verb|Bool bitL(Char_I byte, Int_I i)|
+\item \verb|Bool bitL(const Char *byte, Int_I i)|
+\item \verb|void set_bitR(Char_IO byte, Int_I i)| set i-th bit from the right
+\item \verb|void set_bitR(Char *byte, Int_I i)|
+\item \verb|void set_bitL(Char_IO byte, Int_I i)|
+\item \verb|void set_bitL(Char *byte, Int_I i)|
+\item \verb|void unset_bitR(Char_IO byte, Int_I i)| unset i-th bit from the right
+\item \verb|void unset_bitR(Char *byte, Int_I i)|
+\item \verb|void unset_bitR(Char *byte, Int_I i)|
+\item \verb|void unset_bitL(Char_IO byte, Int_I i)|
+\item \verb|void unset_bitL(Char *byte, Int_I i)|
+\item \verb|void toggle_bitR(Char_IO byte, Int_I i)| change the i-th bit from the right
+\item \verb|void toggle_bitR(Char *byte, Int_I i)|
+\item \verb|void toggle_bitL(Char_IO byte, Int_I i)|
+\item \verb|void toggle_bitL(Char *byte, Int_I i)|
+\item \verb|Str to_bitstr(Char_I byte)| convert a byte to bit string (8 char '0' or '1')
+\item \verb|Str to_bitstr(const void *byte, Int_I Nbyte = 1, Bool add_space = true, Bool auto_endian = false)| convert memory to bit string
+\item \verb|Char str2bit(Str_I str)| convert each char to a bit, '0' is 'false', otherwise 'true'; also consider to use binary literal e.g. \verb`Char(10100101b)`
+\item \verb|Int baseN2Int(const Uchar *p, Int_I N, Int_I base)| convert any base (up to 256) to integer (little endian)
+\item \verb|void Int2baseN(Uchar *p, Int_I N, Int_I base, Int_I n)| convert integer to any base (little endian)
+\item \verb|Char b85(Long_I i)| convert 4 bytes to one of the 85 character sets that can be typed by keyboard and easy to distinguish
+\item \verb||
+\end{itemize}
+
