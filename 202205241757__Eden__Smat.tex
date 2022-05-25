@@ -1,0 +1,17 @@
+% 散射理论与S矩阵
+% 相互作用场论|散射|S矩阵|费曼散射振幅
+\pentry{相互作用表象\upref{Ipic}}
+
+现在我们在相互作用表象中讨论形式散射理论，方便起见，设参考时间 $t_0=0$．在一般的散射问题中，入射粒子和出射粒子实际上是一系列波包，当 $t\rightarrow \pm\infty$ 时，我们假设不同的粒子间相互远离而导致它们之间的相互作用趋于 $0$．\footnote{在量子场论中问题会更加复杂，即使一个粒子与其他粒子完全远离，它与自己仍然存在自相互作用．只要允许相应的虚过程，单粒子与自身的相互作用是无法通过“绝热的方法”消去的．我们在后面会进一步讨论这个问题．}
+
+设 $|\phi_{in/out,\alpha}\rangle=|\psi_\alpha^{\pm}(\mp \infty)\rangle^I$ 是一系列自由单粒子态的直积，分别代表入射粒子和出射粒子，$E_\alpha$ 是它们对应的自由哈密顿量 $H_0$ 的本征值，并且所有的 $|\phi_\alpha\rangle$ 构成 Hilbert 空间的一组完备基矢．在相互作用表象下 $|\phi_{in/out,\alpha}\rangle$ 随时间分别演化到  $|\psi_\alpha^{(\pm)}\rangle=|\psi_\alpha^{(\pm)}(0)\rangle^I$．
+我们称 $|\psi_\alpha^{+}\rangle$ 为入态，$|\psi_\alpha^{-}\rangle$ 为出态． 它们之间有以下的关系：
+
+\begin{equation}
+\begin{aligned}
+&|\psi_\alpha^{+}(-\infty)\rangle^I=|\phi_{in,\alpha}\rangle,|\psi_\alpha^{+}(0)\rangle^I=|\psi_\alpha^{+}\rangle\\
+&|\psi_\alpha^{-}(+\infty)\rangle^I=|\phi_{out,\alpha}\rangle,|\psi_\alpha^{-}(0)\rangle^I=|\psi_\alpha^{-}\rangle\\
+&|\psi_\alpha^+\rangle=U_I(0,-\infty)|\phi_{in,\alpha}\rangle = \Omega^{(+)} |\phi_{in,\alpha}\rangle,
+|\psi_\alpha^-\rangle=U_I(0,+\infty)|\phi_{out,\alpha} \rangle = \Omega^{(-)} |\phi_{out,\alpha}\rangle
+\end{aligned}
+\end{equation}
