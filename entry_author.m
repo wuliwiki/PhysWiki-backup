@@ -26,6 +26,9 @@ for i = 2:N
 end
 for i = 1:N
     data{i, 3} = num2str(data{i, 3});
+    if strcmp(data{i,2}, 'bibliography')
+        data{i,2} = 'biblio';
+    end
 end
 
 str = [char(data(:,2)), repmat(' ',N,1), char(data(:,3)), repmat(' ',N,1), char(data(:,1))];
