@@ -8,7 +8,7 @@
 
 double 和 “双精度和变精度浮点数测试（Matlab）\upref{FltMat}” 中的结果一样．
 
-g++ 在 64bit 机器上， \textbf{long double} 一般是 64 bit 浮点 + 15 bit 指数， 十进制大约是 18-19 位有效数字\footnote{Visual Studio 中据说 long double 和 double 是一样的．}． 然而 sizeof 却是 16 字节， 但实际上只使用了不到 10 字节．
+在 x86 机器上， \verb|long double| 一般是 1 bit 指数 + 15 bit 指数 + 64 bit 小数 = 80 bit， 十进制大约是 18-19 位有效数字\footnote{Visual Studio 中据说 long double 和 double 是一样的．}． 虽然 \verb|sizeof| 是 16 字节， 但实际上只使用了 10 字节\footnote{详见\href{https://en.wikipedia.org/wiki/Extended_precision}{这里} 的 x86 extended precision format 一节}． \verb|long double| 的运算是硬件支持的， 所以比较快．
 
 \begin{lstlisting}
 sizeof(Doub) = 8
@@ -69,7 +69,7 @@ double sqrt(-1.) (NaN):
 其中 \verb|denorm_min()| 比较特殊， 当指数 bit 全为 0 的时候， 指数为 \verb|-1022| 而不是 \verb|-1023|， 且小数部分前面不加 1． 这叫做 \verb|denominize|．
 
 \subsection{四精度}
-使用四精度比使用任意精度类型（如 MPFR 或 Flint 库）要快得多， 因为任意精度浮点数是动态分配内存的．
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Quadruple-precision_floating-point_format}{相关页面}．}使用四精度比使用任意精度类型（如 MPFR 或 Flint 库）要快得多， 因为任意精度浮点数是动态分配内存的．
 
 如果想完全利用 16 字节， 见 GCC/g++ 编译器的 \verb|__float128| 类型（\href{https://gcc.gnu.org/onlinedocs/gcc-8.1.0/libquadmath.pdf}{文档}）． 相当于 FORTRAN 的 \verb|QUAD real|． 有 112 bit 小数， 15 bit 指数和 1 bit 正负号（\autoref{FltCpp_fig1} ）． 实测的 bit 表示和上面二进制的同理（也存在两个奇怪的地方）．
 
