@@ -1,0 +1,32 @@
+% 中心极限定理
+% 统计|随机变量|方差|高斯分布|中心极限定理
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{高斯分布\upref{GausPD}}
+
+若 $N$ 个独立的连续随机变量 $x_i$ 的平均值为 $\mu$， 方差为 $\sigma^2$， 令 $X = \sum_i^N x_i$， 当 $N \to \infty$ 时， $X$ 满足高斯分布， 平均值为
+\begin{equation}
+\ev{X} = N\mu
+\end{equation}
+且方差为
+\begin{equation}
+\ev{X^2} = N\sigma^2
+\end{equation}
+即分布函数趋近于
+\begin{equation}
+f(X) = N(N\mu, N\sigma^2) = \frac{1}{\sigma\sqrt{2\pi N}} \exp[-\frac{(X-N\mu)^2}{2N\sigma^2}]
+\end{equation}
+证明略．
+
+令平均值 $\bar x = X/N$， 那么 $N\to\infty$ 时 $\bar x\sim N(\mu, \sigma^2/N)$（\autoref{RandCV_ex1}~\upref{RandCV}）．
+
+\begin{example}{抛硬币}
+我们都知道一枚公平的硬币， 若抛许多次， 那么正反的比例大约是 1:1． 那么若把某次实验的结果中， 前 $N$ 次中正面向上所占的比例记为 $f(N)$， 那么 $f(N)$ 是否满足以下极限呢？
+\begin{equation}
+\lim_{N\to\infty} f(N) = \frac{1}{2} \qquad (\text{误})
+\end{equation}
+
+\end{example}
