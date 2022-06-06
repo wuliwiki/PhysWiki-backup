@@ -1,0 +1,146 @@
+% 本原元素与单代数扩张
+% primitive element|可分扩张|域|多项式|本原元定理|单扩张|有限扩张|代数扩张|域扩张
+
+\pentry{可分扩张\upref{SprbEx}}
+
+%primitive element
+
+有限扩张都是代数扩张，其中最简单的是单代数扩张，因为只需要添加一个元素就可以生成．而我们加下来讨论的“本原元定理”，就准确地描述了哪些有限扩张是单扩张．
+
+\begin{definition}{本原元}
+
+设$\mathbb{K}/\mathbb{F}$是有限次的域扩张，如果存在$a\in\mathbb{K}$使得$\mathbb{K}=\mathbb{F}(a)$，则称$a$是域扩张$\mathbb{K}/\mathbb{F}$的\textbf{本原元素（primitive element）}，或者说是$\mathbb{K}$对$\mathbb{F}$的本原元素，简称本原元．
+
+\end{definition}
+
+下面给出一个引理，有助于理解和证明本原元定理．事实上，这个引理正是本原元定理的其中一个方向的核心思路．
+
+
+\begin{lemma}{}\label{PrmtEl_lem1}
+设$\mathbb{K}=\mathbb{F}(a, b)$，$\mathbb{F}$是\textbf{无限域}，且$\mathbb{K}/\mathbb{F}$只有\textbf{有限多个中间域}，那么必存在$x\in\mathbb{K}$使得$\mathbb{K}=\mathbb{F}(x)$．
+\end{lemma}
+
+\textbf{证明}：
+
+任取$c\in\mathbb{F}$，构造单扩域$\mathbb{K}_c=\mathbb{F}(a+cb)$．
+
+由于$\mathbb{F}\subseteq\mathbb{F}(a+cb)\subseteq\mathbb{K}$，因此$\mathbb{K}_c$的数量有限．但$\mathbb{F}$是无限域，因此必存在\textbf{不相等}的$c_1, c_2\in\mathbb{F}$，使得$\mathbb{K}_{c_1}=\mathbb{K}_{c_2}$，把它们都记为$\mathbb{E}$．
+
+考虑域的封闭性．$a+c_1b$和$a+c_2b$都在$\mathbb{E}$中，故其差$(c_1-c_2)b$也在其中．因为$c_1, c_2$都在$\mathbb{F}$中，故$b$应在$\mathbb{E}$中，进而$a$也在$\mathbb{E}$中．于是$\mathbb{K}=\mathbb{F}(a, b)\subseteq\mathbb{E}$．
+
+又因为$\mathbb{E}=\mathbb{F}(a+c_1b)\subseteq\mathbb{F}(a, b)=\mathbb{K}$，故$\mathbb{E}=\mathbb{K}$．
+
+即，取$x=a+c_1b$即得证．
+
+
+
+\textbf{证毕}．
+
+
+为了直观理解\autoref{PrmtEl_lem1} ，我们举一个例子：
+
+\begin{example}{}
+
+考虑有理数域$\mathbb{Q}$和$\mathbb{K}=\mathbb{Q}(\sqrt{2}, \sqrt{3})$．显然，这两个域之间的中间域只有$\mathbb{Q}$、$\mathbb{Q}(\sqrt{2})$、$\mathbb{Q}(\sqrt{3})$、$\mathbb{Q}(\sqrt{6})$和$\mathbb{K}$这几个．
+
+存在不相等的有理数$1$和$2$，使得$\mathbb{Q}(\sqrt{2}+\sqrt{3})=\mathbb{Q}(\sqrt{2}+2\sqrt{3})$．因此按照\autoref{PrmtEl_lem1} ，$\mathbb{K}=\mathbb{Q}(\sqrt{2}+\sqrt{3})$．
+
+验证一下：$(\sqrt{2}+\sqrt{3})^2-5=2\sqrt{6}$，因此$\sqrt{6}\in\mathbb{Q}(\sqrt{2}+\sqrt{3})$．$(\sqrt{6}-2)(\sqrt{2}+\sqrt{3})=\sqrt{2}$，因此$\sqrt{2}\in\mathbb{Q}(\sqrt{2}+\sqrt{3})$．接着很容易证明$\sqrt{3}$也在这个域中，从而这个域就是$\mathbb{Q}(\sqrt{2}, \sqrt{3})$本身．
+
+\end{example}
+
+
+\begin{corollary}{}\label{PrmtEl_cor1}
+设$\mathbb{K}=\mathbb{F}(a_1, \cdots, a_n)$，$\mathbb{F}$是\textbf{无限域}，且$\mathbb{K}/\mathbb{F}$只有\textbf{有限多个中间域}，那么必存在$x\in\mathbb{K}$使得$\mathbb{K}=\mathbb{F}(x)$．
+\end{corollary}
+
+\textbf{证明}：
+
+由\autoref{PrmtEl_lem1} ，$\mathbb{F}(a_1, a_2)$是单扩张，可以写为$\mathbb{F}(x_2)$．于是，$\mathbb{F}(a_1, a_2, a_3)=\mathbb{F}(x_2, a_3)$也是单扩张，可写为$\mathbb{F}(x_3)$．以此类推即得证．
+
+\textbf{证毕}．
+
+
+理解了\autoref{PrmtEl_lem1} 和\autoref{PrmtEl_cor1} ，我们就可以更方便地讨论本原元定理了．
+
+
+
+
+\begin{theorem}{本原元定理}\label{PrmtEl_the1}
+
+设$\mathbb{K}/\mathbb{F}$是有限次的域扩张，则
+
+$\mathbb{K}/\mathbb{F}$是单扩张 $\iff$ $\mathbb{K}/\mathbb{F}$的中间域\footnote{见\autoref{FldExp_the3}~\upref{FldExp}证明后的一句讨论．}只有有限多个．
+
+\end{theorem}
+
+\textbf{证明}：
+
+$\mathbb{F}$是有限域时，由\autoref{FntFld_cor1}~\upref{FntFld}，两个条件恒成立．因此下面只考虑$\mathbb{F}$是无限域的情况．
+
+$\Leftarrow$：
+
+有限扩张一定是代数扩张（\autoref{FldExp_cor1}~\upref{FldExp}），即存在正整数$n$和$n$个$a_i\in\mathbb{K}$，使得$\mathbb{K}=\mathbb{F}(a_1, \cdots, a_n)$．于是，由\autoref{PrmtEl_cor1} 立刻得证．
+
+$\Rightarrow$：
+
+现在已知$\mathbb{K}=\mathbb{F}(a)$．设$a$在$\mathbb{F}$上的最小多项式为$f$．对于$\mathbb{K}/\mathbb{F}$任意中间域$\mathbb{M}$，设$a$在$\mathbb{M}$上的最小多项式为$f_\mathbb{M}$，则必有$f_{\mathbb{M}}\mid f$．
+
+$f_\mathbb{M}(x)$在$\mathbb{M}\subseteq\mathbb{K}$上展开为
+\begin{equation}
+f_\mathbb{M} = \sum_{i=0}^n m_ix^i
+\end{equation}
+若设$\mathbb{M}'=\mathbb{F}(m_0, m_1, \cdots, m_n)$，那么显然$\mathbb{M}'\subseteq\mathbb{M}$，进而$f_\mathbb{M}$也是$\mathbb{M}'$上的不可约多项式，或者说$a$的最小多项式．
+
+由\autoref{FldExp_the1}~\upref{FldExp}，$[\mathbb{K}:\mathbb{M}]=\opn{deg}f_\mathbb{M}=n$，$[\mathbb{K}:\mathbb{M}']=\opn{deg}f_\mathbb{M}=n$，因此由\autoref{FldExp_the3}~\upref{FldExp}，
+\begin{equation}
+[\mathbb{M}:\mathbb{M}']=\frac{[\mathbb{K}:\mathbb{M}']}{[\mathbb{K}:\mathbb{M}]}=\frac{n}{n}=1
+\end{equation}
+故$\mathbb{M}=\mathbb{M}'$．
+
+也就是说，中间域$\mathbb{M}$由$f_\mathbb{M}$（的系数）唯一决定，不可能有两个不同的中间域对应同一个$f_{\mathbb{M}}$．但由于$f_\mathbb{M}\mid f$，知$f_\mathbb{M}$的数量有限，知中间域的数量也有限．
+
+\textbf{证毕}．
+
+本原元定理\autoref{PrmtEl_the1} 给出了判断有限扩张是否为单扩张的充要条件，但实际应用中有一个麻烦：证明中间域的数量是很难的．下面举一个例子来体现这一点，和\autoref{SprbEx_ex1}~\upref{SprbEx}构造的思路一样．
+
+\begin{example}{}
+考虑$\mathbb{Z}_p$上全体\textbf{二元有理式\footnote{有理式即分子分母是多项式的分式．}}构成的域，记为$\mathbb{Z}_p(x, y)$．也可以理解为，$x, y$是$\mathbb{Z}_p$的两个超越元．当然，我们不考虑域扩张$\mathbb{Z}_p(x, y)/\mathbb{Z}_p$，因为这是超越扩张，不在我们讨论范围内．
+
+我们讨论的是$\mathbb{Z}_p(x, y)/\mathbb{Z}_p(x^p, y^p)$．
+
+$\mathbb{Z}_p(x, y)$作为$\mathbb{Z}_p(x^p, y^p)$的线性空间，基向量组为$\{x^iy^j\mid i, j=0, 1, 2, \cdots, p-1\}$．
+\end{example}
+
+\begin{corollary}{}
+设$\mathbb{K}=\mathbb{F}(a, b)$是域$\mathbb{F}$的代数扩张，且$a$和$b$都是$\mathbb{F}$上的\textbf{可分元素}，则$\mathbb{K}/\mathbb{F}$是单代数扩张．
+\end{corollary}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
