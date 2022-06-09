@@ -1,0 +1,44 @@
+% 化一般常微分方程组为标准方程组（常微分方程）
+% 一般常微分方程|标准方程组
+
+\pentry{基本知识（常微分方程）\upref{ODEPr}}
+如\autoref{ODEPr_sub1}~\upref{ODEPr}所说，存在及唯一定理是对标准常微分方程组所证明的，而一般常微分方程组都可化为这一方程组，本节就来给出这一转化程序．
+
+\subsection{一个常微分方程化为标准微分方程}
+在仅含一个常微分方程的情形，即将一般常微分方程
+\begin{equation}\label{GO2SOD_eq1}
+F(x,y,y',\cdots,y^{(n)})=0
+\end{equation}
+化为具有标准常微分方程组的形式：
+\begin{equation}\label{GO2SOD_eq3}
+y_i'=f_i(x,y_i,\cdots,y_m),\quad i=1,\cdots,m
+\end{equation}
+
+我们总可以从方程\autoref{GO2SOD_eq1} 的已解出最高阶导数的方程开始，即
+\begin{equation}\label{GO2SOD_eq2}
+y^{(n)}=f(x,y,y',\cdots,y^{(n-1)})
+\end{equation}
+这是因为，从\autoref{GO2SOD_eq1} 到\autoref{GO2SOD_eq2} 的过程不属于微分方程领域，而属于函数论领域．这一过程中，某些问题被归结为微分方程领域，比如\autoref{GO2SOD_eq1} 中关于 $y^{(n)}$ 是二次的，因此 $y^{(n)}$ 是其余变量的二值函数(假设这二值不同)，实际上得到的是两个形如\autoref{GO2SOD_eq2} 的微分方程 $y_1^{(n)},y_2^{(n)}$．但是，\autoref{GO2SOD_eq3} 将 $y_1,y_2$ 并在一起了，这就需要讨论\autoref{GO2SOD_eq1} ．关于这种方程的研究，引向微分方程的\textbf{奇解}概念，而我们并不讨论这一问题．故这里只需记住，从\autoref{GO2SOD_eq1} 总能获得\autoref{GO2SOD_eq2} ．
+\begin{theorem}{}
+方程
+\begin{equation}
+y^{(n)}=f(x,y,y',\cdots,y^{(n-1)})
+\end{equation}
+与标准方程组
+\begin{equation}
+\leftgroup{
+&y_1'=y_2\\
+&y_2'=y_3\\
+&\cdots\\
+&y_{n-1}'=y_n\\
+&y_n'=f(x,y_1,\cdots,y_n)
+}
+\end{equation}
+等价.
+
+其中，
+\begin{equation}
+y_1=y,\;y_2=y',\;\cdots,\;y_n=y^{(n-1)}
+\end{equation}
+
+\end{theorem}

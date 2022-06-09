@@ -1,0 +1,20 @@
+% 化一般常微分方程组为标准方程组（常微分方程）
+% 一般常微分方程|标准方程组
+
+\pentry{基本知识（常微分方程）\upref{ODEPr}}
+如\autoref{ODEPr_sub1}~\upref{ODEPr}所说，存在及唯一定理是对标准常微分方程组所证明的，而一般常微分方程组都可化为这一方程组，本节就来给出这一转化程序．
+
+\subsection{一个常微分方程化为标准微分方程}
+在仅含一个常微分方程的情形，即将一般常微分方程
+\begin{equation}\label{GO2SOD_eq1}
+F(x,y,y',\cdots,y^{(n)})=0
+\end{equation}
+化为具有标准常微分方程组的形式：
+\begin{equation}
+y_i'=f_i(x,y_i,\cdots,y_m),\quad i=1,\cdots,m
+\end{equation}
+我们总可以从方程\autoref{GO2SOD_eq1} 的已解出最高阶导数的方程开始，即
+\begin{equation}
+y^{(n)}=f(x,y,y',\cdots,y^{(n-1)})
+\end{equation}
+这是因为，从一般的微分方程
