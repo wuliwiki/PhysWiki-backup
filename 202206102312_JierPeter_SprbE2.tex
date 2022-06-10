@@ -1,0 +1,65 @@
+% 可分元素的单扩张是可分扩张
+% 可分扩张|分裂域|域单同态|域嵌入
+
+\pentry{待定}
+
+\subsection{定理的描述}
+
+本词条是专门用来证明下述\autoref{SprbE2_the1} 的，其自然语言的描述即是本词条的标题．
+
+\begin{theorem}{}\label{SprbE2_the1}
+域$\mathbb{F}$上的不可约可分多项式$f(x)$的分裂域$\mathbb{K}$是$\mathbb{F}$的可分扩张．
+\end{theorem}
+
+考虑\autoref{SpltFd_cor2}~\upref{SpltFd}，我们还可以得到上述\autoref{SprbE2_the1} 的等价描述：
+
+\begin{theorem}{}
+如果$a$是域$\mathbb{F}$的可分元素，那么$\mathbb{F}(a)/\mathbb{F}$是可分扩张．
+\end{theorem}
+
+
+
+\subsection{定理的证明\footnote{该证明的思路取自University of Connecticut的Keith Conrad教授的讲义．}}
+%证明思路来源：https://kconrad.math.uconn.edu/blurbs/galoistheory/separable1.pdf
+
+\begin{lemma}{}\label{SprbE2_lem1}
+设$\mathbb{L}/\mathbb{K}$是一个域扩张，且$[\mathbb{L}:\mathbb{K}]=n$．设$\sigma:\mathbb{K}\to\mathbb{F}$是一个域单同态．
+
+则：
+
+1. $\sigma$开拓而得的域单同态$\mathbb{L}\to\mathbb{F}$的数量\textbf{小于等于}$n$．
+
+2. 如果$\mathbb{L}/\mathbb{K}$是\textbf{不可分}扩张，则$\sigma$开拓而得的域单同态$\mathbb{L}\to\mathbb{F}$的数量\textbf{小于}$n$．
+
+3. 如果$\mathbb{L}/\mathbb{K}$是\textbf{可分}扩张，则存在扩域$\mathbb{F}'/\mathbb{F}$，使得$\sigma$开拓而得的域单同态$\mathbb{L}\to\mathbb{F}'$的数量\textbf{等于}$n$．
+
+\end{lemma}
+
+
+
+
+\subsubsection{\autoref{SprbE2_lem1} 中1. 的证明}
+
+我们用数学归纳法来处理．
+
+显然，当$n=1$时，$\mathbb{L}=\mathbb{K}$，定理成立．下设$n>1$，且对于任意域扩张$\mathbb{L}'/\mathbb{K}$，只要扩张次数小于$n$则定理成立．
+
+注意，单同态就是定义域和象的同构．
+
+取$a\in\mathbb{L}-\mathbb{K}$，$a$在$\mathbb{K}$上的最小多项式是$f$．则$f(x)\in\mathbb{K}[x]$的分裂域是$\mathbb{K}(a)\subseteq\mathbb{L}$．据\autoref{SpltFd_the1}~\upref{SpltFd}，$\sigma$开拓为$\mathbb{K}(a)\to\mathbb{F}$的同态数量
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
