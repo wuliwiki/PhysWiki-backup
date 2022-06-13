@@ -1,0 +1,40 @@
+% 埃尔米特型
+% 埃尔米特型|Hermitian|正定埃尔米特型
+
+\pentry{半双线性形式\upref{sequil}}
+\begin{definition}{埃尔米特型}
+称半双线性型是\textbf{埃尔米特型}（Hermitian），若
+\begin{equation}\label{HeFor_eq2}
+f(\bvec y,\bvec x)=\overline{f(\bvec x,\bvec y)}
+\end{equation}
+其中横线表共轭复数．
+\end{definition}
+\begin{example}{}
+试证明埃尔米特型 $f$ 对应的矩阵 $F$ 的系数满足 $f_{ij}=\overline f_{ji}$．其中 $f_{ij}=f(\bvec e_i,\bvec e_j)$．这就是说 $F^*=F$，其中 $F^*=\overline {F^T}$
+\end{example}
+\begin{example}{埃尔米特矩阵在不同基底之下的性质}
+设 $F,F'$ 分别是埃尔米特型 $f$ 在基底 $\bvec e_i$ 和 $\bvec e'_i$ 下对应的矩阵，试证明 $F'=A^TF\overline A$，其中 $A$ 是基底 $\bvec e_i$ 到 $\bvec e'_i$ 的转换矩阵．
+
+\textbf{证：}对任意双线性型 $g$ ，其满足关系
+\begin{equation}
+\begin{aligned}
+&g(\bvec x,\bvec y)=\sum_{i,j}x_i y_j g_{ij}=X^TGY,\\
+&X=(x_1,\cdots,x_n),\quad Y=(y_1,\cdots,y_n)
+\end{aligned}
+\end{equation}
+而对半双线性型 $f$，则是
+\begin{equation}\label{HeFor_eq1}
+\begin{aligned}
+&f(\bvec x,\bvec y)=\sum_{i,j}x_i \overline y_j f_{ij}=X^TF\overline Y,\\
+&X=(x_1,\cdots,x_n),\quad Y=(y_1,\cdots,y_n)
+\end{aligned}
+\end{equation}
+于是对半双线性型成立
+\begin{equation}
+X^TF\overline{Y}=(AX')^TF\overline{(AY')}={X'}^T(A^TF\overline A)\overline{Y'}
+\end{equation}
+又 $X^T F\overline Y=X'^TF'\overline{Y'}$，对比即得
+\begin{equation}
+F'=A^TF\overline A
+\end{equation}
+\end{example}
