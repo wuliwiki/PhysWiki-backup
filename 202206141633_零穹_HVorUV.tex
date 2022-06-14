@@ -1,0 +1,72 @@
+% 埃尔米特矢量空间（酉空间）
+% 埃尔米特矢量空间|酉空间|施瓦茨不等式
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\pentry{欧几里得矢量空间\upref{EuVS}}
+$\mathbb{R}$ 上的欧几里得矢量空间的度量关系完全可由纯量积来刻画，这成为在复数域 $\mathbb{C}$ 上的矢量空间中引入纯量乘积的刺激因素．然而，在复矢量空间的情形，使用标准双线性型 $s(\bvec x,\bvec y)=\sum_{i}x_iy_i\;x_i,y_i\in\mathbb{C}$ 作为纯量积并不能胜任此任务，因为对 $\norm{x}\geq0$，模
+\begin{equation}
+\norm{\I\bvec x}=\sqrt{s(\I\bvec x,\I\bvec x)}=-\norm{\bvec x}\leq0
+\end{equation}
+要是想利用直观的矢量长度的概念，上面的纯量乘积定义显然是不能接受的．但是，使用正定的埃米尔特型（\autoref{HeFor_def1}~\upref{HeFor}）作为纯量乘积的定义却是适合的．
+\subsection{埃尔米特矢量空间（酉空间）}
+\begin{definition}{}
+域 $\mathbb{C}$ 上一个有限维矢量空间 $V$ 配备一个正定埃尔米特型$(\bvec x|\bvec y):=f(\bvec x|\bvec y)$，则称为\textbf{埃尔米特矢量空间}（或\textbf{酉空间}）．复数 $(\bvec x|\bvec y)$ 称为是矢量 $\bvec x,\bvec y\in V$ 的\textbf{纯量积}（或\textbf{内积}）．
+\end{definition}
+列出纯量积的性质：
+\begin{enumerate}
+\item $(\bvec x|\bvec y)=\overline{(\bvec x|\bvec y)}$；
+\item $(\alpha\bvec x+\beta\bvec y|\bvec z)=\alpha^*(\bvec x|\bvec z)+\beta(\bvec y|\bvec z)$；
+\item $(\bvec x|\bvec x)\geq0$，仅当 $\bvec x=\bvec 0$ 时等式成立．
+\end{enumerate}
+
+这里，仍用 $(*|*)$ 表示纯量乘积，是因为将矢量空间限制在实数域上以上性质仍成立，并不会发生任何矛盾．
+
+有了纯量乘积的定义以后，和欧几里得矢量空间情形完全类似的，在埃尔米特空间，有
+\begin{definition}{模}
+称 $\norm{\bvec v}=\sqrt{(\bvec v|\bvec v)}$ 为矢量 $\bvec v$ 的\textbf{模}．
+\end{definition} 
+\begin{theorem}{施瓦茨不等式}
+\begin{equation}\label{HVorUV_eq1}
+\abs{(\bvec x|\bvec y)}\leq \norm{\bvec x}\cdot \norm{\bvec y}
+\end{equation}
+仅当 $\bvec y=\lambda\bvec x,\lambda\in\mathbb{C}$ 时，等式成立．
+\end{theorem}
+\textbf{证明：}将复数记为指数形式，即 $(\bvec x|\bvec y)=\abs{(\bvec x|\bvec y)}\E^{\I \varphi}$．那么由纯量乘积的正定性，对 $\forall t\in\mathbb{R}$
+\begin{equation}
+\begin{aligned}
+&(\bvec x t+\bvec y\E^{-\I\varphi}|\bvec x t+\bvec y\E^{-\I\varphi})\\
+&=\norm{\bvec x}^2t^2+\qty((\bvec x|\bvec y)\E^{-\I\varphi}+\overline{(\bvec x|\bvec y)}\E^{\I\varphi})t+\norm{\bvec y}^2\\
+&=\norm{\bvec x}^2t^2+2\abs{(\bvec x|\bvec y)}t+\norm{\bvec y}^2\geq0
+\end{aligned}
+\end{equation}
+由判别式即得\autoref{HVorUV_eq1} ．
+
+\textbf{证毕！}
+\begin{corollary}{三角不等式}
+\begin{equation}\label{HVorUV_eq2}
+\norm{\bvec x\pm\bvec y}\leq\norm{\bvec x}+\norm{\bvec y}
+\end{equation}
+\end{corollary}
+证明完全和欧氏矢量空间一样（\autoref{EuVS_cor1}~\upref{EuVS}）．
+\begin{example}{}
+在 $\mathbb{C}$ 上的矢量空间 $C_2(a,b)$ (\autoref{EuVS_ex1}~\upref{EuVS}) 和 $P_n$ 上附加纯量乘积
+\begin{equation}
+(f|g)=\int_a^{b}f(x)\overline{g(x)}\dd x
+\end{equation}
+显然是个埃尔米特空间．利用\autoref{HVorUV_eq2} ，即得
+\begin{equation}
+\sqrt{\int_a^b\abs{f(x)\pm g(x)}^2\dd x}\leq\sqrt{\int_a^b\abs{f(x)}^2\dd x}+\sqrt{\int_a^b\abs{g(x)}^2\dd x}
+\end{equation}
+\end{example}
+由\autoref{HVorUV_eq1} ，存在唯一角 $\varphi,0\leq\varphi\leq\frac{\pi}{2}$ 使得
+\begin{equation}
+\cos\varphi=\frac{\abs{(\bvec x|\bvec y)}}{\norm{\bvec x}\cdot \norm{\bvec y}}
+\end{equation}
+\subsection{正交性}
+\begin{definition}{正交}
+如果矢量的夹角为 $\pi/2$，亦即 $(\bvec x|\bvec y)=0$
+，则称它们是\textbf{正交的}，记作 $\bvec x\perp\bvec y$．
+\end{definition}

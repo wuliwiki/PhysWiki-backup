@@ -1,0 +1,19 @@
+% 酉群
+% 酉群|酉矩阵
+
+\pentry{埃尔米特矢量空间（酉空间）\upref{HVorUV}}
+如词条“埃尔米特矢量空间（酉空间）\upref{HVorUV}” 所说，酉群是埃尔米特矢量空间中所有标准正交基底之间的转换矩阵构成的群．现在来一步步的引入它．
+\subsection{酉矩阵}
+设 $\{\bvec e_i\},\{\bvec e'_i\}$ 是埃尔米特矢量空间 $V$ 的两个标准正交基底，从 $\{\bvec e_i\}$ 到 $\{\bvec e'_i\}$ 的转换矩阵为 $\mat A=(a_{ij})$ ，即
+\begin{equation}
+\bvec e'_j=\sum_{i}a_{ij}\bvec e_i
+\end{equation}
+于是，基矢量间的纯量积满足（\autoref{HVorUV_def1}~\upref{HVorUV}）
+\begin{equation}
+(\bvec e'_j|\bvec e'_k)=\sum_{i,s}\overline{a_{ij}}a_{sk}(\bvec e_i|\bvec e_s)=\sum_{i}\overline{a_{ij}}a_{ik}
+\end{equation}
+即
+\begin{equation}
+\mat{A}^\dagger \mat{A}=\mat{E}=\mat{A} \mat{A}^\dagger
+\end{equation}
+其中，$\mat{A}^\dagger:=\overline{\mat A^T}$
