@@ -1,10 +1,6 @@
 % 正定矩阵
 
-\begin{issues}
-\issueTODO
-\end{issues}
-
-\pentry{厄米矩阵的本征问题\upref{HerEig}}
+\pentry{厄米矩阵的本征问题\upref{HerEig}， 矩阵的秩\upref{MatRnk}}
 
 \footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Definite_matrix}{相关页面}．}\textbf{正定矩阵（positive definite matrix）}定义如下．
 \begin{definition}{}
@@ -23,6 +19,11 @@
 \bvec v\Her \mat A \bvec v = \sum_i \lambda_i \abs{c_i}^2
 \end{equation}
 可见若所有 $\lambda_i > 0$， 结果必然是正的． 若要求对任意不全为零的 $c_1,c_2,\dots$ 等式都大于零， 那么也能反推出所有 $\lambda_i > 0$．
+
+\begin{theorem}{}
+正定（负定）矩阵都是满秩的．
+\end{theorem}
+证明： 对于非零 $\bvec x$， $\bvec x\Her \mat A \bvec x \ne \mat 0$， 说明 $\mat A\bvec x \ne \bvec 0$， 所以齐次方程组 $\mat A\bvec x = \bvec 0$ 唯一的解就是 $\bvec x = \bvec 0$， 所以\upref{LinEq}矩阵是满秩的， 证毕．
 
 \begin{example}{}
 求二维厄米矩阵
