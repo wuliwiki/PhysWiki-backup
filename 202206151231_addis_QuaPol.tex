@@ -1,0 +1,22 @@
+% 二次多项式与二次型
+
+\pentry{二次型\upref{QuaFor}， 正定矩阵\upref{DefMat}， 线性方程组解的结构\upref{LinEq}}
+
+所有的 $N$ 元二次多项式都可以表示为
+\begin{equation}
+P(x_1,\dots,x_N) = \sum_{i=1}^N\sum_{j=1}^N a_{i,j}x_i x_j
+\end{equation}
+其中 $a_{i,j}$ 是对称矩阵 $\mat A$ 的矩阵元． 事实上这就是一个二次型\upref{QuaFor}的矩阵表示（$\bvec x\Tr \mat A \bvec x$）． 注意 $x_i x_j = x_j x_i$， 所以规定 $\mat A$ 为对称矩阵并不影响一般性， 反而可以简化运算．
+
+\subsubsection{极值}
+先求驻点：
+\begin{equation}
+\pdv{x_i}P(x_1,\dots,x_N) = 2\sum_j a_{ij} x_j = 0 \qquad (i = 1,\dots,N)
+\end{equation}
+所以这相当于解齐次线性方程组
+\begin{equation}
+\mat A \bvec x = \bvec 0
+\end{equation}
+即可． 可见它的解集要么是 $\bvec x = \bvec 0$ 一个点， 要么是一个子空间（零空间）\upref{LinEq}．
+
+可以判断， 若矩阵 $\mat A$ 是正定的， 那么马上得到只有 $\bvec x = \bvec 0$ 一个点是方程组的解， 且该点是全局最小值， 也是唯一一个极值． 若 $\mat A$ 是负定的也同理．

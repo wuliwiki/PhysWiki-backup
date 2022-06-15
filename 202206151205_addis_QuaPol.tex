@@ -1,0 +1,19 @@
+% 二次型与二次多项式
+
+\pentry{二次型\upref{QuaFor}}
+
+所有的 $N$ 元二次多项式都可以表示为
+\begin{equation}
+P(x_1,\dots,x_N) = \sum_{i=1}^N\sum_{j=1}^N a_{i,j}x_i x_j
+\end{equation}
+其中 $a_{i,j}$ 是对称矩阵 $\mat A$ 的矩阵元． 事实上这就是一个二次型的矩阵表示． 注意 $x_i x_j = x_j x_i$， 所以规定 $\mat A$ 为对称矩阵并不影响一般性， 反而可以简化运算．
+
+\subsubsection{极值}
+\begin{equation}
+\pdv{x_i}P(x_1,\dots,x_N) = 2\sum_j a_{ij} x_j = 0
+\end{equation}
+所以解其次线性方程组
+\begin{equation}
+\mat A \bvec x = \bvec 0
+\end{equation}
+即可． 可见二次多项式要么在 $\bvec x = \bvec 0$ 一点处各阶偏导为零， 
