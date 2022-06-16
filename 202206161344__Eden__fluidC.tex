@@ -1,0 +1,27 @@
+% 流体力学守恒方程
+% 流体力学|守恒方程
+
+\pentry{流体运动的描述方法\upref{fluid1}，重积分、面积分、体积分（简明微积分）\upref{IntN}}
+
+人们一般用密度 $\rho$，速度 $\bvec v$ 等物理量描述流体中每个位置流体微元的性质，并列出所谓的流体力学方程来描述每个流体微元随时间的演化．它们之间应当满足一定的守恒方程，例如\textbf{连续性方程，动量守恒方程，能量守恒方程}等．在这一节中，我们将对流体力学的守恒方程进行简要的推导和介绍．
+\subsection{连续性方程（流守恒方程）}
+让我们对物质体（Material Volumn）进行分析，取一个随流体一起运动的被闭曲面 $S$ 包围的体积 $V$，对其中的密度进行积分得到这一个物质体的质量．物质体在随流体一起运动的过程中，其质量应当是不变的，那么我们有
+\begin{equation}
+\frac{\dd}{\dd t}\int \rho \dd V=0
+\end{equation}
+进一步将它拆成两部分，一部分是每个位置密度的偏导数随时间的变化，另一部分是闭合曲面 $S$ 的变化带来的质量变化．我们得到
+\begin{equation}
+\int \pdv{\rho}{t}\dd V+\int_S \rho \bvec u\cdot \hat{\bvec n}\dd S=0\Rightarrow \int \qty[\pdv{\rho}{t}+\nabla\cdot(\rho\bvec u)]\dd V=0
+\end{equation}
+如上，我们得到了连续性方程的微分形式
+\begin{equation}
+\pdv{\rho}{t}+\nabla\cdot(\rho\bvec u)=0
+\end{equation}
+利用 $\nabla\cdot (\rho\bvec u)=\rho \nabla\cdot u+\bvec u\cdot \nabla \rho$，上式可以改写为
+\begin{equation}
+\frac{\dd \rho}{\dd t}+\rho \nabla\cdot u=0
+\end{equation}
+我们也可以用另一种方式来考察这一结果．直接从 $\dv{t} (\rho \delta V)=0$ 出发（这表明一个流体微元随时间演化的过程中质量是不变的），得到
+\begin{equation}
+\rho \dv{\delta V}{t}+\delta V\dv{\rho}{t}=0\Rightarrow \dv{\delta V}{t}=
+\end{equation}
