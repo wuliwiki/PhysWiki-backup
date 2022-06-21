@@ -1,0 +1,24 @@
+% 仿射空间
+% 仿射空间|坐标架
+
+\pentry{矢量空间\upref{LSpace}}
+在任一矢量空间 $V$ 中，与零矢量 $0$ 结合在一起的坐标原点总是起着特殊的作用，因为在空间 $V$ 的所有自同构 $f:V\rightarrow V$ 下，零矢量 $0$ 是不变的\autoref{LinMap_cor1}~\upref{LinMap}，这意味着坐标原点具有突出于其它空间点的性质．然而，对身处3维空间中的我们来说，放置在不同位置的点线面显然不依赖于一个挑选出来的坐标原点．因此，为了满足我们的需求，我们希望把矢量空间的自同构群加以扩展，使得所有的空间点都等价．完成这一任务的属于\textbf{仿射空间}．
+\subsection{仿射空间}
+仿射空间的定义是基于矢量空间\upref{LSpace}的．
+\begin{definition}{仿射空间}
+设 $V$ 是域 $\mathbb F$ 上的矢量空间．且 $\mathbb A$ 是一个集合，其元素称着\textbf{点}，并用 $\dot{p},\dot{q},\dot{r},\cdots$ 表示．称 $\mathbb A$ 是和 $V$ \textbf{相伴（连带的）的仿射空间}，若存在映射 
+\begin{equation}
+f:\mathbb A\times V\rightarrow \mathbb A
+\end{equation}
+其具有性质：
+\begin{enumerate}
+\item \begin{equation}
+\forall \dot p\in\mathbb A,\quad u,v\in V\Rightarrow\dot p+0=\dot p,(\dot p+u)+v=\dot p+(u+v)
+\end{equation}
+其中，0是空间 $V$ 的零矢量；
+\item $\forall \dot p,\dot q\in\mathbb A$，有且仅有一个矢量 $v\in V$ 使得 $\dot p+v=\dot q$． 通常用 $\vec{pq}$ 或 $\dot q-\dot p$ 代表矢量 $v$．
+\end{enumerate}
+
+
+
+\end{definition}
