@@ -1,0 +1,194 @@
+% 纯不可分扩张
+% 可分扩张|域|扩域|代数扩张
+
+\pentry{可分扩张\upref{SprbEx}}
+%GTM 242 V.6
+
+
+我们容易想到并且熟悉的扩域，通常是可分扩张．相对地，凡不是可分扩张的情况，都叫做不可分扩张——也就是说，不可分扩张是可分元、不可分元混杂的扩域．这样一来，代数扩张就分为两类了．似乎不可分扩张只是可分扩张的例外，不像可分扩张有那么好的性质；可相对的，下面定义的纯不可分扩张就很有意思了．
+
+\begin{definition}{纯不可分扩张}
+
+设$\mathbb{K}/\mathbb{F}$是代数扩域．如果$\mathbb{K}-\mathbb{F}$中的元素在$\mathbb{F}$上\textbf{都是不可分的}，那么称$\mathbb{K}/\mathbb{F}$是\textbf{纯不可分扩张（purely inseparable extension）}，且称$\mathbb{K}$在$\mathbb{F}$上（over $\mathbb{F}$）是\textbf{纯不可分}的．
+
+\end{definition}
+
+任何域$\mathbb{F}$都是自己的纯不可分扩张，因为不存在$\mathbb{F}-\mathbb{F}$的元素，命题前提为假则命题恒真．
+
+留意\autoref{SprbEx_the4}~\upref{SprbEx}，可以猜测可分性质与$p$次根是否在给定域中息息相关，其中$p$是这个域的特征．由此提示，我们可以定义“纯不可分元素”：
+
+
+\begin{definition}{纯不可分元素}\label{PInsEx_def1}
+设域$\mathbb{F}$的特征为素数$p$．称$\alpha\in\overline{\mathbb{F}}$是$\mathbb{F}$上的\textbf{纯不可分元素（purely inseparable element）}，如果存在非负整数$k$使得$\alpha^{p^k}\in\mathbb{F}$．
+
+或者说，$\alpha$是$\mathbb{F}$的代数元，且其最小多项式为$x^{p^n}-a$，其中$n$是上述$k$中最小的，$a\in\mathbb{F}$．
+\end{definition}
+
+同样，域$\mathbb{F}$的元素都是纯不可分元素．
+
+
+
+一切代数扩张，必是进行一次可分扩张后再进行一次纯不可分扩张的结果．要注意，反过来的“代数扩张必是先进行纯不可分扩张再进行可分扩张的结果”并不总是成立．
+
+
+
+\begin{theorem}{}
+给定代数扩域$\mathbb{K}/\mathbb{F}$，则集合$\mathbb{S}=\{\alpha\in\mathbb{K}|\alpha\text{在}\mathbb{F}\text{上可分}\}$是一个域．
+
+且$\mathbb{K}/\mathbb{S}$是一个纯不可分扩张．
+\end{theorem}
+
+\textbf{证明}：
+
+由\textbf{可分元素的封闭性}（\autoref{SprbE2_cor4}~\upref{SprbE2}），可知$\mathbb{S}$是$\mathbb{F}$的可分闭包与$\mathbb{K}$的交集，显然是个域．
+
+反设$\mathbb{K}-\mathbb{S}$中存在$\mathbb{S}$的可分元素$a$，那么$\mathbb{S}(a)/\mathbb{S}$是可分扩张．由可分扩张的传递性（\autoref{SprbE2_cor1}~\upref{SprbE2}），可知$\mathbb{S}(a)/\mathbb{F}$是可分扩张，这与可分闭包的定义矛盾．因此反设不成立，即$\mathbb{K}-\mathbb{S}$中全是$\mathbb{S}$的不可分元素．
+
+\textbf{证毕}．
+
+该定理还引出了一个重要的概念：
+
+\begin{definition}{可分次数}
+给定代数扩域$\mathbb{K}/\mathbb{F}$，构造中间域$\mathbb{K}_S=\{\alpha\in\mathbb{K}|\alpha\text{在}\mathbb{F}\text{上可分}\}$．
+
+则称$[\mathbb{K}_S:\mathbb{F}]$是$\mathbb{K}/\mathbb{F}$的\textbf{可分次数（separable degree）}，记为$[\mathbb{K}:\mathbb{F}]_S$．
+
+称$[\mathbb{K}:\mathbb{F}] / [\mathbb{K}:\mathbb{F}]_S$为$\mathbb{K}/\mathbb{F}$的\textbf{不可分次数（inseparable degree）}．
+\end{definition}
+
+
+
+
+
+
+由于特征为$0$的域都是\textbf{完美域}（定义见\autoref{SprbEx_the5}~\upref{SprbEx}），不存在不可分元素，因此纯不可分扩张的讨论集中在特征为素数$p$的域上．
+
+考虑域$\mathbb{F}$，$\opn{ch}\mathbb{F}=p$．对于任意$\alpha, \beta\in\overline{\mathbb{F}}$和$k\in\mathbb{Z}^+$，都有$\alpha^{p^k}-\beta^{p^k}=(\alpha-\beta)^{p^k}$，其中$\overline{\mathbb{F}}$是$\mathbb{F}$的代数闭包．于是，任意$a\in\mathbb{F}$在其代数闭包里有唯一的$p^k$次根$\alpha$，因为
+\begin{equation}
+x^{p^k}-a=x^{p^k}-\alpha^{p^k}=(x-\alpha)^{p^k}
+\end{equation}
+显然这是$\alpha$在$\mathbb{F}$上的最小多项式，以及该最小多项式在$\overline{\mathbb{F}}$上的分解．
+
+% 由于\autoref{SprbEx_the4}~\upref{SprbEx}，$\mathbb{F}$是完美域当且仅当任意元素$a\in\mathbb{F}$在$\mathbb{F}$中都有$p$次方根．
+
+受此启发，我们可以得到一个纯不可分扩张的例子：
+
+\begin{example}{}\label{PInsEx_ex1}
+设域$\mathbb{F}$的特征为素数$p$．定义集合
+\begin{equation}
+\mathbb{F}^{1/p^\infty} = \{\alpha\in\overline{\mathbb{F}}\mid \alpha^{p^k}\in\mathbb{F}, k\in\mathbb{Z}^+\}
+\end{equation}
+即全体$\mathbb{F}$元素的$p^k$次根构成的集合，显然$\mathbb{F}$是它的子集．
+
+这个集合满足加法和乘法的封闭性：设$\alpha^m\in\mathbb{F}$和$\beta^n\in\mathbb{F}$，另$k$为$m$和$n$的任意公倍数，则$\alpha^k$和$\beta^k$都是$\mathbb{F}$的元素，那么有
+\begin{equation}
+\begin{aligned}
+(\alpha+\beta)^k&=\alpha^k+\beta^k\\
+(\alpha\beta)^k&=\alpha^k\beta^k
+\end{aligned}
+\end{equation}
+故$\mathbb{F}^{1/p^\infty}$构成一个域．
+
+任取$\alpha\in\mathbb{F}^{1/p^\infty}-\mathbb{F}$，令$k$是使得$\alpha^k\in\mathbb{F}$的最小非负整数，那么$\alpha$在$\mathbb{F}$上的最小多项式为
+\begin{equation}
+\opn{Irr}(\alpha, \mathbb{F})(x) = x^{p^k}-a
+\end{equation}
+
+而在$\mathbb{F}^{1/p^\infty}$上有
+\begin{equation}
+x^{p^k}-a = (x-\alpha)^{p^k}
+\end{equation}
+
+因此$\alpha$在$\mathbb{F}$上不可分．
+
+\end{example}
+
+\begin{exercise}{}
+定义集合$\mathbb{F}^{1/p^k}=\{\alpha\in\overline{\mathbb{F}}\mid \alpha^{p^k}\in\mathbb{F}\}$，其中$k$是给定的任意正整数．证明这个集合是$\mathbb{F}$的扩域．
+
+$\mathbb{F}^{1/p^\infty}/\mathbb{F}^{1/p^k}$是不是纯不可分扩张？
+\end{exercise}
+
+\autoref{PInsEx_ex1} 启发我们得到纯不可分扩张的另一等价定义．为了描述这一等价定义，我们先看一个简单的引理：
+
+\begin{lemma}{}
+设域$\mathbb{F}$的特征是素数$p$，且$\alpha$是其代数元．
+
+则“存在非负整数$k$使得$\alpha^{p^k}\in\mathbb{F}$”$\iff$“存在$a\in\mathbb{F}$和非负整数$n$使得$\opn{Irr}(\alpha, \mathbb{F})(x) = x^{p^n}-a$”．
+
+\end{lemma}
+
+\textbf{证明}：
+
+$\Rightarrow$：
+
+取$n$是所有符合条件的$k$中最小的．则$\opn{Irr}(\alpha, \mathbb{F})(x) = x^{p^n}-a$．
+
+$\Leftarrow$：
+
+取$k=n$即可．
+
+\textbf{证毕}．
+
+\begin{corollary}{}\label{PInsEx_cor1}
+设域$\mathbb{F}$的特征是素数$p$，$\overline{\mathbb{F}}$是其代数闭包，则对于任意$a\in\mathbb{F}$和$k\in\mathbb{Z}^+$，存在唯一的$\alpha\in\overline{\mathbb{F}}$，使得$\alpha^{p^k}=a$．
+\end{corollary}
+
+也就是说，特征为$p$的域上，任意元素都有唯一的$p^k$次根．
+
+
+现在，我们可以给出纯不可分扩张的等价定义了：
+
+
+
+
+\begin{theorem}{纯不可分扩张的等价定义}
+
+
+给定代数域扩张$\mathbb{K}/\mathbb{F}$，其特征为素数$p$．则下列命题等价：
+
+1. $\mathbb{K}$在$\mathbb{F}$上纯不可分；
+
+2. $\forall \alpha\in\mathbb{K}$，$\alpha$在$\mathbb{F}$上纯不可分；
+
+3. 存在一个$\mathbb{K}\to\mathbb{F}^{1/p^\infty}$\footnote{$\mathbb{F}^{1/p^\infty}$的定义见\autoref{PInsEx_ex1} .}的保$\mathbb{F}$\textbf{单}同态；
+
+4. $[\mathbb{K}:\mathbb{F}]_S=1$．
+
+
+\end{theorem}
+
+\textbf{证明}：
+
+1. $\Rightarrow$2. 
+
+只需要考虑$\alpha\in\mathbb{K}-\mathbb{F}$的情况．记$\opn{Irr}(\alpha, \mathbb{F})=f$，则$f$不可分、不可约，故由\autoref{SprbEx_def2}~\upref{SprbEx}和\autoref{SprbEx_cor2}~\upref{SprbEx} 知，可以把$f$中次数不是$p$整数倍的单项式挖掉．
+
+换言之，存在可分的不可约多项式$g(x)\in\mathbb{F}[x]$和非负整数$k$，使得$f(x)=g(x^{p^k})$．于是$g(\alpha^{p^k})=0$，因此$g=\opn{Irr}(\alpha^{p^k}, \mathbb{F})$，从而$\alpha^{p^k}$是$\mathbb{F}$上的可分元素．又因为$\mathbb{K}/\mathbb{F}$纯不可分，故$\alpha^{p^k}\in\mathbb{F}$．
+
+
+2. $\Rightarrow$3. 
+
+由纯不可分元素的\autoref{PInsEx_def1} ，显然$\mathbb{K}\subseteq\mathbb{F}^{1/p^\infty}$．故恒等映射即为所求．
+
+3. $\Rightarrow$4. 
+
+令$\varphi:\mathbb{K}\to\mathbb{F}^{1/p^\infty}$和$\sigma:\mathbb{K}\to\overline{\mathbb{F}}$都是保$\mathbb{F}$单同态．下证它们是同一个映射．
+
+由于$\opn{ch}\mathbb{F}=p$，于是由
+\textbf{证毕}．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
