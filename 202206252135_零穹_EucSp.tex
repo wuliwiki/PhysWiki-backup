@@ -1,0 +1,18 @@
+% 欧几里得空间
+% 欧几里得空间|直角坐标系|线线夹角|线段|点面距离|垂线|面面距离
+\pentry{仿射空间\upref{AfSp}，欧几里得矢量空间\upref{EuVS}}
+有了欧几里得矢量空间\upref{EuVS}和仿射空间\upref{AfSp}之后，终于可以更加贴近于我们所处的3维物理空间．简单来说，欧几里得空间就是与欧几里得矢量空间相伴随的仿射空间．在它上面，可以获得高中时候早就熟知的各种几何图景，比如直角坐标系，线段，线线夹角等概念．不同的是，这里是更一般的空间，其维度不止于3维空间．
+\subsection{欧几里得空间}
+\begin{definition}{欧几里得空间}
+称仿射空间 $(\mathbb E,V)$ 是个\textbf{欧几里得（点）空间}，如果 $V$ 是欧几里得矢量空间．
+\end{definition}
+\begin{definition}{点点距离}
+欧几里得空间 $(\mathbb E,V)$ 中，函数 $\rho:\mathbb E\times\mathbb E\rightarrow\mathbb R$:
+\begin{equation}
+\rho(\dot p,\dot q):=\norm{\vec{pq}}=\sqrt{(\vec{pq}|\vec{pq})}
+\end{equation}
+称为点点之间的\textbf{距离函数}．
+\end{definition}
+也就是说，欧几里得空间是个三元组 $(\mathbb E,V,\rho)$．
+
+由矢量内积的性质\upref{EuVS}，距离函数有以下性质
