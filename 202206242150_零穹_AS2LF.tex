@@ -1,0 +1,43 @@
+% 线性方程组的仿射解释
+% 仿射线性函数|线性方程组|几何解释
+
+\pentry{仿射空间\upref{AfSp},线性方程组\upref{LinEqu}}
+在解释线性方程组的仿射几何意义前，先总结一下矩阵和矢量观点下的意义．
+
+一般的线性方程组具有如下形式：
+\begin{equation}\label{AS2LF_eq1}
+\leftgroup{
+&a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n\;\;\;=y_1\\
+&a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n\;\;\;=y_2\\
+&\qquad \qquad \dots  \qquad \dots \qquad  \dots\\
+&a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n=y_m}\\
+\end{equation}
+写成\textbf{矩阵形式}则为
+\begin{equation}\label{AS2LF_eq2}
+\mat A \bvec x=\bvec y
+\end{equation}
+其中
+\begin{equation}
+\mat A=\begin{pmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\vdots&\vdots\\
+a_{m1}&a_{m2}&\cdots&a_{mn}
+\end{pmatrix}
+,\quad \bvec x=\begin{pmatrix}
+x_1\\x_2\\\vdots\\x_n
+\end{pmatrix}
+,\quad \bvec y=\begin{pmatrix}
+y_1\\y_2\\\vdots\\y_n
+\end{pmatrix}
+\end{equation}
+在\textbf{矢量观点}下，\autoref{AS2LF_eq1} 又可写为
+\begin{equation}
+\sum_{i=1}^n x_ia_i=y
+\end{equation}
+其中
+\begin{equation}
+a_i=(a_{1i},a_{2i},\cdots,a_{mi})^T,\quad y=(y_1,y_2,\cdots,y_m)^T
+\end{equation}
+在矩阵观点下，\autoref{AS2LF_eq2} 有解，当且仅当 $\rank$
+
