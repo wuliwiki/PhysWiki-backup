@@ -1,0 +1,26 @@
+% 仿射群
+% 仿射群|正合列
+
+\pentry{仿射空间\upref{AfSp}}
+仿射群是在仿射空间利用仿射映射（\autoref{AfSp_def2}~\upref{AfSp}）构建的一种群\upref{Group}．让我们进行如下思考：群首先要满足封闭性，即两个群元作用（或运算）得到的还是一个群元，对仿射群而言，群元是仿射映射，映射的运算很自然的用映射的复合（\autoref{map_sub2}~\upref{map}）表示．那么封闭性要求对两仿射映射 $f,g$，$fg$还是仿射映射．映射的复合要求 $f$ 的定义域起码得包含 $g$ 的值域．记
+ \begin{equation}
+f:\mathbb A\rightarrow\mathbb A_1,\quad g:\mathbb A_2\rightarrow \mathbb A_3
+ \end{equation}
+ 则 $\mathbb A_3\subset \mathbb A$．而任意两个群元都可以进行运算的，即还有 $gf$ 也是仿射映射，同理，这意味着 $\mathbb A_1\subset\mathbb A_2$．即
+ \begin{equation}\label{AfQ_eq1}
+ \mathbb A_3\subset \mathbb A,\quad \mathbb A_1\subset\mathbb A_2
+ \end{equation}
+ 
+ 其次，群元必定得有逆元，对映射而言，就是逆映射得存在，这表明
+\begin{equation}
+ f^{-1}:\mathbb A_1\rightarrow\mathbb A,\quad g^{-1}:\mathbb A_3\rightarrow\mathbb A_2
+\end{equation}
+ 存在，和前面一样，又有
+ \begin{equation}\label{AfQ_eq2}
+ \mathbb A_2\subset \mathbb A_1, \mathbb A\subset\mathbb A_3
+ \end{equation}
+ \autoref{AfQ_eq1} ,\autoref{AfQ_eq2} 联立，就有
+ \begin{equation}
+ \mathbb A=\mathbb A_1= \mathbb A_2=\mathbb A_3
+ \end{equation}
+ 也就是说，仿射群是由仿射空间 $(\mathbb A,V)$ 上的所有自同构 $f:\mathbb A\rightarrow\mathbb A$ 实现的．

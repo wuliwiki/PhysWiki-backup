@@ -1,0 +1,56 @@
+% 仿射群
+% 仿射群|正合列
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{仿射空间\upref{AfSp}}
+\textbf{仿射群}是在仿射空间利用仿射映射（\autoref{AfSp_def2}~\upref{AfSp}）构建的一种群\upref{Group}．让我们进行如下思考：群首先要满足封闭性，即两个群元作用（或运算）得到的还是一个群元，对仿射群而言，群元是仿射映射，映射的运算很自然的用映射的复合（\autoref{map_sub2}~\upref{map}）表示．那么封闭性要求对两仿射映射 $f,g$，$fg$还是仿射映射．映射的复合要求 $f$ 的定义域起码得包含 $g$ 的值域．记
+ \begin{equation}
+f:\mathbb A\rightarrow\mathbb A_1,\quad g:\mathbb A_2\rightarrow \mathbb A_3
+ \end{equation}
+ 则 $\mathbb A_3\subset \mathbb A$．而任意两个群元都可以进行运算的，即还有 $gf$ 也是仿射映射，同理，这意味着 $\mathbb A_1\subset\mathbb A_2$．即
+ \begin{equation}\label{AfQ_eq1}
+ \mathbb A_3\subset \mathbb A,\quad \mathbb A_1\subset\mathbb A_2
+ \end{equation}
+ 
+ 其次，群元必定得有逆元，对映射而言，就是逆映射得存在，这表明
+\begin{equation}
+ f^{-1}:\mathbb A_1\rightarrow\mathbb A,\quad g^{-1}:\mathbb A_3\rightarrow\mathbb A_2
+\end{equation}
+ 存在，和前面一样，又有
+ \begin{equation}\label{AfQ_eq2}
+ \mathbb A_2\subset \mathbb A_1, \mathbb A\subset\mathbb A_3
+ \end{equation}
+ \autoref{AfQ_eq1} ,\autoref{AfQ_eq2} 联立，就有
+ \begin{equation}
+ \mathbb A=\mathbb A_1= \mathbb A_2=\mathbb A_3
+ \end{equation}
+ 也就是说，仿射群是由仿射空间 $(\mathbb A,V)$ 上的所有自同构 $f:\mathbb A\rightarrow\mathbb A$ 实现的．由仿射映射的定义：
+ \begin{equation}\label{AfQ_eq3}
+ f(\dot p+v)=f(\dot p)+Df\cdot v
+ \end{equation}
+ 显然，这里 $Df$ 是 $V\rightarrow V$ 上的可逆的线性映射（\autoref{AfSp_the1}~\upref{AfSp}）．这意味着，$Df$ 是一个可逆的线性算子（\autoref{LiOper_sub4}~\upref{LiOper}），可记为 $\mathcal F=Df$．于是\autoref{AfQ_eq3} 变成
+ \begin{equation}
+ f(\dot p+v)=f(\dot p)+\mathcal F v
+ \end{equation}
+ \subsection{仿射群}
+ \begin{definition}{仿射群}
+ 设 $n$ 仿射空间 $(\mathbb A,V)$ 定义在域 $\mathbb F$ 上，则所有仿射自同构配上映射复合构成的集合 $\mathrm{Aff}(\mathbb A)=A_n(\mathbb F)$ 称为仿射空间 $\mathbb A$ 上的 $n$ 维\textbf{仿射群}．
+ \end{definition}
+ 用 $e$ 表示仿射群的单位元，它是\textbf{单位仿射变换}(或\textbf{恒等变换})，其线性部分为 $V$ 上的单位算子 $\mathcal E$．
+ 
+ 容易证明： $e$ 是单位仿射变换，当且仅当存在一点 $\dot q$ ，使得 $e(\dot o)=\dot o$，且 $e$ 的线性部分为 $\mathcal E$．事实上
+ \begin{equation}
+  e(\dot p)=e(\dot q+\overrightarrow{qp})=e(\dot q)+\mathcal E \overrightarrow{qp}=\dot q+\overrightarrow{qp}=\dot p
+ \end{equation}
+反过来，$e$ 是单位仿射变换，则 $\forall\dot q$，都有 $e(\dot q)=\dot q$．于是
+\begin{equation}
+\begin{aligned}
+e(\dot p+v)=e(\dot p)+De\cdot v&=\dot p+De\cdot v=\dot p+v\\
+&\Downarrow\\
+De&=\mathcal E
+\end{aligned}
+\end{equation}
+、
