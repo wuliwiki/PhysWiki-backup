@@ -1,0 +1,86 @@
+% 保距群（欧氏空间）
+% 运动|保距变换|保距群
+
+\begin{issues}
+\issueOther{链接未完成}
+\end{issues}
+
+\pentry{欧几里得空间\upref{EucSp}}
+在欧几里得空间 $\mathbb E$ 中，保距群是保持欧几里得空间中点与点之间距离不变的映射构成的集合，保持点距离不变的映射称为\textbf{保距映射}，又称\textbf{运动}．欧氏空间中的映射是个运动，当且仅当它是个线性部分为正交线性算子的仿射映射（\autoref{AfSp_def2}~\upref{AfSp}）．需要说明的是，这里所说的欧氏空间 $\mathbb A$ 中的映射指的是 $\mathbb E$ 到 $\mathbb E$ 上的映射．下面将一一说明．
+\subsection{偶氏空间中的运动}
+先构建起基本材料
+\begin{definition}{运动（保距映射）}
+设 $(\mathbb E,V,\rho)$ 是欧几里点空间，变换 $f:\mathbb E\rightarrow\mathbb E$ 称为\textbf{运动}（或\textbf{保距映射}），如果它保持点与点之间距离不变，即 $\forall \dot p,\dot q\in\mathbb E$ ，都有
+\begin{equation}
+\rho(f(\dot p),f(\dot q))=\rho(\dot p,\dot q)
+\end{equation}
+\end{definition}
+\begin{example}{}\label{CDQ2Ec_ex1}
+试证任意两个运动的乘积（复合）仍是运动．
+\textbf{证明：}
+设 $f,g$ 是个运动，则
+\begin{equation}
+\rho(fg(\dot p),fg(\dot q))=\rho(f(\dot p),f(\dot p))=\rho(\dot p,\dot q)
+\end{equation}
+即两个运动的复合仍是个运动．
+
+\textbf{证毕！}
+\end{example}
+下面证明运动必是个线性部分为正交线性算子的仿射自同构（\autoref{AfSp_def2}~\upref{AfSp}）．先证明一引理
+\begin{lemma}{}
+设 $g$ 是一保持点 $\dot o$ 不变的运动，且$\mathcal G:V\rightarrow V$ 是满足 $\mathcal G x=\overrightarrow{og(o+x)}$ 的映射，则 $\mathcal G$ 必是一正交线性算子．
+\end{lemma}
+\textbf{证明：}由条件，$$
+
+
+\begin{theorem}{运动必是仿射自同构}
+变换 $f:\mathbb E\rightarrow\mathbb E$ 是个运动，当且仅当， $f$ 是个线性部分为 $U$ 上的正交线性算子（\autoref{LiOper_sub4}~\upref{LiOper} ）的仿射变换．
+\end{theorem}
+\textbf{证明：}先来证明定理中是较为显然的一方面，即由后推出前：设仿射变换 $f$ 线性部分的正交线性算子为 $\mathcal F$ ，则 $\forall \dot p,\dot q\in\mathbb E$，有
+\begin{equation}
+\begin{aligned}
+f(\dot p+\overrightarrow{pq})&=f(\dot p)+\mathcal F\overrightarrow{pq}\\
+&\Downarrow\\
+\rho(f(\dot p),f(\dot q))&=\rho(f(\dot p),f(\dot p)+\mathcal F\overrightarrow{pq})\\
+&=\norm{\mathcal F\overrightarrow{pq}}=\norm{\overrightarrow{pq}}=\rho(\dot p,\dot q)
+\end{aligned}
+\end{equation}
+
+其中， $\norm{\mathcal F\overrightarrow{pq}}=\norm{\overrightarrow{pq}}$ 源于正交算子$\mathcal F$ 是个保距算子（链接未完成）．
+
+现在从前推后：
+
+显然平移是个运动，若 $f$ 是个运动，则由\autoref{CDQ2Ec_ex1} ， $g=t_a^{-1} f$ 是个运动，其中 $a=\overrightarrow{of(o)}$ ，且
+\begin{equation}
+g(\dot o)=t_a^{-1}(f(\dot o))=f(\dot o)-\overrightarrow{of(o)}=\dot o
+\end{equation}
+即 $g$ 保持点 $\dot o$ 不变．故任意运动 $f=t_ag$ 都是一个平移和一个保持 $\dot o$ 点不动的运动的乘积．
+
+现在，若能证明 $g$ 是个具有正交线性部分的仿射变换，则 $f=t_a g$ 也是具有正交线性部分的仿射变换．现在来证明这一点．
+
+定义变换 $\mathcal G:V\rightarrow V$，并令 $\mathcal G x=\overrightarrow{og(o+x)}$，则
+\begin{equation}\label{CDQ2Ec_eq1}
+g(\dot o+x)=\dot o+\mathcal G x
+\end{equation}
+于是只需证明 $\mathcal G$ 试正交线性算子．
+
+由 \autoref{CDQ2Ec_eq1} 
+\begin{equation}
+\mathcal G 0=0
+\end{equation}
+此外，设 $\dot p=\dot o+x,\dot q=\dot o+y$，那么 $\rho(\dot p,\dot q)=\norm{y-x}$．由 $g$ 试个运动，所以
+\begin{equation}
+\rho(g(\dot p),g(\dot q))=\rho(\dot p,\dot q)=\norm{y-x}
+\end{equation}
+由\autoref{CDQ2Ec_eq1} ，$g(\dot p)=\dot o+\mathcal G x, g(\dot q)=\dot o+\mathcal G y$，故
+\begin{equation}
+\rho(g(\dot p),g(\dot q))=\norm{\mathcal Gy-\mathcal Gx}
+\end{equation}
+上两式结合，即得
+\begin{equation}
+\norm{\mathcal Gy-\mathcal Gx}=\norm{y-x}
+\end{equation}
+上式令 $y=0$，即得
+\begin{equation}
+\norm{\mathcal G x}=\norm{x}
+\end{equation}
