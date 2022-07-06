@@ -1,0 +1,163 @@
+% 无穷 Galois 扩张与Krull定理
+% 域论|域扩张|Galois群|伽罗华|伽罗瓦|Krull拓扑|Krull定理|无限Galois扩张|伽罗华扩张
+
+\pentry{Galois扩张\upref{GExt}，拓扑空间\upref{Topol}}
+
+\addTODO{尚未完成}
+
+\textbf{Galois扩张}\upref{GExt}中除了Galois扩张和Galois群的基本性质，剩下的重点内容全是\textbf{有限}Galois扩张的情况，见\autoref{GExt_sub1}~\upref{GExt}．作为提醒，再总结一次：有限Galois扩张都是单代数扩张，且为分裂域．
+
+本节介绍的是无限Galois扩张中的性质，将有限扩张的\textbf{Galois理论基本定理}（\autoref{GExt_the10}~\upref{GExt}）进行拓展，得到\textbf{Krull}定理．Krull的工作亮点，在于给Galois群赋予了一个拓扑结构．
+
+
+为了得到Krull拓扑，我们要先观察Galois扩域的一些性质．注意，接下来我们不再限定为有限扩张了．
+
+
+由\autoref{GExt_the6}~\upref{GExt}，$\mathbb{K}/\mathbb{M}$是Galois扩张，因此$\opn{Gal}(\mathbb{K}/\mathbb{M})$存在．有了这一点，我们就可以讨论下面两条引理：
+
+\begin{lemma}{}\label{GExInf_lem2}
+设$\mathbb{K}/\mathbb{F}$是Galois扩张，且存在中间域$\mathbb{M}$．
+
+则$\mathbb{M}/\mathbb{F}$是Galois扩张 $\iff$ $\mathbb{M}/\mathbb{F}$是正规扩张 $\iff$ $\opn{Gal}(\mathbb{K}/\mathbb{M})\triangleleft \opn{Gal}(\mathbb{K}/\mathbb{F})$ ．
+\end{lemma}
+
+\autoref{GExInf_lem2} 实际上就是\autoref{GExt_the8}~\upref{GExt}，因此证明参见该定理．
+
+
+\begin{lemma}{}\label{GExInf_lem1}
+设$\mathbb{K}/\mathbb{F}$是Galois扩张，且存在中间域$\mathbb{M}$．则$[\opn{Gal}(\mathbb{K}/\mathbb{F}):\opn{Gal}(\mathbb{K}/\mathbb{M})]=[\mathbb{M}:\mathbb{F}]$．
+
+
+\end{lemma}
+
+
+\textbf{证明}：
+
+取$f, g\in\opn{Gal}(\mathbb{K}/\mathbb{F})$，则$f$和$g$模$\opn{Gal}(\mathbb{K}/\mathbb{M})$同余\textbf{当且仅当}$f^{-1}g\in\opn{Gal}(\mathbb{K}/\mathbb{M})$，或者说$f$和$g$限制在$\mathbb{M}$上是相同的．
+
+因此，$\opn{Gal}(\mathbb{K}/\mathbb{M})$的每个左陪集对应一个$\mathbb{M}/\mathbb{F}$的映射．
+
+\textbf{证毕}．
+
+
+这条引理很像\autoref{GExt_the9}~\upref{GExt}，只不过不再要求是有限扩张了．这显得\autoref{GExt_the9}~\upref{GExt}似乎没有存在的必要，然而我们依然将它保留了，体现“有限Galois扩张就是单扩张”的思路．
+
+
+
+
+\begin{theorem}{}\label{GExInf_the1}
+设$\mathbb{K}/\mathbb{F}$是Galois扩域，$\mathcal{M}=\{\opn{Gal}(\mathbb{K}/\mathbb{M})\mid \mathbb{M}/\mathbb{F}\text{是有限扩张}\}$\footnote{注意，由\autoref{GExt_the6}~\upref{GExt}，$\mathbb{K}/\mathbb{M}$必是Galois扩张．但$\mathbb{M}/\mathbb{F}$则不一定，取决于它是否正规．}．则有：
+
+1．$\forall H\in\mathcal{M}$，$[\opn{Gal}(\mathbb{K}/\mathbb{F}): H]$\footnote{即群指数，子群$H$在$\opn{Gal}(\mathbb{E}/\mathbb{K})$中陪集的数量．}是有限的；
+
+2．$\bigcap_{H\in\mathcal{M}}=\{e\}$．这里$e$是群的单位元，即$\mathbb{K}$上的恒等映射$\opn{id}_{\mathbb{K}}$．
+
+3．$\forall H_1, H_2\in\mathcal{M}$，有$H_1\cap H_2\in\mathcal{M}$；
+
+4．$\forall H\in\mathcal{M}$，$\exists N\triangleleft\opn{Gal}(\mathbb{K}/\mathbb{F})$，且$N\subseteq H$；
+
+\end{theorem}
+
+\textbf{证明}：
+
+1．
+
+由\autoref{GExInf_lem1} 直接可得．
+
+2．
+
+任取$\sigma\in\opn{Gal}(\mathbb{K}/\mathbb{F})$，只要$\sigma\not=\opn{id}_{\mathbb{K}}$，那么就存在$\alpha\in\mathbb{K}-\mathbb{F}$使得$\sigma(\alpha)\neq\alpha$．取$\mathbb{M}=\mathbb{F}(\alpha)$，则$\sigma\not\in\opn{Gal}(\mathbb{K}/\mathbb{F})$．故$\sigma\not\in \bigcap_{H\in\mathcal{M}}$．
+
+3．
+
+由\autoref{GExt_lem1}~\upref{GExt}，$H_1\cap H_2$是$\mathbb{M}_1\mathbb{M}_2$的Galois群．
+
+有限域的合成可以看成$\mathbb{M}_1$用$\mathbb{M}_2$的元素反复进行有限次单扩张的结果．由于是Galois扩张，故这些单扩张全都是代数扩张，从而是有限扩张，从而$\mathbb{M}_1\mathbb{M}_2/\mathbb{F}$是有限扩张．
+
+4．
+
+由\autoref{GExInf_lem2} ，只需要证明存在$\mathbb{M}'$，使得$\mathbb{M}'\supseteq\mathbb{M}$且$\mathbb{M}'/\mathbb{F}$是正规扩张．
+
+取$\mathbb{M}'$为$\mathbb{M}$关于$\mathbb{F}$的所有共轭域之合成即可．
+
+\textbf{证毕}．
+
+你可能会想到，\autoref{GExInf_the1} 的第4条完全可以取$N=\{e\}$来证明，也就是取$\mathbb{M}'=\mathbb{K}$，这就导致情况过于平凡，似乎定理第4条没有存在的必要．但我们实际采用的证明过程说明非平凡的情况也是存在的．
+
+
+
+
+
+\subsection{Krull 定理}\label{GExInf_sub1}
+
+
+\subsubsection{Krull拓扑}
+
+考虑任意集合$X$和$Y$，令$M\subseteq X^Y$．任取$f\in M$，以及$X$的\textbf{有限}子集$S$，令
+\begin{equation}
+V(f, S) = \{g\in M\mid g(s)=f(s), \forall s\in S\}
+\end{equation}
+即$V(f, S)$是全体属于$M$且限制在$S$上与$f$相等的映射的集合．
+
+任取$h\in V(f, S)\cap V(g, T)$，则易得$V(f, S)\cap V(g, T) = V(h, S\cup T)$\footnote{这是因为，任取$V(f, S)\cap V(g, T)$中的元素$c$，则$c$和$f$在$S$上相等，故和$h$在$S$上相等；同理可得$c$和$h$在$T$上相等，从而由$c$的任意性知，$V(f, S)\cap V(g, T)\subseteq V(h, S\cup T)$．反过来，任取$c\in V(h, S\cup T)$，则也可以推知$c$和$f$在$S$上相等、和$g$在$T$上相等，从而$V(h, S\cup T)\subseteq V(f, S)\cap V(g, T)$．}．于是，全体$V(f, S)$的集合对于有限交封闭，从而据\autoref{Topol_sub1}~\upref{Topol}的讨论知，全体$V(f, S)$的集合是一个\textbf{拓扑基}（\autoref{Topol_def2}~\upref{Topol}）．
+
+这样全体$V(f, S)$的集合就定义了$M$上的一个拓扑，称之为$M$上的\textbf{有限拓扑（finite topology）}．
+
+
+
+\begin{theorem}{}
+考虑Galois扩张$\mathbb{K}/\mathbb{F}$．令
+\begin{equation}
+\begin{aligned}
+\mathcal{N} &= \{xN\mid N\in\mathcal{M}, N\triangleleft\opn{Gal}(\mathbb{K}/\mathbb{F})\}\\
+\mathcal{L} &= \{xH\mid H\in\mathcal{M}\}\\
+\mathcal{R} &= \{Hx\mid H\in\mathcal{M}\}
+\end{aligned}
+\end{equation}
+其中$\mathcal{M}d$的定义见\autoref{GExInf_the1} ．
+
+则$\mathcal{N}$、$\mathcal{L}$和$\mathcal{R}$都是$\opn{Gal}(\mathbb{K}/\mathbb{F})$上\textbf{有限拓扑}的拓扑基．
+\end{theorem}
+
+\textbf{证明}：
+
+只需证明$\mathcal{N}$的情况即可，因为$\mathcal{N}\subseteq \mathcal{L}\cap\mathcal{R}$．
+
+任取$\mathbb{K}/\mathbb{M}$的中间域$\mathbb{M}$，使得$\mathbb{M}/\mathbb{F}$是有限扩张．考虑$\mathcal{M}$的定义，以及“有限可分扩张都是单扩张”（\autoref{PrmtEl_cor2}~\upref{PrmtEl}），可知存在$\alpha$使得$\mathbb{M}=\mathbb{F}(\alpha)$．因此，如果$\sigma_i\in\opn{Gal}(\mathbb{K}/\mathbb{F})$使得$\sigma_1(\alpha)=\sigma_2(\alpha)$，那么$\sigma_1\sigma_2^{-1}\in\opn{Gal}(\mathbb{K}/\mathbb{M})$．于是，qu
+
+\textbf{证毕}．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
