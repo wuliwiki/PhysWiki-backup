@@ -1,0 +1,30 @@
+% 张量的坐标
+% 张量坐标|坐标转换关系
+
+\pentry{张量积\upref{TsrPrd}}
+进行张量分析往往需要选择空间的基底，并用坐标去刻画张量．本节将证明张量所在空间的基底可由基矢之间的张量积表示．
+
+在矢量空间 $V$ 和 $V^*$ 中选择相互对偶的基底(\autoref{DualSp_sub1}~\upref{DualSp})
+\begin{equation}
+V=\langle e_1,\cdots ,e_n\rangle,\quad V^*=\langle e^1,\cdots,e^n\rangle
+\end{equation}
+这里，按照惯例，空间 $V$ 中的基底指标排列在下方，$V^*$ 中则在上方．而在对应的坐标中，指标的排列则是对立的，即若 $x\in V,f\in V^*$ ，则 $x=\sum_{i}x^i e_i,f=\sum_{i}f_ie^i$．
+
+我们知道， $V$ 和 $V^{**}$ 之间存在自然同构，这使得可以把 $\varphi\in V^{**}$ 和某个矢量 $x_{\varphi}\in V$ 等同起来．即 $x_{\varphi}(f)$ 等同于 $\varphi(f)$，其中 $f\in V^*$：
+\begin{equation}
+x_{\varphi}(f)\equiv\varphi(f)=f(x_{\varphi})
+\end{equation}
+上面 $\varphi(f)=f(x_{\varphi})$ 就是 $V$ 与 $V^{**}$ 之间建立的自然同构．
+
+为了表示这种等同，可记
+\begin{equation}
+f(x)=(f,x)
+\end{equation}
+该记法按时这是一个内积，但来自于不同的空间，并且对于每个变量都是线性的．当 $f$ 固定时，这是 $V$ 上的一个线性函数，而当 $x$ 固定时，就是 $V^{*}$ 上的一个线性函数．
+\begin{definition}{张量的坐标}
+设 $T$ 是一个 $(p,q)$ 型的张量，则
+\begin{equation}
+T^{j_1,\cdots,j_q}_{i_1,\cdots,i_p}:=T(e_{i_1},\cdots,e_{i_p},e^{j_1},\cdots,e^{j_q})
+\end{equation}
+称为张量 $T$ 在基底 ${e_1,\cdots,e_n}$ 下的\textbf{坐标}．
+\end{definition}
