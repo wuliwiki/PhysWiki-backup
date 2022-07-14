@@ -1,0 +1,39 @@
+% 空间的张量积
+% 空间的张量积
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{张量积\upref{TsrPrd}}
+矢量空间的张量积在微分几何，群表示论，数学物理中有各式各样的作用．
+\begin{definition}{空间的张量积}
+设 $V_1,V_2,W$ 是域 $\mathbb F$ 上的矢量空间，$\sigma:V_1\times V_2\rightarrow W$ 是由 $V_1,V_2$ 是个双线性映射．若对域 $\mathbb F$ 上任意矢量空间 $U$ ，任一双线性映射 $\varphi:V_1\times V_2\rightarrow U$， 都存在唯一的线性变换 $\psi:W\rightarrow U$ 使
+\begin{equation}
+\varphi=\psi\sigma
+\end{equation}
+那么 $W$ 就称为 $V_1$ 与 $V_2$ 的\textbf{张量积}．
+\end{definition}
+\begin{lemma}{}
+设 $V_1,V_2$ 是域 $\mathbb F$ 上的矢量空间，$V_1$ 的维数是 $n$，$e_1,\cdots,e_n$ 是 $V_1$ 的一组基．对 $V_1$ 中任意 $n$ 个元素 $\alpha_1,\cdots,\alpha_n$ ，存在唯一的线性映射 $f:V_1\rightarrow V_2$ 使
+\begin{equation}
+f(e_i)=\alpha_i,\quad i=1,\cdots,n
+\end{equation}
+\end{lemma}
+\textbf{证明：}若有另一线性映射 $f_1$，使得
+\begin{equation}
+f_1(e_i)=\alpha_i,\quad i=1,\cdots ,n
+\end{equation}
+那么对任意 $v=\sum_\limits{i}v_ie_i\in V_1$，有
+\begin{equation}
+f_1(v)=\sum_{i}v_if_1(e_i)=\sum_{i}v_i\alpha_i=\sum_{i}v_if(e_i)=f(v)
+\end{equation}
+即 $f_1=f$．
+
+\textbf{证毕！}
+\begin{lemma}{}
+
+\end{lemma}
+\begin{theorem}{}
+设 $V_1,V_2$ 是域 $\mathbb F$ 上有限维矢量空间，则矢量空间 $V_1,V_2$ 的张量积存在，且在同构的意义下是唯一的．
+\end{theorem}
