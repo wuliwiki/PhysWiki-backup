@@ -1,0 +1,15 @@
+% 自旋 1/2 粒子的非相对论波函数
+% 自旋|薛定谔方程|泡利方程
+
+\pentry{薛定谔方程（单粒子多维）\upref{QMndim}，自旋角动量\upref{Spin}，自旋角动量矩阵\upref{spinMt}}
+
+在量子力学发展的早期，薛定谔首先提出了 Klein Gordon 方程，企图描绘遵从相对论变换的电子波动方程，但却遭遇失败．之后薛定谔退而求其次，转而求它的非相对论近似下的方程，得到了著名的薛定谔方程：
+\begin{equation}
+i\hbar \frac{\partial }{\partial t}\psi = \hat H\psi=\qty[\frac{ 1}{2m}\qty(-\frac{i}{\hbar}\nabla)^2+V(x)]\psi
+\end{equation}
+换言之，粒子波动方程的能量由 $\hat H=(\hat P^2/2m+V)$ 给出，而 $\hat P=-i\nabla/\hbar$ 为动量算符．
+
+虽然非相对论性的薛定谔方程能很好描绘电子的波粒二象性，但却没有给出电子的\textbf{内禀性质}，也就是说，电子是个自旋为 $1/2$ 的粒子，则波函数一定是多分量的，而非单分量的．当空间发生旋转的时候，波函数的分量会随着参考系的旋转而发生变换．直到 Pauli 给出经典电磁场中的自旋 $1/2$ 电子的 Pauli 方程，人们才终于得到了描绘电子的携带自旋信息的非相对论性方程．Pauli 方程为
+\begin{equation}
+i\hbar\pdv{t} \psi=\qty[\frac{1}{2m}(\bvec p-e\bvec A)^2]
+\end{equation}
