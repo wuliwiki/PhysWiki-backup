@@ -1,0 +1,25 @@
+% 线性算子的张量积
+% 线性算子|张量积
+
+\pentry{空间的张量积\upref{TPofSp},线性算子代数\upref{LiOper}}
+
+由空间的张量积\upref{TPofSp}一节知道，任意两个矢量空间的张量积都存在，且仍是个矢量空间，那么在其上就可研究线性算子．
+\begin{theorem}{}
+设 $V,W$ 是域 $\mathbb F$ 上的矢量空间，$\mathcal A,\mathcal B$ 分别是 $V,W$ 上的线性算子，那么在 $V\otimes W$ 上存在唯一的线性算子 $\mathcal C$ ，使得
+\begin{equation}\label{TPofLO_eq1}
+\mathcal C(v\otimes w)=\mathcal A v\otimes \mathcal B w,\quad v\in V,w\in W
+\end{equation}
+\end{theorem}
+\textbf{证明：}定义映射 $\varphi:V\times W\rightarrow V\otimes V$：
+\begin{equation}
+\varphi(v,w):=\mathcal A v\otimes \mathcal B w,\quad v\in V,w\in W
+\end{equation}
+显然， $\varphi$ 是个线性算子，只需利用 $\mathcal A,\mathcal B$ 是线性算子\upref{LiOper}和张量积的性质（\autoref{TsrPrd_the1}~\upref{TsrPrd}）即可．
+
+由张量积的定义\autoref{TPofSp_def1}~\upref{TPofSp}，存在唯一的线性算子 $\mathcal C$，使得
+\begin{equation}
+\mathcal C(v\otimes w)=\varphi(v,w)=\mathcal A v\otimes \mathcal B w
+\end{equation}
+
+\textbf{证毕！}
+
