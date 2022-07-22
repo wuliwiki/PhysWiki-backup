@@ -1,0 +1,56 @@
+% 本原多项式（线性代数）
+% 本原多项式|有理系数多项式|整系数多项式|线性代数|高等代数|多项式|primitive polynomial
+
+任何一个有理系数多项式乘以一个整数，总能得到一个整系数多项式，且二者的根完全一样；类似地，任何整系数多项式，如果其系数有公共整数因子，那也可以用这个因子去除该多项式，得到的还是整系数多项式，且根不变．
+
+综上，研究有理系数多项式的根时，可以把焦点完全集中在下述“本原多项式”上．
+
+
+\begin{definition}{本原多项式}\label{PPlyR_def1}
+
+若整系数多项式$f(x)$的各系数之最大公因子是$1$，则称$f(x)$为一个\textbf{本原多项式（primitive polynomial）}．
+
+\end{definition}
+
+显然，每个有理系数多项式都唯一对应一个本原多项式．首项系数为$1$的多项式（简称为首一多项式）必为本原多项式．
+
+下面给出有关本原多项式基本性质的两个引理：
+
+\begin{lemma}{}
+若$f$和$g$都是本原多项式，则$fg$也是本原多项式．
+\end{lemma}
+
+\textbf{证明}：
+
+设$f(x) = \sum_{i=0}^n a_ix^i$，$g(x) = \sum_{j=0}^m b_jx^j$．由\autoref{PPlyR_def1} ，任取正整数$k$，都存在$i_0, j_0$使得$n\not\mid a_{i_0}b_{j_0}$．
+
+考虑
+\begin{equation}
+\begin{aligned}
+f(x)g(x) &= a_0b_0 + \sum_{i+j=1}a_ib_jx + \sum_{i+j=2}a_ib_jx^2+\cdots +a_nb_mx^{n+m}
+\end{aligned}
+\end{equation}
+
+假设$k\mid a_0$，且$k\not\mid b_0$．则当$k\mid a_1b_0+a_0b_1$时，必有$k\mid a_1$．于是，如果$k\mid\sum_{i+j=d}a_ib_j$对于$d<i_0+j_0$都成立，那么可推出$k\mid a_d$对于$d<i_0+j_0$都成立．
+
+
+
+\textbf{证毕}．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
