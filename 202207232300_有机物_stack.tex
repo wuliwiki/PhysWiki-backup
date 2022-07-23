@@ -1,0 +1,29 @@
+% 栈
+% 栈|数据结构|C++
+
+栈是一种“先进后出”的数据结构．栈只有一端可以进出元素，这一段被称为“栈顶”，另一端被称为“栈底”．往栈中插入元素被称为”进栈“，往栈中删除元素被称为“出栈”．
+
+栈是计算机实现递归和基本结构．
+
+C++ 的 STL 已经帮助我们实现好了栈，一般情况我们可以直接使用 STL 库里的栈．
+
+栈的常用操作：
+\begin{enumerate}
+\item 向栈顶插入一个数 $x$；
+\item 从栈顶弹出一个数；
+\item 判断栈是否为空；
+\item 查询栈顶元素．
+\end{enumerate}
+
+C++ STL
+\begin{lstlisting}[language=cpp]
+stack<int> stk;
+stk.push(x);
+stk.pop();
+if (stk.empty()) // 为空则为 true
+cout << stk.top() << endl;
+\end{lstlisting}
+
+但我们在这里详细的讲一下如何使用数组模拟栈．
+
+定义一个数组用于模拟栈，再定义一个变量表示栈顶，初始化为 $-1$
