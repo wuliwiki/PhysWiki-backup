@@ -1,0 +1,98 @@
+% 简单刚体系统的静力学分析
+% 静力学 刚体 系统 受力分析
+
+% 简单刚体系统的静力学分析
+本文简要介绍分析处于静力平衡的简单刚体系统的受力的方法．\footnote{本文参考了张娟著《理论力学》}
+
+\subsection{轻绳与轻杆模型}
+\subsubsection{轻绳}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4cm]{./figures/RGDFA_1.png}
+\caption{轻绳} \label{RGDFA_fig1}
+\end{figure}
+拉紧的轻绳只能受拉而不能受压
+
+拉紧的轻绳向与其相连的刚体提供拉力，但不能提供压力（轻绳不能被压缩）；如果轻绳被拉直，那么轻绳提供的拉力方向总是平行于绳
+
+\subsubsection{轻杆}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4cm]{./figures/RGDFA_2.png}
+\caption{轻杆} \label{RGDFA_fig2}
+\end{figure}
+轻杆可以受压或受拉，同时轻杆提供的力的方向也不一定平行于轻杆．
+
+\subsection{常见约束条件}
+\subsubsection{接触面 Surface Constraint}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/RGDFA_3.png}
+\caption{接触面模型1} \label{RGDFA_fig3}
+\end{figure}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4cm]{./figures/RGDFA_4.png}
+\caption{接触面模型2} \label{RGDFA_fig4}
+\end{figure}
+放置于平坦接触面的刚体受一个垂直于公切面的支持力．如果接触面粗糙，还可以提供一个平行于接触面的静摩擦力.
+\subsubsection{小车模型 Roller Support}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/RGDFA_5.png}
+\caption{小车模型} \label{RGDFA_fig5}
+\end{figure}
+小车可以为与其相连的杆提供一个垂直接触面向上的支持力，但是不能提供一个垂直表面向下的拉力；如果接触面是粗糙的，那还能提供一个平行于接触面的静摩擦力.
+\subsubsection{铰链模型 Fixed Hinge}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/RGDFA_6.png}
+\caption{铰链模型} \label{RGDFA_fig6}
+\end{figure}
+铰链可以为与其相连的杆提供一个任意方向的力，但是不能提供力偶．在初步的受力分析中，力的方向不能确定，因此可以先记为两个互相垂直的分力．
+\subsubsection{钉子模型 Fixed Rod}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4cm]{./figures/RGDFA_7.png}
+\caption{钉子模型} \label{RGDFA_fig7}
+\end{figure}
+杆钉入墙中的部分可以提供一个任意方向的力与一个力偶.同铰链一样，力的方向无法立刻确定，先记为两个互相垂直的分力．
+
+\subsection{主动力与约束力}
+先简要定义约束力与主动力：
+\begin{itemize}
+\item 约束力：由于约束条件而产生的力，例如桌面对物体产生的支持力，绳子对物体提供的拉力等
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/RGDFA_8.png}
+\caption{请添加图片描述} \label{RGDFA_fig8}
+\end{figure}
+\item 主动力：由于其他外界因素而产生的力，例如重力、外加的压力等
+\end{itemize}
+
+\subsection{受力分析}
+总体思路是系统法与隔离法，即先分析系统的整体受力，再逐个分析系统内各个组件的受力．分析系统受力不是一蹴而就，经常是一个反复试错、修正的过程．
+\begin{itemize}
+\item 先把系统视作一个整体，进行受力分析．此时，系统中各刚体之间的约束力是内力，均可被忽略
+\item 随后逐个分析系统内各个组件的受力．一般而言，先分析受到主动力的组件，以及只受两个力的组件（由二力平衡定理立刻得知该两力等大、反向、作用点共线）
+\end{itemize}
+
+在分析一个组件时，先标注主动力，再根据约束条件标注约束力（此时系统中其他组件对该组件的约束力不能再被忽视），最终根据刚体平衡条件计算，并得到各个约束力．
+
+根据牛顿第三定律，若A对B施加约束力，那么B对A也会施加一个等大反向的约束力．标注组件的约束力时必须注意到这一点．同时，若A对B施加的约束力已被确定，那么B对A施加的约束力也随之确定．
+
+\begin{example}{框架结构的受力}
+如图，杆的重力均不计，分析框架的受力
+
+先分析系统的整体受力．但此时未知力太多，无法得到有价值的信息．
+
+再分析AB杆的受力．显然，AB杆只受两个力（分别由两个铰链提供），根据二力平衡定理，两力等大、反向、作用点共线．
+
+再分析BC杆的受力．注意根据牛顿第三定律，B处力的方向已经可以确定．
+
+最后，根据各组件力的平衡条件列方程组，即可解得$\bvec F_A, \bvec F_B, \bvec F_C$
+\end{example}
+
+\begin{exercise}{“反重力积木”？}
+试受力分析该“反重力积木”，并说明其实它并没有反重力．\footnote{图片来自网络}
+\end{exercise}

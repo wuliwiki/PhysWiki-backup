@@ -1,0 +1,95 @@
+% 伯努利方程
+% 流体|密度|压强|功率|横截面
+
+% \begin{issues}
+% \issueDraft
+% \end{issues}
+
+伯努利方程是关于不可压缩的流体的方程．\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Bernoulli-principle}{相关页面}．}
+
+\begin{theorem}{伯努利方程}
+假设液体不可被压缩、没有粘滞性、与管壁也没有摩擦阻力，那么处处有
+\begin{equation}
+\frac{v^2}{2} + gz + \frac{p}{\rho} = \text{常数}
+\end{equation}
+其中 $g$ 是重力加速度， $z$ 是高度， $p$ 是液体的压强， $\rho$ 是液体的密度
+\end{theorem}
+可以根据伯努利原理设计液体测速计等设备．
+
+\subsubsection{推导}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/Bernul_1.png}
+\caption{伯努利方程的推导}\label{Bernul_fig1}
+\end{figure}
+\footnote{推导过程还参考了安宇教授等的《大学物理》课程}如图， 一根管子的粗细不同两部分的横截面面积分别为 $A_1, A_2$， 压强分别为 $p_1, p_2$， 高度分别为$h_1, h_2$；其中流过的液体密度为$\rho$，在两处的速度分别为 $v_1, v_2$．
+
+假设 $\Delta t$ 时间内，1 处有质量为 $m_1$ 液体进入水管，其流速为 $v1$；同时2处有 $m_2$ 液体流出水管，其流速为 $v_2$．
+
+根据不可压缩的假设，流入水管的水量=流出水管的水量，$A_1v_1\Delta t=A_2v_2\Delta t=V$，即$m1=m2$
+
+两部分液体的机械能：
+\begin{equation}
+E_1=\frac{1}{2}mv_1^2+mgh_1
+\end{equation}
+\begin{equation}
+E_2=\frac{1}{2}mv_2^2+mgh_2
+\end{equation}
+
+那么机械能差值：
+\begin{equation}
+\Delta E = E_2 - E_1 = \frac{1}{2}m(v_2^2-v_1^2)+mg(h_2-h_1)
+\end{equation}
+
+再考虑液体压力的做功．1处液体流入管道时，液体压力对液体做正功；而2处液体流出管道时，液体压力对液体做负功．
+\begin{equation}
+W_1=p_1v_1A_1\Delta t=p_1V 
+\end{equation}
+\begin{equation}
+W_2=-p_2v_2A_2 \Delta t=-p_2V 
+\end{equation}
+总功
+\begin{equation}
+W=(p_1-p_2)V
+\end{equation}
+根据机械能定理 $W=\Delta E$，
+\begin{equation}
+(p_1-p_2)V= \frac{1}{2}m(v_2^2-v_1^2)+mg(h_2-h_1)
+\end{equation}
+得
+\begin{equation}
+p_1V+\frac{1}{2}mv_1^2+mgh_1=p_2V+\frac{1}{2}mv_2^2+mgh_2
+\end{equation}
+事实上1，2的位置可以任意选取，因此有
+\begin{equation}
+pV+\frac{1}{2}mv^2+mgh=\text{常数}
+\end{equation}
+两边同除以V，
+\begin{equation}
+p+\frac{1}{2}\rho v^2+\rho gh=\text{常数}
+\end{equation}
+还可以再同除以$\rho$，
+\begin{equation}
+\frac{p}{\rho} + \frac{v^2}{2} + gh = \text{常数}
+\end{equation}
+
+% 穿过横截面 $i = 1, 2$ 的功率分别为
+% \begin{equation}
+% P_i = p_i A_i v_i + \frac{1}{2} (\rho v_i A_i) v_i^2 + \rho v_i A_i g z_i
+% \end{equation}
+% 而且我们要求
+% \begin{equation}\label{Bernul_eq1}
+% P_1 = P_2
+% \end{equation}
+
+% 另外由于液体不可压缩， 有
+% \begin{equation}
+% A_1v_1 = A_2 v_2
+% \end{equation}
+% 所以\autoref{Bernul_eq1} 两边同时除以 $\rho v_i A_i$ 得
+% \begin{equation}
+% \frac{v_1^2}{2} + gz_1 + \frac{p_1}{\rho} = \frac{v_2^2}{2} + gz_2 + \frac{p_2}{\rho}
+% \end{equation}
+
+\addTODO{这样的推导如何拓展到开放空间的情况呢？ 举例： 水龙头下的乒乓球， 香蕉球， 机翼， 两张纸中间吹气}

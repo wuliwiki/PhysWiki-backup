@@ -1,0 +1,130 @@
+% 张量（向量与矩阵）
+% 张量|矩阵
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+
+\pentry{矩阵\upref{Mat}}
+
+本文的难度分级为：科普．
+
+% 在多元微积分中引入矩阵是为了将一元微积分中导数值的概念．具体而已，对于函数 $f: \mathbb{R} \to \mathbb{R}$，在某个点处（比如 $0$ 点）可以找到一条切线，我们可以用一个实数来表示切线的斜率；类似的，当我们考虑函数 $f: \mathbb{R}^n \to \mathbb{R}^m$ 的
+
+直观上说，矩阵就是把数字排列成长方形．从这个角度来说，矩阵是一个纯粹的“组合数学”概念：不需要学习集合论、微积分、线性代数，只需要理解了数（整数，有理数，实数或者复数都可）的概念和上面的加、减、乘（可以没有除法）我们就可以理解矩阵．
+\addTODO{什么是《组合数学》，可能需要一个词条来解释数学的子学科}
+\addTODO{可以考虑移动到《矩阵》词条}
+
+不过，长方形只是一个很简单的二维图形，抛开纸张（二维）和方（形状）的限制我们可以得到很多不同的“数字结构”，其中张量就是一种（不那么简单的）对方矩阵的推广．
+
+在线性代数中，我们会学到用矩阵来理解（选定基之后的）线性算子\upref{LinMap}，用张量来理解多线性变换\upref{MulMap}．
+
+\subsection{列矩阵和行矩阵}
+在这个词条中，我们把一个 $n$ 行 $n$ 列的矩阵记作\textbf{方矩阵}（省略掉 $n$）， $1 \times n$ 矩阵记作\textbf{列矩阵}（列向量），$n \times 1$ 矩阵记作\textbf{行矩阵}（行向量），$1 \times 1$ 矩阵记作\textbf{数矩阵}（标量）．根据矩阵的乘法\autoref{Mat_sub1}~\upref{Mat}，我们有以下四种合法的乘法（注意顺序不能颠倒）,
+
+其中三种“简化”的乘法；
+\begin{itemize}
+\item 行矩阵 $\times$ 列矩阵 $\mapsto$ 数矩阵}
+$$
+\begin{pmatrix}
+\square & \square & \square
+\end{pmatrix}
+\begin{pmatrix}
+\square \\
+\square \\
+\square
+\end{pmatrix}
+=
+\begin{pmatrix}
+\square
+\end{pmatrix}
+$$
+\item 行矩阵 $\times$ 方矩阵 $\mapsto$ 行矩阵
+$$
+\begin{pmatrix}
+\square & \square & \square
+\end{pmatrix}
+\begin{pmatrix}
+\square & \square & \square \\
+\square & \square & \square \\
+\square & \square & \square
+\end{pmatrix}
+=
+\begin{pmatrix}
+\square & \square & \square
+\end{pmatrix}
+$$
+\item 方矩阵 $\times$ 列矩阵 $\mapsto$ 列矩阵
+$$
+\begin{pmatrix}
+\square & \square & \square \\
+\square & \square & \square \\
+\square & \square & \square
+\end{pmatrix}
+\begin{pmatrix}
+\square \\
+\square \\
+\square
+\end{pmatrix}
+=
+\begin{pmatrix}
+\square \\
+\square \\
+\square
+\end{pmatrix}
+$$
+\end{itemize}
+
+剩下一种“复杂化”的乘法，
+\begin{itemize}
+\item 列矩阵 $\times$ 行矩阵 $\mapsto$ 方矩阵
+$$
+\begin{pmatrix}
+\square \\
+\square \\
+\square
+\end{pmatrix}
+\begin{pmatrix}
+\square & \square & \square
+\end{pmatrix}
+=
+\begin{pmatrix}
+\square & \square & \square \\
+\square & \square & \square \\
+\square & \square & \square
+\end{pmatrix}
+$$
+\end{itemize}
+
+
+在研究张量的时候（本词条）只考虑“简化”的三种乘法，这之中我们发现，
+\begin{itemize}
+\item 行矩阵永远乘在左边
+\item 列矩阵永远乘在右边
+\end{itemize}
+因此，对于一个矩阵（方矩阵或者行矩阵），我们可以把\textbf{作用一个列矩阵}（或者\textbf{输入一个列矩阵}）定义为在右边乘上一个列矩阵；类似的对于一个矩阵（方矩阵或者列矩阵），我们可以把\textbf{作用一个行矩阵}（或者\textbf{输入一个行矩阵}）定义为在左边乘上一个行矩阵．
+
+就目前来说，上述行为显得很没有意义，因为总共只有三种情况，而我却用了 $2 \times 2 = 4$ 种情况来表述．但是，我们可以把这套语言进行推广，以此来得到张量．但在此之前我需要严格定义一下上述“简化”和“复杂化”的概念．
+
+\subsection{矩阵的类型}
+我们现在有四种矩阵，方矩阵、列矩阵与行矩阵、数矩阵．我们把数矩阵作为终止状态，那么如果想通过“作用列/行矩阵”来得到终止状态，我们有
+\begin{itemize}
+\item 数矩阵
+\item 行矩阵\textbf{作用列矩阵}得到数矩阵
+\item 列矩阵\textbf{作用行矩阵}得到数矩阵
+\item 方矩阵\textbf{作用列矩阵}/\textbf{作用行矩阵}得到数矩阵
+\end{itemize}
+需要注意的是，对于方矩阵来说，作用列矩阵和作用行矩阵顺序不重要，因为一个是左乘一个是右乘．
+
+我们把\textbf{不需要任何作用}的数矩阵称为 $(0,0)$ 型，把\textbf{需要一次列向量作用}的行矩阵称为 $(0,1)$ 型，把\textbf{需要一次行向量作用}的列矩阵称为 $(1,0)$ 型，把\textbf{需要一次列向量作用和一次行向量作用}方列矩阵称为 $(1,1)$ 型．
+
+注：这里我不称呼它们为 $(s, t)$ 型矩阵是因为这很容易和 $s \times t$ 型矩阵搞混；如果读者自认不会混淆，可以称呼它们为 $(s, t)$ 型矩阵．之后我会称呼它们为$(s, t)$ 型张量．
+
+很自然的我们就会考虑， $s$ 和 $t$ 如果不是 $0$ 或 $1$，我们能把 $(s, t)$ 型张量定义成\textbf{需要 $t$ 次列向量作用和 $s$ 次行向量作用}的\textbf{某种东西}吗？
+
+答案是可以的，这就是张量的定义．
+
+\subsection{张量}
+
+\addTODO{未完待续：1. 矩阵的爱因斯坦记号，2. 张量的爱因斯坦记号，3. 爱因斯坦求和约定}
