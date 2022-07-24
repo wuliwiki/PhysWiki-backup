@@ -1,0 +1,18 @@
+% MPI 笔记（C++）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item intel MPI 和 MKL 一样是免费的， google 一下， 下载安装包即可， 运行 \verb`sudo ./install.sh` 安装， 过程和 MKL 差不多
+\item 如果已经安装了 MKL， 可能会提示目录已经存在（不确定 MKL 是否已经包含 MPI）
+\item 安装好以后同样需要在 \verb`~/.bashrc` 中添加路径， 即在文件最后加入命令 \verb`source /opt/intel/compilers_and_libraries_2020.1.217/linux/mpi/intel64/bin/mpivars.sh`
+\item 重启一下 shell， 运行 \verb`mpicxx --help`， 如果进入帮助页面就说明成功了
+
+
+\item \href{https://people.sc.fsu.edu/~jburkardt/cpp_src/hello_mpi/hello_mpi.html}{入门教程页面}
+\item 尝试直接使用 Intel 的 MPI
+\item \verb`mpicxx` 或者 \verb`mpigxx` 好像都是一样的是 g++ 的一个 wraper， 和 g++ 一样使用即可
+\item 编译完以后， 如果直接运行程序只会有一个 process， 需要用例如 \verb|mpiexec -np 4 ./main.x| 指定进程数量．
+\end{itemize}
