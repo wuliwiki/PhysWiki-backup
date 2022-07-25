@@ -1,11 +1,38 @@
 author      entry        time(h)
 ================================
 2YOURFATHER     CppFun            0.50 
+ACertainUser    Astro             0.17 
+ACertainUser    Bernul            0.33 
+ACertainUser    CM0               0.17 
 ACertainUser    ChgCsv            0.17 
-ACertainUser    Cndctr            0.17 
+ACertainUser    Cndctr            0.25 
+ACertainUser    Cplx              0.17 
 ACertainUser    Disp              0.17 
 ACertainUser    EBS               0.33 
-ACertainUser    VnA               0.25 
+ACertainUser    F2Exm             0.25 
+ACertainUser    FaraEB            0.42 
+ACertainUser    GBPL              0.58 
+ACertainUser    GibbsG            0.67 
+ACertainUser    KELaw1            0.17 
+ACertainUser    Lissaj            0.17 
+ACertainUser    MIthm             0.83 
+ACertainUser    MacroS            0.17 
+ACertainUser    MetInt            5.75 
+ACertainUser    MxwBzm            0.25 
+ACertainUser    PCuvMo            0.33 
+ACertainUser    PLaw1             0.33 
+ACertainUser    RGDFA             0.67 
+ACertainUser    Resist            0.17 
+ACertainUser    RigEng            0.33 
+ACertainUser    Snel              0.17 
+ACertainUser    SufCnd            0.17 
+ACertainUser    Td2Law            0.50 
+ACertainUser    Th1Law            0.50 
+ACertainUser    VnA               0.33 
+ACertainUser    curvat            0.17 
+ACertainUser    main              0.75 
+ACertainUser    mbdy              0.25 
+ACertainUser    statef            0.67 
 Chain           AIstat            3.42 
 Chain           hhh               0.17 
 Chain           hhhh              0.17 
@@ -121,13 +148,29 @@ FFjet           WaInte            0.25
 FFjet           Young             1.42 
 FFjet           beatno            0.42 
 FFjet           motint            0.42 
+Giacomo         DerV              0.17 
 Giacomo         Egreg             0.17 
+Giacomo         EuVS              0.17 
 Giacomo         ExtAlg            0.25 
+Giacomo         FldExp            0.42 
+Giacomo         FntFld            0.33 
+Giacomo         GrpPrd            0.25 
+Giacomo         IntL              0.17 
+Giacomo         InvMat            0.17 
+Giacomo         LieAlg            0.75 
+Giacomo         LieGrp            0.17 
+Giacomo         LieSub            0.42 
+Giacomo         Mat               0.25 
+Giacomo         PrmtEl            0.50 
 Giacomo         RieCon            0.17 
 Giacomo         RuSurf            0.17 
+Giacomo         SSLA              0.25 
+Giacomo         SemGrp            0.33 
+Giacomo         Taylor            0.17 
 Giacomo         TopSpO            1.08 
-Giacomo         VecSpn            0.17 
-Giacomo         main              1.33 
+Giacomo         TsrFst            2.67 
+Giacomo         VecSpn            0.25 
+Giacomo         main              5.17 
 Jelly           draw              0.17 
 Jia             LinGra            3.00 
 JierPeter       AbsInd            0.42 
@@ -150,6 +193,7 @@ JierPeter       CovTop            0.42
 JierPeter       CrstfS            2.42 
 JierPeter       Curv3D            2.00 
 JierPeter       CvaVec            0.83 
+JierPeter       Cycltm            2.00 
 JierPeter       Der               1.17 
 JierPeter       Der2              0.83 
 JierPeter       DetVol            0.92 
@@ -160,7 +204,7 @@ JierPeter       DualSp            2.17
 JierPeter       EMFT              1.50 
 JierPeter       Egreg             1.83 
 JierPeter       EgrfTh            2.17 
-JierPeter       EinEqn            3.00 
+JierPeter       EinEqn            3.58 
 JierPeter       EinSum            1.75 
 JierPeter       EnvSol            0.92 
 JierPeter       EsstCr            0.58 
@@ -205,6 +249,7 @@ JierPeter       Ideals            1.25
 JierPeter       Isomet            0.67 
 JierPeter       JcbDet            0.17 
 JierPeter       JdLem             4.17 
+JierPeter       KGeq              0.92 
 JierPeter       LIntFn            0.50 
 JierPeter       LSpace            1.25 
 JierPeter       LapTra            0.17 
@@ -254,9 +299,10 @@ JierPeter       ObSys             1.17
 JierPeter       OriSur            0.42 
 JierPeter       PID               0.25 
 JierPeter       PInsEx            4.50 
+JierPeter       PPlyR             1.00 
 JierPeter       ParUni            0.75 
 JierPeter       Perm              0.42 
-JierPeter       PlyRtS            9.92 
+JierPeter       PlyRtS            10.00
 JierPeter       PoiHP             1.83 
 JierPeter       PrmtEl            3.58 
 JierPeter       QuaRot            1.67 
@@ -303,7 +349,7 @@ JierPeter       SprbE2            1.42
 JierPeter       SprbEx            3.42 
 JierPeter       SubMnf            0.33 
 JierPeter       SupInf            0.75 
-JierPeter       Sylow             3.33 
+JierPeter       Sylow             3.50 
 JierPeter       TanBun            1.00 
 JierPeter       Tensor            5.42 
 JierPeter       TestT             2.92 
@@ -356,6 +402,7 @@ Li.W            SverAd            0.83
 LittleFeng      LinEqu            2.08 
 Liu Yiran       TriAre            1.33 
 Liu Yiran       test1             0.25 
+Page            BddRsv            0.17 
 Relo Stern      FnalNt            0.33 
 Relo Stern      GenFut            0.75 
 Relo Stern      ImFED             0.25 
@@ -397,7 +444,7 @@ _Eden_          EqTemp            0.17
 _Eden_          FDU15             0.58 
 _Eden_          FSW               1.67 
 _Eden_          FunDer            0.17 
-_Eden_          GibbsG            1.67 
+_Eden_          GibbsG            2.25 
 _Eden_          HelmF             0.50 
 _Eden_          ICheEq            1.58 
 _Eden_          IdED1             0.17 
@@ -417,6 +464,7 @@ _Eden_          Oscil             2.50
 _Eden_          PVgraf            0.58 
 _Eden_          PVnRT             0.25 
 _Eden_          ParDif            1.08 
+_Eden_          Pauli             0.67 
 _Eden_          PhEquv            1.00 
 _Eden_          PhSpace           1.08 
 _Eden_          QMborn            1.08 
@@ -458,10 +506,10 @@ _Eden_          mfcgas            2.92
 _Eden_          mulTh             0.92 
 _Eden_          onatom            0.75 
 _Eden_          quanti            0.58 
-_Eden_          scheq2            1.58 
+_Eden_          scheq2            1.75 
 _Eden_          seq               0.17 
 _Eden_          sftens            1.25 
-_Eden_          statef            0.33 
+_Eden_          statef            0.83 
 _Eden_          tbappx            1.58 
 _Eden_          ttpro             0.50 
 _Eden_          twatom            0.58 
@@ -522,10 +570,11 @@ addis           BanDmt            1.00
 addis           BanThm            0.50 
 addis           BarCom            0.42 
 addis           BasPar            0.17 
+addis           Bash              0.25 
 addis           Basics            0.25 
 addis           BddSpe            0.58 
 addis           BerECS            1.08 
-addis           Bernul            0.42 
+addis           Bernul            1.17 
 addis           Bessel            2.08 
 addis           BiDist            0.58 
 addis           BiNor             0.33 
@@ -565,6 +614,7 @@ addis           CM0               3.67
 addis           CM1               5.50 
 addis           CMAD              0.67 
 addis           CMVD              0.33 
+addis           CMakeN            1.50 
 addis           COrNoB            2.42 
 addis           CPow              1.42 
 addis           CSI0              0.33 
@@ -578,6 +628,7 @@ addis           CamLoc            0.25
 addis           CamMdl            1.08 
 addis           CanTra            0.25 
 addis           CapRea            0.50 
+addis           CardiN            0.17 
 addis           Carnot            0.75 
 addis           Cat               0.17 
 addis           CatTns            0.17 
@@ -633,7 +684,7 @@ addis           CovTop            0.17
 addis           Cpctor            1.17 
 addis           Cplx              3.50 
 addis           CplxNo            2.08 
-addis           Cpp0              1.92 
+addis           Cpp0              2.00 
 addis           CppFun            0.17 
 addis           CppMat            0.58 
 addis           CpxInt            1.58 
@@ -643,7 +694,7 @@ addis           CrnDen            1.17
 addis           CrosMt            1.00 
 addis           Cross             1.83 
 addis           CrossP            1.08 
-addis           CrstfS            0.17 
+addis           CrstfS            0.25 
 addis           CryWal            10.17
 addis           CrysDf            0.17 
 addis           CulmF             2.50 
@@ -659,14 +710,15 @@ addis           CylNab            1.00
 addis           CyliSE            0.17 
 addis           Cylin             0.25 
 addis           DFT               2.25 
-addis           DForm             0.83 
+addis           DForm             0.92 
 addis           DGGRNt            0.42 
+addis           DList             0.17 
 addis           DatExp            0.42 
 addis           DatTyp            0.17 
 addis           DbPend            0.75 
 addis           DbSliN            0.33 
 addis           DefInt            0.50 
-addis           DefMat            0.83 
+addis           DefMat            0.92 
 addis           DelCry            0.50 
 addis           DeltOr            0.42 
 addis           Delta             9.25 
@@ -675,7 +727,7 @@ addis           Der3              0.17
 addis           DerDif            0.42 
 addis           DerImg            0.17 
 addis           DerRul            1.33 
-addis           DerV              0.67 
+addis           DerV              0.75 
 addis           DetPro            1.83 
 addis           DetVol            0.50 
 addis           Deter             2.42 
@@ -694,10 +746,11 @@ addis           Dirac             0.25
 addis           Diracq            0.25 
 addis           DisCos            0.33 
 addis           DisCur            0.33 
-addis           Disp              0.17 
+addis           Disp              0.25 
 addis           DivInv            1.42 
 addis           Divgnc            0.42 
 addis           DoF               0.33 
+addis           Docker            0.25 
 addis           Dople1            2.83 
 addis           Dopler            1.50 
 addis           Dot               0.67 
@@ -750,6 +803,7 @@ addis           EqTemp            0.17
 addis           EqVol             0.17 
 addis           Erf               0.58 
 addis           EuRing            0.17 
+addis           EuVS              0.25 
 addis           Eulequ            0.25 
 addis           EulerA            0.92 
 addis           ExDiv             0.17 
@@ -758,7 +812,7 @@ addis           ExchOp            3.00
 addis           ExpDec            0.33 
 addis           ExtCur            0.17 
 addis           F0                3.42 
-addis           F2Exm             0.92 
+addis           F2Exm             1.17 
 addis           FAmp              0.42 
 addis           FD                0.25 
 addis           FEDVR             0.58 
@@ -794,9 +848,9 @@ addis           FnalN3            0.17
 addis           FnalN4            0.17 
 addis           FnalN5            0.42 
 addis           FnalNt            17.25
-addis           FntFld            0.17 
+addis           FntFld            0.42 
 addis           FootBl            0.33 
-addis           Fortra            0.50 
+addis           Fortra            0.58 
 addis           Fouclt            0.33 
 addis           FrNorm            1.17 
 addis           FreGrp            0.17 
@@ -834,7 +888,8 @@ addis           GaussU            4.00
 addis           GenYlm            1.83 
 addis           GeoPrg            0.17 
 addis           Geomet            0.67 
-addis           Git               2.75 
+addis           GibbsG            0.17 
+addis           Git               2.83 
 addis           GitHub            0.50 
 addis           GitSer            0.25 
 addis           GoodQN            0.50 
@@ -1004,7 +1059,7 @@ addis           LTrans            1.33
 addis           LVgaug            2.75 
 addis           LWP               0.50 
 addis           LagEqQ            3.67 
-addis           LagMul            0.25 
+addis           LagMul            0.33 
 addis           LagNum            2.50 
 addis           LagPrb            0.33 
 addis           Lagrng            3.83 
@@ -1023,7 +1078,7 @@ addis           Legen             1.17
 addis           LenGau            1.75 
 addis           LepSec            1.75 
 addis           LeviCi            1.25 
-addis           LieAlg            0.17 
+addis           LieAlg            0.25 
 addis           LieSub            0.17 
 addis           Lim               1.75 
 addis           Lim0              1.92 
@@ -1041,7 +1096,7 @@ addis           Linux             0.75
 addis           LiouTh            1.00 
 addis           LipSch            1.42 
 addis           LireTo            0.33 
-addis           Lissaj            1.42 
+addis           Lissaj            1.50 
 addis           Lloyd             0.17 
 addis           LoGaug            0.58 
 addis           Lorenz            0.33 
@@ -1051,9 +1106,10 @@ addis           LstSqr            2.58
 addis           MBdisN            0.17 
 addis           MBisec            0.17 
 addis           MIfFor            0.17 
-addis           MIthm             0.25 
+addis           MIthm             0.33 
 addis           MLprof            0.17 
 addis           MM                0.25 
+addis           MPIcpp            1.75 
 addis           MQuivr            0.50 
 addis           MWEq              2.08 
 addis           MWEq1             0.17 
@@ -1109,6 +1165,7 @@ addis           MulSct            0.42
 addis           MxwBzm            0.17 
 addis           MyNab             0.42 
 addis           NDtalr            0.83 
+addis           NFS               0.50 
 addis           NFTran            0.33 
 addis           NLeib             0.42 
 addis           NLinE2            0.58 
@@ -1149,6 +1206,7 @@ addis           OnePol            0.17
 addis           OpComu            0.67 
 addis           OpExp             0.50 
 addis           OpMat             0.42 
+addis           OpenMP            0.33 
 addis           OrNrB             0.92 
 addis           OribP             0.25 
 addis           OrthSb            0.58 
@@ -1202,7 +1260,7 @@ addis           PolyNm            0.50
 addis           Ponder            0.25 
 addis           PrbJ              0.75 
 addis           PrmSol            1.25 
-addis           PrmtEl            0.17 
+addis           PrmtEl            0.33 
 addis           PrncAx            0.92 
 addis           Propos            0.17 
 addis           Pscrol            0.50 
@@ -1332,6 +1390,7 @@ addis           SRLrtz            0.25
 addis           SROb              0.25 
 addis           SRc               0.58 
 addis           SRsmt             0.33 
+addis           SSH               0.67 
 addis           SVarDP            0.17 
 addis           Sample            6.25 
 addis           Sca1D             2.42 
@@ -1345,6 +1404,7 @@ addis           SelRul            3.33
 addis           SepVar            1.17 
 addis           SeqLim            0.50 
 addis           Set               2.00 
+addis           SetAxi            0.17 
 addis           SetLim            0.67 
 addis           Sfile             1.08 
 addis           ShoWav            0.33 
@@ -1419,14 +1479,14 @@ addis           TYPEst            0.17
 addis           TanBun            0.25 
 addis           TanL              0.50 
 addis           Taylor            3.50 
-addis           Taylr2            0.25 
+addis           Taylr2            0.33 
 addis           Td2Law            0.33 
 addis           TeXliv            0.25 
 addis           TenMan            0.17 
 addis           TenPT             0.17 
 addis           Tensor            2.83 
 addis           TestT             0.17 
-addis           Th1Law            1.33 
+addis           Th1Law            1.42 
 addis           ThCapa            1.33 
 addis           TherEq            0.17 
 addis           ThreeJ            0.50 
@@ -1487,9 +1547,11 @@ addis           VecPar            0.67
 addis           VecPdv            0.25 
 addis           VecRep            0.58 
 addis           VecSpn            0.75 
+addis           Vector            0.17 
 addis           VelPdf            0.17 
 addis           Velope            0.17 
 addis           Vfield            0.33 
+addis           Vim               0.25 
 addis           VirWrk            1.67 
 addis           VisSpt            0.67 
 addis           VnA               0.25 
@@ -1607,11 +1669,12 @@ addis           julias            0.33
 addis           keldis            1.67 
 addis           kramer            0.42 
 addis           latxIn            3.00 
-addis           licens            2.50 
+addis           licens            2.58 
 addis           linDpe            0.83 
-addis           main              41.50
+addis           main              42.42
 addis           map               4.25 
 addis           matb              1.17 
+addis           mbdy              0.17 
 addis           meromo            0.33 
 addis           mma123            0.25 
 addis           mmaio             0.33 
@@ -1679,6 +1742,7 @@ boymike17       FRW               0.25
 boymike17       STover            0.58 
 boymike17       TYPEst            0.42 
 boymike17       UniEvo            1.17 
+chain_          ODEa4             0.17 
 coppersoulfate  IdgEng            1.75 
 coppersoulfate  SinPen            0.75 
 coppersoulfate  Tri2St            1.25 
@@ -1696,11 +1760,13 @@ hfb25           ConMap            1.00
 hfb25           Heron             0.25 
 hfb25           Kronec            0.17 
 hfb25           NumFun            0.25 
+hfb25           OrdRel            0.17 
 hfb25           P2Line            0.83 
-hfb25           Relat             1.92 
-hfb25           SetAxi            1.33 
+hfb25           Relat             2.08 
+hfb25           SetAxi            2.08 
 hfb25           TimeCa            0.17 
 hfb25           Topo10            0.33 
+hfb25           intger            0.17 
 hfb25           shenry            0.17 
 huyushuo        ChainR            0.17 
 huyushuo        Units             0.17 
@@ -1801,7 +1867,7 @@ xzllxls         CSN14             2.50
 xzllxls         CSN15             1.67 
 xzllxls         CSN16             2.00 
 xzllxls         CSN17             3.00 
-xzllxls         CSN18             1.08 
+xzllxls         CSN18             1.83 
 xzllxls         GAN               1.33 
 xzllxls         JuC1S1            0.17 
 xzllxls         JuC1S3            0.25 
@@ -1903,6 +1969,7 @@ zhousiyi        spinsu            0.50
 切糕糕             NJU18             0.50 
 切糕糕             NJU19             0.58 
 切糕糕             QMavg             2.50 
+南方迫击炮           Restri            0.67 
 叶月2_            main              0.17 
 叶月2_            qed1              5.08 
 叶月2_            qed2              2.67 
@@ -1913,6 +1980,14 @@ zhousiyi        spinsu            0.50
 幻想乡的观测者         CM0               0.33 
 御坂10032         permu             0.17 
 忒修斯之海           scp999            0.17 
+有机物             DList             1.08 
+有机物             List              2.00 
+有机物             Mqueue            0.58 
+有机物             Mstack            0.83 
+有机物             heap              0.17 
+有机物             queue             0.58 
+有机物             stack             0.67 
+有机物             trie              0.58 
 来时路             RBKE              0.17 
 某用户_103         Topol             0.17 
 水铭              AmpLaw            0.17 
@@ -1932,6 +2007,7 @@ zhousiyi        spinsu            0.50
 零穹              AccTra            0.17 
 零穹              AfQ               3.08 
 零穹              AfSp              3.83 
+零穹              AmpLaw            0.17 
 零穹              AngMo             2.08 
 零穹              BAHA              9.17 
 零穹              BNU13             1.92 
@@ -2017,6 +2093,7 @@ zhousiyi        spinsu            0.50
 零穹              RigRot            0.58 
 零穹              SAfSp             3.42 
 零穹              SNadM             0.83 
+零穹              STAlg             3.25 
 零穹              Sample            0.17 
 零穹              SchRo             1.83 
 零穹              SecVar            1.17 
@@ -2027,7 +2104,8 @@ zhousiyi        spinsu            0.50
 零穹              Spring            1.67 
 零穹              SubSpc            0.42 
 零穹              SucDiv            2.00 
-零穹              TPofSp            3.08 
+零穹              TPofLO            2.17 
+零穹              TPofSp            5.67 
 零穹              TSEBW             0.67 
 零穹              TsrPrd            0.83 
 零穹              UQ                1.67 
