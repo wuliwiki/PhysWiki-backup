@@ -14,7 +14,7 @@
 \item 重启一下 shell， 运行 \verb`mpicxx --help`， 如果进入帮助页面就说明成功了
 \item 尝试直接使用 Intel 的 MPI
 \item \verb`mpicxx` 或者 \verb`mpigxx` 都是 g++ 的一个 wraper， 和 g++ 一样使用即可
-\item 编译完以后， 如果直接运行程序只会有一个 process， 需要用例如 \verb|mpiexec -np 4 ./main.x| 指定进程数量． \verb|mpirun| 也一样．
+\item 编译完以后， 如果直接运行程序只会有一个 process， 需要用例如 \verb|mpiexec -np 4 ./main.x| 指定进程数量． \verb|mpirun| 也基本一样， 但并不在 MPI 标准中．
 \item \verb|MPI_Init(&argc, &argv);| 开始 MPI， \verb|MPI_Finalize();| 结束．
 \item \verb|MPI_Comm_size(MPI_Comm comm, &size);| 获取指定 communicator 的进程数
 \item \verb|MPI_Comm_rank(MPI_Comm comm, &rank);|获取当前进程的 id， 称为 rank．

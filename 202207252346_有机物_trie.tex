@@ -1,0 +1,15 @@
+% trie 树（字典树）
+% trie树|字典树|数据结构|C++
+
+$\mathtt{Trie}$ 树（字典树）高效的存储和查找字符串集合的数据结构．
+
+假设要存储这些字符串：
+\verb|cat|、\verb|her|、\verb|him|、\verb|no|、\verb|nova|．
+
+对应在图上就长这样：\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/trie_1.png}
+\caption{$\mathtt{trie}$ 树} \label{trie_fig1}
+\end{figure}
+
+存储字符串：每次从每个字母看，看有没有这个字母，有的话就走，没有的话就创建一个新的字母结点．存储每个单词一般都会在这个单词的结尾字母打一个标记(如图中的蓝色结点)，意思是以这个字母为结尾的路径是有一个单词的．

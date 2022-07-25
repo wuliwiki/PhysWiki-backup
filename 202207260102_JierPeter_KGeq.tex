@@ -1,0 +1,52 @@
+% Klein-Gordon方程
+% 量子场论|高等量子力学|克莱因-戈登方程|克莱茵-戈登方程
+
+\addTODO{预备知识需要薛定谔量子力学的相关内容，但现在该部分还未整理好，不宜引用．}
+
+\pentry{自然单位制、普朗克单位制\upref{NatUni}}
+
+\subsection{问题的引入}
+
+薛定谔方程在量子力学中的地位，就像牛顿三定律在经典力学中的地位一样，是描述理论结构的“公理”．因此，如果要了解量子力学的局限性，可以从研究薛定谔方程本身入手．
+
+\subsubsection{质能关系问题}
+
+回顾单粒子薛定谔方程的表达（注意这里使用了\textbf{自然单位制}\upref{NatUni}）：
+\begin{equation}\label{KGeq_eq1}
+\qty(-\frac{\nabla^2}{2m}+V)\psi = \I \partial_t \psi
+\end{equation}
+
+由于$\hat{p}=-\I\nabla$和$\hat{E}=\I\partial_t$分别是量子力学中的动量、能量算子，故\autoref{KGeq_eq1} 左边体现的是经典力学中的\textbf{哈密顿量}：
+
+\begin{equation}\label{KGeq_eq2}
+\begin{aligned}
+\hat{H}=-\frac{\nabla^2}{2m}+V &= \frac{\hat{p}^2}{2m}+V \\
+&\updownarrow\\
+H &= \frac{p^2}{2m}+V
+\end{aligned}
+\end{equation}
+
+\autoref{KGeq_eq2} 上下两部分含义完全不同\footnote{上面一行各项是算符，它们作为量子态之间线性变换的\textbf{特征值}才是能量、动量等可观测量；下面一行各项就是实数，本身即为能量、动量等可观测量．}，但其描述的能量-动量-质量关系是一致的．因此薛定谔方程本质上是经典力学的推广，与经典时空观契合，但与相对论时空观矛盾．
+
+\subsubsection{粒子数守恒问题}
+
+回顾量子力学的概率守恒．取薛定谔方程的复共轭，得
+
+\begin{equation}\label{KGeq_eq3}
+\qty(-\frac{\nabla^2}{2m}+V)\psi^* = -\I \partial_t \psi^*
+\end{equation}
+
+联立\autoref{KGeq_eq1} 和
+
+
+
+
+
+
+
+
+
+
+
+
+
