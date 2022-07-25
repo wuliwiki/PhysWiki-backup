@@ -1,0 +1,158 @@
+% Vim 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+
+
+
+\subsection{基础}
+\begin{itemize}
+\item linux 命令行输入 `vimtutor` 进入教程
+\item 在 Ubuntu 中, `vi` 就是 `vim`, 打开的都是 vim 程序.
+\item 撤销: `u`, 重做: `Ctrl+r`
+\item 复制: `y` (yank), 剪切: `d` (delete)
+\item 用 `:w /<path>/<file>` 另存.
+\item 命令行用 `ctrl+D` 可以查看所有候选的补全
+\item 由于 ctrl 键过于重要， 建议仿照 hhkb， 将 caps loc 和左 ctrl 键位置调换， 用 sharp keys 软件就可以 
+\end{itemize}
+
+\subsection{移动}
+\begin{itemize}
+\item 使用 hjkl 按键可以上下左右移动， 不需要方向键（好远）
+\item `w` 可以跳到下一个单词， 比 `l` 要快
+\item `b` 跳到上一个单词， 比 `h` 要快
+\item `e` 跳到下个单词末尾
+\item `0` 使光标跳到行首
+\item `^` 跳到第一个不为空格/tab 的字母
+\item `$` 跳到行末
+\item `ctrl+e` 将窗口向下移动一行， `ctrl+y` 向上移动一行
+\item `ctrl+u` 向上翻半页， ctrl+d 向下翻半页， ctrl+b 上一页， ctrl+f 下一页
+\item `ctrl+]` 可以进入一个 tag， 相当于点击链接， 用 ctrl+o 返回
+\item `G` 可以跳到文档最后， `gg` 可以跳到文件开始
+\item `123G` 跳到第 123 行
+\item 用 `:<number>` 也可以直接跳到指定的行
+\item 按 `$` 跳到行末
+\item 按 `A` 跳到行末并编辑
+\item ` `` ` 可以让光标回到上一个位置, `''` 让光标回到上一个位置的行首． 连续按多次将在两个位置间跳转
+\item 要在 insert 或者 command 模式移动光标（包括上键查找历史）， 可以设置快捷键如下
+\begin{lstlisting}[language=bash]
+" insert mode 快捷键
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+" command mode 快捷键
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+\end{lstlisting}
+\item `z+回车` 用于将当前行移动到屏幕顶部， `zz` 移动到中间
+\item `H` 让光标跳到屏幕第一行行首， `L` 跳到最后一行行首， `M` 跳到中间
+\item `(` 和 `)` 把光标移动到上一句或者下一句． 下一句． 下一句． 下一句．
+\item `{` 和 `}` 把光标移动到上一段或者下一段
+\end{itemize}
+
+\subsection{编辑}
+\item 按 `i` 直接编辑
+\item 用 `x` 键删除光标处的字符
+\item 在单词首字母按 `dw` 可以删除当前字符到单词 `d` 开启 delete 模式， `w` 跳到下一个单词行首
+\item `d$` 可以删除当前字符到行末 
+\item `dw`, `d$` 这样的操作叫做 operator + motion
+\item 在移动前面加数字， 可以重复移动指定的次数， 例如 `100w`， `d3w`（删除三个字）
+\item `dd` 删除一行， `3dd` 删除三行
+\item 编辑模式或者命令模式下 `ctrl+U` 可以删除光标左边的内容
+\item `f` 加一个字符可以跳到同一行内下一个出现该字符的位置（话说为什么不直接用 `/`）
+
+\subsection{vimtutor 笔记}
+\item `set mouse=a` 可以使用鼠标！
+\item 鼠标双击也可以进入 tag
+\item `:help 内容` 可以进入帮助页面
+\item 按 `esc` 进入 normal mode
+\item `u` 撤销, ctrl+R 重做，`10u` 撤销 10 次． 注意每次撤销一个命令， 一次插入很多单词也算一个命令， `10x` 也算一个命令
+\item `U` 用于撤销改行的所有修改
+\item `p` （put）用于把 `dd` 删除的行插入到光标下方， 可以多次粘贴， 可以 `5p`
+\item `r` （replace）可以替换光标处的单个字符， 例如 `ra` 替换为 `a`， `3ra` 连续三个字符替换为 `a`
+\item `c` （change）相当于 `d` 再 `a`
+\item `ctrl+G` 查看当前的位置和文件状态
+\item `%` 可以找到对应的另一半括号 (), [], {}
+
+\subsection{Visual}
+\item 选择: `v`, 选择行: `V`, 选择块: `ctrl+v`.
+\item 复制时用 `v` 粘贴(光标右侧): `p`, 粘贴(光标左侧): `P`
+\item 剪切整行直接用 `dd` (事实上是剪切!)
+\item 复制时用 `V` 或, 粘贴(光标下一行下移): `p`, 粘贴(光标所在行下移): `P`
+\item 全选，用 `ggVG` 即可
+
+\subsection{搜索替换}
+\item 如果 search 的内容中包含 `/`, 用 `\/` 即可， 可能的转义的字符都用 `\` 试试就行
+\item 用 `:/ *<string>*` 会向下搜索文档中所有包含 `string` 的位置, 如果再按 `n`, 会搜索下一处. 
+\item 向下搜索 `/pattern`， 向上搜索 `?pattern`，下一个 `n`， 上一个 `N`.
+\item `:noh` 可以取消搜索匹配的高亮（如果有设置）
+\item `q/` 可以打开新窗口编辑搜索历史， 用回车执行， 按两次 `ctrl+c` 关闭
+\item 不区分大小写搜索:  `/` 后面加 `\c`
+\item `*` 可以搜索当前光标下的单词
+
+\subsection{命令}
+\item 用 `esc` 返回 Normal mode
+\item 可以用 tab 键补全命令（包括查看文件目录）
+\item 可以用上下方向键根据命令历史补全（同 Matlab）
+\item 也可以用 `q:` 打开一个窗口编辑历史命令， 用回车执行，按两次 `ctrl+c` 关闭
+命令模式下，`ctrl+r` 快捷键可以插入许多内容． `ctrl+r %` 可以插入当前文件名（含相对目录）
+
+\subsection{多窗口}
+\item 参考 `:help usr_08.txt`
+\item `:split` 将当前窗口复制一份， 选中上方窗口
+\item `:10split` 指定新增窗口行数
+\item `:split [file]` 在新窗口打开文件
+\item `:only` 关闭其他所有窗口
+\item `:new` 创建新文件，在新窗口打开
+\item `ctrl+w w` 切换窗口， `ctrl+w ctrl+w` 也一样（ctrl 按着连按两个 w）
+\item 貌似按下 `ctrl+w` 以后， `ctrl` 都可以一直按着也没关系， 例如 `ctrl+w` 后 `ctrl` 不松手连续按 `wj, wk`
+\item `ctrl+w +` 或 `ctrl+w -` 用于调整窗口大小， 例如 `10ctrl+w -`
+\item `10 ctrl+w _` 指定大小为 10 行
+\item `:q` 仅退出当前窗口， `:qa` 退出所有窗口
+\item `:vsplit` 可以让窗口左右划分
+\item `:vnew` 可以就是左右划分的 `new`
+\item `ctrl+w` 后加上 `hjkl` 可以切换到指定方向的窗口
+\item `ctrl+w` 后加上 `t` 或者 `b` 可以跳到最上方和最下方的窗口
+\item 打开 vim 时用 `vim -o 1.txt 2.txt 3.txt` 可以每个文件开一个窗口
+
+\subsection{多 Tab}
+\item 用 `:tabnew` 新建一个 tab
+\item `:tabf 文件名` 新建一个 tab 用于打开某文件
+\item `q` 退出当前 tab
+\item `:tabn` 和 `:tabp` 用于切换到后一个/前一个 tab
+
+\subsection{设置}
+\item Tab 默认占七个格, 可以在 .vimrc 文件中设置 `set ts=4`
+
+\subsection{目录}
+\item 当前目录可以用 `:pwd` 查看
+\item `:cd` 可以更改当前目录
+
+\subsection{文件搜索}
+\item 用 `find: **/文件名` 可以搜索当前目录和子目录下的文件名并打开（但如果有太多 match 就会出错）
+
+\subsection{vimrc}
+\item 修改 vimrc 以后， 使用 `:source ~/.vimrc` 就可以生效， 不需要重启 vim
+
+\subsection{旧}
+\item 要养成经常保存的习惯，尤其是用 ssh
+\item home, end, page up, page down 都可以正常使用
+\item 用 `:e <filename>` 打开文件.
+\item `gd` 跳到光标所在变量的声明处, 其实是搜索最早出现的地方.
+\item vim 中可以查看正在被程序写入的文件, 但不要修改! `:edit` 命令可以刷新
+\item linux 的 `file -bi <filename>` 命令可以检测文件的 encoding，注意 UTF8 文件首位要有 BOM (Byte Order Mark) 该命令才能检测到 UTF8．
+\item vim 默认的 encoding 是 latin1，或者系统 environment variable 的设置. 如果是 UTF8, 有时候不会自动加 BOM, 需要在 vim 里面用 `:set bomb` 才行, BOM 有时候会产生一些问题， 例如 gcc (GNU compiler collection) 不接受 BOM, 又例如 cat 两个文件的时候第二个文件的 BOM 也会复制到第一个文件的结尾.
+\item 要检查当前打开文件被识别的 encoding，用 `:set fileencoding`.
+\item 要显示行号，用 `:set number`. 要隐藏，用 `:set nonumber`. 如果要默认显示行号，在 `~/.vimrc` 文件中输入 `set number` 即可
+
+\subsection{NERDtree}
+\item `?` 可以查看简单的说明
+\item `u` 可以将 root 移动到上一层
+\item `U` 相当于 `u` 但是保持打开的子目录
+\item `C` 将选中的目录作为 root
+\item `q` 退出
