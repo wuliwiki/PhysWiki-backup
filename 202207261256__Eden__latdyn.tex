@@ -1,0 +1,34 @@
+% 晶格动力学
+% 晶格动力学|晶格振动|声子
+
+\pentry{晶格振动导论\upref{LatVib}，一维双原子链晶格\upref{twatom}}
+\subsection{简单晶格}
+从一维晶格的动力学推广到三维晶格的动力学是容易的，以简单晶格为例，假设晶体的原胞数为 $N$，每个原胞中仅含一个原子，其质量为 $M$．晶体中第 $l$ 个原胞的原子的平衡位置为 $\bvec R_l=\sum_{i=1}^3 l_i\bvec a_i$，偏离平衡位置的位移为 $\bvec u_l$．即
+\begin{equation}
+\bvec X_l(t)=\bvec R_l+\bvec u_l(t)
+\end{equation}
+晶格振动的总动能为
+\begin{equation}
+T=\frac{1}{2}\sum_{l,a} M \dot{u_l^\alpha}\dot{u_l^\alpha},\alpha=x,y,z
+\end{equation}
+为了描述晶格的动力学，需要知道这个多体体系的势能．设平衡状态晶体的势能为 $\Phi_0$，平衡状态为势能最低点，那么它在平衡位置处关于原子位移的一阶导也为 $0$．我们关注其二阶导
+\begin{equation}
+\Phi_{\alpha\beta}(l,l')=\qty(\pdv{^2\Phi}{u_l^\alpha\partial u_{l'}^\beta})_{\bvec u=0}=\Phi_{\alpha\beta}(l-l')=\Phi_{\beta\alpha}(l'-l)
+\end{equation}
+$\Phi_{\alpha\beta}(l,l')$ 的物理意义是：$l'$ 的原子沿 $\beta$ 方向位移单位距离时，它对 $l$ 原子的作用力沿 $-\alpha$ 方向的分量．因此它被称为\textbf{力常数}．换言之，
+\begin{equation}
+F_\alpha(l)=-\pdv{\Phi}{u^\alpha}=-\sum_{l'\beta}\Phi_{\alpha\beta}(l-l')u_{l'}^\beta
+\end{equation}
+
+当刚体作整体平移时，原子仍处于平衡状态，所以可以得到力常数的关系式
+\begin{equation}
+\sum_{l'}\Phi_{\alpha\beta}(l-l')=0
+\end{equation}
+定义 $\Delta \Phi=\Phi-\Phi_0$（相当于重新选择能量零点为基态能量），对晶体的势能泰勒展开到二次方项，我们将哈密顿量简写为
+\begin{equation}
+H=T+\Delta \Phi=\frac{1}{2M}\sum_{l,\alpha}p_l^\alpha p_l^\alpha + \frac{1}{2}\sum_{l,a}\sum_{l',\beta}\Phi_{\alpha\beta}(l-l')u_l^\alpha u_{l'}^\beta
+\end{equation}
+那么，对于每一个原子，可以写出牛顿方程
+\begin{equation}
+M \ddot{u}_l^\alpha = -\sum_{l',\beta}\Phi_{\alpha\beta}(l-l')u_{l'}^\beta
+\end{equation}

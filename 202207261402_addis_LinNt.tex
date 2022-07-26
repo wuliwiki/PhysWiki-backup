@@ -1,0 +1,117 @@
+% Linux 基础笔记
+
+\subsection{目录与文件}
+\begin{itemize}
+* `pwd` (present working directory)
+* `pwd -P` 可以显示当前的绝对目录， 即不含 `~` 等符号以及 symbolic link
+
+* `cd` (change directory) `/` (硬盘根目录) `~` (缩写 /home/parallels) (用户的 home 文件夹)
+* 只用 `cd` 相当于 `cd ~`
+* `./` 表示当前目录，常用于执行可执行文件或者 `.sh`
+* 常用目录有 `~/Documents` ,  `~/Desktop`, `/usr/bin` (gfortran 安装在这里)
+* `cd <文件夹名>` 只能用于当前目录中的文件夹
+* `cd ..` 返回上层目录
+* `cd -` 返回刚才所在的目录
+* 要 cd 到当前目录的绝对目录， 可以用 “cd `pwd -P`”, 两个 \` （backtick）内的东西会先展开
+* `rm <filename>` 或者 `rm /<dir>/<filename>` 删除文件  (注意是永久删除!)
+* `mv <filename> /<dir>` 可以移动文件, `mv <filename> <newname>` 可以重命名
+* `cp <filename> /<dir>` 复制文件 `cp <filename> <newname>` 复制到当前目录且重命名. 复制多个文件用 `cp <file1> <file2> <dir>`.
+* 打开文件的一般方式 `<program_name> <filename.extension>`
+* 要使用外接储存器(U盘, 移动硬盘等), 需要新建一个文件夹, 然后连接外接储存器, 叫做 Mount The Drive. 习惯上, 新建文件夹都放在 `/mnt` 目录下
+* 要连接储存器, 用 `sudo fdisk -l` 显示所有的外接硬盘的路径名
+* `sudo mount <硬盘地址> <新建文件夹路径>`
+* `umount <硬盘地址>` 断开连接
+* 创建 symbolic link (相当于快捷方式), `ln -s /path/to/file /path/to/symlink`
+
+## dd
+* 这个命令可以直接在当前位置生成一个大小为 100 MB 的文件， 内容为随机， 还会显示写入速度
+`dd if=/dev/urandom of=./dump.txt bs=1048576 count=100`
+\end{itemize}
+
+
+\subsection{包管理}
+\begin{itemize}
+* `sudo apt-get install <appname>` 安装程序(99%的程序都可以这样安装)(需要联网)
+* `sudo apt-get remove <appname>` 卸载程序
+* `sudo apt-get upgrade <appname>` 升级程序
+* `apt-get` （和 `apt-cash`， 如果听说过）中常用的功能都在 `apt` 中有同样的， 所以大部分情况下只需要 `apt` 就可以了， 例如 `apt install`， `apt purge`． `apt` 对新手更友好， 例如会默认显示进度条， 更新的 package 数等．
+* linux 里面的程序设置什么的基本都储存在对应的 configuration file 里面. 通常这种文件以 .conf 结尾
+* `apt show <packagename>` 可以显示某个包的信息
+* 如果安装了例如 `libblas`， `libgsl` 等 library， 用 `dpkg -L <packagename>` 可以查看头文件和库文件（`.a`， `.so`） 的位置．
+* 如果包的名字以 `-dev` 结尾， 通常意味着这个包提供头文件和库文件， 可以让你在写程序时调用
+* 如果包的名字以 `-dbg` 解为， 通常意味着这个包的二进制中有调试信息， 可以在 debugger 里面分析
+\end{itemize}
+
+\subsection{文本相关}
+\begin{itemize}
+* `touch <filename>` 命令可以生成一个空的文本文件
+* `nano` 是一个命令行应用, 可以编辑文本文件. 打开文件命令: `nano <filename.txt>`
+* 但是比较著名的文本编辑还是 VIM 和 VI 
+* `head` 和 `tail` 命令可以预览一个文件的前几行和后几行
+* `echo <text>` 可以在命令行显示该文字
+* `echo <text> > <filename>` 可以把文件中的文本替换 `>>` 可以附加在文本最后. 如果用双引号, 甚至还可以换行.
+* `>` 是 output redirect 操作, 类似, `<` 是 input redirection 操作, 可以把文档中的内容输入到命令行.
+* linux 命令行有两个主要的 output, stdout 和 stderr, `>` 只用于将 stdout 输出到文件, 如果也要输出 stderr 有三种办法: 1.`<command> > file1.out 2 > file2.out`, 2. `<command> > file.out 2 > &1`, 3. `<command> &> file.out` 其中后两种将 stdout 和 stderr 输出到同一文件.
+* 运行一个程序，指定输入输出文件， 并让 standartd err 显示在 standard out `./program.x < <inputfile> > <outputfile> 2>&1` 
+* `echo` 的输出文件如果不存在, 就会新建一个.
+* `cat` 命令与 `echo` 相似, 只是把 `<text>` 换成 `<textfile>`
+* `<命令> | less` 可以用键盘滚动输出结果(用于长输出以及没有滚动条的情况), 按 q 键退出
+* `|` 的作用相当于把前面一个命令的输出放到后面一个命令的输入中.
+* `<命令> > <文件名.txt>` 可以把命令行的输出写入文件中 !! 例如: `date > time.txt , cal > calander.txt`
+* `grep <string> < <filename>` 可以在文档中高亮标出指定字符串
+* `cat <filename> | grep <string>` 可以达到同样的效果
+* 用 vim 的时候, 最好在前面加上 `sudo`, 否则有可能编辑了保存不了(例如一些 configuration file). 甚至要首先用 `chown` 把文件所有权变成自己的.
+* `#` 在文件中起标注的作用 (如果文件中有 linux 代码), 在命令行, `#` 后面的代码同样会被忽略.
+* 要转换文档 encoding，用
+```bash
+iconv -f [encoding] -t [encoding] -o [newfilename] [filename]
+```
+微软的 ANSI 格式其实叫做 iso-8859-1, 例如 `iconv -f iso-8859-1 -t utf-8 -o out.txt in.txt`.
+
+* `sed` 命令可以用来处理文件或 standard input 中的文字, 并输出到文件或者 standard out. 在 SCID_TDSE 的 makefile 中遇见, 命令是
+```bash
+sed -e 's/^!\*nq/    /' inputfile.f90 > outputfile.f90
+```
+其中 `-e` 是将后面的命令作用到 `inputfile.f90` 上. `s/str1/str2` 是将文本中的 `str1` 替换成 `str2`, `\*` 转义为 `*` (直接用 `*` 就是通配符)， `^` 大概是要求 `str1` 出现在行首.
+\end{itemize}
+
+
+\subsection{账户与权限}
+\begin{itemize}
+\item \verb`sudo` (super user do) 加在命令前可以获得管理员权限, \verb`su` (super user) 可以把以下所有操作改为管理员权限 (不建议常用)
+\item \verb`sudo` 的密码是用户密码, 而 \verb`su` 的密码是 root 密码, 后者的权限更高
+\item \verb`useradd -m` (给新用户创建 home 目录) \verb`-g users` (设置用户组为 users) \verb`<username>`
+\item \verb`passwd <username>` 可以修改密码
+\item \verb`userdel <username>` 删除账户
+\item \verb`users` 命令显示目前所有登录的用户, \verb`who` 命令可以显示更详细的信息
+\item \verb`ls -l` 最左边第一列是 owner 的权限, 第二列是 group 的权限, 第三列是其他人的权限, \verb`r (read) w (write) x (execute)`
+\item \verb`chown <user> <file>` 修改文件的所有者
+\item \verb`chmod <权限> <file>` 修改文件的权限. <权限> 是三位8进制数, 每一位是 x(1),w(2),r(4)之和.
+\item \verb`groups` 或者 \verb`groups <user>` 可以查看用户所在的组
+\item \verb`id` 可以查看用户的信息 \verb`uid (user id) gid (group id)`
+\item \verb`groupadd <groupname>` 新建用户组
+\item \verb`groupdel <groupname>` 移除用户组
+\item \verb`gpasswd -a <username> <groupname>` 可以在组内新增用户
+\item \verb`vim /etc/group` 可以查看记录 group 信息的文件
+\item \verb`gpasswd -d <username> <groupname>` 可以在组中移除用户
+\item \verb`hostname` 可以显示当前用户的用户名. \verb`$(hostname)` 是一个环境变量， 可以试试 \verb`echo $(hostname)`
+\item 其实真正和 windows 的任务管理器相对应的是 \verb`top`, 会显示实时进程. 
+\item \verb`K <PID>` 会结束对应编号的进程. 系统的关键进程是杀不掉的.
+\item \verb`last -数字` 可以查看最近若干次登录的记录
+\end{itemize}
+
+\subsection{进程}
+\begin{itemize}
+\item \verb`ps aux` 会显示当前所有进程 (processes), PID 是 process ID, 用于终止进程
+\item \verb`ps aux | grep <name>` 会搜索当前进程中包含 \verb`<name>` 的内容
+* 一个很占 cpu 的命令可以用于测试
+`dd if=/dev/zero of=/dev/null &`
+其中 `&` 表示在后台运行，按回车后会输出 PID （进程号）
+连续输入这个进程 4 次， 然后用 `top` 命令打开进程管理
+* top 中的 `NI` 就是 nice value
+* 在 top 界面中用 `r` (renice) 可以调整进程的 nice value （优先级，越小越优先）按 ESC 可以退出
+* 在 top 界面中用 `k` 可以杀进程，输入进程的 PID，两次回车即可
+* `pstree` 可以看到哪些进程生成了哪些子进程， 例如 shell 里面运行 .sh 文件会生成一个子进程用于运行一个新的 shell
+* `kill -STOP 进程号` 可以暂停程序
+* `kill -CONT` 可以继续暂停的程序
+\end{itemize}
