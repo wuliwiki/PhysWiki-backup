@@ -1,0 +1,38 @@
+% 堆
+% 堆|数据结构|C++
+
+堆是一个以一颗完全二叉树的结构存储值的数据结构．
+
+堆分为\textbf{大根堆}和\textbf{小根堆}，大根堆的意思是，父节点的值都大于左右两个儿子的值，小根堆则相反．C++ STL 中的 \verb|priority_queue| 优先队列默认就是大根堆．
+
+以一个例题来讲解堆．
+
+维护一个集合，初始时集合为空，支持如下几种操作：
+\begin{enumerate}
+\item 插入一个数 $x$；
+\item 输出当前集合中的最小值；
+\item 删除当前集合中的最小值；
+\item 删除第 $k$ 个插入的数；
+\item 修改第 $k$ 个插入的数，将其变为 $x$．
+\end{enumerate}
+
+C++ STL 中的堆只能实现前 $3$ 个操作．
+\begin{lstlisting}[language=cpp]
+priority_queue<int, vector<int>, greater<int>> heap;   // 定义小根堆的方式
+int t;
+cin >> t;
+while (t -- )
+{
+    string s;
+    int x;
+    cin >> s;
+            
+    cin >> x;
+    heap.push(x);   // 插入一个数 x
+
+    cout << heap.top() << endl;     // 输出最小值，即栈顶
+    heap.pop();     // 删除最小值，即删除栈顶
+}
+\end{lstlisting}
+
+要想实现随机删除和修改，只能用数组来模拟堆，所以我们讲解一下如何使用数组模拟堆．
