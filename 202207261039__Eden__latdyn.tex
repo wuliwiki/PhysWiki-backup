@@ -1,0 +1,17 @@
+% 晶格动力学
+% 晶格动力学|晶格振动|声子
+
+\pentry{晶格振动导论\upref{LatVib}，一维双原子链晶格\upref{twatom}}
+\subsection{简单晶格}
+从一维晶格的动力学推广到三维晶格的动力学是容易的，以简单晶格为例，假设晶体的原胞数为 $N$，每个原胞中仅含一个原子，其质量为 $M$．晶体中第 $l$ 个原胞的原子的平衡位置为 $\bvec R_l=\sum_{i=1}^3 l_i\bvec a_i$，偏离平衡位置的位移为 $\bvec u_l$．即
+\begin{equation}
+\bvec X_l(t)=\bvec R_l+\bvec u_l(t)
+\end{equation}
+晶格振动的总动能为
+\begin{equation}
+T=\frac{1}{2}\sum_{l,a} M \dot{u_l^\alpha}\dot{u_l^\alpha},\alpha=x,y,z
+\end{equation}
+为了描述晶格的动力学，需要知道这个多体体系的势能．设平衡状态晶体的势能为 $\Phi_0$，平衡状态为势能最低点，那么它关于原子位移的一阶导也为 $0$．我们关注其二阶导
+\begin{equation}
+\Phi_{\alpha\beta}(l,l')=\qty(\pdv{^2\Phi}{u_l^\alpha\partial u_{l'}^\beta})=\Phi_{\alpha\beta}(l-l')=\Phi_{\beta\alpha}(l'-l)
+\end{equation}

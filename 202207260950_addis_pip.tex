@@ -1,0 +1,10 @@
+% Python 服务器环境配置
+
+\pentry{Python 简介\upref{Python}}
+
+\begin{itemize}
+\item \verb|sudo apt install python3.6|
+\item \verb|sudo apt install python3-pip|
+\item \verb|pip3 install numpy|
+\item 老机器上面（例如 16.04）， 3.6 不能直接安装， 要自己编译安装． 从官网下载源码： \verb|wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz| 解压 \verb|tar -xvf Python-3.6.3.tgz|， \verb|cd Python-3.6.3|， \verb|apt-get install build-essential zlib1g-dev|， \verb|./configure|， \verb|make|， \verb|make install| 就可以了． 检查版本： \verb|python3.6 -V|
+\end{itemize}
