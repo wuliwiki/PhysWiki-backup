@@ -1,0 +1,46 @@
+% 偏摩尔量
+\pentry{态函数\upref{statef}}
+\subsection{偏摩尔量}
+假设一个多元单相系统的某一广度状态量$Z=f(p,T,n_1,n_2,...)$
+
+对其求全微分
+\begin{equation}\label{ParMol_eq1}
+dZ = \left(\pdv{Z}{p}\right)_{T,n_1,n_2,...}dp + \left(\pdv{Z}{T}\right)_{p,n_1,n_2,...}dT+\left(\pdv{Z}{n_1}\right)_{p,T,n_2,...}dn_1+\left(\pdv{Z}{n_2}\right)_{p,T,n_1,n_3,...}dn_2+...
+\end{equation}
+
+定义偏摩尔量
+\begin{equation}
+{Z_B} = \left(\pdv{Z}{n_1}\right)_{p,T,n_i, i \neq B} 
+\end{equation}
+那么 \autoref{ParMol_eq1} 化为 
+\begin{equation}
+dZ = \left(\pdv{Z}{p}\right)_{T,n_1,n_2,...}dp + \left(\pdv{Z}{T}\right)_{p,n_1,n_2,...}dT+\sum {Z_B} dn_B
+\end{equation}
+特别地，如果温度、压力一定，
+\begin{equation}\label{ParMol_eq3}
+dZ = \sum {Z_B} dn_B
+\end{equation}
+
+$\overline {Z_B} d n_B$ 的物理含义可以理解为，再往系统中加入少量B，系统状态X的变化．
+
+注意，混合物中的${Z_B}=\overline {Z_B}(p,T,n_1,n_2,...)$不是常数，与各物质的含量等均有关．
+
+\subsection{偏摩尔量常用公式}
+\subsubsection{集合公式}
+\begin{equation}\label{ParMol_eq2}
+Z=\sum {Z_B}  n_B
+\end{equation}
+\subsubsection{Gibbs-Duhem 公式}
+\begin{equation}
+\sum n_B \dd Z_B = 0
+\end{equation}
+对于二元混合物，
+\begin{equation}
+\dv{Z_1}{Z_2}=-\frac{n_2}{}
+\end{equation}
+
+推导：
+
+对集合公式(\autoref{ParMol_eq2} )两端求导，$dZ=\sum n_B \dd Z_B + \sum {Z_B}  \dd n_B$
+
+代入 \autoref{ParMol_eq3} ，对比，即得证．

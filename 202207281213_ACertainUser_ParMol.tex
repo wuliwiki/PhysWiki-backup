@@ -1,0 +1,53 @@
+% 偏摩尔量
+
+\subsection{偏摩尔量}
+一个相的态函数$Z=f(p,T,n_1,n_2,...)$，其中Z为广度量．
+
+对其求全微分\upref{statef}  
+\begin{equation}\label{ParMol_eq1}
+dZ = \left(\pdv{Z}{p}\right)_{T,n_1,n_2,...}dp + \left(\pdv{Z}{T}\right)_{p,n_1,n_2,...}dT+\left(\pdv{Z}{n_1}\right)_{p,T,n_2,...}dn_1+\left(\pdv{Z}{n_2}\right)_{p,T,n_1,n_3,...}dn_2+...
+\end{equation}
+
+定义偏摩尔量
+\begin{equation}
+\overline {Z_B} = \left(\pdv{Z}{n_1}\right)_{p,T,n_i, i \neq B} 
+\end{equation}
+那么 \autoref{ParMol_eq1} 化为 
+\begin{equation}
+dZ = \left(\pdv{Z}{p}\right)_{T,n_1,n_2,...}dp + \left(\pdv{Z}{T}\right)_{p,n_1,n_2,...}dT+\sum \overline {Z_B} dn_B
+\end{equation}
+特别地，如果温度、压力一定，
+\begin{equation}\label{ParMol_eq3}
+dZ = \sum \overline {Z_B} dn_B
+\end{equation}
+
+$\overline {Z_B} d n_B$ 的物理含义可以理解为，再往系统中加入少量B，系统状态X的变化．
+
+注意，混合物中的$\overline {Z_B}=\overline {Z_B}(p,T,n_1,n_2,...)$不是常数，与各物质的含量等均有关
+
+\subsection{偏摩尔量常用公式}
+\subsubsection{集合公式}
+\begin{equation}\label{ParMol_eq2}
+Z=\sum \overline {Z_B}  n_B
+\end{equation}
+\subsubsection{Gibbs-Duhem 公式}
+\begin{equation}
+\sum n_B \dd {\overline {Z_B}} = 0
+\end{equation}
+
+推导：
+
+对集合公式(\autoref{ParMol_eq2} )两端求导，$dZ=\sum n_B \dd {\overline {Z_B}} + \sum \overline {Z_B}  \dd n_B$
+
+代入 \autoref{ParMol_eq3} 
+
+
+	∑▒〖n_B d¯(Z_B )〗=0 (等温等压)
+	对于二元混合物，则 n_1 d¯(v_1 )+n_2 d¯(v_2 )=0⇒(d¯(v_1 ))/(d¯(v_2 ))=-¯(v_2 )/¯(v_1 )
+	推导：
+	状态量全微分：X(p,T,n_1,n_2 )⇒dX=(∂X/∂p)_(T,n_B )+(∂X/∂T)_(p,n_B )+∑▒〖(X_B ) ̅dn_B 〗⇒dX=∑▒〖(X_B ) ̅dn_B 〗  (p,T固定)
+	加和公式: X=∑▒〖(X_B ) ̅n_B 〗⇒dX=∑▒〖(X_B ) ̅dn_B 〗+∑▒〖n_B d(X_B ) ̅ 〗
+	∴dX=∑▒〖(X_B ) ̅dn_B 〗=∑▒〖(X_B ) ̅dn_B 〗+∑▒〖n_B d(X_B ) ̅ 〗⇒∑▒〖n_B d(X_B ) ̅ 〗=0
+	将状态函数关系式中的广度量换成相应的偏摩尔量，可得相应的偏摩尔量关系式
+	(∂G/∂p)_T=V,prove ((∂(G_B ) ̅)/∂p)_T=(V_B ) ̅
+	((∂G ̅)/∂p)_T=(∂/∂p (∂G/(∂n_B ))_(T,p,n_c ) )_T=(∂/(∂n_B ) (∂G/∂p)_T )_(T,p,n_c )=(∂V/(∂n_B ))_(T,p,n_c )=(V_B ) ̅

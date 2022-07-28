@@ -1,0 +1,49 @@
+% Möbius函数（数论）
+% 莫比乌斯函数|初等数论|莫比乌斯反演公式|Möbius反演公式
+
+\pentry{数论函数\upref{NumFun}}
+
+德国数学家August Ferdinand Möbius于1832年提出Möbius函数的概念，这是数论中一个重要的积性函数．Möbius函数在初等数论和解析数论中随处可见，多以Möbius反演的形式出现．
+
+
+任何正整数都可以唯一地分解为其质因数的幂的乘积．比如说，$24=2^3\times 3$，$300=2^3\times 3\times 5^2$．一般地，我们把整数的质因数分解记为$\prod_{k=1}^r p_k^{f_k}$，其中各$p_k$是互不相等的素数，各$f_k$都是正整数．Möbius的概念正是建立在正整数质因数分解上的：
+
+
+\begin{definition}{Möbius函数}
+对于任意正整数$n=\prod_{k=1}^r p_k^{f_k}$，其Möbius函数$\mu:\mathbb{N}\to\{-1, 0, 1\}$定义为：
+\begin{equation}
+\mu(n)=\mu(\prod_{k=1}^r p_k^{f_k})=
+\leftgroup{
+    1, \quad\text{如果}n=1\\
+    (-1)^r, \quad\text{如果}f_k=1\text{恒成立}\\
+    0, \quad\text{如果有一个}f_k>1
+}
+\end{equation}
+
+
+
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

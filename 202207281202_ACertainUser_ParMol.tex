@@ -1,0 +1,35 @@
+% 偏摩尔量
+ 
+一个相的态函数$Z=f(p,T,n_1,n_2,...)$
+
+对其求全微分\upref{statef}  
+\begin{equation}\label{ParMol_eq1}
+dZ = \left(\pdv{Z}{p}\right)_{T,n_1,n_2,...}dp + \left(\pdv{Z}{T}\right)_{p,n_1,n_2,...}dT+\left(\pdv{Z}{n_1}\right)_{p,T,n_2,...}dn_1+\left(\pdv{Z}{n_2}\right)_{p,T,n_1,n_3,...}dn_2+...
+\end{equation}
+
+定义偏摩尔量 $\overline {Z_B} = \left(\pdv{Z}{n_1}\right)_{p,T,n_i, i \neq B} $，
+
+那么 \autoref{ParMol_eq1} 化为 $dZ = \left(\pdv{Z}{p}\right)_{T,n_1,n_2,...}dp + \left(\pdv{Z}{T}\right)_{p,n_1,n_2,...}dT+\sum \overline {Z_B} dn_B$
+
+$\overline {Z_B} d n_B$ 的物理含义可以理解为，再往加入少量B，对系统性质Z的影响．
+
+偏摩尔量的性质
+	当系统中只有一个组分B，B的偏摩尔量=纯B的摩尔量；若系统中不止一个组分，B的偏摩尔量与混合物中各物质的含量有关，B的偏摩尔量≠纯B的摩尔量
+	只有广度状态量有对应的偏摩尔量
+	常见偏摩尔量：
+	 
+
+偏摩尔量常用公式
+	加和公式；集合公式
+	Z=∑▒〖n_B (v_B ) ̅ 〗,Z_m=∑▒〖x_B (v_B ) ̅ 〗
+	描述了各组分对系统整体性质的“影响度”
+	Gibbs-Duhem 公式
+	∑▒〖n_B d¯(Z_B )〗=0 (等温等压)
+	对于二元混合物，则 n_1 d¯(v_1 )+n_2 d¯(v_2 )=0⇒(d¯(v_1 ))/(d¯(v_2 ))=-¯(v_2 )/¯(v_1 )
+	推导：
+	状态量全微分：X(p,T,n_1,n_2 )⇒dX=(∂X/∂p)_(T,n_B )+(∂X/∂T)_(p,n_B )+∑▒〖(X_B ) ̅dn_B 〗⇒dX=∑▒〖(X_B ) ̅dn_B 〗  (p,T固定)
+	加和公式: X=∑▒〖(X_B ) ̅n_B 〗⇒dX=∑▒〖(X_B ) ̅dn_B 〗+∑▒〖n_B d(X_B ) ̅ 〗
+	∴dX=∑▒〖(X_B ) ̅dn_B 〗=∑▒〖(X_B ) ̅dn_B 〗+∑▒〖n_B d(X_B ) ̅ 〗⇒∑▒〖n_B d(X_B ) ̅ 〗=0
+	将状态函数关系式中的广度量换成相应的偏摩尔量，可得相应的偏摩尔量关系式
+	(∂G/∂p)_T=V,prove ((∂(G_B ) ̅)/∂p)_T=(V_B ) ̅
+	((∂G ̅)/∂p)_T=(∂/∂p (∂G/(∂n_B ))_(T,p,n_c ) )_T=(∂/(∂n_B ) (∂G/∂p)_T )_(T,p,n_c )=(∂V/(∂n_B ))_(T,p,n_c )=(V_B ) ̅

@@ -1,0 +1,72 @@
+% Möbius函数（数论）
+% 莫比乌斯函数|初等数论|莫比乌斯反演公式|Möbius反演公式
+
+\pentry{数论函数\upref{NumFun}}
+
+德国数学家August Ferdinand Möbius于1832年提出Möbius函数的概念，这是数论中一个重要的积性函数．Möbius函数在初等数论和解析数论中随处可见，多以Möbius反演的形式出现．
+
+
+任何正整数都可以唯一地分解为其质因数的幂的乘积．比如说，$24=2^3\times 3$，$300=2^3\times 3\times 5^2$．一般地，我们把整数的质因数分解记为$\prod_{k=1}^r p_k^{f_k}$，其中各$p_k$是互不相等的素数，各$f_k$都是正整数．Möbius的概念正是建立在正整数质因数分解上的：
+
+
+\begin{definition}{Möbius函数}
+对于任意正整数$n=\prod_{k=1}^r p_k^{f_k}$，其Möbius函数$\mu:\mathbb{Z}^+\to\{-1, 0, 1\}$定义为：
+\begin{equation}
+\mu(n)=\mu(\prod_{k=1}^r p_k^{f_k})=
+\leftgroup{
+    1, \quad\text{如果}n=1\\
+    (-1)^r, \quad\text{如果}f_k=1\text{恒成立}\\
+    0, \quad\text{如果有一个}f_k>1
+}
+\end{equation}
+
+\end{definition}
+
+简单来说，一个正整数的质因子中如果有幂次超过$2$的，则它的Möbius函数为$0$；其余情况，则由不同质因子数量的奇偶性决定，奇则为$-1$，偶则为$+1$．
+
+
+Möbius函数有以下性质：
+
+\begin{theorem}{Möbius的积性}\label{MbusF_the1}
+给定\textbf{互素}的正整数$a, b$，则$\mu(ab)=\mu(a)\mu(b)$．
+\end{theorem}
+
+只需要检查$ab, a, b$各自的质因数即可得证\autoref{MbusF_the1} ．显然，要求互素是因为，不互素时$a, b$会有公共质因数，此时$\mu(ab)=0$．
+
+
+
+
+
+\begin{theorem}{求和性质}
+
+\begin{equation}\label{MbusF_eq1}
+\sum_{d\mid n}\mu(d)=
+\leftgroup{
+    &1, \quad n=1;\\
+    &0, \quad n>1
+}
+\end{equation}
+
+\end{theorem}
+
+\textbf{证明}：
+
+设$S$是$n$的全体质因子构成的集合．每个$d$都是$n$的若干质因子求积的结果，而我们只需考虑其中各质因子最多只出现一次的情况．因此，我们所考虑的$d$，和$S$的子集一一对应，即$d$就是这个子集中各素数相乘的结果．\autoref{MbusF_eq1} 极为遍历所有$S$的子集的求和．
+
+\textbf{证毕}．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
