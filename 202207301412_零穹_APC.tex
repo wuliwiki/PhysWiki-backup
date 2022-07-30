@@ -1,0 +1,65 @@
+% 布置、排列、组合
+% 布置|排列|组合
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{映射\upref{map}，计数原理\upref{ProfPM}}
+组合学的一个重要方面在与计数问题．实际上，在很长一段时间里，大多数数学工作者把组合学与“计数”当作一回事．“计数”往往是指找出进行某个确定的运算方法的个数，与之紧密联系的内容便是排列组合．
+
+“排列”和“组合”这两个术语在高中部分已经熟悉．本节将给予这些概念于一个更完整、更直观的描述，这意味着要建立一些术语，而这些术语给出了这种直观的意义．排列组合在很多方面都有应用，本节的术语将使得这种应用更加直观．
+\subsection{布置Arrangement}
+排列组合的很多应用在于将一定数量的“物体”放置在一定数量的“房间”（盒子）中，下面的定义使得这种应用更加明显．
+\begin{definition}{物体、房间、布置}\label{APC_def2}
+设 $X,Y$ 是有限集，把 $X$ 的元素叫做\textbf{物体}，把 $Y$ 的元素叫\textbf{房间}．映射 $f:X\rightarrow Y$ 称为\textbf{物体集合 $X$ 到房间集合 $Y$ 的一种\textbf{布置}（arrangement）}．
+\end{definition}
+物体集合 $X$ 到房间集合 $Y$ 的映射 $f:X\rightarrow Y$ 使得 $y_i$ 与 $X$ 的一些元素构成的集合
+\begin{equation}
+\{x|x\in X,f(x)=y_i\}
+\end{equation}
+相对应．称 $f$ 为布置暗示着 $f$ 将 $X$ 中的物体放置或分配到 $Y$ 中的房间内．
+
+和很多命名一样，关于集合的元素是为了方便人们的记忆和应用．比如研究矢量的集合称为矢量空间，集合中的元素称为矢量；研究点集拓扑学的集合称为拓扑空间，其上的元素称为点．对应的，与组合数学对应的集合分别称为物体（定义域）和房间（值域），而物体到房间的映射称为布置．
+
+当 $\abs{X}=n,\abs{Y}=m$ 时，每个函数 $f$ 和一个字符串“$f(x_1)\cdots f(x_n)$” 相对应．往往字符串代表着一个字，比如字 word 是由字母 “w”，“o”，“r”，“d” 构成的， 下面的定义给出了这种直观上的意义．
+\begin{definition}{字母，字}\label{APC_def1}
+设 $X,Y$ 分别是基数为 $\abs{X}=n,\abs{Y}=m$ 的有限集， $f:X\rightarrow Y$ 是 $X$ 到 $Y$ 上的映射，则称 $Y$ 的元素为\textbf{字母}, $f$ 是由 $Y$ 中的字母形成的长度为 $n$ 的一个\textbf{字} $f(x_1)\cdots f(x_n)$．
+\end{definition}
+上面定义中，$X$ 可看成给出了字的一个顺序．
+
+通过这些概念，得到以下一些定理．
+
+\begin{theorem}{}\label{APC_the1}
+设 $X,Y$ 分别是基数为 $\abs{X}=n,\abs{Y}=m$ 的有限集，则映射 $f:X\rightarrow Y$ 的个数等于 $m^n$．
+\end{theorem}
+\textbf{证明：}由\autoref{APC_def1} ，$f$ 的个数等于由 $Y$ 中的字母拼成的长度为 $n$ 的字的个数．因为字的第一个字母有 $m$ 种选法，第二个，$\cdots$ ，第 $n$ 字母也有 $m$ 种选法．由乘法原则（\autoref{ProfPM_sub1}~\upref{ProfPM}），结果字的个数等于 $\underbrace{m\cdots m}_{n\text{个}}=m^n$．
+
+\textbf{证毕！}
+
+将上述定理换成\autoref{APC_def2} 的语言，得到：
+\begin{theorem}{}
+$n$ 个物体的集合在 $m$ 个房间的集合里的布置个数为 $m^n$．
+\end{theorem}
+
+\autoref{APC_the1} 就是不管集合 $X,Y$ 是否有限，所有的映射 $f:X\rightarrow Y$ 的集合常记作 $Y^X$ \upref{Topo8}的原因．
+\subsection{排列}
+\begin{theorem}{}
+设 $X,Y$ 分别是基数为 $\abs{X}=n,\abs{Y}=m$ 的有限集，则单射 $f:X\rightarrow Y$ 的个数为 $m(m-1)\cdots(m-n+1)$．
+\end{theorem}
+\textbf{证明：}函数 $f$ 的单一性由字的字母是两两不同的这个事实表示．因为字的第一个字母有 $m$ 种选法，第二个字母有 $m-1$ 种选法，$\cdots$ ，第 $n$ 个字母有从剩下的 $m-n+1$ 个字母中有 $m-n+1$ 中不同选法．由乘法原则，由 $m$ 元集 $Y$ 的 $n$ 个不同字母构成的字的个数为 $m(m-1)\cdots(m-n+1)$．
+
+\textbf{证毕！}
+
+同样的，上述定理相当于：
+\begin{theorem}{}\label{APC_the2}
+将 $n$ 个物体的集合在 $m$ 个房间的集合里进行布置，要求每个房间至多包含一个物体的布置个数为 $m(m-1)\cdots(m-n+1)$．
+\end{theorem}
+\begin{definition}{排列}
+从 $m$ 元集 $Y$ 的 $n$ 个不同字母构成的字叫作从集合 $Y$ 的 $m$ 个物体每次取 $n$ 个的\textbf{排列}（\textbf{permutation}）(或 $m$ 元集 $Y$ 的 $n$ 排列)，其个数记为 $[m]_n$ (或$P(m,n)$)，其中 $m\geq n$．若 $m=n$，则 $[n]_n$ 也记作 $P_n$ 或 $n!=1\cdot2\cdots n$．
+\end{definition}
+由\autoref{APC_the2} 
+\begin{equation}
+P(m,n)=m(m-1)\cdots(m-n+1)
+\end{equation}
+
