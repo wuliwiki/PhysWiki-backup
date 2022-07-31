@@ -1,0 +1,160 @@
+% 仿射变换在解析几何中的应用
+% 仿射变换 圆锥曲线
+\begin{definition}{仿射变换}
+设椭圆\,\(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)，其中\,\(a>b>0\)，置变换：
+$$x'=\frac{x}{a},y'=\frac{y}{b}$$
+则椭圆化为单位圆\,\(C:x'^2+y'^2=1\)
+\end{definition}
+届时，我们可以就可以抛开繁琐的代数计算，运用几何性质解决问题．此前，我们先介绍仿射变换的几个性质．
+\begin{lemma}{}
+变换后，平面内任意一条直线的斜率变为原来的\,\(\frac{a}{b}\)
+\end{lemma}
+\begin{lemma}{}
+变换后，平面上任意区域的面积变为原来的\,\(\frac1{ab}\)
+\end{lemma}
+\begin{lemma}{}
+变换后，线段中点依然是线段中点;关于坐标轴对称的元素依然关于坐标轴对称;平面区域的重心保持不变
+\end{lemma}
+\begin{lemma}{}
+变换前后，平行关系保持不变
+\end{lemma}
+\begin{lemma}{}
+变换前后，平行线段的长度比保持不变
+\end{lemma}
+\begin{corollary}{}
+设椭圆 \(\frac{x^2}{a^2}+\frac{y^2}{b^2}\)，直线 \(l\) 交椭圆于点 \(A\) 和\,\(B\)，点 \(P(x_0,y_0)\) 为线段 \(AB\) 的中点，求直线斜率
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/affine_1.png}
+\caption{请添加图片描述} \label{affine_fig1}
+\end{figure}
+
+\textbf{解：}作变换 \(x'=\frac{x}{a},y'=\frac{y}{b}\) ，则椭圆化为单位圆 \(C:x'^2+y'^2=1\)，且 \(P'\left(\frac{x_0}{a},\frac{y_0}{b}\right)\)
+
+故 \(k_{OP'}=\frac{ay_0}{bx_0}\)
+
+由性质3，\(P'\) 为 \(A'B'\) 的中点
+
+在圆中，由垂径定理，\(OP'\bot A'B'\)
+
+而 \(k_{A'B'}\cdot k_{OP'}=-1\) ，得 \(k_{A'B'}=-\frac{bx_0}{ay_0}\)
+
+由上述性质 1， \(k_l=\frac{b}{a}\cdot k_{A'B'}=-\frac{b^2x_0}{a^2y_0}\)
+\end{corollary}
+\begin{corollary}{}
+设椭圆   \(\Gamma:\frac{x^2}{a^2}+\frac{y^2}{b^2}=1(a>b>0)\),直线 \(l\) 切椭圆于点 \(P(x_0,y_0)\)，求直线斜率 
+
+\textbf{解：}作变换 \(x'=\frac{x}{a},y'=\frac{y}{b}\) ，则椭圆化为单位圆 \(C:x'^2+y'^2=1\)，\(P'\left(\frac{x_0}{a},\frac{y_0}{b}\right)\) 
+
+故  \(k_{OP'}=\frac{ay_0}{bx_0}\) 
+
+在圆中，由切线定理， \(OP'\bot l'\) 
+
+而  \(k_{l'}\cdot k_{OP'}=-1\) ，得 \(k_{l'}=-\frac{bx_0}{ay_0}\) 
+
+由上述性质 1， \(k_l=\frac{b}{a}\cdot k_{l'}=-\frac{b^2x_0}{a^2y_0}\) 
+
+\end{corollary}
+
+\begin{corollary}{}
+设椭圆 \(\Gamma:\frac{x^2}{a^2}+\frac{y^2}{b^2}=1(a>b>0)\)， \(A\) 、\(B\) 和 \(M\) 为椭圆上的点，点 \(A\) 和 \(B\) 关于原点对称，求证： \(k_{MA}\cdot k_{MB}\) 为一定值
+​
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/affine_2.png}
+\caption{请添加图片描述} \label{affine_fig2}
+\end{figure}
+
+\textbf{证明：}作变换 \(x'=\frac{x}{a},y'=\frac{y}{b}\) ，则椭圆化为单位圆 \(C:x'^2+y'^2=1\)
+
+则 \(A'B'\) 为圆 \(C\) 的直径，所以 \(M'A'\bot M'B'\) ，\(k_{M'A'}\cdot k_{M'B'}=-1\)
+
+由性质1， \(k_{MA}\cdot k_{MB}=-1\cdot \frac{b}{a}\cdot \frac{b}{a}=-\frac{b^2}{a^2}\)
+
+\end{corollary}
+
+\begin{corollary}{}
+设椭圆 \(\Gamma:\frac{x^2}{a^2}+\frac{y^2}{b^2}=1(a>b>0)\)， \(A\) 和 \(B\) 为椭圆上的点，点 \(M\) 为 \(AB\) 的中点，求证： \(k_{AB}\cdot k_{OM}\) 为一定值
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/affine_3.png}
+\caption{} \label{affine_fig3}
+\end{figure}
+
+证明：作变换 \(x'=\frac{x}{a},y'=\frac{y}{b}\) ，则椭圆化为单位圆 \(C:x'^2+y'^2=1\)
+
+由性质3， \(M'\) 为 \(A'B'\) 的中点，由垂径定理， \(O'M'\bot A'B'\) , \(k_{OM'}\cdot k_{A'B'}=-1\)
+
+由性质1， \(k_{OM}\cdot k_{AB}=-1\cdot \frac{b}{a}\cdot \frac{b}{a}=-\frac{b^2}{a^2}\)
+
+\end{corollary} 
+
+\begin{corollary}{等角定理}
+设椭圆 \(\Gamma：\frac{x^2}{a^2}+\frac{y^2}{b^2}=1(a>b>0)\)， \(A\) 和 \(B\) 为椭圆上的点，直线 \(AB\) 交 \(x\) 轴于点 \(P(x_0,0)\) ，在 \(x\) 轴上求一点 \(G\) ，使 \(x\) 轴平分 \(\angle AGB\) 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/affine_4.png}
+\caption{请添加图片描述} \label{affine_fig4}
+\end{figure}
+\textbf{解：}作变换 \(x'=\frac{x}{a},y'=\frac{y}{b}\) ，则椭圆化为单位圆 \(C:x'^2+y'^2=1\)， \(P'\left(\frac{x_0}{a},0 \right)\) 
+
+由性质3， \(\angle A'G'B'\) 依然被 \(x\) 轴平分，记 \(B'G'\) 交圆 \(O\) 于另一点 \(D'\)
+
+易见 \(\angle A'OG'=\frac{1}{2}\cdot\angle A'OD'=\angle A'B'D'\) 
+
+又 \(\angle A'P'O=\angle B'P'G'\)
+
+所以 \(\angle OA'P'=\angle OG'B'\)
+
+又 \(\angle A'G'O=\angle B'G'O\)
+
+故 \(\angle OA'B'=\angle A'G'O\)
+
+又 \(\angle A'OG'=\angle A'OG'\)
+
+故 \(\triangle A'OG'\sim \triangle P'OA'\)
+
+进而 \(\frac{OP'}{OA'}=\frac{OA'}{OG'}\)
+
+故 \(OP'\cdot OG'=OA'^2=1\) 
+
+即 \(G'\left(\frac{a}{x_0},0\right)\)
+
+由性质1， \(G\left( \frac{a^2}{x_0},0\right)\) 
+
+\end{corollary}
+
+\begin{corollary}{}
+过椭圆 \(\Gamma：\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\) 上任一点 \(A(x_0,y_0)\) 作两条倾斜角互补的直线交椭圆于点 \(P\),\(Q\) ，求证： \(k_{PQ}\) 为一定值
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/affine_5.png}
+\caption{请添加图片描述} \label{affine_fig5}
+\end{figure}
+\textbf{证明：}作变换 \(x'=\frac{x}{a},y'=\frac{y}{b}\) ，则椭圆化为单位圆 \(C:x'^2+y'^2=1\) , \(A\left(\frac{x_0}{a},\frac{y_0}{b}\right)\) 
+
+由性质3， \(A'P'\),\(A'Q'\) 仍然关于铅垂线对称，故 \(\angle P'A'B'=\angle OA'B'\)
+
+同弧所对的圆周角等于圆心角的一半，故 \(\angle P'OB'=\angle Q'OB'\)
+
+又 \(OP'=OQ'\) ，等腰三角形三线合一，所以 \(OB'\bot P'Q' \), \(k_{P'Q'}\cdot k_{OB'}=-1\)
+
+又因为 \(k_{OA'}=-k_{OB'}\) ,所以 \(k_{OA'}\cdot k_{P'Q'}=1\)
+
+而 \(k_{OA'}=\frac{a\cdot y_0}{b\cdot x_0}\) ,因此 \(k_{P'Q'}=\frac{b\cdot x_0}{a\cdot y_0}\)
+
+由性质1， \(k_{PQ}=\frac{b^2\cdot x_0}{a^2 \cdot y_0}\) 
+\end{corollary}
+\begin{corollary}{}
+求椭圆 \(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\) 内接三角形的最大面积和外切三角形的最小面积
+​
+\textbf{解：}作变换 \(x'=\frac{x}{a},y'=\frac{y}{b}\) ，则椭圆化为单位圆 \(C:x'^2+y'^2=1\)
+
+由琴生不等式:
+$$S'_{内}\leq \frac{3}{2}\cdot \sin\frac{\pi}{3}=\frac{3\sqrt{3}}{4}, S'_{外}\geq 3\cot\frac{\pi}{6}=3\sqrt{3}$$ 
+
+由性质2， \(S_{内\max}=\frac{3\sqrt{3}}{4}\cdot ab, S_{外\max}=3\sqrt{3}\cdot ab\) 
+
+\end{corollary}
