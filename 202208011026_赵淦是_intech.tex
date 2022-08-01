@@ -1,0 +1,39 @@
+% 不定积分的常用技巧
+% 不定积分
+
+点赞，能有效调动劳动者积极性，所以，请点个赞吧！
+
+\subsection{1.分项积分法}
+$$\int \left[f(x)+g(x)-h(x)\right]\,\mathrm{d}x=\int f(x)\,\mathrm{d}x+\int g(x)\,\mathrm{d}x-\int h(x)\,\mathrm{d}x$$
+
+\begin{itemize}
+\item 多项式的积分等于各个单项式的积分之和
+\end{itemize}
+\begin{itemize}
+\item 分母为多项式，可将其化为简单分式再积分
+\end{itemize}
+
+\begin{example}{}
+$$\int \frac{\,\mathrm{d}x}{x^2-a^2}$$
+
+\textbf{解：}\(x^2-a^2=(x+a)(x-a)\)
+
+设 \(\frac{1}{x^2-a^2}=\frac{A}{x-a}+\frac{B}{x+a}\) 于是 \(A(x+a)+B(x-a)=1\)
+
+由掩盖法， \(A=\frac{1}{2a},B=-\frac{1}{2a}\) ,所以 \(\frac{1}{x^2-a^2}=\frac{1}{2a}\left(\frac{1}{x-a}-\frac{1}{x+a} \right)\) 
+
+$$\begin{eqnarray} LHS&=&\frac{1}{2a}\left(\int\frac{\mathrm{d}x}{x-a}-\int\frac{\mathrm{d}x}{x+a}\right)\\&=&\frac{1}{2a}\left(\ln|x-a|-\ln|x+a|\right)+C \\&=&\frac{1}{2a}\ln\left|\frac{x-a}{x+a}\right|+C   \end{eqnarray}$$
+更一般地，让我们求 \int\frac{mx+n}{x^2+px+q}\,\mathbb{d}x 
+对分母配方： x^2+px+q=\left(x+\frac{p}{2}\right)^2+q-\frac{p^2}{4} 
+令 t=x+\frac{p}{2} ，于是 x=t-\frac{p}{2},\mathbb{d}x=\mathbb{d}t ，令 q-\frac{p^2}{4}=\pm a^2 
+令 A=m,B=n-\frac{1}{2}mp ，则 mx+n=At+B 
+则 LHS=\int\frac{At+B}{t^2\pm a^2}\,\mathbb{d}t =A\int\frac{t\mathbb{d}t}{t^2\pm a^2}+B\int\frac{\mathbb{d}t}{t^2\pm a^2} 
+A\int\frac{t\mathbb{d}t}{t^2\pm a^2}=\frac{A}{2}\int\frac{\mathbb{d}\left(t^2\pm a^2\right)}{t^2\pm a^2}=\frac{A}{2}\ln\left|t^2\pm a^2\right|+C 
+当 q>\frac{p^2}{4} 时：
+B\int\frac{\mathbb{d}t}{t^2+ a^2}=\frac{B}{a}\arctan{\frac{t}{a}}+C  
+\begin{eqnarray}LHS&=&\frac{A}{2}\ln\left|t^2+ a^2\right|+\frac{B}{a}\arctan{\frac{t}{a}}+C \\&=&\frac{m}{2}\ln\left|x^2+px+q\right|+\frac{2n-mp}{\sqrt{4q-p^2}}\arctan{\frac{2x+p}{\sqrt{4q-p^2}}}+C \end{eqnarray} 
+当 q<\frac{p^2}{4} 时：
+B\int\frac{\mathbb{d}t}{t^2- a^2}=\frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|+C 
+\begin{eqnarray} LHS&=&\frac{A}{2}\ln\left|t^2- a^2\right|+\frac{B}{2a}\ln\left|\frac{t-a}{t+a}\right|+C \\&=&\frac{m}{2}\ln\left|x^2+px+q\right|+\frac{2n-mp}{2\sqrt{p^2-4q}}\ln\left|\frac{x+2p-\sqrt{p^2-4q}}{x+2p+\sqrt{p^2-4q}}\right|+C \end{eqnarray} 
+\end{example}
+
