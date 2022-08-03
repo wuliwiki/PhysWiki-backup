@@ -1,0 +1,53 @@
+% 经典形核理论
+
+在实际中，常常观察到液体凝固时，往往是一部分液体先凝固，然后凝固的部分逐渐长大，直至液体完全凝固（又称形核-长大过程）；同时，如果温度只略微低于理想的热力学凝固点（熔点），液体也往往不凝固．以下简要介绍关于形核的经典理论．
+
+\subsection{均匀形核}
+液体凝固时，虽然液-固相变降低了体积自由能，但相变时新产生的相界面又提高了表面自由能，二者间存在竞争．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/NCLT_1.png}
+\caption{形核时，虽然体积自由能降低，但表面自由能升高}} \label{NCLT_fig1}
+\end{figure}
+
+假设过冷液体中形成一半径为r的固体晶胚．前后总自由能变化： 
+\begin{equation}\label{NCLT_eq1}
+\Delta G  = \Delta G_V +\Delta G_S
+\end{equation}
+
+\begin{itemize}
+\item $\Delta G_V = \frac{4}{3}\pi r^3 \Delta G_B$是体积自由能变
+\item $\Delta G_B = \Delta H \frac{\Delta T}{T_M}$ 是单位体积自由能变，其中$\Delta H$是相变焓变，$\Delta T=T_M-T$是\textbf{过冷度}（实际温度与理想凝固点的差值），$T_M$是熔点
+\item $\Delta G_S = 4\pi r^2 \gamma$是表面自由能变
+\end{itemize}
+
+\subsubsection{临界形核半径}
+随后，系统将沿自由能减少的方向自发运动．如图所示，只有当晶胚的初始半径r大于某个值时，自由能减少的方向才是晶胚自发长大的方向，否则晶胚将自发衰亡．此半径称为\textbf{临界形核半径}．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/NCLT_2.png}
+\caption{临界形核半径．\href{https://www.geogebra.org/m/prktxhhk}{一个可交互模型}（站外链接）} \label{NCLT_fig2}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/NCLT_3.png}
+\caption{“生存还是毁灭，这是一个问题”} \label{NCLT_fig3}
+\end{figure}
+
+为求解临界形核半径，令 $\dv{\Delta G}{r} = 0$．解得$r_k=-\frac{2\gamma}{\Delta G_B}=-\frac{2\gamma T_M}{\Delta H \Delta T}$．可见，临界形核半径与表面张力、体积焓变、过冷度等均有关．
+
+\subsubsection{临界过冷度}
+\begin{issues}
+\issueOther{未完成：简要的液体理论}
+\end{issues}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/NCLT_4.png}
+\caption{临界过冷度} \label{NCLT_fig4}
+\end{figure}
+根据液体理论，当温度降低、过冷度升高时，液体中能自发形成的晶胚也就越大．因此，存在一个临界过冷度，只有过冷度高于临界过冷度$\Delta T^*$时，液体中能自发形成的晶胚才会大于临界形核半径．
+
+\subsubsection{形核功}
+根据\autoref{NCLT_eq1} 
