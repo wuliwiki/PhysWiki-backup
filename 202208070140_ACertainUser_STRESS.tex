@@ -1,0 +1,37 @@
+% 应力
+
+\begin{issues}
+\issueDraft
+\issueTODO
+\end{issues}
+
+对于一块材料，我们很容易用截面法\upref{INTFRC}分析出材料某一截面上的受力情况；但是，截面法只能告诉我们整个截面上的“总受力”，却不能告诉我们截面上“某一点”处的受力．
+
+\subsection{微元体}
+为了更好的处理材料内一点处的受力，类似于积分划分小块体积的思想，我们假定材料是由无数小块组成的，每一小块被称作“微元体 Element”．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/STRESS_1.png}
+\caption{微元体}} \label{STRESS_fig1}
+\end{figure}
+
+\subsubsection{三维情况}
+微元体的每一个面上可以受3个力（的分量），包括一个正应力$\sigma$与两个切应力$\tau$．正应力是垂直于表面的力$$\sigma_{ii} =\dv{F_{ii}}{A}$$，而切应力是平行于表面的力$$\tau_{ij}=\dv{F_{ij}}{A}$$．
+i表示这个力的作用面的法方向，j表示这个力的方向\footnote{不同作者可能选取不同的标准}．
+
+看起来，一个微元体上共有$3\times6=18$个力的分量；但对每一个小块运用刚体的静力平衡\upref{RBSt}，可以证明事实上\textbf{一个微元体上只有6个相互独立的力}．
+
+一个微元体的受力情况可以记为一个矩阵，注意这个矩阵是\textbf{对称}的:
+\begin{equation}
+\mat \sigma=
+\begin{bmatrix}
+\sigma_{xx} & \tau_{xy} & \tau_{xz} \\
+\tau_{yx} & \sigma_{yy} & \tau_{yz} \\
+\tau_{zx} & \tau_{zy} & \sigma_{zz} \\
+\end{bmatrix}
+\end{equation}
+
+六个力可以分别选取 $\sigma_{xx}, \sigma_{yy},\sigma_{zz}, \tau_{xy}, \tau_{xz},  \tau_{yz}$
+
+\subsubsection{二维情况}

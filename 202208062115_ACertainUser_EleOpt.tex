@@ -1,0 +1,105 @@
+% 初等矩阵与初等变化
+
+\subsection{初等变换 Elementary Operation}
+初等变换包括以下三种类型：
+
+\begin{enumerate}
+\item 交换两行（列）
+
+\begin{equation}
+\left[
+    \begin{array}{ccc}
+        a_{11} & a_{12} & a_{13}\\
+        a_{21} & a_{22} & a_{23}\\
+        a_{31} & a_{32} & a_{33}\\
+    \end{array}
+\right]
+\Rightarrow
+\left[
+    \begin{array}{ccc}
+        a_{11} & a_{12} & a_{13}\\
+        a_{31} & a_{32} & a_{33}\\
+        a_{21} & a_{22} & a_{23}\\
+    \end{array}
+\right]
+\end{equation}
+
+\item 一行（列）扩大非零常数倍数
+\begin{equation}
+\left[
+    \begin{array}{ccc}
+        a_{11} & a_{12} & a_{13}\\
+        a_{21} & a_{22} & a_{23}\\
+        a_{31} & a_{32} & a_{33}\\
+    \end{array}
+\right]
+\Rightarrow
+\left[
+    \begin{array}{ccc}
+        a_{11} & a_{12} & a_{13}\\
+        ca_{21} & ca_{22} & ca_{23}\\
+        a_{31} & a_{32} & a_{33}\\
+    \end{array}
+\right]
+\end{equation}
+\item 一行（列）加上另一行（列）的常数倍数
+\begin{equation}
+\left[
+    \begin{array}{ccc}
+        a_{11} & a_{12} & a_{13}\\
+        a_{21} & a_{22} & a_{23}\\
+        a_{31} & a_{32} & a_{33}\\
+    \end{array}
+\right]
+\Rightarrow
+\left[
+    \begin{array}{ccc}
+        a_{11} & a_{12} & a_{13}\\
+        a_{21}+ca_{31} & a_{21}+ca_{32} & a_{21}+ca_{33}\\
+        a_{31} & a_{32} & a_{33}\\
+    \end{array}
+\right]
+\end{equation}
+\end{enumerate}
+
+\subsection{初等矩阵 Elementary Matrices}
+单位矩阵$\mat I$只经一次初等变化得到的矩阵，也包括三种类型．
+\begin{table}[ht]
+\centering
+\caption{2333}\label{EleOpt_tab1}
+\begin{tabular}{|c|c|c|c|}
+\hline
+种类 & 效果 & 形式 & 逆 & 行列式 \\
+\hline
+1 & 交换两行（列） & 
+$
+    \begin{bmatrix}
+        1 & 0 & 0\\
+        0 & 0 & 1\\
+        0 & 1 & 0\\
+    \end{bmatrix}
+$
+& * & * \\
+\hline
+2 & 一行（列）扩大非零常数倍数 & 
+$
+    \begin{bmatrix}
+        1 & 0 & 0\\
+        0 & c & 0\\
+        0 & 0 & 1\\
+    \end{bmatrix}
+$
+& * & * \\
+\hline
+3 & 一行（列）加上另一行（列）的常数倍数 & * & * & *\\
+\hline
+\end{tabular}
+\end{table}
+
+$$
+    \begin{bmatrix}
+        1 & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+    \end{bmatrix}
+$$
