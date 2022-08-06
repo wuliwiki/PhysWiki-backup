@@ -1,0 +1,26 @@
+% 斜对称映射
+% 斜对称映射
+
+\pentry{映射\upref{map}}
+
+\begin{definition}{斜对称映射}
+设 $X,Y$ 是任一集合，其中 $Y$ 上的任一元素 $y$ 都有一元 $-y$ 与之对应． $n$ 元映射 $f:X^n\rightarrow Y$ 叫作\textbf{斜对称的}，若对任意 $k=1,\cdots,n-1$，成立
+\begin{equation}
+f(\cdots,x_k,x_{k+1},\cdots)=-f(\cdots,x_{k+1},x_k,\cdots)
+\end{equation}
+即当交换任意两个相邻变量的位置时，映射值变号．
+\end{definition}
+\begin{theorem}{}
+交换任意两个变量的位置，斜对称函数都变号．
+\end{theorem}
+\textbf{证明：}设交换第 $i,j$ 个变量的位置，且 $i<j$，那么位于 $i,j$ 之间的自变量的个数 $l=j-i-1$．利用数学归纳法证明如下： $l=0$ 时正好满足斜对称的定义，故成立．设 $l\leq k$ 时定理成立，那么 $l=k$ 时有
+\begin{equation}
+\begin{aligned}
+f(\cdots,x_i,x_{i+1},\cdots,x_{j-1},x_j,\cdots)&=-f(\cdots,x_{i+1},x_{i},\cdots,x_{j-1},x_j,\cdots)\\
+&=f(\cdots,x_{i+1},x_{j},\cdots,x_{j-1},x_i,\cdots)\\
+&=-f(\cdots,x_{j},x_{i+1},\cdots,x_{j-1},x_i,\cdots)
+\end{aligned}
+\end{equation}
+  
+
+\textbf{证毕！}
