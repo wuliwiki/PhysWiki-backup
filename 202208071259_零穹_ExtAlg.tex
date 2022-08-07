@@ -1,0 +1,246 @@
+% 外代数
+% 外代数|外微分|线性空间|格拉斯曼代数|Grassmann|外积|矢量分析|向量分析|外积|外乘|楔积|楔乘|exterior algebra|exterior derivative|wedge product|反对称
+
+\begin{issues}
+\issueMissDepend
+\issueOther{预备知识似乎有误}
+\end{issues}
+
+
+\pentry{张量代数\upref{TenAlg}，域上的代数\upref{AlgFie}}
+
+\addTODO{与张量代数的关系}
+\addTODO{与对称积，张量积的关系}
+
+张量代数\upref{TenAlg}一节最后提到，通过将张量积作为乘法不能使得 $\mathbb T_p^0(V)$ 的对称子空间和斜对称子空间的外直和 
+\begin{equation}
+\begin{aligned}
+&\mathbb T^+(V^*)=\mathbb F\oplus\mathbb T_1^+(V)\oplus\mathbb T_2^+(V)\oplus\cdots\\
+&\Lambda(V^*)=\mathbb F\oplus \Lambda^1(V^*)\oplus\Lambda^2(V^*)\oplus\cdots
+\end{aligned}
+\end{equation}
+成为 
+\begin{equation}
+\mathbb T(V^*)=\mathbb F\oplus\mathbb T_1^0(V)\oplus\mathbb T_2^0(V)\oplus\cdots
+\end{equation}
+的子代数．这使得可以通过定义其它的乘积，使得这二者各自成为代数．对于斜对称的 $\Lambda(V^*)$，就是本节强调的重点．使 $\Lambda(V^*)$ 成为一个代数的乘法称为\textbf{外积}(\textbf{wedge})，记号为 $\wedge$，它是通过交错化映射 $A$（\autoref{SIofTe_def1}~\upref{SIofTe}）定义的，具体便是
+\begin{equation}
+Q\wedge R=A(Q\otimes R)
+\end{equation}
+
+\subsection{外积}
+事实上，基于张量的对称化和交错化\upref{SIofTe}引文处提到的理由，讨论任意张量的对称性和斜对称性，与 $(0,p)$型或 $(p,0)$ 型没有任何区别．为了多样性起见，这里考虑 $(0,p)$ ，即取空间（$\Lambda^p(V)$ 的定义可见\autoref{SIofTe_def2}~\upref{SIofTe}后的段落．） 
+\begin{equation}\label{ExtAlg_eq8}
+\Lambda(V)=\mathbb F\oplus \Lambda^1(V)\oplus\Lambda^2(V)\oplus\cdots
+\end{equation}
+使用\autoref{SIofTe_def2}~\upref{SIofTe} 的术语，$\Lambda^p(V)$ 的元素称为 $p$ 矢量．
+
+交错化映射 $A$ 将 $\mathbb T_0^p(V)$ 的张量映射到其上的斜对称张量子空间 $\Lambda^p(V)$ 上（\autoref{SIofTe_the1}~\upref{SIofTe}），而 $\Lambda^p(V)$ 都是 $\Lambda(V)$ 的子空间，因此有可能通过 $A$ 定义一种乘法，使得 $\Lambda(V)$ 在该乘法下封闭．注意 $ \Lambda(V)$ 上的任意元素 $Q$ 可记作（\autoref{TenAlg_eq5}~\upref{TenAlg} ）
+\begin{equation}\label{ExtAlg_eq3}
+Q=\sum_{i=0}^\infty Q_i=(Q_0,Q_1,\cdots),\quad Q_i\in\Lambda^i(V)
+\end{equation}
+
+此时，为了让张量积不跳出 $\Lambda(V)$，我们试着用 $A$ 作用到 $\Lambda(V)$ 上任意两元素 $Q,R$ 的张量积 $Q\otimes R$ 上：
+\begin{equation}
+\begin{aligned}
+&A(Q\otimes R)=A(\sum_{k=0}^\infty h_k)=\sum_{k=0}^\infty  A(h_k),\\
+&h_k=\sum_{i=0}^k Q_i\otimes R_{k-i}\in\mathbb T_0^k(V)
+\end{aligned}
+\end{equation}
+因此 $A(h_k)\in \Lambda^{k}(V)$，即
+\begin{equation}
+A(Q\otimes R)=\sum_{k=0}^\infty  A(h_k),\quad A(h_k)\in\Lambda^k(V)
+\end{equation}
+注意\autoref{ExtAlg_eq3} ，就有 $A(Q\otimes R)\in\Lambda(V)$．
+
+于是通过 $A(Q\otimes R)\in\Lambda(V)$ 来定义 $Q$ 和 $R$ 的乘法就得到了 $\Lambda(V)$ 上乘法的封闭性．显然，通过张量积运算的性质，$1\in\mathbb F$ 是该乘法的单位元．
+\begin{definition}{外积}\label{ExtAlg_def1}
+对任意 $q$ 矢量 $Q$ 和 任意 $r$ 矢量 $R$，运算 $\wedge:\Lambda(V)\times\Lambda(V)\rightarrow\Lambda(V)$：
+\begin{equation}
+Q\wedge R=A(Q\otimes R)
+\end{equation}
+称为 $\Lambda(V)$ 上的\textbf{外积运算}．
+\end{definition}
+\begin{theorem}{外积的性质}
+外积具有以下的性质：
+\begin{enumerate}
+\item \begin{equation}\label{ExtAlg_eq1}
+\wedge:\Lambda^q(V)\times\Lambda^r(V)\rightarrow\Lambda^{q+r}(V)
+\end{equation}
+\item \textbf{双线性：}任意 $\alpha,\beta\in\mathbb F$，有
+\begin{equation}
+\begin{aligned}
+Q\wedge(\alpha R+\beta T)&=\alpha(Q\wedge R)+\beta(Q\wedge T)\\
+(\alpha Q+\beta S)\wedge R&=\alpha (Q\wedge R)+\beta (S\wedge R)
+\end{aligned}
+\end{equation}
+\item \textbf{结合性：}
+\begin{equation}
+P\wedge (Q\wedge R)=(P\wedge Q)\wedge R
+\end{equation}
+\item $\forall \lambda\in\mathbb F$，都有
+\begin{equation}\label{ExtAlg_eq4}
+\lambda(Q\wedge R)=(\lambda Q)\wedge R=Q\wedge(\lambda R)
+\end{equation}
+
+\item 任意 $x_{i_1},\cdots,x_{i_p}\in V$，满足
+\begin{equation}\label{ExtAlg_eq6}
+x_{i_{\pi 1}}\wedge\cdots \wedge x_{i\pi p}=\epsilon_\pi x_{i_1}\wedge\cdots\wedge x_{i_p}
+\end{equation}
+\item 
+\begin{equation}\label{ExtAlg_eq7}
+x_1\wedge\cdots\wedge x_p=A(x_1\otimes\cdots\otimes x_p)
+\end{equation}
+\end{enumerate}
+
+\end{theorem}
+\textbf{证明：}1．设 $Q$ 为 $q$ 矢量，$R$ 为 $r$ 矢量，那么由\autoref{CofTen_the2}~\upref{CofTen}， $Q\otimes R\in\mathbb T_0^{q+r}$ ．由\autoref{SIofTe_the1}~\upref{SIofTe} ，对 $\mathbb T_0^{q+r}(V)$ 上的 $A$，其像 $\Im A=\Lambda ^{q+r}(V)$ ．于是\autoref{ExtAlg_eq1} 成立．
+
+2．由张量积和 $A$ 的线性
+\begin{equation}
+\begin{aligned}
+Q\wedge(\alpha R+\beta T)&=A(Q\wedge(\alpha R+\beta T))=A(\alpha Q\otimes R+\beta Q\otimes T)\\
+&=\alpha A(Q\otimes R)+\beta A(Q\otimes T)=\alpha Q\wedge R+\beta Q\wedge T
+\end{aligned}
+\end{equation}
+第2式同理．
+
+3．由\autoref{SIofTe_the2}~\upref{SIofTe}
+\begin{equation}
+\begin{aligned}
+(P\wedge Q)\wedge R&=A(A(P\otimes Q)\otimes R)=A((P\otimes Q)\otimes R)\\
+&=A(P\otimes (Q\otimes R))=A(P\otimes A(Q\otimes R))\\
+&=P\wedge (Q\wedge R)
+\end{aligned}
+\end{equation}
+
+4.利用张量积的运算性质（\autoref{TsrPrd_the1}~\upref{TsrPrd}）和 $A$ 的线性直接得到．
+
+5．先证 $x\wedge y=-y\wedge x,\;\forall x,y\in V$：
+\begin{equation}
+x\wedge y=A(x\otimes y)=\frac{1}{2}(x\otimes y-y\otimes x)
+\end{equation}
+因此
+\begin{equation}\label{ExtAlg_eq2}
+x\wedge y=-y\wedge x,\quad x\wedge x=0
+\end{equation}
+
+对一般情形，可由\autoref{ExtAlg_eq2} 和外积的结合性证得，见\autoref{AntMap_ex1}~\upref{AntMap}．
+
+6．当 $p=2$ 时显然成立．假设对 $p<k$ 时成立，那么由\autoref{SIofTe_the2}~\upref{SIofTe}
+\begin{equation}
+\begin{aligned}
+x_1\wedge\cdots\wedge x_p&=(x_1\wedge\cdots\wedge x_{p-1})\wedge x_p=A((x_1\wedge\cdots\wedge x_{p-1})\otimes x_p)\\
+&=A(A(x_1\otimes\cdots\otimes x_{p-1})\otimes x_p)=A(x_1\otimes\cdots\otimes x_{p-1}\otimes x_p)
+\end{aligned}
+\end{equation}
+
+\textbf{证毕！}
+
+\subsection{外代数}
+
+从上面知道，由 $Q \wedge R=A(Q\otimes R)$ 定义了 $\Lambda(V)$ 上的乘法运算．其满足封闭性、结合性、纯量和张量外积的补充定律（\autoref{ExtAlg_eq4} ）并且还有单位元 $1\in\mathbb F$．这就使得 $\Lambda(V)$ 成为了域 $\mathbb F$ 上的一个代数（\autoref{AlgFie_def1}~\upref{AlgFie}）
+\begin{definition}{外代数}
+称域 $\mathbb F$ 上的代数 $\Lambda(V)$ 是空间 $V$ 的\textbf{外代数}（或\textbf{格拉斯曼代数}或\textbf{G代数}），其上的乘法由外积 “$\wedge$” （\autoref{ExtAlg_def1} ）所定义．
+\end{definition}
+\begin{theorem}{}
+设 $\{e_1,\cdots,e_n\}$ 是矢量空间 $V$ 的一个基底，那么 $p$ 矢量
+\begin{equation}\label{ExtAlg_eq5}
+e_{i_1}\wedge e_{i_2}\wedge\cdots\wedge e_{i_p},\quad 1\leq i_1<i_2<\cdots<i_p\leq n
+\end{equation}
+组成空间 $\Lambda^p(V)$ 的一个基底．
+\end{theorem}
+\textbf{证明：}任意 $P\in\Lambda^p(V)$ ，正如 $\mathbb T_0^p(V)$ 中的任意元素一样，其可由表示为
+\begin{equation}
+P=\sum_{j_1\cdots j_p}P^{j_1\cdots j_p}e_{j_1}\otimes\cdots\otimes e_{j_p}
+\end{equation}
+由\autoref{SIofTe_eq11}~\upref{SIofTe} 和 $A$ 的线性性及\autoref{ExtAlg_eq7} 
+\begin{equation}
+P=A(P)=\sum_{j_1\cdots j_p}P^{j_1\cdots j_p}A(e_{j_1}\otimes\cdots\otimes e_{j_p})=\sum_{j_1\cdots j_p}P^{j_1\cdots j_p}e_{j_1}\wedge\cdots\wedge e_{j_p}
+\end{equation}
+由\autoref{ExtAlg_eq6} ，任意 $e_{j_1}\wedge\cdots\wedge e_{j_p}$ 都可按升序排序来代替， 即任一 $p$ 矢量都可由形如\autoref{ExtAlg_eq5} 的矢量展开．所以现在只需证明它们的线性无关即可．设
+
+
+\begin{equation}
+\sum_{1\leq i_1<\cdots<i_p\leq n} \lambda^{i_1\cdots i_p} e_{i_1}\wedge\cdots\wedge e_{i_p}=0
+\end{equation}
+由\autoref{ExtAlg_eq7} 和\autoref{SIofTe_eq3}~\upref{SIofTe}
+\begin{equation}\label{ExtAlg_eq9}
+\begin{aligned}
+\sum_{1\leq i_1<\cdots<i_p\leq n} \lambda^{i_1\cdots i_p} e_{i_1}\wedge\cdots\wedge e_{i_p}&=\sum_{1\leq i_1<\cdots<i_p\leq n} \lambda^{i_1\cdots i_p} A(e_{i_1}\otimes\cdots\otimes e_{i_p})\\
+&=\frac{1}{p!}\sum_{1\leq i_1<\cdots<i_p\leq n}\lambda^{i_1\cdots i_p}\sum_{\pi\in S_p}\epsilon_\pi(e_{i_{\pi^{-1} 1}}\otimes\cdots\otimes e_{i_{\pi^{-1} p}})\\
+&=0
+\end{aligned}
+\end{equation}
+
+由\autoref{CofTen_the2}~\upref{CofTen}，$e_{i_1}\otimes\cdots\otimes e_{i_p}$ 构成 $\mathbb T_0^p(V)$ 上的一个基底．所以对不同的 $\pi$ ，$e_{i_{\pi^{-1} 1}}\otimes\cdots\otimes e_{i_{\pi^{-1} p}}$ 是线性无关的．所由\autoref{ExtAlg_eq9} ，只能是
+\begin{equation}
+\lambda^{i_1\cdots i_p}\epsilon_\pi=0\quad\Rightarrow\quad\lambda^{i_1\cdots i_p}=0
+\end{equation}
+
+
+\textbf{证毕！}
+
+
+
+
+外代数是一种利用已有线性空间构造“代数”这一对象的通用方法，同时蕴含了对三维矢量分析中代数结构的本质解释．
+
+\subsection{外代数的概念}
+
+给定线性空间 $V$，任取 $x, y\in V$，定义 $x\wedge y\not\in V$ 是一个新的元素，其中符号 $\wedge$ 称作\textbf{外积（exterior product）}，有时也叫做\textbf{楔积（wedge product）}，前者是因为这个运算得到的是 $V$ 以外的新元素，后者是由于符号长得像个楔子．注意，为了方便，我们没有使用线性代数中常见的粗体正体符号来表示向量．
+
+利用各 $x\wedge y$ 构造新的线性空间：定义 $x\wedge y=-y\wedge x$ 对所有 $x, y\in V$ 成立，这同时意味着 $x\wedge x=0$．定义一个加法 $+$，使得对于 $x_1, x_2, y\in V$，都有 $(x_1+x_2)\wedge y=x_1\wedge y+x_2\wedge y$；再定义数乘为对于任意基本域中的数字 $a$，都有 $a(x\wedge y)=(ax)\wedge y=x\wedge(ay)$．这样，集合 $\{x\wedge y|x, y\in V\}$ 构成一个线性空间，记为 $\bigwedge^2 V$．同时，为了统一考虑，记 $V=\bigwedge^1 V$．
+
+$\bigwedge^1 V$ 和 $\bigwedge^2 V$ 之间也可以进行楔积，并且满足\textbf{结合律}：$x\wedge(y\wedge z)=(x\wedge y)\wedge z$，由此可以拿掉结合括号，定义 $x\wedge y\wedge z=x\wedge(y\wedge z)=(x\wedge y)\wedge z$．集合 $\{x\wedge y\wedge z|x, y, z\in V\}$ 张成的线性空间，记为 $\bigwedge^3 V$．
+
+同理，我们可以构造出任意阶的 $\bigwedge^k V$．要注意的是，如果 $k>\opn{dim} V$，那么 $\bigwedge^k V=\{0\}$．另外，把 $V$ 的基本域 $\mathbb{F}$ 看成一个一维线性空间，记 $\mathbb{F}=\bigwedge^0 V$．
+
+不同线性空间之间可以用直和组合在一起，因此以上这些空间也都可以作直和，得到一个 $\bigwedge V=\bigoplus_k\bigwedge^k V=\mathbb{F}\oplus\bigwedge^1V\oplus\bigwedge^2V\cdots$．这个 $\bigwedge V$，就被称作 $V$ 上的\textbf{外积空间（exterior product space）}或\textbf{楔积空间（wedge product space）}．$\mathbb{F}$ 是 $V$ 的基域，视为 $\mathbb{F}$ 自身上的一维线性空间．
+
+\begin{theorem}{外代数}
+任给域 $\mathbb{F}$ 上的线性空间 $V$，则外积 $\wedge$ 是一个 $\bigwedge V$ 上的向量乘法，并且满足结合性，有单位元 $1\in \bigwedge^0 V$，故构成一个 $\mathbb{F}$ 上的代数．称这个代数为 $V$ 上的\textbf{外代数（exterior algebra）}或\textbf{格拉斯曼代数（Grassmann algebra）}．
+\end{theorem}
+
+外代数中的元素可以有形象的几何理解．$\bigwedge^1 V$ 中的元素就是 $V$ 中的元素，我们可以想象成箭头．$\bigwedge^2 V$ 中的元素可以看成箭头对，或者是箭头对表示的平行四边形．同样，$\bigwedge^k V$ 中的元素都可以看成是 $k$ 个箭头张成的一个 $k$ 维对象．
+
+外代数有一个重要的性质，我们用\autoref{ExtAlg_exe1} 和\autoref{ExtAlg_exe2} 来阐述 ：
+
+\begin{exercise}{}\label{ExtAlg_exe1}
+证明：如果 $k>\opn{dim} V$，那么 $\bigwedge^kV=\{0\}$．
+\end{exercise}
+
+\begin{exercise}{}\label{ExtAlg_exe2}
+证明：对于 $\opn{dim} V=k$，有 $\opn{dim} \bigwedge V=2^k$．思路提示：考虑各 $\opn{dim}\bigwedge^iV$ 的值，再对比 $(1+1)^k$ 的二项式展开．
+\end{exercise}
+
+
+
+
+三维欧几里得空间 $\mathbb{R}^3$ 中的叉乘实际上就是外积．这是因为，$\opn{dim}\mathbb{R}^3=\opn{dim}\bigwedge^2\mathbb{R}^3$，这样一来，如果给定 $\mathbb{R}^3$ 的标准正交基 $\{x, y, z\}$，那么我们可以建立同构 $*: \bigwedge^2\mathbb{R}\rightarrow\mathbb{R}^3$，使得 $*(x\wedge y)=z, *(y\wedge z)=x, *(z\wedge x)=y$，这样就可以通过这个同构来把外积变成 $\mathbb{R}^3$ 内部的向量积．这一映射也是叉乘的“右手定则”的来源，我们也完全可以规定 $*(x\wedge y)=-z, *(y\wedge z)=-x, *(z\wedge x)=-y$，这样定义出来的叉乘就是符合左手定则的了．
+
+三维线性空间是唯一可以构造反交换代数的非平凡空间，就是因为只有三维的 $V$ 才满足 $\opn{dim}V=\opn{dim}\bigwedge^2V$，因而可以建立 $\bigwedge^2 V$ 和 $V$ 之间的同构，从而把楔积变成叉积．相应地，比复数更高维的可除代数只有四元数．
+
+外代数是一个“\textbf{分次线性空间（graded vector space）}”，就是说，它作为一个线性空间，每个向量具有一个“次数”，定义如下：每个 $\bigwedge^kV$ 中的向量，其\textbf{次数（grade）}就是 $k$；对于任意向量 $v\in \bigwedge V$，我们总可以把它拆分成各 $\bigwedge^kV$ 中基向量的线性组合，这些基向量中次数最高的就定义为 $v$ 的次数．
+
+
+\subsection{对偶空间的外代数}
+
+实流形上极为常见的外代数是微分形式生成的外代数，也就是所谓的外微分．由于一个微分 $k$-形式可以看成是将 $k$ 个向量场变成一个光滑函数的映射，也就是在每个切点处都是一个将 $k$ 个切向量变成一个实数的张量，因此要研究微分形式的外代数，首先就要搞清楚对偶空间的外代数．
+
+对偶空间中的元素，都是主空间中的线性函数．$k$ 个线性函数的外积，被定义为“将 $k$ 个主空间向量映射为一个数”的多重线性映射．我们自然想到将 $k$ 个向量的映射联系到对偶空间外代数中的 $k$ 阶元素．
+
+具体来说，假如我们有两个多重线性映射 $f$ 和 $g$，分别是 $n$ 阶和 $m$ 阶的，那么我们定义 $f\wedge g$ 为如下 $n+m$ 阶多重线性映射：
+\begin{equation}
+\begin{aligned}
+&f\wedge g(x_1, x_2, \cdots, x_{n+m})\\=
+&\sum\limits_{\sigma\in S_{n+m}}\opn{sgn}(\sigma) f(x_{\sigma(1)}, x_{\sigma(2)}, \cdots, x_{\sigma(n)})\cdot g(x_{\sigma(n+1)}, \cdots, x_{\sigma(n+m)})
+\end{aligned}
+\end{equation}
+其中 $\sigma$ 是一个 $n+m$ 元置换，当 $\sigma$ 为奇变换时 $\opn{sgn}(\sigma)$ 为 $-1$，$\sigma$ 为偶变换时 $\opn{sgn}(\sigma)$ 为 $1$．
+
+最简单的例子，就是两个对偶向量的外积．设 $V^*$ 是线性空间 $V$ 的对偶空间，令 $f, g\in V^*$，那么对于任意 $\bvec{v}, \bvec{u}\in V$，我们有：
+\begin{equation}
+f\wedge g(\bvec{v}, \bvec{u})=f(\bvec{v})g(\bvec{u})-f(\bvec{u})g(\bvec{v})
+\end{equation}
+其中一共涉及置换群 $S_2$ 中的两个置换，$(1)$ 和 $(1\phantom{2}2)$，分别是偶置换和奇置换．
