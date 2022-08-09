@@ -1,0 +1,29 @@
+% 树与图的深度优先搜索
+% DFS|算法|树与图的深度优先搜索|C++
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+本文将介绍树与图的深度优先搜索．
+
+\textbf{树与图的存储：}
+存储可以使用邻接表，邻接表的实现可以使用前面学的单链表\upref{List}，邻接表就是 $n$ 个单链表，邻接表的所使用的数组需要多开一个 \verb|head| 数组，表示每个单链表的表头．邻接表的插入一般都是\textbf{头插法}，即从单链表的表头插入新结点．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/DFS2_1.png}
+\caption{邻接表插入一个数}} \label{DFS2_fig1}
+\end{figure}
+
+可见，对于一张 $n$ 个点 $m$ 条边的图，可以用 $n$ 个单链表构成，$\forall x\in \text{Graph}$ 要想找到 $x$ 的所有出边，可以依据 $x$ 的表头依次访问．
+
+\begin{lstlisting}[language=cpp]
+int h[N], e[N], ne[N], idx = 0;
+
+// 在表头是 a 的链表的头结点后面插入一个数 b
+void add(int a, int b)
+{
+    e[idx] = b, ne[idx] = h[a], h[a] = idx ++ ;
+}
+\end{lstlisting}

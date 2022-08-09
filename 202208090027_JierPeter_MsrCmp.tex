@@ -1,0 +1,84 @@
+% 可观测量的相容性
+% 不确定性关系|量子力学|算符|狄拉克符号|现代量子力学
+
+
+\pentry{Stern-Gerlach 实验\upref{SGExp}}
+
+\subsection{相容可观测量}
+
+
+按照相容算符的\autoref{QMPrcp_def17}~\upref{QMPrcp}，我们可以定义可观测量的相容：
+
+\begin{definition}{相容可观测量}
+设$X, Y$分别是两个可观测量对应的算符，若$[X, Y]=0$，则称它们是\textbf{相容}的，否则称它们是\textbf{不相容}的．
+\end{definition}
+
+相容的可观测量具有一个关键性质：
+
+\begin{theorem}{}\label{MsrCmp_the1}
+设$X, Y$是相容的可观测量，且$X$无\textbf{简并}（\autoref{QMPrcp_def16}~\upref{QMPrcp}）的本征值．则$X$的本征矢量都是$Y$的本征矢量．
+\end{theorem}
+
+\textbf{证明}：
+
+任取$X$的本征矢$\ket{s}$，设$X\ket{s}=ks$，其中$k\in\mathbb{C}$．
+
+由于$XY-YX=0$，故有：
+\begin{equation}
+\begin{aligned}
+XY\ket{s} &= YX\ket{s}\\
+X(Y\ket{s}) &= kY\ket{s}
+\end{aligned}
+\end{equation}
+
+即$Y\ket{s}$也是$X$的本征矢量，本征值也是$k$．又因为$X$没有简并本征值，故$Y\ket{s}$应该是$\ket{s}$的倍数，即$\ket{s}$是$Y$的本征矢．
+
+\textbf{证毕}．
+
+
+根据量子力学的基本假设（\autoref{QMPrcp_sub2}~\upref{QMPrcp}），对一个量子态进行测量，所得测量值是可观测量的一个本征值，且获得该测量值的概率正比于该量子态在对应本征矢量方向上投影的\textbf{模方}；另外，当测量完成后，量子态会坍缩成所得本征值对应的本征矢．
+
+因此，如果$[X, Y]=0$且无简并，根据\autoref{MsrCmp_the1} ，可知当我们对量子态进行$X$测量后，结果是$Y$的本征矢，故再进行$Y$测量时所得结果是确定的．
+
+但是，如果$[X, Y]\neq 0$，那么两个可观测量不共享所有本征矢，此时先进行$X$测量后，再测量$Y$，所得结果是不确定的\footnote{可参考\textbf{Stern-Gerlach 实验}\upref{SGExp}．}．这就是\textbf{不确定性原理}\upref{Uncert}．
+
+
+
+\subsection{不相容可观测量}
+
+
+考虑类似\textbf{Stern-Gerlach 实验}\upref{SGExp}中的序列实验（\autoref{SGExp_sub1}~\upref{SGExp}）．
+
+让一个处于$\ket{a}$态系统通过$X$算符的测量仪器，得到若干$X$的本征态；取出其中某一态$\ket{b}$，再让它通过一台$Y$仪器．最终，从$Y$出口得到某本征态$\ket{c}$的概率是
+\begin{equation}
+\abs{\braket{a}{b}}^2\cdot\abs{\braket{b}{c}}^2
+\end{equation}
+
+如果我们把所有通过$X$的结果都保留，让它们一起通过$Y$，则最终得到$\ket{c}$的概率是
+\begin{equation}
+\sum_{b}\abs{\braket{a}{b}}^2\cdot\abs{\braket{b}{c}}^2
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
