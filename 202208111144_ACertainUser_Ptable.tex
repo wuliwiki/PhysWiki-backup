@@ -1,0 +1,113 @@
+% 电子轨道与元素周期表
+% 原子|电子轨道|元素周期表|量子数|周期
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+在这里， 用最简单的方式介绍原子的壳层结构，并解释元素周期表如何根据壳层结构分出每个周期． 在玻尔原子模型\upref{BohrMd} 中， 原子轨道如\autoref{Ptable_fig1}．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4.5cm]{./figures/Ptable_1.pdf}
+\caption{电子轨道}\label{Ptable_fig1}
+\end{figure}
+%现在要把电子放到这些轨道上面来，使电子的总能量最小． 这种状态叫做原子的基态． 理想的状态是，所有电子都在最小的一圈轨道上，但是由于每条轨道只能容纳一定数目的电子，另一些电子不得不进入其他轨道．
+
+\subsection{电子轨道}
+%为了解释每条轨道能容纳多少电子，把每个轨道的 “空位” 用一行格子描述． 当一行格子被电子填满时，该轨道就不能容纳更多电子了．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4cm]{./figures/Ptable_2.pdf}
+\caption{用格子描述电子轨道} 
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\caption{电子轨道}\label{Ptable_tab1}
+\begin{tabular}{|c|c|c|}
+\hline
+名称&符号&取值\\
+\hline
+电子层&主量子数 n& 1(K), 2(L), 3(M), 4(N).． \\
+\hline
+电子亚层&角量子数 l& 0(S),1(P),2(D),3(F),..., n-1 \\
+\hline
+亚层的轨道&磁量子数 m & -l, -l+1,...,0,1,2,...,l-1,l \\
+\hline
+(电子自旋) (这不是轨道参数)&&-1/2, 1/2\\
+\hline
+\end{tabular}
+\end{table}
+
+电子层：如\autoref{Ptable_fig1} 所示，从半径最小的轨道开始，用数字 1，2，3 (或K,L,M,...)等依次命名每条轨道，这些数字也叫主量子数，用 $n$ 来表示． 
+
+电子亚层：一个电子层可以细分为若干个电子亚层，以角量子数$l$计．对于一个主量子数为$n$的电子层，角量子数$l$可以取$0,1,2,...,n-1$（或称$S,P,D,F...$ ）等$n$ 个不同的值，即一个主量子数为$n$的电子层可以分为$n$个电子亚层．把行标和列标组合起来， 就能得到任意一个格子的名称，例如第三行第二列的格子叫做 $3P$． 例如，$n=3$的电子层包括$3S, 3P, 3D$两个亚层．
+
+亚层的轨道：一个电子亚层可以再继续细分为若干个轨道，以磁量子数$m$计．对于一个角量子数为$l$的电子亚层，磁量子数$m$ 可以取 $ - l, - l + 1...0,...l - 1,l$ 等 $(2l + 1)$ 个不同的值，即一个角量子数为$l$的电子亚层可以分为$(2l+1)$个轨道．例如，$l=1$的P亚层包括$P_x, P_y, P_z$三个轨道．
+
+电子自旋：由于不相容原理，一个亚层的轨道中最多只能容纳两个（自旋相反的）电子．
+
+综上所述，每一个电子亚层可以最多容纳$2(2l+1)$个电子，每一个电子层最多容纳$2n^2$ 个电子（见\autoref{Ptable_fig2}）．%这也是我们在中学化学中所知的"$2,8,18,...$"电子排布规律的由来．
+
+\subsection{电子的排序}
+到此为止， 每条轨道承载电子的数目已经解释清楚了， 但是应该如何把电子往格子里面放呢？ 总的原则是使电子总能量最小（这种状态叫做原子的基态）．一般而言，电子能量随$n$与$l$的增大而增大，且$n$的影响大于$l$，但这种规则\textbf{十分不严格}（见下），原子轨道的能量事实上非常复杂．
+
+对于氢原子（1 个核外电子）， 显然电子应该放在 $1S$ 格子里， 氦原子（2 个核外电子）可以把两个电子都放在 $1S$ 格子里， 从而把 $n=1$ 的轨道填满， 这就是第一周期的两个原子的电子分布． 对于锂原子（3 个核外电子）可以在氦原子的基础上往 $2S$ 格子里放一个电子． 
+
+但奇怪的是， 轨道的能量\textbf{并不是}简单的单调递增， 而是如下图中的箭头所示的 $1S, 2S, 2P, 3S, 3P, 4S, 3D, 4P, 5S\dots$ 的顺序． 
+\begin{figure}\label{Ptable_fig2}[ht]
+\centering
+\includegraphics[width=4.5cm]{./figures/Ptable_3.pdf}
+\caption{轨道的填充顺序．格子内的数字表示每个亚层能容纳的电子数， 即 $2(2l + 1)$．} 
+\end{figure}
+
+\addTODO{这张图在第四周期以上不成立，见 \cite{GriffQ}}
+
+理论上，$n\ge5$的电子层存在$l\ge4$的电子亚层，但实际的原子中，该电子亚层一般不被填充．
+
+\subsubsection{其余的一些规律}
+这里列出电子排布的部分规律．不过要注意的是，这些规律不总是成立（至少在前三周期成立）．
+
+在填充亚电子层的轨道时，电子一般优先进入空轨道，而不是进入已有一个电子的轨道．
+%这可以用来理解部分元素的某些化学性质．例如，N的价电子层有三个未成对电子与一对孤电子对．这三个未成对电子可以分别与H的一个未成对电子成键，形成$NH_3$．由于孤电子对的电子斥力，$N-H$的键角被压缩；这对孤电子对可以作为路易斯碱，进攻其他正电性基团．
+\begin{table}[ht]
+\centering
+\caption{部分元素的2p轨道电子}}\label{Ptable_tab2}
+\begin{tabular}{|c|c|c|}
+\hline
+5 B & $\uparrow$ &  & \\
+\hline
+6 C & $\uparrow$ & $\uparrow$& \\
+\hline
+7 N & $\uparrow$ & $\uparrow$&$\uparrow$ \\
+\hline
+8 O & $\uparrow \downarrow$ & $\uparrow$ & $\uparrow$ \\
+\hline
+9 F & $\uparrow \downarrow$ & $\uparrow \downarrow$ & $\uparrow$ \\
+\hline
+10 Ne & $\uparrow \downarrow$ & $\uparrow \downarrow$ & $\uparrow \downarrow$ \\
+\hline
+\end{tabular}
+\end{table}
+有时，半满、全满的亚层电子排布更稳定．例如，23V（钒）的电子排布是$4S^2 3D^3$，那下一号元素24Cr（铬）的电子排布是$4S^2 3D^4$？非也，由于半满的S、D亚层更稳定，因此24Cr（铬）的电子排布是$4S^1 3D^5$．
+\subsection{元素周期表的排序}
+
+%要判断某个原子所在的周期， 就先根据原子序号找出上图中所有装有电子的格子， 
+
+元素原子中最大的主量子数 $n$ （最高的电子层数）确定了该元素所在的周期． 例如 30 号元素Zn（锌）， 可以按照上图绿色线条的顺序占满 $1S, 2S, 2P, 3S, 3P, 4S, 3D$ （这些格子能容纳的总电子数刚好是 30）． 其中 $4S$ 的主量子数最大，$n=4$， 所以 30 号元素在第四周期． 按照这个规律， 把上图按照周期分类如下．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/Ptable_4.pdf}
+\caption{划分周期} 
+\end{figure}
+
+再根据元素原子最高能量的电子亚层，可以进一步划分元素周期表为s区，p区，d区，f区等．其中s，p区一般合称主族，d，f区合称副族．有人把IB, IIB(11,12)列合称为ds区．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/Ptable_3.png}
+\caption{元素周期表的分区}} \label{Ptable_fig3}
+\end{figure}
+%我不大了解f区诶，不过我查的资料是这么说的
+
+\addTODO{解释 1s22P2 之类的符号吧}
