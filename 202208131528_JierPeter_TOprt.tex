@@ -1,0 +1,80 @@
+% 时间演化算符（量子力学）
+% 薛定谔方程
+
+\pentry{量子力学的基本原理（量子力学）\upref{QMPrcp}}
+
+
+本节介绍时间演化算符，以此为切入点，引入量子态的演化方程，即薛定谔方程．
+
+
+“我们应当记住的首要之点是：时间在量子力学中只是一个参量而不是一个算符．特别地，时间不是前一章所说的可观测量．像谈论位置算符一样谈论时间算符是无意义的．”——樱井纯，J. 拿波里塔诺，《现代量子力学》，2.1节．
+
+量子力学中，时间不是一个算符，意味着量子力学认为时间是独立存在的，即采用经典时空观．
+
+
+\subsection{时间演化算符}
+
+\begin{definition}{时间演化算符}\label{TOprt_def1}
+设一个物理系统在时间$t$时的态矢量为$\ket{s, t}$，而$t_0<t$是一个初始时间，那么定义
+\begin{equation}\label{TOprt_eq1}
+\mathcal{U}(t, t_0)\ket{s, t_0}=\ket{s, t}
+\end{equation}
+其中$\mathcal{U}(t, t_0)$称为从$t_0$到$t$的\textbf{时间演化算符（time evolution operator）}．
+\end{definition}
+
+从\autoref{TOprt_def1} 可以看出来，我们只需要研究清楚时间演化算符的性质，就能从一个初始态算出之后任意时间的态．
+
+那么时间演化算符应该具有什么样的性质呢？
+
+
+首先，时间演化算符必须满足\textbf{结合性}，即
+\begin{equation}\label{TOprt_eq2}
+\mathcal{U}(t_2, t_1)\mathcal{U}(t_1, t_0) = \mathcal{U}(t_2, t_0)
+\end{equation}
+这样才能确定唯一的演化结果$\ket{s, t}$．
+
+有了结合性，我们可以省略掉初始时间，而把$\mathcal{U}(t, t_0)$简记为$\mathcal{U}(t-t_0)$，即把自变量由“初始时间和结束时间”替换为“演化所用时间”．同样，也可以把量子态$\ket{s, t_0}$简记为$\ket{s}$．此时$\ket{s, t_0+t}=\mathcal{U}(t)\ket{s}$．
+
+接着，我们希望量子态随时间\textbf{连续地}变化，因此有
+\begin{equation}\label{TOprt_eq3}
+\lim_{t\to 0}\mathcal{U}(t) = \mathcal{U}(0) = 1
+\end{equation}
+其中$1$是恒等变换．
+
+最后，我们希望一个量子态归一化以后，在演化过程中始终保持归一化．也就是说，$\bra{s}H^\dagger H\ket{s}=\braket{s}{s}=1$对任意态$\ket{s}$成立，即
+\begin{equation}\label{TOprt_eq4}
+H^\dagger H=1
+\end{equation}
+满足\autoref{TOprt_eq1} 的方程被称为\textbf{幺正（unitary）}的．
+
+
+
+有了三条规则，\autoref{TOprt_eq2} ，\autoref{TOprt_eq3} 和\autoref{TOprt_eq4} ，就可以推导时间演化算符的具体形式了．
+
+
+\subsubsection{无穷小时间演化算符}
+
+我们首先考虑演化用时趋于$0$时，时间演化算符的极限．这是因为微分的思想即线性近似的思想，而线性的情形是最好处理的．为了方便，我们将不使用极限语言，而是用“无穷小”的术语，这并不失严谨性．
+
+记$\dd t$是一段无穷小时间，则由连续性
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
