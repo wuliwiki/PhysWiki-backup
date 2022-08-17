@@ -1,0 +1,26 @@
+% 平行移动
+% 平行移动|仿射联络
+
+\pentry{曲线坐标系下的张量坐标变换（仿射空间）\upref{TinCur}}
+在仿射空间 $(\mathbb A,V)$ 中，任一点都可看成 $V$ 与 $\mathbb A$ 之间的双射（\autoref{AfSp_eq4}~\upref{AfSp}）．这就是相当于在仿射空间中的任一点可作出任一给定的矢量．如此便有这样的问题出现：在区域 $\Omega\in\mathbb A$ 取曲线坐标 $x^i$ 时，如何在任一点作出一已知矢量．设已知矢量 $v_0$ 在点 $M_0$ 的坐标为 $v_0^i$，现要求从另一点 $M_1$ 作出这个矢量．这就是说，我们必须确定：如何变更 $v_0^i$ ，以便在 $M_1$ 的局部标架中，使它们能定出以前的矢量 $v_0$．
+
+如果将 $v_0$ 不经过任何中间点而从 $M_0$ 直接移到 $M_1$ 上，则问题的解答就失去了意义．值得注意的是矢量 $v_0$ 沿任一曲线 $\overset{\Huge\frown}{M_0M_1}$ 的连续移动，且坐标 $v_0^i$ 在路径上每一无限小段上连续变化的过程，即\textbf{平行移动}．
+\subsection{仿射联络}
+设路径 $\overset{\Huge\frown}{M_0M_1}$ 的参数方程为
+\begin{equation}
+x^i=x^i(t),\quad t_0\leq t\leq t_1
+\end{equation}
+式中 $x^i(t)$ 是连续可微的函数．于是曲线上一点的向径 $x$ 是 $t$ 的函数
+\begin{equation}
+x=x(t)
+\end{equation}
+$v_0$ 在路径上平行移动就是要在路径上每一点 $M(t)$ 作一常矢量 $v_0$．由于局部标架（\autoref{CFinAf_def1}~\upref{CFinAf}）随点而变化，因而矢量 $v_0$ 的坐标 $v^i$ 也随点的位置而变，所以
+\begin{equation}
+v^i=v^i(t)
+\end{equation}
+因为 $x^i(t)$ 是连续可微的，因此局部标架的矢量 $\partial_i x(x^1,\cdots,x^n)$ 以及 $v^i$ 沿此路径是 $t$ 的连续可微函数．
+
+在点 $M(t)$ 处，按该处局部标架展开矢量 $v_0$：
+\begin{equation}
+v_0=v^i(t)\partial_i x(x^1,\cdots,x^n)
+\end{equation}

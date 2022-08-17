@@ -1,0 +1,63 @@
+% 真空中的平面电磁波
+% 麦克斯韦方程组|电磁波|平面波|波动方程
+
+\pentry{电场波动方程\upref{EWEq}}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=13cm]{./figures/VcPlWv_1.pdf}
+\caption{平面电磁波的电磁场分布． 注意于电磁场矢量与 $x, y$ 坐标无关， 并占据整个空间（图片来自维基百科）.\href{https://www.geogebra.org/m/xhYwXSsH}{一个可动的模型}（站外链接）} \label{VcPlWv_fig1}
+\end{figure}
+
+\footnote{参考 \cite{GriffE} 相关章节与周磊教授的讲义，http://fdjpkc.fudan.edu.cn/d200927/2009/0314/c8569a14801/page.htm}平面电磁波为
+\begin{align}
+&\bvec E(\bvec r, t) = \bvec E_0 \cos(\bvec k\vdot \bvec r - \omega t)\\
+&\bvec B(\bvec r, t) = \bvec B_0 \cos(\bvec k \vdot \bvec r - \omega t)
+\end{align}
+通解是这些平面波的任意线性组合． 
+
+\subsection{电磁波基本性质}
+%需要check一下结论...
+\subsubsection{波速}
+波速等于真空中的光速 $c$， 且
+\begin{equation}\label{VcPlWv_eq1}
+c = \frac{1}{\sqrt{\epsilon_0\mu_0}} = 299,792,458 \Si{m/s}
+\end{equation}
+
+\subsubsection{波的性质}
+\begin{itemize}
+\item $\bvec k$被称为波矢，标志电磁波的传播方向．
+\item  “色散关系”：$k^2=\frac{\omega^2}{c^2}$．
+\item $k=\frac{2\pi}{\lambda}$, $\omega=\frac{2\pi}{T}, v=\frac{\lambda}{T}$
+\item 电磁波是横波，即在电磁场传播方向$\bvec k$上没有电场、磁场的分量．$\bvec k \cdot \bvec E = 0$ (如果 $\bvec E_0$ 中存在平行于 $\bvec k$ 的分量， 那么 $\div \bvec E \ne 0$， 所以二者必须垂直)
+\end{itemize}
+
+\subsubsection{电场与磁场}
+电磁波中电场与磁场二者不是相互独立的．在一点处的电场与磁场满足：
+\begin{equation}
+\bvec k \times \bvec E = \omega \bvec B
+\end{equation}
+由此，可推导出以下结论：
+\begin{itemize}
+\item $\bvec E, \bvec B, \bvec k$ 互相垂直，且成右手螺旋关系．见\autoref{VcPlWv_fig1} 右侧
+\item $\bvec E \cdot \bvec B = 0,\bvec E \times \bvec B \parallel \bvec k$，$\bvec v \times \bvec E \parallel \bvec B, ...$．
+\item $\abs{E}=c\abs{B}$
+\end{itemize}
+
+部分推导可见 “电场波动方程\upref{EWEq}”
+
+\subsubsection{能量密度}
+\pentry{电场的能量\upref{EEng}， 磁场的能量\upref{BEng}}
+任意一点的能量密度为
+\begin{equation}\label{VcPlWv_eq2}
+\rho_E = \frac{1}{2}\qty(\epsilon_0 E^2 + \frac{B^2}{\mu_0}) = \epsilon_0 E^2
+\end{equation}
+虽然磁场在“数值上”小于电场；但能量上，电场和磁场的能量相同，各贡献总能量一半． 
+
+平均能流密度（光强）为
+\begin{equation}
+I = \frac12 c\epsilon_0 E_0^2
+\end{equation}
+推导见\autoref{EBS_ex1}~\upref{EBS}， 也可以认为瞬时能流密度等于能量密度乘以波速 $c$， 对于简谐波，需要除以二得平均值．
+
+
