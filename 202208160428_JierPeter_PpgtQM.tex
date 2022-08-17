@@ -1,0 +1,106 @@
+% 传播子（波动力学）
+% 路径积分|狄拉克符号|薛定谔方程|时间演化算符
+
+\pentry{时间演化算符（量子力学）\upref{TOprt}}
+
+本节采用自然单位制，$\hbar=1$．
+
+
+\subsection{传播子的概念}
+
+
+考虑一个$t=0$时刻的初始量子态，记为$\ket{s}$．设有哈密顿算符$H$，则时间演化算符是$\E^{-\I Ht}$．设$H$的本征态为$\ket{a}$，对应本征值为$E_a$．
+
+用$H$\textbf{的本征态}来展开$\ket{s}$，得到$\ket{s}=\sum_a\ket{a}\braket{a}{s}$，则有
+\begin{equation}\label{PpgtQM_eq1}
+\bra{\bvec{x}}\E^{-\I Ht}\ket{s} = \sum_a\bra{\bvec{x}}\E^{-\I Ht}\ket{a}\braket{a}{s} = \sum_a\braket{\bvec{x}}{a}\braket{a}{s}\E^{-\I E_at}
+\end{equation}
+
+用\textbf{位置本征态}$\ket{\bvec{x}}$来展开$\ket{s}$，得到$\ket{s}=\int\mathrm{d}^3 x\ket{\bvec{x}}\braket{\bvec{x}}{s}$，则有
+\begin{equation}\label{PpgtQM_eq2}
+\braket{a}{s} = \int\mathrm{d}^3x\braket{a}{\bvec{x}}\braket{\bvec{x}}{s}
+\end{equation}
+
+将\autoref{PpgtQM_eq2} 代入\autoref{PpgtQM_eq1} ，设$\ket{\bvec{y}}$是位置本征态，$\psi(\bvec{y}, t)$是$\ket{s}$在时刻$t$的波函数，则有
+\begin{equation}\label{PpgtQM_eq3}
+\ali{
+    \psi(\bvec{y}, t)&=\bra{\bvec{y}}\E^{-\I Ht}\ket{s}\\
+    &=\sum_a\braket{\bvec{y}}{a}\braket{a}{s}\E^{-\I E_at}\\
+    &=\sum_a\braket{\bvec{y}}{a}\E^{-\I E_at}\int\mathrm{d}^3x\braket{a}{\bvec{x}}\braket{\bvec{x}}{s}\\
+    &=\int\mathrm{d}^3x\sum_a\braket{\bvec{y}}{a}\E^{-\I E_at}\braket{a}{\bvec{x}}\braket{\bvec{x}}{s}
+}
+\end{equation}
+
+则定义$K(\bvec{y}, \bvec{x}, t)$为$\sum_a\braket{\bvec{y}}{a}\E^{-\I E_at}\braket{a}{\bvec{x}}$．根据\autoref{PpgtQM_eq3} ，这意味着
+\begin{equation}
+\psi(\bvec{y}, t) = \int\mathrm{d}^3x K(\bvec{y}, \bvec{x}, t)\psi(\bvec{x}, 0)
+\end{equation}
+称$K$为\textbf{传播子}．
+
+注意，传播子也可以写成
+\begin{equation}
+\ali{
+K(\bvec{y}, \bvec{x}, t) &= \bra{\bvec{y}}\qty(\sum_a\ket{a}\E^{-\I E_at}\bra{a})\ket{\bvec{x}} 
+\\&= \bra{\bvec{y}}\qty(\E^{-\I Ht}\sum_a\ket{a}\bra{a})\ket{\bvec{x}}\\
+&= \bra{\bvec{y}}\E^{-\I Ht}\ket{\bvec{x}}
+}
+\end{equation}
+
+实际计算中，$\E^{-\I Ht}\ket{\bvec{x}}$可能难以算出，因此也常用
+
+
+\subsection{传播子的性质}
+
+
+
+
+对传播子$K$关于时间求偏导，得到：
+\begin{equation}
+\ali{
+    \I\partial_t K &= \bra{\bvec{y}}\qty(\I\partial_t\E^{-\I Ht})\ket{\bvec{x}}\\
+    &= \bra{\bvec{y}}\qty(H\E^{-\I Ht})\ket{\bvec{x}}\\
+    &= HK
+}
+\end{equation}
+即$K$\textbf{满足薛定谔方程}．
+
+另外，注意到
+\begin{equation}
+\ali{
+    K(\bvec{y}, \bvec{x}, 0) &= \braket{\bvec{y}}{\bvec{x}} = \delta^3(\bvec{y}-\bvec{x})
+}
+\end{equation}
+即$K(\bvec{y}, \bvec{x}, 0)$可以看成是$t=0$时位置本征态$\ket{\bvec{x}}$的波函数$\psi_{\bvec{x}}(\bvec{y}, 0)$．
+
+由于量子态的演化遵循薛定谔方程，因此综上所述，$K(\bvec{y}, \bvec{x}, t)$可以视为一个自然演化的波函数$\psi_{\bvec{x}}(\bvec{y}, t)$，其初态为$\ket{\bvec{x}}$．
+
+
+
+\begin{example}{一维自由粒子}
+
+考虑一个\textbf{一维自由}粒子，显然$[H, p]=0$．具体地，$p=-\I\hbar\partial_x$，$H=\frac{p^2}{2m}=\frac{\hbar^2}{2m}\partial_x^2$．
+
+设$\ket{p_a}$是$p$与$H$的共同本征态，其中下标$a$取值范围为整个实数集，且$p\ket{p_a}=a$，这还意味着$H\ket{p_a}=a^2/2m$．
+
+于是能计算出传播子
+\begin{equation}
+\ali{
+    K(\bvec{y}, \bvec{x}, t) &= \bra{\bvec{y}}\qty(\E^{-\I Ht}\int\ket{p_a}\bra{p_a}\dd a)\ket{\bvec{x}}\\
+    &= \bra{\bvec{y}}\qty(\int\E^{-\I a^2t/2m}\ket{p_a}\bra{p_a}\dd a)\ket{\bvec{x}}\\
+}
+\end{equation}
+
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+

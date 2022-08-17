@@ -1,0 +1,52 @@
+% 仿射空间中的曲线坐标系
+% 曲线坐标系|仿射空间
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{仿射空间\upref{AfSp}}
+\subsection{曲线坐标系}
+设 $\{\dot o;e_1,\cdots,e_n\}$ 是仿射空间 $\mathbb A$ 中的坐标系．则对其上任一点 $M$ ，其坐标为矢量 $\overrightarrow{OM}=x^i e_i$ 的坐标（采取坐标和基矢指标的对立约定\upref{CofTen}及爱因斯坦求和约定\upref{EinSum}）．若选择一新坐标系 $\{\dot o',e'_1,\cdots,e'_n\}$，则点的坐标变换规则为（\autoref{AfSp_the3}~\upref{AfSp}）
+\begin{equation}
+x'^i={B^i}_jx^j-{B^i}_j b^j
+\end{equation}
+其中，${B^i}_j$ 是基 $\{e_1,\cdots,e_n\}$ 到基 $\{e'_1,\cdots,e'_n\}$ 的转换矩阵 ${A^i}_j$ 的逆矩阵．而 $b^i$ 是 $\dot o'$ 在旧坐标系 $\{\dot o;e_1,\cdots,e_n\}$  中的坐标．
+
+为描述方便，先引进仿射空间中领域和 $n$ 维区域的概念．
+\begin{definition}{领域，$n$ 维区域}
+设 $\mathbb A$ 是 $n$ 维仿射空间，点 $M=x^ie_i\in\mathbb A$ 的 $\delta$ \textbf{领域}是指坐标满足
+\begin{equation}
+\sum_{i}^n(x'^i-x^i)^2<\delta^2
+\end{equation}
+的所有点 $M'=x'^i e_i$ 构成的集合．
+
+若 $\Omega$ 是 $\mathbb A$ 中这样一个集合：对 $\Omega$ 中任一点 $M$，必有 $M$ 的某个领域也属于 $\Omega$．则称 $\Omega$ 是 $\mathbb A$ 中的\textbf{ $n$ 维区域}．若区域 $\Omega$ 中任一点都可连续的变动到 $\Omega$ 中的另一点，即一点的坐标连续变化到另一点的坐标，则区域 $\Omega$ 称为\textbf{连通的}．
+\end{definition}
+
+凡提到区域总是指连通区域．
+
+\begin{definition}{曲线坐标}
+设 $\Omega\in\mathbb A$ 是一 $n$ 维连通区域，在其上给定仿射坐标（即对应基底 $\{e_i\}$ 的坐标）的 $n$ 个连续可微的单值函数 $f_k(x^1,\cdots,x^n)$ （$k=1,\cdots,n$），且函数组 $\{f_i\}$ 是可逆的．则新定义的变量
+\begin{equation}
+x'^i=f_i(x^1,\cdots,x^n),\quad i=1,\cdots,n
+\end{equation}
+称为 $\Omega$ 上的\textbf{曲线坐标}．
+\end{definition}
+
+\textbf{注：}函数组 $\{f_i\}$ 的可逆性意味着
+\begin{equation}
+x^i=g_i(x'^1,\cdots,x'^n),\quad i=1,\cdots,n
+\end{equation}
+且 $g_i$ 也是连续可微的单值函数，且函数组 $\{g_i\}$ 也是可逆的．所谓的\textbf{连续可微}，是指具有直到某一阶数 $N$ 的连续偏导数．通常并不预先说明具体的 $N$ 值，而是简单地写出已知阶的导数就表明假定这些导数的存在和连续．
+\begin{theorem}{}
+设
+\begin{equation}
+x'^i=f_i(x^1,\cdots,x^n),\quad i=1,\cdots,n
+\end{equation}
+是区域 $\Omega$ 的曲线坐标，则正逆变换的雅可比行列式均不为0：
+\begin{equation}
+\det\abs{\pdv{x'^i}{x^j}}\neq0;\quad\det\abs{\pdv{x^i}{x'^j}}\neq0
+\end{equation}
+
+\end{theorem}
