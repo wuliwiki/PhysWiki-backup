@@ -1,0 +1,63 @@
+% 电磁场中的狄拉克方程
+% 电磁场|狄拉克方程|狄拉克场
+
+\pentry{狄拉克方程\upref{qed4}，狄拉克场\upref{Dirac}}
+
+\subsection{量子电动力学的拉格朗日量}
+让我们从狄拉克场\upref{Dirac}的拉氏量出发：
+\begin{equation}
+\mathcal{L}=\bar\psi (i\gamma^\mu \partial_\mu - m)\psi 
+\end{equation}
+我们已经知道了该方程在整体 $U(1)$ 规范变换下是不变的，即 $\psi\rightarrow e^{iq\alpha}\psi,\bar\psi \rightarrow \bar\psi e^{-iq\alpha}$ 变换下拉氏量保持不变．根据诺特定理\footnote{可以参考经典场论基础\upref{classi}．}，整体规范变换对称性导致狄拉克场的电荷守恒．现在我们希望进一步地引入\textbf{定域规范不变性}．即 $\psi\rightarrow e^{iq\alpha(x)}\psi $，其中 $\alpha(x)$ 为时空坐标的函数．然而，引入这样的规范变换以后，拉氏量不再保持不变，会多出一项 $-\bar\psi \gamma^\mu \qty[q\partial_\mu \alpha(x)]\psi$．所以为了抵消掉这一项，我们约定 $\partial_\mu$ 在定域规范变换下变为 $\partial_\mu+i[q\partial_\mu \alpha(x)]$．
+
+因此，我们引入一个协变导数算子 $D_\mu = \partial_\mu +iqA_\mu(x)$，其中 $A_\mu(x)$ 是一个矢量场，也称它为规范场．在规范变换下，$A_\mu\rightarrow A_\mu - \partial_\mu \alpha(x)$．于是定域规范不变的拉氏量可以重新写为
+\begin{equation}
+\mathcal{L}=\bar\psi(i\gamma^\mu D_\mu-m)\psi 
+\end{equation}
+
+因此，我们的理论中出现了两组广义坐标，一组是物质场 $\psi$ 和规范场 $A_\mu$，我们当然还可以引入规范场的拉氏量．注意到 $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$ 也是定域规范不变的，而它又是一个二阶张量．因此可以利用 $F_{\mu\nu}$ 组成一个新的拉氏量：
+\begin{equation}
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + \bar\psi (i\gamma^\mu D_\mu - m)\psi
+\end{equation}
+这个拉氏量生成的理论被称为\textbf{旋量量子电动力学}．注意到它比自由旋量场和自由电磁场的拉氏量还多出一项
+\begin{equation}
+\mathcal{L}_{\rm int}=-q A_\mu \bar\psi \gamma^\mu \psi=-A_\mu J^\mu
+\end{equation}
+其中 $J^\mu = q\bar\psi \gamma^\mu \psi$ 正是整体 $U(1)$ 规范对称性的守恒流，它对应的是电荷电流密度．而这一项对应了两个场耦合的相互作用拉氏量．根据上述的拉氏量所导出的两个经典方程为
+\begin{equation}
+\begin{aligned}
+&(i\gamma^\mu D_\mu - m)\psi(x)=0\\
+&\partial^\mu F_{\mu\nu}=J_\nu
+\end{aligned}
+\end{equation}
+\subsection{非相对论极限下电磁场中的狄拉克方程}
+我们常常需要讨论一个缓变的电磁场中电子的行为．将 $A_\mu$ 视为一个缓变的外场，那么电子的波函数满足方程
+\begin{equation}
+(i\gamma^\mu \partial_\mu -\gamma^\mu A_\mu - m)\psi(x)=0
+\end{equation}
+利用 $\gamma$ 矩阵的 weyl 手性表示\autoref{Dirac_eq9}~\upref{Dirac}，并且设 $\psi = \pmat{\psi_L\\\psi_R}$，可以将上述方程改写为
+\begin{equation}
+\begin{aligned}
+&(i\partial_0 - qA_0-\bvec \sigma\cdot (\bvec p+q\bvec A))\psi_R=m\psi_L\\
+&(i\partial_0-qA_0+\bvec \sigma\cdot (\bvec p+q\bvec A))\psi_L = m\psi_R
+\end{aligned}
+\end{equation}
+或者也可以改用标准表示（从 \autoref{qed4_eq6}~\upref{qed4} 出发得到 $\gamma$ 矩阵的标准表示．与 weyl 表示不同的是，这里的 $\gamma^0$ 为 $\pmat{&I&0\\&0&-I}$．设标准表示下 $\psi=\pmat{\varphi\\ \chi}$，则
+\begin{equation}\label{DiracE_eq1}
+\begin{aligned}
+&(i\partial_0-qA_0-m)\varphi=-\bvec \sigma\cdot (\bvec p+q\bvec A)\chi\\
+&(i\partial_0-qA_0+m)\chi=\bvec \sigma\cdot (\bvec p+q\bvec A)\varphi
+\end{aligned}
+\end{equation}
+两个表示下的电子波函数可以通过以下变换联系：
+\begin{equation}
+\varphi = \frac{1}{\sqrt{2}}(\psi_L+\psi_R),\chi = \frac{1}{\sqrt{2}}(\psi_L-\psi_R)
+\end{equation}
+
+为了求非相对论极限下的波函数，我们令 $\varphi\rightarrow \varphi e^{-imt},\chi\rightarrow \chi e^{-imt}$，对 \autoref{DiracE_eq1} 化简可以得到
+\begin{equation}
+\begin{aligned}
+(i\partial_0 - q A_0)\varphi = -\bvec \sigma\cdot (\bvec p+q\bvec A) \chi
+(i\partial_0 - q A_0 + 2m)
+\end{aligned}
+\end{equation}

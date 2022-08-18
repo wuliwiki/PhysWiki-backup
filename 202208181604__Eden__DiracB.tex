@@ -1,0 +1,34 @@
+% 狄拉克方程的非相对论近似
+% 狄拉克方程|泡利方程
+
+\pentry{狄拉克方程\upref{qed4}}
+
+词条狄拉克方程\upref{qed4}中给出了描述自由电子的方程\autoref{qed4_eq9}~\upref{qed4}）：（这里我们没有采用自然但位置，所以需要带上 $\hbar,c$）
+\begin{equation}
+\begin{aligned}
+&i\hbar \pdv{t} \psi = H\psi\\
+&H=c\bvec \alpha\cdot \bvec p+mc^2\beta
+\end{aligned}
+\end{equation}
+其中 $\bvec p=-i\hbar\nabla$；$\bvec \alpha,\beta$ 是四维矩阵代数中的元素，满足一定的反对易关系．更常见地，上式也可以写成\autoref{qed4_eq22}~\upref{qed4} 的形式：
+\begin{equation}
+i\qty(\gamma^\mu \partial_\mu-\frac{mc}{\hbar})\psi(x)=0
+\end{equation}
+其中 $\partial_\mu=\qty(\pdv{(ct)},\pdv{x},\pdv{y},\pdv{z})$．
+
+下面我们将从狄拉克方程出发，得到它的非相对论近似．设平面波解
+\begin{equation}
+\psi=\pmat{\varphi\\\chi}\exp(-imc^2t/\hbar)
+\end{equation}
+将它代入狄拉克方程．这里不妨采用 $\bvec \alpha,\beta$ 的标准表示\autoref{qed4_eq6}~\upref{qed4}，则有
+\begin{equation}
+\begin{aligned}
+&i\hbar\pdv{t} \varphi=c\bvec \sigma\cdot \bvec p \chi\\
+&i\hbar\pdv{t} \chi = c\bvec \sigma\cdot \bvec p \varphi -2mc^2 \chi 
+\end{aligned}
+\end{equation}
+注意上面的第二行式子中，由于在非相对论极限下 $\pdv{}{t} \chi$ 相比等式右边带 $c$ 的分量可以略去，所以有近似等式
+\begin{equation}
+\chi\approx \frac{1}{2mc} \bvec \sigma\cdot \bvec p \phi
+\end{equation}
+将它代入

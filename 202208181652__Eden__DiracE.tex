@@ -1,0 +1,11 @@
+% 电磁场中的狄拉克方程
+% 电磁场|狄拉克方程|狄拉克场
+
+\pentry{狄拉克方程\upref{qed4}，狄拉克场\upref{Dirac}}
+
+\subsection{量子电动力学的拉格朗日量}
+让我们从狄拉克场\upref{Dirac}的拉氏量出发：
+\begin{equation}
+\mathcal{L}=\bar\psi (i\gamma^\mu \partial_\mu - m)\psi 
+\end{equation}
+我们已经知道了该方程在整体 $U(1)$ 规范变换下是不变的，即 $\psi\rightarrow e^{i\alpha}\psi,\bar\psi \rightarrow \bar\psi e^{-i\alpha}$ 变换下拉氏量保持不变．根据诺特定理\footnote{可以参考经典场论基础\upref{classi}．}，整体规范变换对称性导致狄拉克场的电荷守恒．现在我们希望进一步地引入\textbf{定域规范不变性}．即 $\psi\rightarrow e^{i\alpha(x)}\psi $，其中 $\alpha(x)$ 为时空坐标的函数．然而，引入这样的规范变换以后，拉氏量不再保持不变，会多出一项 $-\bar\psi \gamma^\mu \qty[\partial_\mu \alpha(x)]\psi$
