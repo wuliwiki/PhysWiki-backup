@@ -1,0 +1,76 @@
+% 量子力学中的基本算符
+% 动量算符|角动量算符|哈密顿算符|哈密顿量|能量算符|生成元
+\addTODO{加入目录．}
+
+\pentry{经典力学，量子力学的基本原理（量子力学）\upref{QMPrcp}}
+
+本文中，$\hbar=1$．
+
+在\textbf{量子力学的基本原理（量子力学）}的\autoref{QMPrcp_ex1}~\upref{QMPrcp} 和\autoref{QMPrcp_ex2} 中，我们不加证明地给出了动量、能量（哈密顿）、角动量算符在给定表象下的形式，相当于进行了定义．本文将讨论如何从经典力学中导出这几个算符的定义．
+
+\subsection{无穷小算符}
+
+考虑无穷小算符总是有益的，因为微分线性近似，而线性的东西很简单．
+
+如果要求一个算符在时间趋于$0$的时候趋于恒等算符，即连续性，那么对于\textbf{无穷小}自变量$\varepsilon$后，这个算符总可以写为
+\begin{equation}\label{OprQM_eq1}
+U(\varepsilon) = 1-\I G\varepsilon
+\end{equation}
+我们称$G$是$U$的生成元．
+
+当$G$是一个厄米算符时，有
+\begin{equation}
+U^{\dagger}(\varepsilon)U(\varepsilon) = (1-\I G\varepsilon)(1+\I G\varepsilon) = 1+o(\varepsilon)
+\end{equation}
+其中$o(\varepsilon)$表示比$\varepsilon$更高阶的无穷小．
+
+因此，$G$是厄米算符$\implies$ $U(\varepsilon)$是\textbf{幺正}算符．
+
+量子态归一化要求可观测量是幺正的，因此可观测量的生成元应该是厄米算符．
+
+
+
+\subsection{位置算符}
+
+位置算符的本征矢都是位置精确给定的态，本征值即对应的位置，因此位置算符是$x$或$\bvec{x}$，即空间坐标．
+
+处于$x_0$或$\pmat{x_0, y_0, z_0}$的位置本征矢，在位置表象下的波函数为$\delta(x-x_0)$或$\delta(x-x_0)\delta(y-y_0)\delta(z-z_0)$．
+
+
+
+\subsection{动量算符}
+
+\pentry{平移算符\upref{tranOp}}
+
+由经典力学，动量是平移生成元，\autoref{OprQM_eq1} 中的$G$应是动量算符．
+
+又由\autoref{tranOp_eq1}~\upref{tranOp}，可知一维无穷小平移算符为
+\begin{equation}
+P(\dd x) = \exp(-\dd x \cdot \partial_x) = 1-\dd x\partial_x
+\end{equation}
+
+代回\autoref{OprQM_eq1} ，注意$P(\dd x)$相当于$U(\varepsilon)$，即可得到一维动量算符：
+\begin{equation}
+p  = -\I\partial_x
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

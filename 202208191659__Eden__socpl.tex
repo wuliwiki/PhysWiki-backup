@@ -1,0 +1,76 @@
+% 自旋轨道耦合
+% 自旋轨道耦合|中心势场|非相对论极限
+
+
+如无特殊说明，我们继续使用自然单位制，令 $\hbar=c=1$ 来简化表达．约定度规为 $(1,-1,-1,-1)$．下文中电磁单位制采用的是量子场论中最常用的洛伦兹-亥维赛单位制（Lorentz–Heaviside Units）\footnote{参考维基百科链接：\href{https://en.wikipedia.org/wiki/Lorentz–Heaviside_units}{https://en.wikipedia.org/wiki/Lorentz–Heaviside_units}}．
+
+
+\subsection{多电子体系中的自旋轨道耦合}
+\pentry{轨道角动量（量子力学）\upref{QOrbAM}，自旋角动量\upref{Spin}}
+\cite{黄昆}为了分析多电子原子这个复杂的体系，我们将原子序数 $Z$ 的原子的哈密顿量近似地写为
+\begin{equation}
+H=\sum_{i}^{Z} \qty[\frac{\bvec p_i^2}{2\mu} +V(\bvec r_i)]+\sum_{i<j}^Z \frac{e^2}{|\bvec r_i-\bvec r_j|}+\sum_i^Z \xi(r_i)\bvec s_i\cdot \bvec l_i
+\end{equation}
+其中第一项表示单电子哈密顿量，$V(\bvec r_i)$ 为电子与离子实的相互作用势，一般来说这个自旋无关势可以看作是球对称的，即只是 $\bvec r_i$ 的模的函数．第二项表示电子之间的库伦相互作用．第三项被称为\textbf{自旋轨道耦合项}，一个唯象的解释是，在电子参考系中原子核相对于电子的运动产生的磁场与电子自旋磁矩发生相互作用，这就是自旋轨道相互作用．
+
+如果仅考虑第一项哈密顿量，即\textbf{单电子近似}\footnote{固体物理中许多常用的模型采取这样的近似，即忽略电子相互作用势和自旋轨道耦合，可以参考德鲁德模型\upref{DrudeM}、近自由电子模型\upref{egasmd}．}，那么哈密顿量具有丰富的对称性．在量子力学中，对称性意味着守恒量，哈密顿量的旋转对称性意味着角动量守恒．因此这里我们可以看到，在单电子近似下，$l_i,s_i$ 是好的量子数，即可以用 $\ket{l_is_i,i=1,\cdots,Z}$ 来标记量子态．对于主量子数 $n$，对于确定的轨道角动量量子数 $l_i$，具有 $2 l_i+1$ 重简并，即 $m_{i}=-l_i,\cdots,l_i$，这时原子的电子态是多重简并的．
+
+如果\textbf{引入库仑相互作用}，那么每个电子单独旋转时哈密顿量不再不变，需要所有电子共同旋转哈密顿量才保持不变．因此 $l_i,s_i$ 不再是好的量子数．单个电子的轨道角动量耦合成了总的轨道角动量 $\bvec L=\sum_i^Z \bvec l_i$，类似的，单电子的自旋角动量耦合成了 $\bvec S=\sum_i^Z \bvec s_i$．如果用 $\ket{L,S}$ 标记某一个量子态所具有的总轨道角动量和总自旋角动量，则这一量子态具有 $(2L+1)(2S+1)$ 重简并．可以发现，由于引入了库仑相互作用破坏了一部分对称性，导致能级的简并被部分地解除了．
+
+如果再进一步\textbf{引入自旋轨道相互作用}，则对称性进一步地被破坏．只有当 $\bvec L$ 和 $\bvec S$ 共同旋转时，才能保持它们的夹角不变，才能保持哈密顿量不变．这时 $\bvec L$ 和 $\bvec S$ 耦合成了总角动量 $\bvec J$．$J$ 是好的量子数．具有 $2J+1$ 重简并，相比之前简并度被进一步解除．一般地可以用 $\ket{J,m_J,L,S}$ 来标记某一个量子态，$m_J$ 可以取 $-J,\cdots,J$．
+\subsection{中心势场中狄拉克方程的非相对论极限}
+\pentry{电磁场中的狄拉克方程\upref{DiracE}}
+\cite{曾谨言}下面我们考虑在描述电子的狄拉克方程在非相对论极限下是如何出现自旋轨道耦合项的．考虑电子在中心势场 $V(r)$ 中的运动．以类氢原子\upref{HWF}为例，考虑原子序数 $Z$ 且封闭壳层外仅有一个价电子的原子，此时价电子所受到的自旋无关势可以近似地写为\footnote{注意，由于内电子壳层的屏蔽效应，$\phi(r)$ 不再是简单的库伦势．}
+\begin{equation}
+V(r)=q\phi(r)
+\end{equation}
+我们继续电磁场中的狄拉克方程\upref{DiracE} 的讨论，在 $\gamma$ 矩阵的标准表示下，令波函数 $\psi=\pmat{\varphi\\\chi}e^{-imt}$，并令 $A_\mu(\bvec r)=(\phi(r),\bvec 0)$，那么可以由\autoref{DiracE_eq5}~\upref{DiracE}得到
+\begin{equation}
+\begin{aligned}
+&(i\partial_0 - V(r))\varphi = \bvec \sigma\cdot \bvec P \chi\\
+&(i\partial_0 - V(r) + 2m) \chi = \bvec \sigma\cdot \bvec P  \varphi
+\end{aligned}
+\end{equation}
+假设电子的总能量为 $E=m+E'$，在非相对论极限下 $E'\ll m$，那么假设 $\varphi,\chi$ 带上 $e^{-iE'}$ 的相因子，可以得到
+\begin{equation}\label{socpl_eq2}
+\begin{aligned}
+&(E' - V(r))\varphi = \bvec \sigma\cdot \bvec P \chi\\
+&(E' - V(r) + 2m) \chi = \bvec \sigma\cdot \bvec P  \varphi
+\end{aligned}
+\end{equation}
+上式第二行中 $2m\gg E'-V$，因此在非相对论极限下可以解得
+\begin{equation}\label{socpl_eq1}
+\chi = \frac{1}{E'-V+2m}(\bvec \sigma\cdot \bvec P)\varphi
+\approx\frac{1}{2m}\qty(1-\frac{E'-V}{2m})(\bvec \sigma\cdot \bvec P) \varphi
+\end{equation}
+注意这里比词条“狄拉克方程的非相对论近似”\upref{DiracB}中求解泡利方程的\autoref{DiracB_eq4}~\upref{DiracB}的推导多保留了一阶近似．让我们继续推导前进，将\autoref{socpl_eq1} 代入\autoref{socpl_eq2} 的第一行，可以得到
+\begin{equation}
+(E'-V)\varphi = \frac{1}{2m}(\bvec \sigma\cdot \bvec P)\qty(1-\frac{E'-V}{2m})(\bvec \sigma\cdot \bvec P)\varphi
+\end{equation}
+利用泡利矩阵 $\bvec \sigma$ 的恒等式  $(\bvec \sigma\cdot \bvec a)(\bvec \sigma\cdot \bvec b)=\bvec a\cdot \bvec b+i\bvec \sigma\cdot (\bvec a\times \bvec b)$，化简上式后得
+\begin{equation}\label{socpl_eq3}
+\qty[\qty(\frac{1}{2m}-\frac{1}{4m^2}E')\bvec P^2+\frac{1}{4m^2}(\bvec \sigma\cdot \bvec P)V(r)(\bvec \sigma\cdot \bvec P)]\varphi=(E'-V)\varphi
+\end{equation}
+再利用
+\begin{equation}
+\begin{aligned}
+V(\bvec \sigma\cdot \bvec P)&=(\bvec \sigma\cdot \bvec P)V+i (\bvec \sigma\cdot \nabla V)\\
+(\bvec \sigma\cdot \bvec P)V(\bvec \sigma\cdot \bvec P)&=(\bvec \sigma\cdot \bvec P)^2 V+i (\bvec \sigma\cdot \bvec P)(\bvec \sigma\cdot \nabla V)\\
+&=P^2 V+i [\bvec P\cdot (\nabla V)+i\bvec \sigma \cdot (\bvec P\times \nabla V(r))]\\
+&=P^2V+i\qty[(\nabla V)\cdot \bvec P-i\nabla^2 V+i\bvec \sigma\cdot\qty(\bvec P\times \frac{\bvec r}{r}\dv{V}{r})]\\
+&=P^2V+\qty(\frac{\dd V}{\dd r}\pdv{r} + \nabla^2 V)+(\bvec \sigma\cdot \bvec l)\frac{1}{r}\frac{\dd V}{\dd r}
+\end{aligned}
+\end{equation}
+其中 $\bvec l=\bvec r\times \bvec p$ 正是轨道角动量．重新代入\autoref{socpl_eq3} ，
+\begin{equation}
+\qty(\frac{P^2}{2m}+V-E')\varphi+\frac{1}{4m^2}P^2(V-E')\varphi + \frac{1}{4m^2}\qty[\frac{1}{r}\dv{V}{r}(\bvec \sigma\cdot\bvec l)+\nabla^2 V+\dv{V}{r}\pdv{r}]\varphi = 0
+\end{equation}
+表达式仍然非常复杂，注意到第二项和第三项都是相对论修正项，我们可以通过将第二项中的 $(E'-V)\varphi$ 用 $\frac{1}{2m}P^2\varphi$ 代替来作简化，这实际上只是略去了更高阶的修正项．最终我们得到
+\begin{equation}
+\qty[\frac{P^2}{2m}+V-\frac{p^4}{8m^3}+\frac{1}{2m^2}\frac{1}{r}\dv{V}{r}(\bvec s\cdot \bvec l)+\frac{1}{4m^2}\qty(\nabla^2 V+\dv{V}{r}\pdv{r})]\varphi = E'\varphi
+\end{equation}
+
+在非自然单位制下，每个修正项的分母上都会出现 $c$．经过一定的量纲分析可以得到
+\begin{equation}
+\qty[\frac{P^2}{2m}+V-\frac{p^4}{8m^3c^2}+\frac{1}{2m^2c^2}\frac{1}{r}\dv{V}{r}(\bvec s\cdot \bvec l)+\frac{\hbar^2}{4m^2c^2}\qty(\nabla^2 V+\dv{V}{r}\pdv{r})]\varphi = E'\varphi
+\end{equation}
