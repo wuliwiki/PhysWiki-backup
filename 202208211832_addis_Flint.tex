@@ -1,0 +1,66 @@
+% FLINT 库笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{GNU Multiple Precision（GMP）库笔记\upref{GMP}}
+
+\subsubsection{flint.h}
+\begin{itemize}
+\item \href{http://flintlib.org/sphinx/fmpz.html}{文档}
+\item \verb|fmpz| 底层就是 \verb|slong|. 当第二最重要 bit 为 0 就是一个普通的 slong， 绝对值最多有 \verb|FLINT_BITS - 2| bits.
+\item 当第二重要 bit 为 1 时， 它代表一个指针．
+\end{itemize}
+\begin{lstlisting}[language=cpp]
+// COEFF_MIN, COEFF_MAX 是不 alloc 时能表示的最小和最大整数
+#define COEFF_MAX ((WORD(1) << (FLINT_BITS - 2)) - WORD(1))
+#define COEFF_MIN (-((WORD(1) << (FLINT_BITS - 2)) - WORD(1)))
+/* fmpz x 是否是指针，存在 alloc */
+#define COEFF_IS_MPZ(x) (((x) >> (FLINT_BITS - 2)) == WORD(1))
+
+#define slong mp_limb_signed_t
+
+#if GMP_LIMB_BITS == 64
+    #define FLINT_BITS 64 // 一个 limb 或者 slong 的 bit 数
+    #define FLINT_D_BITS 53
+    #define FLINT64 1
+#else 
+    #define FLINT_BITS 32
+    #define FLINT_D_BITS 31
+#endif
+
+typedef slong fmpz;
+typedef fmpz fmpz_t[1];
+
+// in fmpz_gc.c
+__mpz_struct * _fmpz_promote(fmpz_t f)
+{
+    if (!COEFF_IS_MPZ(*f)) /* f is small so promote it first */
+    {
+        __mpz_struct * mf = _fmpz_new_mpz();
+        (*f) = PTR_TO_COEFF(mf);
+        return mf;
+    }
+    else /* f is large already, just return the pointer */
+        return COEFF_TO_PTR(*f);
+}
+
+#define COEFF_TO_PTR(x) ((__mpz_struct *) (((ulong)x) << 2))
+
+FMPZ_INLINE void
+fmpz_set_si(fmpz_t f, slong val)
+{
+    if (val < COEFF_MIN || val > COEFF_MAX) /* val is large */
+    {
+        // __mpz_struct 是 GMP 的大整数数据结构
+        __mpz_struct *mpz_coeff = _fmpz_promote(f);
+        flint_mpz_set_si(mpz_coeff, val);
+    }
+    else
+    {
+        _fmpz_demote(f);
+        *f = val;               /* val is small */
+    }
+}
+\end{lstlisting}

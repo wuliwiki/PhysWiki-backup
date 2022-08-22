@@ -1,0 +1,19 @@
+% FLINT 库笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{GNU Multiple Precision（GMP）库笔记\upref{GMP}}
+
+\subsubsection{flint.h}
+\begin{lstlisting}[language=cpp]
+#if GMP_LIMB_BITS == 64
+    #define FLINT_BITS 64
+    #define FLINT_D_BITS 53
+    #define FLINT64 1
+#else 
+    #define FLINT_BITS 32
+    #define FLINT_D_BITS 31
+#endif
+\end{lstlisting}

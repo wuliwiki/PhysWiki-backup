@@ -1,0 +1,26 @@
+% FLINT 库笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{GNU Multiple Precision（GMP）库笔记\upref{GMP}}
+
+\subsubsection{flint.h}
+\begin{itemize}
+\item \href{http://flintlib.org/sphinx/fmpz.html}{文档}
+\item an fmpz is implemented as an slong. When its second most significant bit is 0 the fmpz represents an ordinary slong integer whose absolute value is at most FLINT_BITS - 2 bits.
+\end{itemize}
+\begin{lstlisting}[language=cpp]
+#if GMP_LIMB_BITS == 64
+    #define FLINT_BITS 64 // bits of one limb
+    #define FLINT_D_BITS 53
+    #define FLINT64 1
+#else 
+    #define FLINT_BITS 32
+    #define FLINT_D_BITS 31
+#endif
+
+typedef slong fmpz;
+typedef fmpz fmpz_t[1];
+\end{lstlisting}

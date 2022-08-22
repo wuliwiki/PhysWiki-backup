@@ -1,0 +1,21 @@
+% GNU Automake 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+经典的三部使用
+\begin{lstlisting}[language=bash]
+./configure
+make
+make install
+\end{lstlisting}
+
+若要 build 一个 debug 版本， 参考\href{https://stackoverflow.com/questions/4553735/gnu-autotools-debug-release-targets}{这里}的高赞． 例如 arb\upref{ArbLib} 中（注意 \verb|./config --help| 中只有 \verb|CFLAGS| 没有 \verb|CPPFLAGS|）， 用
+\begin{lstlisting}[language=bash]
+./configure --prefix=/home/addis/arb-debug-install \
+     CFLAGS=-DDEBUG CFLAGS="-g -O0"
+make
+make install
+\end{lstlisting}
+即可． 现在在编译主程序后用 gdb 调试就可以进入到 arb 的内部函数中调试．

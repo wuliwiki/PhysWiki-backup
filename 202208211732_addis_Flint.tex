@@ -1,0 +1,42 @@
+% FLINT 库笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{GNU Multiple Precision（GMP）库笔记\upref{GMP}}
+
+\subsubsection{flint.h}
+\begin{itemize}
+\item \href{http://flintlib.org/sphinx/fmpz.html}{文档}
+\item \verb|fmpz| 底层就是 \verb|slong|. 当第二最重要 bit 为 0 就是一个普通的 slong， 绝对值最多有 \verb|FLINT_BITS - 2| bits.
+\item 当第二重要 bit 为 1 时， 它代表一个指针．
+\end{itemize}
+\begin{lstlisting}[language=cpp]
+#if GMP_LIMB_BITS == 64
+    #define FLINT_BITS 64 // bits of one limb
+    #define FLINT_D_BITS 53
+    #define FLINT64 1
+#else 
+    #define FLINT_BITS 32
+    #define FLINT_D_BITS 31
+#endif
+
+typedef slong fmpz;
+typedef fmpz fmpz_t[1];
+
+FMPZ_INLINE void
+fmpz_set_si(fmpz_t f, slong val)
+{
+    if (val < COEFF_MIN || val > COEFF_MAX) /* val is large */
+    {
+        __mpz_struct *mpz_coeff = _fmpz_promote(f);
+        flint_mpz_set_si(mpz_coeff, val);
+    }
+    else
+    {
+        _fmpz_demote(f);
+        *f = val;               /* val is small */
+    }
+}
+\end{lstlisting}
