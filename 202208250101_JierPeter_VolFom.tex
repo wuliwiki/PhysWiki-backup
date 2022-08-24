@@ -1,0 +1,81 @@
+% 体积形式
+% 微分几何|微分形式|体积|微积分|流形|calculus|manifold|differential form|differential geometry
+
+
+\pentry{微分形式\upref{Forms}}
+
+
+体积形式是微分流形上一种微分形式，可以用于计算切平面附近区域的大小，进而实现积分运算．
+
+\begin{definition}{体积形式}
+给定$n$维微分流形$M$，则其上一个处处非零的$n$-形式即为一个\textbf{体积形式（volume form）}．
+\end{definition}
+
+\begin{example}{二维欧几里得空间}
+设$M$是二维欧几里得空间$\mathbb{R}^2$，给定两个\textbf{坐标函数}以确定一个（局部）坐标系．设在这个坐标系中，欧几里得度量被表示为$g_{ab}$．
+
+这里举一个坐标函数与坐标系的例子：给定一点$o$和从这一点出发的一根射线$R$，再规定一个逆时针方向．任取$p\in M$，定义第一个坐标函数$r(p)$为$p$到给定点的距离，第二个坐标函数$\theta(p)$为射线$R$沿着规定方向转到与射线$op$重合时所经过的弧度，取值范围为$[0, 2\pi)$．上述定义的坐标函数所得到的坐标系，就是我们熟知的极坐标系．在极坐标系中，欧几里得度量为
+\begin{equation}
+g_{ab}=\pmat{
+    1&0\\
+    0&r^2
+}
+\end{equation}
+
+
+如果用以坐标函数$r, \theta$确定的余切向量$\dd r$和$\dd \theta$构成余切空间的基，那么切空间的对偶基由$\partial_r=\cos\theta\partial_x+\sin\theta\partial_y$和$\partial_\theta=\frac{-\sin\theta}{r}\partial_x+\frac{\cos\theta}{r}\partial_y$构成．
+
+
+
+设坐标函数$x$和$y$诱导出的是我们熟知的\textbf{标准正交基}，其中$x$轴的非负半轴与上述极坐标轴重合．
+
+
+
+
+
+而$2$-形式$\dd r\wedge\dd \theta$对这两个切向量的作用为\footnote{推导留给读者，注意按定义，$\dd f(\partial_i)=\partial_i f$，其中$i\in\{x, y\}$，$f\in\{r, \theta\}$．余切向量的外积定义见\autoref{ExtAlg_sub1}~\upref{ExtAlg}．}
+\begin{equation}
+\dd r\wedge\dd \theta(\partial_x, \partial_y) = \frac{1}{r}
+\end{equation}
+
+我们使用通常的面积（二维体积）的定义，即给定\textbf{无穷小量}$\varepsilon_x$和$\varepsilon_y$，截取切向量$\partial_x$的代表曲线上$t\in[0, \varepsilon_x)$上的一段和$\partial_y$上$t\in[0, \varepsilon_y)$上的一段，这两段近似张成的平行四边形面积应为
+\begin{equation}\label{VolFom_eq1}
+\varepsilon_x\varepsilon_y = r\dd r\wedge\dd \theta(\varepsilon_x\partial_x, \varepsilon_y\partial_y)
+\end{equation}
+
+
+
+
+
+\end{example}
+
+
+
+
+
+
+\begin{theorem}{}
+当且仅当流形可定向时，流形上存在处处非零的体积形式．
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
