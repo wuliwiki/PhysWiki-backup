@@ -1,0 +1,86 @@
+% 前缀和
+% 前缀和|算法|C++
+
+前缀和算法是可以很快速的求序列中某一段的和．朴素做法是一个 \verb|for| 循环求和，时间复杂度为：$\mathcal{O}(n \times m)$．$m$ 为询问次数．
+
+而前缀和的时间复杂度为：预处理 $\mathcal{O}(n)$，查询 $\mathcal{O}(m)$．
+
+前缀和：
+\begin{equation}
+\sum^{r}_{i=l}a_i
+\end{equation}
+
+预处理：
+\begin{equation}
+S_i=\sum^{i}_{k=1}a_k
+\end{equation}
+
+如何预处理？
+
+\begin{equation}
+\because 
+\sum^{i}_{k=1}a_k-\sum^{i-1}_{k=1}a_{k}=a_k \\
+ \therefore \sum^{i}_{k=1}a_k=\sum^{i-1}_{k=1}a_{k}+a_k \\
+\end{equation}
+
+即：
+
+\begin{equation}
+\\S_k-S_{k-1}=a_k\\
+ \\S_k=S_{k-1}+a_k\\
+\end{equation}
+
+如何求答案？
+
+\begin{equation}
+\sum^{r}_{i=l}a_i=\sum^{r}_{i=1}a_i-\sum^{l-1}_{i=1}a_i=S_r-S_{l-1}
+\end{equation}
+
+还有要注意的是 $S_0 = 0$，因为如果想求 $1 \sim n$ 一段数的和可以直接输出 $S_{10} - S_0 = S_{10} $．因此可以从下标为 $1$ 开始存数，这样就不需要做复杂的处理．
+
+\textbf{朴素代码}
+\begin{lstlisting}[language=cpp]
+const int N = 100010;
+int a[N];
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    for (int i = 1; i <= n; i ++ ) cin >> a[i];
+    
+    while (m -- )
+    {
+        int l, r;
+        cin >> l >> r;
+        
+        int res = 0;
+        for (int i = l; i <= r; i ++ ) res += a[i];
+        cout << res << endl;
+    }
+    
+    return 0;
+}
+\end{lstlisting}
+
+\textbf{前缀和}
+\begin{lstlisting}[language=cpp]
+const int N = 100010;
+int n, m, a[N], s[N];
+
+int main() 
+{
+    cin >> n >> m;
+    for (int i = 1; i <= n; i ++ ) cin >> a[i];
+    for (int i = 1; i <= n; i ++ ) s[i] = s[i - 1] + a[i];
+    
+    while (m -- )
+    {
+        int l, r;
+        cin >> l >> r;
+        cout << s[r] - s[l - 1] << endl;    // 前缀和公式，O(1)
+    }
+    
+    return 0;
+}
+\end{lstlisting}
