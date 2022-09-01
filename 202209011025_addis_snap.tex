@@ -1,0 +1,10 @@
+% Snap 包管理笔记（Linux）
+
+\begin{itemize}
+\item 参考\href{https://www.howtogeek.com/660193/how-to-work-with-snap-packages-on-linux/}{这篇介绍}： snap 基本就是一些微小的 container， 使用虚拟硬盘以解决不同的包使用同一个 dependency 的不同版本．
+\item \verb|snap find 关键词| 搜索包
+\item 或者到 snap 官网， 查找软件， 然后按 install 就会得到安装命令， 例如 \verb|snap install code --classic| 安装 vscode
+\item \verb|snap version| 查看版本
+\item \verb|snap remove| 删除包
+\item \verb|snap run 软件名| 运行某个软件， 也可以直接 \verb|软件名| 运行（在目录 \verb|/usr/snap/bin| 下）
+\end{itemize}
