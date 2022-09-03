@@ -1,5 +1,14 @@
-% Snap 包管理笔记（Linux）
+% Linux 包管理笔记（apt, snap）
 
+\subsection{Apt}
+\begin{itemize}
+\item \verb|apt-show-versions 包1 包2| 可以查看已安装包的版本
+\item \verb|apt show 包| 显示包的详细信息， 包括依赖
+\item \verb|apt-cache rdepends 包| 显示它目前被谁依赖
+\item \verb|apt autoremove| 清除没有被依赖的包
+\end{itemize}
+
+\subsection{Snap}
 \begin{itemize}
 \item 参考\href{https://www.howtogeek.com/660193/how-to-work-with-snap-packages-on-linux/}{这篇介绍}： snap 基本就是一些微小的 container， 使用虚拟硬盘以解决不同的包使用同一个 dependency 的不同版本．
 \item \verb|snap find 关键词| 搜索包

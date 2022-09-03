@@ -25,7 +25,6 @@
 \item history 命令可以输出最近 1000 条输入的命令
 \item 用 \verb`!<number>` 可以重新输入第 \verb`<number>` 条历史命令
 \item \verb`/etc/passwd` 文件中记录了系统的所有 user
-\item \verb`su <usr_name>` 可以临时改变登录的身份
 \item Ctrl+L 相当于 \verb`clear` 命令
 \item \verb`df` 用于查看磁盘空间, \verb`-h` 选项可以显示 \verb`Mb`, \verb`Gb` 等.
 \item \verb`du /some/path` 用于查看指定目录中所有子文件夹的大小, \verb`-a` 选项可以显示文件夹和文件. \verb`--max-depth=N` is used to control the level of subfolders to display, \verb`-h` is for human readable file size (\verb`Mb`, \verb`Gb`, etc)
@@ -110,7 +109,9 @@
 
 \subsection{账户与权限}
 \begin{itemize}
-\item \verb`sudo` (super user do) 加在命令前可以获得管理员权限, \verb`su` (super user) 可以把以下所有操作改为管理员权限 (不建议常用)
+\item \verb`sudo` (super user do) 加在命令前可以获得管理员权限, \verb`su` (super user) 可以把以下所有操作改为管理员权限 (不建议常用)．
+\item \verb`su <usr_name>` 可以临时改变登录的身份， \verb|sudo -i| 或者 \verb|su| 可以持续管理员身份．
+\item 使用 \verb|sudo| 以后， 命令的执行者就会临时变为 \verb|root|， 一些 config 文件也会使用 \verb|/root/| 文件夹中的而不是 \verb|/home/用户名| 中的， 例如 \verb|/root/.ssh/config|．
 \item \verb`sudo` 的密码是用户密码, 而 \verb`su` 的密码是 root 密码, 后者的权限更高
 \item \verb`useradd -m` (给新用户创建 home 目录) \verb`-g users` (设置用户组为 users) \verb`<username>`
 \item \verb`passwd <username>` 可以修改密码
@@ -193,6 +194,17 @@ for ((i=275;i<=294;++i)); do rsync -zvh addis1@headnode.beocat.ksu.edu:/homes/ad
 \begin{itemize}
 \item \verb`sudo tasksel` 快速安装某一类型的服务器需要所有的软件 (email server , file server, ...). 进入界面以后, 用空格选择想要的项目然按空格确认安装.
 \item \verb`sudo /etc/init.d/<aptname> start` 或者 \verb`stop` 或者 \verb`restart` 可以进行对某个软件的 service 进行操作, 而不需要重启 linux 系统.
+\end{itemize}
+
+\subsection{环境变量}
+\begin{itemize}
+\item \verb|echo $VAR| 显示环境变量或任何变量
+\item \verb|export VAR=XXX| 修改环境变量
+\item \verb|export VAR=~/opt/bin:$VAR| 添加
+\item \verb|PWD| 是当前路径， 修改该变量相当于 \verb|cd|
+\item \verb|PATH| 是命令搜索路径， 只有这里面的目录中的执行文件才不指定路径
+\item \verb|HOME| 是用户的 \verb|~| 文件夹
+\item \verb|LD_LIBRARY_PATH| 是动态链接库的默认搜索地址， 见这里\upref{gppLib}．
 \end{itemize}
 
 \subsection{其他}
