@@ -1,0 +1,138 @@
+% Wigner基本定理
+% 对称表示定理|量子力学|射线空间|ray space|对称变换
+
+
+\pentry{量子力学的基本原理（量子力学）\upref{QMPrcp}}
+
+
+%本文主要参考文献为\href{https://arxiv.org/abs/math/9808033}{AN ALGEBRAIC APPROACH TO WIGNER’S UNITARY-ANTIUNITARY THEOREM}，作者LAJOS MOLNAR．
+
+
+Wigner基本定理是说，量子态的对称变换一定能表示成希尔伯特空间中的对称算子或反对称算子．在Weinberg的量子场论第一卷\cite{WeinbergQFT1}中也将其称为“对称表示定理（symmetry representation theorem）”．
+
+\subsection{定理描述}
+
+量子力学认为量子态构成一个\textbf{希尔伯特空间}\upref{Hilber}，其中互为倍数的量子态是等价的（\autoref{QMPrcp_def2}~\upref{QMPrcp}）．为了方便，我们可以限定只讨论模为$1$的那些量子态，也可以说我们讨论的不是矢量，而是\textbf{射线（ray）}．当然，如果觉得射线的语言不好理解，也可以只考虑归一化的态矢，不影响对定理的理解和表述．
+
+希尔伯特空间$H$中的射线构成$H$的一个\textbf{商空间}\footnote{见\autoref{Relat_sub1}~\upref{Relat}中的“商集”概念．}$\mathbb{P}H$，定义为${\displaystyle \mathbb {P} H=H\setminus \{0\}/{\approx }}$．其中等价关系$\approx$就是量子态等价的定义，即$\ket{s_1}\approx\ket{s_2}\iff \exists c\in\mathbb{C}, \ket{s_1}=c\ket{s_2}$．
+
+量子态$\ket{s}$所在的射线，或者说能表示这一量子态的所有右矢的集合，记为$\ket{\bar{s}}$\footnote{Wikipedia的\href{https://en.wikipedia.org/wiki/Wigner_theorem}{Wigner基本定理
+}词条中，用波函数$\Psi$来表示一个右矢（笔者建议不要有这个坏习惯，波函数和右矢不等价．可以用$\ket{\Psi}$表示波函数$\Psi$对应的右矢，二者的关系为$\Psi=\braket{x}{\Psi}$，其中$\ket{x}$是位置算符的本征右矢．），而把$\Psi$所在的射线记为$\underline{\Psi}$．}．射线的“内积”由归一化矢量定义：
+\begin{equation}
+\braket{\bar{s}_1}{\bar{s}_2} = \frac{\braket{s_1}{s_2}}{\sqrt{\braket{s_1}{s_1}\braket{s_2}{s_2}}}
+\end{equation}
+
+有了上述概念，就可以定义\textbf{对称变换}：
+
+\begin{definition}{对称变换}\label{WigThe_def1}
+给定希尔伯特空间$H$及其射线空间$\mathbb{P}H$，如果映射$f:\mathbb{P}H\to\mathbb{P}H$满足：对于任意$\ket{\bar{s}_i}\in\mathbb{P}H$，都有
+\begin{equation}\label{WigThe_eq1}
+\abs{\braket{\bar{s}_1}{\bar{s}_2}}^2 = \abs{\braket{f(\bar{s}_1)}{f(\bar{s}_2)}}^2
+\end{equation}
+那么称$f$是一个\textbf{对称变换（symmetry transformation）}．
+\end{definition}
+
+注意对称变换的名称，“对称”是一个名词，而非形容词．
+
+显然，对称变换是保\textbf{跃迁概率}的，因为两个态之间的跃迁振幅定义正是其内积，而概率是振幅的模方．
+
+有了对称变换的概念，就可以表述Wigner基本定理了．
+
+\begin{theorem}{Wigber基本定理}
+任何对称变换都可以表示成物理态Hilbert空间上的线性算符$\mathcal{Q}$，且这个算符要么是线性且幺正的：
+\begin{equation}
+\ali{
+    \mathcal{Q}(\xi\ket{a}+\eta\ket{b}) &= \xi\mathcal{Q}\ket{a}+\eta\mathcal{Q}\ket{b}\\
+    \bra{a}\mathcal{Q}^\dagger\mathcal{Q}\ket{b} &= \braket{a}{b}
+}
+\end{equation}
+要么是共轭线性且反幺正的：
+\begin{equation}
+\ali{
+    \mathcal{Q}(\xi\ket{a}+\eta\ket{b}) &= \xi^*\mathcal{Q}\ket{a}+\eta^*\mathcal{Q}\ket{b}\\
+    \bra{a}\mathcal{Q}^\dagger\mathcal{Q}\ket{b} &= \braket{a}{b}^*
+}
+\end{equation}
+
+\end{theorem}
+
+
+
+\subsection{定理证明}
+
+以下证明的思路基本与\cite{WeinbergQFT1}第2章附录A一致，整理、优化了表述．
+
+\subsubsection{正交完备集映射为正交完备集}
+
+考虑态空间$H$中的一个\textbf{归一化正交完备}集$\{\ket{s_\alpha}\}$，即$\braket{s_\alpha}{s_\alpha}=1$，$\braket{s_\alpha}{s_\beta}=\delta_{\alpha\beta}$，且任意态矢量都可以表示成$\sum_\alpha c_\alpha\ket{s_\alpha}$（离散情况）或$\int c(\alpha)\ket{s_\alpha}\dd \alpha$（连续情况）的形式．
+
+设$f:\mathbb{P}H\to\mathbb{P}H$是一个对称变换，记$f(\ket{s_\alpha})=\ket{s'_\alpha}$，那么由\autoref{WigThe_eq1} 以及“非零矢量和自己的内积恒为正实数”得
+\begin{equation}\label{WigThe_eq2}
+\braket{s'_\alpha}{s'_\beta} = \delta_{\alpha\beta}
+\end{equation}
+\autoref{WigThe_eq2} 同时意味着，任何非零矢量都不可能由$f$变换为零矢量，从而$f$是可逆映射．由\autoref{WigThe_def1} 逻辑上的对称性易知，$f$的\textbf{逆映射也是对称变换}．
+
+易证，$\{\ket{s'_\alpha}\}$也构成一组归一化正交完备集\footnote{否则可以用这组矢量无法组合出来的矢量构造一个$\ket{s'}$，使$\braket{s'}{s'_\alpha}=0$恒成立，但这就产生矛盾了：$\braket{s'}{s'_\alpha}=\braket{s}{s_\alpha}\neq 0$，其中$\ket{s}=f^{-1}(\ket{s'})$．}．
+
+\subsubsection{映射后，任选的两个展开系数的比值或相等或共轭}
+
+这里仅考虑离散情况，但连续情况是完全相同的，读者可自行将求和替换为积分来验证．
+
+考虑任意态右矢$\ket{s}=\sum_{\alpha}C_\alpha\ket{s_\alpha}$．设进行$f$映射后的展开为
+\begin{equation}\label{WigThe_eq7}
+\ket{s'} = f(\ket{s}) = \sum_\alpha C'_\alpha\ket{s'_\alpha}
+\end{equation}
+由于$\abs{\braket{s}{s_\alpha}}^2=\abs{\braket{s'}{s'_\alpha}}^2$，因此
+\begin{equation}\label{WigThe_eq3}
+\abs{C_\alpha}^2 = \abs{C'_\alpha}^2
+\end{equation}
+又因为$\abs{\bra{s}\qty(\ket{s_\alpha}+\ket{s_\beta})}^2 = \abs{\bra{s'}\qty(\ket{s'_\alpha}+\ket{s'_\beta})}^2$，因此
+\begin{equation}\label{WigThe_eq4}
+\abs{C_\alpha+C_\beta}^2 = \abs{C'_\alpha+C'_\beta}^2
+\end{equation}
+由\autoref{WigThe_eq3} 和\autoref{WigThe_eq3} 除以\autoref{WigThe_eq4} 得
+\begin{equation}\label{WigThe_eq6}
+\leftgroup{
+    \abs{\frac{C_\alpha}{C_\beta}}^2 &= \abs{\frac{C'_\alpha}{C'_\beta}}^2\\
+    \abs{1+\frac{C_\alpha}{C_\beta}}^2 &= \abs{1+\frac{C'_\alpha}{C'_\beta}}^2
+}
+\end{equation}
+
+于是由复数的几何性质（见\autoref{WigThe_fig1} ）得
+\begin{equation}\label{WigThe_eq5}
+\leftgroup{
+    \opn{Re}\frac{C_\alpha}{C_\beta} &= \opn{Re}\frac{C'_\alpha}{C'_\beta}\\
+    \opn{Im}\frac{C_\alpha}{C_\beta} &= \pm\opn{Im}\frac{C'_\alpha}{C'_\beta}
+}
+\end{equation}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/WigThe_1.pdf}
+\caption{\autoref{WigThe_eq5} 的几何推导．图中显示了$1$和$1+\frac{C_\alpha}{C_\beta}$两个点，红圈的圆心在$0$处，绿圈的圆心在$1$处，而$1+\frac{C_\alpha}{C_\beta}$在这两个圆的交点上．\autoref{WigThe_eq6} 的两条等式分别表示$1+\frac{C'_\alpha}{C'_\beta}$在绿圈和红圈上，从而可推得\autoref{WigThe_eq5} ．} \label{WigThe_fig1}
+\end{figure}
+
+于是对于选定的$C_\alpha$和$C_\beta$，要么有$C_\alpha/C_\beta=C'_\alpha/C'_\beta$，要么有$C_\alpha/C_\beta=(C'_\alpha/C'_\beta)^*$．
+
+\subsubsection{映射后，任意展开系数的比值要么都相等、要么都共轭}
+
+任取三个基右矢$\ket{s_1}$、$\ket{s_2}$和$\ket{s_3}$，构造态右矢$\ket{s} = \sum_{i=1, 2, 3}C_i\ket{s_i}$．按\autoref{WigThe_eq7} 定义映射后的展开系数$C'_i$．
+
+于是由$\abs{\braket{s'}{s'_i}}^2=\abs{\braket{s}{s_i}}^2$除以\autoref{WigThe_eq3} 得
+\begin{equation}
+\abs{1+\frac{C'_2}{C'_1}+\frac{C'_3}{C'_1}}^2 = \abs{1+\frac{C_2}{C_1}+\frac{C_3}{C_1}}^2
+\end{equation}
+类比\autoref{WigThe_fig1} 的逻辑可得，
+
+
+
+
+
+
+
+
+
+
+
+
+

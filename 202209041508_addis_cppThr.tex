@@ -1,0 +1,7 @@
+% C++ 多线程笔记
+
+\begin{itemize}
+\item \verb|#include <thread>|
+\item \verb|std::thread th(函数, arg1, arg2, ...)|; 创建一个线程， 调用\verb|函数|（可以是函数指针， 函数对象， lambda）， \verb|arg| 是\verb|函数|的变量．
+\item \verb|th.join()| 可以让主程序等待某个线程完成．
+\end{itemize}

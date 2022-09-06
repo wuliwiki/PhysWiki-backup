@@ -1,0 +1,74 @@
+% 场与粒子的相互作用
+% 场论|相互作用|interaction|电磁场
+
+\pentry{自由粒子拉格朗日函数（狭义相对论）\upref{FPLSR}}
+
+本文中$c=1$，闵可夫斯基空间度规为$\opn{diag}(1, -1, -1, -1)$．
+
+本文的目的是简单介绍描述场与粒子相互作用的拉格朗日方法之\textbf{思路}，启发自Suskkind的\textsl{Special Relativity and Classical Field Theory}\cite{SusskindClassicalFields}．特别要强调，我们并不是把粒子和场分开讨论，得到两种作用量或者拉格朗日函数；我们研究的是粒子和场构成的整体，只有对这个整体的\textbf{一个}作用量．
+
+\subsection{场对粒子的作用}
+
+粒子的运动轨迹由拉格朗日函数决定，因此要体现场对粒子的作用，就需要在粒子的拉格朗日函数里有场的出现．
+
+自由粒子的拉格朗日函数\upref{FPLSR}为$L(t, x^\mu, \dot{x}^\mu ) = -m\sqrt{1-\dot{x}^\mu \dot{x}^\nu g_{\mu\nu}}$．如何添加一个“相互作用”的项呢？注意到和粒子有关的部分是$\sqrt{1-\dot{x}^\mu \dot{x}^\nu g_{\mu\nu}}$，我们带着这部分，简单地把标量场$\phi$加进去试试：
+\begin{equation}\label{IntFP_eq1}
+\mathcal{L}(t, x^\mu, \dot{x}^\mu ) = -(m+g\phi)\sqrt{1-\dot{x}^\mu \dot{x}^\nu g_{\mu\nu}}
+\end{equation}
+其中$g$是一个常数，常称为\textbf{耦合常数（coupling constant）}，用来表征场对粒子的作用强度．
+
+把\autoref{IntFP_eq1} 代入粒子的欧拉-拉格朗日方程，得到粒子的运动方程
+\begin{equation}\label{IntFP_eq2}
+\frac{\dd }{\dd t} \qty[-\qty(m+g\phi)\frac{-\dot{x}^k}{\sqrt{1-\dot{x}^\mu \dot{x}^\nu g_{\mu\nu}}}] = -g\frac{\partial \phi}{\partial x^k}\sqrt{1-\dot{x}^\mu \dot{x}^\nu g_{\mu\nu}}
+\end{equation}
+
+如果取\textbf{非相对论}和\textbf{弱场}极限，即$\dot{x}^k\ll c$且$g\phi$和$\dot{x}^\mu \dot{x}^\nu g_{\mu\nu}$相当，那么\autoref{IntFP_eq1} 化为
+\begin{equation}\label{IntFP_eq3}
+\mathcal{L}(t, x^\mu, \dot{x}^\mu ) = -m-g\phi+\frac{1}{2}mv^2
+\end{equation}
+其中$v^2=\dot{x}^\mu \dot{x}^\nu g_{\mu\nu}$．
+
+于是\autoref{IntFP_eq2} 化为、或者说\autoref{IntFP_eq3} 的欧拉-拉格朗日方程为
+\begin{equation}\label{IntFP_eq4}
+\frac{\dd}{\dd t} m\dot{x}^k = -g\frac{\dd \phi}{\dd x^k}
+\end{equation}
+这正是粒子在标量势下的运动方程．
+
+如果$\phi$是引力势场，$g=m$是物体的质量，那\autoref{IntFP_eq4} 描述的就是低速、弱场近似下（牛顿理论）粒子在引力场中的运动，故可以说物体的质量是引力场的耦合常数．
+
+\begin{example}{电磁场}
+
+正文中讨论的是最简单的标量势的情况，现在我们尝试讨论一个矢量场．
+
+
+
+\end{example}
+
+
+
+
+
+
+\subsection{粒子对场的作用}
+\pentry{狄拉克 delta 导函数\upref{delta2}}
+
+由于我们是把粒子和场作为一个整体，不可割裂，因此粒子拉格朗日函数中的相互作用项也应该是场的相互作用项．
+
+以上一小节讨论的\autoref{IntFP_eq1} 为例，我们希望$g\phi\sqrt{11\dot{x}^\mu \dot{x}^\nu g_{\mu\nu}}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
