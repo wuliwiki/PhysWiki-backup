@@ -1,0 +1,12 @@
+% bootloader 与多系统笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item 开机的时候，BIOS/EUFI会先启动bootloader然后再由bootloader加载系统（也就是按F2或Del以后进入的那个界面选择的其实是bootloader)
+\item windows的bootloader自动加载windows，而grub会搜索每个硬盘和分区，并列出所有选项
+\item 在GPT中，bootloader总是会在EFI分区，而在MBR中，bootloader在masterrecord中
+\end{itemize}
+

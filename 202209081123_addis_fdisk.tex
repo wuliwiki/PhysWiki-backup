@@ -1,0 +1,26 @@
+% Linux 分区文件系统操作笔记（Gparted, fdisk, resize2fs, Clonezilla）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item MBR (Master Boot Record) 和 GPT (GUID Partition Table) 是唯一两种硬盘的分区方式（partition schemes）
+\item MBR 的 grub 设置文件在 \verb|/boot/grub/grub.cfg| ， GPT 的在 \verb|/boot/efi/EFI/ubuntu/grub.cfg|
+\item 要备份 MBR，用 \verb|dd if=/dev/sda of=/data/disk.img bs=446 count=1| ， 还原同理， 但还原最好只用 440 字节
+\item 用 dd 把一个硬盘的分区克隆的另一个硬盘的分区后（两个分区大小必须完全相同）， 再 clone MBR 用 \verb|dd if=/dev/sda of=/dev/sdc bs=440 count=1|
+\item 不同的分区当然可以有不同的文件系统
+\item \verb|Gparted| 是一个 GUI 硬盘分区工具， 在 Ubuntu live CD 中自带
+\item \verb|GParted| 使用 \verb|e2image -ra -p /dev/sda1 /dev/sdb1| 来复制分区， 没有数据的部分不会复制，Arch Wiki 中的 “disk cloning” 词条列出了很多工具
+\item grub 可以装在和系统不同的盘上
+\item \verb|sda, sdb| 等编号是不稳定的， 可能重启等操作之后会变
+\item \verb|fdisk -l| 查看所有挂载的硬盘
+\item \verb|resize2fs -p /dev/sd? ???K| 可以改变 ext4 文件系统的大小, Gparted 用的就是这个命令. 这个命令需要很长时间.
+\item \verb|mklabel| 修改分区的 label
+\item \verb|mkfs.ext4 /dev/sdx1| 或者 \verb|mke4fs -t ext4 /dev/sdb1| 把某个分区格式化为 \verb|ext4|
+\item Clonezilla 的分区备份对 GPT 和 MBR 都是通用的， 如果发生任何问题， 用 live cd 重装系统，确保能正常启动， 然后还原对应的分区就行，无需任何额外设置．
+\item 之前 SMART 提示 threshold exceeded，但并没有看到那一项有问题，现在重新写 GPT，安装，clonezilla 还原， 又可以正常用了．
+\item  正常的 ext4 系统分区用 Gparted 缩小以后， 突然就不能启动了！貌似并不是 grub 的问题，内核已经加载然后弄出一堆错误.
+\item 有一个工具叫做 boot-repair 可能可以用来修复 bootloader 的问题
+\item \verb|sda, sdb| 等在 grub2 命令行里面的 ls 名字叫做 \verb|hd1, hd2...|
+\end{itemize}

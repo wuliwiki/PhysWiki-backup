@@ -1,0 +1,14 @@
+% bootloader 与多系统笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item 开机的时候，BIOS/EUFI会先启动bootloader然后再由bootloader加载系统（也就是按F2或Del以后进入的那个界面选择的其实是bootloader)
+\item windows的bootloader自动加载windows，而grub会搜索每个硬盘和分区，并列出所有选项
+\item 在GPT中，bootloader总是会在EFI分区，而在MBR中，bootloader在masterrecord中
+\item \verb|sudo grub-install /dev/sd#| 可以在某个硬盘中安装 grub
+\item \verb|df| 只会显示已挂载的硬盘, 而 \verb|fdisk| 或者 \verb|disk, gparted| 软件才会显示所有连接的硬盘
+\item 要安装 ubuntu live 镜像, 先用命令行重写一个 partition table， 新建一个分区(fdisk 比 gparted 要可靠), 用 \verb|sudo dd bs=4M if=/path/to/ISOfile of=/dev/sda# status=progress oflag=sync| 注意 sda 后面一定要有数字！
+\end{itemize}

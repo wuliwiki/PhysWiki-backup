@@ -1,0 +1,12 @@
+% Linux 硬盘操作笔记（fdisk, resize2fs）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item \verb|Gparted| 是一个 GUI 硬盘分区工具， 在 Ubuntu live CD 中自带
+\item \verb|fdisk -l| 查看所有挂载的硬盘
+\item \verb|resize2fs -p /dev/sd? ???K| 可以改变 ext4 文件系统的大小, Gparted 用的就是这个命令. 这个命令需要很长时间.
+\item 如果 MBR 的硬盘中只有一个分区， 那么它将不会有编号， 那么如何区分硬盘盒分区呢？
+\end{itemize}

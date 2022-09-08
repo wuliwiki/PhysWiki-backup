@@ -1,0 +1,26 @@
+% bootloader 与多系统笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item 开机的时候，BIOS/EUFI会先启动bootloader然后再由bootloader加载系统（也就是按F2或Del以后进入的那个界面选择的其实是bootloader)
+\item windows的bootloader自动加载windows，而grub会搜索每个硬盘和分区，并列出所有选项
+\item 在GPT中，bootloader总是会在EFI分区，而在MBR中，bootloader在masterrecord中
+\item \verb|sudo grub-install /dev/sd#| 可以在某个硬盘中安装 grub
+\item \verb|df| 只会显示已挂载的硬盘, 而 \verb|fdisk| 或者 \verb|disk, gparted| 软件才会显示所有连接的硬盘
+\item 要安装 ubuntu live 镜像到 disk, 用 \verb|sudo dd bs=4M if=/path/to/ISOfile of=/dev/sda status=progress oflag=sync| 注意 \verb|sda| 后面不能有数字！ 这样 \verb|dd| 会把整个硬盘克隆成 iso 的内容而无视之前的任何 partition table 和分区. 此时 u 盘和光盘完全等效，都是只读的（亲测成功）.
+\end{itemize}
+
+\begin{itemize}
+\item grub 在菜单中按 c 进入命令行模式, 然后 ls 可以看见有哪些硬盘和分区， 例如 (hd0,msdos1)， 然后继续 ls (hd0,msdos1)/ 按 tab，就会提示该目录下有什么
+\item grub 在菜单中按 e 就可以编辑临时的 grub config 文件，填入 ls 获得的信息即可
+\item grub 的菜单是由 /boot/grub/grub.cfg 或者 grub.config 定义的
+\item 如何克隆 MBR 硬盘上安装的 Ubuntu?
+\item 如果克隆 MBR 硬盘的分区， 那么 grub 并不会一起克隆过去, 所以还需要 \verb|sudo grub-install ...| 在新硬盘上面安装 grub （如果说什么不推荐用啥不稳定的，就在后面加 --force）. 然后再把原来的 grub.cfg 拷贝到新硬盘就好了(不确定新安装 grub 会不会把 cfg 重置）.
+\item 注意克隆分区以后， 目标分区的 uuid 会和原来的 uuid 一模一样，如果拔掉原来的硬盘没什么问题， 但如果要一起插的话还是需要改一下
+\item \verb|blkid| 可以查看所有分区的 uuid
+\item uuid 需要 umount 才可以修改， 随机生成 uuid 用 \verb|tune2fs -U random /dev/sdb?| 但这样 uuid 并不会改变，只会改变 part uuid. 
+\item \verb|fdisk| 
+\end{itemize}
