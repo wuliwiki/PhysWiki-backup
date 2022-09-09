@@ -1,0 +1,24 @@
+% 主应力
+
+%书本不在手边，这篇文章主要是按个人理解和笔记写的，可能有所疏漏，需要dalao指正．
+\begin{issues}
+\issueDraft
+\end{issues}
+\pentry{应力\upref{STRESS}}
+
+假设我们有一个受力状况相对复杂的二维微元体，我们能不能改变划分微元体的方式，从而简化他的受力？
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/PRSTR_1.png}
+\caption{二维微元体.仿自P. Beer的Mechanics of Materials} \label{PRSTR_fig1}
+\end{figure}
+
+答案难得的是...可以的．在一点处，我们总能够找到一种选取微元体的方式，使其只受正应力而不受切应力．
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/PRSTR_2.png}
+\caption{通过改变选取微元体的方式，使其只受正应力而不受切应力} \label{PRSTR_fig2}
+\end{figure}
+在这种情况下，这些正应力也被称为主应力(Principal Stress). 可见，应力的大小与微元体的选取方式有关，而主应力的大小则不然．因此，某种意义上，主应力比单纯的应力更具有
+
+现在，眼前最显然的一个问题是，如果已知了微元体的受力情况，如何计算出他的主应力呢？方法是多种多样的，这里主要介绍最常见的两种，Mohr圆与特征值法．
