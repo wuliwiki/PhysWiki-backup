@@ -1,0 +1,6 @@
+% Linux 键盘设置（XKB）
+
+\begin{itemize}
+\item Linux 中所有的 GUI 功能都使用 X windows 系统， 通过 X server 显示．
+\item 注意 Ubunt （20.04 亲测）设置 xkb config 文件无效的！ 需要在 \verb|/etc/default/keyboard| 里面设置． 例如添加一行 \verb|XKBOPTIONS=caps:none| 取消 capslock 按键． 这相当于 \verb|setxkbmap -option "caps:none"|， 但后者只对当前的 \verb|X session| 有效．
+\end{itemize}
