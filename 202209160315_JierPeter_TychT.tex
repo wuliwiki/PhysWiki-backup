@@ -1,0 +1,94 @@
+% Tychonoff定理
+% 紧致性|紧性|compact|积拓扑|乘积拓扑
+
+\pentry{紧致性\upref{Topo2}，积拓扑\upref{Topo6}}
+
+\subsection{定理的描述}
+
+紧空间具有仅次于有限空间的优良性质．然而，一个有限空间的无限次积空间通常是无限集（只要这个有限空间的元素数大于$1$），我们可能会猜想，一个紧空间的无限次积空间可能会失去紧性．然而Tychonoff定理表明，对于积拓扑，紧空间的任意次笛卡尔积仍然是紧空间，紧性被保留了．
+
+我们先列出该定理，然后讨论并给出其证明．
+
+\begin{theorem}{Tychonoff定理}
+给定一族拓扑空间$\{(X_\alpha, \mathcal{T}_\alpha)\}_{\alpha\in \Lambda}$，如果对每个$\alpha\in\Lambda$，$(X_\alpha, \mathcal{T}_\alpha)$都是紧空间，那么乘积空间$(\prod_{\alpha\in\Lambda}X_\alpha, \mathcal{T})$也是紧空间．这里$\mathcal{T}$是各$\mathcal{T}_\alpha$的积拓扑．
+\end{theorem}
+
+
+
+\subsection{有限积空间继承紧致性}
+
+考虑两个紧空间$(X_1, \mathcal{T}_1)$和$(X_2, \mathcal{T}_2)$的积拓扑．为了方便视觉化理解，我们可以把$X_1$和$X_2$分别画成一根轴，于是它们的积空间就是一个平面．把各$X_i$的开集都想象成一条线段，于是$X_i$的紧致性可以描述为“任意覆盖了整条轴的线段集合，总存在有限子覆盖”．那么$X_i$的紧致性能继承到$X_1\times X_2$上吗？
+
+乍一看似乎没关联，因为$X_1\times X_2$的开集和$X_i$开集的联系似乎只有\textbf{投影}．如果记$\{U_\alpha\}$是$X_1\times X_2$的一族开覆盖，那么投影后的$\{\pi_i(U_\alpha)\}$就是$X_i$的一族开覆盖．由$X_i$的紧致性虽然能得出$\{\pi_i(U_\alpha)\}$存在有限子覆盖$\{\pi_i(U_i)\}_{i\in I}$（$I$是某个有限指标集），但没法保证$\{U_i\}_{i\in I}$是$X_1\times X_2$的覆盖．
+
+不过，稍加优化我们会发现，由于开集都是基本开机的并、基本开集都是开集，可以得到“任意开覆盖都有有限子覆盖”等价于“任意拓扑基覆盖都有有限子覆盖”，这里拓扑基覆盖是指取拓扑基中的基本开集来覆盖．那是不是用拓扑基覆盖可以证明呢？不行，没有解决上述问题．
+
+尽管如此，我们还是把这个结论记下来：
+
+\begin{exercise}{}
+证明：对于拓扑空间$X$的任意子空间$A$，下列命题等价：
+\begin{enumerate}
+\item $A$的任意开覆盖都有有限子覆盖；
+\item $A$的任意\textbf{拓扑基}覆盖都有有限子覆盖．
+\end{enumerate}
+\end{exercise}
+
+再优化思路：“任意拓扑基覆盖都有有限子覆盖”可以等价于“任意子基覆盖都有有限子覆盖”吗？这里的子基覆盖就是指用子基中的元素紧性覆盖．
+
+答案是肯定的．
+
+\begin{theorem}{}
+对于拓扑空间$X$和它的子空间$A$，下列命题等价：
+\begin{enumerate}
+\item $A$的任意开覆盖都有有限子覆盖；
+\item $A$的任意\textbf{子基}覆盖都有有限子覆盖．
+\end{enumerate}
+\end{theorem}
+
+\textbf{证明}：
+
+1. $\implies$ 2. 是显然的，因为子基的元素都是开集，从而子基覆盖都是开覆盖．下证 2. $\implies$1. ．
+
+设$\{U_\alpha\}$是$A$的开覆盖，则$U_\alpha$是由若干基本开集的\textbf{并}：
+\begin{equation}\label{TychT_eq1}
+U_\alpha = \bigcup_{\beta} B_{\alpha, \beta}
+\end{equation}
+
+每个基本开集$B_{\alpha, \beta}$又是\textbf{有限}个子基中元素的\textbf{交}：
+\begin{equation}\label{TychT_eq2}
+B_{\alpha, \beta} = \bigcap_{i} S_{\alpha, \beta, i}
+\end{equation}
+希腊字母指标$\alpha$和$\beta$的指标集基数都是没有限定的，而拉丁字母指标$i$的指标集是有限集．这样设定是为了方便阅读．
+
+$\{U_\alpha\}$是$A$的开覆盖$\iff$ 对于任意$a\in A$，都存在$\alpha$使得$a\in U_\alpha$ $\iff$ 对于任意$a\in A$，都存在$\alpha, \beta$使得$a\in B_{\alpha, \beta}$ $\iff$ 对于任意$a\in A$，都存在$\alpha, \beta$使得$a\in S_{\alpha, \beta, i}$对任意$i$都成立 $\iff$ $\{S_{\alpha, \beta, i}\}$是$A$的开覆盖．
+
+上一段的第一个等价是开覆盖的定义，第二个等价是并集的定义结合\autoref{TychT_eq1} ，第三个等价是交集的定义结合\autoref{TychT_eq2} ，第四个等价又是开覆盖的定义．
+
+由题设，存在有限指标集$\Lambda$，$\Gamma$，和$I$，使得$\{S_{\alpha, \beta, i}\}_{\alpha\in \Lambda, \beta\in \Gamma, i\in I}$覆盖$A$\footnote{有限多个$S_{\alpha, \beta, i}$，三个指标的指标集都必须有限．}．我们可以扩大范围，取$\{S_{\alpha, \beta, i}\}_{\alpha\in \Lambda, \beta\in \Gamma, i\in I}\}$
+
+又由\autoref{TychT_eq1} 和\autoref{TychT_eq2} 
+
+\textbf{证毕}．
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

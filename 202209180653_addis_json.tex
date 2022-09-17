@@ -1,0 +1,30 @@
+% json 笔记
+
+\subsection{常识}
+\begin{itemize}
+\item json 全称是 \textbf{JavaScript Object Notation}
+\item json 和 xml 格式常用于从网站 api 获取数据．
+\end{itemize}
+
+\subsection{格式}
+一个例子
+\begin{lstlisting}[language=json]
+{"menu": {
+  "id": "file",
+  "value": "File",
+  "popup": {
+    "menuitem": [
+      {"value": "New", "onclick": "CreateNewDoc()"},
+      {"value": "Open", "onclick": "OpenDoc()"},
+      {"value": "Close", "onclick": "CloseDoc()"}
+    ]
+  }
+}}
+\end{lstlisting}
+
+\begin{itemize}
+\item key-value 对 \verb|"key" : val|
+\item value 的类型有 \verb|null, string, number （整数或浮点）, array, bool, object, array|
+\item object 由许多对 key-val 组成： \verb|{"key" : val, "key" : val, ...}|
+\item array 由多个 object 组成： \verb|[{..}, {..}, {..}]|
+\end{itemize}

@@ -1,0 +1,26 @@
+% json 笔记
+
+json 和 xml 常用于从网站获取数据（web api）
+
+例子
+\begin{lstlisting}[language=json]
+{"menu": {
+  "id": "file",
+  "value": "File",
+  "popup": {
+    "menuitem": [
+      {"value": "New", "onclick": "CreateNewDoc()"},
+      {"value": "Open", "onclick": "OpenDoc()"},
+      {"value": "Close", "onclick": "CloseDoc()"}
+    ]
+  }
+}}
+\end{lstlisting}
+
+规则
+\begin{itemize}
+\item key-value 对 \verb|"key" : val|
+\item value 的类型有 \verb|null, string, number, array, bool, object, array|
+\item object 由许多对 key-val 组成： \verb|{"key" : val, "key" : val, ...}|
+\item array 由多个 object 组成： \verb|[{..}, {..}, {..}]|
+\end{itemize}
