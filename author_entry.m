@@ -5,7 +5,7 @@ clc
 cd(mfilepath);
 % for each author and entry, max # of backup files to omit
 num_thresh = 1;
-str = ls('*.tex');
+str = ls2('*.tex');
 str = [str(:,14:end), str(:,1:12)];
 [~, order] = sort(cellstr(str));
 data = data_gen();

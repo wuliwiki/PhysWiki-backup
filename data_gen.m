@@ -3,7 +3,7 @@
 
 function data = data_gen
 cd(mfilepath);
-fnames = cellstr(ls('*.tex'));
+fnames = cellstr(ls2('*.tex'));
 N = numel(fnames);
 data = cell(N, 3);
 for i = 1:N

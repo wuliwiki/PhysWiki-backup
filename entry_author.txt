@@ -1,6 +1,7 @@
 entry    time(h)    author
 ===========================
 A       0.17  addis         
+AD      0.58  有机物           
 ADKrat  0.25  addis         
 ADMF    3.83  零穹            
 AE      0.83  xzllxls       
@@ -55,21 +56,21 @@ AngMom  1.33  addis
 AngVad  0.42  addis         
 AntMap  2.42  零穹            
 AprPtr  0.17  addis         
-ArbLib  3.5   addis         
+ArbLib  3.58  addis         
 ArcSpl  0.33  addis         
 Arctan  0.58  addis         
 Arpkpp  2.33  addis         
 AsLgdr  1.42  addis         
-Astro   0.92  addis         
+Astro   1     addis         
 Astro   0.17  ACertainUser  
 Asympt  1.5   DTSIo         
 Asympt  0.17  addis         
 AtomId  1.83  addis         
 AvgHit  0.33  addis         
-BAD12   0.58  xzllxls       
+BAD12   1.83  xzllxls       
 BAD13   3.5   xzllxls       
 BAHA    9.17  零穹            
-BAHA    0.5   addis         
+BAHA    0.58  addis         
 BAHA    0.17  starliu       
 BBdLaw  1.08  addis         
 BBdLaw  0.42  _Eden_        
@@ -90,13 +91,14 @@ BNU16   0.75  零穹
 BNU16   0.33  addis         
 BRST    4.25  zhousiyi      
 BRST    0.33  addis         
+BS      0.25  有机物           
 BanDmt  1     addis         
 BanThm  0.5   addis         
 BanThm  0.25  DTSIo         
 BarCom  0.42  addis         
 BarCom  0.17  切糕糕           
 BasPar  0.17  addis         
-Bash    0.25  addis         
+Bash    0.67  addis         
 Basics  0.25  addis         
 BdLgth  0.25  虫大            
 BddRsv  0.42  DTSIo         
@@ -159,7 +161,7 @@ CDQ2Ec  4.42  零穹
 CEfDiv  3.08  addis         
 CEsb    1.67  _Eden_        
 CExp    1.33  addis         
-CFa1    1.58  JierPeter     
+CFa1    2.25  JierPeter     
 CFinAf  5.75  零穹            
 CGS     1.25  addis         
 CHF     0.75  DTSIo         
@@ -172,9 +174,9 @@ CM0     0.17  ACertainUser
 CM1     5.5   addis         
 CMAD    0.67  addis         
 CMVD    0.33  addis         
-CMakeN  1.75  addis         
+CMakeN  2.5   addis         
 CMani   0.58  Giacomo       
-CNote   0.25  addis         
+CNote   0.92  addis         
 COrNoB  2.42  addis         
 CPow    1.42  addis         
 CSI0    0.33  addis         
@@ -189,10 +191,11 @@ CSN15   1.67  xzllxls
 CSN16   2     xzllxls       
 CSN17   3     xzllxls       
 CSN18   1.83  xzllxls       
-CSN19   0.5   xzllxls       
+CSN19   2.83  xzllxls       
 CSNeq   0.92  addis         
 CTrig   0.42  addis         
 CUDA    0.25  addis         
+CUtool  0.17  addis         
 CVecOp  1.42  addis         
 Calc    2.42  addis         
 CamLoc  0.25  addis         
@@ -206,8 +209,8 @@ Carnot  0.75  addis
 Carnot  0.42  _Eden_        
 Cat     0.42  vitalyr       
 Cat     0.17  addis         
-CatTns  0.42  JierPeter     
-CatTns  0.17  addis         
+CatTns  0.5   JierPeter     
+CatTns  0.25  addis         
 Catena  4.08  零穹            
 Catena  3.08  addis         
 CauGou  0.5   addis         
@@ -251,7 +254,7 @@ CmtGrp  0.5   JierPeter
 Cndctr  0.25  ACertainUser  
 Cndctr  0.17  addis         
 CnstAL  0.58  addis         
-CoCon   2.42  JierPeter     
+CoCon   2.58  JierPeter     
 CoCon   0.25  addis         
 CoDer   3.25  JierPeter     
 CoDer   0.25  addis         
@@ -261,7 +264,7 @@ CoTaAn  0.17  addis
 CofCur  1.42  零穹            
 CofTen  1.58  零穹            
 CoinEx  0.17  addis         
-ComOpQ  0.17  JierPeter     
+ComOpQ  0.25  JierPeter     
 ComSpa  0.42  JierPeter     
 ComSpa  0.25  addis         
 Commu   0.17  addis         
@@ -279,7 +282,7 @@ ConMap  1     hfb25
 ConMap  0.42  addis         
 ConPen  0.33  addis         
 ConSec  0.83  addis         
-CondaN  1.25  addis         
+CondaN  1.42  addis         
 Cone    1.08  addis         
 ConstA  0.25  addis         
 Consts  4.17  addis         
@@ -314,12 +317,12 @@ CrnDen  1.17  addis
 CrosMt  1     addis         
 Cross   1.83  addis         
 CrossP  1.08  addis         
-CrstfS  2.42  JierPeter     
+CrstfS  2.5   JierPeter     
 CrstfS  0.25  addis         
 CryWal  10.17 addis         
 CrysDf  0.17  addis         
 CulmF   2.5   addis         
-CulmWf  4.08  addis         
+CulmWf  4.42  addis         
 CurCor  3.25  addis         
 CurCor  2.42  零穹            
 CurFit  0.75  addis         
@@ -347,6 +350,8 @@ DGGRNt  0.42  addis
 DIMF    5.5   零穹            
 DList   1.08  有机物           
 DList   0.17  addis         
+DNCC13  0.33  xzllxls       
+DNCC14  0.42  xzllxls       
 DSU     1.08  有机物           
 DSU     0.17  addis         
 DatExp  0.42  addis         
@@ -356,6 +361,7 @@ DbSliN  0.33  addis
 DeQua   3.08  零穹            
 Debye   1     _Eden_        
 DefInt  0.5   addis         
+DefInt  0.5   ACertainUser  
 DefMat  0.92  addis         
 DelCry  0.5   addis         
 DeltOr  0.42  addis         
@@ -397,7 +403,7 @@ DirSum  2.58  addis
 Dirac   8.58  zhousiyi      
 Dirac   0.25  addis         
 DiracB  0.75  _Eden_        
-DiracE  2.67  _Eden_        
+DiracE  2.75  _Eden_        
 Diracq  0.67  zhousiyi      
 Diracq  0.25  addis         
 DisCos  0.5   boymike17     
@@ -409,8 +415,9 @@ DivAlg  1.17  零穹
 DivInv  1.42  addis         
 DivInv  0.17  YoggS         
 Divgnc  0.42  addis         
+DjangR  0.67  addis         
 DoF     0.33  addis         
-Docker  0.25  addis         
+Docker  0.5   addis         
 Domain  0.58  JierPeter     
 Dople1  2.83  addis         
 Dopler  1.5   addis         
@@ -455,7 +462,8 @@ EMtens  0.33  addis
 EMulPo  2.5   addis         
 EPQue   2.75  零穹            
 EPoiEQ  1.08  _Eden_        
-EPoiEQ  0.33  addis         
+EPoiEQ  0.42  addis         
+EPoiEQ  0.25  suit harry    
 EScap   0.58  _Eden_        
 EUTECT  1.42  ACertainUser  
 EVOIOG  4.58  零穹            
@@ -471,13 +479,14 @@ EigVM   0.17  addis
 Eigen   0.42  addis         
 EinEqn  4.08  JierPeter     
 EinEqn  0.25  addis         
-EinSum  1.75  JierPeter     
+EinSum  1.83  JierPeter     
 EinSum  0.17  addis         
 EleAdd  0.58  TongQing18    
 EleAdd  0.33  addis         
 EleGr   3.33  _Eden_        
 EleGr   0.17  addis         
 EleOpt  1.83  ACertainUser  
+EleOpt  0.17  86813438      
 ElePAP  0.33  FFjet         
 EleRes  0.33  FFjet         
 EleRes  0.25  addis         
@@ -524,12 +533,13 @@ ExMI    1.67  addis
 ExchOp  3     addis         
 ExpDec  0.33  addis         
 ExtAlg  4.58  零穹            
-ExtAlg  1.83  JierPeter     
+ExtAlg  1.92  JierPeter     
 ExtAlg  0.25  Giacomo       
 ExtCur  0.75  零穹            
 ExtCur  0.17  addis         
-ExtDer  3     JierPeter     
+ExtDer  3.33  JierPeter     
 ExtDif  0.25  JierPeter     
+F       0.33  F=ma          
 F0      3.42  addis         
 F2Exm   1.17  addis         
 F2Exm   0.25  ACertainUser  
@@ -541,6 +551,7 @@ FEDVR   0.58  addis
 FFTdrw  1.08  addis         
 FFTft   0.83  addis         
 FForm   0.75  JierPeter     
+FPLSR   0.42  JierPeter     
 FRW     0.25  boymike17     
 FRW     0.25  addis         
 FSBplt  1.5   addis         
@@ -566,7 +577,7 @@ FermGR  0.83  addis
 FiSph   0.33  addis         
 Fibre   0.58  JierPeter     
 FinStr  0.5   addis         
-FlCode  0.58  addis         
+FlCode  1     addis         
 FldExp  6.67  JierPeter     
 FldExp  0.42  Giacomo       
 FldExp  0.33  addis         
@@ -613,7 +624,7 @@ GAN     1.5   xzllxls
 GAUSS   1.08  addis         
 GBPL    0.58  ACertainUser  
 GExInf  3.25  JierPeter     
-GExt    7.58  JierPeter     
+GExt    7.67  JierPeter     
 GHcurv  0.5   JierPeter     
 GL      0.17  Giacomo       
 GLquad  0.33  addis         
@@ -631,7 +642,7 @@ GaliTr  0.25  addis
 Galton  0.17  addis         
 Gama1   0.83  fsf王          
 Gama1   0.67  addis         
-Gamma   1.58  addis         
+Gamma   1.75  addis         
 Gamma   0.42  spain         
 Gamma2  0.42  addis         
 GauEli  0.33  addis         
@@ -650,9 +661,9 @@ Geomet  0.67  addis
 GibbsG  2.25  _Eden_        
 GibbsG  0.67  ACertainUser  
 GibbsG  0.17  addis         
-Git     3.25  addis         
+Git     3.42  addis         
 GitHub  0.5   addis         
-GitSer  0.33  addis         
+GitSer  0.42  addis         
 GoodQN  0.5   addis         
 Grad    1     addis         
 GradNr  0.33  addis         
@@ -673,6 +684,7 @@ GroupN  1     addis
 GroupP  0.58  JierPeter     
 GroupP  0.25  addis         
 GroupV  0.75  addis         
+GroupV  0.33  ACertainUser  
 GrpPrd  1.67  JierPeter     
 GrpPrd  0.25  Giacomo       
 GrpRep  0.25  JierPeter     
@@ -686,6 +698,9 @@ HDipol  0.17  addis
 HRMass  1     addis         
 HSPE01  1.25  kahoyip       
 HSPE02  1.67  kahoyip       
+HSPE03  0.33  kahoyip       
+HSPE04  0.58  kahoyip       
+HSPE05  0.25  kahoyip       
 HSPM01  4.75  kahoyip       
 HSPM01  0.75  addis         
 HSPM01  0.58  ACertainUser  
@@ -722,7 +737,7 @@ Hanaly  1.08  addis
 HarFor  0.17  addis         
 HarFun  0.25  addis         
 HarmF   2.42  addis         
-HeAna2  8.5   addis         
+HeAna2  8.58  addis         
 HeAnal  12.58 addis         
 HeComu  2.92  addis         
 HeFor   2.25  零穹            
@@ -751,7 +766,7 @@ HigDer  0.33  addis
 HionCr  5.5   addis         
 HlmPr2  3.25  addis         
 HmhzEq  0.75  addis         
-HodgeO  0.58  JierPeter     
+HodgeO  2.92  JierPeter     
 HodgeO  0.17  addis         
 HolFun  0.67  lrqlrqlrq     
 HomT1   1.08  JierPeter     
@@ -768,7 +783,7 @@ Homt3   0.75  JierPeter
 Hplot   0.58  addis         
 HsAmPg  0.83  jingyuan      
 HsAnTf  1.83  jingyuan      
-HsAnTf  0.67  JierPeter     
+HsAnTf  0.75  JierPeter     
 HsAnTf  0.33  addis         
 HsAngl  0.67  jingyuan      
 HsAngl  0.17  addis         
@@ -793,14 +808,15 @@ HsSet   0.17  aluo
 HsSet   0.17  addis         
 HsTrFu  0.42  jingyuan      
 HsTrFu  0.17  addis         
-HsbPic  1.75  JierPeter     
+HsbPic  3.92  JierPeter     
 HsbPic  0.67  addis         
 Hsqrt   2     addis         
 Htunnl  0.92  addis         
 Huygen  0.5   FFjet         
 Huygen  0.25  addis         
 Hy1D2D  0.42  addis         
-HyIon2  2     addis         
+HyCLC   0.17  addis         
+HyIon2  2.83  addis         
 HyTDSE  6.42  addis         
 HydroL  0.25  addis         
 HypGeo  0.33  addis         
@@ -851,6 +867,7 @@ IntBP   0.17  addis
 IntBP2  1.17  addis         
 IntCos  3.08  Zona          
 IntCos  0.17  addis         
+IntFP   1.92  JierPeter     
 IntL    0.25  addis         
 IntL    0.17  Giacomo       
 IntN    0.92  addis         
@@ -943,7 +960,7 @@ JuFunc  0.17  addis
 JuType  2     addis         
 KELaw1  0.25  addis         
 KELaw1  0.17  ACertainUser  
-KGeq    2.75  JierPeter     
+KGeq    2.83  JierPeter     
 KPNum0  0.58  addis         
 KepNum  5.58  addis         
 Keple1  0.75  addis         
@@ -972,7 +989,8 @@ LSpoly  0.67  addis
 LTran1  0.17  addis         
 LTrans  1.33  addis         
 LVgaug  2.75  addis         
-LWP     0.83  _Eden_        
+LWP     0.92  _Eden_        
+LWP     0.75  ACertainUser  
 LWP     0.5   addis         
 LagEqQ  3.67  addis         
 LagMul  0.33  addis         
@@ -981,7 +999,7 @@ LagPrb  0.33  addis
 Lagrng  3.83  addis         
 Laguer  0.5   addis         
 LambSh  0.92  addis         
-Lanc    0.92  addis         
+Lanc    1.58  addis         
 LapAsm  5.25  spain         
 LapAsm  1.92  DTSIo         
 LapAsm  0.58  addis         
@@ -991,7 +1009,7 @@ LapEq   0.17  ACertainUser
 LapTra  0.75  FFjet         
 LapTra  0.17  addis         
 LapTra  0.17  JierPeter     
-Lapack  0.58  addis         
+Lapack  0.67  addis         
 Laplac  1.75  addis         
 Larmor  1.17  lrqlrqlrq     
 LatVib  0.42  _Eden_        
@@ -1036,12 +1054,12 @@ LinInD  1.42  零穹
 LinInd  0.25  addis         
 LinMap  3.17  addis         
 LinMap  0.83  JierPeter     
-LinNt   1     addis         
+LinNt   2.58  addis         
 LinPot  0.83  addis         
 LinSph  0.5   addis         
-LinWeb  1.25  addis         
+LinWeb  1.5   addis         
 Linux   1.25  phlins        
-Linux   0.75  addis         
+Linux   0.92  addis         
 LiouTh  1     addis         
 LipSch  1.42  addis         
 LireTo  0.33  addis         
@@ -1051,6 +1069,7 @@ Lissaj  0.17  ACertainUser
 List    2.17  有机物           
 Lloyd   0.33  FFjet         
 Lloyd   0.17  addis         
+LnDpd2  0.33  addis         
 LnDpd2  0.33  ACertainUser  
 LoGaug  0.58  addis         
 LoGaug  0.5   JierPeter     
@@ -1072,12 +1091,13 @@ MIthm   0.33  addis
 MLprof  0.17  addis         
 MM      0.75  xuke0422      
 MM      0.25  addis         
-MPIcpp  2.25  addis         
+MPIcpp  3.33  addis         
 MQuivr  0.5   addis         
+MSHO    1.58  JierPeter     
 MWEq    2.08  addis         
 MWEq1   1.25  ACertainUser  
 MWEq1   0.17  addis         
-MWEq2   0.17  JierPeter     
+MWEq2   0.83  JierPeter     
 MWRel   1.17  ACertainUser  
 MWRel   0.92  _Eden_        
 MWRel   0.17  addis         
@@ -1139,13 +1159,13 @@ MeanTh  0.17  addis
 MecThe  0.58  addis         
 MetDfm  4     ACertainUser  
 MetEqv  0.25  addis         
-MetInt  6.33  ACertainUser  
+MetInt  6.75  ACertainUser  
 MetalW  0.5   addis         
 MetalW  0.25  ACertainUser  
 Metri2  2.75  addis         
 Metric  4     addis         
 MinSpa  0.67  JierPeter     
-Mma     12.5  addis         
+Mma     12.92 addis         
 MnfAlg  1.08  JierPeter     
 MoMaMo  0.25  FFjet         
 MoMaMo  0.17  addis         
@@ -1174,9 +1194,10 @@ MxwBzm  1.17  _Eden_
 MxwBzm  0.25  ACertainUser  
 MxwBzm  0.17  addis         
 MyNab   0.42  addis         
-NCLT    2.83  ACertainUser  
+NCLT    3.58  ACertainUser  
+NCLT    0.33  addis         
 NDtalr  0.83  addis         
-NFS     0.5   addis         
+NFS     1     addis         
 NFTran  0.33  addis         
 NFTran  0.17  零穹            
 NJU12   0.58  切糕糕           
@@ -1206,7 +1227,7 @@ NbodyM  1     addis
 NdFuri  0.83  addis         
 NelMea  1.08  addis         
 New2    4.25  addis         
-New3    0.5   addis         
+New3    0.58  addis         
 NineJ   0.67  addis         
 No      0.17  addis         
 NoUnit  1     addis         
@@ -1229,7 +1250,7 @@ ODE     0.25  addis
 ODE1    2.08  addis         
 ODE1    0.83  零穹            
 ODE2P   4.42  JierPeter     
-ODELap  1.25  JierPeter     
+ODELap  1.33  JierPeter     
 ODEPr   3.08  零穹            
 ODEa1   1.42  JierPeter     
 ODEa2   0.67  JierPeter     
@@ -1237,7 +1258,7 @@ ODEa3   1.33  JierPeter
 ODEa4   4.25  JierPeter     
 ODEa4   0.17  chain_        
 ODEb1   2.58  JierPeter     
-ODEb2   1.83  JierPeter     
+ODEb2   1.92  JierPeter     
 ODEb3   1.5   JierPeter     
 ODEb4   1.83  JierPeter     
 ODEint  0.5   JierPeter     
@@ -1249,17 +1270,19 @@ Ode2N   0.17  addis
 OdeMid  0.25  addis         
 OdeNum  0.42  addis         
 OdeRK4  1.08  addis         
+OneAPI  0.58  addis         
 OnePol  1.67  零穹            
 OnePol  0.17  addis         
 OpComu  0.67  addis         
 OpExp   0.5   addis         
 OpMat   0.42  addis         
 OpenMP  0.33  addis         
-OprQM   0.67  JierPeter     
+OprQM   0.83  JierPeter     
 OrNrB   0.92  addis         
 OrdRel  0.17  hfb25         
 OriSur  0.42  JierPeter     
 OribP   0.25  addis         
+Orient  2.75  JierPeter     
 OrthSb  0.58  addis         
 OrthSp  1.42  addis         
 Oscil   2.5   _Eden_        
@@ -1273,11 +1296,11 @@ PChain  1.75  addis
 PCuvMo  2     addis         
 PCuvMo  0.33  ACertainUser  
 PERITC  0.92  ACertainUser  
-PETSc   0.42  addis         
+PETSc   0.5   addis         
 PHEC    1.75  零穹            
 PID     0.25  JierPeter     
 PInsEx  4.5   JierPeter     
-PIntQM  2.5   JierPeter     
+PIntQM  2.58  JierPeter     
 PLREMW  0.67  ACertainUser  
 PLaw    1.75  小熊慢慢说         
 PLaw    0.67  addis         
@@ -1286,6 +1309,8 @@ PLaw1   0.83  addis
 PLaw1   0.33  ACertainUser  
 PPlyR   1.08  JierPeter     
 PPrice  0.58  addis         
+PRSTR   0.92  ACertainUser  
+PS      0.5   有机物           
 PSAna   0.17  DTSIo         
 PSys    0.33  addis         
 PTCont  0.33  addis         
@@ -1329,7 +1354,7 @@ PhyQty  0.17  addis
 PiLin   1.83  DTSIo         
 PiLin   0.25  addis         
 Pl2Ylm  3     addis         
-PlyRtS  10    JierPeter     
+PlyRtS  10.08 JierPeter     
 Pmd1    0.58  addis         
 PoiEqu  0.33  addis         
 PoiHP   1.83  JierPeter     
@@ -1337,6 +1362,7 @@ PoiInt  0.17  addis
 PoisD   1.08  addis         
 PolCrd  0.25  addis         
 PolCur  0.58  addis         
+PolLig  0.17  addis         
 PolLig  0.17  Zona          
 PolReq  0.92  零穹            
 Polar   0.42  addis         
@@ -1346,7 +1372,7 @@ PosCov  1.75  DTSIo
 PpgtQM  2     JierPeter     
 PrbJ    0.75  addis         
 Prim    1.58  有机物           
-PrmSol  1.25  addis         
+PrmSol  1.33  addis         
 PrmtEl  3.58  JierPeter     
 PrmtEl  0.5   Giacomo       
 PrmtEl  0.33  addis         
@@ -1377,7 +1403,8 @@ PyNet   0.67  addis
 PyPlot  0.5   addis         
 PyStr   1.42  addis         
 PyType  1.33  addis         
-Python  3     addis         
+PyVenv  0.33  addis         
+Python  3.08  addis         
 Python  2.08  shizy0808     
 QCC     3.17  零穹            
 QCU     5.33  零穹            
@@ -1473,6 +1500,7 @@ RandF   1.83  addis
 RayRit  0.42  addis         
 Rcomb   0.42  零穹            
 Rcomb   0.25  addis         
+Rcomb   0.17  hongjun5555   
 Rconst  0.83  addis         
 ReNum   1.92  DTSIo         
 RePw    1.42  DTSIo         
@@ -1491,7 +1519,7 @@ RelDop  1.08  addis
 RelVel  2.75  JierPeter     
 RelVel  0.33  addis         
 Relat   2.08  hfb25         
-Relat   0.83  JierPeter     
+Relat   0.92  JierPeter     
 Relat   0.33  addis         
 Relat   0.17  lrqlrqlrq     
 ResThe  2.5   JierPeter     
@@ -1499,9 +1527,10 @@ Resist  3.25  addis
 Resist  0.25  FFjet         
 Resist  0.25  ACertainUser  
 ResoN   0.42  addis         
-Restri  1.33  南方迫击炮         
+Restri  1.42  南方迫击炮         
 RetPot  0.58  addis         
 RetPot  0.17  _Eden_        
+RetPt0  0.67  ACertainUser  
 RetPt0  0.33  addis         
 RiLem   0.33  addis         
 RiLem   0.33  DTSIo         
@@ -1510,7 +1539,7 @@ RiMetr  0.33  JierPeter
 RiMetr  0.17  addis         
 RiZeta  0.25  addis         
 RicciC  6.42  JierPeter     
-RieCon  1.83  JierPeter     
+RieCon  2     JierPeter     
 RieCon  0.17  addis         
 RieCon  0.17  Giacomo       
 RieRes  0.58  DTSIo         
@@ -1543,8 +1572,10 @@ SAE     0.58  addis
 SAfSp   3.42  零穹            
 SEsep   0.17  addis         
 SFINAE  0.17  addis         
-SGExp   2.17  JierPeter     
+SFTP    0.25  addis         
+SGExp   2.25  JierPeter     
 SHCal   1.75  JierPeter     
+SHO     1.25  JierPeter     
 SHO     0.33  addis         
 SHOFN   0.33  addis         
 SHOFN   0.25  yuxuanwzy     
@@ -1552,7 +1583,7 @@ SHOSph  1     addis
 SHOfF   0.17  addis         
 SHOgs   0.75  addis         
 SHOq    0.17  addis         
-SIcros  1.17  addis         
+SIcros  1.25  addis         
 SIofTe  6.17  零穹            
 SIunit  2     addis         
 SLG     0.5   _Eden_        
@@ -1560,7 +1591,8 @@ SLISC   2.75  addis
 SLSvec  0.25  addis         
 SLthrm  0.17  addis         
 SNadM   0.83  零穹            
-SQLite  0.33  addis         
+SQLite  1.17  addis         
+SQLnt   2.5   addis         
 SR4Rep  2.25  JierPeter     
 SR4Rep  0.17  addis         
 SRAcc   1.25  JierPeter     
@@ -1579,9 +1611,9 @@ SRc     0.58  addis
 SRsmt   1.75  JierPeter     
 SRsmt   0.33  addis         
 SRtime  1.92  JierPeter     
-SSH     0.75  addis         
+SSH     1.83  addis         
 SSLA    0.42  Giacomo       
-SSSP    1.33  有机物           
+SSSP    1.58  有机物           
 STAlg   3.25  零穹            
 STLstr  3.33  addis         
 STRESS  1.83  ACertainUser  
@@ -1604,6 +1636,7 @@ SchEq   0.33  _Eden_
 SchRo   1.83  零穹            
 SciPy   0.75  shizy0808     
 SciPy   0.33  addis         
+SecQua  2.5   _Eden_        
 SecVar  1.17  零穹            
 SelRul  3.33  addis         
 SemGrp  0.75  JierPeter     
@@ -1765,7 +1798,7 @@ TenAlg  1.58  零穹
 TenMan  0.17  addis         
 TenPT   2.83  zhousiyi      
 TenPT   0.17  addis         
-Tensor  5.42  JierPeter     
+Tensor  5.5   JierPeter     
 Tensor  2.83  addis         
 TestT   2.92  JierPeter     
 TestT   0.17  addis         
@@ -1799,7 +1832,7 @@ Topo3   1.08  JierPeter
 Topo3   0.5   addis         
 Topo4   0.83  JierPeter     
 Topo5   2.25  JierPeter     
-Topo6   1.33  JierPeter     
+Topo6   1.42  JierPeter     
 Topo6   0.25  addis         
 Topo7   1.92  JierPeter     
 Topo7   0.17  addis         
@@ -1822,6 +1855,7 @@ Tri2St  1.25  coppersoulfate
 Tri2St  0.58  addis         
 TriAre  1.33  Liu Yiran     
 TriAre  0.17  addis         
+TriCom  0.5   addis         
 TriCom  0.33  赵淦是           
 TriCro  0.42  addis         
 TriEqv  1.83  addis         
@@ -1837,6 +1871,7 @@ Twins   1.25  JierPeter
 TwoAtF  0.17  addis         
 TwoBD   0.5   addis         
 TwoCld  0.17  addis         
+TychT   2.17  JierPeter     
 UCBas   0.5   addis         
 UEnAl   0.67  Giacomo       
 UFD     0.58  JierPeter     
@@ -1913,6 +1948,7 @@ VisSpt  0.67  addis
 VnA     0.58  ACertainUser  
 VnA     0.33  addis         
 VnA1    0.92  addis         
+VolFom  0.92  JierPeter     
 Volkov  4     addis         
 Voltag  3.58  addis         
 VopEq   2.33  addis         
@@ -1934,6 +1970,8 @@ Weyl    1.08  zhousiyi
 WheBrg  0.75  addis         
 WienDs  0.5   addis         
 WigDmt  0.33  addis         
+WigThe  3.17  JierPeter     
+WigThe  0.17  addis         
 Worcod  1.25  xzllxls       
 Worcod  0.25  addis         
 WordLe  0.17  xzllxls       
@@ -1942,7 +1980,8 @@ WpEng   1.75  addis
 WrGuid  3.33  addis         
 Wv2D    0.17  addis         
 WvPck   0.33  addis         
-YNGMDL  0.25  ACertainUser  
+XKB     0.75  addis         
+YNGMDL  0.33  ACertainUser  
 YlmNum  0.5   addis         
 YlmTab  0.75  addis         
 Young   1.42  FFjet         
@@ -1976,10 +2015,9 @@ banach  1     DTSIo
 beat    0.17  addis         
 beatno  1.58  addis         
 beatno  0.42  FFjet         
-biblio  0.67  Relo Stern    
-biblio  0.17  kahoyip       
 blkSlp  2.42  零穹            
 blkSlp  1.92  addis         
+boot    1.25  addis         
 braket  1.33  addis         
 cGAN    0.33  xzllxls       
 cau     1.75  zhousiyi      
@@ -1990,6 +2028,7 @@ cgmc    0.33  xzllxls
 chemBl  0.58  ACertainUser  
 chgrad  3     _Eden_        
 chkSum  1.67  addis         
+chroot  0.58  addis         
 classi  4.58  zhousiyi      
 code    0.17  addis         
 combin  1.58  jingyuan      
@@ -2006,6 +2045,7 @@ cppFil  0.17  addis
 cppInt  1.75  addis         
 cppNsp  0.25  addis         
 cppOp   0.25  addis         
+cppThr  0.5   addis         
 cryele  1.83  _Eden_        
 crypto  4.33  addis         
 cublas  0.83  addis         
@@ -2029,10 +2069,11 @@ dpecs   0.25  虫大
 draft   0.17  addis         
 draw    0.17  Jelly         
 earnsh  0.17  addis         
+earnsh  0.17  ACertainUser  
 ebull   1.75  _Eden_        
-edTODO  34.67 addis         
+edTODO  35.33 addis         
 editIn  0.83  addis         
-editor  11.08 addis         
+editor  11.25 addis         
 edy33   2.92  水铭            
 edy33   1.5   _Eden_        
 edy33   0.67  addis         
@@ -2040,7 +2081,7 @@ edy34   1.17  水铭
 edy34   0.33  addis         
 egasmd  1.33  _Eden_        
 eleDP2  0.75  addis         
-eleDpl  2.5   JierPeter     
+eleDpl  2.58  JierPeter     
 eleDpl  1.92  addis         
 eleDpl  0.58  ACertainUser  
 elecdy  0.92  水铭            
@@ -2052,6 +2093,7 @@ exp     0.42  _Eden_
 exp     0.17  addis         
 exp     0.17  DTSIo         
 factor  0.33  addis         
+fdisk   2.33  addis         
 field   1.83  JierPeter     
 field   0.75  addis         
 field   0.17  stewardpopput4
@@ -2068,14 +2110,14 @@ g       0.25  addis
 gasTra  0.33  _Eden_        
 gdbNt   0.58  addis         
 gdbcpp  2.33  addis         
-geodes  1.42  JierPeter     
+geodes  1.92  JierPeter     
 geodes  0.17  addis         
-gpp     0.83  addis         
-gppLib  2.42  addis         
+gpp     1.33  addis         
+gppLib  2.75  addis         
 hash    0.75  有机物           
-heap    2.42  有机物           
+heap    2.5   有机物           
 heap    0.17  addis         
-heatc   3.33  _Eden_        
+heatc   3.42  _Eden_        
 heatc   0.5   ACertainUser  
 hh      0.17  shiyue        
 hhh     2.67  shiyue        
@@ -2084,7 +2126,7 @@ hhh     0.17  addis
 hhh     0.17  Chain         
 hhhh    0.17  Chain         
 homomo  0.58  addis         
-hsort   0.67  有机物           
+hsort   0.75  有机物           
 imgFrm  0.33  addis         
 impeda  1.33  addis         
 impeda  0.25  coppersoulfate
@@ -2093,6 +2135,7 @@ impro   0.33  addis
 infSer  0.17  addis         
 infty   0.25  addis         
 intech  2.08  赵淦是           
+intech  0.25  addis         
 intera  3.5   zhousiyi      
 intera  0.33  addis         
 intger  1.33  JierPeter     
@@ -2106,7 +2149,8 @@ inv6    0.17  addis
 inv7    0.25  lxe           
 inv9    1.08  lxe           
 jQuery  1.17  addis         
-julia   8.83  addis         
+json    0.5   addis         
+julia   9     addis         
 julias  0.33  addis         
 keldis  1.67  addis         
 kramer  0.67  ACertainUser  
@@ -2118,15 +2162,15 @@ limff   0.58  _Eden_
 limfx   0.5   _Eden_        
 linDpe  0.83  addis         
 linmat  2.33  Relo Stern    
-main    44    addis         
-main    8.92  JierPeter     
+main    45.42 addis         
+main    9.33  JierPeter     
 main    6.5   DTSIo         
+main    6.33  xzllxls       
 main    6.33  Giacomo       
-main    6     xzllxls       
-main    3.33  _Eden_        
+main    3.58  _Eden_        
 main    2.5   零穹            
+main    1.58  ACertainUser  
 main    1.42  jingyuan      
-main    1.42  ACertainUser  
 main    1.08  zhousiyi      
 main    0.5   Relo Stern    
 main    0.33  kahoyip       
@@ -2139,7 +2183,8 @@ map     4.25  addis
 map     0.75  JierPeter     
 matb    1.17  addis         
 math    0.17  fsf王          
-mbdy    0.67  ACertainUser  
+math1   0.25  sxmathzhg     
+mbdy    1.08  ACertainUser  
 mbdy    0.17  addis         
 meromo  0.33  addis         
 mfcgas  2.92  _Eden_        
@@ -2160,11 +2205,12 @@ onatom  0.75  _Eden_
 onatom  0.25  addis         
 ovfit   0.75  xzllxls       
 parti   1.33  zhousiyi      
+pdb     0.17  addis         
 permu   1     zhaojiayu     
 permu   0.17  御坂10032       
 permut  0.92  jingyuan      
 permut  0.67  addis         
-pip     1     addis         
+pip     1.08  addis         
 plan    0.25  addis         
 plt2xy  0.58  addis         
 poison  0.42  addis         
@@ -2190,7 +2236,8 @@ queue   0.67  有机物
 regex   1.25  addis         
 rl      0.83  xzllxls       
 rl      0.17  addis         
-rod     1.08  addis         
+rod     1.17  addis         
+rod     0.42  huyushuo      
 rotOp   0.25  addis         
 rules   1.92  addis         
 scalar  1.33  zhousiyi      
@@ -2203,6 +2250,7 @@ sftens  1.25  _Eden_
 shenry  0.17  hfb25         
 shenry  0.17  addis         
 sinc    0.75  addis         
+snap    3.33  addis         
 socpl   2.67  _Eden_        
 socpl   0.17  addis         
 spacet  0.25  addis         
@@ -2221,10 +2269,10 @@ tDelay  2.17  addis
 tabtkd  0.17  addis         
 tbappx  1.58  _Eden_        
 templt  0.42  addis         
-test    3.17  addis         
+test    3.33  addis         
 test    0.17  leon2         
 test    0.17  freebr        
-test1   0.5   addis         
+test1   0.67  addis         
 test1   0.25  Liu Yiran     
 test2   0.5   addis         
 test3   0.17  addis         
