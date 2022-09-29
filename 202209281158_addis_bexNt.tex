@@ -1,0 +1,97 @@
+% 北太天元插件开发笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item 对象临时托管到 BALTAM 中时，必须从 \verb|baltam::extern_obj_base| 继承
+\begin{lstlisting}[language=cpp, caption=extern\_obj.h节选]
+struct extern_obj_base {
+    virtual extern_obj_base* dup() const { return nullptr; }
+    virtual ~extern_obj_base() {};
+    virtual std::string to_string() const { return ""; }
+    virtual std::string classname() const { return "extern object"; };
+    int sid; ///< 整数，用于存储内核自动分配的外部类 ID
+};
+\end{lstlisting}
+\end{itemize}
+
+\subsection{插件的 main.cpp}
+\begin{itemize}
+\item \verb|#define PLUGIN_NAME "vector"| 定义插件名称
+\item bxArray 相当于 Matlab api 的 \href{https://www.mathworks.com/help/matlab/apiref/mxarray.html}{mxArray}， 基本上就是 Matlab 的矩阵， 什么都能装．
+\end{itemize}
+
+\begin{lstlisting}[language=cpp,caption=vector 插件的 main.cpp]
+// 声明要实现的函数
+...
+// 声明帮助
+...
+// 自定义 class， 必须继承于 extern_obj_base
+...
+struct bVector : public extern_obj_base {
+    std::vector<bxArray*> data;
+    BALTAM_LOCAL static int ID;
+    extern_obj_base *dup() const override;
+    ~bVector() override;
+    // 可选：转化为字符串的实现
+    std::string to_string() const override;
+    // 可选：自定义类型名字
+    std::string classname() const override;
+};
+
+// 并定义插件的 ID 这一静态变量（会被内核使用）
+int bVector::ID = 0;
+
+// 复制这个对象（duplicate）
+// bex 就相当于 matlab 的 mex 哈哈哈
+extern_obj_base *bVector::dup() const {
+    bVector *ret = new bVector(*this);
+    for (size_t i = 0; i < this->data.size(); ++i){
+#ifdef BV_USE_DYN_LOADER
+        ret->data[i] = bex::__bxDuplicateArray(data[i]);
+#else
+        ret->data[i] = bxDuplicateArray(data[i]);
+#endif
+    }
+    return ret;
+}
+
+// 把 vector<> 中的每个 bxArray 毁灭
+bVector::~bVector(){
+    for (auto &i : data){
+#ifdef BV_USE_DYN_LOADER
+        bex::__bxDestroyArray(i);
+#else
+        bxDestroyArray(i);
+#endif
+    }
+}
+
+// 打印这个对象
+std::string bVector::to_string() const {...}
+
+// 自定义类型的名字
+std::string bVector::classname() const {
+    return "bVector";
+}
+
+// 显示 bVector 信息
+// bxGetExtObj() 把 bxArray 转换为外部对象
+void bv_show(int, bxArray *[], int nrhs, const bxArray *prhs[]){
+    if (nrhs > 1){
+        return;
+    }
+    bVector *bv = bxGetExtObj<bVector>(prhs[0], bex::__bxGetExtObj_impl);
+    for (size_t i = 0; i < bv->data.size(); ++i){
+        std::cout << '[' << i << "]    "
+            << bex::__bxTypeCStr(bv->data[i]) << std::endl;
+    }
+}
+\end{lstlisting}
+
+\begin{itemize}
+\item 
+\end{itemize}
+

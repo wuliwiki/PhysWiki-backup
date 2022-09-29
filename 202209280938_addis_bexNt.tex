@@ -1,0 +1,33 @@
+% 北太天元插件开发笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{lstlisting}[language=cpp, caption=extern\_obj.h节选]
+namespace baltam {
+    /**
+     * @class extern_obj_base
+     * @brief 所有不属于 BALTAM 的外部对象基类．
+     *
+     * 当合作开发者/社区开发者使用 C++ 开发并且需要将某些对象临时托管到 BALTAM 中时，
+     * 必须从这个类继承．
+     *
+     * 软件内核对该类对象仅定义抽象的方法，具体实现交给开发者．软件无需了解
+     * @p extern_obj_base 子类的实现细节．
+     */
+    struct extern_obj_base {
+        virtual extern_obj_base* dup() const { return nullptr; }
+        virtual ~extern_obj_base() {};
+        virtual std::string to_string() const { return ""; }
+        virtual std::string classname() const { return "extern object"; };
+        int sid; ///< 整数，用于存储内核自动分配的外部类 ID
+    };
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=cpp,caption=vector 插件的 main.cpp]
+#define PLUGIN_NAME "vector" // 定义插件名称
+
+\end{lstlisting}
