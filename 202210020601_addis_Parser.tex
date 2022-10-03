@@ -1,0 +1,19 @@
+% 编译器/解释器简介
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item 参考\href{https://www.toptal.com/scala/writing-an-interpreter}{这篇文章}，还有\href{https://www.youtube.com/watch?v=Xu4RtLlm42I}{这个}
+
+\item lexer
+\item parser
+\item interpreter
+\item abstract syntax tree (AST)
+\item domain-specific languages (DSLs)
+\item baltam 用的是 \href{https://www.gnu.org/software/bison/}{bison} 和 \href{https://www.genivia.com/doc/reflex/html/}{RE/flex}
+\item 用 bison 实现一个简单科学计算器（包括变量赋值和基本函数） 的例子 \href{http://web.mit.edu/gnu/doc/html/bison_5.html}{Multi-Function Calculator: mfcalc}．
+\item \href{https://en.wikipedia.org/wiki/LR_parser}{LR parser}
+\item 纯手写 c 编译器\href{https://norasandler.com/2017/11/29/Write-a-Compiler.html}{教程}．
+\end{itemize}
