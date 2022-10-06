@@ -1,0 +1,35 @@
+% 开根号的数值计算
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Methods_of_computing_square_roots}{相关页面}．}使用迭代公式．
+\begin{equation}
+y_{i+1} = y_i + \frac{x}{y_i}
+\end{equation}
+收敛速度如何？ 如何证明收敛？
+
+其实我们完全可以这样（Python版）：
+\begin{lstlisting}[language=python]
+import math
+def p(n):
+    if n < 0 :
+        return False
+    elif n == 0 or n == 1:
+        return n
+    else :
+        x0 = n / 2
+        x1 = (x0 + n / x0) /2
+        while True:
+            x0 = x1
+            x1 = (x0 + n / x0) /2
+            if (x0 - x1) <= 1e-6:
+                return x1
+                break
+            else :
+                continue
+
+n = float(input("请输入需要开方的值："))
+print(p(n))
+\end{lstlisting}

@@ -1,0 +1,94 @@
+% 分块矩阵
+
+\pentry{矩阵\upref{Mat}}
+
+把一个矩阵分成若干个子矩阵，称为\textbf{矩阵的分块}，将矩阵看作是由子矩阵组成的矩阵，这种矩阵称为\textbf{分块矩阵}.
+
+构造分块矩阵的好处在于，使得矩阵的结构变得更加清楚，而且使得矩阵的运算通过它们的分块矩阵形式来进行，从而可以使有关矩阵的问题变得更加容易解决．
+\begin{equation}
+\mat M=
+\begin{pmatrix}
+\mat A & \mat B\\
+\mat C & \mat D
+\end{pmatrix}
+\end{equation}
+
+容易由矩阵的加法运算定义得到分块矩阵的加法运算规律
+
+\begin{equation}
+\mat A+\mat B=
+\begin{pmatrix}
+\mat A_1 & \mat A_2\\
+\mat A_3 & \mat A_4
+\end{pmatrix}
++
+\begin{pmatrix}
+\mat B_1 & \mat B_2\\
+\mat B_3 & \mat B_4
+\end{pmatrix}
+=
+\begin{pmatrix}
+\mat A_1+\mat B_1 & \mat A_2+\mat B_2\\
+\mat A_3+\mat B_3 & \mat A_4+\mat B_4
+\end{pmatrix}
+\end{equation}
+
+由矩阵的数乘定义得到分块矩阵的数乘运算规律
+
+\begin{equation}
+k\mat A=
+k\begin{pmatrix}
+\mat A_1 & \mat A_2\\
+\mat A_3 & \mat A_4
+\end{pmatrix}
+=
+\begin{pmatrix}
+k\mat A_1 & k\mat A_2\\
+k\mat A_3 & k\mat A_4
+\end{pmatrix}
+\end{equation}
+\textsl{其中$\mat A$是定义在数域$K$上的矩阵，$k\in{K}$}
+
+分块矩阵的转置运算为
+
+\begin{equation}
+\mat A=
+\begin{pmatrix}
+\mat A_1 & \mat A_2\\
+\mat A_3 & \mat A_4
+\end{pmatrix}
+,
+\mat A'
+=
+\begin{pmatrix}
+\mat A_1' & \mat A_3'\\
+\mat A_2' & \mat A_4'
+\end{pmatrix}
+\end{equation}
+
+\begin{theorem}{分块矩阵的乘法}
+在数域$K$上，设矩阵$A\in{M_{s\times{n}}(K)},B\in{M_{n\times{m}}(K)}$．分别对两个矩阵分块，使得
+\begin{enumerate}
+\item $\mat A$分块的列组数等于$\mat B$分块的行组数（块数）.
+\item $\mat A$的每个列组所含的列数\textbf{对应}等于$\mat B$的每个行组所含的行数．
+\end{enumerate}
+则分块矩阵的乘法类似地满足矩阵乘法运算规律
+\begin{equation}
+\mat A\mat B=
+\begin{pmatrix}
+\mat A_1 & \mat A_2\\
+\mat A_3 & \mat A_4
+\end{pmatrix}
+\begin{pmatrix}
+\mat B_1 & \mat B_2\\
+\mat B_3 & \mat B_4
+\end{pmatrix}
+=
+\begin{pmatrix}
+\mat A_1\mat B_1+\mat A_2\mat B_3 & \mat A_1\mat B_2+\mat A_2\mat B_4\\
+\mat A_3\mat B_1+\mat A_4\mat B_3 & \mat A_3\mat B_2+\mat A_4\mat B_4
+\end{pmatrix}
+\end{equation}
+\end{theorem}
+\textsl{和矩阵乘法规则的区别在于矩阵乘法的相对顺序不能改变，因为矩阵乘法没有交换律}
+
