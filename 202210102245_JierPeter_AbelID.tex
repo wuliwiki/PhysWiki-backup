@@ -1,0 +1,87 @@
+% 阿贝尔微分方程恒等式
+% 朗斯基行列式|Wronski行列式|Wronskian|线性微分方程|Abel's Identity|Abel's Formula|阿贝尔公式
+
+本文翻译并节选自WikiPedia的\href{https://en.wikipedia.org/wiki/Abel\%27s_identity}{Abel's Identity}．
+
+
+\subsection{综述}
+
+在数学中，\textbf{阿贝尔恒等式（Abel's identity）}（亦称\textbf{阿贝尔公式（Abel's formula）}\footnote{ Rainville, Earl David; Bedient, Phillip Edward (1969). \href{https://archive.org/details/elementarydiffer00rain}{ Elementary Differential Equations} . Collier-Macmillan International Editions.} 或者 \textbf{阿贝尔微分方程恒等式(Abel's differential equation identity)}），是一个等式，用于表示一个二阶齐次线性常微分方程的两个解的朗斯基行列式，只需要用到原方程的系数．这一关系也可以推广到$n$阶的线性微分方程．该恒等式命名自挪威数学家Niels Henrik Abel．
+
+由于阿贝尔恒等式把微分方程不同的线性独立解联系起来了，因此它也可以用来从一个特解得到另一个特解．它给出了解之间很有用的恒等关系，同时也在参数变易法（variation of parameters）等其它技巧中功不可没．在Bessel方程等无法给出简单解析解的方程中尤其有用，因为这些情况下朗斯基行列式非常难算．
+
+用\href{https://en.wikipedia.org/wiki/Liouville\%27s_formula}{Liouville公式}能将阿贝尔恒等式推广到齐次线性微分方程的一阶系统上．
+
+
+
+\subsection{公式描述}
+
+考虑二阶齐次线性微分方程
+\begin{equation}\label{AbelID_eq1}
+y'' + p(x)y' +q(x)y = 0
+\end{equation}
+其中$p, q$是实数轴上一区间$I$上的连续函数，函数值为实数或者复数．
+
+阿贝尔恒等式是说，对于\autoref{AbelID_eq1} 的任意两个解$y_1, y_2$以及任意$x_0\in I$，其朗斯基行列式$W[y_1, y_2]$满足以下等式：
+\begin{equation}\label{AbelID_eq4}
+W[y_1, y_2](x) = W[y_1, y_2](x_0)\cdot \exp\qty(-\int _{x_0}^x p(z)\dd z), \quad x\in I
+\end{equation}
+
+
+\subsubsection{批注}
+
+\begin{itemize}
+\item 特别地，朗斯基行列式$W[y_1, y_2]$在$I$上要么恒等于$0$，要么恒大于$0$，要么恒小于$0$．对于恒大于或小于$0$的情况，$y_1$和$y_2$就是线性无关的．
+\item 没必要假设$y_1$和$y_2$的二阶导数连续．
+\item 阿贝尔这个定理在$p(x)=0$的时候尤其好用，因为此时$W$是常数．
+\end{itemize}
+
+
+\subsubsection{定理证明}
+
+考虑朗斯基行列式
+\begin{equation}
+W[y_1, y_2] = y_1y'_2 - y'_1y_2
+\end{equation}
+两边求导得（省略$x$以简化表达）
+\begin{equation}\label{AbelID_eq3}
+W' = y_1y_2'' - y''_1y_2
+\end{equation}
+
+而从原本的微分方程能得到
+\begin{equation}\label{AbelID_eq2}
+y''_i = -(py'_i+qy_i)
+\end{equation}
+
+把\autoref{AbelID_eq2} 代入\autoref{AbelID_eq3} 得到
+\begin{equation}
+\ali{
+    W' &= -y_1(py'_2 + qy_2) + y_2(py'_1 + qy_1)\\
+    &= p(-y_1y'_2 + y'_1y_2)\\
+    &= -pW
+}
+\end{equation}
+这是一个一阶常微分方程，其解正是阿贝尔恒等式\autoref{AbelID_eq4} ．
+
+由于$p$在$I$上连续，因此它在$I$的任何有界闭子区间上有界且可积，从而使得下列函数有良好定义：
+\begin{equation}\label{AbelID_eq5}
+V(x) = W(x) \exp\qty(\int_{x_0}^x p(\xi)\dd \xi),\quad x\in I
+\end{equation}
+对\autoref{AbelID_eq5} 两边求导可得
+\begin{equation}
+\ali{
+    V(x) &= ( W'(x) + W(x) p(x) )\exp\qty(\int_{x_0}^x p(\xi)\dd \xi)
+}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
