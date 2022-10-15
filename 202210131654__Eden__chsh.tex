@@ -1,0 +1,32 @@
+% Bell 不等式与 CHSH 不等式
+% EPR佯谬|定域隐变量理论|Bell 不等式|CHSH 不等式
+
+\pentry{EPR 佯谬与定域隐变量理论\upref{EPR}}
+
+1964 年，Bell 给出了基于定域隐变量假定得出 Bell 不等式，从而把 EPR 佯谬所引发的一些思辨和哲学性的问题定量化和具体化，得到一个能够通过实验验证的判据．在这之后，1969 年 John Clauser，Michael Horne，Abner Shimony 和 Richard Holt 四人提出了 CHSH 不等式，使得 Bell 检验的实行更容易． 由 CHSH 不等式也可以导出 Bell 不等式，从而得到 Bell 定理，即\textbf{局域隐变量理论}\footnote{爱因斯坦等人于 EPR 佯谬的论文中提出的一个不同于正统量子力学的理论，基于局域实在论的假设，并假设一个完备的理论需要隐变量去刻画．}不能再现量子力学纠缠的某些结果．因此下面将直接给出 CHSH 不等式的证明．
+
+\subsection{Bell 实验与定域隐变量理论}
+我们仍然以 Bohm 表述下的 Bell 实验为例，假设 Alice 通过用测量方式 $x$ 得到粒子 $A$ 沿 $\bvec n_x$ 方向的自旋．Bob 通过测量方式 $y$ 得到粒子 $B$ 沿 $\bvec n_y$ 方向的自旋．假设 Alice 得到的测量结果为 $a$，Bob 得到的测量结果为 $b$．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/chsh_1.png}
+\caption{Bell 实验} \label{chsh_fig1}
+\end{figure}
+
+为了为了简化讨论，假设测量结果取值为 $\{-1,1\}$，因此相应的物理量测量算符可以表达为 $\bvec \sigma \cdot \bvec n$（注意到自旋 $\bvec S=\bvec \sigma/2$ 在各个方向上的本征值为 $\pm 1/2$）．
+
+回忆定域隐变量的基本假定：在粒子源产生两粒子时，$A,B$ 两粒子携带着隐变量 $\lambda$，它可能包含了粒子源产生两粒子时周围的一切环境因素和其他人们不知道和无法测量的信息．总之隐变量 $\lambda$ 在集合 $\Lambda$ 中以 $q(\lambda)$ 的概率分布函数被随机采样．我们有以下基本关系式：
+
+\begin{equation}
+\begin{aligned}
+&P(a|x)=\int \dd \lambda q(\lambda)P(a|x,\lambda),\\
+&P(b|y)=\int \dd \lambda q(\lambda)P(b|y,\lambda),\\
+&P(ab|xy)=\int \dd \lambda q(\lambda)P(ab|xy,\lambda)
+\end{aligned}
+\end{equation}
+其中 $P(a|x,\lambda)$ 代表由测量 $x$ 和隐变量 $\lambda$ 导致得到测量结果 $a$ 的概率．根据定域论，$A,B$ 两粒子的测量结果在统计上应当是独立的，即：
+\begin{equation}
+P(ab|xy,\lambda)=P(a|x,\lambda)P(b|y,\lambda)
+\end{equation}
+\subsection{CHSH 不等式}
