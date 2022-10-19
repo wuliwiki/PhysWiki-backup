@@ -1,0 +1,57 @@
+% 矩阵李群
+% 矩阵李群|李群
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{一般线性群\upref{GL}，域上的代数\upref{AlgFie}}
+
+% 我希望把这个词条写成不需要微分几何前置的样子，参见GTM222
+\subsection{矩阵李群}
+
+$M_n(\mathbb{C})$ 是全体 $n \times n$ 复矩阵的集合．作为一个向量空间，它同构于 $\mathbb{C}^{n^2}$．作为一个有限维度实向量空间\footnote{复向量空间当然也是实向量空间}，它也是一个拓扑空间，而且和 $\mathbb{C}^{n^2}$ 是同胚的．
+
+$M_n(\mathbb{C})$ 和 $\mathbb{C}^{n^2}$ 不同的地方在于，它本身构成一个 $\mathbb{C}$-代数，即矩阵的乘法．
+
+\addTODO{考虑将这部分移动到《一般线性群》里}
+
+全体 $n \times n$ 可逆矩阵的集合 $\opn{GL}(n, \mathbb{C}) \subseteq M_n(\mathbb{C})$ 构成一个群，同时也是拓扑空间 $M_n(\mathbb{C})$ 的一个开集合（因此是个子流形）．
+
+\begin{definition}{矩阵李群}
+对于群 $\opn{GL}(n, \mathbb{C})$ 的子群 $G$，$G$ 被称为一个\textbf{矩阵李群}如果它是 $\opn{GL}(n, \mathbb{C})$ 的一个闭子集． Definition 1.4 \cite{GTM222} 
+\end{definition}
+
+对于一个矩阵李群 $G$，我们有
+$$
+G \subseteq \opn{GL}(n, \mathbb{C}) \subseteq M_n(\mathbb{C})
+$$
+$G$ 在 $\opn{GL}(n, \mathbb{C})$ 是闭的，但在 $M_n(\mathbb{C})$ 不一定．
+
+\subsection{例子}
+
+\begin{example}{}
+$$\opn{SL}(n, \mathbb{C}) \subseteq \opn{GL}(n, \mathbb{C})$$
+$$\opn{GL}(n, \mathbb{R}) \subseteq \opn{GL}(n, \mathbb{C})$$
+$$\opn{SL}(n, \mathbb{R}) \subseteq \opn{GL}(n, \mathbb{C})$$
+\end{example}
+
+\subsubsection{幺正群和正交群}
+\addTODO{定义}
+\subsubsection{广义正交群}
+\addTODO{定义}
+
+\addTODO{定义：洛伦兹群}
+
+\addTODO{定理：在复数下只有一种正交群}
+
+\subsection{矩阵李群是李群}
+\pentry{李群\upref{LieGrp}}
+
+\begin{theorem}{}
+矩阵李群是 $\opn{GL}(n, \mathbb{C})$ 的子李群
+\end{theorem}
+
+\begin{exercise}{}
+证明它．
+\end{exercise}
