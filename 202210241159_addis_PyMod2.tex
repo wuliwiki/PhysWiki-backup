@@ -1,0 +1,19 @@
+% Python 创建模块笔记
+
+\subsection{区分脚本和模块}
+有时候我们希望同一个 \verb|.py| 文件既可以作为脚本直接执行也可以作为模块被导入， 并且该文件可以根据这两种方式自动选择执行什么． 这是可以用 \verb|__name__| 来判断：
+\begin{lstlisting}[language=mymodule2.py]
+# 函数
+def plus1(num):
+    return num + 1
+# 全局变量
+num = 3.5
+num2 = plus1(num)
+# 根执行一些命令（无论作为脚本还是模块）
+print('欢迎使用 mymodule.py')
+
+if __name__ == '__main__':
+    print('mymodule.py 正在被作为脚本执行')
+else:
+    print('mymodule.py 正在被作为模块执行， __name__ 的值为', __name__)
+\end{lstlisting}
