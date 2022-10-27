@@ -1,0 +1,12 @@
+% LVM 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item LVM 可以用于把若干个物理硬盘合并为一整个逻辑硬盘， 并在上面划分若干逻辑分区， 这些分区可以随时伸缩．
+\item 据说 overhead 很小， 基本不影响读写速度．
+\item 用虚拟机 ubuntu18_server3 照着这个教程实验了一遍成功了，非常棒 https://www.howtoforge.com/linux_lvm
+\item 如果重启， mount 的就没有了， 用 \verb`sudo vgscan` 可以找到 volume group， 然后重新 mount 如百科服务器的 \verb`mount /dev/LVM/data /mnt/drive`
+\end{itemize}
