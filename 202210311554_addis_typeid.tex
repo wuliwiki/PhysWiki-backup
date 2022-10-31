@@ -1,0 +1,13 @@
+% C++ 的 typeid 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item \href{https://en.cppreference.com/w/cpp/language/typeid}{参考}
+\item 使用 \verb|typeid| 关键字必须使用 \verb|<typeinfo>| 头文件
+\item \verb|auto ret = typeid(变量)| 或者 \verb|auto ret = typeid(类型)| 都会返回 \verb|const std::type_info&| 类型．
+\item 用 \verb|ret.name()| 会返回一个表示该类型的字符串， 但并不一定是 human readable 的（例如 g++）．
+\item 所以检查变量类型最好的办法还是在 \verb|gdb|\upref{gdbNt} 用 \verb|ptype 变量|． 检查长度用 \verb|p sizeof(变量)|． \verb|typeid| 一般只用于检查两个类型是否相同或者一个变量是否是某个类型．
+\end{itemize}
