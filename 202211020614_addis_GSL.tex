@@ -1,0 +1,47 @@
+% GNU Scientific Library
+% 科学计算|GNU|GSL|C 语言
+
+\begin{issues}
+\issueDraft
+\issueMissDepend
+\end{issues}
+
+GNU Scientific Library (GSL) 是一个 GNU 开源项目， 由 C 语言写成．
+
+\subsection{安装}
+在 Debian 系统上可执行 \verb|sudo apt install libgsl-dev| 安装．
+
+第二种方法是自己下载源码编译．
+
+\subsubsection{Visual Studio 编译 GSL}
+\begin{itemize}
+\item 其实与其自己编译，可以看看 MSYS2\upref{Mingw} 里面安装 GSL 后的 dll 能不能拿来直接用
+\item 也可以直接到 \href{https://github.com/MacroUniverse/GSL-bin}{GSL-bin repo} 中复制头文件， lib 和 dll 文件
+\end{itemize}
+
+以下介绍如何使用用 CMake 和 Visual Studio 2017 编译 lib 和 dll 以及测试文件（貌似测试的时候有一项会 fail）
+
+\begin{itemize}
+\item Windows 安装 Cmake
+\item 首先下载 GSL \href{https://github.com/ampl/gsl}{源码}（含 CMake）
+\item 打开 CMakeLists.txt 文件， 会提示各个编译器选项怎么设置， 如
+\begin{lstlisting}[language=none]
+    cmake -G"Visual Studio 15 2017 Win64" -DGSL_INSTALL_MULTI_CONFIG=ON \
+          -DBUILD_SHARED_LIBS=ON -DMSVC_RUNTIME_DYNAMIC=ON \
+          <path to gsl sources>
+\end{lstlisting}
+\item 在 PowerShell 里面运行这个貌似会出错， 最稳妥的办法还是用 CMake 的 GUI 界面． 输入源码路径和输出路径， 然后 Configure． 选择 \verb`x64`, \verb`Visual Studio 2017`， \verb`native generator`． 成功以后按照上面的选项勾选 \verb`GSL_INSTALL_MULTI_CONFIG=ON` \verb`BUILD_SHARED_LIBS=ON` \verb`MSVC_RUNTIME_DYNAMIC=ON`， 然后点 generate 即可．
+\item 在输出路径找到 \verb`sln` 文件， 双击打开 Visual Studio 2017， 选 Release， 确认是 x64， 然后在菜单中 Build -> All 即可．
+
+\item 成功之后， dll 文件在 \verb`bin/Release/gsl.dll`， lib 文件在 \verb`Release/gsl.lib`， 头文件在 \verb`gsl` 中．
+\item 要测试， 在 Power Shell 里面 cd 到 CMake 输出目录下， \verb`CTest -VV` 即可 （\verb`-VV` 是 extra verbose）
+\end{itemize}
+
+
+\subsection{使用}
+在编译时加上 linker 选项 \verb|-lgsl| 即可．
+
+\subsection{源码结构}
+\begin{itemize}
+\item \href{https://github.com/MacroUniverse/SLISC}{SLISC} 的源码中实现了自己从部分源码编译．
+\end{itemize}

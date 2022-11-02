@@ -1,0 +1,18 @@
+% 指数（复数）
+% 复数|幂函数|反函数
+
+\begin{issues}
+\issueDraft
+\issueTODO
+\end{issues}
+
+
+\pentry{复变函数\upref{Cplx}}
+
+\subsection{复数幂函数}
+我们再来将复数的幂函数分解为模长和相位的形式（令 $z = \abs{z} \E^{\I\phi(z)}$， $a = a_I + \I a_R$ ）
+\begin{equation}
+z^a = \abs{z}^{a_R} \E^{-\phi(z) a_I} \E^{\I[\ln\abs{z}a_I + \phi(z)a_R]}
+\end{equation}
+可见 $z^a$ 的模长和幅角都分别与 $z$ 和 $a$ 有关． 一般情况下， 这是一个比较复杂的函数， 含有不同的分支（因为 $\phi(z)$ 可以加整数个 $2\pi$）．% 未完成： 分支是什么？
+当且仅当 $a$ 为整数时才不会出现分支． 在数值计算中， 分支切割线出现在 $\phi(z) = \pm\pi$ 处， 这是因为数值计算通常取 $\phi(z)\in(-\pi, \pi]$．
