@@ -1,0 +1,14 @@
+% MPACK 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item \href{https://mplapack.sourceforge.net/}{官方主页} （然而这里下载的安装包在 ubuntu 22.04 下编译出错．
+\item 另见一个 \href{https://github.com/Auto-Mech/MPACK}{github 页面}， 这里说可以直接用 conda 下载编译好的 lib： \verb|conda install -c auto-mech mpack|． 亲测有效， 安装路径在 \verb|~/miniconda3/pkgs/mpack-0.6.8-0/|
+\item 四精度（double double， \verb|DD|）需要使用的 lib 应该是 \verb|libmlapack_dd.so|， 头文件 \verb|mlapack_dd.h|
+\item 源码也可以在笔者的 \href{https://github.com/MacroUniverse/MPACK-source}{github} 下载．
+\item 编译例子 \verb|inv_mat_dd| 成功！ 路径在 \verb|mpack-0.6.7/examples/mlapack/|：
+\item \verb|g++ inv_mat_dd.cpp -I ~/miniconda3/pkgs/mpack-0.6.8-0/include/mpack -I ~/miniconda3/pkgs/mpack-0.6.8-0/include -L ~/miniconda3/pkgs/mpack-0.6.8-0/lib -Wl,-rpath,/home/addis/miniconda3/envs/mpack/lib -l mlapack_dd -l mblas_dd -l qd|
+\end{itemize}
