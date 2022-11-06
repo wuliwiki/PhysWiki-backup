@@ -1,0 +1,67 @@
+% MPACK 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item \href{https://mplapack.sourceforge.net/}{官方主页} （然而这里下载的安装包在 ubuntu 22.04 下编译出错．
+\item 另见一个 \href{https://github.com/Auto-Mech/MPACK}{github 页面}， 这里说可以直接用 conda 下载编译好的 lib： \verb|conda install -c auto-mech mpack|． 亲测有效， 安装路径在 \verb|~/miniconda3/pkgs/mpack-0.6.8-0/|
+\item 四精度（double double， \verb|DD|）需要使用的 lib 应该是 \verb|libmlapack_dd.so|， 头文件 \verb|mlapack_dd.h|
+\item 源码也可以在笔者的 \href{https://github.com/MacroUniverse/MPACK-source}{github} 下载．
+\item 编译例子 \verb|inv_mat_dd| 成功！ 路径在 \verb|mpack-0.6.7/examples/mlapack/|：
+\item \verb|g++ inv_mat_dd.cpp -I ~/miniconda3/pkgs/mpack-0.6.8-0/include/mpack -I ~/miniconda3/pkgs/mpack-0.6.8-0/include -L ~/miniconda3/pkgs/mpack-0.6.8-0/lib -Wl,-rpath,/home/addis/miniconda3/envs/mpack/lib -l mlapack_dd -l mblas_dd -l qd|
+\end{itemize}
+
+\subsection{使用四精度（dd）LAPACK}
+\begin{itemize}
+\item \verb|mlapack_dd.h| 中的 lapack 函数以 \verb|R|（实数）或者 \verb|C|（复数） 开头， 例如 \verb|?gbsv| 函数为 \verb|Rgbsv|
+\begin{lstlisting}[language=cpp]
+void Rgbsv(mpackint n, mpackint kl, mpackint ku, mpackint nrhs,
+dd_real *AB, mpackint ldab, mpackint *ipiv, dd_real *B,
+mpackint ldb, mpackint *info);
+
+void Cgbsv(mpackint n, mpackint kl, mpackint ku, mpackint nrhs,
+dd_complex *ab, mpackint ldab, mpackint *ipiv, dd_complex *b,
+mpackint ldb, mpackint *info);
+\end{lstlisting}
+
+\item \verb|mpackint| 类型为 \verb|long long| （8 字节符号整数）
+\item \verb|dd_real| 类的定义为（头文件 \verb|include/qd/dd_real.h|）
+\begin{lstlisting}[language=cpp]
+struct dd_real {
+    double x[2];
+  public:
+    dd_real(double, double);
+    dd_real(void);
+    dd_real(double);
+    dd_real(int);
+    dd_real(const char *);
+    dd_real(const double *);
+    ...
+};
+\end{lstlisting}
+\item \verb|dd_complex| 类的定义为（头文件 \verb|include/mpack/dd_complex.h|）
+\begin{lstlisting}[language=cpp]
+class dd_complex {
+  private:
+    dd_real re;
+    dd_real im;
+
+  public:
+    dd_complex(void);
+    dd_complex(const dd_complex &);
+    dd_complex(const dd_real &, const dd_real &);
+    dd_complex(const dd_real &);
+    dd_complex(const std::complex<double> &);
+    const dd_real & real(void) const;
+    dd_real & real(void);
+    const dd_real & imag(void) const;
+    dd_real & imag(void);
+    dd_complex & operator=(std::complex<double>);
+    dd_complex & operator=(dd_real);
+    dd_complex & operator=(double);
+    dd_complex & operator+=(const dd_complex &);
+    dd_complex & operator+=(const dd_real &);
+\end{lstlisting}
+\end{itemize}
