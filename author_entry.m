@@ -34,4 +34,7 @@ str = [char(data(:,1)), repmat(' ',N,2), char(data(:,2)), repmat(' ',N,6), char(
 disp('author      entry        time(h)');
 disp('================================');
 disp(str);
+if nargout == 0
+    clear('data');
+end
 end
