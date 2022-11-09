@@ -1,0 +1,17 @@
+% CentOS 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item 目标： 用 Beocat 的 CentOS 7.9.2009 完整 SLISC0．
+\item CentOS 的库一般很老
+\end{itemize}
+
+\subsection{yum 包管理}
+\begin{itemize}
+\item \verb|yum list installed| 检查已安装的包
+\item \verb|yum -y install| 自动同意安装．
+\item 要检查某个包的文件， 用 \verb|yum install yum-utils|， 然后 \verb|repoquery -l 包名|
+\end{itemize}
