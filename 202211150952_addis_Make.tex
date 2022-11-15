@@ -19,7 +19,7 @@
 \begin{lstlisting}[language=makefile]
 ifeq ($(var1), true)
     var2 = false
-else
+else ifneq($(var2), abc)
     ...
 endif
 \end{lstlisting}
@@ -53,4 +53,5 @@ file1.o: file1.f90 file2.o file3.o
 \item \verb|$@| 大概就是 target file （如果 “:” 左边只有一个文件的话）
 \item 如果在 rule 的命令中用 \verb|source 脚本| 会出错， 因为默认 shell 是 \verb|/bin/sh|． 可以用 \verb|. 脚本| 等效替代． 也可以用 \verb|SHELL := /bin/bash|． 但注意这也并不能改变外部的环境变量， 因为 rule 中的命令本身就是在一个新的 shell 中运行的．
 \item 在 rule 的命令中用 \verb|: 要显示的内容| 可以在命令行显示内容． 其中 \verb|: 命令| 不做任何事情．
+\item \verb|make VAR1=... VAR2=...| 可以设置参数（等号两边不能有空格！）， 相当于在 \verb|Makefile| 里面使用 \verb|VAR1=... VAR2=...|， 如果 \verb|Makefile| 里面已经设置了这些参数（默认值）， 那么则会覆盖． 
 \end{itemize}
