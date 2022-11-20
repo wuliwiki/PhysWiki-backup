@@ -1,0 +1,14 @@
+% C++ 的 smart pointer
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\subsection{unique_ptr}
+\begin{itemize}
+\item \verb|unique_ptr<类，删除函数类> p(类指针， 删除函数)|
+\item \verb|删除函数类| 和 \verb|删除函数| 可以省略， 省略后默认用 \verb|delete 类指针|．
+\item 必须初始化， 不存在 \verb|operator=|
+\end{itemize}
+
+\subsection{shared_ptr}
