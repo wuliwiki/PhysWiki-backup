@@ -1,0 +1,50 @@
+% MPLAPACK 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{Lapack 笔记\upref{Lapack}}
+
+\subsection{__float128}
+\begin{itemize}
+\item 源码和 manual 见 \href{https://github.com/nakatamaho/mplapack}{github}．
+\item GCC 里面 \verb|_Float128| 就是 \verb|__float128|
+\item 应该只支持列主元\upref{MatSto}， 没有 \verb|LAPACK_ROW_MAJOR| 或者 \verb|LAPACK_COL_MAJOR| 参数．
+\item 动态链接库： \verb|libmplapack__Float128.so|
+\end{itemize}
+
+\begin{lstlisting}[language=cpp]
+// 包含 mplapack_utils__Float128.h
+#include <mpblas__Float128.h>
+// 包含 mplapack__config.h 和 quadmath.h
+#include <mplapack__Float128.h>
+
+typedef int64_t mplapackint;
+typedef mplapackint mplapacklogical;
+
+// 从 LU 分解计算逆矩阵
+// 所以 mplapack 中的参数和 LAPACKE 并不完全一致， 需要手动查看．
+    // lapacke 的版本
+lapack_int LAPACKE_zgetri
+    (int matrix_layout , lapack_int n , lapack_complex_double *a,
+    lapack_int lda , const lapack_int *ipiv);
+    // mplapack 的版本
+void Cgetri(mplapackint const n, std::complex<_Float128> *a,
+    mplapackint const lda, mplapackint *ipiv,
+    std::complex<_Float128> *work, mplapackint const lwork,
+    mplapackint &info);
+
+// 解带对角矩阵
+    // lapacke 的版本
+lapack_int LAPACKE_zgbsv(int matrix_layout, lapack_int n,
+    lapack_int kl, lapack_int ku, lapack_int nrhs,
+    lapack_complex_double *ab, lapack_int ldab, lapack_int *ipiv,
+    lapack_complex_double *b, lapack_int ldb);
+    // mplapack 的版本
+void Cgbsv(mplapackint const n, mplapackint const kl,
+    mplapackint const ku, mplapackint const nrhs,
+    std::complex<_Float128> *ab, mplapackint const ldab,
+    mplapackint *ipiv, std::complex<_Float128> *b,
+    mplapackint const ldb, mplapackint &info);
+\end{lstlisting}

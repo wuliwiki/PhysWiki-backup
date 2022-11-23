@@ -1,0 +1,33 @@
+% MPLAPACK 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{Lapack 笔记\upref{Lapack}}
+
+\subsection{__float128}
+\begin{itemize}
+\item GCC 里面 \verb|_Float128| 就是 \verb|__float128|
+\item 应该只支持列主元\upref{MatSto}， 没有 \verb|LAPACK_ROW_MAJOR| 或者 \verb|LAPACK_COL_MAJOR| 参数．
+\end{itemize}
+
+\begin{lstlisting}[language=cpp]
+// 包含 mplapack_utils__Float128.h
+#include <mpblas__Float128.h>
+// 包含 mplapack__config.h 和 quadmath.h
+#include <mplapack__Float128.h>
+
+typedef int64_t mplapackint;
+typedef mplapackint mplapacklogical;
+
+// 从 LU 分解计算逆矩阵
+lapack_int LAPACKE_zgetri
+    (int matrix_layout , lapack_int n , lapack_complex_double *a,
+    lapack_int lda , const lapack_int *ipiv);
+
+void Cgetri(mplapackint const n, std::complex<_Float128> *a,
+    mplapackint const lda, mplapackint *ipiv,
+    std::complex<_Float128> *work, mplapackint const lwork,
+    mplapackint &info);
+\end{lstlisting}
