@@ -1,0 +1,137 @@
+% Python 解释器
+% Python|解释器
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\pentry{计算机语言 — 脚本语言（解释型语言）\upref{CpLgg}}
+
+Python解释器由编译器和虚拟机构成，编译器将源代码转换成字节码，然后再通Python虚拟机来逐行执行这些字节码．
+
+python程序执行过程：
+
+\begin{enumerate}
+\item 执行 .py 文件，就会启动python解释器
+
+\item 编译器将源文件解释成字节码
+
+\item 虚拟机将字节码转化成机器语言，与操作系统交互
+
+\item 程序运行结束后，将字节码存到pyc文件，便于后续直接执行
+\end{enumerate}
+
+python解释器有很多种：
+
+\begin{itemize}
+\item CPython：C语言开发，使用最广，默认的解释器
+
+\item IPython：基于CPython之上的交互式解释器
+
+\item PyPy：采用JIT技术，对python代码进行动态编译，追求执行速度
+
+\item Jython：运行在Java平台上的解释器，可以直接编译成Java字节码执行
+IronPython：同理Jython，运行在 .Net 平台上
+\end{itemize}
+
+虽说有那么多种解释器，但是我们常用的还是CPython，而对于Java、.Net平台来说，更常用网络调用来交互．我个人来说，平时测试经常使用IPython，很方便．
+
+Linux/Unix的系统上，一般默认的 python 版本为 2.x，我们可以将 python3.x 安装在 /usr/local/python3 目录中．
+
+安装完成后，我们可以将路径 /usr/local/python3/bin 添加到您的 Linux/Unix 操作系统的环境变量中，这样您就可以通过 shell 终端输入下面的命令来启动 Python3 ．
+
+\begin{lstlisting}[language=bash]
+$ PATH=$PATH:/usr/local/python3/bin/python3    # 设置环境变量
+$ python3 --version
+Python 3.4.0
+\end{lstlisting}
+
+在Window系统下你可以通过以下命令来设置Python的环境变量，假设你的Python安装在 C:\Python34 下:
+
+\begin{lstlisting}[language=bash]
+set path=%path%;C:\python34
+\end{lstlisting}
+
+\subsubsection{交互式编程}
+
+我们可以在命令提示符中输入"Python"命令来启动Python解释器：
+
+\begin{lstlisting}[language=bash]
+$ python3
+\end{lstlisting}
+
+执行以上命令后，出现如下窗口信息：
+
+\begin{lstlisting}[language=bash]
+$ python3
+Python 3.4.0 (default, Apr 11 2014, 13:05:11) 
+[GCC 4.8.2] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+\end{lstlisting}
+
+在 python 提示符中输入以下语句，然后按回车键查看运行效果：
+
+\begin{lstlisting}[language=bash]
+print ("Hello, Python!");
+\end{lstlisting}
+
+以上命令执行结果如下：
+
+\begin{lstlisting}[language=bash]
+Hello, Python!
+\end{lstlisting}
+
+当键入一个多行结构时，续行是必须的．我们可以看下如下 if 语句：
+
+\begin{lstlisting}[language=bash]
+>>> flag = True
+>>> if flag :
+...     print("flag 条件为 True!")
+... 
+flag 条件为 True!
+\end{lstlisting}
+
+\subsubsection{脚本式编程}
+
+将如下代码拷贝至 hello.py文件中：
+
+\begin{lstlisting}[language=python]
+print("Hello, Python!")
+\end{lstlisting}
+
+通过以下命令执行该脚本：
+
+\begin{lstlisting}[language=bash]
+python3 hello.py
+\end{lstlisting}
+
+输出结果为：
+
+\begin{lstlisting}[language=python]
+Hello, Python!
+\end{lstlisting}
+
+在Linux/Unix系统中，你可以在脚本顶部添加以下命令让Python脚本可以像SHELL脚本一样可直接执行：
+
+\begin{lstlisting}[language=python]
+#! /usr/bin/env python3
+\end{lstlisting}
+
+然后修改脚本权限，使其有执行权限，命令如下：
+
+\begin{lstlisting}[language=bash]
+$ chmod +x hello.py
+\end{lstlisting}
+
+执行以下命令：
+
+\begin{lstlisting}[language=bash]
+./hello.py
+\end{lstlisting}
+
+输出结果为：
+
+\begin{lstlisting}[language=bash]
+Hello, Python!
+\end{lstlisting}

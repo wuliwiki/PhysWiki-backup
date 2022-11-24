@@ -1,0 +1,107 @@
+% Python 注释
+% Python|注释
+
+\pentry{Python 输入 & 输出\upref{Pyio}}
+
+\begin{itemize}
+\item 注释可用于解释 Python 代码．
+\item 确保对模块, 函数, 方法和行内注释使用正确的风格．
+\item 注释可用于提高代码的可读性．
+\end{itemize}
+
+\subsection{单行注释}
+Python 中单行注释以 # 开头，例如：
+\begin{lstlisting}[language=python]
+# 这是一个注释，注意标准格式要在#后面加一个空格再加上注释
+print("你好，世界！")  # 这是一个注释，注意在代码尾部的注释标准格式要在#的前面在再加两个空格
+\end{lstlisting}
+
+\subsection{多行注释}
+Python 实际上没有多行注释的语法．
+要添加多行注释，您可以为每行插入一个＃
+\begin{lstlisting}[language=python]
+#这是一个注释
+#这是一个注释
+#这是一个注释
+print("你好，世界！")
+\end{lstlisting}
+
+或者，以不完全符合预期的方式，您可以使用多行字符串．由于 Python 将忽略未分配给变量的字符串文字，因此您可以在代码中添加多行字符串，并在其中添加注释
+\subsubsection{单引号（'''）}
+\begin{lstlisting}[language=python]
+'''
+这是多行注释，用三个单引号
+这是多行注释，用三个单引号 
+这是多行注释，用三个单引号
+'''
+print("Hello, World!")
+\end{lstlisting}
+
+\subsubsection{双引号（"""）}
+\begin{lstlisting}[language=python]
+"""
+这是多行注释，用三个双引号
+这是多行注释，用三个双引号 
+这是多行注释，用三个双引号
+"""
+print("Hello, World!")
+\end{lstlisting}
+
+\subsection{#!/usr/bin/python3 }
+仅仅在\textbf{linux}或\textbf{unix}系统下有作用，在\textbf{windows}下无论在代码里加什么都无法直接运行一个文件名后缀为.py的脚本，因为在windows下文件名对文件的打开方式起了决定性作用．
+\begin{lstlisting}[language=python]
+#!/usr/bin/env python
+或者
+#!/usr/bin/python
+\end{lstlisting}
+\begin{itemize}
+\item 考虑到代码的可移植性，还是建议加上这句话,并且用#!/usr/bin/env python．
+\end{itemize}
+
+\subsubsection{如何理解}
+把这一行语句拆成两部分．第一部分是 \textbf{#!}；第二部分是 \textbf{/usr/bin/python} 或者 \textbf{/usr/bin/env python} ．关于 \textbf{#!} 这个符号，其实它是有名字的，叫做 Shebang 或者Sha-bang ，有的翻译组将它译作 释伴，即“解释伴随行”的简称，同时又是Shebang的音译．
+
+Shebang通常出现在类Unix系统的脚本中第一行，作为前两个字符．在Shebang之后，可以有一个或数个空白字符，后接解释器的绝对路径，用于指明执行这个脚本文件的解释器
+\begin{lstlisting}[language=bash]
+... # python
+等阶
+... # usr/bin/python
+\end{lstlisting}
+
+如果不加 \textbf{#!} 的话，你每次执行这个脚本时，都得这样 python xx.py
+\begin{lstlisting}[language=bash]
+... # python hellp.py
+hello
+\end{lstlisting}
+
+有没有一种方式？可以省去每次都加 python 呢？
+
+当然有，在文件头里加上#!/usr/bin/python ，那么当这个文件有可执行权限 时，只直接写这个脚本文件，就像下面这样
+\begin{lstlisting}[language=bash]
+... # ./hellp.py
+hello
+\end{lstlisting}
+
+那么 !/usr/bin/env python 是什么意思？
+
+当执行 env python 时，自动进入了 python console 的模式．
+
+当你执行 env python 时，它其实会去 env | grep PATH 里（也就是 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin ）这几个路径里去依次查找名为python的可执行文件．
+
+找到一个就直接执行，上面我们的 python 路径是在 /usr/bin/python 里，在 PATH 列表里倒数第二个目录下，所以当我在 /usr/local/sbin 下创建一个名字也为 python 的可执行文件时，就会执行 /usr/bin/python 了．
+
+个人感觉应该优先使用 #!/usr/bin/env python，因为不是所有的机器的 python 解释器都是 /usr/bin/python ．
+
+\subsection{coding = utf-8 }
+\begin{lstlisting}[language=python]
+# -*- coding: UTF-8 -*-
+或者
+# coding=utf-8
+\end{lstlisting}
+\begin{itemize}
+\item 作用：将编码格式改为utf-8格式
+\item Python版本：Python2中默认的编码格式为ASCII码格式，Python3中默认的编码格式为UTF-8格式．
+\item 使用原因：在ASCII码格式下不能出现中文字符（代码或注释都不可以），否则就会报错，只有在utf-8格式下才能正常编译运行．所以在Python2版本下，只要出现中文，一定要加上这句头部声明．
+\item 代码的可移植性：Python3的默认格式就是utf-8，这句话对它就没有意义了，但是考虑到代码的可移植性，还是建议加上这句话．
+\end{itemize}
+

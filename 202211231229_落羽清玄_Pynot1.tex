@@ -1,0 +1,64 @@
+% Python 注释
+% Python|注释
+
+\begin{itemize}
+\item 注释可用于解释 Python 代码．
+\item 确保对模块, 函数, 方法和行内注释使用正确的风格．
+\item 注释可用于提高代码的可读性．
+\end{itemize}
+
+\subsection{单行注释}
+Python 中单行注释以 # 开头，例如：
+\begin{lstlisting}[language=python]
+# 这是一个注释，注意标准格式要在#后面加一个空格再加上注释
+print("你好，世界！")  # 这是一个注释，注意在代码尾部的注释标准格式要在#的前面在再加两个空格
+\end{lstlisting}
+
+\subsection{多行注释}
+Python 实际上没有多行注释的语法．
+要添加多行注释，您可以为每行插入一个＃
+\begin{lstlisting}[language=python]
+#这是一个注释
+#这是一个注释
+#这是一个注释
+print("你好，世界！")
+\end{lstlisting}
+
+或者，以不完全符合预期的方式，您可以使用多行字符串．由于 Python 将忽略未分配给变量的字符串文字，因此您可以在代码中添加多行字符串，并在其中添加注释
+\subsubsection{单引号（'''）}
+\begin{lstlisting}[language=python]
+'''
+这是多行注释，用三个单引号
+这是多行注释，用三个单引号 
+这是多行注释，用三个单引号
+'''
+print("Hello, World!")
+\end{lstlisting}
+
+\subsubsection{双引号（"""）}
+\begin{lstlisting}[language=python]
+"""
+这是多行注释，用三个双引号
+这是多行注释，用三个双引号 
+这是多行注释，用三个双引号
+"""
+print("Hello, World!")
+\end{lstlisting}
+
+\subsection{#!/usr/bin/python3 }
+仅仅在linux或unix系统下有作用，在windows下无论在代码里加什么都无法直接运行一个文件名后缀为.py的脚本，因为在windows下文件名对文件的打开方式起了决定性作用．
+
+\subsection{coding = utf-8 }
+\begin{lstlisting}[language=python]
+# -*- coding: UTF-8 -*-
+或者
+# coding=utf-8
+\end{lstlisting}
+\begin{itemize}
+\item 作用：将编码格式改为utf-8格式
+\item Python版本：Python2中默认的编码格式为ASCII码格式，Python3中默认的编码格式为UTF-8格式．
+\item 使用原因：在ASCII码格式下不能出现中文字符（代码或注释都不可以），否则就会报错，只有在utf-8格式下才能正常编译运行．所以在Python2版本下，只要出现中文，一定要加上这句头部声明．
+\item 查看当前python环境下的默认编码格式：进入python后，在控制台下输入以下命令即可．
+\item 代码的可移植性：Python3的默认格式就是utf-8，这句话对它就没有意义了，但是考虑到代码的可移植性，还是建议编写时养成习惯，加上这句话．
+\end{itemize}
+
