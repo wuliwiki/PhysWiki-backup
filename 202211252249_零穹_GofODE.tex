@@ -1,0 +1,54 @@
+% 常微分方程的几何图像
+% 向量场|单参数微分同胚群|微分方程|解
+
+\pentry{相空间和相流\upref{PSaPF}，}
+这里，将从几何上来理解常微分方程．这需要先引入一些概念．
+\subsection{微分同胚}
+以下新名词的理解只需掌握函数可微性的知识．
+\begin{definition}{可微函数}
+设 $U$ 是矢量空间 $\mathbb R^n$ 上的区域，其上坐标为 $x_1,\cdots,x_n$，称函数
+\begin{equation}
+f:U\rightarrow\mathbb R
+\end{equation}
+是 $U$ 上的\textbf{可微函数}，若 $f(x_1,\cdots,x_n)$ 是 $r$ 次连续可微的，此处，$1\leq r\leq\infty$．通常人们都不关心 $r$ 的具体值，因此并不指明．若有需要将指出“$r$次可微”或函数类 $C^r$.
+\end{definition}
+\begin{definition}{可微映射}
+设 $U$ 是 $\mathbb R^n$ 中区域，$V$ 是 $\mathbb R^m$ 中区域，其中 $x_1,\cdots,x_n$ 是 $U$ 中的坐标，$y_1,\cdots,y_m$ 是 $V$ 中的坐标，称映射
+\begin{equation}
+f:U\rightarrow V,\quad f(x_1,\cdots,x_n)=(y_1,\cdots,y_m)
+\end{equation}
+为\textbf{可微映射}，若 $y_i=f_i(x_1,\cdots,x_n)$ 是可微函数．其中 $1\leq i\leq m$．
+\end{definition}
+\begin{definition}{微分同胚}
+若映射 $f:U\rightarrow V$ 是个双射，且 $f$ 和其逆 $f^{-1}$ 都是可微映射，则称 $f$ 为\textbf{微分同胚}．
+\end{definition}
+
+\begin{definition}{单参数微分同胚群}
+设 $M$ 是一流形（可认为是欧氏空间中一区域），若映射
+\begin{equation}
+g:\mathbb R\times M\rightarrow M,\quad g(t,x) =g^t x
+\end{equation}
+满足：1.$g$ 是可微映射；2.族 $\{g^t|t\in\mathbb R\}$ 是 $M$ 的单参数变换群（\autoref{PSaPF_def1}~\upref{PSaPF}）．则称 $\{g^t|t\in\mathbb R\}$ 是 $M$ 的\textbf{单参数微分同胚群}．
+\end{definition}
+\begin{theorem}{}
+若 ${g^t|t\in\mathbb R}$ 是单参数微分同胚群，则对每一 $t$，映射 $g^t$ 是微分同胚．
+\end{theorem}
+\textbf{证明：}因为 $g$ 是可微映射，且
+\begin{equation}
+\dv{g^tx}{x}=\pdv{g(t,x)}{x}
+\end{equation}
+所以 $g^t$ 对 $x$ 可微．又 $\{g^t\}$ 是单参数变换群，所以对每一 $t$，$g^t$ 是双射\upref{PSaPF}，这意味着 $\dv{g^t x}{x}\neq 0$（因为否则 $g^t(x+\dd x)=g^t(x)$,这违反了 $g^t$ 的单射性）．所以
+\begin{equation}
+\dv{{g^{t}}^{-1}}{x}=\frac{1}{\dv{g^t x}{x}}
+\end{equation}
+可微．
+
+\textbf{证毕！}
+\subsection{向量场}
+掌握了以上概念，下面的概念是容易理解的．
+
+
+
+
+
+

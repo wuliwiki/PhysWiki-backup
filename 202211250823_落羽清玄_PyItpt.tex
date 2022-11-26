@@ -1,0 +1,38 @@
+% Python 解释器
+% Python|解释器
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\pentry{计算机语言 — 脚本语言（解释型语言）\upref{CpLgg}}
+
+Python解释器由编译器和虚拟机构成，编译器将源代码转换成字节码，然后再通Python虚拟机来逐行执行这些字节码．
+
+\subsubsection{python程序执行过程：}
+
+\begin{enumerate}
+\item 执行 .py 文件，就会启动python解释器
+
+\item 编译器将源文件解释成字节码
+
+\item 虚拟机将字节码转化成机器语言，与操作系统交互
+
+\item 程序运行结束后，将字节码存到pyc文件，便于后续直接执行
+\end{enumerate}
+
+\subsubsection{python解释器有很多种：}
+
+\begin{itemize}
+\item \textbf{CPython：}\textbf{C语言开发}，使用最广，默认的解释器,新的语言特性通常在此率先添加．
+
+\item \textbf{IPython：}\textbf{基于CPython之上}的交互式解释器
+
+\item \textbf{PyPy：}完全使用 \textbf{Python 语言编写}的 Python 实现．它支持多个其他实现所没有的高级特性，例如非栈式支持和 JIT 编译器等．此项目的目标之一是通过允许方便地修改解释器 (因为它是用 Python 编写的)，鼓励该对语言本身进行试验．想了解详情可访问 PyPy 项目主页．
+
+\item \textbf{Jython：}以 \textbf{Java 语言编写}的 Python 实现．此实现可以作为 Java 应用的一个脚本语言，或者可以用来创建需要 Java 类库支持的应用．想了解更多信息可访问 Jython 网站．
+
+\item \textbf{IronPython：}另一个 \textbf{.NET} 的 Python 实现，与 Python.NET 不同点在于它是生成 IL 的完全 Python 实现，并且将 Python 代码直接编译为 .NET 程序集．它的创造者就是当初创造 Jython 的 Jim Hugunin．想了解详情可访问 IronPython 网站．
+
+\item \textbf{Python for .NET：}此实现实际上使用了 \textbf{CPython} 实现，但是属于 .NET 托管应用并且可以引入 .NET 类库．它的创造者是 Brian Lloyd．想了解详情可访问 Python for .NET 主页．
+\end{itemize}
