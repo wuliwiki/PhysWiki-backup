@@ -1,0 +1,11 @@
+% Linux 的二进制兼容问题
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{g++ 编译器创建静态和动态链接库\upref{gppLib}}
+
+参考这里的\href{https://stackoverflow.com/questions/20183883/determining-binary-compatibility-under-linux}{回答}．
+
+静态链接的程序一般没什么问题． 但对于动态链接的程序， 可以把所有非基础的 so 依赖库打包到一个文件夹里面并设置 rpath/runpath 或者 LD_LIBRARY_PATH． 但是这里面不能包括一些基础的系统库例如 \verb|glibc| 以及 \verb|libc++| 等．

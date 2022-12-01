@@ -1,0 +1,13 @@
+% Linux 的 System Call 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item 参考 \href{https://en.wikipedia.org/wiki/Linux_kernel_interfaces#System_Call_Interface_of_the_Linux_kernel}{Wikipedia}． 这里的图， glibc 提供 kernel 和用户函数．
+\item 
+\item 参考\href{https://jameshfisher.com/2018/02/19/how-to-syscall-in-c/}{这篇教程}．
+\item \verb|<unistd.h>| 头文件提供各种 system call， 例如 \verb|write(1, "hello, world!\n", 14);|
+\item \verb|<sys/syscall.h>| 是更底层的工具， 例如提供函数 \verb|syscall(SYS_write, 1, "hello, world!\n", 14);|． 而 \verb|syscall()| 是用机器码定义的．
+\end{itemize}

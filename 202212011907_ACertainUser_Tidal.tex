@@ -1,0 +1,52 @@
+% 潮汐力
+
+\begin{issues}
+\issueDraft
+\end{issues}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/Tidal_1.pdf}
+\caption{潮汐力分布示意图（地球参考系）} \label{Tidal_fig1}
+\end{figure}
+
+我们先以月球对地球的潮汐力为例．由于月球到地球各点的距离不同，根据$$F_\text{引力}=\frac{GMm}{r^2}$$，所以月球对地球各点的引力也是不同的．潮汐现象正是由于引力的这种细微差异．
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/Tidal_2.pdf}
+\caption{月球对地球各点的引力不同} \label{Tidal_fig2}
+\end{figure}
+如\autoref{Tidal_fig1} 所示，正对月球的地球表面A点、地球质心、背对月球的B点感受到的
+
+
+绘制地球表面潮汐力分布的octave/matlab代码：
+\begin{lstlisting}[language=matlab]
+clc
+clear
+
+[x y z] = sphere(20);
+xs = -60;
+scatter3(xs,0,0);
+
+u = x - xs;
+v = y;
+w = z;
+
+r = sqrt(u.^2+v.^2+w.^2);
+mag = 10^4./(r.^2);
+
+u = -mag.*u./r;
+v = -mag.*v./r;
+w = -mag.*w./r;
+u = u + 10^4/(xs^2); %地球参考系这一非惯性参考系中的离心力
+
+hold on
+axis equal
+axis off
+surf(x,y,z,'FaceColor','none','EdgeColor',[0.8 0.8 0.8]);
+axis([-1.2 1.2 -1.2 1.2 -1.2 1.2])
+quiver3(x,y,z,u,v,w);
+view(-30,30);
+hold off
+
+\end{lstlisting}

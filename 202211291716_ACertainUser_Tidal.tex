@@ -1,0 +1,42 @@
+% 潮汐力
+
+\begin{issues}
+\issueDraft
+\end{issues}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/Tidal_1.pdf}
+\caption{潮汐力分布示意图（地球参考系）} \label{Tidal_fig1}
+\end{figure}
+
+绘制地球表面潮汐力分布的octave/matlab代码：
+\begin{lstlisting}[language=matlab]
+clc
+clear
+
+[x y z] = sphere(20);
+xs = -60;
+scatter3(xs,0,0);
+
+u = x - xs;
+v = y;
+w = z;
+
+r = sqrt(u.^2+v.^2+w.^2);
+mag = 10^4./(r.^2);
+
+u = -mag.*u./r;
+v = -mag.*v./r;
+w = -mag.*w./r;
+u = u + 10^4/(xs^2); %地球参考系这一非惯性参考系中的离心力
+
+hold on
+axis equal
+axis off
+surf(x,y,z,'FaceColor','none','EdgeColor',[0.8 0.8 0.8]);
+axis([-1.2 1.2 -1.2 1.2 -1.2 1.2])
+quiver3(x,y,z,u,v,w);
+view(-30,30);
+hold off
+
+\end{lstlisting}
