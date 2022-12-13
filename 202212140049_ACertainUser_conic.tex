@@ -1,0 +1,56 @@
+% 圆锥曲线
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+圆锥曲线的一般性定义：曲线上任意一点至一定点（焦点）的距离，与它至一直线（准线）的垂直距离始终成固定比例（离心率）:
+$$\frac{\abs{PF}}{\abs{PL}}=e$$
+其中$P$为曲线上一点，$F$为该定点，$L$为定直线，$\abs{PL}$表示点到直线的垂直距离．
+
+一些术语：
+\begin{itemize}
+\item 焦距：两焦点的距离
+\item 焦准距：焦点至与之对应的准线的距离
+\item 通径：过焦点做垂线与曲线相交于两点，这两点所确定的直线段
+\end{itemize}
+
+\subsection{常见圆锥曲线}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/conic_2.pdf}
+\caption{椭圆} \label{conic_fig2}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/conic_3.pdf}
+\caption{抛物线} \label{conic_fig3}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10m]{./figures/conic_4.pdf}
+\caption{双曲线} \label{conic_fig4}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\caption{圆锥曲线}\label{conic_tab1}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+名称 & 直角坐标方程 & 半焦距 Linear Eccentricity $c$ & 离心率 Eccentricity $e = \frac{c}{a}$ & 半通径 Semi Latus Rectum $l=\frac{b^2}{a}$ & 焦准距 Focal Parameter$p=\frac{b^2}{c}$ & 备注\\
+\hline
+% （圆）Circle & $x^2+y^2=a^2$ & 0 & 0 & $a$ & \ & 一般不认为是圆锥曲线；在思考“离心率、半焦距时”可以不严谨地认为圆是两焦点重合于圆心、准线在无穷远处的椭圆\\
+% \hline
+椭圆 Ellipse & $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ & $\sqrt{a^2-b^2}$, $b^2+c^2=a^2$ & $\sqrt{1-\frac{b^2}{a^2}} < 1$ & $\frac{b^2}{a}$ & $\frac{b^2}{\sqrt{a^2-b^2}}$ &  \\
+\hline
+抛物线 Parabola & $y^2=4ax$ & \ & 1 & $2a$ & $2a$ & 只有一条准线和一个焦点\\
+\hline
+双曲线 Hyperbola & $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$ & $\sqrt{a^2+b^2}$,$a^2+b^2=c^2$ & $\sqrt{1+\frac{b^2}{a^2}}$ > 1 & $\frac{b^2}{a}$ & $\frac{b^2}{\sqrt{a^2+b^2}}$ & 分为互不相连的两支 \\
+\hline
+\end{tabular}
+\end{table}
+
+\footnote{本文参考自Wikipedia的Conic Section、圆锥曲线词条．本文适用于CC-BY-SA．}
