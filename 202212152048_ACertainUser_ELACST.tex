@@ -1,0 +1,20 @@
+% 本构关系（弹性力学）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+%工程量似乎有点巨大．．．先占位
+
+之前我们已经分别探讨了应力\upref{STRESS}与应变\upref{Strain}．但是如何联系二者起来呢？二者的关联正由材料的本构关系描述，即力如何使材料变形．
+
+以下是各向同性的线弹性材料的本构关系．本构关系一共包括$6$个独立的方程．需要两个物理量以构建本构关系，例如杨氏模量$E$与泊松比$\nu$.
+
+\begin{equation}
+\sigma_{ij}=\frac{E}{1+\nu}\varepsilon_{ij}+\delta_{ij}\frac{\nu E}{(1+\nu)(1-2\nu)}\sum_k\varepsilon_{kk}\qquad i,j=1,2,3
+\end{equation}
+或
+\begin{equation}
+\varepsilon_{ij}=\frac{1+\nu}{E}\sigma_{ij}-\delta_{ij}\frac{\nu}{E}\sum_k\sigma_{kk} \qquad i,j=1,2,3
+\end{equation}
+
+一个各向同性的线弹性材料
