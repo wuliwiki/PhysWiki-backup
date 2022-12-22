@@ -1,0 +1,20 @@
+% 哈密顿-雅可比方程
+% 哈密顿雅可比方程
+
+\pentry{端点可变的作用量\upref{EPAct}}
+对作用量
+\begin{equation}
+S=\int_{t_1}^{t_2}L\dd t
+\end{equation}
+由\autoref{EPAct_eq1}~\upref{EPAct}，就有
+\begin{equation}\label{HJeq_eq1}
+\pdv{S}{t^{(2)}}+H\qty(q^{(2)},p^{(2)},t^{(2)})=0
+\end{equation}
+同样，用\autoref{EPAct_eq1}~\upref{EPAct} 中的
+\begin{equation}
+p_i^{(2)}=\pdv{S}{{q^i}^{(2)}}
+\end{equation}
+代入\autoref{HJeq_eq1} ，就得到方程：
+\begin{equation}
+\pdv{S}{t^{(2)}}+H\qty(q^{(2)},\pdv{S}{q^{(2)}},t^{(2)})=0
+\end{equation}

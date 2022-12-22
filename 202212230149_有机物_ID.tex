@@ -1,0 +1,13 @@
+% 迭代加深
+% 迭代加深|DFS|算法
+
+迭代加深是用于优化 DFS 的，DFS 是沿着一条路径一直往下走，一条路走到黑，直到没有路可走了才回溯。但如果存在一课搜索树，树的深度很大，但答案却在深度很浅的右半部分子树中，DFS 会搜很多无用的结点。
+
+如下图，答案在深度很浅的红色部分，普通的 DFS 会先遍历蓝色部分，从而浪费大量的时间。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/ID_1.png}
+\caption{搜索树} \label{ID_fig1}
+\end{figure}
+
