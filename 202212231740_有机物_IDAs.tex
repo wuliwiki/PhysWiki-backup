@@ -1,0 +1,113 @@
+% IDA-star 算法
+% 搜索|算法
+
+\pentry{迭代加深\upref{ID} A-star 算法\upref{Astar}}
+
+IDA* 算法是加了估价函数的迭代加深。
+
+A* 算法是在优先队列 BFS 上加了估价函数，估价函数也当然可以和 DFS 结合，但如果只是和最普通的 DFS 结合在一起很容易出现搜索深度很深，但答案深度很浅的情况，所以可以将迭代加深 DFS 和估价函数结合在一起，就形成了 IDA-star 算法。IDA* 算法的估价函数和 A* 非常类似，都是表示当前状态到目标状态的估计距离，IDA* 当然也要满足估计距离不大于真实距离这个前提。IDA* 使用迭代的框架，如果当前深度加估计距离大于深度限制，则直接回溯。
+
+\textbf{IDA* 的框架：}
+\begin{lstlisting}[language=cpp]
+int f();   // 估价函数
+
+// depth 当前搜索层数，max_depth 为迭代加深的搜索深度限制
+bool dfs(int depth, int max_depth)  
+{
+    // 如果当前层数 + 估价函数 > 深度限制，则直接回溯
+    if (depth + f() > max_depth) return false; 
+    if (!f()) return true;  // 一般估价函数为 0 说明找到了答案
+    
+    /*
+    以下为 dfs 内容
+    */
+    
+    return false;   // 找不到答案就回溯
+}
+
+int main()
+{
+    int depth = 0;
+    while (!dfs(0, depth)) depth ++ ;   // 迭代加深
+    
+    return 0;
+}
+\end{lstlisting}
+
+\href{http://poj.org/problem?id=3460}{例题 $1$：排书}
+
+题目大意：每次可以将打乱的图书的一段取出放到其他位置的后面，问最少需要多少次可以将打乱的图书按照递增的顺序排列。
+
+首先确定搜索顺序：枚举序列中每一段的图书摆到哪些位置，对于一段图书摆到一个位置的前面或者一个位置的后面是等价的，所以只需枚举摆到后面，摆的位置从选的那一段图书的右端点的位置加一开始枚举。这样就可以不遗漏的枚举出每种状态。
+
+设计估价函数：设定一个正确/错误后继的概念，若一个图书 $i$，如果按照递增的顺序排列，它的下一个位置应该是 $i + 1$，我们称 $i + 1$ 是 $i$ 的正确后继，错误后继显然就是图书 $i$ 后面不是 $i + 1$ 的情况。
+
+想要将一个打乱的图书变为递增的序列，显然序列中错误的后继数为 $0$，所以我们统计一个图书序列中错误的后继数，记为 $\tt cnt$，可以发现每次操作最多更改三本书的后继，若每次操作是最理想的，将一个乱序变为递增的序列最少也需要 $\left\lceil\dfrac{\tt cnt}{3}\right\rceil$ 次操作，满足估价函数的前提。故可将估价函数设计为 $f(\tt state) = \left\lceil\dfrac{\tt cnt}{3}\right\rceil$。
+
+所以深度从 $1 \sim 4$ 增加，每次枚举序列中的每一段数放在哪些位置的后面，若当前深度加估价函数大于深度限制，则直接回溯，回溯时记得要恢复现场。
+
+\textbf{时间复杂度：} $\mathcal{O}(\dfrac{(n - 1) \times n \times (n + 1)}{6}) = 560^4$。
+
+对于整个图书中每次选择的一段图书，假设要选择的图书长度为 $i$，则一共有 $n - i + 1$ 种选法，这样还剩 $n - i$ 本书，还有 $n - i + 1$ 个位置可以放，所以一共有 $(n - i + 1) \times (n - i)$ 种选择，前面提到了，将一段书放在一个的位置的前面或后面没有区别，所以需要除二。
+
+$i$ 从 $1 \sim 15$ 开始枚举，因此总共的选法有：
+
+$\dfrac{15 \times 14 + 14 \times 13 + \cdots + 2 \times 1}{2}$ 种。
+
+因为 $n \times (n - 1) + (n - 1) \times (n - 2) + \cdots + 2 \times 1 = \dfrac{(n - 1) \times n \times (n + 1)}{3}$。
+
+所以对于一个长度为 $n$ 的序列，总的选法为 $\dfrac{(n - 1) \times n \times (n + 1)}{6}$。
+
+虽然理论的时间复杂度为 $\mathcal{O}(560^4)$，但 IDA* 的实际效率很高。
+
+还有一个细节就是如何将一段书放到一个位置的后面呢？可以使用一个数组 $W$，详细的可以看下图和代码。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/IDAs_1.png}
+\caption{示意图} \label{IDAs_fig1}
+\end{figure}
+
+\textbf{C++ 代码：}
+
+\begin{lstlisting}[language=cpp]
+const int N = 20;
+int n, q[N], w[5][N];
+
+// 估价函数，为当前序列中错误的后继的个数
+int f()
+{
+    int cnt = 0;
+    for (int i = 0; i + 1 < n; i ++ )
+        if (q[i + 1] != q[i] + 1)
+            cnt ++ ;
+    return (cnt + 2) / 3;
+}
+
+bool dfs(int u, int depth)
+{
+    // 迭代加深
+    if (u + f() > depth) return false;
+    if (!f()) return true;  // 错误的后继为 0，说明序列单调递增
+
+    for (int len = 1; len <= n; len ++ )  // 枚举序列长度
+        for (int l = 0; l + len - 1 < n; l ++ ) // 枚举左端点
+        {
+            int r = l + len - 1;    // 右端点
+            for (int k = r + 1; k < n; k ++ )   // 枚举能插入的位置
+            {
+                memcpy(w[u], q, sizeof q);  // 备份一下，为后面的回溯做准备
+
+                // 将一段数 [l, r] 插到从 k 的后面
+                int y = l;  
+                for (int x = r + 1; x <= k; x ++ , y ++ ) q[y] = w[u][x];
+                for (int x = l; x <= r; x ++ , y ++ ) q[y] = w[u][x];
+
+                if (dfs(u + 1, depth)) return true;
+                memcpy(q, w[u], sizeof q);  // 回溯时要恢复现场
+            }
+        }
+
+    return false;
+}
+\end{lstlisting}

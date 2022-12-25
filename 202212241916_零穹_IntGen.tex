@@ -1,0 +1,24 @@
+% 一般积分
+% 一般积分|常微分方程
+\pentry{基本知识（常微分方程）\upref{ODEPr}}
+下面将介绍常微分方程的一般积分，它是常微分方程解的一般形式。物理学中“运动积分”（或“运动方程的积分”）（运动积分\upref{motint}）和“循环积分”中的“积分”之所以叫“积分”，就是因为它对应的数学对象正是本词条要介绍的“一般积分”。
+
+“积分”的概念源于微积分，“积分”和“导数”彼此对应：“你”是“我”的导数，“我”就是“你”的积分，反之亦然。微分方程是关于未知函数导数的方程，其主要目的是要求得该未知函数，满足微分方程的未知函数称为该方程的解，所以微分方程的解当然就是微分方程中对应的导数的积分。由于这样的理由，人们也把微分方程的解叫作微分方程的\textbf{积分}。
+\subsection{$n$ 阶常微分方程的一般积分}
+$n$ 阶常微分方程一般形式为（\autoref{ODEPr_eq6}~\upref{ODEPr}）：
+\begin{equation}\label{IntGen_eq1}
+F \qty(x,y,y',\cdots,y^{(n)}) =0
+\end{equation}
+或写成（\autoref{GO2SOD_eq2}~\upref{GO2SOD}）
+\begin{equation}\label{IntGen_eq2}
+y^{(n)}=f(x,y,y',\cdots,y^{(n-1)})
+\end{equation}
+自变量 $x$ 的任何函数，若满足方程\autoref{IntGen_eq1} 或\autoref{IntGen_eq2} ，就叫作这方程的\textbf{解}；而微分方程的求解问题也叫作求微分方程的\textbf{积分问题}。
+
+对于 $n$ 阶微分方程\autoref{IntGen_eq1} 或\autoref{IntGen_eq2} ，有存在与唯一定理，它可以叙述为：若函数 $f(x,y,y',\cdots,y^{(n-1)})$ 是 $(x,y,y',\cdots,y^{(n-1)})$ 的单值函数，且在 $(x_0,y_0,y_0',\cdots,y_0^{(n-1)})$ 的一邻域内，$f$ 连续且有对 $y,y',\cdots,y^{(n-1)}$ 的一阶连续偏微商，则在初始条件
+\begin{equation}
+\left y|\right._{x=x_0}=y_0,y',\cdots,
+\end{equation}
+
+\subsection{常微分方程组的一般积分}
+

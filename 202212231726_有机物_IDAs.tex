@@ -1,0 +1,35 @@
+% IDA-star 算法
+% 搜索|算法
+
+\pentry{迭代加深\upref{ID} A-star 算法\upref{Astar}}
+
+IDA* 算法是加了估价函数的迭代加深。
+
+A* 算法是在优先队列 BFS 上加了估价函数，估价函数也当然可以和 DFS 结合，但如果只是和最普通的 DFS 结合在一起很容易出现搜索深度很深，但答案深度很浅的情况，所以可以将迭代加深 DFS 和估价函数结合在一起，就形成了 IDA-star 算法。IDA* 算法的估价函数和 A* 非常类似，都是表示当前状态到目标状态的估计距离，IDA* 当然也要满足估计距离不大于真实距离这个前提。IDA* 使用迭代的框架，如果当前深度加估计距离大于深度限制，则直接回溯。
+
+\textbf{IDA* 的框架：}
+\begin{lstlisting}[language=cpp]
+int f();   // 估价函数
+
+// depth 当前搜索层数，max_depth 为迭代加深的搜索深度限制
+bool dfs(int depth, int max_depth)  
+{
+    // 如果当前层数 + 估价函数 > 深度限制，则直接回溯
+    if (depth + f() > max_depth) return false; 
+    if (!f()) return true;  // 一般估价函数为 0 说明找到了答案
+    
+    /*
+    以下为 dfs 内容
+    */
+    
+    return false;   // 找不到答案就回溯
+}
+
+int main()
+{
+    int depth = 0;
+    while (!dfs(0, depth)) depth ++ ;   // 迭代加深
+    
+    return 0;
+}
+\end{lstlisting}
