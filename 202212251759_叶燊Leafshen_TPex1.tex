@@ -1,0 +1,117 @@
+% 双指针法运用新
+
+\begin{issues}
+\issueDraft 请不要占用他人词条不作为
+\end{issues}
+
+\begin{example}{快慢指针——链表中点}
+给定一个头结点为 \textsl{h} 的非空单链表，返回链表的中间结点。
+
+如果有两个中间结点，则返回第二个中间结点。
+
+\textsl{ex.1}
+
+输入：[1,2,3,4,5] 
+
+输出：此列表中的结点 3 (序列化形式：[3,4,5])
+返回的结点值为 3 。
+
+\textsl{ex.2}
+
+输入：[1,2,3,4,5,6]
+
+输出：此列表中的结点 4 (序列化形式：[4,5,6])
+\end{example}
+
+\subsection{解}
+\subsubsection{方法一：}
+数组
+
+我们最常做的就是遍历法了，简单，暴力，将遍历到的元素依次放入数组 \textsl{A }中。如果我们遍历到了 \textsl{n }个元素，那么链表及数组的长度也为 \textsl{n}，对应的中间节点即为 \textsl{A[n/2]}。
+
+下面整理的为几种语言的部分代码：
+\begin{lstlisting}[language=python]
+def middlenode ():
+    A = [h]
+        while A[-1].next:
+            A.append(A[-1].next)
+    return A[len(A) // 2]
+
+\end{lstlisting}
+python如上
+\begin{lstlisting}[language=cpp]
+public:
+    ListNode* middlenode(ListNode* head) 
+    {
+        vector<ListNode*> A = {h};
+        while (A.back()->next != NULL)
+            A.push_back(A.back()->next);
+        return A[A.size() / 2];
+    }
+\end{lstlisting}
+C++见上
+
+时间复杂度：O(N)，其中 N 是给定链表中的结点数目。
+
+空间复杂度：O(N)，即数组 A 用去的空间。
+\subsubsection{方法二:}
+单指针法
+
+方法一可以进行空间优化，比如省去数组 A。
+
+我们可以对链表进行两次遍历。第一次遍历时，我们统计链表中的元素个数 N；第二次遍历时，我们遍历到第 N/2 个元素（链表的首节点为第 0 个元素）时，返回该元素即可。
+
+相当于，方法一我们拿刻度瓶装，方法二我们用数豆子的方法
+\begin{lstlisting}[language=python]
+
+
+def middlenode():
+    n, a = 0, h
+    while a:
+        n += 1
+        a = a.next #第一次
+    b, a = 0, h
+    while b < n // 2:
+        b += 1
+        a = a.next #第二次
+    return a
+
+\end{lstlisting}
+python如上
+\begin{lstlisting}[language=java]
+
+    public ListNode middlenode() 
+    {
+        int n = 0;
+        ListNode a = h;
+        while (a != null) 
+        {
+            ++n;
+            a = a.next;
+        }
+        int b = 0;
+        a = h;
+        while (b < n / 2) 
+        {
+            ++b;
+            a = a.next;
+        }
+        return a;
+    }
+
+\end{lstlisting}
+java如上
+
+时间复杂度：O(N)，其中 N 是给定链表的结点数目。
+
+空间复杂度：O(1)，常数空间存放变量和指针。
+
+\subsubsection{方法三：}快慢指针法
+思路和算法
+
+我们可以继续优化方法二，用两个指针 slow 与 fast 一起遍历链表。slow 一次走一步，fast 一次走两步。那么当 fast 到达链表的末尾时，slow 必然位于中间。
+
+作者：LeetCode-Solution
+链接：https://leetcode.cn/problems/middle-of-the-linked-list/solution/lian-biao-de-zhong-jian-jie-dian-by-leetcode-solut/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

@@ -1,0 +1,34 @@
+% 用 git 备份文件夹
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{lstlisting}[language=bash]
+repos="DAMOP2020-videos DAMOP2021-videos DAMOP2022-videos docker-images FEDVR-hydrogen FEDVR-TDSE-test Installers pljj 万门课程 数学物理考研试卷 比心 电影 航拍视频 高中电子课本"
+
+dir="/q/"
+
+for repo in $repos
+do
+  printf "\n\n\n=======================================\n"
+  echo "$repo"
+  printf "=======================================\n\n\n"
+  if ! [ -d "$repo" ]; then
+    echo "error: directory not found!"
+    continue
+  fi
+  gitdir="${dir}${repo}.git"
+  dirflag="--work-tree=\"$repo\" --git-dir=\"$gitdir\""
+  echo dirflag is "$dirflag"
+  echo "mkdir $gitdir" &&
+  mkdir -p "$gitdir" &&
+  echo "git init ..." &&
+  git --work-tree="$repo" --git-dir="$gitdir" init &&
+  echo "git add -A ..." &&
+  git --work-tree="$repo" --git-dir="$gitdir" add -A --verbose
+  # echo "git commit..." &&
+  # git --work-tree="$repo" --git-dir="$gitdir" commit -m 'update' &&
+  # git --work-tree="$repo" --git-dir="$gitdir" status'
+done
+\end{lstlisting}

@@ -1,0 +1,39 @@
+% 用 git 备份文件夹
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{Git 笔记\upref{Git}}
+
+以下 bash 程序可以把若干个文件夹中的每个都用 git 备份到 \verb|备份目录|。 运行完后， 每个 \verb|文件夹*| 会保存为 \verb|备份目录/文件夹*.git|。 这个其实就是 git 仓库中的 \verb|.git| 文件夹（注意并不是 bare repo， 不可以用于上游）。
+
+要注意的是， Git （尤其是 Windows 上）处理大的二进制文件的速度较慢。 笔者在 Windows 上在两个 HDD 硬盘之间用该脚本备份， 写入速度平均 12MiB/s。 但笔者认为 Git 的丰富功能和灵活性可以弥补这一不足。
+
+\begin{lstlisting}[language=bash, git-backup.sh]
+repos="文件夹1 文件夹2 ..."
+dir="备份目录"
+
+for repo in $repos
+do
+  printf "\n\n\n===============================\n"
+  echo "$repo"
+  printf "===============================\n\n\n"
+  if ! [ -d "$repo" ]; then
+    echo "error: directory not found!"
+    continue
+  fi
+  gitdir="${dir}${repo}.git"
+  dirflag="--work-tree=$repo --git-dir=$gitdir"
+  echo "mkdir $gitdir ..."
+  mkdir -p "$gitdir" &&
+  echo "git init..." &&
+  git $dirflag init &&
+  echo "git add -A ..." &&
+  git $dirflag add -A --verbose &&
+  echo "git commit..."
+  # 其他有用的命令：
+  # git $dirflag commit -m 'update'
+  # git $dirflag status
+done
+\end{lstlisting}
