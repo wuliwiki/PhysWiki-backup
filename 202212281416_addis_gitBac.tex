@@ -1,0 +1,52 @@
+% 用 git 和类似工具备份文件夹
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{Git 笔记\upref{Git}}
+
+以下 bash 程序可以把若干个文件夹中的每个都用 git 备份到 \verb|备份目录|。 运行完后， 每个 \verb|文件夹*| 会保存为 \verb|备份目录/文件夹*.git|。 这个其实就是 git 仓库中的 \verb|.git| 文件夹（注意并不是 bare repo， 不可以用于上游）。
+
+要注意的是， Git （尤其是 Windows 上）处理大的二进制文件的速度较慢。 笔者在 Windows 上在两个 HDD 硬盘之间用该脚本备份， 写入速度平均 12MiB/s。 但笔者认为 Git 的丰富功能和灵活性、以及广泛的普及可以弥补这一不足。 另见 bup\upref{bupBac}（待研究）、git-annex\upref{gitanx}（最新版本依赖于 symlink） 以及 git-lfs（没有本地repo）。 更多讨论见文末。
+
+备份脚本： 用法 \verb|git-backup.sh 备份目录|。 所有子目录中， 如果包含 \verb|.gitattributes|， 就会备份到 \verb|备份目录/子目录名.git|。
+\begin{lstlisting}[language=bash, git-backup.sh]
+#! /usr/bin/bash
+
+dest="$1" # backup directory
+
+for repo in */ ; do
+  repo=${repo%/}
+  if ! [ -f "$repo/.gitattributes" ]; then
+    continue;
+  fi
+
+  printf "\n\n\n===============================\n"
+  echo "$repo"
+  printf "===============================\n\n\n"
+  if ! [ -d "$repo" ]; then
+    echo "error: directory not found!"
+    continue
+  fi
+  gitdir="${dir}${repo}.git"
+  dirflag="--work-tree=$repo --git-dir=$gitdir"
+  echo "mkdir $gitdir ..."
+  mkdir -p "$gitdir" &&
+  echo "git init..." &&
+  echo execute: git $dirflag init &&
+  echo "git add -A ..." &&
+  echo execute: git $dirflag add -A --verbose
+  # 
+  # 如果只需要备份一个版本， git add 就够了永远不需要 commit
+  # 其他有用的命令：
+  # echo "git commit..."
+  # git $dirflag commit -m 'update'
+  # git $dirflag status
+done
+\end{lstlisting}
+
+\subsection{其他工具}
+事实上， 如果要备份一些不常改动的大文件（例如视频、电影）， 要防止 bitrot， 只需要生成一个哈希表： \verb`find . -type f -exec sha1sum {} \; | sort > sha1sum.txt`。 然后把文件夹复制粘贴到备份文件夹即可。 要更新， 可以用 rsync（同样具有对比 hash 的功能）也可以自己写一个 bash 脚本或者简单的程序做这件事情。 要检查 bitrot， 就再运行一次输出到 \verb|sha1sum2.txt|， 然后用 \verb|git diff --no-index| 对比两个文件即可。
+
+最后， 至于网络备份， 国内的主流网盘基本都支持秒传功能。 所谓秒传就是通过检测文件 hash 和大小等来避免重复上传任何人已经传过的文件。 所以如果同样的文件夹用网盘第二次备份， 那么所有文件都将秒传。 一些网盘（如某度）还支持删除重复文件的功能。 不过为了防和谐， 可以自己写一个程序把文件的少数一些 bit 就地打乱， 以及把文件名 flit 一下等等， 等传完再就地复原， 这样就完美了。
