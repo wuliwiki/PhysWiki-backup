@@ -1,0 +1,36 @@
+% Ward-Takahashi 等式
+% Ward-Takahashi 等式|Ward 等式|规范对称性
+
+对称性在一个量子场论的理论中具有非常重要的作用，例如时空平移对称性使得我们能够在动量表象下研究散射过程的振幅，洛伦兹对称性保证了 Feynman 矩阵元也具有洛伦兹对称性。而现在我们研究规范对称性的一个重要推论——Ward-Takahashi 等式，简称 Ward 等式。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/ward_4.png}
+\caption{Ward 等式示意图} \label{ward_fig4}
+\end{figure}
+
+Ward 等式的费曼图表达式如上图所示，假设动量为 $k$ 的光子线的一端可以接在一条费米子链上的任意位置；这条费米子链从动量为 $p$ 的费米子传播子出发，到动量为 $p'=p+k+q_1+\cdots+q_n$ 的费米子传播子结束。费曼图中所有这些光子可以在壳，也可以不在壳（即可以是虚光子）。并且当我们在计算动量 $k$ 光子线插入某个位置时的费曼图贡献时，用 $k_\mu$ 来代替 $\epsilon_\mu(k)$ 进行缩并。在这里费米子链两端的费米子线我们不将它们看作是散射过程的外线，而是看成是某个费米子传播子，那么其中第 $i+1$ 个费曼图的贡献计算如下
+\begin{equation}
+\begin{aligned}
+F_i&=k_\mu\cdot \frac{i}{\not p'-m}\cdots (-ie\gamma_{\mu_{i+1}})\frac{i}{\not p+\not k+\not q_1+\cdots+\not q_i-m}
+(-ie\gamma_\mu)
+\frac{i}{\not p+\not q_1+\cdots+\not q_i - m}(-ie\gamma_{\mu_i})\cdots \frac{i}{\not p - m}
+\\
+&=
+e\left(\frac{i}{\not p'-m}\cdots(-ie\gamma_{\mu_{i+1}})\frac{i}{\not p+\not q_1\cdots + \not q_i - m}(-ie\gamma_{\mu_i})\cdots \frac{i}{\not p-m}+\right.\\
+&-\left.\frac{i}{\not p'-m}\cdots(-ie\gamma_{\mu_{i+1}})\frac{i}{\not p+\not k+\not q_1+\cdots + \not q_i-m}(-ie\gamma_{\mu_i}) \cdots \frac{i}{\not p-m}\right)
+\\
+&=e(A_{i+1}-A_i)
+\end{aligned}
+\end{equation}
+其中我们将 $\not k$ 替换为了 $(\not p+\not k+\not q_1+\cdots + \not q_i-m) - (\not p+\not q_1+\cdots + \not q_i-m)$ 再进行通分，最终得到了上面的结果。其中 $A_i$ 所对应的表达式中，$\not k$ 出现在 $(-ie\gamma_{\mu_{i}})$ 前面所有的传播子分母里。因此，将光子插在费米子链各个位置的所有的 Feynman 图相加后，最终可以得到
+\begin{equation}\label{ward_eq1}
+k_\mu (\cdots) = \sum_{i=0}^n F_i = e[A_{n+1}-A_0]
+\end{equation}
+经过上面的分析，我们已经初步证明了 Ward 等式的一般形式。现在考虑费米子链的两端是在壳的费米子外线的情况，那么外线对应的是费米子旋量 $\bar u(p')$ 和 $u(p)$：
+\begin{equation}
+\begin{aligned}
+F_i = k_\mu \cdot \bar u(p')\cdots S(p+k+q_1+\cdots q_i)(-ie\gamma_\mu)S(p+q_1+\cdots + q_i)\cdots u(p)
+\end{aligned}
+\end{equation}
+此时 $A_1\cdots A_n$ 在累加的过程中仍然互相抵消，最终得到\autoref{ward_eq1} 的结果。考虑 $A_{n+1}$ 和 $A_0$，它们分别包含 $\bar u(p')(\not p'-m)$ 和 $(\not p-m)u(p)$，因此

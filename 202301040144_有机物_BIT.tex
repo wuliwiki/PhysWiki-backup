@@ -1,0 +1,86 @@
+% 树状数组
+% 树状数组|数据结构|C++
+
+\subsection{基本原理}
+
+若想实现一下两种操作：
+\begin{enumerate}
+\item 求一个区间内所有元素的和；
+\item 修改某个元素的值。
+\end{enumerate}
+
+看到求一段序列的和很容易想到前缀和算法，单次查询的时间复杂度为 $\mathcal{O}(1)$，但是修改某个元素的值会影响前缀和数组，最坏为 $\mathcal{O}(n)$。若用普通数组，求一段数的和为 $\mathcal{O}(n)$，修改某个数为 $\mathcal{O}(1)$。若有 $m$ 次询问，两种做法的全局最坏时间复杂度都为 $\mathcal{O}(n \times m)$。树状数组这两种的操作的时间复杂度即不太慢又不太快，单次查询和修改时间复杂度都为 $\mathcal{O}(\log_2 n)$。
+
+树状数组的基本思想来源于二进制拆分优化。对于一个正整数 $x$，它的二进制表示为 $a_{k - 1}, a_{k - 2}, \cdots , a_1, a_0$。可以将 $x$ 用二进制为 $1$ 的位表示出来，$x = 2^{i_1} + 2^{i_2} + \cdots + 2^{i_{k - 1}} + 2^{i_k}$。
+
+其中 $i_1 > i_2 > \cdots > i_k$，可以将 $x$ 划分为 $\mathcal{O}(\left\lceil \log_2 x \right\rceil)$ 个区间。
+
+\begin{enumerate}
+\item 长度为 $2^{i_k}$ 的区间 $[x - 2^{i_k} + 1 , x]$；
+\item 长度为 $2^{i_{k - 1}}$ 的区间 $[x - 2^{i_k} - 2^{i_{k - 1}} + 1, x - 2^{i_k}]$；
+\item 长度为 $2^{i_{k - 2}}$ 的区间 $[x - 2^{i_k} - 2^{i_{k - 1}} -2^{i_{k - 2}} + 1, x - 2^{i_k} - 2^{i_{k - 1}}]$； \\
+$\cdots$
+\item 长度为 $2^{i_{1}}$ 的区间 $[x - 2^{i_k} - 2^{i_{k - 1}} -2^{i_{k - 2}} - \cdots -2^{i_1} + 1, x - 2^{i_k} - 2^{i_{k - 1}} - \cdots - 2^{i_2}]$。
+\end{enumerate}
+
+例如 $x = 7$，可以表示为 $2^2+2^1+2^0$，区间 $[1, 7]$ 可以分解成 $[1, 4]$、$[5, 6]$、$[7, 7]$ 三个区间。长度分别为 $2^2$、$2^1$、$2^0$。将这三个区间分别用二进制表示出来 $[1, 4] = [(1, 100)_2]$、$[5, 6] = [(101, 110)_2]$、$[7, 7] = [(111, 111)]$。可以发现每个区间的长度就是每个区间的右端点\textbf{二进制表示下最后一位 $1$ 及其后边的所有的 $0$。}就拿 $[5, 6]$ 这个区间举例，二进制表示下右端点为 $(110)_2$，最后一位 $1$ 及后面的所有的 $0$ 就是 $(10)_2 = (2)_{10}$，其区间长度正好为 $2$。
+
+进而引出了 $\tt lowbit$ 操作。
+
+$\tt lowbit$ 操作就是求一个数二进制表示下最后一位 $1$ 及其后边的所有的 $0$ 的数值。
+
+\begin{lstlisting}[language=cpp]
+int lowbit(x)
+{
+    return x & -x;
+}
+\end{lstlisting}
+
+拿 $(20)_{10}$ 来举例，二进制表示下为 $(10100)_2$，最后一位 $1$ 及其后边的所有的 $0$ 就是 $(100)_2$，转化为十进制后就是 $4$，所以若调用 \verb|lowbit(20)|，则会返回 $4$。
+
+树状数组就是基于上述的思想的数据结构，一般是拿树状数组维护一个序列的前缀和。令 $tr_x$ 维护区间 $\texttt{[x-lowbit(x)+1, x]}$ 的和。其结构可以用下图表示出来：
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=13cm]{./figures/BIT_2.png}
+\caption{树状图} \label{BIT_fig2}
+\end{figure}
+
+不难看出其中具有一些性质：
+
+\begin{itemize}
+\item 若 $x$ 为奇数，则 $tr_x = a_x$，并且长度都为 $1$。
+\item $tr_x$ 的父结点为 $\texttt{tr[x + lowbit(x)]}$。
+\item 每个节点 $x$ 的 $tr$ 数组的长度为 $\tt (lowbit(x))$。
+\item 树的深度为 $\log_2 n + 1$。
+\end{itemize}
+
+\subsubsection{操作一：区间求和}
+
+例如若要计算 $[1, 7]$ 的和，则要加 $tr_7$、$tr_6$、$tr_4$。可以发现，每次将 $x$ 减去 $\tt(lowbit(x))$ 就可以找到前一个要加的结点。所以树状数组维护序列 $1 \sim x$ 代码为：
+
+\begin{lstlisting}[language=cpp]
+int ask(int x)
+{
+    int res = 0;
+    for (; x; x -= lowbit(x)) res += tr[x];
+    return res;
+}
+\end{lstlisting}
+
+涉及到的结点最多为 $\log_2 n$，所以时间复杂度最坏为 $\mathcal{O}(\log_2 n)$。若要求 $\sum\limits^r_{i = l}a_i$，类似于前缀和，则直接输出 \verb|ask(r) - ask(l - 1)|。
+
+\subsubsection{操作二：单点修改}
+
+若要将 $a_x$ 加上 $k$，则不断向上找出包含它的结点并且都加 $k$，因为每个结点维护的一个前缀的和。涉及到的结点最多为 $\log_2 n$，所以时间复杂度最坏为 $\mathcal{O}(\log_2 n)$。
+
+\begin{lstlisting}[language=cpp]
+void add(int x, int k)
+{
+    for (; x <= n; x += lowbit(x)) tr[x] += k;
+}
+\end{lstlisting}
+
+\subsection{树状数组求逆序对}
+
+对于一个序列 $a$，若存在两个数 $i$ 和 $j$，满足 $i < j$ 且 $a_i > a_j$，则 $a_i$ 和 $a_j$ 构成逆序对。
