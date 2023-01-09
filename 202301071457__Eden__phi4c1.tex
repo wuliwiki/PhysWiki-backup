@@ -1,0 +1,20 @@
+% 标量场论的单圈修正
+% 重整化|单圈修正
+
+为了消除 $\phi^4$ 理论中圈图的紫外发散，我们采取一定的正规化方案（常见的有截断正规化、维数正规化、格点正规化方案，在这里我们采用的是维数正规化），并引入重整化的拉氏量：
+\begin{equation}
+\begin{aligned}
+\mathcal{L}
+&=\frac{1}{2}Z_\phi \partial_\mu \phi \partial^\mu \phi - \frac{1}{2} Z_m m^2\phi^2 - \frac{Z_\lambda \lambda}{4!}\phi^4\\
+&=\frac{1}{2}(\partial_\mu\phi)^2 - \frac{1}{2}m^2\phi^2 - \frac{\lambda}{4!}\phi^4+\frac{1}{2}\delta_Z (\partial_\mu \phi)^2 - \frac{1}{2}\delta_m \phi^2 - \frac{\delta_\lambda}{4!}\phi^4
+\end{aligned}
+\end{equation}
+其中 $\delta_Z=Z_\phi-1,\delta_m = (Z_m-1)m^2,\delta_\lambda = (Z_\lambda-1)\lambda$，它们为微扰论的 Feynman 图表示贡献了抵消项顶点。我们需要在维数正规化方案下，调整这三个参数来保证可重整化条件的成立：
+\begin{equation}
+\begin{aligned}
+&\text{two-point function:}\quad G^{(2)}(p)=\frac{i}{p^2-m^2}+(\text{terms regular at}\ p^2=m^2)\\
+&\text{four-point function:}\quad G^{(4)}(s,t,u)_\text{amputated}=-i\lambda\quad (\text{at}\ s=4m^2,t=u=0)
+\end{aligned}
+\end{equation}
+其中 $G^{(4)}_\text{amputated}$ 代表截肢的四点函数，即通过 LSZ 公式消去了外腿在壳时的极点行为。
+下面我们先通过

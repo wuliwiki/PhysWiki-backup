@@ -1,0 +1,19 @@
+% QED的重整化理论-顶点函数的单圈修正
+% QED的费曼规则|顶点函数|形状因子
+
+\pentry{QED的重整化理论-电子自能和光子自能的单圈修正\upref{qedlop}}
+
+类似电子自能和光子自能的单圈修正\upref{qedlop}中的讨论，我们先在 OS 重整化方案下进行讨论，用维数正规化处理发散积分。我们常常将 $i\mathcal{M}(e^-(p)\gamma(q)\rightarrow e^-(p'))=\bar u(p') [-ie\Gamma^\mu(p,p')]u(p) \epsilon_\mu(q)$ 称作 QED 的正规顶点，它对应于两条在壳电子外线、一条在壳光子外线的所有截肢费曼图的贡献之和。将 $[-ie\Gamma^\mu(p,p')]$ 称为 QED 的顶点函数，它仍保持着四矢
+量的洛伦兹结构，且根据重整化条件，我们希望
+\begin{equation}
+-ie\Gamma^\mu(p,p')|_{q=0} = -ie\gamma^\mu
+\end{equation}
+让我们来先分析 $\Gamma^\mu$ 的洛伦兹结构。由于它服从洛伦兹四矢量的变换规则，且是 $4\times 4$ 矩阵，它一定具有以下的形式
+\begin{equation}
+\begin{aligned}
+\Gamma^\mu=\gamma^\mu\cdot A + ({p'}^\mu + p^\mu)\cdot B + ({p'}^\mu - p^\mu) \cdot C
+\end{aligned}
+\end{equation}
+其中 $A,B,C$ 是 Dirac 代数中的元素，可以表示为 $1,\gamma^\mu,\sigma^{\mu\nu}=\frac{i}{2}[\sigma^\mu,\sigma^\nu],\gamma^\mu\gamma^5,\gamma^5$ 这 $16$ 个元素的线性组合，且它们是洛伦兹标量。又因为在旋量 QED 中，任何阶 Feynman 图的任何量中都没有出现 $\gamma^5$，所以我们只有 $1,\not p^{(1)},p_\mu^{(1)} p_\nu^{(2)} \sigma^{\mu\nu}=\frac{i}{2}[\not p^{(1)},\not p^{(2)}]$ 这几种可能。$A,B,C$ 作为洛伦兹标量矩阵，可以由这组基底展开。
+
+再利用 $\bar u(p')(\not p'-m)= (\not p-m)u(p)=0$，我们可以将 $A,B,C$ 中所有 $\not p,\not p'$ 都可以被替换为 $m$，如果多个 $\not p,\not p'$ 相乘也可以通过等式 $\not p\not p'=2p\cdot p'-\not p'\not p$ 的方式交换位置最后用单位矩阵替换。因此最终 $A,B,C$ 都是单位矩阵。再由于洛伦兹标量的性质，是关于独立标量 $p^2=m^2,p^{(1)}\cdot p^{(2)}$ 的函数。
