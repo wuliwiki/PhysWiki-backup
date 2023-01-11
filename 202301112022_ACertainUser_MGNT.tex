@@ -1,0 +1,16 @@
+% 磁介质摘要
+
+完全类比于电介质的极化\upref{DLT}，我们可以推导出磁介质的极化性质。
+
+\begin{itemize}
+\item 在外加磁场下，介质中产生大量总体有序的磁偶极子（顺磁质的磁化\upref{ParaMa}与抗磁质的磁化\upref{DiaMaM}）。这使介质的磁偶密度（磁化强度）不再为零$\bvec M$\upref{MaInte}
+
+\item 磁偶极子导致了磁化电流 $\bvec j_s = \curl \bvec M$。\upref{MaInte}
+\item 同时，由于电偶的旋转，还产生了极化电流 $\bvec j_P = \pdv{P}{t}$ \upref{PolCur} %似乎这个词条没有说明极化电流的来历
+
+\item 磁化电流、极化电流产生了额外的磁场。磁性介质的存在改变了磁场的分布。极化电流\upref{PolCur} $\bvec B = \bvec B_0 + \bvec B'$, $\curl {\bvec B} = \mu_0 (\bvec j_f + \bvec j_M + \bvec j_p) + \mu_0\epsilon_0 \pdv{\bvec E}{t} = \mu_0 \bvec j_f + \mu_0 \curl \bvec M + \mu_0 \pdv{\bvec P}{t} + \mu_0 \epsilon_0 \pdv{\bvec E}{t}$
+
+\item 为了简化极化电荷的影响，引入“磁场强度”矢量：$\bvec H = \frac{\bvec B}{\mu_0} - \bvec M$,并有电位移矢量的高斯定律 $\curl \bvec H = \bvec j_f + \pdv{\bvec D}{t}$
+\item 在线性电介质中，电偶密度与合电场成线性关系\upref{EFIDE}: $\mathbf P=\chi_{\mathrm e} \varepsilon_{0} \mathbf E$。\footnote{为什么电偶密度与合电场成正比，而不是和外加电场成正比？根据周磊教授的说法，对于任何电荷（不论是介质自带的，还是介质外的自由电荷）而言，他只能感受到最终的合电场，不会（也不能）区分电场的来源，因为这两种电场对电荷产生的效果是相同的；
+从另一个角度而言，极化是一个渐进的、需要时间的过程，介质的一部分先极化->产生极化电场->介质的其余部分在已有的极化场和外电场作用下再极化->继续产生极化电场...直到介质被完全极化。幸好在静电学问题中，我们还暂时不需要关心这部分过程。}此时电位移矢量还可以写为 $\bvec D = \epsilon_0 \epsilon_r \bvec E = \epsilon \bvec E $, 其中$\epsilon_r = 1+\chi_{\mathrm e}, \epsilon = \epsilon_0 \epsilon_r$。
+\end{itemize}
