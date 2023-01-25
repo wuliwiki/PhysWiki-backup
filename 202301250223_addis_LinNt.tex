@@ -64,6 +64,7 @@
 \item \verb|readlink -f 相对路径| 可以把相对路径变为绝对路径（展开所有软链，最后没有 \verb|/|）。 \verb|相对路径|
 \item \verb|dirname 相对或绝对路径/文件名或文件夹| 返回 \verb|相对或绝对路径| （最后没有 \verb|/|）。
 \item \verb`mkdir` 新建文件夹, \verb`rmdir` 删除空文件夹, \verb`rmdir -r` (recursive) 删除所包含的文件夹 (其实不用 \verb`rmdir` 用 \verb`rm` 也可以!)， \verb`-P` 选项可以一次创建多层目录
+\item \verb|dos2unix 文件1 文件2...| 可以把 Windows 文件中的 CRLF 转换为 Linux 中的 LF 换行。 
 \item \verb`dd` 命令可以直接在当前位置生成一个大小为 100 MB 的文件， 内容为随机， 还会显示写入速度
 \verb`dd if=/dev/urandom of=./dump.txt bs=1M count=1024` 写 1024Mb 随机文件
 \item \verb|dd conv=notrunc if=... of=文件名 bs=.. seek=第几字节 count=..|  从文件的某个字节开始修改文件（覆盖内容）。
@@ -314,9 +315,13 @@
 \item \verb`alias` 可以给一个长命令设置别名， 例如 \verb|alias abcde='echo hello'|， 仅限于当前 terminal， 可以添加到 \verb|~/.bashrc| 中每次 login 都定义。
 \end{itemize}
 
-
 \begin{figure}[ht]
 \centering
 \includegraphics[width=14cm]{./figures/LinNt_1.png}
 \caption{参考 \href{https://www.howtogeek.com/}{How to geek}} \label{LinNt_fig1}
 \end{figure}
+
+\subsection{硬件}
+\begin{itemize}
+\item \verb|lscpu| 查看 CPU 信息， \verb|free| 查看内存使用情况， \verb|ifconfig| 和 \verb|ip| 查看网卡。
+\end{itemize}
