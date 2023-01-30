@@ -1,0 +1,21 @@
+% 单体算符
+% 多体系统|单体算符|二次量子化
+
+\pentry{二次量子化\upref{SecQua}}
+
+现在我们来考察多体系统量子力学的单体算符。具体而言，我们希望考察多体系统中单粒子相关的物理量，由于是可观测的物理量，我们研究的单体算符是 Fock 空间 $\mathcal{F}$ 上的幺正算符。
+
+回忆一下 Fock 空间的定义\autoref{SecQua_eq6}~\upref{SecQua}，我们知道它可以根据粒子数不同划分为多个子 Hilbert 空间的直和：
+\begin{equation}
+\mathcal{F}=\mathcal{H}_1\oplus \mathcal{H}_2\oplus \cdots
+\end{equation}
+根据我们对内积的定义，对于两个态矢量 $v_i\in \mathcal{H}_i, v_j\in \mathcal{H}_j$，当 $i\neq j$ 时 $v_i,v_j$ 的内积一定是 $0$。而我们又希望单体算符 $A^{(1)}$ 所对应的物理量由 $\bra{v}A^{(1)} \ket{v}$ 给出，这实际上告诉我们 $A^{(1)}$ 作用于 $v_i\in \mathcal{H}_i$ 后所得到的态矢量 $A^{(1)} \ket{v_i}$ 也一定属于 $\mathcal{H}_i$。因此当我们限制在每个子空间 $\mathcal{H}_i$ 上以后， $A^{(1)}$ 仍然是幺正算符。这不仅对单体算符成立，对于两体算符和 $n$ 体算符这都是成立的。
+
+在我们考察单体算符的形式定义之前，我们先来看一个最简单的例子：\textbf{粒子数算符}。
+\subsection{粒子数算符}
+设单粒子 Hilbert 空间的一组正交完备基是 $\ket{1},\ket{2},\cdots$，基于这一组基底，可以构造多体系统的产生湮灭算符：
+\begin{equation}
+a_1,a^\dagger_1,\cdots
+\end{equation}
+
+\subsection{单体算符的形式定义}

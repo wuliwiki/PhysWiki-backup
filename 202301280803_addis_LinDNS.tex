@@ -1,0 +1,6 @@
+% Linux DNS 笔记
+
+\begin{itemize}
+\item \verb|nslookup google.com| 可以查看用于解析域名的服务器， 在 ubuntu22.04 上会返回 \verb|127.0.0.53|。 这实际上是本机的 \verb|systemd-resolved|
+\item 一般来说， 在 \verb|/etc/resolv.conf| 文件中可以配置 linux 的 dns 服务器， 但如果用了 \verb|systemd-resolved|， 该文件实际上是一个软链。
+\end{itemize}
