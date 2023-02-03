@@ -1,0 +1,61 @@
+% 斜面应力公式
+
+\pentry{应力\upref{STRESS}}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/CHYSTR_1.pdf}
+\caption{斜切面$\bvec n$上的应力$\bvec \sigma_\nu$。$\bvec n$是面的法向量} \label{CHYSTR_fig1}
+\end{figure}
+
+在应力\upref{STRESS}中，我们已经处理了微元体上的应力问题。那么新的问题来了，假设我们已经在某个坐标系中算出了微元体的各个应力，如果我们在微元体中取一个切面，那么这个切面上的应力要如何计算？
+
+\textsl{跨界大牛}柯西给出了一个漂亮的回答，因此该公式也称柯西应力公式。若写成矩阵乘法的形式，那么：
+\begin{equation}
+\begin{pmatrix}
+\sigma_{\nu,1}\\
+\sigma_{\nu,2}\\
+\sigma_{\nu,3}\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\sigma_{11} & \tau_{12} & \tau_{13} \\
+\tau_{21} & \sigma_{22} & \tau_{23} \\
+\tau_{31} & \tau_{32} & \sigma_{33} \\
+\end{pmatrix}
+\begin{pmatrix}
+n_1\\
+n_2\\
+n_3\\
+\end{pmatrix}
+\end{equation}
+还可以写成更紧凑的张量乘法形式，
+\begin{equation}
+\bvec \sigma_\nu = n \cdot \sigma
+\end{equation}
+注意到，切面上的应力$\sigma_\nu$不一定垂直于该平面。该公式的具体论证方法大致是在三角形台中运用力的平衡方程，此处按下不表。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/CHYSTR_2.pdf}
+\caption{$\sigma_\nu$中各个分量的含义} \label{CHYSTR_fig2}
+\end{figure}
+
+回过头来，我们思考一下，我们依据上文方法写出的$\sigma_\nu=
+\begin{pmatrix}
+\sigma_{\nu,1}\\
+\sigma_{\nu,2}\\
+\sigma_{\nu,3}\\
+\end{pmatrix}$中各个分量的含义是什么？显然（但在实操中又往往让人困惑），这是基于原先的坐标系给出的。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/CHYSTR_3.pdf}
+\caption{$\sigma_\nu$的斜面表示} \label{CHYSTR_fig3}
+\end{figure}
+我们写出斜面所受应力，总希望他和斜面有点关系。因此，我们得想办法把它改写为和斜面有关系的形式，例如表达为沿斜面法向与切向的应力。
+
+现在，问题就是简单的向量投影。法向应力$\bvec \sigma_n$即是$\bvec \sigma_\nu$在$\bvec n$上的投影：
+$$\bvec \sigma_n = \bvec \sigma_\nu \cdot \bvec n $$
+或写成张量乘法的形式
+$$\bvec \sigma_n = n \cdot \sigma \cdot n $$

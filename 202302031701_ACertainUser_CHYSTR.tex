@@ -1,0 +1,37 @@
+% 斜面应力公式
+
+\pentry{应力\upref{STRESS}}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/CHYSTR_1.pdf}
+\caption{斜切面$\bvec n$上的应力$\bvec \sigma_\nu$。$\bvec n$是面的法向量} \label{CHYSTR_fig1}
+\end{figure}
+
+在应力\upref{STRESS}中，我们已经处理了微元体上的应力问题。那么新的问题来了，假设我们已经在某个坐标系中算出了微元体的各个应力，如果我们在微元体中取一个切面，那么这个切面上的应力要如何计算？
+
+\textsl{跨界大牛}柯西给出了一个漂亮的回答，因此该公式也称柯西应力公式。若写成矩阵乘法的形式，那么：
+\begin{equation}
+\begin{pmatrix}
+\sigma_{\nu,1}\\
+\sigma_{\nu,2}\\
+\sigma_{\nu,3}\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\sigma_{11} & \tau_{12} & \tau_{13} \\
+\tau_{21} & \sigma_{22} & \tau_{23} \\
+\tau_{31} & \tau_{32} & \sigma_{33} \\
+\end{pmatrix}
+\begin{pmatrix}
+n_1\\
+n_2\\
+n_3\\
+\end{pmatrix}
+\end{equation}
+写成更紧凑的张量乘法形式，
+\begin{equation}
+\sigma_\nu = \nu \cdot \sigma
+\end{equation}
+具体的论证过程大致是通过在三角形台中运用力的平衡方程，此处按下不表。
+
