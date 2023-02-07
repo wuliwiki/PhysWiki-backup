@@ -1,0 +1,55 @@
+% MacOS 基础笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\subsection{快捷键}
+\begin{itemize}
+\item Mac 的 Delete 键是 Win 的 backspace
+\item Mac 的 Cmd 是 Win 的 Win 键
+\item Mac 的 Opt 是 Win 的 Alt 键
+\item \verb|Cmd + c|， \verb|Cmd + v| 复制粘贴
+\item \verb|Cmd + c| 然后 \verb|Cmd + Alt + v| 移动
+\item \verb|Cmd + Del| 把文件移动到回收站
+\item \verb|Cmd + z| 撤销
+\item \verb|Cmd + Tab| 切换程序
+\item \verb|Cmd + Delete| 删除
+\item \verb|Ctrl + 左右箭头| 切换屏幕
+\item \verb|Ctrl + 上下箭头| 程序管理
+\item \verb|Ctrl + Alt + eject| 睡眠
+\item \verb|Ctrl + Alt + Cmd| 关机
+\item \verb|Alt + Cmd + ESC| 强制退出
+\item \verb|Ctrl + Shift + eject| 关闭屏幕
+\item \verb|F11| 临时显示桌面
+\end{itemize}
+
+\subsection{常识}
+\begin{itemize}
+\item Mac 不能写入 NTFS 文件系统只能读取
+\item account name 很难修改，最好新建一个（管理员）用户，然后把老用户删掉。
+\item 要默认 terminal 的 shell （如 \verb|/bin/bash| 可以在 user 设置里面把左下角解锁， 然后右键用户名， 高级设置里面修改。
+\item 修改 hostname 用： \verb|sudo scutil --set HostName 新名字|
+\end{itemize}
+
+\subsection{VMware MacOS 虚拟机}
+\begin{itemize}
+\item 据说 VMware Workstation Pro 和 MacOS 兼容比较好。 笔者测试 MacOS 12.4 没问题。
+\end{itemize}
+
+若显示性能较差（即用小分辨率的屏幕可以明显变得顺滑）， 则修改 xm 文件的以下设置（如果没有则添加）。 但是亲测无效。
+\begin{lstlisting}[language=none]
+svga.vramSize = "268435456"
+vmotion.checkpointFBSize = "1342177728"
+vmotion.checkpointSVGAPrimarySize = "268435456"
+vmotion.svga.mobMaxSize = "268435456"
+vmotion.svga.graphicsMemoryKB = "262144"
+svga.graphicsMemoryKB and set its value to "262144"
+vmotion.svga.maxTextureSize and assign it the value "16384"
+vmotion.svga.maxTextureAnisotropy, and change it to "2"
+\end{lstlisting}
+
+\subsection{命令行}
+\begin{itemize}
+\item 强制重启（用 GUI 重启可能会有一些软件不能正常退出） \verb|sudo shutdown -r now|
+\end{itemize}
