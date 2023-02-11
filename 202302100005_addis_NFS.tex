@@ -30,6 +30,7 @@
 \item 安装 \verb|sudo apt-get install nfs-kernel-server|
 \item \verb|mkdir 文件夹|
 \item \verb|sudo vim /etc/exports|， 添加一行 \verb|/home/用户名/文件夹 *(rw,sync,no_root_squash,no_subtree_check)|
+\item 据说如果把 \verb|sync| 变为 \verb|async|， 可以用 ram 作为文件缓存， 但如果服务器断电缓存中的文件将丢失。
 \item \verb|sudo service nfs-kernel-server restart|
 \item \verb|nfsstat –s| 可以检查 nfs 的信息， 包括 nfs 版本（v1 到 v4） 等
 \end{itemize}
@@ -93,4 +94,9 @@ password=smb密码
 \subsubsection{Windows 客户端}
 \begin{itemize}
 \item Windows 客户端： 在文件夹的地址中填写： \verb|\\ip地址\共享名称|。 在 Windows 中， 软链会显示为正常文件。 也可以在文件浏览器中打开我的电脑， 然后上面的选项中映射网络硬盘， 可以选择开机自动连接。
+\end{itemize}
+
+\subsubsection{Mac 客户端}
+\begin{itemize}
+\item 在状态栏的 GoTo 中连接服务器， 然后 \verb|smb://ip地址/共享名称| 好像就行了。不知道重启会不会还在。
 \end{itemize}
