@@ -1,0 +1,15 @@
+% service、systemd、systemctl 笔记
+
+\begin{itemize}
+\item 要创建一个 service， 就创建文件：
+\begin{lstlisting}[language=none,caption=/etc/systemd/system/名字.service]
+[Unit]
+Description=(description of your program)
+
+[Service]
+ExecStart=命令
+
+[Install]
+WantedBy=multi-user.target
+\end{lstlisting}
+\end{itemize}
