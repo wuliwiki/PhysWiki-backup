@@ -1,0 +1,18 @@
+% 汇编语言笔记（x86）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item 汇编语言依赖于 CPU 架构。
+\item assembler 是汇编语言的编译器
+\item 注释用 \verb|;|
+\item \verb|mov eax, 4| 把 register \verb|mov| 的值设为 4。
+\item \verb|变量名 db '字符串', 0| 定义一个字符串。 其中 \verb|db| 是 \textbf{define byte}， \verb|0| 是字符串结尾的 Null。
+\item 也可以用 \verb|变量名: .asciz "字符串\n"|
+\item \verb|int 0x80| 开始 software interrupt， 进行 system call。
+\item \verb|mov eax, 1| 是 system call \verb|exit()|
+\item \verb|xor ebx, ebx| 可以把 register \verb|ebx| 变为 0。
+\item \verb|GAS| assembler
+\end{itemize}
