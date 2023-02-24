@@ -1,0 +1,33 @@
+% nginx 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item 一个\href{https://zhuanlan.zhihu.com/p/80600540}{知乎教程}
+\item \href{https://nginx.org/en/docs/}{官方文档}
+\item \verb|sudo apt install nginx|
+\item 要重启 nginx 服务用 \verb|sudo systemctl restart nginx|
+\item 要查看是否连接成功， 用 \verb|curl localhost| （默认访问 80 接口）。 如果打印出一个 html 文本， 包含 \verb|Welcome to nginx!|， 就是成功了（当然也可以用浏览器访问， 只是有时候只有命令行）。
+\item 如果要限制 nginx 只监听某个网卡， 编辑配置文件 \verb|sudo vim /etc/nginx/sites-enabled/default|， 然后在 \verb|listen 80 default_server;| 的 \verb|80| 改成 \verb|ip地址:80|， 然后重启 \verb|nginx| 服务即可生效。
+\item 事实上不光是本机， 监听的网卡所在的所有机器访问该网卡的 ip 的 80 端口都会收到
+\end{itemize}
+
+\subsection{静态网站}
+\begin{itemize}
+\item 配置文件： \verb|/etc/nginx/nginx.conf|。 在 \verb|http| section 里面加入
+\begin{lstlisting}[language=none]
+server {
+    listen 80;
+    server_name ip地址或者域名:80;
+    
+    location / {
+        root /静态网页根目录;
+    }
+}
+\end{lstlisting}
+\item 要特别注意 \verb|静态网页根目录| 以及它的所有上层目录需要可以被 nginx 的用户 \verb|www-data| 读取和执行， 在非 ubuntu 系统可能会有别的用户名。
+\item 要查看具体的用户名， 用 \verb`ps aux | grep nginx`， 看第一列中都有哪些用户。
+\end{itemize}
+
