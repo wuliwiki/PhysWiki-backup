@@ -1,0 +1,27 @@
+% ChatGPT
+% ChatGPT 人工智能 自然语言处理 生成模型 Transformer 对话 OpenAI
+
+\textbf{ChatGPT}（Chat Generative Pre-trained Transformer）是一款由OpenAI组织推出的，通过多种语言大数据训练的基于Transformer（转换器）的语言生成模型。该模型的主要功能是与人进行实时对话。
+
+ChatGPT模型可以对人类用户的提问进行回答，也可以接着用户的陈述，做进一步表述。在一次会话当中，该模型还可以记住之前的对话内容，并且对用户的追问和修正建议做适当反应。官方还宣称该模型会拒绝回答一些不适合的问题。与此同时，模型也存在一些局限性：很有可能产生错误的信息，有可能产生有害的建议或者有偏见的内容，以及对尚未训练过的知识了解有限。图1是官方提供的一个对话的例子。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/ChGPT_2.png}
+\caption{对话例子} \label{ChGPT_fig2}
+\end{figure}
+
+OpenA目前尚未公开ChatGPT模型的原始论文和源程序。根据ChatGPT官方网站（见图2），该模型的训练流程主要是：（1）收集大规模语言数据，训练监督策略；（2）收集比较数据，训练奖励模型；（3）用一种被称为"近端策略优化"的强化学习算法来进一步优化奖励模型。当前的ChatGPT版本是在原来的GPT-3.5模型基础上通过精调（fine-tuning）得来的。训练设备采用的是Azure人工智能计算架构。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/ChGPT_1.png}
+\caption{ChatGPT模型的训练过程} \label{ChGPT_fig1}
+\end{figure}
+
+
+
+
+参考文献：
+\begin{enumerate}
+\item https://openai.com/blog/chatgpt/
+\end{enumerate}
