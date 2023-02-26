@@ -1,0 +1,59 @@
+% SLISC 库代码生成
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{SLISC 库概述\upref{SLISC}}
+
+如果你需要修改代码， 那么一种方法是直接修改头文件。 另一种是修改模板。
+
+A template file (\verb`demo.h.in`) looks like
+\begin{lstlisting}[language=cpp]
+#include <complex>
+#include <vector>
+using namespace std;
+
+//% types = {
+//%  'vector<double>', 'Int', 'vector<float>';
+//%  'vector<complex<double>>', 'vector<complex<double>>', 'vector<Int>';
+//% };
+//%----------------------------------
+//% [Tz, Tx, Ty] = varargin{:};
+void add(@Tz@ &z, const @Tx@ &x, const @Ty@ &y)
+{
+//% if is_vec(Tz) && is_vec(Tx) && is_scalar(Ty)
+	for (size_t i = 0; i < z.size(); ++i)
+		z[i] = x[i] + y;
+//% elseif is_vec(Tz) && is_scalar(Tx) && is_vec(Ty)
+	for (size_t i = 0; i < z.size(); ++i)
+		z[i] = x + y[i];
+//% elseif is_vec(Tz) && is_vec(Tx) && is_vec(Ty)
+	for (size_t i = 0; i < z.size(); ++i)
+		z[i] = x[i] + y[i];
+//% else
+//%     error('not implemented!');
+//% end
+}
+//%-----------------------------------
+\end{lstlisting}
+
+Using \verb`$octave auto_gen.m`, the generated file \verb`demo.h` looks like
+\begin{lstlisting}[language=cpp]
+#include <complex>
+#include <vector>
+using namespace std;
+
+void add(vector<double> &z, const Int &x, const vector<float> &y)
+{
+	for (size_t i = 0; i < z.size(); ++i)
+		z[i] = x + y[i];
+}
+
+void add(vector<complex<double>> &z, const vector<complex<double>> &x,
+        const vector<Int> &y)
+{
+	for (size_t i = 0; i < z.size(); ++i)
+		z[i] = x[i] + y[i];
+}
+\end{lstlisting}
