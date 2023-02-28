@@ -1,0 +1,43 @@
+% 伊辛模型
+
+\begin{issues}
+\issueDraft
+\issueMissDepend
+\end{issues}
+
+伊辛模型是用来描述铁磁现象的模型，其哈密顿量的形式为：
+
+\begin{equation}
+H=-J\sum\limits_{<i,j>}S_iS_j
+\end{equation}
+
+上式中的$J$为交换耦合常数$(J>0)$，$S_i$与$S_j$是两原子的自旋，求和中的$<i,j>$代表仅对最近邻的原子进行计算。
+
+伊辛模型在一维和二维的情况下是可以严格求解的。
+
+\subsection{一维伊辛模型求解}
+
+构建一维伊辛模型，并附以周期性边界条件，在外加磁场$B$的情况下，模型的哈密顿量被写成：
+
+\begin{equation}
+H=-J\sum\limits_{i=1}^NS_iS_{i+1}-B\sum\limits_{i=1}^NS_i=-\sum\limits_{i=1}^N[JS_iS_{i+1}+B(S_i+S_{i+1})]
+\end{equation}
+
+上式中的$BS_i$项中应为$B\mu_i$，在此将玻尔磁子吸纳进$B$的定义中。
+
+
+
+
+
+
+
+
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Ising_model}{相关页面}。}平均磁化率
+\begin{equation}
+\ev{M} = \frac{\sum_i M_i \E^{-M_i H \beta}}{\sum_i M_i \E^{-M_i H\beta}} = -kT \pdv{H} \ln Q
+\end{equation}
+平均能量
+\begin{equation}
+U = - \ev{M} H
+\end{equation}
