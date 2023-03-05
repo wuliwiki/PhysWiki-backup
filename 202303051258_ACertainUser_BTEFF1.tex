@@ -1,0 +1,50 @@
+% “电池效率”
+
+\footnote{本文参考了Schroeder的《热物理学导论》与刘俊吉等的《物理化学》。本文遵循CC-BY。}类似于将热能转换为功的热机，将化学能转换为电能的电池有没有效率问题呢？我们先思考一个简单的氢-氧燃料电池模型。和卡诺热机一样，此处的电池模型是一个高度简化的模型，并不涉及任何的工程实现细节。
+
+\subsection{题设}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/BTEFF1_2.pdf}
+\caption{氢-氧燃料电池模型} \label{BTEFF1_fig2}
+\end{figure}
+氢-氧燃料电池中的化学反应是
+$$H_2 (g)+ 1/2 O_2(g) \Rightarrow H_2O(l)$$
+，且假定每消耗$1 \Si{mol} H_2$ 与 $1/2 \Si{mol} O_2$并生成$1 \Si{mol} H_2O$ 时，系统相应的状态量变化\footnote{数据来自于参考书目}是
+$$\Delta U = -282 \Si{kJ}$$
+$$\Delta S = -0.16 \Si{kJ/K}$$
+（由于气体比液体无序，因此从气体变为液体的过程自然是熵降低的过程）
+。系统的工作环境是
+$$p=1 atm, T=303K$$。
+为使问题更简单，我们假设系统整体与环境始终等温等压、且发生可逆的化学反应；此外，为了避免处理复杂的化学势问题，我们再假定系统足够大，以至于发生少量反应时系统的整体性质不变。
+
+\subsection{分析}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/BTEFF1_1.pdf}
+\caption{能量的转换} \label{BTEFF1_fig1}
+\end{figure}
+我们先根据热力学第一定律与上述题设，列出电池消耗$1 \Si{mol} H_2$ 与 $1/2 \Si{mol} O_2$后，能量的总体变化：
+$$
+\Delta U = \delta q - \delta w_\text{电} - \delta w_\text{气}
+$$
+
+\begin{itemize}
+\item $\Delta U$是系统由于氢氧反应生成水而产生的内能变化，在上文已给出。
+\item $\delta q$是系统对环境的放热。根据热力学第二定律$\Delta S = \delta q/T$，所以系统向环境放热 $\delta q = T \Delta S = -49 \Si{kJ}$。
+\item $\delta w_\text{气}$是外界气压对系统做的功。在消耗气体、生成液体的过程中，系统体积减小，因此环境压力将对系统做压缩功 $\delta w_\text{气} = - p \Delta V = -\Delta n R T = -4\Si{kJ}$。负号是由于“环境对系统做功取为负”的符号规范。
+\item 剩余的能量自然是系统对环境做的电功 $\delta w_\text{电} = \delta q - \delta w_\text{气} - \Delta U = 237 \Si{kJ}$.
+\end{itemize}
+
+这个反应后，系统的内能减少了 $\Delta U =  -282 \Si{kJ}$，而系统却只对环境做了 $w_\text{电} = 237 \Si{kJ}$ 的电功。可见，电池也不能将所有的能量（化学能）转换为电能，也和热机一样受到热力学第二定律的约束（\textsl{诅咒}）。
+唯象地说，这不可避免的转换损耗问题导致了电池的\textsl{内阻}。
+
+如果我们认为“电池效率”是“对外做功”比上“内能消耗”\footnote{在实操上(见参考书目)，我们一般使用$\Delta H = \Delta U + p\Delta V$作为分母，因为“环境对系统的压缩功是自发的”。在其余工程领域，“电池效率”可能不是这么定义的。}，那么这个电池的效率是
+$$\eta = \abs{\delta w_\text{电}/\Delta U} = 84\%$$
+
+由于我们做出了大量理想假设，因此电池的实际效率不会比这个更高。
+
+\subsubsection{另一个角度}
+我们换一个角度，再次思考电池效率：\textsl{我们能不能使用相同的电池反应，但是改进电池的设计，以令电池不产热、并使所有的能量都变成电能呢？} 
+
+答案显然是否定的，论证方法也就是反过来\textsl{复读}一遍上述的分析：如果系统不产热$\delta q = 0$，那么 $\delta q/ T = 0$。而根据热力学第二定律，任意过程后有$\Delta S \ge \delta q/ T = 0$。而由题设我们知道，这个反应的$\Delta S \le 0$。也就是说，这样的过程违反了热力学第二定律，也就不会发生。
