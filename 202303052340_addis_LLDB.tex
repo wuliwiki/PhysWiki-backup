@@ -1,0 +1,12 @@
+% LLVM Debugger (LLDB) 笔记（C++）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{LLVM 笔记\upref{LLVMnt}}
+
+\begin{itemize}
+\item 很多用法和 GDB\upref{gdbNt} 差不多， 对比见\href{https://lldb.llvm.org/use/map.html}{这里}。
+\item debug 时若要查看 LLVM IR 代码（而不是汇编）， 编译时需要用 \verb|clang++ -g -S -emit-llvm -o 程序.ll 程序.cpp| 生成 LLVM IR 代码。
+\end{itemize}
