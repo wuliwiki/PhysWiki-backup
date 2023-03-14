@@ -1,0 +1,118 @@
+% 热力学第二定律
+% 热力学|第二定律|熵
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{熵\upref{Entrop}}
+
+虽然许多基本物理规律（比如牛顿定律，麦克斯韦方程）是可逆的，但许多\textbf{唯象定律}（比如摩擦，传热方程，扩散方程）是不可逆的。克劳修斯首先看出，有必要在热力学第一定律之外建立一条独立的定律来概括自然界的不可逆现象。
+
+\subsection{被动表述}
+开尔文表述：不可能从单一热源吸热做功而无环境影响。
+
+克劳修斯表述：热量不能从低温传到高温而无环境影响。
+
+奥斯特瓦德表述：不存在第二类永动机。
+
+可以利用卡诺热机证明，这三种表述是等价的。
+\addTODO{证明等价性}
+
+\subsection{数学表述——卡诺定理}
+
+在相同的高温热源和相同的低温热源之间工作的一切\textbf{可逆热机的效率都相等}，与工作物质无关；在相同的高温热源和相同的低温热源之间工作的一切\textbf{不可逆热机的效率 $\eta'$ 都小于可逆热机的效率 $\eta$}：
+\begin{equation}
+\eta'=1-\frac{Q_2'}{Q_1}\le 1-\frac{T_2}{T_1}=\eta
+\end{equation}
+
+\addTODO{证明等价性}
+\subsection{克劳修斯不等式；熵的表述}
+\footnote{下文参考自朱文涛《简明物理化学》与邹远川的《热力学与统计力学》课程。}
+
+\begin{theorem}{热力学第二定律}
+封闭系统任意过程前后，总有
+\begin{equation}
+\Delta S \ge \int \frac{\delta q}{T}
+\end{equation}
+否则该过程不可能发生。过程可逆时取等号。
+\end{theorem}
+热力学第二定律在能量守恒之外设置了额外的（更晦涩难懂）约束条件：有些过程虽然满足能量守恒，但也是不可能发生的。
+
+例如，根据热力学第一定律\upref{Th1Law}，如果某个过程前后$\Delta U \ne \delta q - \delta w$，那么我们知道这个过程是不可能的。同样地，我们说如果某个过程前后$\Delta S < \int \frac{\delta q}{T}$，那么这个过程同样是不可能的。
+
+\subsection{应用热力学第二定律：孤立系统}
+热力学第二定律十足令人费解，因为它涉及一个陌生的物理量熵，还是一个烦人的不等式。为了简化问题，我们先探讨孤立系统（孤立系统不与外界交换热量）中的热力学第二定律。
+\begin{corollary}{熵增原理}
+对于绝热或孤立系统，任意过程前后，均有$Q=0$，因此总有 $$\Delta S \ge 0$$。
+
+即\textbf{绝热或孤立系统的熵永不减少。}
+\end{corollary}
+从这个定理可以看出，孤立系统热平衡的判据可以设为：熵取极大值。我们再试图以不同的形式\textsl{复读}这个定理以明晰他的含义。
+
+\begin{corollary}{方向判据}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/Td2Law_1.pdf}
+\caption{方向判据} \label{Td2Law_fig1}
+\end{figure}
+如果存在某一个过程可继续升高孤立系统的熵，那么这个过程可能发生。
+\end{corollary}
+
+\begin{corollary}{稳定性判据}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/Td2Law_2.pdf}
+\caption{稳定性判据} \label{Td2Law_fig2}
+\end{figure}
+假如任意过程都不能继续升高系统的熵，那么系统达到平衡状态。
+
+基于稳定性判据，我们可以知道达到平衡的孤立系统中压强与温度处处相同，此谓热动平衡判据\upref{equcri}。
+\end{corollary}
+
+\begin{example}{为什么需要冰箱}
+你的桌子上有一杯温度为$T$的水。假设水不与外界交换热量，这杯水会自发分为两部分，使一半杯的温度升为$T+\Delta T$、而另一半杯的温度降为$T-\Delta T$ 吗？这样你就不需要冰箱而能同时喝到冷饮与热饮了。
+
+升温部分的熵变 $\Delta S_1=C_p \ln \frac{T+\Delta T}{T}$, 降温部分 的熵变$\Delta S_2=C_p \ln \frac{T-\Delta T}{T}$
+
+总熵变 $\Delta S = C_p \ln \frac{T+\Delta T}{T} + C_p \ln \frac{T-\Delta T}{T} = C_p \ln \frac{(T+\Delta T)(T-\Delta T)}{T^2}= C_p \ln \frac{T^2 - (\Delta T)^2}{T^2}<0$
+
+这违反熵增原理，因此是不可行的。
+\end{example}
+
+\subsection{应用热力学第二定律：等温等容与等温等压系统}
+有很多证明方法，可将热力学第二定律推广至等温等容与等温等压系统。在此处，我们简要讨论一种笔者最喜欢的方法。
+
+我们先探讨等温等容系统（此系统中系统与环境时时保持温度相同，但环境与系统只交换热、不做功$\Delta U = \delta q$）。为了进一步论证，我们还需先引入一个十分震撼、可疑又平凡的假设：如果将系统与环境再视为一个大系统，那么这个大系统是孤立系统，因为不存在更大的环境与之交换热或功。
+
+对于这个大系统运用热力学第二定律 
+
+$$
+\begin{aligned}
+\Delta {S_{tot}}
+ &=\Delta {S_{sys}}+\Delta {S_{env}}\\
+ & =\Delta {S_{sys}}+ \frac{\Delta U_{{env}}}{T}\\
+ & = \Delta {S_{sys}} - \frac{\Delta U_{{sys}}}{T} \\
+ \end{aligned}
+$$
+现在，大系统的 $\Delta {S_{tot}}$只与原先的系统有关，因此省略下标。
+$$
+\begin{aligned}
+\Delta {S_{tot}}
+ & = \frac{1}{T}(T \Delta {S} -\Delta U )\\
+ & = - \frac{1}{T}(\Delta U - T \Delta {S} )\\
+\end{aligned}
+$$
+定义 $F = U-TS$，那么$\Delta F = \Delta U - T \Delta S$
+因此you
+$$
+\Delta S_{tot} = -\frac{\Delta F}{T}
+$$
+
+亥姆霍兹自由能\upref{HelmF}
+
+吉布斯自由能\upref{GibbsG}
+
+\subsection{热力学第二定律的微观解释}
+由于热力学熵和玻尔兹曼熵之间的关系（宏观熵 $=$ 微观熵），热力学第二定律有其统计意义：孤立系统的自发过程（不可逆过程）总是从有序向无序过渡，即从出现概率小的宏观状态向出现概率大的宏观状态过渡。也就是说，虽然基本物理定律是有时间反演不变性，但从统计意义上看，宏观规律却能体现时间箭头的方向！
+\addTODO{证明等价性}

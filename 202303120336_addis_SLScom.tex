@@ -1,0 +1,28 @@
+% SLISC 的安装和测试
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{SLISC 库概述\upref{SLISC}}
+
+\subsection{直接使用头文件}
+和 C++ 标准库一样， 如果你不想修改 SLISC 源码， 只需要把 \verb|SLISC| 文件夹复制到您的项目， 并在 C++ 源码中使用相应的头文件即可。
+
+下载 SLISC 源码（例如， 创建 “SLISC 库概述\upref{SLISC}” 中的 \verb|intro.cpp|。 注意如果 \verb|intro.cpp| 如果和 \verb|SLISC| 文件夹不在同一个目录， 那么你需要修改 \verb|#include| 中的相对路径， 也可以用绝对路径。
+
+要编译， 用 \verb|g++ -D SLS_USE_INT_AS_LONG intro.cpp -o intro|。 其中 \verb|-D SLS_USE_INT_AS_LONG| 用于预定义宏， 声明我们使用 4 字节的 \verb|Long|。 等效地， 你也可以在 \verb|intro.cpp| 最开始插入 \verb|#define SLS_USE_INT_AS_LONG|。
+
+编译成功后， 运行程序就得到输出结果
+\begin{lstlisting}[language=none]
+u = 
+0   1   2   
+
+a 有 2 行和 3 列, 共计 6 个元素。
+1.1   0   4.4   
+0   9.9   5.5
+\end{lstlisting}
+以及两个输出文件 \verb|data0.matb| 和 \verb|data.matb|。
+
+\subsection{编译测试}
+为了测试代码在你使用的 CPU 架构和操作系统中能正常运行， 强烈建议编译测试， 即 \verb|SLISC0/main.cpp|。 现在运行 \verb|make -j8| 即可， 然后运行使用 \verb|./main.x|。
