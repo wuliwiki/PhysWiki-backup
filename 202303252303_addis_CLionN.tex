@@ -1,0 +1,17 @@
+% CLion 笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\subsubsection{cmake 环境}
+\begin{itemize}
+\item \verb|Settings > Build,Execution,Development > Toolchains| 选择编译环境， 如 WSL， Mingw， Docker， SSH 等。 会检测 CMake 的版本以及 GDB 的版本。
+\item Linux/WSL 环境下 CLion 通过 \verb|sh| 运行 CMake。
+\item 下面的 CMake 面板里面的齿轮按钮可以设置 \verb|cmake|。 也可以用 \verb|Settings > Build,Execution,Development > CMake| 进入。 包括 Build options \verb|-- -j 16|， 运行 \verb|cmake| 时的环境变量（例如 \verb|CPATH, LIBRARY_PATH|）。
+\end{itemize}
+
+\subsubsection{运行环境}
+\begin{itemize}
+\item 上面菜单栏的 Select Run Debug Configuration 可以设置运行时的 working dir， arguments， input file， 环境变量（例如 \verb|LD_LIBRARY_PATH|）。
+\end{itemize}
