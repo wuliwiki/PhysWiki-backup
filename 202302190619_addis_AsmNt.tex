@@ -1,61 +1,18 @@
-% 汇编语言笔记（GAS, x86-64）
+% 汇编语言笔记（GAS, x86）
 
 \begin{issues}
 \issueDraft
 \end{issues}
 
-参考\href{https://cs.lmu.edu/~ray/notes/gasexamples/}{一些 x86-64 的例子}， \href{https://www.tutorialspoint.com/assembly_programming/index.htm}{Tutorials Point}（提供一些 cpu 原理， 但用的是 NASM 不是 GAS）。
-
-一个例子：
-\begin{lstlisting}[language=none]
-        .global _start
-
-        .text
-_start:
-        # write(1, message, 13)
-        mov     $1, %rax            # system call 1 is write
-        mov     $1, %rdi            # file handle 1 is stdout
-        mov     $message, %rsi      # address of string to output
-        mov     $13, %rdx           # number of bytes
-        syscall                     # invoke operating system to do the write
-
-        # exit(0)
-        mov     $60, %rax           # system call 60 is exit
-        xor     %rdi, %rdi          # we want return code 0
-        syscall                     # invoke operating system to exit
-message:
-        .ascii  "Hello, world\n"
-\end{lstlisting}
-
-编译： \verb|gcc -c hello.s && ld hello.o && ./a.out|， 运行： \verb|./hello.x|
-
 \begin{itemize}
-\item assembler 是汇编语言的编译器
-\item 汇编语言的语法依赖于 CPU 架构和具体的 assembler， 完全不 portable。
 \item \verb|gcc| 使用的 assembler 是 \textbf{GNU Assembler (GAS)}
-\item 注释用 \verb|#|
-\item 缩进没有意义
-\item \verb|movl $4, %eax| 把 register \verb|eax| 的值设为 4。 \verb|%| 表示 register， \verb|$| 表示 immediate value， 可以用十进制也可以 16 进制 \verb|0x4|。
-\item 关于寄存器的命名详见 “x86-64 笔记\upref{x86}”
+\item 汇编语言依赖于 CPU 架构。
+\item assembler 是汇编语言的编译器
+\item 注释用 \verb|;|
+\item \verb|mov eax, 4| 把 register \verb|mov| 的值设为 4。
+\item \verb|变量名 db '字符串', 0| 定义一个字符串。 其中 \verb|db| 是 \textbf{define byte}， \verb|0| 是字符串结尾的 Null。
+\item 也可以用 \verb|变量名: .asciz "字符串\n"|
 \item \verb|int 0x80| 开始 software interrupt， 进行 system call。
 \item \verb|mov eax, 1| 是 system call \verb|exit()|
-\item \verb|xor %寄存器, %寄存器| 可以把 \verb|寄存器| 的值设为 0。
-\item \verb|$| 和 \verb|%| 是可以省略的
-\item \verb|e?x| 是 32-bit register， \verb|r?x| 是 64-bit 的。
-\item 在 32 位系统上， \verb|mov| 等效于 \verb|movl|， 64 位系统上等效于 \verb|movq|。
-\item \verb|.section .text| 用于声明一个 section， text 说明这是执行程序。 \verb|.section| 可以省略。
-\item \verb|syscall| 一般代替 \verb|int 0x80| 进行 systemcall， 后者已经过时了。
-\item \verb|标签:| 是一个 label， 用于指定代码的某个位置， 用于跳转。
-\item \verb|jnz 标签| 是条件跳转， 
-\item \verb|inc %xxx| 把寄存器的值加 1。
-\item \verb|push %xxx| 是把寄存器的值 push 到 stack 顶部。 \verb|pop %xxx| 把 stack 顶部的值取回到寄存器。
-\end{itemize}
-
-\subsubsection{gdb}
-\begin{itemize}
-\item 编译时加上选项 \verb|-g|， 就可以用 \verb|gdb ./hello.x| 来调试程序。
-\item \verb|b main| 可以在 main 的第一行设置 break point， \verb|r| 跑程序。
-\item \verb|p $eax| 可以查看 register 的值。
-\item 在用 gdb 调试 c/c++ 语言时， \verb|disassemble| 命令可以看到当前的汇编码。
-\item 要直接把 c 编译成汇编码， 用 \verb|gcc -S main.c|， 但是生成汇编码的可读性比较差（比手写的复杂）。
+\item \verb|xor ebx, ebx| 可以把 register \verb|ebx| 变为 0。
 \end{itemize}
