@@ -1,0 +1,78 @@
+% 多点电荷的静电场绘图
+
+\begin{lstlisting}[language=matlab]
+clc
+clear
+
+[x y z]=meshgrid(-10:0.5:10,0,-10:0.5:10);
+[sx sy sz] = size(x);
+
+N=2; %电荷个数
+
+chargeLocation=zeros(3,N);
+q = zeros(N,1);
+
+for n = 1:N %随机生成电荷的位置与电量
+  chargeLocation(:,n) = 20*rand(3,1) - 10;
+  chargeLocation(2,n) = 0;
+  q(n)=4*rand() - 2;
+end
+
+%你也可以手动指定各电荷的位置与电量
+%chargeLocation(:,1) = [0;0;0]; %x;y;z
+%chargeLocation(:,2) = [0;0;5];
+%q(1)=1;
+%q(2)=-1;
+
+for i=1:sx
+ for j=1:sy
+   for k=1:sz
+      r = [x(i,j,k);y(i,j,k);z(i,j,k)];
+
+      E = [0;0;0];
+
+      for n = 1:N
+        R = r-chargeLocation(:,n);
+        E += q(n)*30/norm(R)^3 * R;
+      endfor
+
+      if isnan(norm(E))
+        E=[0;0;0];
+      elseif norm(E) >= 0.5;
+        E = E/norm(E) * 0.5;
+      end
+
+      u(i,j,k)=E(1);
+      v(i,j,k)=E(2);
+      w(i,j,k)=E(3);
+   end
+ end
+end
+
+hold on
+axis equal
+axis([-10 10 -10 10 -10 10])
+
+quiver3(x,y,z,u,v,w,0);
+
+for n=1:N
+  s = scatter3(chargeLocation(1,n),
+  chargeLocation(2,n),chargeLocation(3,n),'r');
+  if q(n) > 0
+    set(s,'MarkerEdgeColor','r')
+  else
+    set(s,'MarkerEdgeColor','k')
+  endif
+  set(s,'sizedata',36*log(abs(q(n))+1));
+end
+
+set(gca,'xtick',[])
+set(gca,'ytick',[])
+set(gca,'ztick',[])
+xlabel('X','fontsize',15,'fontname','Alibaba PuHuiTi 2.0')
+ylabel('Y','fontsize',15,'fontname','Alibaba PuHuiTi 2.0')
+zlabel('Z','fontsize',15,'fontname','Alibaba PuHuiTi 2.0')
+view(0,0)
+hold off
+
+\end{lstlisting}
