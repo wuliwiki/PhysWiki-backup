@@ -1,0 +1,110 @@
+% 介质的边界条件
+% 边界条件 介质
+
+\begin{issues}
+\issueTODO 需要添加A的边界条件；补充相应的证明
+\end{issues}
+\pentry{麦克斯韦方程组（介质）\upref{MWEq1}}
+
+\footnote{本文参考自\cite{GriffE}与周磊教授的\href{http://fdjpkc.fudan.edu.cn/d200927/2009/0314/c8569a14801/page.htm}{讲义}。}
+在解决场与势在电、磁介质边界的问题时，微分形式的麦克斯韦方程组不再适用，但积分形式的麦克斯韦方程组仍然适用。（边界处的场可以是不连续的）
+
+本文中，$\sigma_f$指自由面电荷密度，$\sigma$指总面电荷密度，即包括所有自由电荷与因介质极化而产生的感应电荷。在计算时，使用势的边界条件计算，往往比使用场更为简便。
+
+\subsection{电场}
+
+\subsubsection{E场}
+\begin{equation}\label{eq_mbdy_3}
+E^\perp_{above} - E^\perp_{below} = \frac{\sigma}{\epsilon_0}~,
+\end{equation}
+\begin{equation}\label{eq_mbdy_1}
+\epsilon_{above}E^\perp_{above} - \epsilon_{below}E^\perp_{below} = \sigma_f
+\end{equation}
+\begin{equation}\label{eq_mbdy_7}
+E^\parallel_{above} - E^\parallel_{below} = 0
+\end{equation}
+
+\subsubsection{D场}
+\begin{equation}\label{eq_mbdy_6}
+D^\perp_{above} - D^\perp_{below} = \sigma_f
+\end{equation}
+将 $D_{above}=\epsilon_{above} E, D_{below}=\epsilon_{below} E$ 代入该式，即可推导出\autoref{eq_mbdy_1} 。
+
+\subsubsection{电势 $\varphi$}
+\begin{equation}
+\varphi_{above}-\varphi_{below}=0
+\end{equation}
+\begin{equation}\label{eq_mbdy_4}
+\pdv{\varphi_{above}}{n} - \pdv{\varphi_{below}}{n}  = -\frac{\sigma}{\epsilon_0}
+\end{equation}
+\begin{equation}\label{eq_mbdy_5}
+\epsilon_{above}\pdv{\varphi_{above}}{n} - \epsilon_{below}\pdv{\varphi_{below}}{n}  = -\sigma_f
+\end{equation}
+将$\bvec E= -\grad \varphi$分别代入\autoref{eq_mbdy_3} \autoref{eq_mbdy_1} ，即可得\autoref{eq_mbdy_4} \autoref{eq_mbdy_5} 。
+
+
+\begin{example}{}
+初步说明 \autoref{eq_mbdy_6} 。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/ecd8d3e33566a1f1.pdf}
+\caption{边界处的高斯面.仿自\cite{GriffE}} \label{fig_mbdy_1}
+\end{figure}
+在两介质的边界处（图中所示平面）绘制一个高斯面（图中所示正方形），对其运用麦克斯韦方程组（介质）\upref{MWEq1}的积分形式 $\oint \bvec D \vdot \dd{\bvec A} = q_f$。
+
+当高度 $d\rightarrow0$时，D场的垂直分量只存在于上下表面，即$D^\perp_{above} A- D^\perp_{below} A= q_f$ (二者符号不同是因为积分时总是取曲面向外为面法向量的正方向)。两边同除以A，得 $D^\perp_{above} - D^\perp_{below} = \sigma_f$
+\end{example}
+
+\begin{example}{}
+初步说明 \autoref{eq_mbdy_7} 。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/d30f9b7cdad88acc.pdf}
+\caption{边界处的环路} \label{fig_mbdy_3}
+\end{figure}
+
+在介质边界处绘制一环路。根据静电场环路性质\upref{ELECLD}，我们有
+$$ \oint \bvec E \cdot \dd \bvec l = 0$$
+令环路的$h\to0$，那么电场在环路垂直边上的积分就为$0$。此时环路积分的结果只与上下边有关：
+$$ E_{above}^\parallel d-E_{below}^\parallel d = 0$$
+即
+$$ E_{above}^\parallel-E_{below}^\parallel = 0$$
+
+\end{example}
+
+\subsection{磁场}
+
+\subsubsection{B场}
+\begin{equation}
+B^\perp_{above} - B^\perp_{below} = 0
+\end{equation}
+\begin{equation}
+\bvec B^\parallel_{above} - \bvec B^\parallel_{below} = \mu_0\bvec K \times \hat n 
+\end{equation}
+\begin{equation}\label{eq_mbdy_2}
+\frac{1}{\mu_{above}}\bvec B^\parallel_{above} - \frac{1}{\mu_{below}} \bvec B^\parallel_{below} = \bvec K_f \times \hat n 
+\end{equation}
+K: 面电流密度
+
+\subsubsection{H场}
+\begin{equation}
+\bvec H^\parallel_{above} - \bvec H^\parallel_{below} = \bvec K_f \times \hat n 
+\end{equation}
+
+\autoref{eq_mbdy_2}  是他的推论。
+% \subsubsection{磁矢势A}
+% \begin{equation}
+% \bvec A_{above}-\bvec A_{below}=0
+% \end{equation}
+
+% \begin{equation}
+% \pdv{\bvec A_{above}}{n}-\pdv{\bvec A_{below}}{n}=-\mu_0 \bvec K
+% \end{equation}
+
+\subsubsection{磁标势$\varphi$ (如果有定义)}
+\begin{equation}
+\varphi_{above}-\varphi_{below}=0
+\end{equation}
+\begin{equation}
+\mu_{above}\pdv{\varphi_{above}}{n} - \mu_{below}\pdv{\varphi_{below}}{n}  = 0
+\end{equation}
