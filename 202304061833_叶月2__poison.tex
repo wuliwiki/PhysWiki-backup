@@ -1,0 +1,40 @@
+% 泊松括号
+% 哈密顿量|泊松括号|守恒量
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{哈密顿正则方程\upref{HamCan}}
+在理论力学里，泊松括号的引入能更加简洁地表明运动积分需要满足的条件。所谓运动积分，可以简单理解为在某一动力学系统中，不随时间改变的常数。动力学系统总满足二阶微分方程，所以我们总可以找到这样的运动积分。现在设$f(q,p,t)$为粒子关于动量、坐标和时间的函数，且为运动积分，则根据定义我们有：
+\begin{equation}
+\frac{df}{dt}=\frac{\partial f}{\partial t}+\frac{\partial f}{\partial q}\dot{q}+\frac{\partial f}{\partial p}\dot{ p}
+\end{equation}
+
+结合正则方程，我们可以把上式改写为
+\begin{equation}
+\frac{df}{dt}=\frac{\partial f}{\partial t}+\pb{H}{f}
+\end{equation}
+引入的泊松记号定义如下：
+
+
+对于任意两个函数 $u(q, p, t)$ 和 $v(q, p, t)$， 泊松括号的“作用”为
+\begin{equation}
+\pb{u}{v} = \sum_i \pdv{u}{q_i}\pdv{v}{p_i} - \pdv{v}{q_i}\pdv{u}{p_i}~,
+\end{equation}
+其中$i$为系统的自由度。显然，如果函数$f$不显含时间，且为运动积分（也就是一守恒量），则该函数与系统哈密顿量的泊松括号为0.
+
+\subsection{泊松括号的性质}
+根据定义，我们可以证明泊松括号需要满足如下几条性质。
+\begin{enumerate}
+\item 反对称性
+$[u,v]=-[v,u]$
+\item 双线性
+$\pb {au+bv}{\phi}=a\pb {u}{\phi}+\pb b{v}{\phi}$
+\item 
+
+\end{enumerate}
+\subsection{泊松定理}
+\subsection{量子力学中的泊松括号}
+
+
