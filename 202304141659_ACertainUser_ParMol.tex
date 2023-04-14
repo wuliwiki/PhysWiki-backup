@@ -1,0 +1,99 @@
+% 偏摩尔量
+
+%打算重写中...
+
+\pentry{相简介（热力学）\upref{PHS}}
+\footnote{本文参考了朱文涛的《简明物理化学》与Schroeder的《热物理学导论》}
+
+\subsection{多元多相系统中的状态量}
+\pentry{态函数\upref{statef}}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/ae7e6997f377b0b8.pdf}
+\caption{多元多相系统} \label{fig_ParMol_1}
+\end{figure}
+
+在多元多相系统中，我们需要扩展状态量与“状态公理”的含义。
+
+在多元多相系统中，由于不同相的热力学性质不同，因此往往需要分别写出每一个相的状态量。\textsl{此次的上标含义是相，而不是指数！}
+$$U^\alpha, U^\beta,...$$
+
+同时，由于物质可在各相间流动、每一相中的物质含量可以变化，因此相状态量也与各物质的物质的量有关。
+$$U^\alpha = U^\alpha (p^\alpha, T^\alpha, n_1^\alpha,n_2^\alpha,...)$$
+
+\subsection{单组份系统：摩尔量}
+我们先来思考一种最简单的单组份系统，即系统中只包括一种物质。
+$$U^\alpha = U^\alpha (p^\alpha, T^\alpha, n^\alpha)$$
+由于内能是广延量，因此内能应当与“系统的规模”，即系统中物质的物质的量成正比。比如，如果系统中物质含量扩大4倍，那么内能也将相应地扩大4倍。
+$$U^\alpha(p^\alpha, T^\alpha, 4 n^\alpha) = 4 U^\alpha (p^\alpha, T^\alpha, n^\alpha)$$
+这是广延量的一个非常好的性质：根据齐次方程欧拉定理，我们可以将其化为一下形式：
+$$U^\alpha(p^\alpha, T^\alpha, n^\alpha) = n^\alpha \cdot u^\alpha (p^\alpha, T^\alpha)$$
+可见， $u^\alpha (p^\alpha, T^\alpha)$ 不再与系统的规模相关，而成为了某种强度量。我们将其定义为\textbf{摩尔内能}，意味着每摩尔物质所具有的内能。
+
+同理，对于其他广延量，我们可以定义相应的摩尔量：
+$$
+\begin{aligned}
+S^\alpha(p^\alpha, T^\alpha, n^\alpha) &= n^\alpha \cdot S^\alpha (p^\alpha, T^\alpha)\\
+V^\alpha(p^\alpha, T^\alpha, n^\alpha) &= n^\alpha \cdot V^\alpha (p^\alpha, T^\alpha)\\
+G^\alpha(p^\alpha, T^\alpha, n^\alpha) &= n^\alpha \cdot \mu^\alpha (p^\alpha, T^\alpha)\\
+\end{aligned}
+$$
+Gibbs自由能的摩尔量比较特别，一般写为$\mu$，也称为化学势。以后你会知道为什么人们\textsl{对Gibbs的摩尔量搞特殊}。对于纯物质的摩尔量，可加$*$上标与混合物质中的区分（见下），例如$v^*, \mu^*$。
+
+\subsubsection{摩尔量的热力学基本关系}
+
+
+\subsection{偏摩尔量}
+假设一个多元单相系统的某一广度状态量$Z=f(p,T,n_1,n_2,...)$
+
+对其求全微分
+\begin{equation}\label{eq_ParMol_1}
+dZ = \left(\pdv{Z}{p}\right)_{T,n_1,n_2,...}dp + \left(\pdv{Z}{T}\right)_{p,n_1,n_2,...}dT+\left(\pdv{Z}{n_1}\right)_{p,T,n_2,...}dn_1+\left(\pdv{Z}{n_2}\right)_{p,T,n_1,n_3,...}dn_2+...
+\end{equation}
+
+定义偏摩尔量
+\begin{equation}
+{Z_B} = \left(\pdv{Z}{n_B}\right)_{p,T,n_i, i \neq B} 
+\end{equation}
+那么 \autoref{eq_ParMol_1} 化为 
+\begin{equation}\label{eq_ParMol_4}
+dZ = \left(\pdv{Z}{p}\right)_{T,n_1,n_2,...}dp + \left(\pdv{Z}{T}\right)_{p,n_1,n_2,...}dT+\sum {Z_B} dn_B
+\end{equation}
+特别地，若温度、压力恒定，\autoref{eq_ParMol_4} 简化为
+\begin{equation}\label{eq_ParMol_3}
+dZ = \sum {Z_B} dn_B
+\end{equation}
+
+${Z_B} d n_B$ 的物理含义可以理解为，某一状态下保持其余条件不变，再往系统中加入少量物质B，系统状态Z的变化。
+
+注意，在多组分系统中，B组分偏摩尔量${Z_B}={Z_B}(p,T,n_1,n_2,...)$一般不是常数，也不等于纯B物质的摩尔量。例如，往水中融入体积为V的少量NaCl晶体后，水体积的改变量将小于V。
+
+最为常用的偏摩尔量是\textsl{化学势}，定义为吉布斯自由能\upref{GibbsG}的偏摩尔量，一般记为$\mu_B$。
+\begin{equation}
+\mu_B={G_B} = \left(\pdv{G}{n_B}\right)_{p,T,n_i, i \neq B} 
+\end{equation}
+
+\subsection{有关定理}
+\subsubsection{集合公式}
+\begin{equation}\label{eq_ParMol_2}
+Z=\sum {Z_B}  n_B
+\end{equation}
+
+对于有些溶液，溶质的${V_B}n_B$的值是负数（即溶解后，溶液体积反而变小），而显然物质的体积不能是负数。由此可见，集合公式\textbf{不能}简单地理解为总量等于各组分“\textsl{占有的份量}”之和。
+
+\subsubsection{Gibbs-Duhem 公式}
+\begin{equation}
+\sum n_B \dd Z_B = 0
+\end{equation}
+
+推导：对集合公式（\autoref{eq_ParMol_2} ）两端求导，$dZ=\sum n_B \dd Z_B + \sum {Z_B}  \dd n_B$，代入 \autoref{eq_ParMol_3} ，对比，即得证。
+
+特别地，对于二元混合物，
+\begin{equation}
+n_1 \dd {Z_1} = - n_2 \dd {Z_2}
+\end{equation}
+或
+\begin{equation}
+\dd {Z_1} = -\frac{n_2}{n_1} \dd {Z_2}
+\end{equation}
+
