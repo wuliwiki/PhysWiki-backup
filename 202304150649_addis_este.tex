@@ -1,0 +1,37 @@
+% 小时百科编辑器标准测试流程
+% este1|este2|este35
+
+
+\begin{equation}\label{eq_este_2}
+b + a = c
+\end{equation}
+
+1. 创建一个公式（不加标签）
+\begin{equation}\label{eq_este_1}
+a + b = c
+\end{equation}
+2. 引用一下\autoref{eq_este_1}。
+
+3. 再在上面创建一个新公式， 引用一下\autoref{eq_este_2}。
+
+4. 引用其他未打开词条的无标签公式： \autoref{eq_test_4}~\upref{test}。
+
+5. 上传一张图片
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/03487d4fdd589142.png}
+\caption{更改一下图片标题} \label{fig_este_1}
+\end{figure}
+6. 引用本文图片\autoref{fig_este_1}。
+
+7. 引用外部图片\autoref{fig_HWF_2}~\upref{HWF}。
+
+8. 引用不存在的图片
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/a9828935e2bac1ee.png}
+\caption{图片标题} \label{fig_este_2}
+\end{figure}
+
+9. 从外部引用本文公式和图片， 试图删除被引用的公式图片。
