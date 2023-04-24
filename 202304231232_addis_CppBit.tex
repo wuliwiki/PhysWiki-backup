@@ -1,0 +1,14 @@
+% C 和 C++ 的比特运算
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item \verb|bits & mask| 可以把 mask 的部分保留， 其余设为 \verb|0|。
+\item \verb`bits | mask` 可以把 mask 的部分设为 \verb|1|， 其余保留。
+\item \verb|bits ^ mask| 可以把 mask 的部分翻转， 其余保留（XOR 异或算符）。
+\item \verb|~(bits1 ^ bits2)| 相当于同或
+\item 要把 \verb|bits| 的 mask 部分设为指定 pattern， 就先把 mask 的部分设为 \verb|0| 再把其中的一些设为 \verb|1|。
+\item 对负数使用 \verb|>>| 是 implementation defined 的（大部分会在左边加 1）， 所以最好用 \verb|unsigned| 类型。
+\end{itemize}
