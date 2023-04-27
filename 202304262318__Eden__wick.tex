@@ -1,0 +1,73 @@
+% Wick 定理（标量场）
+% 标量场|wick定理|费曼图|编时格林函数
+\pentry{标量场的谱\upref{spectr}，克莱因-戈登传播子\upref{Klein}}
+
+\subsection{导语}
+我们先以标量场 $\phi(x)$ 为例研究它的编时格林函数。
+量子场论的重要研究对象就是散射过程的费曼矩阵元或 S 矩阵元，它给出了散射过程发生的概率，从而与实验中可直接观测到的散射截面、衰变率等物理量相联系。而根据相互作用场论的相关知识，LSZ 理论将 S 矩阵与编时格林函数联系了起来。为了求出相互作用场论的编时格林函数，我们又可以利用 Gell-Mann-Low 定理，将相互作用场论的真空态 $|\Omega\rangle$ 用自由场论的真空态 $|0\rangle$ 表示：
+\begin{equation}
+|\Omega\rangle = \lim\limits_{T_0\rightarrow \infty(1-i\epsilon)}\qty(e^{-iE_0(t_0-(-T_0))}\langle \Omega|0\rangle )^{-1}U(t_0,-T_0)|0\rangle~.
+\end{equation}
+从而可以得到以下公式
+\begin{equation}\label{eq_wick_1}
+\bra\Omega T[\phi(x)\phi(y)]\ket\Omega = \lim\limits_{T_0\rightarrow \infty(1-i\epsilon)}\frac{\bra 0 T\qty(\phi_I(x)\phi_I(y)\exp[-i\int_{-T_0}^{T_0}\dd t H_I(t)])\ket 0}{\bra 0 T\qty(\exp[-i\int_{-T_0}^{T_0}\dd t H_I(t)])\ket 0}~,
+\end{equation}
+其中 $H_I(t)$ 为相互作用表象下的相互作用哈密顿量。编时格林函数和 $\exp$ 指数可以理解为，首先将 $\exp$ 指数展开为幂级数，再对每一项进行编时操作。在微扰理论的框架下，$H_I$ 是微扰项，越高阶项的贡献越小。
+
+于是最终问题变成了，如何求自由场论的编时格林函数。上式的形式仍然非常复杂，难以求解。幸运地是，我们有 Wick 定理，可以将编时格林函数的计算大大地简化，以至于可以用直观的费曼图来表示每一项的贡献。
+\subsection{Wick 定理}
+计算形如 $\bra 0 T\phi_I(x_1)\cdots\phi_I(x_n) \ket 0$ 的关键是，将 $\phi_I(x_i)$ 分解为正频率和负频率两个部分 $\phi( x)=\phi^{(+)}( x)+\phi^{(-)}( x)$（以下省略下角标 $I$）。
+\begin{equation}
+\phi^{(+)}( x) = \int \frac{d{}^3{\bvec p}}{(2\pi)^3} \frac{1}{\sqrt{2\omega_{\bvec p}}}a_{\bvec p} e^{-ipx} ,
+\phi^{(-)}( x) = \int \frac{d{}^3{\bvec p}}{(2\pi)^3} \frac{1}{\sqrt{2\omega_{\bvec p}}}a_{\bvec p}^\dagger e^{ipx} ~.
+\end{equation}
+那么由于产生湮灭算符的性质，正频率部分作用于 $\ket 0$ 将得到 $0$。类似地，$\langle 0| \phi^{(-)}( x)=0$。将 $\bra 0 \phi(x)\phi(y)\ket 0$ 中的场算符按正频率部分和负频率部分展开，可以得到
+\begin{equation}
+\begin{aligned}
+\bra 0 \phi( x)\phi( y)\ket 0=\bra 0 \phi^{(+)}( x)\phi^{(-)}( y)\ket 0\\
+ = \bra 0[\phi^{(+)}( x),\phi^{(-)}( y)]\ket 0~.
+\end{aligned}
+\end{equation}
+上式中的对易子看似是算符，实际上是 c 数。可以由下式看出。算上编时格林函数，我们有
+\begin{equation}
+\bra 0 T\phi( x)\phi( y)\ket 0=D_F(x-y)=\begin{cases}
+\bra 0[\phi^{(+)}( x),\phi^{(-)}( y)]\ket 0, &x^0>y^0\\
+\bra 0[\phi^{(+)}( y),\phi^{(-)}( x)]\ket 0, &x^0<y^0
+\end{cases}~.
+\end{equation}
+上式中的 $D_F(x-y)$ 是费曼传播子\autoref{eq_Klein_3}~\upref{Klein}，这里我们给它一个新的名称：两个场的“缩并”。
+
+对于四个场算符构成的格林函数，$\bra 0 T\phi(x_1)\phi(x_2)\phi(x_3)\phi(x_4)\ket 0$，用类似的推导，可以将每个场算符分解为正频率部分和负频率部分。那么最终结果就是，这四个场算符两两进行“缩并”的结果。所以
+\begin{equation}
+\begin{aligned}
+\bra 0 T\phi(x_1)\phi(x_2)\phi(x_3)\phi(x_4)\ket 0=&D_F(x_1-x_2)D_F(x_3-x_4)+D_F(x_1-x_3)D_F(x_2-x_4)
+\\&+D_F(x_1-x_4)D_F(x_2-x_3)~.
+\end{aligned}
+\end{equation}
+这三项分别可以用下面的三张图表示
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/790a518dad825d21.png}
+\caption{标量场路的四点编时格林函数的缩并图} \label{fig_wick_1}
+\end{figure}
+
+用数学归纳法可以证明更多个场算符组成的编时格林函数的缩并结果。如果是奇数个场算符的编时格林函数，编时格林函数的值将为 $0$，因为缩并是成对的，总有一个场算符无法被缩并。而对于偶数个场算符组成的编时格林函数，则有许多种缩并方式，每种缩并方式都对结果有贡献，可以用缩并图来表示。
+\subsection{相互作用顶点与费曼图}
+让我们来考虑两点编时格林函数 \autoref{eq_wick_1} 中分子的微扰展开，展开到相互作用项的第一阶：
+\begin{equation}
+\begin{aligned}
+&\langle 0| T\left[\phi(x)\phi(y)+\phi(x)\phi(y)\left(-i\int_{-\infty}^{\infty}\dd t H_I(t)\right)\right] | 0\rangle\\
+&=\bra 0 T[\phi(x)\phi(y)] \ket 0 
++\left(\frac{-i\lambda_0}{4!}\right) \int \dd[4]{z} \bra 0 T\left[ \phi(x)\phi(y)\phi^4(z) \right]\ket 0
+\end{aligned}
+\end{equation}
+其中第一项只存在 $\phi(x)$ 与 $\phi(y)$ 缩并的方式，因此对应于 $y$ 到 $x$ 一条线段的缩并图。现在考虑第二项，也就是一阶相互作用项。
+
+注意到第二项的六点编时格林函数中 $z$ 出现了 $4$ 次，我们设置一个相互作用顶点 $z$。两点之间的连线代表两个时空坐标的场算符进行了一次缩并，这意味着缩并图中的顶点 $z$ 连出 $4$ 条连线。对于第二项，我们可以得到两种类型的缩并图（如 \autoref{fig_wick1} 
+所示），分别对应两种不同的缩并方式，并且我们需要分别计算它们的缩并方案数。具体的计算可以得到
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/bdd6d15b44e68ed6.png}
+\caption{$\phi^4$ 理论的两点编时格林函数的 $\lambda_0^1$ 阶的贡献} \label{fig_wick1}
+\end{figure}
