@@ -1,0 +1,61 @@
+% SQL 入门语法
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\subsection{SQL 基本语法}
+
+\subsubsection{SQL 库操作}
+\subsubsection{1.结构创建}
+\begin{itemize}
+\item create 结构类型 结构名 结构描述；
+\end{itemize}
+\subsubsection{2.显示结构}
+\begin{itemize}
+\item 显示结构： show 结构类型（复数）
+\item 显示结构创建详情： show create 结构类型 结构名；
+\end{itemize}
+\subsubsection{3.数据操作（数据表）}
+\begin{itemize}
+\item 新增数据： INSERT INTO 表名 VALUES
+\begin{lstlisting}[language=bash]
+//向学生表中插入学生数据：张三 231119001  男 北京
+INSERT INTO students
+VALUES
+（'张三','231119001','男','北京'）；
+\end{lstlisting}
+
+\item 查看数据：SELECT FORM 表名 
+\begin{lstlisting}[language=bash]
+//从学生表查询名字为张三的学号(具体查询)
+SElECT ID
+FROM students
+WHERE name='张三'；
+
+
+//从学生表查询姓名为张的学号(模糊查询)
+// % 表示任意多个字符
+//_ 表示任意多个任意字符
+
+SELECT ID
+FROM students
+WHERE  name like '张%' ;
+或者
+SELECT ID
+FROM students
+WHERE  name like '张_' ;
+\end{lstlisting}
+
+
+\item 更新数据： UPDATE 表名 SET
+\begin{lstlisting}[language=bash]
+//在学生表中，将学生张三的id改为231119002
+UPDATE students
+\end{lstlisting}
+\end{itemize}
+
+
+
+\subsubsection{创建数据库}
+\subsubsection{显示数据库}
