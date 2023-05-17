@@ -1,0 +1,25 @@
+% C++ 时间处理笔记
+
+\pentry{C++ 基础\upref{Cpp0}}
+
+\verb|std::tm| 结构（\href{https://en.cppreference.com/w/cpp/chrono/c/tm}{参考}）代表一个时间， 是从 C 语言迁移过来的， 成员如下
+\begin{itemize}
+\item \verb|tm_year| 年份四位数减去 1900
+\item \verb|tm_mon| 月份减去 1
+\item \verb|tm_mday| 日 [1,31]
+\item \verb|tm_hour| 小时 [0,23]
+\item \verb|tm_min| 分钟 [0,59]
+\item \verb|tm_sec| 秒 [0,60]
+\end{itemize}
+\begin{itemize}
+\item \verb|tm_wday| 周几（0 代表周日） [0-6]
+\item \verb|tm_yday| 一年中的第一天（0 代表 1/1）[0, 365]
+\item \verb|tm_isdst| 是否是夏令时 (DST) 若大于零则有 DST， 零则非 DST， 负数则无信息
+\end{itemize}
+
+\verb|std::time_t| 结构是一个表示时间的 arithmetic 类型（几乎总是整型）的 typedef。 几乎总是定义为从 1970 年 1 月 1 日 UTC （epoch）起流逝的秒数。
+
+\subsubsection{函数}
+\begin{itemize}
+\item 
+\end{itemize}

@@ -1,0 +1,81 @@
+% 群的自由积
+\pentry{自由群\upref{FreGrp}}
+
+将自由群的概念推广，即可得到两个群之间的自由积的概念。
+
+\subsection{自由积的构造}
+
+给定两个群 $G$ 和 $H$，取集合 $G\cup H$ 上的自由群 $F(G\cup H)$，则 $F(G\cup H)$ 的元素形如 $x_1x_2\cdots x_k$ 的有限长字符串，其中 $k$ 是某个正整数，各 $x_i$ 都是 $G\cup H$ 的元素。
+
+在 $F(G\cup H)$ 上定义一个等价关系：如果字符串 $g_1g_2\cdots g_k$ 中各 $g_i\in G$，那么令 $g_1g_2\cdots g_k\sim g_1\cdot g_2\cdot\cdots\cdot g_k$，即把该字符串等同于各字母在群 $G$ 中运算的结果；同样地把字母都是 $H$ 中元素的字符串等同于这些元素在群 $H$ 中的运算结果；把 $G$ 和 $H$ 的单位元等同于空词。比如说，在整数加法群 $\mathbb{Z}$ 中，把字符串 $123$ 等同于数字 $1+2+3$ 所代表的字符串，即只有一个字母 $6$ 的字符串。
+
+这样一来，商群 $F(G\cup H)/\sim$ 中的字符串就形如 $g_1h_1g_2h_2\cdots g_kh_k$、$g_1h_1g_2h_2\cdots g_k$、$h_1g_1h_2g_2\cdots h_kg_k$ 或 $h_1g_1h_2g_2\cdots h_k$ 的字符串，或者简单来说，有限长的 $g$ 和 $h$ 的交替字符串，其中 $g, g_i\in G$，$h, h_i\in H$。
+
+称商群 $F(G\cup H)/\sim$ 为群 $G$ 和群 $H$ 的\textbf{自由积（free product）}，记为 $G*H$。
+
+\subsection{共合积}
+\begin{definition}{共合积}
+设有三个群 $F, G, H$，且有群同态 $\phi:F\rightarrow G$ 和 $\varphi:F\rightarrow H$，那么可以定义 $G$ 和 $H$ 关于 $F$ 的\textbf{共合积} $G*_FH$ 如下：
+
+$G*_FH$ 是 $G*H$ 的商集，$G*H/\sim$，其中等价关系为：$\forall f\in F, \phi(f)\sim\varphi(f)$。
+\end{definition}
+
+简单来说，$G*_FH$ 的元素依然是 $H$ 和 $G$ 中元素交替排列的字符串，但是在给定同态 $\phi:F\rightarrow G$ 和 $\varphi:F\rightarrow H$ 时，把所有 $\phi(f)\sim\varphi(f)$ 都看成等价元素。
+
+
+
+
+既然是自由群上规定等价关系得来的，共合积也可以用描述为自由群的商群。
+
+
+
+
+\begin{theorem}{}
+
+给定互不相交的群$G$和$H$，再给定群$F$和\textbf{群同态}$\varphi:F\to G$和$\phi: F\to H$。
+
+令$S$为$G*H$上全体形如$A\varphi(x)\phi(x^{-1})A^{-1}$和$A\phi(x)\varphi(x^{-1})A^{-1}$的元素构成的集合，其中$A\in G*H$，$x\in F$，则由$S$生成的$G*H$的子群$\langle S \rangle$是$G*H$的\textbf{正规子群}。
+
+进一步有$G*_FH=G*H/\langle S \rangle$。
+
+\end{theorem}
+
+
+
+
+\textbf{证明}：
+
+$\langle S \rangle \lhd G*H$很好证，从形式上就可以，此处只举一例权作证明思路：对于$A\varphi(x)\phi(x^{-1})A^{-1}B\phi(y)\varphi(y^{-1})B^{-1}\in \langle S \rangle$，任取$C\in G*H$，则
+\begin{equation}
+\begin{aligned}
+    &CA\varphi(x)\phi(x^{-1})A^{-1}B\phi(y)\varphi(y^{-1})B^{-1}C^{-1} \\
+    ={}& 
+    CAC^{-1}C\varphi(x)\phi(x^{-1})C^{-1}CA^{-1}C^{-1}CBC^{-1}C\phi(y)\varphi(y^{-1})C^{-1}CB^{-1}C^{-1}\\
+    ={}& 
+    (CAC^{-1}C)\varphi(x)\phi(x^{-1})(CAC^{-1}C)^{-1}(CBC^{-1}C)\phi(y)\varphi(y^{-1})(CBC^{-1}C)^{-1}\\
+    \in{}& \langle S \rangle
+\end{aligned}
+\end{equation}
+
+定义满同态$h:G*H\to G*_FH$，使得$h$限制在$G$或$H$上都是恒等映射。
+
+\textbf{证毕}。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
