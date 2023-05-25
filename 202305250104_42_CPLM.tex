@@ -1,0 +1,30 @@
+% 条件极值问题与拉格朗日方法
+% 条件极值|拉格朗日方法
+
+\footnote{拉弗林契业夫,变分学教程}在前面的讨论中，我们以连接二定点或连接二给定曲线上的点的空间曲线全体为可取曲线族（\autoref{sub_DesCur_1}~\upref{DesCur}），来研究泛函的极值。然而，还有很多的问题，可取曲线在已知的曲面上，或者在多个未知函数的情形，可取曲线在某个流形上。对应的变分问题称为\textbf{条件极值问题}。为解决该问题，拉格朗日提供了所谓的未定函数因子法。
+\subsection{条件极值问题}
+设 $\varphi(x,y,z)=0$ 是给定的曲面，$A,B$ 是其上的两点。要在连接 $A,B$ 的曲面$\varphi(x,y,z)=0$ 上的一切曲线 $y=y(x),z=z(x)$ 中，确定某曲线，使积分
+\begin{equation}\label{eq_CPLM_1}
+J=\int_{x_0}^{x_1}F(x,y,z,y',z')\dd x
+\end{equation}
+沿着它取极值。其中 $x_0,x_1$ 分别是起止点 $A,B$ 的 $x$ 坐标。
+\subsection{拉格朗日方法}
+拉格朗日方法可以描述为下面的定理
+\begin{theorem}{拉格朗日方法}
+如果曲线 $y=y(x),z=z(x)$ 给出积分 $J$（\autoref{eq_CPLM_1} ）的条件极值，则有一个因子 $\lambda(x)$ 存在，使得这曲线是积分
+\begin{equation}
+J_1=\int_{x_0}^{x_1}\phi \dd x,\qquad \phi(x,y,z,y',z')=F+\lambda(x)\varphi
+\end{equation}
+的无条件极值问题的极端曲线\upref{ExtCur}。
+\end{theorem}
+\textbf{证明：}
+不失一般性，设极值是极小值。若 $\bar y=\bar y(x),\bar z=\bar z(x)$ 是另一可取曲线，则
+\begin{equation}
+\begin{aligned}
+&\varphi(x,y,z)=\varphi(x,\bar y,\bar z)=0,\\
+&\Delta J=J(\bar y,\bar z)-J(y,z)\geq0.
+\end{aligned}
+\end{equation}
+设 $\delta y$
+
+\textbf{证毕！}
