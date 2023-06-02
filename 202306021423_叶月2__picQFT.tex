@@ -1,0 +1,25 @@
+% 绘景变换与时间演化
+\subsection{绘景选择}
+为了简便地解决问题，我们可以根据力学量算符$F$和态矢$\ket{s}$的含时关系，选择不同的绘景：
+\begin{equation}
+\begin{aligned}
+\text{薛定谔绘景}\frac{\partial \ket{s}}{\partial t}\neq 0 \quad \frac{\partial F}{\partial t}&= 0\\
+\text{海森堡绘景}\frac{\partial \ket{s}}{\partial t}= 0 \quad \frac{\partial F}{\partial t}&\neq 0\\
+\text{相互作用绘景}\frac{\partial \ket{s}}{\partial t}\neq 0 \quad \frac{\partial F}{\partial t}&\neq 0
+\end{aligned}
+\end{equation}
+我们需要注意到两点基本事实，第一：绘景只是系统演化的不同图景，因而态矢及力学量的初始值必定是相同的。第二：如同表象变换，观测值也不随绘景的选择而改变。第三：由于时间演化算符并非力学量算符，所以在不同绘景里的变换关系需要额外推导。
+\subsection{绘景变换}
+设薛定谔绘景里的时间演化算符为$U_s$，那么某时刻的力学量期待值为$\bra{s}U^\dagger_sF U_s\ket{s}$。由于在海森堡绘景里，态矢不变，则$\ket{s,t}_H=\ket{s}=U^\dagger_s\ket{s,t}_s$，因此，任意时刻的海森堡力学量算符为$F_H=U^\dagger_sF U_s$
+
+相互作用绘景，顾名思义，哈密顿量$H^I$包含自由哈密顿量$H^I_0$和相互作用哈密顿量$H^I_i$，含时微扰可以在该绘景下处理。（不含时的也可以，哈密顿量的含时性并非一个硬性条件，从海森堡绘景和薛定谔绘景的关系也可以看出）
+
+相互作用绘景与薛定谔绘景的关系，其实就是自由理论下海森堡绘景与薛定谔绘景的关系。即
+\begin{equation}
+\ket{s,t}_I=\mathrm{e} ^{\mathrm{i}H_0}\ket{s,t}_s\quad F_I=\mathrm{e}^{\mathrm{i}H_0}F_s \mathrm{e}^{\mathrm{i}H_0}
+\end{equation}
+从该绘景变换我们也可以发现，两个绘景的自由哈密顿量一致，但总哈密顿量却是不同的。
+\subsection{时间演化}
+shijiany
+
+
