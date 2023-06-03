@@ -1,0 +1,61 @@
+% 倒格空间
+% 倒格矢，倒格空间，劳厄方程
+
+为了观测晶体结构，我们需要用特殊的方式对晶体进行探测。先了解一些基本知识：原子间距大约$\sim 1$ nm，而人眼一般能看见的可见光波段在 $380 \sim 780 $ nm，这就使得利用可见光的干涉消长现象来推断晶体结构是不可能的事情。
+
+为什么？假设你有一把尺子，每一格刻度最小为 $1$ mm。现在有一根头发丝，我们用尺子去测量它时，有办法直接精确测量出头发丝直径吗？显然很困难，我们的估算将会有很大误差。用波的干涉消长测量原子的间距，观察原子排布方式也是类似的原理。假设一束波长为$10$ nm的波入射，原子将紧密分布在波的每一个地方，相邻原子感受到的光场几乎相同，由此其散射光也几乎没有差异，我们无法得到干涉现象。
+
+因此，需要将观测的入射波长缩小至$\sim 1$ nm 乃至更小才能实现观测。怎么办？由物质波满足的德布罗意关系：
+\begin{equation}
+\lambda = \dfrac{p}{\hbar},~
+\end{equation}
+以及自由粒子满足的动能与动量关系：
+\begin{equation}
+E = \dfrac{p^2}{2 m},~
+\end{equation}
+我们知道物质波的\textbf{波长反比于能量}，波长越短，所需要的能量越高。室温下 $E \approx 26 $ meV 的电子对应的德布罗意波长 $\lambda \approx  7.6 $ nm；而波长 $1$ nm 的 X 射线能量在 $1240$ eV 左右，可以在钨等重元素中电子从外层向内层跃迁过程产生。为我们的观测提供了新的手段。
+
+常用的实验观测手段有：
+
+• X射线衍射 (X-ray diffractio n)
+
+• 低能电子衍射 (Low-energy electrondiffraction，LEED)
+
+• 中子衍射 (Neutron diffraction)
+
+• 角分辨光电子能谱 (Angle resolved photoe mission spectroscopy,ARPES)
+
+\subsection{布拉格定律}
+有了实验观测现象，下一步是对衍射图样进行分析。1912年，劳厄首先发现晶体X射线衍射现象，并给出了理论解释和一个比较复杂的衍射极大方向公式。第二年，布拉格父子给出了一个比劳厄方程更简单、更直接的公式。劳厄(Laue)和布拉格父子(Bragg)基于X射线衍射的晶体结构分析及其方程的建立，标志着近代固体物理学的开端。很快，1914年，劳厄获得诺贝尔物理学奖； 1915年，布拉格父子获得诺贝尔物理学奖。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/cf99a70770e52d9b.png}
+\caption{1927年，在比利时布鲁塞尔举行的第五届索尔维国际会议} \label{fig_RecLat_1}
+\end{figure}
+
+布拉格将晶体对X射线的衍射看成在\textbf{晶面}的反射。在不同晶面的反射满足\textbf{布拉格定律}时，反射波在该方向得到总体增强，形成衍射极大：
+\begin{equation}\label{eq_RecLat_1}
+2d \cdot \sin\theta = n\lambda,~
+\end{equation}
+其中，$d$ 是相邻晶面\upref{CryDir}的距离，$n$是整数，$\theta$是入射波与晶面夹角。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/435f227a3f827231.png}
+\caption{布拉格衍射} \label{fig_RecLat_2}
+\end{figure}
+推导上式需要读者有一定的光学基础。如果不会推也没关系，其物理结论即对于特定的入射角$\theta$，可以观测到相干现象。这里有个问题：什么时候能把一个个原子的排列当成一面\textbf{镜子}来处理？答案是当\textbf{入射波长远大于原子间距}时。你可以想象，对于入射波来说，这时紧密排列的原子几乎是连续的。但X射线的波长接近原子间距，因此严格来说不能将原子当成镜面。
+
+布拉格对晶体X射线衍射的物理图像的描述是有问题的，但给出的结果是正确。下面我们看看劳厄方程的物理图像是什么样的。
+
+\subsection{劳厄方程}
+劳厄将衍射看成不同\textbf{原子}对X射线的弹性散射。射线在任何两个不同原子上的散射方向满足劳厄方程时，在该方向上形成衍射极大值。
+
+如图，红色圆点代表不同原胞\upref{BraLat}内的原子，蓝色线分布代表入射波$\bvec k$和出射波$bv
+$。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/3ca05c8c4e470417.png}
+\caption{劳厄弹性散射} \label{fig_RecLat_3}
+\end{figure}
