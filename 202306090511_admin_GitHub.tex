@@ -1,0 +1,57 @@
+% GitHub Desktop 的简单使用
+
+% GitHub Desktop 的简单使用
+% 代码管理|Github|git|Github Desktop
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\subsection{Git 和 GitHub}
+要了解 GitHub 首先要知道什么是 Git。 Git 是一个文件版本控制程序， 通常用于管理程序代码， 但也可以用来管理任何文件。 从某种意义上来讲， Git 相当于一个强大的备份软件， 它可以保存一个文件夹（这个文件夹叫做 \textbf{仓库（repository）}， 简称 \textbf{repo}）内所有文件在许多不同时间的快照（叫做 \textbf{commit}）， 即所有文件某时刻的内容， 而且可以浏览，恢复某文件的某个版本。 也可以对比出当前文件夹中内容和上一次快照的任何改动， 或每个快照相对上一个的变化。 注意可查看变化的仅限文本文档（例如 txt 文件，以及代码源文件等）， 二进制文件如 word 和 excel 等可以通过插件先自动转换为文本文档再做对比。
+
+Git 还可以给仓库创造不同的\textbf{分支（branch）}， 例如一个程序写到一定的阶段后， 我们希望一边开发一个新功能， 一边维护现有的稳定版程序， 那么我们就给这个新功能创建一个分支， 开发该功能时对代码做出的改变不会影响稳定分支， 两个分支都可以有一些列快照（commit）。 等到新功能测试无误后， 再把新功能分支对代码做出的改变\textbf{合并（merge）}到稳定分支。
+
+GitHub （\href{https://github.com}{github.com}）是目前世界最大的 git 仓库托管网站，主要用户开源代码的合作开发和下载。 虽然 Git 程序会把一个仓库的所有的数据保存在你的电脑上， 但它也可以设置一个或多个\textbf{服务器（remote）}， 并可以把该仓库的数据与服务器同步， 而 GitHub 就提供这样一个服务器。 把仓库托管到服务器上可以使数据在你的不同电脑上同步。 出于众所周知的原因， GitHub 在中国大陆经常无法正常访问， 但程序员通常有自己的方法。 另外国内也有类似的平台如\href{https://gitee.com/}{码云（Gitee）}， 但无论是开源代码的数量和质量都还有较大差距。
+
+
+
+严格来说 Git 本身是一个基于命令行的程序， 需要手动输入命令操作（详见 Git 命令行教程\upref{Git0}）。 虽然 Git 现在已经有了各种各样的图形界面（GUI）， 但命令行版本的功能仍然是最齐全的。 \textbf{GitHub Desktop} 就是 GitHub 官方推出的一个 GUI 程序。 虽然目前官方只发布 Windows 和 Mac 的安装包， 但 Linux 上也可以找到第三方安装包。
+
+\addTODO{回收： Git 的一个重要功能就是可以让许多人合作完成一个工程， 这个功能通常需要在一台服务器中安装 Git Server， 每个合作者加入时把服务器中的 repo \textbf{clone}（克隆）到自己的电脑上。 更常见地是使用一些提供 server 的网站， 如 \href{https://github.com}{github.com}。 通过 Git 或者 GitHub Desktop 也可以把 github.com 上的开源项目 clone 到本地。}
+ 
+\subsection{创建第一个仓库}
+在\href{https://desktop.github.com/}{官网}下载 GitHub Desktop 并安装打开， 可以登录或注册 GitHub 账号。 注意 GitHub Enterprise 是企业账号， 个人账号是免费注册的。 注意免费账号只能建立 public repo（任何人都能访问或下载）， 创建私密的的 private repo 需要开通会员。 目前使用 edu 结尾的学生邮箱注册可以获得免费会员。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=13cm]{./figures/175f00b22d270213.png}
+\caption{GitHub Desktop 登录} \label{fig_GitHub_1}
+\end{figure}
+
+登录以后可以选择新建一个 repo 或者从 github 上 clone， 我们这里选择新建（如\autoref{fig_GitHub_2}）。 根据提示输入 repo 的名称 \verb|test|， 描述 \verb|learn to use GitHub Desktop|， 文件夹储存目录（默认是 \verb|Documents/GitHub/|）。 勾选 Initialize this repository with a README。 然后就可以确定了。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/7accfb368360ec66.png}
+\caption{新建仓库} \label{fig_GitHub_2}
+\end{figure}
+
+创建完后界面如\autoref{fig_GitHub_3} 所示
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/3ce87c8e4529502d.png}
+\caption{repo 主界面} \label{fig_GitHub_3}
+\end{figure}
+
+单击 History 可以看到左下角已经有一个 Initial commit 了， 所有的 commit 的历史可以在左上角的 History 找到。 点击 History 可以看到 Initial commit 中添加了两个文件， \verb|README.md| 和 \verb|.gitattributes|。 其中 \verb|README.md| 是一个文本文档， 可以添加 repo 的描述， 使用说明等。 \verb|.gitattributes| 文件用于对 Git 做一些设置， 例如如何处理换行\footnote{Windows 系统的换行使用 CR 和 LF 两个字符， 而 Linux 系统中只用一个 LF 字符。}。 如果新建 repo 的时候没有勾选 Initialize this repository with a README， 就不会有 Initial commit。 点击左上角的 Changes 返回刚才的界面。
+
+注意左下角有一个 Undo 按钮。 如果按下， Initial commit 将被撤销。 再来看右上角的 Push 按钮， 这个按钮用于把新增的 commit 上传（即 push）到 GitHub。 由于我们从来没有 push 过， 现在打开 GitHub 网站是看不到刚刚创建的项目的。 按下 push， 完成后再刷新浏览器就可以在 GitHub 看到了。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/28b0de3d116e69b6.png}
+\caption{GitHub 网站上查看 repo} \label{fig_GitHub_5}
+\end{figure}
+
+\subsection{Commit}
+\addTODO{基本操作和概念}
