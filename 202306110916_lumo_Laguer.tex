@@ -1,0 +1,37 @@
+% 连带拉盖尔多项式
+% 拉盖尔多项式|Laguerre polynomial|微分方程|递推关系
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\textbf{连带拉盖尔多项式（associated Laguerre polynomial）} $L_{n}^\alpha$ 是微分方程
+\begin{equation}
+xy'' + (\alpha + 1 - x) y' + ny = 0~
+\end{equation}
+的解。
+
+普通的拉盖尔多项式为
+\begin{equation}
+L_n(x) = L_n^0(x)~.
+\end{equation}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/004d139b3a03c7f2.pdf}
+\caption{连带拉盖尔多项式 $L_n^k$ （来自 Wikipedia）} \label{fig_Laguer_1}
+\end{figure}
+
+递推关系
+\begin{equation}
+L_{n+1}^\alpha (x) = [(2n + 1 + \alpha  - x)L_n^\alpha (x) - (n + \alpha )L_{n - 1}^\alpha (x)]/(n + 1)~,
+\end{equation}
+\begin{equation}
+L_0^\alpha (x) = 1~,
+\qquad
+L_1^\alpha (x) = 1 + \alpha  - x~.
+\end{equation}  
+罗德里格斯公式
+\begin{equation}
+L_n^\alpha (x) = \frac{x^{-\alpha} \E^x}{n!} \dv[n]{x} (\E^{-x} x^{n+\alpha})~.
+\end{equation}
