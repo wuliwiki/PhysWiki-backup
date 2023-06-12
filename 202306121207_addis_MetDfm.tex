@@ -1,0 +1,157 @@
+% 金属的变形（科普）
+
+%\textsl{Iron and steel will bend and break, bend and break, bend and break; Iron and steel will bend and break, my fair lady. ---童谣 London Bridge is Falling Down}
+\pentry{金属材料结构（科普）\upref{MetInt}}
+\subsection{变形}
+\footnote{本文参考了刘智恩的《材料科学基础》与Callister的Material Science and Engineering An Introduction. 部分文本、图片来自网络。本文适用于CC-BY-SA。}
+正如我们拉伸一根弹簧，弹簧会变形一样；当我们拉伸一根金属棒时，金属棒也会变形。只不过由于金属棒的“弹性系数”很大，以正常人的手劲一般拉不出看得见的变形。
+
+\begin{example}{}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/b948a8df309da225.png}
+\caption{框架结构} \label{fig_MetDfm_1}
+\end{figure}
+与弹簧类似，金属结构提供的支持力也源自金属的细微变形。。。只要在安全的范围内。
+\end{example}
+
+根据变形的性质，变形一般分为两类：弹性变形与塑性变形。顾名思义，弹性变形后，撤去外力后金属的形状能恢复原样；而塑性变形后，即使撤去外力，金属的形状也不能恢复。塑性变形只在外力大到超过一定境界时才发生。
+
+弹性变形与塑性变形不是非此即彼，而可以相辅相成。一次变形可能既包括弹性变形也包括塑性变形。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/9f26e797ac1e2548.pdf}
+\caption{弹性变形与塑性变形示意图} \label{fig_MetDfm_2}
+\end{figure}
+
+那么，为什么会有两种类型的变形呢？这就涉及到变形的微观原理了。大体而言，弹性变形时原子间的“键”被拉伸，但原子并没有运动到新的位置。因此撤去外力后原子可以回到原位，体现为形状恢复原样；
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/cf8c48390344cd90.pdf}
+\caption{弹性变形示意图} \label{fig_MetDfm_11}
+\end{figure}
+而塑性变形后，原子间原本的键已经被破坏、原子运动到了新的位置，并形成了新的键。因此撤去外力后原子不能回到原位，体现为形状永久改变。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/cfe7193b51ece88a.pdf}
+\caption{塑性变形示意图} \label{fig_MetDfm_12}
+\end{figure}
+
+\subsection{弹性变形机制}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/2584baf079a6bee0.pdf}
+\caption{原子间作用力是吸引力与斥力的组合} \label{fig_MetDfm_5}
+\end{figure}
+原子\footnote{我们此处假设物体是直接由原子组成的。实际物体还可以由分子、离子组成，但这并不影响此处的定性结论}依靠原子间作用力（或者说，键\footnote{根据强度与具体机制等，键可以再细化为化学键（金属键、共价键、离子键）与分子间作用力等}）连接在一起。原子间作用力的具体机制非常复杂，但简化的来说，原子间作用力可以理解为一组电荷交互作用，包括电子间的排斥力与原子核对电子的吸引力等。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/642ca7b519d09efc.pdf}
+\caption{原子间作用力示意图} \label{fig_MetDfm_4}
+\end{figure}
+
+这对吸引力与排斥力导致了一种微妙的平衡。当物体不受外力时，吸引力与斥力最终将相同并让合力为零，并使原子保持一定的平衡间距。而当外力试图拉开原子时，原子间距的增大使吸引力大于斥力，合力倾向于吸引被拉开的原子；同样的，当外力试图压缩原子时，合力倾向于弹开被压缩的原子。这就是为什么物体体现出抵抗外力作用的“弹性”。
+
+这顺带解释了固体能保持一定形态，而液体、气体却相对松散的原因：固体中粒子间的作用力远强于液体、气体。
+
+\subsection{塑性变形机制}
+
+\subsubsection{理想与现实的矛盾}
+现在，我们来更具体地思考一下，塑性变形时金属经历了什么。假设你有一块完整的晶体，现在你要施加外力使其塑性变形。看起来，为了使原子运动到新位置，你得大力出奇迹、破坏一整面原子间的键。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/6a396aa1edc5803a.pdf}
+\caption{塑性变形...？} \label{fig_MetDfm_13}
+\end{figure}
+毫无疑问，这需要非常大的能量（\textsl{与手劲}）！可事实上，现实中的金属强度远低于此（大概是按照这种理论计算的1/100至1/1000）。怎么回事呢？
+
+\subsubsection{位错的运动}
+或许你还记得位错\upref{MetInt}的概念。位错理论的提出正是为了解释金属的塑性变形。假定金属中存在一个位错，这时，奇迹发生了：由于位错的存在，现在上下部分相对运动时，只需断一列的键而不是一面的键！这大大降低了原子运动的难度。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/820effe48d9d7b4a.pdf}
+\caption{位错的运动} \label{fig_MetDfm_3}
+\end{figure}
+
+在\href{https://m.sohu.com/a/350972084_120056486/}{这里}可以看到一张动图。（站外链接）
+
+这有点像蠕动的毛毛虫，或者地板上鼓起包的地毯。直接推动铺平了的地毯很难，但推动地毯上鼓起的凸包就容易地多。
+
+这就是\textsl{滑移}机制，金属塑性形变的主要机制之一。当然，这并不是故事的全部，而且本文只探讨了最理想的情况，例如假定金属中的原子排列方向是完全一致的，即整个金属中只有一个硕大的晶粒。
+
+\subsubsection{位错运动的方向：滑移系}
+那么，位错能够在任意的面或方向上运动吗？答案显然又是。。。否定的。\textbf{一般而言，位错只在它偏好的运动方向与运动面上滑移。}这里的“面”不是专指具体的某一个面，而指的是一系列法向量特定的相互平行的面。
+
+\begin{theorem}{滑移系，滑移面，滑移方向}
+一般而言，滑移在特定的面上，沿着特定的方向进行。
+
+这些特定的面与方向分别称为滑移面与滑移方向；一种滑移面与其上的一种滑移方向称为一个滑移系。
+
+\end{theorem}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/2a1fe432bb72e0b5.pdf}
+\caption{一种可能的滑移系示意图，切面为滑移面，黑色线为滑移方向} \label{fig_MetDfm_6}
+\end{figure}
+
+那么，位错偏好哪一些滑移面或滑移方向呢？一般而言，位错偏好的\textbf{滑移面是晶体的密排面，而滑移方向是晶体的密排方向}（密排面可以理解为晶体中原子堆积得最密的面）。可见，可能的滑移系与晶胞的种类有关\footnote{滑移系还与温度有关，有些额外的滑移系将在高温下被激活。因此高温时，晶体的变形能力更好。}。由于一种晶体中密排面、方向不止一种，因此滑移系也不止一种。
+
+\begin{example}{钛强了}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4cm]{./figures/995962f2a3ac37da.png}
+\caption{密排六方晶胞示意图,\href{https://www.geogebra.org/m/xrzejabt}{一个可交互的模型}（站外链接）} \label{fig_MetDfm_10}
+\end{figure}
+为什么常听说金属钛的强度高？一部分因为钛是密排六方（HCP）结构，而密排六方的滑移系很少，因而位错难以运动。
+\end{example}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/5860ee6afe27c5fa.pdf}
+\caption{金属的宏观塑性变形} \label{fig_MetDfm_7}
+\end{figure}
+实际上也可以观察到，单晶金属变形时，往往沿着特定方向形成台阶状结构。这些台阶状结构就是一系列位错滑移后留下的小台阶之和。这类实验证据支持了滑移理论。
+
+
+\subsubsection{位错运动的条件：分切应力足够大}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/d8a46490c622f4b8.pdf}
+\caption{只有特定方向的分切应力（深红色）是有效的驱动力。} \label{fig_MetDfm_14}
+\end{figure}
+
+即使位错大幅降低了滑移的难度，也得有足够大的力才能驱动位错运动。那么，全部外力都能驱动位错运动吗？遗憾的是，由于位错只在滑移系上运动，因此只有外力在\textbf{位错滑移方向与滑移面上的分力}才能驱动位错运动。\autoref{fig_MetDfm_14} 简要地表述了这个现象。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/ed3493c0e1bff0f1.pdf}
+\caption{进一步的分析} \label{fig_MetDfm_8}
+\end{figure}
+
+为了更进一步地解决这个问题，我们建立一个更复杂的模型。如\autoref{fig_MetDfm_8} 所示，我们假设滑移面是红色面，滑移方向是黑色线。那么，外力F在滑移方向上的分切应力为
+\begin{equation}
+\tau=\frac{F \cos \lambda}{A/{\cos \phi}}=\frac{F}{A}{\cos \lambda}{\cos \phi}~.
+\end{equation}
+
+$\lambda$与$\phi$之和不一定为$90^\circ$，他们是相对独立的变量。至于为什么力要除以面积，这是使用了在材料科学中更实用、准确的概念，应力。你可以不大严谨地权且理解为“压强”。\textsl{霍金曾经说过，文章每多一个公式，就少一半读者，但我没霍金那么厉害，我只能迫不得已地在这里放一个公式（}
+
+只有当这个有效的切应力大于某一最小值时，位错才会开始滑移。这个最小值被称为\textbf{临界分切应力$\tau_k$}。
+$$
+\tau>\tau_k\Rightarrow\text{位错开始滑移}~.
+$$
+% \begin{definition}{临界分切应力}
+% 临界分切应力指晶体恰好开始滑移时，滑移方向上的分切应力。
+% \end{definition}
+换而言之，若要达到临界切分应力$\tau_k$，那么外力至少为 $F_s=\frac{\tau_k A}{\cos \lambda \cos \phi} $ 。
+%若写为$\sigma_s=\frac{F_s}{A}$为材料的（屈服）强度或弹性限度\footnote{咬文嚼字地说，有一些细微的不同}，指材料在塑性变形前能承受的最大应力。
+
+有时也定义$(\cos \lambda \cos \phi)$被称为取向因子。取向因子与外力的作用方向、晶体中原子的排列方向、位错运动的滑移系等有关。可见，外力的最小大小与取向因子紧密关联，这强烈明示了晶体材料的\textbf{各向异性}，即沿不同的方向，晶体的性质不同。\footnote{由于现实材料多为多晶材料，原子排列方式不完全一致，因此各向异性性质被削弱。}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/2351d461053c4eda.pdf}
+\caption{晶体的各向异性示意图。由于两个物件内原子的排列方向不同，因此他们在塑性变形前所能承受的最大外力也不同。} \label{fig_MetDfm_9}
+\end{figure}
