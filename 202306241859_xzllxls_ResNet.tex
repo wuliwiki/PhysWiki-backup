@@ -1,0 +1,25 @@
+% 残差网络
+% 残差 网络 卷积网络 变体
+
+\textbf{残差网络}（Resdual network, ResNet）是卷积神经网络的一种常见的变体。与原始的卷积网络所不同的是，残差网络学习的是源数据到源数据与标签之间的残差的映射。
+
+在卷积网络的实践中，人们发现了退化（degradation）现象。随着网络深度的增加，模型的准确率似乎达到饱和。而该退化现象不是由过度拟合引起。残差网络的设计动机是退化现象中的计数直觉[1]。
+
+假设一个残差网络的输入张量为$\bvec x$，标签值为$\bvec y$，残差网络学习的是$F: \bvec x \rightarrow \bvec y-x$。数学表达式为：
+\begin{equation}
+\bvec y=F(\bvec  x;\bvec  w)+\bvec x
+\end{equation}
+其中，$\bvec x$和$\bvec y$分别为输入和输出张量，$F$为残差映射，$\bvec w$为权值，其值是学习而来的。
+
+为了表示上述数学模型，网络结构方面，采用卷积网络来表示残差映射，短连接（shortcut connections）来表示关于$x$的恒等映射，最后再将$x$与$F(x)$相加。如下图所示：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/5d61fa5ce1ced1f0.png}
+\caption{请添加图片描述} \label{fig_ResNet1}
+\end{figure}
+
+
+\textbf{参考文献：}
+\begin{enumerate}
+\item S. R. Kaiming He Xiangyu Zhang, “Deep Residual Learning for Image Recognition,” in Proceedings of the IEEE conference on computer vision and pattern recognition, 2016, pp. 770–778.
+\end{enumerate}
