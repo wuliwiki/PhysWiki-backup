@@ -1,5 +1,5 @@
 # auto clean redundent tex files
-add .
+git add .
 cd .git
 sudo chwuli.sh
 cd ../
