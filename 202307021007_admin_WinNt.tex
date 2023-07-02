@@ -1,0 +1,20 @@
+% Windows 笔记
+
+\subsection{常用}
+\begin{itemize}
+\item 把任何程序，脚本，或者他们的快捷方式放\textbf{启动文件夹}，可以在用户登录后执行。 路径为： \verb|C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp|（也可以通过 \verb|Win+R| 中输入 \verb|shell:startup| 打开）。
+\end{itemize}
+
+
+\subsection{清理电脑}
+\begin{itemize}
+\item 用 \href{https://windirstat.net/}{WinDirStat} 查看硬盘被谁占用。
+\item 要清除休眠文件， cmd 用管理员运行 \verb|powercfg -h off|， 然后删除 \verb|C:/hiberfil.sys| 即可（Win 10/11 亲测）。
+\item 要清除 Page file， 在开始菜单搜索 \verb|Adjust the Appearance and Performance of Windows|， 然后在 Advance 面板里面调整 Virtual Memory（内存够大可以直接关掉）。
+\item 在开始菜单搜索 \verb|Disk Cleanup|， 清除里面的选项， 然后再 \verb|Cleanup System Files|。
+\end{itemize}
+
+\subsection{网络}
+\begin{itemize}
+\item 如果有多块网卡都能联网， 把一块中属性中的 IPv4 里面的网关删掉就可以不联网。
+\end{itemize}
