@@ -1,0 +1,19 @@
+% 薛定谔经典场
+% 经典场论|薛定谔方程|理论力学
+
+\pentry{经典场论基础\upref{classi}}
+通常的场论都是相对论性的，满足洛伦兹协变，但是在很多情况下我们也要处理非相对论的场，例如在凝聚态系统中，我们需要处理诸如Gross-Pitaevskii方程等。因此在这里我们讨论一些从场论角度看非相对论量子力学的问题。
+\section{薛定谔方程的场论表述}
+我们知道对于单粒子，薛定谔方程为\upref{TDSE11}
+\begin{equation}
+i\hbar \frac{\partial}{\partial t} \Psi = \hat{H} \Psi = -\frac{\hbar^2 \nabla^2}{2m} \Psi + V(x)\Psi ~.
+\end{equation}
+拉氏量的构造可以有很多种，这里我们选取一种拉式量的构造方法，给出薛定谔方程。我们定义
+$$
+L =  \Psi^\star [i\hbar \frac{\partial}{\partial t} -\frac{\hbar^2 \nabla^2}{2m} + V(x)]\Psi~,
+$$
+对应的作用量为
+$$
+S = \int dt \int d^3 x L~.
+$$
+在这里场变量为$\psi$，对应的正则动量为$\pi \e$

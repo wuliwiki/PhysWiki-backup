@@ -1,0 +1,73 @@
+% 静电场与静磁场（摘要）
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\subsection{电荷、电流与电荷守恒}
+什么是电荷？按照Landau富有深意的话来说，电荷是“粒子与电磁场相互作用的强度”。不过，对于初学者来说，你只要知道电荷同质量一样，也是粒子/物质的一种性质。之所以引入电荷的概念，是因为人们发现粒子间除了有源于质量的引力交互作用外，还有另一种交互作用，其强度无关但与物质的另一种性质有关。人们把这种性质称为“电荷”，这种交互称为“静电力”。
+
+同质量一样，电荷是守恒的\upref{ChgCsv}。也就是说，如果一个区域内有电荷的流出，那么这个区域内的电荷量就会相应地减小。我们将定向运动的电荷的称为电流\upref{I}。
+$$
+\oint \bvec j \vdot \dd{\bvec s}  =  - \dv{t} \int \rho \dd{V}~,
+$$
+或者
+$$
+\div \bvec j + \pdv{\rho}{t} = 0~.
+$$
+在静场条件下， 空间中的电荷密度以及电流密度都不随时间变化， 所以有
+$$
+\div \bvec j = 0~,
+$$
+或者
+$$\sum_i I_i = 0~.$$
+其中，电流流入、流出的方向由正负号标记。这个结论还被称为基尔霍夫第一定律\upref{Kirch}
+
+\subsection{静电场与静磁场}
+\begin{table}[ht]
+\centering
+\caption{静电场与静磁场}\label{tab_estfid1}
+\begin{tabular}{|c|c|c|}
+\hline
+* & 电场 $\bvec E$ \upref{Efield} & 磁场 $\bvec B$\upref{MagneF} \\
+\hline
+场源 & 电荷 $q$ \upref{Efield}& 电流(运动的电荷) $\bvec j$ \upref{I}\\
+\hline
+场源产生的场 & $$\dd \bvec E (\bvec r) = \frac{1}{4 \pi \epsilon_0} \frac{\dd q}{R^2} \bvec {\hat R}~ $$
+其中 $\bvec r$是场点，$\bvec r'$是场源位置，$\bvec R = \bvec r - \bvec r'$是场源指向场点的矢量，$\bvec{\hat R}$是相应的单位矢量。\upref{Efield} 不大严格地说，$\dd \bvec E$是由单个小电荷 $\dd q$ 产生的电场。
+& $$\dd \bvec B(\bvec r) = \frac{\mu_0}{4\pi} \frac{I \dd{\bvec r'} \cross \uvec R}{R^2}~$$ 比奥萨伐尔定律\upref{BioSav}； $\dd \bvec B$是由一小段电流 $I \dd \bvec r'$ 产生的电场。\footnote{不同于静电场中可以任意摆放电荷，在静磁场中我们不能“任意摆放”电流，而必须时电流成环，或者延伸到无穷远处。假如设计的“电路”不成环，那么根据电荷守恒\upref{ChgCsv}，区域内的电荷密度必定变化，从而不再是静场问题。这也是为什么这个公式实际上不能准确描述“单个运动电荷的磁场”。}\\
+\hline
+散度方程 & 
+$$\oint \bvec E \vdot \dd{\bvec s} = \frac{1}{\epsilon_0}\int \rho \dd{V} = \frac{Q}{\epsilon_0}~$$
+$$\div \bvec E = \frac{\rho}{\epsilon_0}~$$ 电场的高斯定律\upref{EGauss}
+&
+$$\oint \bvec B \vdot \dd{\bvec s} = 0~$$
+$$\div \bvec B = 0~$$ 磁场的高斯定律\upref{MagGau}\\
+\hline
+旋度方程 & 
+$$ \oint \bvec E \vdot \dd{\bvec l} = \bvec 0~$$
+$$ \curl \bvec E = \bvec 0 ~$$ 静电场的环路定理\upref{ELECLD}
+ &
+$$\oint \bvec B \vdot \dd{\bvec l} = \mu_0 \int \bvec j \vdot \dd{\bvec s}=\mu_0 I ~$$ 
+$$\curl \bvec B = \mu_0 \bvec j~$$ 静磁场的环路定理（专业术语：安培环路定律） \upref{AmpLaw}\\
+\hline 
+\end{tabular}
+\end{table}
+
+\subsection{电（标）势与磁矢势}
+基于数学与物理意义上的考量，有时使用势的概念，会比场更为简洁、深刻。
+\begin{table}[ht]
+\centering
+\caption{电（标）势与磁矢势}\label{tab_estfid2}
+\begin{tabular}{|c|c|c|}
+\hline
+* & 电场 $\bvec E$ & 磁场 $\bvec B$ \\
+\hline
+势 & $$\varphi~$$  电势\upref{QEng}，标量函数& $$\bvec A~$$  磁矢势\upref{BvecA}，矢量函数\\
+\hline
+势与场 & $$\bvec E = -\grad \varphi~$$ & $$\bvec B = \curl \bvec A~$$ \\
+\hline
+势的任意性 & $$\varphi += \lambda~$$ $\lambda$是常数 & $$\bvec A += \grad \lambda~$$ $\lambda$是标量函数 \\
+\hline
+\end{tabular}
+\end{table}
