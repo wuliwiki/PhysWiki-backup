@@ -1,0 +1,63 @@
+% 磁旋比、玻尔磁子
+% 磁矩|磁旋比|玻尔磁子
+
+%未完成： 将开头内容移动到 “磁矩\upref{MagMom}” 中
+
+\pentry{转动惯量\upref{RigRot}， 磁矩\upref{MagMom}， 自旋角动量\upref{Spin}}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Gyromagnetic_ratio}{相关页面}。}当一个物体做定轴转动时， 磁矩\upref{MagMom}的和角动量\upref{AngMom}的大小之比就叫做\textbf{磁旋比（gyromagnetic ratio）}。 该物理量常在量子力学中出现，但对于宏观的带电物体也可以定义。
+
+\subsection{均匀带电体的磁旋比}
+一个任意形状的带电刚体， 总质量为 $m$， 总电荷量为 $q$。 如果质量密度 $\rho_m$ 和电荷密度 $\rho_q$ 成正比（$\rho_m/\rho_q \equiv m/q$），当它定轴转动时，令角速度矢量为 $\bvec\omega$， 则角动量\upref{CM2}为
+\begin{equation}
+\bvec L = I\bvec \omega  = \bvec \omega \int r_\bot^2 \rho_m \dd{V}~.
+\end{equation}
+磁矩定义为
+\begin{equation}
+\bvec \mu  = Ia \uvec\omega = \int \frac{\dd{Q}}{2\pi/\omega}  \pi r^2 \uvec \omega
+= \frac12 \bvec \omega \int r_\bot^2\rho_q \dd{V} ~,
+\end{equation}
+其中 $r$ 为质量元到转轴的距离。两式比较，得
+\begin{equation}
+\bvec \mu  = \frac{q}{2m} \bvec L~.
+\end{equation}
+所以该物体的磁旋比为 $q/(2m)$。
+
+在经典电磁学中，若点电荷绕一点做圆周运动， 那么它的磁旋比也同样是 $q/(2m)$\footnote{你可以想象这个质点是一个满足上述条件的小刚体，就可以直接套用上面的推导过程了}。
+
+把上面的推导稍加改变可以发现， 若电荷分布在物体的外表面， 那么磁旋比将比该值要大。
+\begin{exercise}{}
+\begin{itemize}
+\item 求一个质量分布均匀，但只有侧面表面带电的圆柱体的磁旋比（转轴为对对称轴）。（答案：$q/m$）
+\item 求一个质量分布均匀，但只有面表面带电的球体的磁旋比（转轴过圆心）。（答案：$5q/6m$）
+\end{itemize}
+\end{exercise}
+
+\subsection{基本粒子的磁旋比}
+但对基本粒子（例如电子）的实验中，发现上式还需要一个修正因子， 称为\textbf{朗德 g 因子（Landé g-factor）}或简称 g 因子。
+\begin{equation}\label{eq_BohMag_4}
+\mu  = g\frac{q}{2m} L~.
+\end{equation}
+所以磁旋比为
+\begin{equation}
+\gamma  = g\frac{q}{2m}~.
+\end{equation}
+\addTODO{\autoref{eq_BohMag_4} 中不可以用矢量， 因为众所周知量子力学中我们不可能直接决定角动量的方向，所以磁矩到底是什么方向测出来的呢？ 应该是 $s_z$ 取最大值的时候。}
+
+对于粒子的自旋， $L_s = \sqrt{s(s + 1)}\hbar$（自旋角动量\upref{Spin}）， 所以它的磁矩为
+\begin{equation}
+\mu = \sqrt{s (s + 1)} \hbar g\frac{q}{2m}~.
+\end{equation}
+对于电子，实验测得
+\begin{equation}
+g_e \approx 2.00231930436118(27) \approx 2~.
+\end{equation}
+所以
+\begin{equation}
+\bvec \mu_e  = g_e \frac{e\hbar}{2 m_e} \sqrt{\frac12 \qty(1 + \frac12)}  = \frac{\sqrt 3}{2} g_e \mu_B \approx \sqrt 3 \mu_B~,
+\end{equation}
+其中 $\mu_B$ 为\textbf{玻尔磁子（Bohr magneton）}，定义为
+\begin{equation}
+\mu_B = \frac{e\hbar}{2 m_e} \approx 5.788\e{-5} \Si{eV/T}~.
+\end{equation}
+它可以看作是磁矩的一个单位。

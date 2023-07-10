@@ -1,0 +1,52 @@
+% 磁旋比、玻尔磁子
+% 磁矩|磁旋比|玻尔磁子
+
+%未完成： 将开头内容移动到 “磁矩\upref{MagMom}” 中
+
+\pentry{转动惯量\upref{RigRot}， 磁矩\upref{MagMom}}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Gyromagnetic_ratio}{相关页面}。}当一个物体做定轴转动时， 磁矩\upref{MagMom}的和角动量\upref{AngMom}的大小之比就叫做\textbf{磁旋比（gyromagnetic ratio）}。 该物理量常在量子力学中出现，但对于宏观的带电物体也可以定义。
+
+\subsection{均匀带电体的磁旋比}
+一个任意形状的带电刚体， 如果质量密度 $\rho_m$ 和电荷密度 $\rho_q$ 成正比，当它定轴转动时，令角速度矢量为 $\bvec\omega$， 则角动量\upref{CM2}为
+\begin{equation}
+\bvec L = I\bvec \omega  = \bvec \omega \int r_\bot^2 \rho_m \dd{V}~.
+\end{equation}
+磁矩定义为
+\begin{equation}
+\bvec \mu  = Ia \uvec\omega = \int \frac{\dd{Q}}{2\pi/\omega}  \pi r^2 \uvec \omega
+= \frac12 \bvec \omega \int r_\bot^2\rho_q \dd{V} ~,
+\end{equation}
+其中 $r$ 为质量元到转轴的距离。两式比较，得
+\begin{equation}
+\bvec \mu  = \frac{q}{2m} \bvec L~.
+\end{equation}
+其中系数 $q/(2m)$ 就是该物体的磁旋比。
+
+把上面的推导稍加改变可以发现， 若电荷分布在物体的外表面， 那么磁旋比。
+
+\subsection{基本粒子的磁旋比}
+但对基本粒子（例如电子）的实验中，发现上式还需要一个修正因子， 称为 \textbf{g 因子（g-factor）}
+\begin{equation}
+\bvec \mu  = g\frac{q}{2m}\bvec L~.
+\end{equation}
+定义\textbf{磁旋比（gyromagnetic ratio）}\footnote{有时也叫 \textbf{magnetogyric ratio}}为
+\begin{equation}
+\gamma  = \frac{gq}{2m}~.
+\end{equation}
+
+
+对于粒子的自旋， $L = \hbar \sqrt{l(l + 1)} $。 所以 $\mu = \sqrt{l (l + 1)} \hbar gq/(2m)$。 
+对于电子，实验测得
+\begin{equation}
+g_e \approx 2.0023193043617(15) \approx 2~.
+\end{equation}
+所以
+\begin{equation}
+\bvec \mu_e  = g_e \frac{e\hbar}{2 m_e} \sqrt{\frac12 \qty(1 + \frac12)}  = \frac{\sqrt 3}{2} g_e \mu_B \approx \sqrt 3 \mu_B~,
+\end{equation}
+其中 $\mu_B$ 为\textbf{玻尔磁子（Bohr magneton）}，定义为
+\begin{equation}
+\mu_B = \frac{e\hbar}{2 m_e} \approx 5.788\e{-5} \Si{eV/T}~.
+\end{equation}
+它可以看作是磁矩的一个单位。
