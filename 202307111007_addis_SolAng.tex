@@ -1,0 +1,29 @@
+% 立体角
+% 立体角|单位球
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\pentry{重积分\upref{IntN}}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Solid_angle}{相关页面}。}如果我们以某种锥体（例如圆锥， 三棱锥， 假设其无限高）的顶点作为圆心作一个半径为 1 的球（\textbf{单位球}）， 那么这个锥体的\textbf{立体角（solid angle）}就是单位球的表面被锥体截出的面积， 通常用 $\Omega$ 表示。
+
+我们知道半径为 $R$ 的球体的表面积为 $4\pi R^2$， 所以立体角的取值范围是 $[0, 4\pi]$。
+
+\subsection{对立体角积分}
+考虑 $\dd \theta$ 与 $\dd \phi$ 围成的立体角。在半径为 $R$ 上的球面上截出的面积为 $\sin\theta \dd \theta \dd \phi$。所以对对立体角积分的公式为
+\begin{equation}
+\int \dd \Omega=\int_0^\pi \sin\theta \dd \theta \int_0^{2\pi }\dd \phi =4\pi~.
+\end{equation}
+由此得到了三维球体的表面对应的立体角为 $4\pi$。
+
+
+\begin{example}{圆锥的立体角}
+顶角为 $2\theta$ 的圆锥在单位球面上可截出一个球盖。 在\autoref{ex_NLeib_3}~\upref{NLeib} 中我们知道球盖的面积， 所以该圆锥的立体角为
+\begin{equation}
+\Omega = 2\pi (1 - \cos\theta)~.
+\end{equation}
+\end{example}
+
+\addTODO{例如一个质量分布不均匀的球壳质量}
