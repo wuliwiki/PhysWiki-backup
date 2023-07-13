@@ -1,0 +1,72 @@
+% 反常霍尔效应
+% 晶体|电子|霍尔效应
+\pentry{电子运动的准经典模型\upref{cryele}}
+\begin{issues}
+\issueDraft
+\end{issues}
+一般霍尔效应的产生需要磁场，并且满带不出现霍尔效应。但是反常霍尔效应不需要这些条件。
+\subsection{介绍}
+我们知道一个布洛赫态可以写成：
+\begin{equation}
+\psi_{n,\bvec{k}}=\E^{\I\bvec{k}\cdot\bvec{r}}u_{n,\bvec{k}}~,
+\end{equation}
+其哈密顿量为：$\hat H_0=-\frac{\hbar^2}{2m}\nabla^2+V(\bvec{r})$，对应的能量是$E_{n,\bvec{k}}$。其中$V(\bvec{r})$是一个周期函数，有$V(\bvec{r}+\bvec{R})=V(\bvec{r})$，$\bvec{R}$是任意一个格矢。
+
+外力作用下哈密顿量变成 $\hat H =\hat H_0 -\bvec{F}\cdot\bvec{r}$，则 $\dd{t}$ 时间后，布洛赫态变成：
+\begin{equation}
+\begin{aligned}
+\psi(\bvec{r},\dd{t})&=\E^{-\frac{\I\,\hat H\,\dd{t}}{\hbar}}\psi_{n,\bvec{k}} \approx \psi_{n,\bvec{k}}-\frac{\I\dd{t}}{\hbar}(\hat H_0 -\bvec{F}\cdot\bvec{r})\psi_{n,\bvec{k}}\\
+&=(1-\I \frac{E_{n,\bvec{k}}\dd{t}}{\hbar}+\I\frac{\bvec{F}\cdot\bvec{r}\dd{t}}{\hbar})\E^{\I\bvec{k}\cdot\bvec{r}}u_{n,\bvec{k}}
+\approx \E^{-\frac{\I}{\hbar}E_{n,\bvec{k}}\dd{t}}\E^{\I(\bvec{k}+\frac{\bvec{F}\dd{t}}{\hbar})\cdot \bvec{r}}u_{n,\bvec{k}}~.
+\end{aligned}
+\end{equation}
+在推导电子运动的准经典模型时，我们忽略了$u_{n,\bvec{k}}$到$u_{n,\bvec{k}+\frac{\bvec{F}\dd{t}}{\hbar}}$之间的变化（包络近似），从而得出了$d\bvec{k}=\frac{\bvec{F}\dd{t}}{\hbar}$的结论。现在我们不忽略它的变化，从而推导出反常霍尔效应来。
+
+有：
+\begin{equation}
+\begin{aligned}
+\psi(\bvec{r},\dd{t})&\approx \E^{-\frac{\I}{\hbar}E_{n,\bvec{k}}\dd{t}}\E^{\I(\bvec{k}+\frac{\bvec{F}\dd{t}}{\hbar})\cdot \bvec{r}}u_{n,\bvec{k}}\\
+&=\E^{-\frac{\I}{\hbar}E_{n,\bvec{k}}\dd{t}}\E^{\I(\bvec{k}+\frac{\bvec{F}\dd{t}}{\hbar})\cdot \bvec{r}}(u_{n,\bvec{k}}-u_{n,\bvec{k}+\frac{\bvec{F}}{\hbar}\dd{t}}+u_{n,\bvec{k}+\frac{\bvec{F}}{\hbar}\dd{t}})\\
+&=\E^{-\frac{\I}{\hbar}E_{n,\bvec{k}}\dd{t}}\E^{\I(\bvec{k}+\frac{\bvec{F}\dd{t}}{\hbar})\cdot \bvec{r}}u_{n,\bvec{k}+\frac{\bvec{F}}{\hbar}\dd{t}}-\E^{-\frac{\I}{\hbar}E_{n,\bvec{k}}\dd{t}}\E^{\I(\bvec{k}+\frac{\bvec{F}\dd{t}}{\hbar})\cdot \bvec{r}}(u_{n,\bvec{k}+\frac{\bvec{F}}{\hbar}\dd{t}}-u_{n,\bvec{k}})\\
+&=\E^{-\frac{\I}{\hbar}E_{n,\bvec{k}}\dd{t}}\psi_{n,\bvec{k}+\frac{\bvec{F}\dd{t}}{\hbar}}-\E^{-\frac{\I}{\hbar}E_{n,\bvec{k}}\dd{t}}\E^{\I(\bvec{k}+\frac{\bvec{F}\dd{t}}{\hbar})\cdot \bvec{r}}(\nabla_{\bvec{k}} u\cdot \frac{\bvec{F}}{\hbar}\dd{t})\\
+&\approx \E^{-\frac{\I}{\hbar}E_{n,\bvec{k}}\dd{t}}\psi_{n,\bvec{k}+\frac{\bvec{F}\dd{t}}{\hbar}}-\E^{\I\bvec{k}\cdot\bvec{r}}\nabla_{\bvec{k}} u\cdot \frac{\bvec{F}}{\hbar}\dd{t}~,
+\end{aligned}
+\end{equation}
+其中$\nabla_{\bvec{k}} u$表示函数$u$在$\bvec{k}$空间的梯度。最后一条等式的前一项即为经典理论的结果，后一项的导出只保留了 $\dd{t}$ 的一阶小量。
+\subsection{深入}
+现在我们来研究一下$\nabla_{\bvec{k}} u$。由上可知，有：
+\begin{equation}
+\hat H_0 \E^{\I\bvec{k}\cdot\bvec{r}}u_{n,\bvec{k}}(\bvec{r})
+=E_{n,\bvec{k}}\E^{\I\bvec{k}\cdot\bvec{r}}u_{n,\bvec{k}}(\bvec{r})~,
+\end{equation}
+所以有：
+\begin{equation}\label{eq_anHe_1}
+\E^{-i\bvec{k}\cdot\bvec{r}} \hat H_0 \E^{\I\bvec{k}\cdot\bvec{r}}u_{n,\bvec{k}}(\bvec{r})
+=E_{n,\bvec{k}}u_{n,\bvec{k}}(\bvec{r})~,
+\end{equation}
+即 $\hat H_{\bvec k} =\E^{-i\bvec{k}\cdot\bvec{r}} \hat H_0 \E^{\I\bvec{k}\cdot\bvec{r}}$的本征函数是$u_{n,\bvec{k}}(\bvec{r})$。代入$\hat H_0 =-\frac{\hbar^2}{2m}\nabla^2+V(\bvec{r})$，对于任意一个函数$f(\bvec{r})$，即有：
+\begin{equation}
+\begin{aligned}
+\hat H_{\bvec k} f(\bvec{r})&=\E^{-i\bvec{k}\cdot\bvec{r}}(-\frac{h^2}{2m}\nabla^2+V(\bvec{r}))\E^{\I\bvec{k}\cdot\bvec{r}}f(\bvec{r})\\
+&=V(\bvec{r})f(\bvec{r})+\E^{-i\bvec{k}\cdot\bvec{r}}(-\frac{\hbar^2}{2m})\nabla(i\bvec{k}\E^{\I\bvec{k}\cdot\bvec{r}}f(\bvec{r})+\E^{\I\bvec{k}\cdot\bvec{r}}\nabla f(\bvec{r}))\\
+&=V(\bvec{r})f(\bvec{r})+\E^{-i\bvec{k}\cdot\bvec{r}}(-\frac{\hbar^2}{2m})(-k^2\E^{\I\bvec{k}\cdot\bvec{r}}+2i\bvec{k}\E^{\I\bvec{k}\cdot\bvec{r}}\nabla f(\bvec{r})+\E^{\I\bvec{k}\cdot\bvec{r}}\nabla^2 f(\bvec{r}))\\
+&=V(\bvec{r})f(\bvec{r})-\frac{\hbar^2}{2m}(-k^2+2i\bvec{k}+\nabla^2)f(\bvec{r})~,
+\end{aligned}
+\end{equation}
+即 $\hat H_{\bvec k}$ 的具体形式为
+\begin{equation}
+\hat H_{\bvec k} =\frac{\hbar^2}{2m}(-i\nabla+\bvec{k})^2+V(\bvec{r})~.
+\end{equation}
+当$\bvec{k}$变化$\delta\bvec{k}$时，即有：
+\begin{equation}
+\hat H_{\bvec{k}+\delta\bvec{k}} =\frac{\hbar^2}{2m}(-i\nabla+\bvec{k})^2+V(\bvec{r})+\frac{\hbar^2}{2m}((\bvec{k}+\delta{\bvec{k}})^2-k^2)+\frac{\hbar^2}{m}\delta\bvec{k}\cdot(-i\nabla)~.
+\end{equation}
+等式右边第1、2项即为原先的 $\hat H_{\bvec k}$, 第3、4项可以视为微扰。其中第3项是能量微扰项，不作用在波函数上，第四项为$\bvec{k}\cdot\bvec{p}$微扰项，与动量相关（此处还说明了晶格动量$\hbar\bvec{k}$与电子动量$\bvec{p}$不是同一个东西）。
+
+$\hat H_{\bvec k}$的本征态是不同$n$的$u_{n,\bvec k}$，不同的$n$之间的能级差较大，所以可以用非简并微扰来求解$\hat H_{\bvec{k}+\delta\bvec{k}}$的本征态，即：
+\begin{equation}
+1+1~.
+\end{equation}
+
+
+
