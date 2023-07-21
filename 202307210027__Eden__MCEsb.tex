@@ -1,0 +1,76 @@
+% 巨正则系综法
+% 巨正则系综|统计力学|能级
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+巨正则系综的方法与正则系综方法的区别时，热力学系统可以与一个粒子源接触，从而粒子数可以是不固定的。
+
+假设一个热力学系统与温度为 $T$ 的大热源和化学势为 $\mu$ 的大粒子源接触，系统可以和热源交换热量，可以与粒子源交换粒子，因此它的能量和粒子数是不守恒的。那么系统的一个能量为 $E$，粒子数为 $N$ 的微观状态出现的概率正比于
+\begin{equation}
+P(E,N)\propto \exp(\mu N-E)~.
+\end{equation}
+对所有可能的系统微观状态的物理量结果求平均， 就得到了物理量的测量结果
+\begin{equation}
+\langle O\rangle=\sum_{N}\sum_i P(E_i,N)\exp(\mu N-E_i)~.
+\end{equation}
+
+
+\subsection{巨配分函数}
+巨配分函数 $\Xi=\sum_{N,i} \exp((\mu N-E_i)/kT)$。
+
+\begin{equation}
+\frac{\E^{(\mu N - E)/(kT)}}{\Xi}~,
+\end{equation}
+其中， 巨配分函数使所有状态的概率之和为一， 起到归一化的作用。
+\begin{equation}
+\Xi  = \sum_{N} \sum_i \E^{(\mu N - E_i)/(kT)}~.
+\end{equation}
+\subsection{推导} 
+
+
+\subsection{“能级导向”}
+
+\begin{equation}\ali{
+\Xi & = \sum_{N=1}^\infty  \sum_{\{n_i\}}^*  \exp(N\mu  - \sum_{i=1}^\infty n_i \varepsilon_i)\beta
+= \sum_{N=1}^\infty  \sum_{\{n_i\}}^* z^N \prod_{i=0}^\infty \qty(\E^{-\varepsilon_i\beta})^{n_i}\\
+&= \sum_{N=1}^\infty \sum_{\{n_i\}}^* \prod_{i=0}^\infty \qty(z \E^{-\varepsilon_i \beta})^{n_i}
+= \sum_{n_1}^* \sum_{n_2}^* \dots \prod_{i=0}^\infty \qty(z \E^{-\varepsilon_i \beta})^{n_i}\\
+&= \sum_{n_1}^* \qty(z \E^{-\varepsilon_i\beta})^{n_1} \sum_{n_2}^* \qty(z \E^{ -\varepsilon_i\beta})^{n_2}\dots
+= \prod_i^\infty \sum_{n_i}^* \qty(z \E^{-\varepsilon_i \beta })^{n_i}~.
+}\end{equation}
+
+\subsection{系统的热力学性质}
+由最大概率项假设，
+\begin{equation}
+1 = \frac{\Omega \E^{(\mu N - E)/(kT)}}{\Xi}
+= \frac{\E^{S/k} \E^{(\mu N - E)/(kT)}}{\Xi}~,
+\end{equation}
+\begin{equation}
+\E^{S/k} \E^{(\mu N - E)/(kT)} = \Xi~,
+\end{equation}
+\begin{equation} 
+E - ST - \mu N =  - kT\ln \Xi~.
+\end{equation}
+令 $\Phi  =  - kT\ln \Xi $ 叫做\textbf{巨势}
+\begin{equation}
+\Phi  = E - ST - \mu N~,
+\end{equation}
+\begin{equation}
+\Phi  = E - ST - \mu N = F - G = E - ST - (E - ST + PV) =  - PV~.
+\end{equation}
+考虑到 $\dd{E} = T\dd{S} - P\dd{V} + \mu \dd{N}$
+\begin{equation}
+\dd{\Phi} = -P\dd{V} - S\dd{T} - N\dd{\mu}~,
+\end{equation}
+所以
+\begin{equation}
+S = -\qty(\pdv{\Phi}{T})_{V,\mu } ~,\qquad 
+N = - \qty(\pdv{\Phi}{\mu})_{V,T} ~,\qquad
+P = - \qty(\pdv{\Phi}{V})_{T,\mu}~.
+\end{equation}
+另外有一个求能级分布的公式
+\begin{equation}
+\ev{n_i} = \frac{1}{\Xi} \sum_{N=1}^\infty \sum_{\{n_i\}}^* n_i \exp(N\mu - \sum_{i=1}^\infty n_i \varepsilon_i)\beta = -\frac{1}{\beta \Xi } \pdv{\Xi}{\varepsilon_i} =  - kT \pdv{\varepsilon_i} \ln \Xi  = \pdv{\Phi}{\varepsilon_i}~.
+\end{equation}
