@@ -1,0 +1,41 @@
+% 相互作用绘景
+% 动力学|微扰近似
+\pentry{量子力学的基本原理\upref{QMPrcp}， 薛定谔绘景和海森堡绘景\upref{HsbPic}，时间演化算符\upref{TOprt}}
+
+在本章节中，使用上角标为$(s)$代表薛定谔绘景，上角标为$(I)$代表相互作用绘景，例如$H^{(s)}$,$H^{(I)}$。
+
+\begin{definition}{}
+
+不同于海森堡绘景和薛定谔绘景，在相互作用绘景里，态矢和算符都随时间而改变。薛定谔绘景中的哈密顿量可以分割为：
+\begin{equation}
+H^{(S)}=H^{(S)}_0+H^{(S)}_I~.
+\end{equation}
+分别定义$\mathcal U(t)$为$H^{(S)}$对应的时间演化算符，$\mathcal U_0(t)$为$H^{(S)}_0$对应的时间演化算符，具体定义方法参考\href{https://wuli.wiki/online/TOprt.html}{时间演化算符}。
+
+定义：
+\begin{align}
+|\psi^{(I)}(t)\rangle&=\mathcal U_0(t)^\dagger|\psi^{(S)}(t)\rangle=\mathcal U_0(t)^\dagger\mathcal U(t)|\psi^{(S)}(0)\rangle~, \\
+A^{(I)}(t)&=\mathcal U_0(t)^\dagger A^{(S)}(t)\mathcal U_0 (t)~.
+\end{align}
+上式中$A$为任意算符。容易验证，在如此定义的相互作用绘景中算符平均值与在薛定谔绘景中相同。
+
+\end{definition}
+
+考虑时间演化算符满足:
+\begin{align}
+&\I\hbar\frac{\partial}{\partial t}\mathcal{U}(t) = H^{(S)}(t)\mathcal{U}(t) \\
+&\I\hbar\frac{\partial}{\partial t}\mathcal{U}_0(t) = H^{(S)}_0(t)\mathcal{U}_0(t)~.
+\end{align}
+
+计算相互作用绘景中算符与态矢的演化方法,（以下推导省略(t)，值值得注意的是，以下涉及的所有算符和态矢都是含时的。）：
+\begin{align}
+\frac{\partial}{\partial t}A^{(I)}&=\frac{\partial}{\partial t}\left(\mathcal U_0^\dagger A^{(S)}\mathcal U_0 \right)\\
+&=\left(\frac{\partial}{\partial t}\mathcal U_0^\dagger\right) A^{(S)}\mathcal U_0 +\mathcal U_0^\dagger \left(\frac{\partial}{\partial t}A^{(S)}\right)\mathcal U_0+\mathcal U_0^\dagger A^{(S)}\left(\frac{\partial}{\partial t}\mathcal U_0\right)\\
+&=-\frac{1}{\I\hbar}\mathcal U_0^\dagger H^{(S)}_0A^{(S)}\mathcal U_0 +\frac{1}{\I\hbar}\mathcal U_0^\dagger A^{(S)}H^{(S)}_0\mathcal U_0+\mathcal U_0^\dagger \frac{\partial}{\partial t}\left(A^{(S)}\right)\mathcal U_0 \\
+&=-\frac{1}{\I\hbar}\left(\mathcal U_0^\dagger H^{(S)}_0 \mathcal U_0\right)\left(\mathcal U_0^\dagger A^{(S)}\mathcal U_0\right) +\frac{1}{\I\hbar}\left(\mathcal U_0^\dagger A^{(S)}\mathcal U_0\right)\left(\mathcal U_0^\dagger H^{(S)}_0\mathcal U_0\right)+\left(\frac{\partial}{\partial t}A\right)^{(I)} \\
+&=-\frac{1}{\I\hbar} H^{(I)}_0  A^{(I)}+\frac{1}{\I\hbar} A^{(I)} H^{(I)}_0+\left(\frac{\partial}{\partial t}A\right)^{(I)} \\
+&=\frac{1}{\I\hbar}\left[A^{(I)},H_0^{(I)}\right]+\left(\frac{\partial}{\partial t}A\right)^{(I)}~.
+\end{align}
+
+
+
