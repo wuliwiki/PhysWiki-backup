@@ -1,0 +1,52 @@
+% Pandas 笔记（Python）
+% license Xiao
+% type Note
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item \verb|conda install pandas|
+\item 官网的\href{https://pandas.pydata.org/docs/getting_started/index.html}{入门教程}。
+\item W3schools 的\href{https://www.w3schools.com/python/pandas/default.asp}{教程}。
+\end{itemize}
+安装 pandas 库：\verb|pip install pandas|。
+加载 pandas 库：
+\begin{lstlisting}[language=python]
+import pandas as pd
+\end{lstlisting}
+\subsection{DataFrame}
+利用 pandas 可以将一个具有一定格式的字典 dict 转化为 DataFrame 格式，从而可以对 DataFrame 进行许多便利的查询、修改和统计操作。
+\begin{lstlisting}[language=python]
+In [2]: df = pd.DataFrame(
+   ...:     {
+   ...:         "Name": [
+   ...:             "Braund, Mr. Owen Harris",
+   ...:             "Allen, Mr. William Henry",
+   ...:             "Bonnell, Miss. Elizabeth",
+   ...:         ],
+   ...:         "Age": [22, 35, 58],
+   ...:         "Sex": ["male", "male", "female"],
+   ...:     }
+   ...: )
+   ...: 
+
+In [3]: df
+Out[3]: 
+                       Name  Age     Sex
+0   Braund, Mr. Owen Harris   22    male
+1  Allen, Mr. William Henry   35    male
+2  Bonnell, Miss. Elizabeth   58  female
+\end{lstlisting}
+\begin{itemize}
+\item 查询某一列
+\begin{lstlisting}[language=python]
+In [4]: df["Age"]
+Out[4]: 
+0    22
+1    35
+2    58
+Name: Age, dtype: int64
+\end{lstlisting}
+\end{itemize}

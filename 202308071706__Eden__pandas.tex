@@ -1,0 +1,39 @@
+% Pandas 笔记（Python）
+% license Xiao
+% type Note
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item \verb|conda install pandas|
+\item 官网的\href{https://pandas.pydata.org/docs/getting_started/index.html}{入门教程}。
+\item W3schools 的\href{https://www.w3schools.com/python/pandas/default.asp}{教程}。
+\end{itemize}
+安装 pandas 库：\verb|pip install pandas|。
+加载 pandas 库：
+\begin{lstlisting}[language=python]
+import pandas as pd
+\end{lstlisting}
+\subsection{DataFrame}
+参考了官网的\href{https://pandas.pydata.org/docs/getting_started/index.html}{入门教程}。
+利用 pandas 可以将一个具有一定格式的字典 dict 转化为 DataFrame 格式，从而可以对 DataFrame 进行许多便利的查询、修改和统计操作。例如 \verb|dict = {"Name":["A","B","C"], "Age":[1,2,3]}|，可以用 \verb|pd.DataFrame(dict))| 建立 DataFrame。
+\begin{itemize}
+\item 查询某一列 \verb|df["Age"| 会返回那一列的数据以及数据类型。
+\item 统计 DataFrame 的信息用\verb|df.describe()|，
+\begin{lstlisting}[language=python]
+In [9]: df.describe()
+Out[9]: 
+             Age
+count   3.000000
+mean   38.333333
+std    18.230012
+min    22.000000
+25%    28.500000
+50%    35.000000
+75%    46.500000
+max    58.000000
+\end{lstlisting}
+\item 保存到 \verb|csv| 文件可以用 \verb|df.to_csv('filename.csv')| 命令。
+\end{itemize}
