@@ -1,0 +1,94 @@
+% 相变的热力学量变化
+% license Xiao
+% type Tutor
+
+\pentry{相简介（热力学）\upref{PHS}}
+\footnote{本文参考了刘俊吉等人的《物理化学》}
+
+\subsection{物质性质与相态有关}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8 cm]{./figures/6cd8371c2c1b8db0.pdf}
+\caption{即使压力与温度相同，液态水与水蒸气的各种热力学性质还是不同} \label{fig_PTTVC2_1}
+\end{figure}
+
+我们先假定系统中只有一种物质。在相简介（热力学）\upref{PHS} 中我们已经知道物质的性质与物质的相态有关。比如说，即使压力与温度相同，液态水与水蒸气的各种热力学性质还是不同：
+$$
+\begin{aligned}
+U_g(p,T) &\ne U_l(p,T)\\
+S_g(p,T) &\ne S_l(p,T)\\
+H_g(p,T) &\ne H_l(p,T)\\
+&...
+\end{aligned}~
+$$
+其中$U_g(p,T)$指气态水的内能、$U_l(p,T)$指液态水的内能等。
+
+\subsection{相变的热力学量变}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8 cm]{./figures/151f69e43f0d4528.pdf}
+\caption{$\Delta ^ g_l U (p,T)$的另一种含义} \label{fig_PTTVC2_2}
+\end{figure}
+
+那么，$U_g(p,T)$与$U_l(p,T)$之间有什么联系吗？根据状态量与路径无关这一重要性质\upref{StaPro}，不论相变是怎么发生的（是在太阳下蒸发、还是被烧水壶加热、被搅拌机加热...），只要始末态的压强、温度一定，相变前后的状态量差值$(U_l(p,T) - U_g(p,T))$就一定相同。更物理地说，这个差值源自于相的本质性差异\footnote{譬如，在液态水中，水分子之间存在氢键等较强的分子间作用力；而在气态水中，分子间几乎没有作用力。为了使水气化、从液体变为气体，就需要额外能量来克服水分子间的作用力，宏观上体现为液态水和气态水的内能差值。}，代表了相变过程中的状态量变化。
+
+由此，我们可以放心大胆地写出差值：
+$$
+\begin{aligned}
+U_g(p,T) &= U_l(p,T) + \Delta ^ g_l U (p,T)\\
+S_g(p,T) &= S_l(p,T) + \Delta ^ g_l S (p,T)\\
+H_g(p,T) &= H_l(p,T) + \Delta ^ g_l H (p,T)\\
+&...\\
+\end{aligned}~
+$$
+在一些国内教材的符号规范中，$\Delta^g_l$的上标$g$代表相变后的末相气相，下标$l$代表相变前的初始相液相。
+
+显然，由于$U$是与温度、压力、物质种类有关的量，因此$\Delta ^ g_l U (p,T)$也是与温度、压力、物质种类有关的量（例如，不同温度的水的蒸发内能变不同）。其余的热力学量变也是如此。
+
+你可能迫不及待地想问，那么如何计算相变前后的$\Delta U (p,T)$？很遗憾的是，这是经典热力学力所不能及的。在经典热力学中，这些量都是由实验测定的。不过，根据“设计路径”\upref{Hess}的思路，如果已经测得了某一状态$(p_0,T_0)$下的 $\Delta U (p_0,T_0)$，那么可以计算另一状态$(p_1,T_1)$下的$\Delta U (p_1,T_1)$。其余相变热力学量变也是如此。
+
+\subsubsection{常关注的相变热力学量变}
+实操中更常用的量是等温等压条件下相变的焓变、熵变与Gibbs变等。各种物质的这类参数一般可以在厚厚的物化手册或一些在线数据库中找到。
+$$
+\Delta H, \Delta  S, \Delta G~.
+$$
+
+\begin{example}{相变潜热}
+为什么相变焓是一个重要的热力学量？我们回顾焓的含义：在等温等压相变、无非体积功过程中，有
+$$
+\Delta H = q - w_{others} = q~.
+$$
+也就是说，这种情况下系统的焓变直接代表着系统的热效应。因此，相变焓也称为“相变潜热”。
+\end{example}
+
+\begin{example}{相变的Gibbs自由能变}
+由相变焓与相变熵可以计算 相变的Gibbs自由能变:
+$$
+\Delta G = \Delta H - T \Delta S~.
+$$
+Gibbs变之所以重要，是因为Gibbs判据\upref{GibbsG}仍然成立：在等温等压情况下，只有当$\Delta G<0$时，相变才会发生。这也是计算相变能否发生的重要依据。在有多种组分的复杂情况下，我们需要运用化学势的概念及判据。
+
+在刚好发生相变的临界情况(也称“可逆相变”)，有
+$$
+\Delta G = 0 \Rightarrow T = \frac{\Delta H}{\Delta S}~
+$$
+或者
+$$
+\Delta S = \frac{\Delta H}{T}~.
+$$
+由于 $\Delta H$, $\Delta S$等其实也与$T$有关，因此严格地说这个等式的含义更复杂一些。
+\end{example}
+
+\subsection{摩尔相变热力学量变}
+\pentry{摩尔量与偏摩尔量\upref{ParMol}}
+由于状态量的广延性质，更常用的是摩尔热力学量变，即在变化量上除以物质的量。符号上补充$m$下标\footnote{在一些课本中，$m$下标被省略，$\Delta X$始终指相应的摩尔量变。}。例如，摩尔焓变：
+$$
+\Delta H_m = \Delta H / n~,
+$$
+那么
+$$
+H_g = H_l + n \cdot \Delta^g_l H_m~.
+$$
+
+摩尔相变热力学量变 更有用的地方在于计算摩尔量：例如，某一$(T,p)$下，纯气体的摩尔焓是$h^*_g$, 纯液体的摩尔焓是$h^*_l$，那么二者之间由摩尔相变焓关联：$h^*_g = h^*_l + \Delta^g_l H_m$。这是具体运用相变平衡条件\upref{PhEquv} 来确定系统状态时，必不可少的知识。
+
