@@ -1,0 +1,16 @@
+% C++ 导航
+% license Usr
+% type Map
+
+\subsection{环境设置}
+首先你需要选择一个用于编译和运行你的 C++ 程序的环境。 首先你需要选择一个命令行环境。 对于小时百科的绝大部分使用 C++ 的场景来说，强烈推荐你使用 Linux\upref{Linux} 系统。 如果你不想装一个完整的操作系统，也可以在 Windows 中安装 WSL\upref{WSLnt}（推荐 WSL2） 或者 Mingw-w64\upref{Mingw}， 又或者 VirtualBox\upref{VirBox} 等虚拟机。
+
+如果你属于比较硬核的用户，那么你进行 C++ 的整个过程中需要的就只是一个文本编辑器（如 Visual Studio Code\upref{VScode} 甚至 vim\upref{Vim}）以及一个类 Linux 命令行窗口。 你需要在上面安装一个 C++ 编译器， 比较流行的有 g++\upref{gpp}， clang++\upref{clangp} 和 icpc\upref{icpcNt}（前两个开源，icpc 闭源）。 该做法的一个入门教程见 “在 Linux 上编译 C/C++ 程序\upref{linCpp}”。
+
+另一个学习 C++ 过程中强烈推荐的工具是 Cling\upref{Cling}。 它可以让你像使用 Python 一样互动地运行一些简单的 C++ 代码，可以逐行运行。 它提供一个命令行版本，也可以在 Jupyter Notebook 中运行。
+
+如果你不想在本地部署环境，那么网上也会有一些在线的 C++ 编译器， 例如 \href{https://wandbox.org/}{Wandbox}。 也可以使用一些算法题网站如 LeetCode 或者牛客网，它们甚至还提供逐行调试功能（下面会介绍）。
+
+如果你还想要更多的功能，例如定义的跳查，用 GUI 进行调试， 那么你需要一个 IDE （集成开发环境， Integrated Development Environment）。 Visual Studio 是 Windows 上的一个常用的 IDE， 但是无法在其他系统中使用， 且社区版的 Visual Studio 免费。 老版本的 Visual Studio 只能使用 Windows 专有的 Visual C++ 编译器进行 C++ 开发， 但新版本的 Visual Studio 支持使用 WSL 中的其他编译器。 由于不能跨平台，我们不推荐使用 Visual Studio。 另一个流行的 IDE 是 JetBrain 推出的 CLion。 CLion 是一个跨平台的 IDE， 功能较多较完善，学生可以免费使用，但对其他用户收费。 我们推荐 CLion。 另外也有一些免费的 IDE， 但功能上相对没那么完善，外观也有所欠缺。
+
+IDE 的部署通常要比直接使用ming'ling'h
