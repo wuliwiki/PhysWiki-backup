@@ -1,2 +1,5 @@
 # PhysWiki-backup
-wuli.wiki/editor backup, every 5 min of editing
+
+小时百科全部词条备份
+
+网站 wuli.wiki
