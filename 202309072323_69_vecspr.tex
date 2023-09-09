@@ -1,0 +1,26 @@
+% 协变矢量和逆变矢量
+% keys 四矢量|协变矢量|逆变矢量
+% license Xiao
+% type Tutor
+
+\pentry{狭义相对论与洛伦兹对称性\upref{SRrefe}}
+
+约定使用东海岸度规 $\eta_{\mu\nu}=\rm{diag}(-1,1,1,1)$ 和自然单位制 $c=1$。
+
+\subsection{协变矢量变换法则}
+四矢量 $A^\mu=(A^0,A^1,A^2,A^3)$ 被称为协变矢量，当且仅当它满足一下的相对论变换法则
+\begin{equation}\label{eq_vecspr_1}
+A^\mu\rightarrow \Lambda^{\mu}{}_\nu A^\nu~.
+\end{equation}
+其中 $\Lambda^\mu{}_\nu$ 为洛伦兹变换矩阵，它满足\footnote{具体的推导见狭义相对论与洛伦兹对称性\upref{SRrefe}。}
+\begin{equation}
+\Lambda^{\mu}{}_{\rho} \Lambda^{\nu}{}_{\sigma} \eta_{\mu\nu} = \eta_{\rho\sigma}~.
+\end{equation}
+常见的协变矢量有时空坐标四矢量
+\begin{equation}
+x^\mu = (x^0,x^1,x^2,x^3) = (t,\bvec x)~.
+\end{equation}
+协变矢量的特征是有一个上指标，一般用希腊字母 $\mu,\nu,\rho,\sigma$ 等表示。变换公式 $A^\mu\rightarrow \Lambda^{\mu}{}_\nu A^\nu$ 描述了协变矢量在洛伦兹变换下的行为。
+
+\subsection{逆变矢量变换法则}
+如果将矩阵 $\eta_{\mu\nu}$ 与 $x^\nu$ 相乘，对所有指标 $\nu=0,1,2,3$ 求和，得到的 $x_\mu =\eta_{\mu\nu} x^\nu$ 就被称为是逆变矢量。对所有指标 $\nu=0,1,2,3$ 进行求和的过程叫做“缩并”， 
