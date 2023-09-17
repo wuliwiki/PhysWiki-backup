@@ -1,0 +1,149 @@
+% C 语言笔记
+% license Xiao
+% type Note
+
+% C 语言笔记
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\subsection{常用的字符串处理}
+\begin{lstlisting}[language=cpp]
+#include "string.h"
+char s1[20] = "some string1";
+char s2[20] = "some string2";
+strlen(s1) // 字符串长度
+strcpy(s1, s2) // 复制（s2 可以是 literal）
+strcmp(s1, s2) // 比较
+strcat(s1, s2) // 连接
+strrev(s1) // 反转
+\end{lstlisting}
+
+\subsection{printf}
+\begin{lstlisting}[language=cpp]
+#include<stdio.h>
+
+void main()
+{
+char s[20];
+scanf("%s",&s);
+printf("%s\n",s);
+}
+\end{lstlisting}
+具体的格式代码见\href{https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm}{这里}。
+
+\begin{lstlisting}[language=cpp]
+int i = 1234;
+printf("=== int ===\n");
+printf("%6.5d\n", i); // " 01234"
+
+printf("=== string ===\n");
+string s = "abcdABCD";
+printf("%s\n", s.c_str()); // "abcdABCD"
+
+double x = 12.345;
+printf("=== double 1 ===\n");
+printf("%8.3f\n", x); // "  12.345"
+printf("%10.3e\n", x); // " 1.235e+01"
+printf("%g\n", x); // "12.345"
+printf("%5.3g\n", x); // " 12.3"
+
+double y = 0.000012345678;
+printf("=== double 2 ===\n");
+printf("%g\n", y); // "1.23457e-05"
+printf("%10.3g\n", y); // "  1.23e-05"
+\end{lstlisting}
+
+如果不想输出到命令行而是输出到字符串， 就用 \verb|int sprintf(char *str, const char *format, ...)|。 返回写入的字符数。 该函数返回写入到 \verb|str| 的总字符数。
+
+\subsection{scanf}
+\begin{lstlisting}[language=cpp]
+#include <stdio.h>
+int main()
+{
+  int x,y,z;
+  scanf("%d+\n,\n=%d",&x,&y);
+  z=x*y;
+  printf("x=%d,y=%d\n",x,y);
+  printf("xy=%d\n",z);
+}
+// 输入：
+// 123+
+// ,
+// =234
+// 输出：
+// x=123,y=234
+// xy=28782
+\end{lstlisting}
+引号内除了特殊字符，其它都需要输入一摸一样的，否则会出错。但是，1.变量前面可以多打任意多个空格和回车（后面不可以），2.任意多个空格或回车相连等效。
+
+\subsection{getchar}
+\begin{lstlisting}[language=cpp]
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+ int i=1;
+ char str[5]={0};
+    while(i<=5)
+   {str[i]=getchar();i++;}
+
+ i=1;
+ while(i<=5)
+ {printf("%d  ",str[i]);i++;}
+ printf("\n");
+
+ i=1;
+ while(i<=5)
+ {printf("%c",str[i]);i++;}
+ printf("\n");
+}
+\end{lstlisting}
+
+\subsection{struct 和 union}
+
+\begin{lstlisting}[language=cpp]
+struct 名称 {} // 声明变量： struct 名称 变量
+typedef struct {} 名称 // 声明变量： 名称 变量
+typedef enum {} 名称 // 同理
+typedef union {} 名称 // 同理
+\end{lstlisting}
+
+\begin{lstlisting}[language=cpp]
+union {} // 和 struct 类似， 但变量共用内存
+\end{lstlisting}
+
+\subsection{函数指针}
+\begin{lstlisting}[language=cpp]
+// 函数指针（每个括号左右都可以有空格）
+double(*p1)(double) = sin; // 也可以用 \verb|&sin|，下同
+// 定义函数指针类
+typedef double(*Tpf)(double);
+Tpf p3 = sin;
+// 定义函数类
+typedef double(Tf)(double);
+Tf *p2 = sin;
+// 作为类型参数
+vector<double(*)(double)> arr{&sin, cos};
+// 调用函数（dereference 可选）
+cout << "sin(1) = " << arr[0](1) << endl;
+cout << "cos(1) = " << (*arr[1])(1) << endl;
+\end{lstlisting}
+
+\subsection{文件处理}
+\begin{itemize}
+\item \verb|fopen| 以及选项 \verb|a, a+, w, w+| 创建新文件。
+\item \verb|fopen| 打开已有文件。
+\item \verb|fscanf, fgets| 读取文件
+\item \verb|fprintf| 写文件
+\item \verb|fseek, rewind| 移动到文件的某个位置。
+\item \verb|fclose| 关闭文件
+\end{itemize}
+
+\subsection{内存分配}
+\begin{itemize}
+\item \verb|void *malloc(size_t size);| 分配内存，如果失败返回 \verb|NULL|。
+\item \verb|void free(void *ptr);| 释放内存。
+\item \verb|void *realloc(void *ptr, size_t new_size);| 会保留之前的数据。 如果可以延长内存就延长， 如果不能就重新分配并复制。 新分配的数据不会初始化。 如果失败返回 \verb|NULL|。
+\end{itemize}
