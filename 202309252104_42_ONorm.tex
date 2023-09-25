@@ -1,0 +1,22 @@
+% 线性算子度量空间
+% keys 线性算子|范数|度量空间|完备性
+% license Xiao
+% type Tutor
+\pentry{线性算子代数\upref{LiOper}}
+线性算子是矢量空间上的线性映射（\upref{LiOper}），其不仅能在加法和数乘的定义下构成代数，而且能在其上定义范数使其变成完备度量空间。本节旨在说明后一论断。
+\begin{definition}{}\label{def_ONorm_1}
+设 $\mathcal A$ 是 $\mathbb R^n$ 上的线性算子，则其\textbf{范数}定义为
+\begin{equation}
+\norm{\mathcal A}=\sup_{x\neq0}\frac{\abs{Ax}}{\abs{x}}~.
+\end{equation}
+其中 $\abs{x}\equiv\sqrt{(x,x)}$ 是矢量 $x$ 的范数, $(\cdot,\cdot)$ 是 $\mathbb R^n$ 的内积。
+\end{definition}
+范数的\autoref{def_ONorm_1} 是几何意义恰好是算子 $\mathcal A$ 的最大\textbf{伸缩系数}(矢量模之比)。
+\begin{example}{}
+试证明上面定义的算子的范数满足范数的定义（\autoref{def_NormV_1}~\upref{NormV}），即：
+\begin{enumerate}
+\item $\norm{\mathcal A}\geq0$，且 $\norm{\mathcal A}=0$ 当且仅当 $\norm{\mathcal A}=0$;
+\item
+\end{enumerate}
+
+\end{example}
