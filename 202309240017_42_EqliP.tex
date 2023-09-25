@@ -1,0 +1,52 @@
+% 平衡位置和圈
+% keys 平衡位置|圈|闭轨线|常微分方程的解
+% license Xiao
+% type Tutor
+
+\pentry{自治系统解的特点\upref{AuSy}}
+本节介绍自治系统（\autoref{def_ODEPr_2}~\upref{ODEPr}）解的分类。概括来说，自治系统的解（或轨线\upref{AuSy}）有三种情形：
+\begin{enumerate}
+\item 定点解，即轨线成为个不依赖自变量 $x$ 的点，称为\textbf{平衡位置}；
+\item 周期解，即轨线自身相交，称为\textbf{闭轨线}或\textbf{圈(环)};
+\item 自身不相交的轨线。
+\end{enumerate}
+\begin{theorem}{}
+设 $y^i=\varphi_i(x)$ 是自治系统的解，其最大存在区间为 $(m_1,m_2)$，并且存在 $m_1<x_1\neq x_2<m_2$，满足
+\begin{equation}\label{eq_EqliP_1}
+\varphi_i(x_1)=\varphi_i(x_2)~.
+\end{equation}
+则 $m_1=-\infty,m_2=+\infty$，且\textbf{要么}：对一切值 $x$ 成立 $\varphi_i(x)=a^i$，其中 $a^i$ 是与 $x$ 无关的常数，这时轨线成为解的定义空间中的点。此时解本身称为\textbf{平衡位置}。\\
+\textbf{要么}：存在正数 $T$，使得对任意 $t$ 成立
+\begin{equation}\label{eq_EqliP_2}
+\varphi_i(x+T)=\varphi_i(x)~.
+\end{equation}
+且当 $\abs{\tau_1-\tau_2}<T$ 时，至少对一个 $i$，成立 $\varphi_i(\tau_1)\neq\varphi_i(\tau_2)$。此时解称为\textbf{周期的}，$T$ 称为\textbf{最小正周期}。此时轨线称为\textbf{闭轨线}或\textbf{圈（环）}。
+在证明定理前，先定义解的周期概念。
+\end{theorem}
+\begin{definition}{周期}
+满足\autoref{eq_EqliP_2} 的 $T$ 称为解 $y^i=\varphi_i(x)$ 的周期。
+\end{definition}
+$T$之所以是最小的正周期，是因为否则的化，将会存在 $T_1<T$，使得 $\varphi_i(x+T_1)=\varphi_i(x)$，那么对任意 $\tau_2=\tau_1+T_1$ ，成立 $\varphi_i(\tau_1)=\varphi_i(\tau_2)$，然而此时 $\abs{\tau_1-\tau_2}=T_1<T$，结果与 $\varphi_i(\tau_1)\neq\varphi_i(\tau_2)$矛盾。所得矛盾证明了定理中的 $T$ 是最小正周期。
+
+下面证明
+
+\textbf{证明：}由\autoref{eq_EqliP_1} ，并根据\autoref{the_AuSy_2}~\upref{AuSy}
+\begin{equation}
+\varphi_i(x)=\varphi_i(x+x_1-x_2)~.
+\end{equation}
+由此，区间 $(m_1-x_1+x_2,m_2-x_1+x_2)$ 应合于 $(m_1,m_2)$，于是 $m_1=-\infty,m_2=+\infty$。
+
+
+\textbf{证毕！}
+
+
+
+
+
+
+
+
+
+
+
+

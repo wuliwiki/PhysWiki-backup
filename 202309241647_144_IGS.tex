@@ -1,0 +1,54 @@
+% 估算理想气体的熵
+% license CCBY4
+% type Note
+
+
+\pentry{理想气体的熵：纯微观分析\upref{IdeaS}}
+
+\subsection{估算熵}
+我们知道Sackur-Tetrode 公式 \upref{IdeaS}:
+\begin{equation}
+S = k\ln \Omega  = Nk \qty(\ln \frac{V}{N} \frac{(2\pi mkT)^{3/2}}{h^3} + \frac52)~,
+\end{equation}
+
+我们借此估算标准状态（$p=10^5 \Si{Pa}, T=298\Si{K}$）下$1 \Si{mol}$氢气的熵。
+
+我们知道气体体积\upref{Igas} 
+$$V=\frac{NkT}{p}~,$$
+氢气分子质量 
+$$m = \frac{2}{1000 N_A} = \frac{1}{500 N_A}~,$$
+物理学常数\upref{Consts} : 
+$$
+\begin{aligned}
+k &= 1.38 \times 10^{-23}\Si{J/K}\\
+N_A &= 6.02 \times 10^23 \Si{mol^{-1}}\\
+h &= 6.62\times10^{-34} \Si{J\cdot s}
+\end{aligned}
+~.$$
+
+先计算对数部分，
+$$
+\begin{aligned}
+ & \ln \frac{V}{N} \frac{(2\pi mkT)^{3/2}}{h^3} \\
+ = & \ln \frac{kT}{p h^3} \qty(\frac{2\pi kT}{500 N_A})^{3/2}\\
+ = & \frac{5}{2} \ln k + \ln T - \ln p - 3 \ln h + \frac{3}{2} \ln (2 \pi T) - \frac{3}{2} \ln 500 - \frac{3}{2} \ln N_A \\
+ \approx & 11.64\\
+\end{aligned}~,
+$$
+因此
+$$
+\begin{aligned}
+S \approx Nk (11.62+5/2) \approx 117.5 \Si{J/K}
+\end{aligned}~,
+$$
+与物理化学中氢的标准生成熵 $S = 130.57 \Si{J/K}$ \footnote{数据来自朱文涛等人的《简明物理化学》附录} 在同一数量级，相对误差在$10\%$左右。
+
+\subsection{估算重数}
+我们还知道
+\begin{equation}
+S = k \ln \Omega~,
+\end{equation}
+因此，
+$$
+\Omega = e^{S/k}~ \approx e^{10^25} \approx .
+$$

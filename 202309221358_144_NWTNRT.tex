@@ -1,0 +1,18 @@
+% 牛顿求根公式（牛顿迭代法）（Octave/matlab 绘图）
+% license Pub
+% type Note
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8 cm]{./figures/ef3a3fca036b7c2e.pdf}
+\caption{牛顿迭代法示意图} \label{fig_NWTNRT_1}
+\end{figure}
+
+Newton迭代法用以快速地寻找方程的解$f(x)=0$。它的迭代公式是
+\begin{equation}
+x_{k+1} = x_k-\frac{f(x_k)}{f'(x_k)}~.
+\end{equation}
+如果迭代收敛，那么它将收敛于方程$f(x)=0$的零点$x$。
+
+以下的Octave/matlab代码演示了Newton法的迭代过程，

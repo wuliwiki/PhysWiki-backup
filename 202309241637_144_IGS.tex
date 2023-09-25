@@ -1,0 +1,24 @@
+% 估算理想气体的熵
+% license CCBY4
+% type Note
+
+
+\pentry{理想气体的熵：纯微观分析\upref{IdeaS}}
+
+我们知道Sackur-Tetrode 公式:
+\begin{equation}
+S = k\ln \Omega  = Nk \qty(\ln \frac{V}{N} \frac{(2\pi mkT)^{3/2}}{h^3} + \frac52)~,
+\end{equation}
+
+我们借此估算标准状态（$p=10^5 \Si{Pa}, T=298\Si{K}$）下$n=1 \Si{mol}$氢气的熵。
+
+先计算对数部分，我们知道 $V=\frac{NkT}{p}$ 以及 $m = \frac{2}{1000 N_A} = \frac{1}{500 N_A}$
+
+$$
+\begin{aligned}
+ & \ln \frac{V}{N} \frac{(2\pi mkT)^{3/2}}{h^3} \\
+ = & \ln \frac{kT}{p h^3} \qty(\frac{2\pi kT}{500 N_A})^{3/2}\\
+ = & \frac{5}{2} \ln k + \ln T - \ln p - 3 \ln h + \frac{3}{2} \ln (2 \pi T) - \frac{3}{2} \ln 500 - \frac{3}{2} \ln N_A \\
+ \approx & 11.64\\
+\end{aligned}~.
+$$

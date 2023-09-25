@@ -1,0 +1,13 @@
+% 压缩映射
+% keys 压缩映射
+% license Xiao
+% type Tutor
+\pentry{映射\upref{map}，度量空间\upref{Metric}}
+首先，压缩映射是集合到自身的一个映射，其次，“压缩”是指对集合中任意两点，在压缩映射下两点的像点的“距离”比两原像更小。这就是说，压缩映射是定义在带有“距离”的集合上的。任意验证，满足上面定义的压缩映射 $A$ 的定义集合 $X$ 是个无限集。事实上，若 $X$ 有限，且 $d:X\times X\rightarrow \mathbb R$ 是距离函数\footnote{表示"距离"的集合的元素应都是可比较的，就是说它是个有序集\upref{OrdRel}，不妨将这个集合取作实数集。}。我们构建两个序列
+\begin{equation}
+\{x,Ax,A^2x,\cdots\},\{y,Ay,A^2y,\cdots\},
+\end{equation}
+由于 $X$ 有限，所以必有$m_1<n_1,m_2<n_2$ 存在，使得 $A^{m_1}x=A^{n_1}x,A^{m_2}y=A^{n_2}y$ 。那么
+\begin{equation}
+A^{m_1+(n_1-m_1)(n_2-m_2)}x=\underbtace{A^{m_1}}{}(A)
+\end{equation}
