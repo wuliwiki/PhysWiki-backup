@@ -55,11 +55,12 @@ G^*=arg \mathop{min}\limits_G \mathop{max}\limits_D L_{cGAN}(G,D)+\lambda L_{L1}
 \end{equation}
 其中，$G$表示生成器，$D$表示判别器，$x$为训练数据的输入，$y$为训练数据的输出，$z$表示随机噪音，$\lambda$表示$L1$损失的系数。
 
-可以参考以下示例代码来建立一个条件生成对抗网络的模型。本例使用的是Tensorflow框架。
+可以参考以下示例Python代码来建立一个条件生成对抗网络的模型。本例使用的是Tensorflow框架。
 \begin{lstlisting}[language=python]
 def build_model(self):
     """
-      A表示输入域，B表示输出域。该方法的功能是建立一个从域A到域B转换的条件生成对抗网络模型。
+      A表示输入域，B表示输出域。
+      该方法的功能是建立一个从域A到域B转换的条件生成对抗网络模型。
     """
 
     # 建立一个传送数据的节点。
@@ -83,16 +84,22 @@ def build_model(self):
     self.D, self.D_logits = self.discriminator(self.real_AB, reuse=False)
     self.D_, self.D_logits_ = self.discriminator(self.fake_AB, reuse=True)
 
+    # 定义判别器损失
     self.d_loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(
                                   logits=self.D_logits, 
-    labels=tf.ones_like(self.D)))
+                                  labels=tf.ones_like(self.D)))
     self.d_loss_fake = tf.reduce_mean(
-      tf.nn.sigmoid_cross_entropy_with_logits(logits=self.D_logits_,
-    labels=tf.zeros_like(self.D_)))
+                                      tf.nn.sigmoid_cross_entropy_with_logits(
+                                      logits=self.D_logits_,
+                                      labels=tf.zeros_like(self.D_)))
+    
+    # 定义生成器损失
     self.g_loss = tf.reduce_mean(
-      tf.nn.sigmoid_cross_entropy_with_logits(logits=self.D_logits_,
-    labels=tf.ones_like(self.D_)))
-    +self.L1_lambda * tf.reduce_mean(tf.abs(self.real_B - self.fake_B))
+                                tf.nn.sigmoid_cross_entropy_with_logits(
+                                  logits=self.D_logits_,
+                                  labels=tf.ones_like(self.D_)))
+                                  +self.L1_lambda * tf.reduce_mean(
+                                    tf.abs(self.real_B - self.fake_B))
 
 \end{lstlisting}
 
