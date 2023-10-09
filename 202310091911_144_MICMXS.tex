@@ -1,0 +1,38 @@
+% 混合熵的微观解释
+% license CCBY4
+% type Tutor
+
+
+\pentry{理想气体混合的熵变\upref{IGME}，熵的微观定义与玻尔兹曼公式\upref{entro2}}
+
+\footnote{参考书目：Gaskel et al. Thermodynamics of Materials}
+在理想气体混合的熵变\upref{IGME}我们已经知道了如何从经典的方法计算混合熵：
+\begin{equation}
+\Delta_{mix} S = - R \sum n_i \ln x_i~,
+\end{equation}
+现在，我们尝试用统计力学的观点，从微观角度论证混合熵的公式为什么是这样的。
+
+想象我们有$N_A$个$A$球，$N_B$个$B$球，现在将他们混合在一起，那么会有几种可能的混合方式？幸运的是，统计力学假设所有微观粒子都是相同的，因此我们不需要考虑球的摆放顺序。那么，问题简化为\textsl{高中二年级}的组合问题，比如说：
+\begin{itemize}
+\item 共有$N_A+N_B$个格子，选择其中$N_A$个格子放置$A$球，其余$N_B$个格子放置$B$球；
+\item 共有$N_A+N_B$个空白球，选择其中$N_A$个球刷成$A$球，其余$N_B$个球刷成$B$球。
+\end{itemize}
+问题的答案比高中课本上大多数的习题都简单，就是一个组合数：
+\begin{equation}
+\Omega = C^{N_A}_{N_A+N_B} C^{N_B}_{N_B} =  C^{N_A}_{N_A+N_B}  = \frac{(N_A+N_B)!}{N_A!N_B!}~,
+\end{equation}
+对其求对数并运用妇孺皆知的斯特林近似：
+\begin{equation}
+\begin{aligned}
+\ln \Omega &= \ln \frac{(N_A+N_B)!}{N_A!N_B!} \\
+ &= (N_A+N_B) (\ln (N_A+N_B) - 1) - N_A (\ln N_A - 1) - N_B (\ln N_B - 1) \\
+ &= (N_A+N_B) \ln (N_A+N_B) - N_A \ln N_A - N_B \ln N_B \\
+ &= N_A \ln \frac{N_A+N_B}{N_A} + N_B \ln \frac{N_A+N_B}{N_B} \\
+ &= - N_A \ln x_A - N_B \ln x_B \qquad \left [x_A = \frac{N_A}{N_A+N_B}, x_B = \frac{N_B}{N_A+N_B} \right ]\\
+\end{aligned}~,
+\end{equation}
+因此，
+\begin{equation}
+\Delta_{mix} S = k \ln \Omega = - k(N_A \ln x_A + N_B \ln x_B) = - R(n_A \ln x_A + n_B \ln x_B) ~.
+\end{equation}
+如果你觉得这个结果有点熟悉，那么你就对了：这就是混合熵。至此，我们从熵的微观含义论证了混合熵公式。
