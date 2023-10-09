@@ -1,0 +1,41 @@
+% 常微分方程解的存在、唯一及对参数的连续依赖定理
+% keys 存在|唯一|连续依赖|常微分方程
+% license Xiao
+% type Tutor
+
+\pentry{皮卡映射\upref{PicMap}，基本知识（常微分方程）\upref{ODEPr}}
+本节证明常微分方程的解的存在、唯一、及对参数的连续依赖定理。所谓 “解对参数的连续依赖” 是指微分方程
+\begin{equation}\label{eq_ODEUC_2}
+\dot x=v(x,t)~,
+\end{equation}
+ 的解 $\varphi$ 也是某些参数 $\mu=(\mu_1,\cdots,\mu_m)$ 的函数，即 $\varphi(\mu,t)$。于是 \autoref{eq_ODEUC_2} 右边也因写成 $v(x,\mu,t)$。 即需要证明形如
+\begin{equation}\label{eq_ODEUC_1}
+\dot x=v(x,\mu,t)~
+\end{equation}
+的微分方程的存在唯一且对参数 $\mu$ 的连续依赖定理。然而，可以验证，对\autoref{eq_ODEUC_2} 证明存在唯一性和对初始点的连续依赖性，等价于证明\autoref{eq_ODEUC_1} 的存在唯一性和对参数 $\mu$ 的连续依赖性。事实上：
+若微分方程\autoref{eq_ODEUC_2} 解 $\varphi$ 存在唯一且对初始点 $x$ 的连续依赖。记 
+
+\begin{equation}
+y=(x,\mu),v(x,\mu,t)=(v_x(x,\mu,t),v_{\mu}(x,\mu,t)),
+\end{equation}
+则 \autoref{eq_ODEUC_1} 等价于
+\begin{equation}
+\begin{aligned}
+\dot y=v(y,t)~,
+\end{aligned}
+\end{equation}
+其中 $v_{\mu}(x,\mu,t)=0$。
+
+
+\subsection{存在、唯一及对参数的连续依赖定理}
+\begin{theorem}{存在、唯一及对参数的连续依赖定理}
+设微分方程
+\begin{equation}
+\dot x=v(x,\mu,t)~
+\end{equation}
+中向量场 $v$ 及其关于变量 $x$ 的导数 $v_*\equiv(\pdv{v^i}{x^j})$ 在其自变量所在欧氏空间中的区域 $\tilde\Gamma$ 上有定义且连续，则对任一点 $(x_0,\mu_0,t_0)\in\tilde\Gamma$，存在
+\begin{equation}
+\abs{}~
+\end{equation}
+
+\end{theorem}

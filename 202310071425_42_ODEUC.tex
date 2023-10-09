@@ -1,0 +1,19 @@
+% 常微分方程解的存在、唯一及对参数的连续依赖定理
+% keys 存在|唯一|连续依赖|常微分方程
+% license Xiao
+% type Tutor
+
+\pentry{皮卡映射\upref{PicMap},基本知识（常微分方程）\upref{ODEPr}}
+本节证明常微分方程的解的存在、唯一、及对参数的依赖定理。其是对形如
+\begin{equation}\label{eq_ODEUC_1}
+\dot x=v(x,\mu,t)~
+\end{equation}
+的常微分方程组进行证明的。其中写成含有参数 $\mu$ 的形式是为了证明解对参数是连续依赖的，只需假定在某个固定参数 $\mu$ 下就能把 $v(x,\mu,t)$ 写成 $v(x,t)$，这就回到了以前常见的形式。一般的常微分方程都可以写成\autoref{eq_ODEUC_1} 的形式（\upref{GO2SOD}），所以对形如\autoref{eq_ODEUC_1} 证明的定理具有普适性。
+\subsection{存在、唯一及对参数的连续依赖定理}
+\begin{theorem}{存在、唯一及对参数的连续依赖定理}
+设微分方程
+\begin{equation}
+\dot x=v(x,\mu,t)~
+\end{equation}
+中向量场 $v$ 是定义在其自变量所在欧氏空间中的区域 $\tilde\Gamma$ 上的连续映射,且 $v$ 有关于变量 $x$ 的连续导数 $v_*\equiv(\pdv{v^i}{x^j})$ ，则对任一点 $(x_0,\mu_0,t_0)\in\tilde\Gamma$，
+\end{theorem}
