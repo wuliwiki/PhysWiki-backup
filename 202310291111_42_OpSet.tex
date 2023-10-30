@@ -1,0 +1,34 @@
+% 集合的运算
+% keys 交|并|对偶原理|de Morgan定理
+% license Xiao
+% type Tutor
+
+\pentry{集合\upref{Set}}
+通过 “集合\upref{Set}” 的预备知识，我们应该知道，集合是由元素构成的。这是说，在一开始讨论集合的时候，必须先行给出一个集合，才能继续进行有关的讨论。这是说当你说集合 $A$ 时，我们已经知道了它的元素。具体而言，当谈论集合 $A$ 时，你应该马上将其理解成 $A=\{a_1,\cdots,a_n,\cdots\}$，其中花括号里的是 $A$ 的元素。既然提到集合相当于指出它的元素，那同时就能判断哪些使它的元素，哪些不是它的元素，$a$ 是 $A$ 的元素记作 $a\in A$，$a$ 不是 $A$ 的元素记作 $a\notin A$，这些都是在提到集合的时候就同时表明了的。有了集合后，一个重要的任务是其上运算的定义及运算规则，这便是本节要介绍的。
+\subsection{与 $\land$ 和 或 $\lor$}
+同样在“集合\upref{Set}”里，已经知道集合间可以进行运算 $\cap$（交）、$\cup$（并）。现在来给出它们的具体定义。严格的定义需要用到两个逻辑学概念 $\land$（读作“与”） 和 $\lor$（读作 “或”）。它们仅仅代表两个函数，下面将记 $Z_2=\{0,1\}$。
+\begin{definition}{与}
+称函数 $f:Z_2\times Z_2\rightarrow Z_2$ 为\textbf{与}，若
+\begin{equation}
+f(0,0)=0,\quad f(0,1)=0,\quad f(1,0)=0,\quad f(1,1)=1~.
+\end{equation}
+并将与函数 $f$ 记作 $\land$。
+\end{definition}
+\begin{definition}{或}
+称函数 $f:Z_2\times Z_2\rightarrow Z_2$ 为\textbf{或}，若
+\begin{equation}
+f(0,0)=0,\quad f(0,1)=1,\quad f(1,0)=1,\quad f(1,1)=1~.
+\end{equation}
+并将或函数 $f$ 记作 $\lor$ 。
+\end{definition}
+\subsection{属于$\in$的数值化}
+在精确定义集合的交和并前，还需要引入一种特定的函数，它将元素和集合的关系数值化了，不妨称为集合上的坐标函数。
+\begin{definition}{}
+设 $X$ 是集合，则称函数 $f_X:X\rightarrow Z_2$ 是集合 $X$ 上的\textbf{坐标}，若
+\begin{equation}
+f_X(x)=\left\{\begin{aligned}
+&1,\quad x\in A,\\
+&0,\quad x\notin A~.
+\end{aligned}\right.
+\end{equation}
+\end{definition}
