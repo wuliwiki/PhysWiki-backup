@@ -1,0 +1,65 @@
+% 凸函数（补）
+% keys 凸集合；凸函数
+% license Usr
+% type Tutor
+
+\begin{definition}{凸集}
+对于一个集合$C\subseteq\mathbb{R}^n,\forall\boldsymbol{x}_1,\boldsymbol{x}_2,\theta\in[0,1],$满足
+\begin{equation}
+\theta\boldsymbol{x}_1+(1-\theta)\boldsymbol{x}_2\in C~
+\end{equation}
+称$C$是凸集.
+\end{definition}
+\begin{definition}{凸集}
+对于一个集合$C\subseteq\mathbb{R}^n,\forall\boldsymbol{x}_1,\cdot,\boldsymbol{x}_n,\theta_k\in[0,1],k=1,2,\cdots,n$满足
+\begin{equation}
+\theta_1\boldsymbol{x}_1+\cdots+\theta_n\boldsymbol{x}_n\in C~
+\end{equation}
+称$C$是凸集.
+\end{definition}
+\begin{definition}{凸集}
+对于一个集合$C\subseteq\mathbb{R}^n,$存在映射$p:\mathbb{R}^n\to\mathbb{R},p(\boldsymbol{x}),\int_Cp(\boldsymbol{x})\mathrm{d}\boldsymbol{x}=1,\forall\boldsymbol{x}\in C,$满足
+\begin{equation}
+\int_C\boldsymbol{x}p(\boldsymbol{x})\mathrm{d}\boldsymbol{x}\in C~
+\end{equation}
+称$C$是凸集.
+\end{definition}
+\begin{definition}{凸函数}
+存在映射$f:\mathbb{R}^n\to\mathbb{R},\mathrm{dom} f$是凸集合，如果$\forall\boldsymbol{x_1},\boldsymbol{x_2}\in\mathrm{dom} f, \theta\in[0,1],$满足
+\begin{equation}
+f(\theta\boldsymbol{x}_1+(1-\theta)\boldsymbol{x}_2)\leqslant\theta f(\boldsymbol{x}_1) + (1-\theta)f(\boldsymbol{x}_2)~
+\end{equation}
+\end{definition}
+称映射$f$是定义在$\mathrm{dom} f$上的凸函数.如果满足
+\begin{equation}
+f(\theta\boldsymbol{x}_1+(1-\theta)\boldsymbol{x}_2)<\theta f(\boldsymbol{x}_1) + (1-\theta)f(\boldsymbol{x}_2)~
+\end{equation}
+称映射$f$是定义在$\mathrm{dom} f$上的强凸函数.
+\begin{definition}{凹函数}
+存在映射$f:\mathbb{R}^n\to\mathbb{R},\mathrm{dom} f$是凸集合，如果$\forall\boldsymbol{x_1},\boldsymbol{x_2}\in\mathrm{dom} f, \theta\in[0,1],$满足
+\begin{equation}
+f(\theta\boldsymbol{x}_1+(1-\theta)\boldsymbol{x}_2)\geqslant\theta f(\boldsymbol{x}_1) + (1-\theta)f(\boldsymbol{x}_2)~
+\end{equation}
+\end{definition}
+称映射$f$是定义在$\mathrm{dom} f$上的凹函数.如果满足
+\begin{equation}
+f(\theta\boldsymbol{x}_1+(1-\theta)\boldsymbol{x}_2)>\theta f(\boldsymbol{x}_1) + (1-\theta)f(\boldsymbol{x}_2)~
+\end{equation}
+称映射$f$是定义在$\mathrm{dom} f$上的强凹函数.
+\begin{theorem}{凸函数判定定理1}
+$f:\mathbb{R}^n\to\mathbb{R}$是凸函数，当且仅当$g:\mathbb{R}\to\mathbb{R},g(t)=f(\boldsymbol{x}+t\boldsymbol{v}),t=\{t|\boldsymbol{x}+t\boldsymbol{v}\in\mathrm{dom} f,\boldsymbol{v}\in\mathbb{R}^n\}$是凸函数.
+\end{theorem}
+\begin{theorem}{一阶条件}
+假设$f:\mathbb{R}^n\to\mathbb{R}$一阶可微，$f:\mathbb{R}^n\to\mathbb{R}$是凸函数，当且仅当
+\begin{equation}
+f(\boldsymbol{y})\geqslant f(\boldsymbol{x})+(\nabla f(\boldsymbol{x})^\top(\boldsymbol{y}-\boldsymbol{x})~
+\end{equation}
+对$\forall\boldsymbol{x},\boldsymbol{y}\in\mathrm{dom} f$成立.
+\end{theorem}
+\begin{theorem}{二阶条件}
+假设$f:\mathbb{R}^n\to\mathbb{R}$二阶可微，$f:\mathbb{R}^n\to\mathbb{R}$是凸函数，当且仅当
+\begin{equation}
+\nabla^2 f(\boldsymbol{x})\succeq 0~
+\end{equation}
+对$\forall\boldsymbol{x}\in\mathrm{dom} f$成立.
+\end{theorem}
