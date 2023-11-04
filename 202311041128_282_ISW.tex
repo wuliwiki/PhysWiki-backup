@@ -1,0 +1,92 @@
+% 无限深方势阱
+% keys 定态薛定谔方程|无限深势阱|量子力学|波函数|归一化
+% license Xiao
+% type Tutor
+% 插入 app https://wuli.wiki/apps/QMISW.html
+
+\pentry{定态薛定谔方程\upref{SchEq}， 二阶常系数齐次微分方程\upref{Ode2}}
+
+无限深势阱通常被作为量子力学中定态薛定谔方程的第一个例子。 这是因为它具有非常简单的解析解。 薛定谔方程具有解析解的情况屈指可数，其中无限深势阱和简谐振子\upref{QSHOop}要数在之后的教学中最常出现的例子了。
+
+只考察质量为 $m$ 的粒子沿 $x$ 方向的运动情况。% 有没有地方可以说明一下矢量空间, 我们只在 x 空间解决问题
+势能函数为
+\begin{equation}
+V(x) =
+\begin{cases}
+0 \quad &(0 \leqslant x \leqslant a)\\
++\infty  &(x < 0 \ \text{或}\  x > a)~.
+\end{cases}
+\end{equation}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=9cm]{./figures/3c41d1217dc56a53.pdf}
+\caption{无限深势阱} \label{fig_ISW_1}
+\end{figure}
+
+
+
+\subsection{束缚态}
+定态薛定谔方程为\upref{SchEq}
+\begin{equation}\label{eq_ISW_2}
+-\frac{\hbar ^2}{2m} \dv[2]{x} \psi(x) + V(x)\psi(x) = E\psi(x)~.
+\end{equation} 
+
+这里先直接给出结论，证明见文末。 无限深势阱没有散射态，但有无穷个非简并束缚态，也就是说\autoref{eq_ISW_2} 有无穷个解（记为 $\psi_n(x)$），且对应的能量本征值 $E$ 各不相同（如果同一个 $E$ 对应多个线性无关解，就叫做简并），记为 $E_n$。
+
+\begin{equation}\label{eq_ISW_3}
+E_n = \frac{\pi^2 \hbar^2}{2m a^2} n^2 \qquad (n = 1,2,3\dots)~.
+\end{equation}
+\begin{equation}\label{eq_ISW_1}
+\psi_n(x) = \sqrt{\frac{2}{a}} \sin(\frac{n\pi }{a} x)~.
+\end{equation}
+
+一些教材中也会把势阱中间作为坐标原点， 这相当于把这里的势能 $V(x)$ 和所有 $\psi_n(x)$ 都向左移动 $a/2$。 能级仍然保持不变， 波函数变为（为了简洁适当乘以 $-1$， 物理意义不变）
+\begin{equation}
+\psi_n(x) = \leftgroup{
+    &\sqrt{\frac{2}{a}}\sin(n\pi x/a)\qquad (\text{偶数 } n)\\
+    &\sqrt{\frac{2}{a}}\cos(n\pi x/a)\qquad (\text{奇数 } n)~,
+}\end{equation}
+事实上我们可以通过函数平移\upref{FunTra}的方法把势阱移动到任何位置。
+
+把波函数用\autoref{eq_ISW_1} 的基底展开， 是三角傅里叶级数的一个变形（详见\autoref{eq_FSTri_8}~\upref{FSTri}）， 注意虽然看上去少了 $\cos$ 基底， 但它的确是完备的。
+
+
+\subsection{推导} 
+先考虑势阱内部（$0 \leqslant x \leqslant a$， $V = 0$），方程变为
+\begin{equation}
+-\frac{\hbar^2}{2m} \dv[2]{x} \psi(x) = E\psi(x) ~,
+\end{equation}
+这是二阶常系数齐次微分方程。通解为
+\begin{equation}
+\psi(x) = C_1\cos(kx) + C_2 \sin(kx)~, \qquad
+k = \frac{\sqrt{2mE}}{\hbar}~.
+\end{equation} 
+通解也可以写成指数函数 $C\E^{\I kx}$， 加上边界条件后得到的shu'fu。
+
+现在讨论边界条件： 在有限深势阱束缚态中将会看到，如果势阱外部势能是有限值，波函数将会按照指数函数衰减，势能越高衰减得越快。而现在势阱外部势能为无穷大，就可以直接认为波函数在势阱外部始终为零。所以边界条件为
+\begin{equation}
+\psi(0) = 0, \quad \psi(a) = 0~.
+\end{equation}
+这两个条件代入以上通解中，解得
+\begin{equation}
+C_2 = 0, \quad k = \frac{n\pi}{a}  \ \ (n = 1,2,3\dots)~.
+\end{equation}
+
+$C_1$ 的取值暂时不能确定，但先将通解写为 $\psi(x) = C\sin(\frac{n\pi }{a}x)$， 常数 $C$ 就可以通过波函数的归一化%（链接未完成）
+来确定：
+\begin{equation}
+1 = \int_{-\infty }^{+\infty } \abs{\psi(x)}^2 \dd{x}  = \int_{-a}^{+a} \abs{C\sin(\frac{n\pi }{a} x)}^2 \dd{x}  = \abs{C}^2 \frac{a}{2}~.
+\end{equation}
+严格来说， $C$ 可以是复数，解为 $C = \sqrt{2/a} \E^{\I\theta}$。 但是为了方便通常把归一化常数中的相位因子$\E^{\I\theta}$ 默认为 $1$。 所以归一化的波函数为
+\begin{equation}
+\psi(x) = \sqrt{\frac{2}{a}} \sin(\frac{n\pi }{a}x)~.
+\end{equation}
+另外，由
+\begin{equation}
+\frac{\sqrt{2mE}}{\hbar} = k = \frac{n\pi }{a}~,
+\end{equation}
+可以得出能级是离散的结论。即
+\begin{equation}
+E_n = \frac{\pi^2\hbar^2}{2m a^2} n^2 \quad (n = 1,2,3\dots)~.
+\end{equation}
