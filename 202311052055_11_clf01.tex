@@ -1,0 +1,20 @@
+% Clifford 代数
+% keys 环|二次型
+% license Xiao
+% type Tutor
+
+如果要构建有限维结合代数，我们需要对basis的结合作出约束。例如，Grassmann代数要求反对称性：$\mathrm {e_1e_2}=\mathrm {e_2e_1}$。实际上，Grassmann代数是几何代数的一个平凡特例。本节先给出线性空间上的几何代数定义，再用集合语言将其拓展为Clifford代数。
+\subsection{几何代数}
+\begin{theorem}{张量代数的理想}
+给定域$\mathbb F$上的线性空间$V$，其上有一二次型$q$.令$\mathcal T(V)$为$V$上的张量代数，那么如下定义的$\mathcal {I}_q(V)$是它的理想:
+\begin{equation}
+\mathcal{I}_{q}(V)=\left\{\sum A_{k} \otimes(v_k \otimes v_k-q(v_k)) \otimes B_{k} \mid v \in V, A_{k}, B_{k} \in \mathcal{T}(V)\right\}~,
+\end{equation}
+\end{theorem}
+proof.
+环理想首先是加法子群，其次对乘法有“吸收律”。该定理可以简化成一个更简单的形式。即对于环$R$上的一个非空子集$S$,我们可以证明该子集生成的理想为
+\begin{equation}
+\mathcal {I}_S=\left{\sum _k a_k s_kb_k|a_k,b_k\in R,s_k\in S\right}~,
+\end{equation}
+
+
