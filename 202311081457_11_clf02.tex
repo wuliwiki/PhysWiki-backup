@@ -1,0 +1,21 @@
+% Clifford 代数的基本运算
+% license Xiao
+% type Tutor
+
+
+本节利用集合语言，介绍Clifford代数上的二元线性运算\footnote{本文参考Jie Peter《代数学讲义》}。我们也会证明，更改线性空间的正交基并不会改变运算的形式。
+\subsubsection{外积与正交基}
+\begin{definition}{外积}
+给定Clifford代数$\mathrm {Cl(X,R,s)}$，对于$A,B\in 2^x$，定义
+\begin{equation}
+A \wedge B=\left\{\begin{aligned}
+A B,\quad& A \cap B=\varnothing \\
+0,\quad& A \cap B \neq \varnothing~,
+\end{aligned}\right.
+\end{equation}
+并称之为外积（outer product or exterior product）或楔积（wedge product）。我们可以通过线性性将该运算拓展到任意元素之间的外积。
+\end{definition}
+
+在上一节，我们说过，集合语言的阐述实际上是指定了线性空间的正交基。正交性体现为CLifford积的反对称性。因而对于正交基$\{\mathrm {e_i}\}$，我们有$\mathrm{e_i\wedge e_j=-e_j\wedge e_i}$。所以对线性空间的任意两个向量作外积，反对称性亦能满足。
+
+不仅如此，基底之间的正交关系不随线性变换而改变。例如，$\mathrm {e_1=a_1}$
