@@ -1,0 +1,69 @@
+% Clifford 代数的基本运算
+% license Xiao
+% type Tutor
+
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+本节利用集合语言，介绍Clifford代数上的二元线性运算\footnote{本文参考Jie Peter《代数学讲义》}。我们也会证明，更改线性空间的正交基并不会改变运算的形式。
+\subsubsection{外积与正交基}
+\begin{definition}{外积}
+给定Clifford代数$\mathrm {Cl(X,R,s)}$，对于$A,B\in 2^x$，定义
+\begin{equation}
+A \wedge B=\left\{\begin{aligned}
+A B,\quad& A \cap B=\varnothing \\
+0,\quad& A \cap B \neq \varnothing~,
+\end{aligned}\right.
+\end{equation}
+并称之为外积（outer product or exterior product）或楔积（wedge product）。我们可以通过线性性将该运算拓展到任意元素之间的外积。
+\end{definition}
+
+在上一节，我们说过，集合语言的阐述实际上是指定了线性空间的正交基。正交性体现为CLifford积的反对称性。因而对于正交基$\{\mathrm {e_i}\}$，我们有$\mathrm{e_i\wedge e_j=-e_j\wedge e_i}$。所以对线性空间的任意两个向量作外积，反对称性亦能满足。
+
+不仅如此，基底之间的正交关系不随线性变换而改变。例如某线性空间下有两组正交基$\{e_i\},\{\theta_i\}$，且$\mathrm {\theta_1=a^ie_i,\theta_2=b^ie_i}$，那么由线性性我们可以展开得到后一组基的Clifford积：
+\begin{equation}
+\left\{\begin{array}{l}
+\theta_1 \theta_2=\left(a^i e_i\right) \wedge\left(b^j e_j\right)+\sum_k\left(a^k b^k s(e_k)\right) \\
+\theta_2 \theta_1=\left(b^j e_j\right) \wedge\left(a^i e_i\right)+\sum_k\left(b^k a^k s(e_k)\right)
+\end{array}\right.~,
+\end{equation}
+$a^i,b^i$是过渡矩阵里的两个列向量。由于从标准正交基到标准正交基的矩阵为正交矩阵，因而这两个列向量正交，上式右端第二项都为0。所以我们依然有$\theta_1\theta_2=-\theta_2\theta_1$
+\subsubsection{左内积}
+\begin{definition}{}
+给定Clifford代数$\mathrm {Cl(X,R,s)}$，对于$A,B\in 2^x$，定义
+\begin{equation}
+A\left\llcorner B=\left\{\begin{aligned}
+A B,\quad & A \subseteq B ; \\
+0,\quad & A \nsubseteq B .
+\end{aligned}\right.\right.~,
+\end{equation}
+并称之为左内积（left inner product or left interior product）。我们依然可以通过线性性将运算推广到Clifford代数的任意元素上。
+\end{definition}
+右内积的定义是对偶的，即:
+\begin{definition}{右内积}
+\begin{equation}
+A\lrcorner B=\left\{\begin{aligned}
+A B,\quad & A \supseteq B ; \\
+0,\quad & A \nsupseteq B .
+\end{aligned}\right.~,
+\end{equation}
+\end{definition}
+下面我们只研究左内积。
+
+与外积相同，左内积也具有“正交基形式不变性”。
+例如，在同一线性空间中选取两组正交基，$\{e_i\}$,$\{\theta _i\}$，且$\mathrm {\theta_1=a^ie_i,\theta_2=b^ie_i},\theta_3=c^ie_i$。那么我们有：
+\begin{equation}
+\begin{aligned}
+\theta_1\left\llcorner\theta_2\right. & =\left(a^i e_i\right)\left\llcorner\left(b^j e_j\right)\right. \\
+& =\sum_i s(i) a^i b^i=0
+\end{aligned}~,
+\end{equation}
+\begin{exercise}{}
+证明：$\theta_1\left\llcorner(\theta_2\theta_3)\right.$=0。
+\end{exercise}
+
+\subsubsection{标量积}
+
+\subsubsection{投影，对合以及共轭}
