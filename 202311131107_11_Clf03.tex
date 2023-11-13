@@ -1,0 +1,20 @@
+% 伪标量
+% license Xiao
+% type Tutor
+
+注：本文参考Jie Peter《代数学基础》
+
+几何代数$\mathcal G(V,q)$有一个非常特殊的元素，通常称之为定向的体积元
+（oriented volume element）或者体积形式（volume form），即某个标准正交基 $\{e_i\}$ 中的元素构成的积：
+$$\mathrm {vol:=e_1e_2e_3...e_n}~,$$
+该体积形式又可被叫作伪标量单位，称其平方的结果为伪标量。
+
+设$\{e_i\}$ 和$\{\theta_i\}$ 为线性空间$V$中的两组标准正交基，且$\theta_j=A^i_j e_i$，$A^i_j$是过渡矩阵的元素。那么由Clifford积的分配律，我们有：
+\begin{equation}
+\begin{aligned}
+e_1e_2...、\theta_n&=(A^{j_1}_1 e_{j_1})(A^{j_2}_2 e_{j_2})(A^{j_n}_n e_{j_n})\\
+&=\sum_{\sigma\in S_n} sgn\sigma(A^{\sigma (1)}_1)e_1e_2...e_n\\
+&=det A^i_je_1e_2...e_n~,
+\end{aligned}
+\end{equation}
+该过渡矩阵是正交矩阵，因而体积元只相差正负号。
