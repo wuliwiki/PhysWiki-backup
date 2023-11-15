@@ -1,0 +1,68 @@
+% 极小多项式（线性代数）
+% keys 最小多项式|minimal polynomial|环|线性代数|域
+% license Xiao
+% type Tutor
+
+
+\pentry{线性映射\upref{LinMap}}
+
+
+极小多项式又称最小多项式，描述了一个元素关于给定环的代数性质。本节是线性代数的一部分，因此我们只讨论线性变换的极小多项式。
+
+
+\subsection{零化多项式}
+
+
+
+
+
+\begin{definition}{线性变换的多项式}
+给定域$\mathbb{F}$上的线性空间$V$，令$A$是$V$上的\textbf{线性变换}。
+
+定义$A^k$是$A$与自身复合$k$次的结果，即$A^k=\overbrace{A\circ A\circ\cdots\circ A}^{k\text{个}A}$，则可以定义线性变换的多项式：若$f$是$\mathbb{F}$上的多项式，表达为
+\begin{equation}
+f(x) = \sum_{i=0}^m a_ix^i~, 
+\end{equation}
+那么$f(A)$就是$V$上的线性变换，表达为
+\begin{equation}
+f(A) = \sum_{i=0}^m a_ixA^i~. 
+\end{equation}
+\end{definition}
+
+
+
+\begin{definition}{零化多项式}\label{def_MinPol_1}
+给定域$\mathbb{F}$上的线性空间$V$，令$A$是$V$上的\textbf{线性变换}。
+
+对于$V$的子空间$W$，若$\mathbb{F}$上的多项式$f$满足$f(A)\bvec{w}=\bvec{0}$对任意$\bvec{w}\in W$成立，则称$f$是$A$在$W$上的\textbf{零化多项式（null polynomial）}。
+\end{definition}
+
+
+由\autoref{def_MinPol_1} 显然可知，$f$是$A$在$V$上的零化多项式，当且仅当$f(A)=0$。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
