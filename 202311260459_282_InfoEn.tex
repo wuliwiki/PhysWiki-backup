@@ -1,0 +1,17 @@
+% 信息熵简介
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+给出一个 $N$ 元离散概率质量函数 $P(x_i)$（$i=1,\dots,N$），信息熵定义为
+\begin{equation}
+H = -\sum_{i=1}^N P(i) \log_2 P(x_i)~.
+\end{equation}
+为什么要这么定义？ 若每个可能都是等概率的， 那么 $P(x_i) = 1/N$， 所以上式化简为
+\begin{equation}
+H = \log_2 N~.
+\end{equation}
+若要从这 $N$ 种可能性种指明一种，所需要的信息量就是 $H$ 比特。
