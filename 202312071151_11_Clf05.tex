@@ -1,0 +1,61 @@
+% 单向量的运算
+% license Xiao
+% type Tutor
+
+
+\begin{issues}
+\issueTODO
+\end{issues}
+注：本文参考Jie Peter的《代数学基础》。
+
+在上一节，我们介绍了单向量的基本运算。本节着重讨论外积、对偶以及左内积运算在单向量集合上的性质，即这些运算在单向量集合上是否封闭，以及运算结果与子空间的关系。需要注意的是，左内积以及对偶运算往往需要我们取一组正交基，因为用集合语言讨论非常方便，所以对于退化二次型，我们需要仔细检验某些结论是否成立。
+\subsubsection{互反基}
+由于几何代数定义在线性空间上，所以我们也可以定义“对偶基”的概念。稍后我们可以发现，对单向量取对偶后其子空间和“对偶基”的关系。
+
+\begin{definition}{}
+给定\textbf{非退化}的几何代数$\mathcal G(V,q)$，$\{e_1,e_2...e_k\}$是$V$上的一组基，则可以定义该基的\textbf{互反基(reciprocal basis)}$\{e^1,e^2...e^k\}$，使得
+\begin{equation}
+e^i*e_j=\delta^i_j~.
+\end{equation}
+\end{definition}
+reciprocal也可翻译为“互逆”、“对偶”和“倒易”等。
+内积关系是二次型确定的，从定义式可见$e^i$与$e_i$是线性关系。通过二次型确定$V$的对偶空间$V^*$，这两个空间共享一组基但二次型不同。
+
+非退化的几何代数里总存在标准正交基。在取了标准正交基后，其互反基实际上就是这组基本身：$e^i=e_i$。因此，互反基相当于利用二次型，将对偶空间同构回原空间。
+假设$\{x_i\}$为一般基向量组，考虑过渡矩阵为$T^i_j$的基变换：$y_i=T^j_ix_j$，由互反基与普通基的关系得：
+\begin{equation}
+y^j=S^j_ix^i~,
+\end{equation}
+其中$S^j_i$为$T^j_i$的逆矩阵。
+
+\subsubsection{运算封闭性}
+利用互反基的概念，我们可以表示任意单向量的对偶。下面我们来验证，如果$A$是单向量，那么$A^c=\bar A^{\perp}$
+\begin{theorem}{}
+给定\textbf{非退化}的几何代数$G(V,q)$。任取\textbf{非零}单向量$A=v_1\wedge v_2...\wedge v_k$，由于其非零，可以拓展为$V$上的一组基$\{v_1,v_2...v_k,v_{k+1}...v_n\}$，则有
+\begin{equation}
+A^c\propto v^{k+1}\wedge v^{k+2}...\wedge v^n~,
+\end{equation}
+\end{theorem}
+其中，$\{v^i\}$是$\{v_i\}$的互反基。
+
+proof.
+由几何代数非退化，可以取$\bar A$上的一组标准正交基$\{e_i\}^k_i=1$，并扩展为全空间的标准正交基$\{e_i\}^n_i=1$。由互反基定义得，$v^{k+m}$垂直于$\bar A$.则
+\begin{equation}
+\begin{aligned}
+A&\propto e_1\wedge e_2...\wedge e_k\\
+v^{k+1}\wedge v^{k+2}...\wedge v^n&\propto e^{k+1}\wedge e^{k+2}\wedge...\wedge e^n\\
+&=e_{k+1}\wedge e_{k+2}\wedge...\wedge e_n~,
+\end{aligned}
+\end{equation}
+对$A$取对偶，由定义得
+\begin{equation}
+\begin{aligned}
+A^c&=AI^{-1}\\
+&\propto AI\\
+&\propto e_1\wedge e_2...\wedge e_k e_1\wedge e_2...\wedge e_n\\
+&
+
+\end{aligned}
+\end{equation}
+
+\subsubsection{与子空间关系}
