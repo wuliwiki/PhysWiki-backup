@@ -1,0 +1,23 @@
+% 二次型（线性代数）
+% license Xiao
+% type Tutor
+
+
+\begin{issues}
+\issueTODO 
+\begin{itemize}
+\item 本篇放在线性代数第五章 线性方程组，面向初学者。用矩阵语言介绍二次型，区分高代中张量形式的二次型（虽然它们当然是一回事）。
+\item  本篇最好加上一些应用实例，譬如几何上通过二次型简化方程，以及物理上的惯性张量（？）等等。
+\end{itemize}
+\end{issues}
+\begin{definition}{}
+二次型是关于变量的二次齐次多项式。即满足$q(k\textbf{v})=k^2 q(\textbf{v})$，对于任意$\textbf{v}=(x_1,x_2...x_n),k\in \mathbb F$。容易验证，任意二次型都可以写为如下形式：
+\begin{equation}
+q(\textbf{v}=\textbf{v}^TQ\textbf v)~.
+\end{equation}
+一般称矩阵$Q$为二次型$q$的矩阵形式。
+\end{definition}
+从定义可知，二次型可以对应多个矩阵。但是由于对任意变量有$v_iv_j=v_jv_i$，二次型总能对应唯一一个对称矩阵\footnote{前提为：域的特征不为2。因为特征为2的域有：-1=1}。
+\subsection{二次型的坐标变换}
+当我们用上述定义表示二次型时，如果基向量组变换，二次型的形式亦有所不同。具体而言，如果利用过渡矩阵$T$对
+\subsection{二次型的正定性}
