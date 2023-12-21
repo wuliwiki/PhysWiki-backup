@@ -1,0 +1,98 @@
+% 绝热近似（量子力学）
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\footnote{参考 \cite{GriffE} 的章节： The Adiabatic Approximation、 \cite{Shankar} Chap18-P478、 Wikipedia \href{https://en.wikipedia.org/wiki/Adiabatic_theorem}{相关页面}。}量子力学中，\textbf{绝热近似（adiabatic approximation）}说的大概是： 若系统初始时处于某个离散非简并的本征态，那么当哈密顿量随时间缓慢改变时（改变的特征时间远大于本征态的）， 那改变过程中波函数将仍然处于同一个本征态，但整体相位会发生某种改变。下面先给出定量结论，证明留到文末。
+
+令含时薛定谔方程为（用函数上一点表示关于时间的偏导数）
+\begin{equation}
+H(t)\Psi(t) = \I\hbar\dot\Psi(t)~.
+\end{equation}
+当系统不存在简并时， 绝热近似下含时薛定谔方程的通解可以表示为（$C_n$ 为常数，由初始波函数决定）
+\begin{equation}\label{eq_AdiaQM_2}
+\Psi(t) \approx \sum_n C_n \psi_n(t) \E^{\I\gamma_n(t)}\E^{\I\theta_n(t)}~.
+\end{equation}
+其中 $\psi_n(t)$ 是 $H(t)$ 一组正交归一本征态（为了方便本文把它们限制为实值函数），满足不含时薛定谔方程（时间看作数学参数）
+\begin{equation}\label{eq_AdiaQM_3}
+H(t)\psi_n(t) = E_n\psi_n(t)~.
+\end{equation}
+两个相位分别为（都是实值函数）
+\begin{equation}
+\theta_n(t) = -\frac{1}{\hbar} \int_0^t E_n(t')\dd{t'}~.
+\end{equation}
+\begin{equation}
+\gamma_m(t) = \I\int_0^t \braket*{\psi_m(t')}{\dot\psi_m(t')}\dd{t'}~,
+\end{equation}
+容易看出当 $H(t)$ 不随时间变化时，通解就回到了熟悉的通解（链接未完成）
+\begin{equation}
+\Psi(t) = \sum_n C_n \psi_n \E^{-\I E_n t/\hbar}~.
+\end{equation}
+
+\autoref{eq_AdiaQM_2} 中 $C_n$ 为常数是一个很有力的结论。它告诉我们若开始时波函数处于某个（非简并）本征态，那么它将始终（近似）处于该本征态。
+
+\begin{example}{}
+\begin{enumerate}
+\item 当无限深势阱\upref{ISW}缓慢变长。
+\item 量子简谐振子（升降算符法）\upref{QSHOop}的劲度系数 $k$ 缓慢变化。
+\end{enumerate}
+\end{example}
+
+该理论在对分子的计算中有广泛的应用，且有一个响亮的名字，叫\textbf{波恩—奥本海默近似（Born–Oppenheimer approximation）}。 这是因为在分子运动中，原子核的运动速度通常要比电子慢得多，使绝热近似效果较好。
+
+同为含时近似理论，绝热近似和含时微扰理论\upref{TDPTc}有什么区别呢？ 前者不要求 $H(t)$ 缓慢变化，例如用激光波包对原子光电离时，电场随时间的变化往往并不算慢。 那可以使用绝热近似的情况是否可以使用含时微扰理论呢？ 理论上可以，但计算比较麻烦，因为含时微扰使用初始的本征态展开任意时刻的波函数。
+
+\subsection{简并情况}
+\addTODO{大胆猜测，若初始波函数所处的简并空间维数不变，那么和非简并情况一样。 但若随着 $H$ 的变化分裂成多个子空间， 则需要先把初始波函数投影到每个子空间上，再分别演化。}
+
+\begin{example}{}
+给氢原子的任意束缚态 $\psi_{2,l,m}$ 缓慢施加外电场或磁场（参考 “类氢原子斯塔克效应（微扰）\upref{HStark}”）。
+\addTODO{推导}
+\end{example}
+
+\subsection{推导}
+若哈密顿量不随时间改变，
+\begin{equation}
+\Psi_n(t) = \psi_n \E^{-\I E_n t}~.
+\end{equation}
+若随时间改变， 本征态和本征值都变为时间的函数 $\psi_n(t)$ 和 $E_n(t)$。 但仍然正交归一。 此时的含时波函数仍然可以用它们展开
+\begin{equation}
+\Psi(t) = \sum_n c_n(t) \psi_n(t) \E^{\I \theta_n(t)}~,
+\end{equation}
+其中
+\begin{equation}
+\theta_n(t) = -\frac{1}{\hbar} \int_0^t E_n(t')\dd{t'}~.
+\end{equation}
+代入含时薛定谔方程
+\begin{equation}\label{eq_AdiaQM_1}
+H(t)\Psi(t) = \I \dot \Psi(t)~,
+\end{equation}
+得
+\begin{equation}\label{eq_AdiaQM_5}
+\dot c_m(t) = -\sum_n c_n \braket*{\psi_m}{\dot\psi_n}\E^{\I(\theta_n-\theta_m)}~.
+\end{equation}
+另外对\autoref{eq_AdiaQM_3} 求时间偏导得
+\begin{equation}\label{eq_AdiaQM_4}
+\mel*{\psi_m}{\dot H}{\psi_n} = (E_n-E_m)\braket*{\psi_m}{\dot\psi_n} + \delta_{m,n}E_n~.
+\end{equation}
+
+\subsection{非简并情况}
+\autoref{eq_AdiaQM_4} 代入\autoref{eq_AdiaQM_5} 得
+\begin{equation}
+\dot c_m(t) = -c_m \braket*{\psi_m}{\dot\psi_m} - \sum_{n}^{E_n\ne E_m} c_n \frac{\mel*{\psi_m}{\dot H}{\psi_n}}{E_n-E_m} \exp\qty{{-\frac{\I}{\hbar}\int_0^t[E_n(t')-E_m(t')]\dd{t'}}}~.
+\end{equation}
+现在还没有使用任何近似。 绝热近似就在于假设 $\dot H$ 非常小，从而忽略该式中第二项。 那么有
+\begin{equation}
+c_m(t) = c_m(0)\E^{\I\gamma_m(t)}~,
+\end{equation}
+其中
+\begin{equation}
+\gamma_m = \I \int_0^t \braket*{\psi_m(t')}{\dot\psi_m(t')}\dd{t'}~.
+\end{equation}
+这就得到了\autoref{eq_AdiaQM_2}。
+
+\subsection{简并情况}
+

@@ -1,0 +1,70 @@
+% 绝热近似（量子力学）
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\footnote{参考 \cite{GriffE} 的章节： The Adiabatic Approximation}若系统初始时处于某个离散非简并的本征态，那么当哈密顿量 $H$ 随时间缓慢改变时（改变的特征时间远大于本征态的周期）， 那改变过程中波函数将仍然处于该本征态，除了一个相位因子的改变。
+
+渐进近似下含时薛定谔方程的通解是
+\begin{equation}\label{eq_AdiaQM_2}
+\Psi(t) = \sum_n c_n(0) \psi_n(t) \E^{\I\gamma_n(t)}\exp\qty{-\I\frac{1}{\hbar} \int_0^t E_n(t')\dd{t'}}~.
+\end{equation}
+其中
+\begin{equation}
+\gamma_m = \I \int_0^t \braket{\psi_m(t')}{\dot\psi_m(t')}\dd{t'}~.
+\end{equation}
+
+也就是说，若 $t=0$ 时波函数是若干非简并离散本征态的线性组合， 那么每个系数的模长不会发生改变。
+
+\begin{example}{}
+\begin{enumerate}
+\item 当无限深势阱\upref{ISW}缓慢变长。
+\item 量子简谐振子（升降算符法）\upref{QSHOop}的劲度系数 $k$ 缓慢变化。
+\end{enumerate}
+\end{example}
+
+该理论在对分子的计算中有广泛的应用，且有一个响亮的名字，叫\textbf{波恩—奥本海默近似（Born–Oppenheimer approximation）}。 这是因为在分子运动中，原子核的运动速度通常要比电子慢得多，使渐进近似效果较好。
+
+同为含时近似理论，绝热近似和含时微扰理论\upref{TDPTc}有什么区别呢？ 前者不要求 $H(t)$ 缓慢变化，例如用激光波包对原子光电离时，电场随时间的变化并不算慢。 那可以使用绝热近似的情况是否可以使用含时微扰理论呢？ 理论上可以，但可能计算比较麻烦，因为含时微扰使用初始的本征态展开任意时刻的波函数。
+
+\subsection{简并情况}
+\addTODO{大胆猜测，若初始波函数所处的简并空间维数不变，那么和非简并情况一样。 但若随着 $H$ 的变化分裂成多个子空间， 则需要先把初始波函数投影到每个子空间上，再分别演化。}
+
+\begin{example}{}
+给氢原子的任意束缚态 $\psi_{2,l,m}$ 缓慢施加外电场或磁场（参考 “类氢原子斯塔克效应（微扰）\upref{HStark}”）。
+\addTODO{推导}
+\end{example}
+
+\subsection{推导}
+若哈密顿量不随时间改变，
+\begin{equation}
+\Psi_n(t) = \psi_n \E^{-\I E_n t}~.
+\end{equation}
+若随时间改变， 本征态和本征值都变为时间的函数 $\psi_n(t)$ 和 $E_n(t)$。 但仍然正交归一。 此时的含时波函数仍然可以用它们展开
+\begin{equation}
+\Psi(t) = \sum_n c_n(t) \psi_n(t) \E^{\I \theta_n(t)}~,
+\end{equation}
+其中
+\begin{equation}
+\theta_n(t) = -\frac{1}{\hbar} \int_0^t E_n(t')\dd{t'}~.
+\end{equation}
+代入含时薛定谔方程
+\begin{equation}\label{eq_AdiaQM_1}
+H(t)\Psi(t) = \I \dot \Psi(t)~,
+\end{equation}
+得
+\begin{equation}
+\dot c_m(t) = -c_m \braket*{\psi_m}{\dot\psi_m} - \sum_{n\ne m} c_n \frac{\mel*{\psi_m}{\dot H}{\psi_n}}{E_n-E_m} \exp\qty{{-\frac{\I}{\hbar}\int_0^t[E_n(t')-E_m(t')]\dd{t'}}}~
+\end{equation}
+现在还没有使用任何近似。 adiabatic 的近似就在于假设 $\dot H$ 非常小，从而忽略该式中第二项。 那么有
+\begin{equation}
+c_m(t) = c_m(0)\E^{\I\gamma_m(t)}~,
+\end{equation}
+其中
+\begin{equation}
+\gamma_m = \I \int_0^t \braket{\psi_m(t')}{\dot\psi_m(t')}\dd{t'}~.
+\end{equation}
+这就得到了\autoref{eq_AdiaQM_2}。
