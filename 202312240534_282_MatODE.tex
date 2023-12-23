@@ -1,0 +1,53 @@
+% Matlab 阶常微分方程组（ode45）
+% license Usr
+% type Tutor
+
+Matlab 自带的 \verb`ode45` 解算器使用成熟的变步长的 4 阶 和 5 阶 Runge-Kutta 算法（该算法详见\upref{OdeRK4}）。 下面我们演示如何用它求解一个简单的微分方程组
+\begin{equation}
+\leftgroup{
+&\dot x = -\I (x + \alpha t y)~,\\
+&\dot y = -\I (\alpha t x + y)~.
+}\end{equation}
+其中 $\alpha$ 为常数。 为了告诉解算器我们需要求解的方程， 可以
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/a7512df93f4fa9a5.png}
+\caption{\verb|ode45_test.m| 的运行结果} \label{fig_MatODE_2}
+\end{figure}
+
+\begin{lstlisting}[language=matlab,caption=ode45\_test.m]
+function ode45_test
+close all;
+% 初始条件和alpha的值
+x0 = 1;  % 您需要提供x(0)的值
+y0 = 0;  % 您需要提供y(0)的值
+alpha = 0.01;  % 您需要提供alpha的值
+
+% 时间跨度
+tspan = [0 30];  % 从0到10秒，根据需要进行调整
+
+% 初始状态向量
+y0 = [x0; y0];
+
+% 调用ODE求解器
+[t, y] = ode45(@(t,y) odefunc(t, y, alpha), tspan, y0);
+
+% 绘制结果
+figure;
+plot(t, abs(y(:,1)).^2, 'r'); hold on; grid on;
+plot(t, angle(y(:,1)), 'b');
+plot(t, abs(y(:,2)).^2, 'r--');
+plot(t, angle(y(:,2)), 'b--');
+title('解微分方程组');
+xlabel('时间 t');
+ylabel('解 x 和 y');
+legend({'|x(t)|^2', 'Arg x(t)', '|y(t)|^2', 'Arg y(t)'});
+end
+
+function dydt = odefunc(t, y, alpha)
+    mat = -1i*[1 alpha*t; alpha*t 1];
+    dydt = mat * y;
+end
+\end{lstlisting}
+
