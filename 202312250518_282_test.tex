@@ -1,0 +1,72 @@
+% test
+% keys test|测试|编辑器
+% license Xiao
+% type Tutor
+
+\subsubsection{一些符号}
+
+参考 \href{https://docs.julialang.org/en/v1/manual/unicode-input/}{Julia 符号表}和 \href{https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols}{LaTeX 符号表}， 以及 \href{http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm}{MathJax 符号表}。
+
+\begin{equation}
+\cap, \bigcap, \cup, \bigcup, \vee, \wedge, \int, \iint, \iiint, \oint~
+\end{equation}
+\begin{equation}
+\diamond, \ominus, \triangleleft, \triangleright, \Longleftarrow, \Longrightarrow, \iff, \leftrightarrow, \updownarrow, \cdots~
+\end{equation}
+\begin{equation}
+\ddots, \top, \bot, \measuredangle~
+\end{equation}
+
+交换图
+\begin{equation}
+\begin{CD}
+A @>f>> B \\
+@VVV @VVV \\
+C @>>g> D
+\end{CD}~.
+\end{equation}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/a520b3ef78f5e3af.png}
+\caption{小时百科} \label{fig_test_1}
+\end{figure}
+\autoref{fig_test_1}
+
+\subsubsection{化学式}
+编辑器预览的 MathJax 3 开始支持化学式了。 但是网站用的 2 还不支持。 也不确定 LaTeX 是否支持。
+\begin{equation}
+\ce{SO4^2- + Ba^2+ -> BaSO4 v}~
+\end{equation}
+
+\subsubsection{公式中的链接}
+公式里面居然可以用 \verb|\href|， 这个功能很强大， 但不知道 texlive 是否支持。
+\begin{equation}
+\href{https://wuli.wiki/online}{a}^2 + b^2 = c^2~
+\end{equation}
+
+\subsubsection{付费内容}
+我们要学习的公式为
+\begin{equation}\label{eq_test_1}
+a = 1~
+\end{equation}
+
+\begin{example}{}
+请问 $a$ 为多少？
+\pay
+
+实际答案就是
+\begin{equation}\label{eq_test_2}
+a + 1 = 2~
+\end{equation}
+\paid
+\end{example}
+
+\begin{equation}\label{eq_test_3}
+b = 3~
+\end{equation}
+
+
+引用\autoref{eq_test_1}， 以及隐藏的\autoref{eq_test_2}。 注意\autoref{eq_test_3} 的序号在隐藏后不会改变。
+
+引用外部公式 \autoref{eq_AU_6}~\upref{AU}
