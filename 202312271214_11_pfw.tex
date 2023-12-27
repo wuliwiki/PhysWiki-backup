@@ -1,0 +1,26 @@
+% 前推
+% license Usr
+% type Tutor
+赋予流形以联络，便可以比较同一流形上不同点的切向量“大小”。那对于不同流形，我们能否找到一个定义去联系同一点上的不同切空间呢？
+
+\begin{issues}
+\issueDraft 缺图
+\end{issues}
+
+\subsubsection{前推}
+\begin{definition}{前推}
+设$M,N$都是光滑流形。$f,g\in C^{\infty}(N)$。对任意$p\in M,\,F:M\rightarrow N$为光滑映射。定义$F_*:T_p M\rightarrow T_{F(p)N}$为
+\begin{equation}
+(F_*X)(f)=X(f\circ F)~,
+\end{equation}
+称之为与$F$关联的\textbf{前推（push-forward）}。
+\end{definition}
+可记忆前推是顺着光滑映射的方向对切向量进行转移，对$M$上$p$点的切空间与$N$上$F(p)$点的切空间建立同构。在证明同构之前，我们需要先证明这样的定义是合理的。即$F_*X$确实是一个切向量，满足导子的性质：
+\begin{equation}
+\begin{aligned}
+(F_*X)(fg)&=X((fg)\circ F)\\
+&=X(f\circ F)(g\circ F)\\
+&=(g\circ F)X(f\circ F(p))+(f\circ F)X(g\circ F(p))\\
+&=g(F)F_*X(f)+f(F)F_*X(g)~.
+\end{aligned}
+\end{equation}
