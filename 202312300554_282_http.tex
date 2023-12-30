@@ -1,0 +1,35 @@
+% http 协议笔记
+% license Xiao
+% type Note
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+http 包的结构
+\begin{lstlisting}[language=none]
+<method> <URI> HTTP/<version>
+<Header1>: <value1>
+<Header2>: <value2>
+...
+<HeaderN>: <valueN>
+(空行)
+<body>
+\end{lstlisting}
+
+\begin{itemize}
+\item \verb|method| 有 \verb|GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH, CONNECT, TRACE|
+\item URI 就是 URL， 例如 \verb`/` 代表网站根目录
+\end{itemize}
+
+例子：
+\begin{lstlisting}[language=none]
+GET / HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 Chrome/58.0.3029.110 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+\end{lstlisting}
