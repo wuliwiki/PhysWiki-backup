@@ -72,7 +72,12 @@ P(\omega) = \abs{\braket{\omega}{\psi}}^2 = \braket{\mathbb P_\omega \psi}{\math
 \subsection{密度矩阵矩阵元}
 
 回顾在基矢量$\left\{ \ket{u_n}\right\}$下，密度矩阵$\rho$的表达形式：
-$$\rho = \sum\limits_k p_k\rho_k = \sum\limits_{m, n}\rho_{m,n}\ket{u_m}\bra{u_n} ~.$$
+$$\rho = \sum\limits_k p_k\rho_k = \sum\limits_{m,n}\rho_{mn}\ket{u_m}\bra{u_n} ~,$$
+上式中$\rho_k = \ket{\psi_k}\bra{\psi_k}$，$\rho_{m,n}$是密度矩阵的矩阵元。
+
+我们首先考虑对角元，即$\rho_{nn}$，显然有
+$$\rho_{nn} = \sum\limits_{k} p_k \left[\rho_k\right]_{nn}~.$$
+其中$\left[\rho_k\right]_{nn}$表示
 
 
 

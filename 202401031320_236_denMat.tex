@@ -71,8 +71,62 @@ P(\omega) = \abs{\braket{\omega}{\psi}}^2 = \braket{\mathbb P_\omega \psi}{\math
 
 \subsection{密度矩阵矩阵元}
 
+
 回顾在基矢量$\left\{ \ket{u_n}\right\}$下，密度矩阵$\rho$的表达形式：
-$$\rho = \sum\limits_k p_k\rho_k = \sum\limits_{m, n}\rho_{m,n}\ket{u_m}\bra{u_n} ~.$$
+$$\rho = \sum\limits_k p_k\rho_k = \sum\limits_{m,n}\rho_{mn}\ket{u_m}\bra{u_n} ~,$$
+上式中$\rho_k = \ket{\psi_k}\bra{\psi_k}$，$\rho_{m,n}$是密度矩阵的矩阵元。
+
+\subsubsection{密度矩阵的对角元}
+
+我们首先考虑对角元，即$\rho_{nn}$，显然有
+$$\rho_{nn} = \sum\limits_{k} p_k \left[\rho_k\right]_{nn}~.$$
+其中$\left[\rho_k\right]_{nn}$表示密度矩阵$\rho_k = \ket{\psi_k}\bra{\psi_k}$的第$n$个对角元。
+
+假设：
+$$\ket{\psi_k} = \sum\limits_n C_n^{k}\ket{u_n} = \sum\limits_n\ket{u_n}\braket{u_n}{\psi_k}~,$$
+那么有：
+$$\left[\rho_k\right]_{nn} = \left|\braket{u_n}{\psi_k}\right|^2 = \left| C_n^{k}\right|^2~.$$
+则可以得到$\rho_{nn} = \sum\limits_k p_k \left|C_n^k\right|^2$，由此可以看到密度矩阵的对角元应当是一个非负实数。
+
+现在考虑其物理意义，可以发现计算式中$\left| C_n^k \right|^2$表示的是量子态$\ket{\psi_k}$，在沿着基$\left\{\ket{u_n}\right\}$进行测量时，塌缩到$\ket{u_n}$的概率，经过经典概率$p_k$的叠加，$\rho_{nn}$表示的实际上是密度矩阵在沿着基$\left\{\ket{u_n}\right\}$测量时得到态$\ket{u_n}$的概率，因此我们称对角元$\rho_{nn}$为$\ket{u_n}$的布局数。
+
+而且可以注意到，当且仅当所有$\psi_k$对应的$C_n^k$均为$0$时，$\rho_{nn} = 0$。
+
+\subsubsection{密度矩阵的非对角元}
+
+接下来我们讨论非对角元的情况，首先列出非对角元的计算式：
+$$\rho_{pq} = \sum\limits_k p_k \braket{u_p}{\psi_k}\braket{\psi_k}{u_q} = \sum\limits_k p_k C_p^k \left(C_q^k\right)^*~.$$
+
+注意到非对角元计算式中$C_p^k\left(C_q^k\right)^*$不再是模方，也就不一定为正实数，因此即使$C_p^k \left(C_q^k\right)^*$不全为$0$，$\rho_{pq}$也可能为$0$
+
+考虑非对角项的物理意义，$C_p^k\left(C_q^k\right)^* = \braket{u_p}{\psi_k}\braket{\psi_k}{u_q}$当且仅当$\braket{u_p}{\psi_k}$和$\braket{u_q}{\psi_k}$均不为$0$的时候才非零，那么换句话说就是当且仅当$\ket{\psi_k}$中存在$\ket{u_p}$和$\ket{u_q}$的线性叠加时才非$0$。所以我们可以这样说：至少对于纯态，非对角元非零就意味着存在相干。反之也是一样，但对于混态则不同，我们举一个例子：
+
+\begin{example}{}
+考虑$\ket{+} = \frac{1}{\sqrt{2}}\left(\ket{\uparrow} + \ket{\downarrow}\right)$，$\ket{-} = \frac{1}{\sqrt{2}}\left(\ket{\uparrow} - \ket{\downarrow}\right)$。
+
+可以看出$\ket{+}$和$\ket{-}$各自是存在相干的。同样我们写出其密度矩阵也可以看出其密度矩阵非对角元存在非$0$。
+\begin{equation}
+\rho_+ =  \frac{1}{2}\begin{pmatrix}
+1&1 \\
+1&1 \\
+\end{pmatrix}~~~~,
+\rho_- =  \frac{1}{2}\begin{pmatrix}
+1&-1 \\
+-1&1 \\
+\end{pmatrix}~.
+\end{equation}
+
+但现在我们以各自$\frac{1}{2}$的概率混合起来，则有：
+$$\rho = \frac{1}{2}\rho_+ + \frac{1}{2}\rho_- = \frac{1}{2}\begin{pmatrix}
+1&0 \\
+0&1 \\
+\end{pmatrix}~.$$
+
+可以看到其中非对角元的元素均为$0$。
+\end{example}
+
+对于这种情况，我们可以说两个态的相干性通过求取经典平均的这一过程抵消了。但应当注意的是这并不代表非对角元的
+
 
 
 
