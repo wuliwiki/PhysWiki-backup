@@ -1,0 +1,25 @@
+% Transformers 库
+% keys Python|机器学习|库
+% license Usr
+% type Note
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+transformers 库是要使用 \href{https://huggingface.co}{HuggingFace 网站}的已经训练好的 torch 网络参数或 tensorflow 网络参数必备的一个包（现在访问 huggingface 网站需要科学上网）。
+
+安装可以使用 pip 命令直接安装：\verb`pip install transformers`，使用 huggingface 网站提供的数据集或神经网络参数需要保证电脑里已经装有 PyTorch。（CPU 版的 torch 可以使用命令 \verb`pip install torch` 安装。安装包较大，建议使用国内 pypi 的镜像站。）
+
+特别的，有的网络参数（.h5 文件）则是 tensorflow 的，那么需要保证电脑已经装有 tensorflow 包。
+
+对于网站上的每个网络参数，介绍一些常见的文件：
+\begin{enumerate}
+\item README.md 一类文件：介绍文档。
+\item license： 这文件存储开源协议。
+\item config.json：这个文件存储了网络的一些配置。
+\item 分词配置：\verb`tokenizer.json`、\verb`tokenizer_config.json`、\verb`vocab`，其中 \verb`vocab` 文件可能是 txt 或 json 格式。这些文件给分词器使用。
+\item pytorch_model.bin：存储了 PyTorch 网络的训练好的参数。
+\item tf_model.h5：存储了 tensorflow 网络的训练好的参数。
+\end{enumerate}
+
