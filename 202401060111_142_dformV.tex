@@ -1,0 +1,30 @@
+% 微分形式和体积形式（线性代数）
+% license Usr
+% type Wiki
+
+\pentry{对偶空间\upref{DualSp}，向量空间的对称/反对称幂\upref{vecSAS}}
+
+\subsection{微分形式}
+
+\begin{theorem}{}
+全体反对称 $k$-形式（参考对称/反对称多线性映射\upref{SASmap}）构成的向量空间与 ${\large \wedge}^k V^*$ 自然同构（不依赖基的选取）。
+\end{theorem}
+
+\addTODO{在合适的文章中添加这个证明}
+\textbf{证明：}全体反对称 $k$-形式构成的向量空间自然同构于 $({\large \wedge}^k V)^*$\autoref{the_vecSAS_1}~\upref{vecSAS}，它自然同构于 ${\large \wedge}^k V^*$（TODO：证明）。
+
+因此，我们可以定义反对称 $k$-形式之间的反对称积（外积）。
+
+我们把向量空间 $V$ 上的反对称 $k$-形式称为\textbf{微分形式}，因为我们可以定义微分算子（外微分/外导数）。
+
+\begin{definition}{微分算子}
+向量空间上的一个微分算子是一个线性映射 $\dd{} : {\large \wedge}^k V^* \to {\large \wedge}^{k + 1} V^*$\footnote{为了方便，当 $k < 0$ 时我们记 ${\large \wedge}^k V^* = 0$}，满足
+\begin{itemize}
+\item 对于 $c \in \mathbb{F} = {\large \wedge}^0 V^*$，$\dd c = 0$，
+\item $\dd(\alpha \wedge \beta) = \dd\alpha \wedge \beta + (-1)^p \alpha \wedge \dd\beta$，其中$\alpha \in {\large \wedge}^p V^*$。
+\end{itemize}
+
+在微分几何中我们也会定义定义微分形式，流形的结构决定了一个唯一确定的微分算子
+
+
+\end{definition}
