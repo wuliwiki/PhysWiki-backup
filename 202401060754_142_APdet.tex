@@ -18,9 +18,9 @@
 % \addTODO{在合适的文章中添加这个证明}
 % \textbf{证明：}全体反对称 $k$-形式构成的向量空间自然同构于 $({\large \wedge}^k V)^*$\autoref{the_vecSAS_1}~\upref{vecSAS}，它自然同构于 ${\large \wedge}^k V^*$（TODO：证明）。
 
-% 全体体积形式构成的向量空间 ${\large \wedge}^n V^* \cong \mathbb{F}$\footnote{有时候我们要求体积形式非零。}。
+% 全体体积形式构成的向量空间 ${\large \wedge}^k V^* \cong \mathbb{F}$\footnote{有时候我们要求体积k式非零。}。
 
-我们把 $n$ 维向量空间 $V$ 上的反对称 $n$-形式称为\textbf{体积形式}。这里的体积指的是定向平行多胞体的有向体积（signed volume）。
+向体积（signed volume）。
 
 \begin{definition}{平行多胞体}
 $n$ 维向量空间 $V$ 的一个 $k$ 维\textbf{平行多胞体}（又称\textbf{超平行体}）简称\textbf{平行 $k$-胞体}，是由 $k$ 个向量 $v_1, \cdots, v_k$ 生成的闭子集
@@ -36,22 +36,27 @@ P: = \left\{ \sum_i a_i v_i \mid a_i \in [0, 1] \right\}~.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=6cm]{./figures/ae2e9e556285a271.png}
-\caption{平行四边性} \label{fig_APdet_1}
+\includegraphics[width=6cm]{./figures/67dd2ddf5f1abfaa.png}
+\caption{平行四边性} \label{fig_APdet_3}
 \end{figure}
+% 如果上下白边太宽可以切掉，但我不知道怎么操作
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width=6cm]{./figures/baab9f7390c98860.png}
 \caption{平行六面体} \label{fig_APdet_2}
 \end{figure}
-\begin{figure}[ht]
-\centering
-\includegraphics[width=6cm]{./figures/67dd2ddf5f1abfaa.png}
-\caption{} \label{fig_APdet_3}
-\end{figure}
-\begin{example}{}
-$V$ 上的一个反对称 $1$-形式
+
+\begin{example}{有向长度}
+$V$ 上的一个反对称 $1$-形式（即线性函数） $l: V \to \mathbb{F}$ 给每个定向平行 $1$-胞体 $(P, v_1)$ 定义了一个有向长度 $l(v_1)$。
 \end{example}
+更一般的，反对称 $k$-形式 $\omega$ 给每个定向平行 $k$-胞体定义了一个有向 $k$ 维体积：
+\begin{equation}
+\opn{vol}_k(P, v_1, \cdots, v_k): = \omega(v_1, \cdots, v_k)~.
+\end{equation}
+
+
+
 
 
 

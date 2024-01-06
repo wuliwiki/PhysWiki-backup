@@ -1,0 +1,56 @@
+% 相对论效应造成的近日进动
+% keys 相对论|进动
+% license Usr
+% type Wiki
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{开普勒问题\upref{CelBd}，狭义相对论，分析力学}
+
+
+
+对于开普勒问题，还需要考虑由于太阳的强引力对轨道产生的影响。这里仅讨论狭义相对论，不考虑广义相对论造成的修正。
+
+\subsection{观测值与其他星体造成的影响理论值不符}
+对于水星近日点的总进动值（约每世纪 $570''$），其他行星对水星的影响约仅有观测值的 $93 \%$，特别是木星、金星与地球（占约 $91\%$），人们发现有微小偏差，广义相对论的修正约是每世纪进动 $43''$，与其他星体造成的影响合并后恰好符合观测值。
+
+特别的，广义相对论的修正包含了狭义相对论的修正，狭义相对论的修正结果只有广义相对论的约 $1/6$。
+
+\subsection{狭义相对论修正的近日点进动}
+这个问题一般被称为\textbf{相对论性开普勒问题}，在经典力学中可以严格求解。第一个解决该问题的是索墨菲（Sommerfeld）。
+
+\subsubsection{分析力学求近似解}
+为简化计算，采用速度满足光速 $c=1$ 的单位制。
+
+在狭义相对论中，粒子的拉氏量的非相对论展开忽略常数 $-mc^2 = -m$ 后为：
+
+$$L = -mc^2 \sqrt{1- \frac{{\bvec v}^2}{c^2}} = \frac{m}{2} {\bvec v}^2 \left( 1+\frac{1}{4} {\bvec v}^2 + \cdots \right) + \frac{\alpha}{r} ~.$$
+
+其中省略的内容是 ${\bvec v}^2$ 的高次项，都是更高阶的相对论修正。现仅考虑近似解，故将其忽略。
+
+开普勒问题仍然满足在一个二维平面上，采用极坐标表示速度 $\bvec v$，则：
+
+$${\bvec v}^2 = \dot r^2 + r^2 \dot \phi^2 ~.$$
+
+令 $E$ 为扣除粒子静止能量 $mc^2 = m$ 之后的能量。那么相对论性开普勒问题的系统能量 $E$、角动量 $p_\phi \equiv J$ 仍然为守恒量。对于角动量满足：
+
+$$p_\phi = \frac{\partial L}{\partial {\dot \phi}} \equiv J \approx mr^2 \dot \phi \left( 1+ {\bvec v}^2/2 \right)~.$$
+
+而对于 $r$，其共轭动量为：
+
+$$p_r = \frac{\partial L}{\partial {\dot r}} \approx m \dot r \left( 1 + {\bvec v}^2/2 \right)~.$$
+
+那么粒子的能量可以写作：
+
+\begin{equation}
+\begin{aligned}
+E &= \dot r p_r + \dot \phi p_\phi - L \\
+&= m {\bvec v}^2(1+{\bvec v}^2/2)-L \\
+&= \frac{1}{2} m {\bvec v}^2 \left( 1 + \frac{3}{4} {\bvec v}^2 \right) - \frac{\alpha}{r} ~.
+\end{aligned}
+\end{equation}
+
+
+\subsubsection{哈密顿力学求精确解}
