@@ -1,0 +1,26 @@
+% 迹距离
+% keys 迹距离|Kolmogorov距离|L_1距离
+% license Usr
+% type Tutor
+
+\footnote{本节参考\cite{量子信息}}
+\footnote{本节中部分证明参考\href{https://github.com/goropikari/SolutionQCQINielsenChuang}{项目}}
+
+\pentry{密度矩阵\upref{denMat}}
+
+在很多时候我们需要去探讨如何计算两个量子态究竟有多么相近，在态矢量的语言下这个答案是很简单的，我们可以使用两个态矢量的内积的模方来描述其二者是否相同或有多么不同。但对于两个密度矩阵来说这个问题并没有那么简单，\textbf{迹距离}和\textbf{保真度}给出了两种度量方法，我们在这里首先介绍\textbf{迹距离}。
+
+\begin{definition}{迹距离}
+两密度矩阵$\rho$和$\sigma$之间的迹距离$D\left(\rho,~\sigma\right)$定义如下：
+
+\begin{equation}
+D\left(\rho,~\sigma\right) \equiv \frac{1}{2} \opn{tr}\abs{\rho - \sigma}~.
+\end{equation}
+
+其中，$\abs{A} = \sqrt{A^\dagger A}$
+
+\end{definition}
+
+
+
+
