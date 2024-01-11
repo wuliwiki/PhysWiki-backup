@@ -1,0 +1,33 @@
+% JavaScript Async 笔记
+% license Usr
+% type Note
+
+\pentry{JavaScript 入门笔记\upref{JS}}
+
+\subsection{Promise}
+\begin{lstlisting}[language=js]
+console.log("Before Promise");
+
+let myPromise = new Promise((resolve, reject) => {
+    console.log("Inside Promise executor");
+    resolve("Operation successful");
+});
+
+myPromise.then(
+    (value) => { console.log(value); },  // Executed asynchronously
+    (error) => { console.log(error); }
+);
+
+console.log("After Promise");
+\end{lstlisting}
+输出：
+\begin{lstlisting}[language=none]
+Before Promise
+Inside Promise executor
+After Promise
+Operation successful
+\end{lstlisting}
+
+\begin{itemize}
+\item \verb`Promise` 是内建类型， 生成时会马上执行第一个 arg 提供的函数， \verb`resolve, reject` 函数也同样由系统提供。
+\end{itemize}

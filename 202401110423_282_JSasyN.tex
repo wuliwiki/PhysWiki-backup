@@ -1,0 +1,40 @@
+% JavaScript Async 笔记
+% license Usr
+% type Note
+
+\pentry{JavaScript 入门笔记\upref{JS}}
+
+\subsection{Promise}
+\begin{lstlisting}[language=js]
+console.log("Before Promise");
+
+let myPromise = new Promise((resolve, reject) => {
+    console.log("Inside Promise executor");
+    resolve("Operation successful");
+});
+
+myPromise.then(
+    (value) => { console.log(value); },  // Executed asynchronously
+    (error) => { console.log(error); }
+);
+
+console.log("After Promise");
+\end{lstlisting}
+输出：
+\begin{lstlisting}[language=none]
+Before Promise
+Inside Promise executor
+After Promise
+Operation successful
+\end{lstlisting}
+
+\begin{itemize}
+\item \verb`Promise` 是内建类型， 生成时会马上执行第一个 arg 提供的函数（叫做 Promise executor）， \verb`resolve, reject` 函数也同样由系统提供，用于承诺完成或出错时告知系统。 在这个例子中， 在生成器中， \verb`resolve()` 马上被调用了。 但有时候也可以延迟调用， 例如：
+\end{itemize}
+\begin{lstlisting}[language=js]
+let myPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(`Completed after ${milliseconds} milliseconds`);
+        }, milliseconds);
+    });
+\end{lstlisting}
