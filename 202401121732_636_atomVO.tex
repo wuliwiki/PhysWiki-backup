@@ -1,0 +1,48 @@
+% C++ 原子变量原子操作笔记
+% keys 原子变量|原子操作|C++|多线程|并发
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\issueTODO
+\end{issues}
+
+C++ 中原子变量（atomic）是在多线程编程中的常用同步机制。它可以避免竟态条件（race condition）和死锁（dead lock）问题。它可以保证对共享变量的操作在执行时不会被其他线程的操作干扰。
+
+举个例子，以下 C++ 代码：
+\begin{lstlisting}[language=cpp]
+#include <iostream>
+#include <thread>
+using namespace std;
+int n(0);
+
+void cnt1e4() {
+	for(int i(1); i <= 1e4; ++i) ++ n;
+}
+
+int main() {
+	thread ths[100];
+	for(thread &thr: ths) thr = thread(cnt1e4);
+	for(thread &thr: ths) thr.join();
+	cout << n << endl;
+	return 0;
+}
+\end{lstlisting}
+理论输出应为 $10^4 \times 100 = 1000000$，而实际输出总小一些，例如在某品牌轻薄本上运行三次结果分别为：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/a6a955b5d96c1353.png}
+\caption{第一次运行结果} \label{fig_atomVO_1}
+\end{figure}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/5000b1ff19d8f7a3.png}
+\caption{第二次运行结果} \label{fig_atomVO_2}
+\end{figure}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/bf4fe703627db114.png}
+\caption{第三次运行结果} \label{fig_atomVO_3}
+\end{figure}
+这类问题尤其在大量不同线程对于同一变量进行操作时出现，geng'duo'de'xian'c
