@@ -1,0 +1,21 @@
+% OpenACC 笔记
+% license Usr
+% type Note
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+OpenACC 可以像 OpenMP 那样，通过添加少量的 \verb`pragma` 给已有的程序进行 GPU 加速。本文以 C++ 为例。
+
+和 OpenMP 一样， OpenACC 需要编译器支持。一般使用英伟达显卡专用的 \verb`NVIDIA HPC SDK` 或者 \verb`GCC`
+
+\begin{lstlisting}[language=none]
+#pragma acc data copyin(a[0:n],b[0:n]) copyout(c[0:n])
+{
+    #pragma acc kernels 
+    for(int i = 0; i < n; i++){
+        c[i] = a[i] + b[i];
+    }
+}
+\end{lstlisting}
