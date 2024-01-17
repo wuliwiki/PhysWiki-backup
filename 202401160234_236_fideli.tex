@@ -1,0 +1,39 @@
+% 保真度
+% keys 保真度|fidelity
+% license Xiao
+% type Tutor
+
+\footnote{本节参考\cite{量子信息}和\href{https://en.wikipedia.org/wiki/Trace_distance}{Wikipedia界面}}
+\pentry{密度矩阵\upref{denMat}}
+
+在很多时候我们需要去探讨如何计算两个量子态究竟有多么相近，在态矢量的语言下这个答案是很简单的，我们可以使用两个态矢量的内积的模方来描述其二者是否相同或有多么不同。但对于两个密度矩阵来说这个问题并没有那么简单，\textbf{迹距离}和\textbf{保真度}给出了两种度量方法，我们在这里介绍\textbf{保真度}。
+
+\begin{definition}{保真度}\label{def_fideli_1}
+对于状态$\rho$和$\sigma$，保真度的定义为：
+
+\begin{equation}
+F\left(\rho, \sigma\right)\equiv\opn{tr}\sqrt{\rho^{\frac{1}{2}}\sigma\rho^{\frac{1}{2}}}~.
+\end{equation}
+
+\end{definition}
+
+在一些文献中的保真度会采用另外一种定义:
+
+\begin{definition}{保真度}
+对于状态$\rho$和$\sigma$，保真度的定义为：
+
+\begin{equation}
+F_1\left(\rho, \sigma\right)\equiv\left(\opn{tr}\sqrt{\rho^{\frac{1}{2}}\sigma\rho^{\frac{1}{2}}}\right)^2~.
+\end{equation}
+\end{definition}
+
+由于\autoref{def_fideli_1} 有更好的经典对应，因此我们此处选取第一种定义，在使用和阅读保真度相关内容时，应注意究竟采用的是哪种定义。
+
+值得注意的是，保真度并不是数学意义上的度量，因为当$\sigma = \rho$时候，$F\left(\rho, \sigma\right) = \opn{tr}\sqrt{\rho^{\frac{1}{2}}\rho\rho^{\frac{1}{2}}} = \opn{tr}\rho = 1 \neq 0$。
+
+我们从经典信息的角度定义来阐释保真度的含义，考虑经典概率的归一性限制，对于两个概率分布$\left\{p_i\right\}$和$\left\{q_i\right\}$，有$\sum\limits_i p_i = \sum\limits_i q_i = 1$。由于概率的性质$p_i,q_i\geqslant 0$，考虑向量$\bvec{v}_p = \left( \sqrt{p_1},\sqrt{p_2},\cdots\sqrt{p_N}\right)$和$\bvec{v}_q = \left( \sqrt{q_1},\sqrt{q_2},\cdots\sqrt{q_N}\right)$，那么他们就是模长为$1$的单位向量，可以视为$N$维单位球面上的单位向量。而他们的内积为$\left(\bvec{v}_p,\bvec{v}_q\right) = \sum\limits_i\sqrt{p_iq_i}$。
+
+接下来我们从保真度的定义出发，如果$\rho$和$\sigma$可以在同一组基$\left\{\ket{i}\right\}$下写成对角矩阵的形式，$\rho = \sum\limits_ip_i\ketbra{i}$，$\sigma = \su$
+
+
+
