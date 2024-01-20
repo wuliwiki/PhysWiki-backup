@@ -21,13 +21,28 @@ Q^{-1}AQ=B~,
 
 \begin{enumerate}
 \item 反身性 $A\sim A$ 
-\item 对称性
-\item 
+\item 对称性 若$A\sim B$，则$B\sim A$
+\item 传递性 若$A\sim B\,,B\sim C$，则$A\sim C$
 \end{enumerate}
+由于相似变换是对同一空间的不同基向量组进行一一映射，因而相似变换是矩阵乘法群上的自同构，并具有如下性质（假设$A\sim B$）：
+\begin{enumerate}
+\item $\opn{R}(A)=\opn{R}(B)$；
+\item $A$与$B$的行列式相同：$|A|=|B|$；
+\item $A$与$B$的迹相同：$\opn{Tr}A=\opn{Tr}B$；
+\item 若$A$可逆，则$B$也可逆，且$A^{-1}\sim B^{-1}$；
+\item $kA\sim kB\,,A^m\sim B^m$，其中$k$为任意常数，$m\in \mathbb Z^{+}$；
+\item 若$f(x)$是任意多项式，则$f(A)\sim f(B)$。
+\end{enumerate}
+以上六点性质在线性映射的角度上看都是很好理解的，只要抓住相似矩阵是同一线性映射在不同基下的表示这一意义即可。在矩阵角度上也非常好证，比如第五点的$A^m\sim B^m$：\begin{equation}
+B^m=(Q^{-1}AQ)^m=Q^{-1}AQQ^{-1}AQ...Q^{-1}AQ=Q^{-1}A^mQ~.
+\end{equation}
+
+在量子力学中，相似变换也无处不在，我们一般称之为\textbf{表象变换}。由于量子力学中的矩阵定义在复数域上，且基向量组都满足正交归一关系，因此相似变换是保距变换（正交变换），且过渡矩阵$Q$是酉矩阵，满足：$Q^{\dagger}=Q^{-1}$\footnote{由复数域上的保距关系：$\bvec x^{\dagger}Q^{\dagger}Q\bvec x=\bvec x^{\dagger}\bvec x$得。}。
+
 
 \subsection{对角化}
-\pentry{厄米矩阵的本征问题\upref{HerEig}}
-\addTODO{该内容应该移动到 厄米矩阵的本征问题\upref{HerEig}}
+\pentry{矩阵的本征问题\upref{MatEig}}
+
 若相似变换可以使矩阵变为对角矩阵， 我们把这个过程称为对角化。
 
 一个 $N$ 维矩阵可以被对角化当且仅当它是（实）对称矩阵或厄米矩阵。

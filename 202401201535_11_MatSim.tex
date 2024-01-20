@@ -21,10 +21,19 @@ Q^{-1}AQ=B~,
 
 \begin{enumerate}
 \item 反身性 $A\sim A$ 
-\item 对称性
-\item 
+\item 对称性 若$A\sim B$，则$B\sim A$
+\item 传递性 若$A\sim B\,,B\sim C$，则$A\sim C$
 \end{enumerate}
-
+由于相似变换是对同一空间的不同基向量组进行一一映射，因而相似变换是矩阵乘法群上的自同构，并具有如下性质（假设$A\sim B$）：
+\begin{enumerate}
+\item $\opn{R}(A)=\opn{R}(B)$；
+\item $A$与$B$的行列式相同：$|A|=|B|$；
+\item $A$与$B$的迹相同：$\opn{Tr}A=\opn{Tr}B$；
+\item 若$A$可逆，则$B$也可逆，且$A^{-1}\sim B^{-1}$；
+\item $kA\sim kB\,,A^m\sim B^m$，其中$k$为任意常数，$m\in \mathbb Z^{+}$；
+\item 若$f(x)$是任意多项式，则$f(A)\sim f(B)$。
+\end{enumerate}
+以上六点性质在线性映射的角度上看dou
 \subsection{对角化}
 \pentry{厄米矩阵的本征问题\upref{HerEig}}
 \addTODO{该内容应该移动到 厄米矩阵的本征问题\upref{HerEig}}
