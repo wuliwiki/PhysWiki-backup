@@ -1,0 +1,16 @@
+% 如何给文件加密（含 python 加密脚本）
+% license Usr
+% type Tutor
+
+\pentry{Python 基础\upref{Py}}
+
+以下给出一些常用的 python 加密函数，可以加密单个文件，加密字符串，加密一个文件夹中所有文件/文件名。 注意该脚本只能在 linux 环境使用（因为需要调用命令行的 \verb`openssl`）。在 Windows 中可以通过 WSL\upref{WSLnt} 中使用该脚本。 事实上也可以用 \verb|pyOpenSSL| 模块来增加可移植性。
+
+加密算法为 \verb`aes-256-cbc`， \verb`-nosalt` 意味着同样的数据和密码生成的加密文件一摸一样（以支持网盘的 “秒传” 功能）。若去掉该选项可能会让加密变得更安全一些。
+
+完整程序下载见 \href{https://github.com/MacroUniverse/MyPythonLibrary/tree/master/encrypt}{GitHub} 或\href{https://pan.baidu.com/s/1y4Asx-oS4ShGlN9kIyRZeg?pwd=3q1d#list/path=\%252F}{网盘分享}
+
+\subsection{使用说明}
+\begin{itemize}
+\item 压缩包解压后， 在 \verb`def main():` 下面输入想要运行的函数
+\end{itemize}

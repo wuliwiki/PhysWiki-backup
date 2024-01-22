@@ -1,0 +1,41 @@
+% 如何给文件加密（含 python 加密脚本）
+% license Usr
+% type Tutor
+
+\pentry{Python 基础\upref{Py}}
+
+以下给出一些常用的 python 加密函数，可以加密单个文件，加密字符串，加密一个文件夹中所有文件/文件名。 注意该脚本只能在 linux 环境使用（因为需要调用命令行的 \verb`openssl`）。在 Windows 中可以通过 WSL\upref{WSLnt} 中使用该脚本。 事实上也可以用 \verb|pyOpenSSL| 模块来增加可移植性。
+
+加密算法为 \verb`aes-256-cbc`， \verb`-nosalt` 意味着同样的数据和密码生成的加密文件一摸一样（以支持网盘的 “秒传” 功能）。若去掉该选项可能会让加密变得更安全一些。
+
+完整程序下载见 \href{https://github.com/MacroUniverse/MyPythonLibrary/tree/master/encrypt}{GitHub} 或\href{https://pan.baidu.com/s/1y4Asx-oS4ShGlN9kIyRZeg?pwd=3q1d#list/path=\%252F}{网盘分享}
+
+\subsection{使用说明}
+\begin{itemize}
+\item 目前无需依赖任何第三方 python 库， 但需要在 Linux 命令行安装 \verb`openssl`， 例如 \verb`sudo apt install openssl`。
+\item 压缩包解压后， 在 \verb`=== what to run ===` 下面输入想要运行的函数， 例如想加密一个字符串，用 \verb`print(encrypt_str('some string', password))`。 注意不要替换 \verb`password`， 脚本运行后会提示手动输入密码
+\item 在命令行中 \verb`cd` 到脚本所在路径， 运行 \verb`./encrypt.py` 即可。
+\item 加密后的字符串是 base64 的， 要解密字符串，用 \verb`decrypt_str('m1slBeA8WhZiP8YBgMtw/9zxV2G', password)`
+\addTODO{需要另外支持加密和解密 base16384 的字符串}
+\end{itemize}
+
+\subsubsection{用户函数（不含内部函数）}
+\begin{itemize}
+\item 加密文件： \verb`encrypt(要加密的文件, 加密后的文件, password)`
+\item 解密文件： \verb`decrypt(要加密的文件, 加密后的文件, password)`
+\item 加密字符串：\verb`加密的字符串 = encrypt_str(要加密的字符串, password)`
+\item 解密字符串：\verb`解密的字符串 = decrypt_str(要解密的字符串, password)`
+\item 加密文件夹：\verb`encrypt_files_in_folder(要加密的文件夹, 输出前缀, password)`。 加密后会生成新的文件夹 \verb`输出前缀-要加密的文件夹`， 原文件夹不会改变。
+\item 解密文件夹：\verb`decrypt_files_in_folder(要解密的文件夹, 输出前缀, password)`。 解密后会生成新的文件夹 \verb`输出前缀-要解密的文件夹`， 原文件夹不会改变。
+\item 加密文件夹中的文件（夹）名：\verb`encrypt_names_in_folder(要加密的文件夹, password)`。 \verb`要加密的文件夹` 本身的名字不会被加密， 而包含的所有文件（夹）名会被加密后重命名，注意文件内容不会改变。 加密后的文件（夹）名以 \verb`file_extension` 字符串结尾， 默认是 \verb`.eNc`。 若加密后的名字超出长度， 则会创建文件 \verb`要加密的文件夹/enc-long-name-dic.txt` 作为对照表（解密时该表会被自动读取）。为了尽可能使加密名称的长度小于系统限制， 加密后的文件名采用 \verb`base16384_utf8_chinese_sorted.txt` 中的 16384 个汉字编码。
+\item 解密文件夹中的文件（夹）名：\verb`decrypt_names_in_folder(要解密的文件夹, password)`。
+\item \verb`encrypt_folder(要加密的文件夹, 输出前缀, password)` 相当于先调用 \verb`encrypt_files_in_folder(要加密的文件夹, 输出前缀, password)` 再调用 \verb`encrypt_names_in_folder(输出前缀 + 要加密的文件夹, password)`
+\item \verb`decrypt_folder(要解密的文件夹, 输出前缀, password)` 与上一条相反。
+\end{itemize}
+
+\subsection{内部参数和函数}
+\begin{itemize}
+\item 可以通过修改 \verb`file_extension` 指定加密名称的拓展名。
+\item 可以通过修改 \verb`dic_file` 指定
+\end{itemize}
+

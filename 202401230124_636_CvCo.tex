@@ -1,0 +1,29 @@
+% 约定式提交
+% keys 约定式提交
+% license Usr
+% type Wiki
+
+\begin{issues}
+\issueDraft
+\issueTODO
+\end{issues}
+
+约定式提交规范是一种在进行代码变更时的轻量级约定。约定式提交制定了一组简单的规则来创建清晰的提交历史，便于编写自动化工具。通过在提交信息中描述功能、修复和\textbf{破坏性变更}（Breaking Change）（下文会对破坏性变更做出解释），使这种惯例与语义化版本相互对应。
+
+对于每次提交的代码变更，说明结构：
+\begin{lstlisting}[language=none]
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+\end{lstlisting}
+可以对应翻译为，
+\begin{lstlisting}[language=none]
+<类型>[（可选）范围]: <描述>
+
+[（可选）正文]
+
+[（可选）脚注]
+\end{lstlisting}
+提交说明描述了下列内容，
