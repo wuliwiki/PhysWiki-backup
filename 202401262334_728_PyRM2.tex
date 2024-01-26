@@ -1,0 +1,66 @@
+% Python RoboMaster EP 教程—与机器人建立连接
+% keys 机器人|Robomaster
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{Python 基础\upref{PyFi}}
+
+Robomaster EP 支持3种与计算机连接的方式：WiFi 直连模式，WiFi 组网模式和 USB(RNDIS) 连接模式。
+
+\begin{itemize}
+\item \autoref{sub_PyRM2_1} WIFI直连
+\item \autoref{sub_PyRM2_2} USB连接
+\end{itemize}
+
+\subsection{WIFI直连}\label{sub_PyRM2_1}
+
+通过将机器人设置为直连模式，并连接机器人的 Wi-Fi 热点进行接入（智能中控顶部有热点名称与密码），Wi-Fi 直连模式下，机器人默认 IP 为 192.168.2.1。
+
+开启机器人电源，切换智能中控的连接模式开关至 直连模式，如图1所示：
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4cm]{./figures/bde4a2d47ab0cf95.png}
+\caption{直连模式} \label{fig_PyRM2_1}
+\end{figure}
+
+输入以下代码，可以测验是否连接
+
+\begin{lstlisting}[language=python]
+from robomaster import robot
+
+import robomaster
+
+if __name__ == '__main__':
+    # 如果本地IP 自动获取不正确，手动指定本地IP地址
+    # robomaster.config.LOCAL_IP_STR = "192.168.2.20"
+    
+    # 在程序内实例化Robot对象
+    ep_robot = robot.Robot()
+
+    # 程序与机器人联网并指定连接方式为AP 直连模式
+    ep_robot.initialize(conn_type='ap')
+
+    version = ep_robot.get_version()
+    # 输出机器人固件版本号信息
+    print("Robot version: {0}".format(version))
+    # 关闭机器人
+    ep_robot.close()
+\end{lstlisting}
+
+运行结果:
+\begin{lstlisting}[language=pythonC]
+Robot Version: xx.xx.xx.xx
+\end{lstlisting}
+
+\subsection{USB连接}\label{sub_PyRM2_2}
+
+通过机器人的智能中控上的 USB 端口接入（机器人默认 IP 为 192.168.42.2）
+
+USB 连接模式，实质上是使用 RNDIS 协议，将机器人上的 USB 设备虚拟为一张网卡设备， 通过 USB 发起 TCP/IP 连接更多 RNDIS 内容请参见\href{https://www.wikipedia.org/wiki/RNDIS}{RNDIS Wikipedia} 。
+
+\subsection{组网连接}
