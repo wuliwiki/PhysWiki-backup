@@ -1,0 +1,45 @@
+% Jordan（若尔当）标准形
+% license Usr
+% type Tutor
+
+
+\begin{issues}
+\issueDraft 全文替换x。未完成：广义特征向量，特征值与Jordan块联系的证明
+\end{issues}
+
+\pentry{零化多项式\upref{nullpl}}
+尽管复数域可以保证$n$阶矩阵的特征多项式都有$n$个解，但依然不是所有矩阵都有$n$个线性无关的特征向量从而可以对角化。为了简化问题，我们需要“简化”矩阵（找一组基，使得矩阵在该基下有比较简单的形式，比较多$0$）。\autoref{the_nullpl_1}~\upref{nullpl}保证我们线性变换都有分块对角矩阵的形式。更进一步，通过在根子空间的相似变换，我们可以把每一个“对角块”上三角化。
+
+与之比较，本节介绍的Jordan标准形是更加简化的形式。
+\subsection{幂零变换的循环子空间分解}
+设矩阵$B$为线性空间$V$上的\textbf{幂零线性变换}，即对于任意\textbf{非零}向量$x$，总存在非负整数$k$使得$B^{k}(x)=\bvec 0$且$B^{k-1}(x)\neq \bvec 0$。可以证明，$\{x,Bx,B^2x,...B^{k-1}x\}$线性无关。
+\begin{exercise}{}
+证明：$\opn{Span}\{x,Bx,B^2x,...B^{k-1}x\}$张成线性空间，并证明这是$B$的不变子空间。
+\end{exercise}
+设$W=\opn{Span}\{x,Bx,B^2x,...B^{k-1}x\}$，将幂零变换$B$限制在该不变子空间上，记为$B|_W$。则每一列可表示为：$(Bx,B^2x,...B^{k-1}x,B^kx)$，即：
+\begin{equation}\label{eq_Jordan_1}
+\left(\begin{array}{cccccc}
+0 & 0 & 0 & \cdots & 0 & 0 \\
+1 & 0 & 0 & \cdots & 0 & 0 \\
+0 & 1 & 0 & \cdots & 0 & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & 0 & \cdots & 1 & 0
+\end{array}\right)~.
+\end{equation}
+
+假设该子空间为4维。输入$x=(1\,0\,0\,0)^T$，得到$Bx=(0\,1\,0\,0)^T$。输入$Bx=(0\,1\,0\,0)^T$，得到$B^2x=(0\,0\,1\,0)^T$。显然，$B$可以对基进行循环，因此把这种形式的基向量组$\opn{Span}\{x,Bx,B^2x,...B^{k-1}x\}$称为\textbf{循环基（cyclic basis）}。$W$则是$B$的\textbf{循环子空间（cyclic subspace）}。
+
+\autoref{the_nullpl_1}~\upref{nullpl}的$f_i(A)=(A-\lambda_i I )^k$就是限制在其核上的幂零变换。与上述不同的是，该幂零变换的幂指数未必是全空间幂零变换的指数。如果我们能证明$V$是$B$的循环子空间之直和，则对于$B$，我们可以依据幂指数写出每一个阶数与指数相同，形如\autoref{eq_Jordan_1} 的简单对角块。并根据$B|_{\opn{ker}f_i(A)}=A-\lambda_i I$得到$A$的对角块形式，即：
+
+
+\begin{equation}\label{eq_Jordan_2}
+\left(\begin{array}{cccccc}
+\lambda_i & 0 & 0 & \cdots & 0 & 0 \\
+1 & \lambda_i & 0 & \cdots & 0 & 0 \\
+0 & 1 & \lambda_i & \cdots & 0 & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & 0 & \cdots & 1 & \lambda_i
+\end{array}\right)~.
+\end{equation}
+\subsection{Jordan 标准形}
+所谓Jordan标准形，即$A$的每一个对角块都是\autoref{eq_Jordan_2} 的形式。为了证明任意线性变换$A$都能写成这种形式矩阵的直和，我们只需证明：
