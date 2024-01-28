@@ -1,0 +1,20 @@
+% Python RoboMaster EP 教程—初始化机器人
+% keys Robomaster|机器人
+% license Usr
+% type Tutor
+
+在进行与机器人相关的操作之前，需要先初始化机器人对象
+
+首先从 robomaster 包中导入 robot 模块：
+
+\begin{lstlisting}[language=python]
+from robomaster import robot
+\end{lstlisting}
+
+当机器人设置为组网模式时需要手动指定 RoboMaster SDK 的本地ip地址，在本示例中，查询得到本地的ip地址为 192.168.2.20 （比如在Windows操作系统下，通过 快捷键 Win + R 调出的窗口中输入 cmd， 然后在 CMD窗口中输入 ipconfig ， 即可以查看设备ip的信息）， 指定ip使用以下语句:
+
+\begin{lstlisting}[language=python]
+robomaster.config.LOCAL_IP_STR = "192.168.2.20"
+\end{lstlisting}
+
+大部分情况下SDK能够自动获取正确的本地ip，无需手动指定这一步骤，但是当SDK运行在多网卡同时使用的设备时， 自动获取的ip可能不是与机器人进行连接的ip，此时需要手动指定ip
