@@ -1,0 +1,47 @@
+% 一般线性变换的 Jordan（若尔当）标准形
+% license Usr
+% type Tutor
+
+
+\begin{issues}
+\issueDraft
+\issueTODO Jordan块阶数和个数与线性变换的联系
+\end{issues}
+利用幂零变换的结论（\autoref{the_Jordan_1}~\upref{Jordan}），本节进一步证明，任意线性变换都能化为类似的Jordan形，并且Jordan形是唯一的。
+\subsection{线性变换的Jordan形}
+由\autoref{the_nullpl_1}~\upref{nullpl}可知，任意线性空间都可以分解为任意线性变换的不变子空间之直和，例如对于线性变换$A$,我们有：
+\begin{equation}
+V=\opn{ker}f(A)=\opn{ker}f_1(A)\oplus\opn{ker}f_2(A)...\oplus\opn{ker}f_m(A)~,
+\end{equation}
+其中$f(A)$是$A$的特征多项式，$f_i(A)$是特征值相关的互素项：$f_i(A)=(A-\lambda_i)^{k_i}$。为方便计，设$\opn{ker}f_i(A)=W_i,f_i(A)=B_i$，则$A=A|_{W_1}\oplus A|_{W_2}\oplus...\oplus A|_{W_n}=\bigoplus^n_{i=1}(B_i+\lambda_iI)$
+
+由\autoref{the_Jordan_1}~\upref{Jordan}可知，幂零变换意味着在$W_i$的某组基上，$B_i$都是Jordan形矩阵，称对应的$A|_{W_i}$为一般线性变换的Jordan形。归纳此段讨论为下述定理：
+\begin{theorem}{}
+设$A$为域$\mathbb F$上$n$维线性空间$V$内的一个线性变换，其特征多项式的所有根$\lambda\in\mathbb F$，则在$V$内存在一组基，使线性变换$A$在这组基下可以表示为如下块对角矩阵：
+\begin{equation}
+J=\left(\begin{array}{cccc}
+J_1 & & & 0 \\
+& J_2 & & \\
+& & \ddots & \\
+0 & & & J_s
+\end{array}\right), \quad J_i=\left(\begin{array}{cccc}
+\lambda_i & 1 & & 0 \\
+& \lambda_i & \ddots & \\
+& & \ddots & 1 \\
+0 & & & \lambda_i
+\end{array}\right)~.
+\end{equation}
+\end{theorem}
+$A|_{W_i}$由若干个Jordan块直和而成，每块对应一个特征向量，不同块的特征数量线性无关，因此块数就是几何重数。实数域上不能保证根都在域内，因而线性变换未必有Jordan形，而复数域上的线性变换总能表示为该形式。
+\subsubsection{另一种证明思路}
+对于具有特征值$\lambda$的线性变换$A$而言，我们有如下基本结论：
+\begin{equation}
+\begin{aligned}
+&\opn{ker}A\subset\opn{ler}A^2\subset...\subset\opn{ler}A^k\\
+&\opn{range}A
+\end{aligned}
+\end{equation}
+
+\subsection{Jordan形的唯一性}
+
+\subsection{Jordan矩阵的计算方法}

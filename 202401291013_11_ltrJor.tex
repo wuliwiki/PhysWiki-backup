@@ -1,0 +1,22 @@
+% 一般线性变换的 Jordan（若尔当）标准形
+% license Usr
+% type Tutor
+
+
+\begin{issues}
+\issueDraft
+\issueTODO Jordan块阶数和个数与线性变换的联系
+\end{issues}
+利用幂零变换的结论（\autoref{the_Jordan_1}~\upref{Jordan}），本节进一步证明，任意线性变换都能化为类似的Jordan形，并且Jordan形是唯一的。
+\subsection{线性变换的Jordan形}
+由\autoref{the_nullpl_1}~\upref{nullpl}可知，任意线性空间都可以分解为任意线性变换的不变子空间之直和，例如对于线性变换$A$,我们有：
+\begin{equation}
+V=\opn{ker}f(A)=\opn{ker}f_1(A)\oplus\opn{ker}f_2(A)...\oplus\opn{ker}f_m(A)~,
+\end{equation}
+其中$f(A)$是$A$的特征多项式，$f_i(A)$是特征值相关的互素项：$f_i(A)=(A-\lambda_i)^{k_i}$。为方便计，设$\opn{ker}f_i(A)=W_i,f_i(A)=B_i$。
+
+由\autoref{the_Jordan_1}~\upref{Jordan}可知，幂零变换意味着在$W_i$的某组基上，$B_i$都是Jordan形矩阵，则$A|_()$称这种形式为一般线性变换的$Jordan$形。归纳此段讨论为下述定理：
+
+
+\subsection{Jordan形的唯一性}
+\subsection{Jordan矩阵的计算方法}
