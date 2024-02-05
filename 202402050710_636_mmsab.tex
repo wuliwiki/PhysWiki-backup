@@ -1,0 +1,104 @@
+% Minimax 搜索和 Alpha-Beta 剪枝
+% keys 极小化极大|minimax|alpha-beta|alpha beta|博弈论
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\subsection{Minimax 搜索（极小化极大搜索）}
+在双方博弈类型的搜索中，例如棋类的最优化搜索，如果我们是 AI，我们会希望，走下这一步棋后，我们的最大的失败可能最小。为什么这里是“最大的失败可能”而失败可能不是一个定值呢？因为对方的可能下法不止一种，对于每一种对方的下法，我们也都有一个“失败的可能性”（实际上这里是一个最小值，我们选择下最优的下法让我们失败的可能性最小），我们需要使用这些失败的可能性的总体的最大值来评估这步棋的好坏。
+
+所以可以发现，这是一个使得某个最大值（失败的可能性）最小的算法，所以叫做\textbf{极小化极大搜索（Minimax 搜索）}。
+
+那么实际上搜索进行的是，”你一步我一步“的方法。也就是，循环以下过程：
+\begin{enumerate}
+\item AI（“我”）先选择最优的方法下棋；
+\item 对方（“你”）再选对于你来说最优、也就是对我来说最差的一个方法下棋。
+\end{enumerate}
+考虑一个经过一些常规剪枝技巧的、搜索树为二叉树的对弈。我们模拟搜索并且步骤也遵循递归的步骤，通过模拟的过程来学习 Minimax 搜索方法。
+
+假若现在应当 AI 下棋，我们向后搜索 $4$ 步棋，绘制出搜索树并且标出叶子节点的一个“估价”（也就是 AI，“我”，的胜率）：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/5db090b0210640e6.png}
+\caption{模拟搜索树（仅叶子结点）} \label{fig_mmsab_1}
+\end{figure}
+其中，圆角方框为 AI 需要下棋，圆形为对方需要下棋。
+
+那么，在对方下棋（也就是圆形的节点）进行搜索的时候，对方如果是“足够聪明的”，会选择让我们的胜率最小，也就是失败率最大的下法。也就是对所有这些可能胜率求最小值，模拟搜索过程进行更新后得到新的搜索树：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/67d902d43a2ada71.png}
+\caption{模拟搜索树（更新一层后）} \label{fig_mmsab_3}
+\end{figure}
+
+之后向上一步，轮到 AI 下棋，AI 会选择使自己胜率最大的，也就是对所有可能胜率求最大值，这次更新后为：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/2cdc1f0260c41898.png}
+\caption{模拟搜索树（更新两层后）} \label{fig_mmsab_4}
+\end{figure}
+
+现在这轮，又轮到对方下棋，对方这时候下棋仍然会选择使我们胜率最低的下法，也就是求最小值，这一次更新后的搜索树为：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/71f8c442d8898127.png}
+\caption{模拟搜索树（更新三层后）} \label{fig_mmsab_5}
+\end{figure}
+
+最后回到了搜索的根节点，这一步是 AI 下棋，选择使得自己胜率最大的方法下棋，也就是对所有这些胜率求最大值，得到最终的搜索树：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/54dd8045f5c7054c.png}
+\caption{模拟搜索树（最终，仅更新胜率）} \label{fig_mmsab_6}
+\end{figure}
+
+这就是朴素 Minimax 算法的搜索过程，当然实际搜索还会记录路径信息，也就是我们这一步棋要如何下。带更新路径信息的搜索树如下：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/ab93a25b47bd491d.png}
+\caption{带记录路径信息的搜索树（最终形态）} \label{fig_mmsab_8}
+\end{figure}
+其中，绿色路径为最终选择路径，紫色为该结点可以选择的、这个结点该下棋的一方可以选择的最优下法。
+
+需要注意的是，实际情况中，搜索不是一层一层进行的，而是按先序遍历的顺序（结点本身-左孩子到右孩子）进行遍历的。
+
+不难发现，我们在交替取 \verb`min` 和 \verb`max`，同时记录这最大（小）值是从哪个孩子结点回溯来的，于是可以写出 Minimax 搜索的朴素方法的代码：
+\begin{lstlisting}[language=cpp]
+int MiniMax(int dep); 
+int Evaluate(); // 计算当前棋盘我方胜率情况 
+void genMoves(); // 生成走法 
+bool nxtMove(); // 选择下一个走法，并返回是否还有走法 
+void doMove(); //  走这步棋 
+void undoMove(); // 撤销这步棋（回溯）
+int getMoveID(); // 获取这步棋走法的 ID 
+int trueMoveID; // 最终选择的走法的 ID 
+
+int MiniMax(int dep) {
+	int best = -101;
+	// 初始最大胜率赋值为一个极大负值，后面求最大值会更新掉 
+	
+	if(dep <= 0) return Evaluate(); 
+	
+	genMoves();
+	int score; // 当前最优胜率 
+	while(nxtMove()) {
+		doMove();
+		score = -MiniMax(dep - 1);		
+		undoMove();
+		if(score > best) {
+			trueMoveID = getMoveID();
+			best = score;
+		}
+	}
+	return best;
+}
+\end{lstlisting}
+这里用到了一个 trick（代码技巧）叫做负值最大算法，搜索过程中通过将当前分数记录为相反数便可以一直使用最大值来更新最高胜率。
+
+
+\subsection{Alpha-Beta 剪枝}
+Alpha-Beta 剪枝是这类搜索的一个常用技巧，其中 Alpha（$\alpha$）表示目前所有可能解中的最大下界，Beta（$\beta$）表示目前所有可能解中的最小上界。
+

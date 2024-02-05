@@ -386,9 +386,9 @@ x^n-1 = \prod_{d\mid n}\Phi_d(x)~.
 \end{example}
 
 
-\begin{corollary}{}
-对于素数 $p$，$n, k \in \mathbb N$，若 $p$ 与 $n$ 互质，则 $\Phi_{p^k n}(x) = ()/(\Phi_n(x^{p^{k-1}}))$。
-\end{corollary}
+\begin{theorem}{}\label{the_Cycltm_7}
+对于素数 $p$，$n, k \in \mathbb N$，若 $p$ 与 $n$ 互质，则 $\Phi_{p^k n}(x) = (\Phi_n(x^{p^k}))/(\Phi_n(x^{p^{k-1}}))$。
+\end{theorem}
 
 
 
@@ -406,7 +406,7 @@ x^n-1 = \prod_{d\mid n}\Phi_d(x)~.
 \begin{enumerate}
 \item 当 $u = 0$ 时，$A = a$，显然 $p | \Phi_A(x)$。
 \item 当 $u = 1$ 时，$\Phi_A(x^p)=\Phi_a(x)\Phi_A(x)$。由费马小定理，$\Phi_A(x) \equiv \Phi_A(x^p)\equiv 0\pmod p$。
-\item 当 $u > 1$ 时，由
+\item 当 $u > 1$ 时，由\autoref{the_Cycltm_7}，$\Phi_{A}(x) = (\Phi_A(x^{p^a}))/(\Phi_A(x^{p^{a-1}})) = \Phi_a(x) \equiv 0 \pmod p$。故 $\phi_A(x^{p^a}) \equiv 0 \pmod p$。
 \end{enumerate}
 
 
