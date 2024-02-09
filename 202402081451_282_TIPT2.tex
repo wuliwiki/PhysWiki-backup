@@ -1,0 +1,47 @@
+% 二阶不含时微扰理论（量子力学）
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{一阶不含时微扰理论（量子力学）\nref{nod_TIPT}}{nod_ea9f}
+
+\begin{equation}\label{eq_TIPT2_2}
+E_n^2 = \sum_{m}^{E_m\ne E_n} \frac{\abs{\mel{\psi_m^0}{H^1}{\psi_n^0}}^2}{E_n^0-E_m^0}~.
+\end{equation}
+
+波函数呢？
+
+\subsection{推导}
+\begin{equation}
+H^0\psi_n^2 + H^1\psi_n^1 = E_n^0\psi_n^2 + E_n^1\psi_n^1 + E_n^2\psi_n^0~.
+\end{equation}
+左乘任意 $\psi_m^0$ 得
+\begin{equation}\label{eq_TIPT2_1}
+\mel{\psi_m^0}{H^0}{\psi_n^2} + \mel{\psi_m^0}{H^1}{\psi_n^1} = E_n^0\braket{\psi_m^0}{\psi_n^2} + E_n^1\braket{\psi_m^0}{\psi_n^1} + \delta_{m,n}E_n^2~.
+\end{equation}
+其中
+\begin{equation}
+\mel{\psi_m^0}{H^0}{\psi_n^2} = \braket{H^0\psi_m^0}{\psi_n^2} = E_m^0\braket{\psi_m^0}{\psi_n^2}~.
+\end{equation}
+代入\autoref{eq_TIPT2_1} 得
+\begin{equation}
+\mel{\psi_m^0}{H^1}{\psi_n^1} = (E_n^0-E_m^0)\braket{\psi_m^0}{\psi_n^2} + E_n^1\braket{\psi_m^0}{\psi_n^1} + \delta_{m,n}E_n^2~.
+\end{equation}
+一阶微扰有（\autoref{eq_TIPT_2}~\upref{TIPT}）
+\begin{equation}
+\mel{\psi_m^0}{H^1}{\psi_n^0} = (E_n^0 - E_m^0) \braket{\psi_m^0}{\psi_n^1} + E_n^1 \delta_{m,n}~.
+\end{equation}
+
+\subsubsection{非简并}
+考虑对角元（$m=n$）有
+\begin{equation}
+E_n^2 = \mel{\psi_n^0}{H^1}{\psi_n^1} - E_n^1\braket{\psi_n^0}{\psi_n^1}~.
+\end{equation}
+一阶微扰有（\autoref{eq_TIPT_5}~\upref{TIPT}）
+\begin{equation}
+\psi_n^1 = \sum_m^{E_m\ne E_n} \frac{\mel{\psi_m^0}{H^1}{\psi_n^0}}{E_n^0 - E_m^0}\psi_m^0~.
+\end{equation}
+代入得\autoref{eq_TIPT2_2}。

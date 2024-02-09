@@ -1,0 +1,87 @@
+% 雅可比矩阵、雅可比行列式
+% keys 多元微积分|坐标系变化|全微分|混合积|矩阵|雅可比矩阵|行列式|雅可比行列式
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\issueOther{补充：与方向导数的关系}
+\end{issues}
+
+
+\pentry{行列式与体积\nref{nod_DetVol}， 全微分\nref{nod_TDiff}}{nod_5607}
+
+若有坐标系变换
+\begin{equation}
+\begin{cases}
+x = x(u,v,w)\\ y = y(u,v,w)\\ z = z(u,v,w)
+\end{cases}~.
+\end{equation}
+根据全微分关系
+%(链接未完成)
+\begin{equation}\label{eq_JcbDet_1}
+\pmat{\dd{x}\\ \dd{y}\\ \dd{z}} =
+\pmat{
+\pdv*{x}{u} &  \pdv*{x}{v} & \pdv*{x}{w} \\ 
+\pdv*{y}{u} & \pdv*{y}{v} & \pdv*{y}{w} \\ 
+\pdv*{z}{u} & \pdv*{z}{v} & \pdv*{z}{w} }
+\pmat{\dd{u}\\ \dd{v}\\ \dd{w}}~.
+\end{equation}
+其中 $\mat J$ 叫做雅可比矩阵，称其行列式 $\abs{\mat J}$为\textbf{雅可比行列式（Jacobian determinant）}。在微分几何中，雅可比矩阵是切映射的表示。
+
+\subsubsection{雅可比行列式与体积元}
+
+由外代数的知识可知，设$V$为$n$维线性空间且$\bvec v_1,\bvec v_2,...\bvec v_n\in V$，若$\bvec v_1\wedge \bvec v_2\wedge...\wedge\bvec v_n\neq 0$（即该向量组线性无关），则其模为$\{\bvec v_i\}^n_{i=1}$张成的$n$维立方体的体积。若$\{\bvec v_i\}^n_{i=1}$是正交向量组，则其模为各向量模长的乘积。
+
+以二维欧几里得线性空间为例。令$f:(x,y)\rightarrow (r, \phi)$，
+\begin{equation}
+\begin{aligned}
+x=&r \opn {cos}\phi\\
+y=&r\opn{sin}\phi~.
+\end{aligned}
+\end{equation}
+则我们有：
+\begin{equation}
+\begin{aligned}
+dx\wedge dy&= (dr\opn{cos}\phi-r\opn{sin}\phi d\phi )\wedge(dr\opn{sin}\phi+r\opn{cos}\phi d\phi )\\
+&=(r\opn{cos}^2\phi +r\opn{sin}^2\phi)dr\wedge d\phi=rdr\wedge d\phi=|\bvec J|dr\wedge d\phi~.
+\end{aligned}
+\end{equation}
+外积相等则模长相等，且由于这是正交基之间的变换，因而$dxdy=rdr d\phi $。 
+
+考虑 $uvw$ 坐标系中的一个体积元 $(u,v,w)$-$(u + \dd{u}, v + \dd{v}, w + \dd{w})$，  一般情况下（不需要是正交曲线坐标系）， 体积元为平行六面体， 起点为 $(u,v,w)$  的三条棱对应的矢量分别为
+ \begin{equation}
+\pmat{\dd{x_1}\\\dd{y_1}\\\dd{z_1}} = 
+\mat J\pmat{\dd{u}\\0\\0} = 
+\pmat{J_{11}\\J_{21}\\J_{31}} \dd{u}~,
+\end{equation} 
+\begin{equation}
+\pmat{\dd{x_2}\\\dd{y_2}\\\dd{z_2}} = 
+\mat J \pmat{0\\ \dd{v}\\0} = 
+\pmat{J_{12}\\J_{22}\\J_{32}} \dd{v}~,
+\end{equation} 
+\begin{equation}
+\pmat{\dd{x_3}\\\dd{y_3}\\\dd{z_3}} = 
+\mat J \pmat{0\\0\\\dd{w}} = 
+\pmat{J_{13}\\J_{23}\\J_{33}} \dd{w}~.
+\end{equation} 
+由于平行六面体的体积是同一起点三条矢量的混合积%(链接未完成)
+\begin{equation}
+\dd{V}
+= \vmat{
+\dd{x_1} & \dd{x_2} & \dd{x_3}\\
+\dd{y_1} & \dd{y_2} & \dd{y_3}\\
+\dd{z_1} & \dd{z_2} & \dd{z_3}}
+= \abs{\mat J} \dd{u}\dd{v}\dd{w}~,
+\end{equation}
+其中 $\abs{\mat J}$  叫做\textbf{雅可比行列式}。
+
+其中 $\abs{\mat J}$  叫做\textbf{雅可比行列式（Jacobian determinant）}。 注意这里的体积可能是负值。 例如在二维情况下， 若 $(\dd{u_1},\dd{v_1})$ 逆时针转动后得到 $(\dd{u_2},\dd{v_2})$， 那么行列式为正， 逆时针为负； 三维情况下， 若 $(\dd{u_1},\dd{v_1},\dd{w_1})$ 叉乘 $(\dd{u_2},\dd{v_2},\dd{w_2})$ 与 $(\dd{u_3},\dd{v_3},\dd{w_3})$ 的夹角小于 $90^\circ$， 则行列式为正， 大于 $90^\circ$ 为负。
+
+\autoref{eq_JcbDet_1} 对应的雅可比行列式又记为
+\begin{equation}
+\abs{\bvec J} =  \frac{\partial(x,y,z)}{\partial(u,v,w)}= \vmat{
+\pdv*{x}{u} &  \pdv*{x}{v} & \pdv*{x}{w} \\ 
+\pdv*{y}{u} & \pdv*{y}{v} & \pdv*{y}{w} \\ 
+\pdv*{z}{u} & \pdv*{z}{v} & \pdv*{z}{w} }~.
+\end{equation}

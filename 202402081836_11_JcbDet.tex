@@ -1,0 +1,54 @@
+% 雅可比矩阵、雅可比行列式
+% keys 多元微积分|坐标系变化|全微分|混合积|矩阵|雅可比矩阵|行列式|雅可比行列式
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\issueOther{补充：与方向导数的关系}
+\end{issues}
+
+
+\pentry{行列式与体积\nref{nod_DetVol}， 全微分\nref{nod_TDiff}}{nod_5607}
+
+若有坐标系变换
+\begin{equation}
+\begin{cases}
+x = x(u,v,w)\\ y = y(u,v,w)\\ z = z(u,v,w)
+\end{cases}~.
+\end{equation}
+根据全微分关系
+%(链接未完成)
+\begin{equation}\label{eq_JcbDet_1}
+\pmat{\dd{x}\\ \dd{y}\\ \dd{z}} =
+\pmat{
+\pdv*{x}{u} &  \pdv*{x}{v} & \pdv*{x}{w} \\ 
+\pdv*{y}{u} & \pdv*{y}{v} & \pdv*{y}{w} \\ 
+\pdv*{z}{u} & \pdv*{z}{v} & \pdv*{z}{w} }
+\pmat{\dd{u}\\ \dd{v}\\ \dd{w}}~.
+\end{equation}
+其中 $\mat J$ 叫做雅可比矩阵，称其行列式 $\abs{\mat J}$为\textbf{雅可比行列式（Jacobian determinant）}。在微分几何中，雅可比矩阵是切映射的表示。
+
+\subsubsection{雅可比行列式与体积元}
+
+由外代数的知识可知，设$V$为$n$维线性空间且$\bvec v_1,\bvec v_2,...\bvec v_n\in V$，若$\bvec v_1\wedge \bvec v_2\wedge...\wedge\bvec v_n\neq 0$（即该向量组线性无关），则其模为$\{\bvec v_i\}^n_{i=1}$张成的$n$维立方体的体积。若$\{\bvec v_i\}^n_{i=1}$是正交向量组，则其模为各向量模长的乘积。
+
+雅可比行列式是体积元进行线性变换后的比例系数，以二维欧几里得线性空间为例。令$f:(x,y)\rightarrow (r, \phi)$，
+\begin{equation}\label{eq_JcbDet_2}
+\begin{aligned}
+x=&r \opn {cos}\phi\\
+y=&r\opn{sin}\phi~.
+\end{aligned}
+\end{equation}
+则我们有：
+\begin{equation}
+\begin{aligned}
+dx\wedge dy&= (dr\opn{cos}\phi-r\opn{sin}\phi d\phi )\wedge(dr\opn{sin}\phi+r\opn{cos}\phi d\phi )\\
+&=(r\opn{cos}^2\phi +r\opn{sin}^2\phi)dr\wedge d\phi=rdr\wedge d\phi=|\bvec J|dr\wedge d\phi~.
+\end{aligned}
+\end{equation}
+
+
+可以验证，若$\{x_i\}^n_{i=1}$和$\{y_i\}^n_{i=1}$都是$n$维线性空间中线性无关的坐标变量，则我们总可以进行类似\autoref{eq_JcbDet_2} 的变量代换。微积分中的多重积分实际上是对变量的外积进行积分，因此常利用该结论进行坐标系的变换。
+
+
