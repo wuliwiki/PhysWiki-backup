@@ -1,0 +1,111 @@
+% 类氢原子斯塔克效应（微扰）
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{不含时微扰理论\nref{nod_TIPT}}{nod_8e0d}
+
+微扰理论（$\mathcal{E_z}$ 是 $z$ 方向电场）：
+\begin{equation}
+H' = \mathcal{E_z} z~.
+\end{equation}
+矩阵元为
+\begin{equation}\label{eq_HStark_1}
+H'_{l',l} = \mathcal{E_z}\mel{\psi_{n,l',m}}{z}{\psi_{n,l,m}}~.
+\end{equation}
+
+但事实上氢原子加上匀强电场后是不存在数学上严格的束缚态的，因为无论电场多弱，在电场反方向的某个距离外，势能都会小于基态能量，使波函数变为散射态。在含时薛定谔方程中，波函数可能会有长时间处于微扰理论给出的 “束缚态”，但这只能算是一种\textbf{亚稳态（metastable state）}，仍会有不为零的隧道电离概率。
+
+\begin{example}{类氢原子 $n=2$ 的斯塔克效应}
+先考虑 $n=2$， $m=0$ 的情况， 这是一个二维希尔伯特子空间，基底为 $\ket{2,0,0}$ 和 $\ket{2,1,0}$。 根据\autoref{tab_HDipM_1}~\upref{HDipM}， \autoref{eq_HStark_1} 为
+\begin{equation}
+\mat H' = -\frac{3}{Z}\mathcal{E_z}\pmat{0 & 1\\ 1 & 0}~.
+\end{equation}
+本征值为 $E_{\pm}^1 = \mp \frac{3}{Z}\mathcal{E}_z$， 好本征态为 $\ket{2\pm 0} = (\ket{200} \pm \ket{210})/{\sqrt 2}$， 也被称为 \textbf{Stark 态}。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/cf2a4c9b0548dbae.png}
+\caption{$\ket{2+}$ 的概率密度函数的 $x$-$z$ 切面， 可见电子向下偏移， 电场向上为正， 所以本征能量变小。 $\ket{2-}$ 态是此图上下翻转， 本征能量变大。} \label{fig_HStark_1}
+\end{figure}
+
+不要以为\autoref{fig_HStark_1} 是外电场扭曲波函数的结果， $\ket{2\pm}$ 本身就是无电场的氢原子 $n=2$ 本征态。 施加了电场后波函数反而需要进一步修正。
+
+从经典电磁学角度来理解， 电偶极子在电场中的能量（\autoref{eq_eleDP2_1}~\upref{eleDP2}）等于 $-d_z \mathcal{E}_z$， 其中 $d_z$ 是 $z$ 方向电偶极子
+\begin{equation}
+d_z^{(\pm)} = \mel{2\pm}{z}{2\pm} = \pm 3~.
+\end{equation}
+\end{example}
+
+\addTODO{如果初始时， 波函数处于 $n=2$ 子空间的任意状态， 例如 $\ket{20}$， 那么当逐渐施加电场后， 波函数会如何变化？}
+
+\begin{example}{氢原子的极化率}
+若氢原子处于某个好量子态，使用一阶微扰求其极化率（polarizability） $\alpha$，定义为 $\bvec p_z = \alpha \bvec{\mathcal E_z}$，其中 $\bvec p_z$ 为 $z$ 方向的电偶极子， $\bvec{\mathcal E_z}$ 为电场强度。（实验数据参考\href{https://physicspages.com/pdf/Electrodynamics/Polarizability\%20of\%20hydrogen.pdf}{这篇}）
+
+该问题中， $H^1 = \mathcal{E}_z z$， $\bvec p_z = -\mel{\psi_n}{z}{\psi_n}$。 使用波函数的一阶修正 $\psi_n \approx \psi_n^0 + \psi_n^1$， 有
+\begin{equation}\ali{
+\bvec p_z &\approx -\mel{\psi_n^0 + \psi_n^1}{z}{\psi_n^0 + \psi_n^1}\\
+&= -\mel{\psi_n^0}{z}{\psi_n^0} - 2\Re[\mel{\psi_n^0}{z}{\psi_n^1}] - \mel{\psi_n^1}{z}{\psi_n^1}~.
+}\end{equation}
+其中第一项就是 $E_n^1/\mathcal{E}_z$。 第二项第三项分别是二阶和三阶小量，所以第三项可忽略。 根据\autoref{eq_TIPT2_4}~\upref{TIPT2}， 第二项的 $\mel{\psi_n^0}{z}{\psi_n^1}$ 就是 $E_n^2/\mathcal{E}_z$，所以
+\begin{equation}
+\bvec p_z \approx -\frac{1}{\mathcal{E}_z}(E_n^1 + 2E_n^2)~.
+\end{equation}
+其中一阶修正
+\begin{equation}
+E_n^1 = \mel{\psi_n^0}{H^1}{\psi_n^0}~
+\end{equation}
+和电场成正比，而二阶修正（\autoref{eq_TIPT2_2}~\upref{TIPT2}）
+\begin{equation}
+E_n^2 = \sum_{m}^{E_m\ne E_n} \frac{\abs{\mel{\psi_m^0}{H^1}{\psi_n^0}}^2}{E_n^0-E_m^0}~.
+\end{equation}
+正比于电场平方。
+
+例如计算其氢原子好本征态
+\begin{equation}
+\ket{2,\pm, 0} = \ket{2,0,0}\pm \ket{2,1,0}~.
+\end{equation}
+则 $E_n^1 = -3$， 但 $E_n^2$ 却比较难算。
+\addTODO{算啊}
+\end{example}
+
+
+\subsection{好本征态列表（z 方向电场）}
+\pentry{氢原子的跃迁偶极子矩阵元列表\nref{nod_HDipM}}{nod_c9f2}
+
+注意第 $n$ 能级有 $n^2$ 基底。
+\begin{itemize}
+\item $n=2$
+\begin{equation}
+\ket{2,0,0},\ket{2,1,0} \Rightarrow-\frac{3}{Z}\pmat{0 & 1\\ 1 & 0}~.
+\end{equation}
+\begin{equation}
+\mp\frac{3}{Z} \Rightarrow \frac{1}{\sqrt{2}}(\ket{2,0,0}\pm\ket{2,1,0})~.
+\end{equation}
+\begin{equation}
+\frac{0}{Z} \Rightarrow \ket{2,1,\pm 1}~.
+\end{equation}
+
+
+\item $n=3$
+\begin{equation}
+\ket{3,0,0},\ket{3,1,0},\ket{3,2,0}\Rightarrow
+-\frac{3\sqrt{3}}{Z}\pmat{0 & \sqrt{2} & 0\\ \sqrt{2} & 0 & 1\\ 0 & 1 & 0}~.
+\end{equation}
+\begin{equation}
+\mp\frac{9}{Z} \Rightarrow \frac{1}{\sqrt{3}}\ket{3,0,0} \pm \frac{1}{\sqrt{2}}\ket{3,1,0} + \frac{1}{\sqrt{6}}\ket{3,2,0}~.
+\end{equation}
+\begin{equation}
+\frac{0}{Z} \Rightarrow \frac{1}{\sqrt{3}}\ket{3,0,0} - \sqrt{\frac{2}{3}}\ket{3,2,0}~.
+\end{equation}
+\end{itemize}
+\begin{equation}
+\ket{3,1,\pm1},\ket{3,2,\pm1} \Rightarrow
+-\frac{3\sqrt{3}}{Z}\pmat{0 & 1\\1 & 0}~.
+\end{equation}
+\begin{equation}
+\mp\frac{3\sqrt{3}}{Z} \Rightarrow \frac{1}{\sqrt 2}(\ket{3,0,1}\pm\ket{3,1,1})~.
+\end{equation}
