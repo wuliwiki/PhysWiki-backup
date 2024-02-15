@@ -1,0 +1,36 @@
+% 电磁场标势和矢势
+% keys 法拉第电磁感应|麦克斯韦方程组
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{法拉第电磁感应\nref{nod_FaraEB}， 磁矢势\nref{nod_BvecA}}{nod_5de1}
+
+经典电动力学中， 可以用标量势 $\varphi(\bvec r, t)$ 和矢量势 $\bvec A(\bvec r, t)$ 表示电磁场，使一些计算更为方便：
+\begin{equation}\label{eq_EMPot_1}
+\bvec E = -\grad \varphi - \pdv{\bvec A}{t}~.
+\end{equation}
+\begin{equation}\label{eq_EMPot_2}
+\bvec B = \curl \bvec A~.
+\end{equation}
+
+\subsection{推导}
+首先定义 $\bvec A$， 则由法拉第电磁感应定律（\autoref{eq_MWEq_2}~\upref{MWEq}）
+\begin{equation}
+\curl \qty(\bvec E + \pdv{\bvec A}{t}) = \curl \bvec E + \pdv{\bvec B}{t} = \bvec 0~.
+\end{equation}
+这说明括号中的矢量可以表示为一个标量函数的梯度，即标势 $\varphi$， 负号是为了在静电场的情况下使得标势等于电势。
+
+\subsection{标势和矢势的麦克斯韦方程组}
+
+将\autoref{eq_EMPot_1} 和\autoref{eq_EMPot_2} 代入麦克斯韦方程组可以得到两条与麦克斯韦方程组等效的方程
+\begin{equation}\label{eq_EMPot_4}
+\laplacian \varphi + \pdv{t} (\div \bvec A) = -\frac{\rho}{\epsilon_0}~,
+\end{equation}
+\begin{equation}\label{eq_EMPot_5}
+\qty(\laplacian \bvec A - \mu_0\epsilon_0 \pdv[2]{\bvec A}{t}) - \grad \qty(\div \bvec A + \mu_0\epsilon_0 \pdv{\varphi}{t}) = -\mu_0\bvec J~.
+\end{equation}
+
