@@ -1,0 +1,63 @@
+% 狄拉克 delta 导函数
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{狄拉克 delta 函数\nref{nod_Delta}}{nod_4a17}
+
+定义（函数列）： 对任意在 $x=0$ 处可导的 $f(x)$ 都有
+\begin{equation}
+\lim_{n\to\infty}\int_{-\infty}^\infty \delta'_n(x) f(x) \dd{x} = f'(0)~.
+\end{equation}
+
+等效定义？：
+\begin{equation}
+\lim_{n\to\infty}\int_{-\infty}^\infty x\delta'_n(x) \dd{x} = 1~.
+\end{equation}
+且在不包含 $x=0$ 的区间 $(a,b)$， 有
+\begin{equation}
+\lim_{n\to\infty}\int_{-\infty}^\infty x\delta'_n(x) \dd{x} = 1
+\end{equation}
+
+
+\subsection{构造}
+是否可以通过 $\delta$ 函数列构造 $\delta'$ 函数列？
+\begin{equation}
+\delta'_n(x) = \frac{\delta_n(x-h_n) - \delta_n(x+h_n)}{2h_n}~.
+\end{equation}
+其中
+\begin{equation}
+\lim_{n\to\infty} h_n = 0~.
+\end{equation}
+可能对收敛速度也会有限制？必须的！考虑两个三角形。。。 甚至这个构造根本就是错的，除非两个 $\delta_n$ 完全不重叠。
+
+\subsection{性质}
+分部积分：
+\begin{equation}
+\begin{aligned}
+&\quad \lim_{n\to\infty}\int_{-\infty}^\infty \delta'_n(x) f(x) \dd{x}\\
+&= \lim_{n\to\infty}\eval{\delta_n(x) f(x)}_{-\infty}^\infty - \lim_{n\to\infty}\int_{-\infty}^\infty \delta_n(x) f'(x) \dd{x}\\
+&= - f'(0)~.
+\end{aligned}
+\end{equation}
+所以狄拉克 delta 导函数就是任意 delta 函数列的负导数。
+
+可以拓展到
+\begin{equation}
+\lim_{n\to\infty}\int_{-\infty}^\infty -\delta'_n(x-x_0) f(x) \dd{x} = f'(x_0)~.
+\end{equation}
+
+性质： $\delta'(-x) = -\delta'(x)$ （但每个具体的 $\delta'_n$ 未必是奇函数）
+
+\begin{example}{}
+\autoref{ex_Delta_2}~\upref{Delta}
+\begin{equation}
+\delta_n(x) = \frac{n}{\pi}\sinc(n x) \qquad (n = 1, 2, \dots)~,
+\end{equation}
+\begin{equation}
+-\delta'_n(x) = \frac{n}{\pi x} [\sinc(nx) - \cos(nx)]~.
+\end{equation}
+\end{example}
