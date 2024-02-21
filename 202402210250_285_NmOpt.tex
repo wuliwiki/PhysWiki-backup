@@ -1,0 +1,134 @@
+% 正规算子
+% keys 酉变换|厄米算子|酉空间|厄米变换|厄密变换|厄密算子|hermitian|normal operator|hermitian operator
+% license Xiao
+% type Tutor
+
+
+
+\pentry{伴随映射\nref{nod_AdjMap}}{nod_?}
+
+
+“算子”一词是“线性算子”的简称，在本文中指代“线性变换”或者“线性映射”。
+
+
+\begin{definition}{正规算子}
+
+给定酉空间$U$上的线性变换$A$，令$A^\dagger$是其\textbf{伴随变换}。若$AA^\dagger = A^\dagger A$，则称$A$是$U$上的\textbf{正规算子（normal operator）}。
+
+如果$A=A^\dagger$，则称$A$是一个\textbf{厄米算子（hermitian operator）}。如果$AA^\dagger = E$，其中$E$是单位方阵，则称$A$是一个\textbf{酉算子（unitary operator）}。
+
+\end{definition}
+
+
+显然，厄米算子和酉算子都是正规算子。厄米算子的性质非常好，而一般的算子总可以分解为厄米算子的组合，这就为研究算子带来了便利：
+
+
+
+\begin{lemma}{}
+任取酉空间$U$上的线性变换$A$，则存在$U$上\textbf{唯一}的厄米算子$H_1$和$H_2$，使得
+\begin{equation}
+A = H_1 + \I H_2~. 
+\end{equation}
+\end{lemma}
+
+
+\textbf{证明}：
+
+对于任意的$A$，定义
+\begin{equation}
+\begin{cases}
+H_1 =\frac{1}{2}\qty(A+A^\dagger), \\
+H_2 =\frac{1}{2\I}\qty(A-A^\dagger)~. 
+\end{cases}
+\end{equation}
+
+显然$H_1+\I H_2=A$，因此\textbf{存在性}得证。
+
+反过来，假设$A = H_1 + \I H_2$，则$A^\dagger = H_1 - \I H_2$，从而$H_1$和$H_2$能由$A$\textbf{唯一}决定。
+
+\textbf{证毕}。
+
+
+
+
+正规算子的定义依赖于酉空间的内积，因为伴随变换的定义依赖于内积或者一个非退化双线性形式。因此，讨论正规算子的同时可以讨论向量的正交性，而正规算子实际上就是“可以被正交对角化的线性变换”。我们接下来就一步步推导出这一点。
+
+
+
+
+
+\subsection{正规算子的对角化}
+
+
+
+\begin{lemma}{算子交换则有公共特征向量}\label{lem_NmOpt_1}
+
+给定$n$维酉空间$U$上的线性变换$A$和$B$，若$AB=BA$，则存在$\bvec{u}\in U$，它是$A$和$B$的公共特征向量。
+
+\end{lemma}
+
+\addTODO{可能需要引用“复矩阵都可以上三角化”的定理。}
+
+\textbf{证明}：
+
+有限维酉空间上任何算子都至少有一个特征向量，这是\textbf{代数学基本定理}\upref{BscAlg}保证的。
+
+取$A$的特征向量$\bvec{x}$，使得$A\bvec{x}=\lambda\bvec{x}$。
+
+构造子空间$W=\opn{Span}\{\bvec{x}, B\bvec{x}, B^2\bvec{x}, \cdots, B^{n-1}\bvec{x}\}$，则显然有
+\begin{equation}
+AB^k\bvec{x} = B^kA\bvec{x} = \lambda B^k\bvec{x}~
+\end{equation}
+对任意正整数$k$都成立，故$W$中的向量都是$A$的特征向量，特征值都是$\lambda$。
+
+又因为按构造可知$W$是$B$的不变子空间，故$W$上必有$B$的特征向量$\bvec{u}$，此即为所求。
+
+\textbf{证毕}。
+
+
+
+由\autoref{lem_NmOpt_1} 显然可知如下推论：
+
+\begin{corollary}{算子交换则有公共特征向量}
+
+给定$n$维酉空间$U$上的有限多个线性变换$A_1, A_2, \cdots, A_k$，则存在它们的公共特征向量。
+
+\end{corollary}
+
+
+
+利用\autoref{lem_NmOpt_1} ，还可以得到正规算子的对角化：
+
+
+\begin{theorem}{正规算子必能正交对角化}
+给定$n$维酉空间$U$上的线性变换$A$，若$AA^\dagger = A^\dagger A$，则存在一组标准正交基$\{\bvec{e}_i\}_{i=1}^n$，使得$A$的矩阵是对角矩阵。
+\end{theorem}
+
+\textbf{证明}：
+
+据\autoref{lem_NmOpt_1} ，可以取$A$和$A^\dagger$的一个模长为$1$的公共特征向量$\bvec{e}_1$，将其拓展为一组标准正交基，则在这组基下$A$和$A^\dagger$的矩阵的第一列第一行不为零，第一列其它行都为零。又因为标准正交基下$A$和$A^\dagger$的矩阵互为“转置后取共轭”，因此可知两个矩阵的第一行第一列不为零，第一行其它列都为零。
+
+这意味着，可以通过以酉矩阵为正交矩阵的相似变换，将$A$和$A^\dagger$的矩阵t
+
+\textbf{证毕}。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
