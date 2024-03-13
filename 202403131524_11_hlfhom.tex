@@ -1,0 +1,24 @@
+% 半同态
+% license Usr
+% type Tutor
+
+\begin{definition}{}
+$f:R_1\rightarrow R_2$是两个环之间的映射。对于任意$a,b\in R_1$有：
+\begin{equation}
+\left\{\begin{array}{c}
+f(a+b)=f(a)+f(b) \\
+f(a b)=f(b) (a)
+\end{array}\right.
+~,\end{equation}
+则称$f$是\textbf{反同态}。
+
+若映射$f$保环加法不变，$f(ab)=f(a)f(b)$或$f(b)f(a)$，则称$f$是\textbf{半同态}。
+\end{definition}
+\begin{theorem}{华罗庚半同态定理}
+给定环$R_1,R_2$及半同态$f$，$f$要么是同态，要么是反同态。
+\end{theorem}
+\textbf{证明：}
+
+设$r\in R_1$，$S_1=\{a\in R_1|f(ar)=f(a)f(r)\},S_2=\{a\in R_1|f(ar)=f(r)f(a)\}$，则$R_1=S_1\cup S_2$。
+
+可证$S_1$是$R_1$的子群。设任意$a_1,a_2\in S_1$，则$f((a_1-a_2)r)=f(a_1r)-f(a_2r)=f(a_1-a_2)f(r)$，同理$S_2$也是$R_1$的子群。若$a_1\in S_1-S_2,a_2\in S_2-S_1$，则在$S_1$的视角里，$a_1-a_2\in$
