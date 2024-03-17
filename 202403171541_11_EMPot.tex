@@ -1,0 +1,50 @@
+% 电磁场标势和矢势
+% keys 法拉第电磁感应|麦克斯韦方程组
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{法拉第电磁感应\nref{nod_FaraEB}， 磁矢势\nref{nod_BvecA}}{nod_5de1}
+
+经典电动力学中， 可以用标量势 $\varphi(\bvec r, t)$ 和矢量势 $\bvec A(\bvec r, t)$ 表示电磁场，使一些计算更为方便：
+\begin{equation}\label{eq_EMPot_1}
+\bvec E = -\grad \varphi - \pdv{\bvec A}{t}~.
+\end{equation}
+\begin{equation}\label{eq_EMPot_2}
+\bvec B = \curl \bvec A~.
+\end{equation}
+
+\subsection{推导}
+首先定义 $\bvec A$， 则由法拉第电磁感应定律（\autoref{eq_MWEq_2}~\upref{MWEq}）
+\begin{equation}
+\curl \qty(\bvec E + \pdv{\bvec A}{t}) = \curl \bvec E + \pdv{\bvec B}{t} = \bvec 0~.
+\end{equation}
+这说明括号中的矢量可以表示为一个标量函数的梯度，即标势 $\varphi$， 负号是为了在静电场的情况下使得标势等于电势。
+\subsection{应用}
+\subsubsection{麦克斯韦方程组}
+将\autoref{eq_EMPot_1} 和\autoref{eq_EMPot_2} 代入麦克斯韦方程组可以得到两条与麦克斯韦方程组等效的方程
+\begin{equation}\label{eq_EMPot_4}
+\laplacian \varphi + \pdv{t} (\div \bvec A) = -\frac{\rho}{\epsilon_0}~,
+\end{equation}
+\begin{equation}\label{eq_EMPot_5}
+\qty(\laplacian \bvec A - \mu_0\epsilon_0 \pdv[2]{\bvec A}{t}) - \grad \qty(\div \bvec A + \mu_0\epsilon_0 \pdv{\varphi}{t}) = -\mu_0\bvec J~.
+\end{equation}
+这两条方程可以根据规范条件的选取进行简化。
+\subsubsection{带电粒子在电磁场中运动}
+速度为$\bvec v$，电荷量为$q$的粒子在电磁场中会受到广义洛伦兹力：
+\begin{equation}\label{eq_EMPot_3}
+\bvec F=q\bvec E+q\bvec v \times \bvec B
+~,\end{equation}
+由$\grad \cdot \bvec A\neq 0$可知，洛伦兹力不是保守力。那么该粒子的拉格朗日方程为：
+\begin{equation}
+\frac{\mathrm{d}}{\mathrm{d} t} \frac{\partial T}{\partial \dot{q}_a}-\frac{\partial T}{\partial q_a}=F_a~.
+\end{equation}
+但若能把广义力表示为势能函数：$\bvec F_{\alpha}=\frac{\partial U}{\partial q_{\alpha}}+\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial U}{\partial q_{\alpha}}$，我们就能得到形式上的保守系中拉格朗日方程,同时得到电磁场中带电粒子的广义势能和拉格朗日量。
+
+采用直角坐标系，由\autoref{eq_EMPot_3} 得：$\bvec F_x=q\bvec E_x+q\bvec v_y\bvec B_z-q\bvec v_z\bvec B_y$。代入标势和矢势得：
+\begin{equation}
+\bvec F_x=-q\frac{\partial \phi}{\partial x}-q\frac{\partial \bvec A_x}{\partial t}+q\bvec v_y(\frac{\partial \bvec A_y}{\partial x}-q\bvec v_y\bvec B_z))~,
+\end{equation}
