@@ -1,0 +1,52 @@
+% 随机存储器
+% keys 随机存储器|随机存取存储器|内存
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\subsection{随机存储器(Random Access Memory, RAM)}
+
+随机存储器（Random Access Memory, RAM）是一种可读可写的存储器，其任何一个存储单元都是可以随机存取的，而且存取时间与单元的物理位置无关。
+
+计算机系统的主存储器通常都是采用随机存储器。根据信息存储的物理原理，又可以分为静态随机存储器（SRAM）和动态存储器（DRAM）。
+
+一个SRAM基本单元有0 和 1两个电平稳定状态。SRAM基本单元由两个CMOS反相器组成。两个反相器的输入、输出交叉连接，即第一个反相器的输出连接第二个反相器的输入，第二个反相器的输出连接第一个反相器的输入。这就能实现两个反相器的输出状态的锁定、保存，即储存了1个比特的状态。
+
+\subsection{SRAM}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/87070ace2adbda7b.png}
+\caption{六管SRAM存储单元示意图} \label{fig_RAM_3}
+\end{figure}
+
+
+静态随机访问存储器（Static random-access memory，SRAM）
+
+
+SRAM的Static：只要保持通电，存储的数据就可以恒常保持
+
+但是SRAM用了太多MOS管，而且总有两个MOS管饱和导通，占空间，功耗大。而且地址线多，导致不能做太大。
+
+作为x86等微处理器的缓存（如L1、L2、L3）
+作为寄存器
+
+
+\subsection{DRAM}
+
+通常我们俗称为内存，而我们使用的内存条全称叫做，
+
+
+\subsection{NVRAM}
+
+我们上述所说的内存介质都需要通电来维持数据，这些存储器都属于易失性存储器。然而NVRAM（）
+
+
+
+参考文献：
+\begin{enumerate}
+\item 唐朔飞。 计算机组成原理[M]. 高等教育出版社。 2008
+\end{enumerate}
