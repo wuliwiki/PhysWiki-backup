@@ -1,0 +1,18 @@
+% 蒙特卡洛树搜索算法
+% keys 蒙特卡洛|搜索
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\issueTODO
+\end{issues}
+
+% 暂且把 UCB 与 蒙特卡洛树搜索算法 合并，如果需要可以单开一篇详细介绍 UCB。
+
+蒙特卡洛树是一种不同于 Alpha-Beta 剪枝的优化搜索方法。他与 Alpha-Beta 剪枝相比，更好的适用于诸如围棋一类的大型对弈游戏。但与 Alpha-Beta 剪枝相比，由于过程中采用蒙特卡洛方法（可以理解为抽样检测），搜索的结果并不保证一定是最优解。
+
+值得一提的是，\textbf{蒙特卡洛树搜索算法不是蒙特卡洛算法}。
+
+\subsection{UCB 算法}
+UCB，upper confidence bound，置信度上界，是学习蒙特卡洛树搜索算法中的q

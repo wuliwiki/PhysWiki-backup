@@ -1,0 +1,26 @@
+% 双线性函数
+% license Usr
+% type Tutor
+本文采用爱因斯坦求和约定。
+
+\begin{definition}{}
+设$V$是域$\mathbb F$上的线性空间，映射$f:V\times V\rightarrow\mathbb F$若满足对于任意$\bvec x,\bvec y,\bvec z \in V,a,b\in \mathbb F$有：
+\begin{equation}
+\begin{aligned}
+f(a\bvec x+b\bvec y,\bvec z)&=af(\bvec x,\bvec z)+bf(\bvec y,\bvec z)=0\\
+f(\bvec z,a\bvec x+b\bvec y)&=af(\bvec z,\bvec  x)+bf(\bvec z,\bvec y)=0
+\end{aligned}~,
+\end{equation}
+则称$f$是$V$上的一个双线性函数。
+\end{definition}
+
+显然，当固定一个向量不变时，双线性函数就是$V$上的一个线性函数。
+
+双线性函数可以用矩阵表示。设$\{\bvec e_i\}$为$V$上的一组基，任意向量$\bvec x=a^i\bvec e_i,\bvec y=b^i\bvec e_i$，则$f(a^i\bvec e_i,b^j\bvec e_j)=a^ib^jf(\bvec e_i,\bvec e_j)=\bvec x^TA\bvec y$。
+\begin{example}{}
+\begin{equation}
+\bvec x^TA\bvec y=\begin{pmatrix}
+  &  &
+\end{pmatrix}
+\end{equation}
+\end{example}
