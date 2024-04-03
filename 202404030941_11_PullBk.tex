@@ -1,0 +1,23 @@
+% 拉回映射
+% license Usr
+% type Tutor
+\pentry{伴随映射\nref{nod_AdjMap}}{nod_712c}
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+设$f:M\rightarrow N$是光滑映射，则可以定义切空间之间前推映射：
+\begin{equation}
+f_*: T_p M\rightarrow T_{f(p)}N~,
+\end{equation}
+切空间是线性空间，因此可以诱导其对偶空间上的伴随映射（或称对偶映射）。简写该伴随映射为$f^*$：
+\begin{equation}
+f^*\equiv(f_*)^*:\,T^*_f(p)N\rightarrow T_p^*M~,
+\end{equation}
+使得其满足伴随映射的基本定义，即对于任意$X\in T_p M,\eta\in T^*_{f(p)}N$有：
+\begin{equation}
+f^*(\eta)X=f^*(X)\eta~.
+\end{equation}
+易证伴随映射是线性的。
+\subsubsection{微分形式的拉回}
