@@ -1,0 +1,261 @@
+% SQLite C/C++ API 笔记
+% license Xiao
+% type Note
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{SQL 基础笔记\nref{nod_SQLnt}}{nod_dab3}
+
+这里介绍官方的 C API， 可以在 C 或者 C++ 中调用。 如果想要更方便的 C++ wrapper， 可以见 \href{https://github.com/SRombauts/SQLiteCpp}{SQLiteCpp}。
+
+\subsection{安装}
+ubuntu 上用 \verb|sudo apt install libsqlite3-dev| 安装
+
+另外安装命令行工具 \verb|sudo apt install sqlite3|
+
+\subsection{例子}
+参考\href{https://www.tutorialspoint.com/sqlite/sqlite_c_cpp.htm}{这里}。 注意所有的数据必须先转换成字符串才能加到数据库中。
+\begin{lstlisting}[language=cpp]
+#include <iostream>
+#include <sqlite3.h>
+
+void test_sqlite()
+{
+	using namespace slisc;
+#ifdef SLS_USE_SQLITE
+	sqlite3* DB;
+	int exit;
+	file_remove("example.db");
+	exit = sqlite3_open("example.db", &DB);
+	if (exit) {
+		cout << sqlite3_errmsg(DB) << endl;
+		SLS_ERR("Error open DB!");
+	}
+	char* messaggeError;
+	string sql = "CREATE TABLE PERSON("
+					  "ID       INT     PRIMARY KEY  NOT NULL, "
+					  "NAME     TEXT    NOT NULL, "
+					  "SURNAME  TEXT    NOT NULL, "
+					  "AGE      INT     NOT NULL, "
+					  "ADDRESS  CHAR(50), "
+					  "SALARY   REAL );";
+	exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
+	if (exit != SQLITE_OK) {
+		SLS_ERR("Error Create Table");
+		sqlite3_free(messaggeError);
+	}
+
+	sql = "INSERT INTO PERSON"
+					  "(ID, NAME, SURNAME, AGE, ADDRESS, SALARY)"
+					  " VALUES "
+					  "(0, 'Addis', 'Chen', 30, 'ABC Rd,
+                          Manhattan, NY, 12345', 1500.03);"
+		   "INSERT INTO PERSON"
+					  " VALUES "
+					  "(1, 'Bob', 'Chen', 31, 'DEF Ave,
+                          Manhattan, NY, 12345', 4500.03);";
+	exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
+	if (exit != SQLITE_OK) {
+		SLS_ERR("Error Inserting Table :" + Str(messaggeError));
+		sqlite3_free(messaggeError);
+	}
+
+	sqlite3_close(DB);
+#else
+	cout << "---------- disabled! ----------" << endl;
+#endif
+}
+\end{lstlisting}
+
+另一个挺有用的小程序是（修改自\href{https://www.sqlite.org/quickstart.html}{官方教程}）， 可以在命令行对任意数据库文件执行任意 SQL 命令。 编译： \verb|g++ -o sqcmd sqcmd.cpp -l sqlite3|。 使用方法如 \verb|./sqcmd example.db "SELECT * FROM PERSON"|
+\begin{lstlisting}[language=cpp]
+#include <stdio.h>
+#include <sqlite3.h>
+
+static int callback(void *NotUsed, int argc, char **argv, char **col_name){
+  int i;
+  for(i=0; i<argc; i++){
+    printf("%s = %s\n", col_name[i], argv[i] ? argv[i] : "NULL");
+  }
+  printf("\n");
+  return 0;
+}
+
+int main(int argc, char **argv){
+  sqlite3 *db;
+  char *zErrMsg = 0;
+  int ret;
+
+  if( argc!=3 ){
+    fprintf(stderr, "Usage: %s DATABASE SQL-STATEMENT\n", argv[0]);
+    return(1);
+  }
+  ret = sqlite3_open(argv[1], &db);
+  if( ret ){
+    fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+    sqlite3_close(db);
+    return(1);
+  }
+  ret = sqlite3_exec(db, argv[2], callback, 0, &zErrMsg);
+  if( ret!=SQLITE_OK ){
+    fprintf(stderr, "SQL error: %s\n", zErrMsg);
+    sqlite3_free(zErrMsg);
+  }
+  sqlite3_close(db);
+  return 0;
+}
+\end{lstlisting}
+
+sqlite3 的数据库文件是二进制的， 可以用 \verb|sqlite3| 命令行 dump 出一个通用的文本文件
+\begin{lstlisting}[language=none]
+sqlite> .output example.sql
+sqlite> .dump
+sqlite> .exit
+\end{lstlisting}
+
+\begin{itemize}
+\item 如果对一个字符串类型的列读取数值类型，sqlite 会尽力转换， 如果合法的数值字符串后面有字母，字母会被忽略
+\end{itemize}
+
+
+\subsection{binding}
+当然也不需要把所有数据类型都转换成 string 那么蠢。 这就要用到 binding， 参考\href{https://www.sqlite.org/c3ref/bind_blob.html}{这里}。
+\begin{itemize}
+\item 事实上 \verb|sqlite3_exec()| 命令是调用一系列命令， 如果用 binding， 就必须把它们分开用。
+\item 首先用 \verb|sqlite3_stmt stmt;| 创建一个 statement object。
+\item 然后把 sql 命令 \verb|str| parse 为 \verb|stmt|： \verb|ret = sqlite3_prepare_v2(db, str.c_str(), str.size()+1, &stmt, NULL);|。 这里 \verb|str| 中的数据可以用 \verb|?| 或者 \verb|?编号| 代替， 以后再 bind 到不同的数据上。 这样就不需要每换一次数据都要重新 parse 一次。
+\item 注意只有数据可以用 \verb|?| 代替， \verb|表名| 和 \verb|列名| 不可以。
+\item 不可以对字符串用 \verb|'?'|， \verb|sqlite3_prepare| 会自己添加。 如果用了就会错。
+\item \verb|int sqlite3_bind_parameter_count(stmt)| 可以返回 \verb|?| 的个数。
+\item \verb|ret = sqlite3_bind_text(stmt, 问号的编号, names[i].c_str(), names[i].size(), SQLITE_STATIC);| 用于把字符串 bind 到指定的问号上。 如果问号没有指定编号则从左到右从 1 开始。
+\item \verb|SQLITE_STATIC| 的意思是假设字符串写入数据库之前都不会改变， 如果会， 就用 \verb|SQLITE_TRANSIENT|， 这样 \verb|stmt| 会立即把字符串复制下来。
+\item \verb|ret = sqlite3_bind_text(stmt, 问号的编号, int);| 用于把整数 bind 到指定的问号上。
+\item bind 好之后用 \verb|ret = sqlite3_step(stmt)| 来执行， 当 statement 不是 query 时返回 \verb|SQLITE_DONE|； 是 query 时返回 \verb|SQLITE_ROW|， 每调用一次返回一行。
+\item \verb|int sqlite3_column_type(stmt, 从0开始的列编号)| 可以查看类型， 类型有 \verb|SQLITE_INTEGER, SQLITE_FLOAT, SQLITE_TEXT, SQLITE_BLOB, SQLITE_NULL|。
+\item 要查看 query 的结果， \verb|sqlite3_column_int(stmt, 从0开始的列编号)| 获取当前返回行的某个整数类型的列
+\item \verb|(char*)sqlite3_column_text(stmt, 从0开始的列编号)| 同理获得字符串类型
+\item 最后用 \verb|sqlite3_finalize(stmt);| 释放内存。
+\item 每次操作完， \verb|int sqlite3_changes(db)| 可以获取改变的行数。
+\end{itemize}
+
+
+\subsection{sqlite3 命令}
+\begin{itemize}
+\item \verb|.headers on| 可以让 \verb|SELECT| 的结果显示各列名称。
+\item \verb|.mode column| 可以更好的对齐列。
+\item 字符串列若超出长度会被截断， 用 \verb`.width 20 20 20 ...` 可以规定每列的显示宽度。
+\item 给表改名 \verb|ALTER TABLE "表名" RENAME TO "新表名"|
+\item 迁移数据 \verb|INSERT INTO "新表" SELECT * FROM "老表" WHERE ...;| \verb`INSERT INTO "新表" (id, column1, column2, new_column) SELECT id, column1, column2, NULL FROM "老表";`
+\item 结合以上两条可以给表增添或者删除列（老版本 \verb|sqlite| 不支持）
+\item 要查看表的信息， \verb`SELECT sql FROM sqlite_master WHERE tbl_name = '表名' AND type = 'table';
+`
+\item \verb|sqlite3| 是一个命令行程序， 可以手动输入 SQL 命令来操作 sqlite 数据库。
+\item \verb|sqlite3 文件.db| 可以打开二进制的 sqlite3 数据库文件。
+\item \verb|sqlite3| 命令行中的 \verb|VACUUM| 命令可以重建数据库， 让它尺寸更小， 一些操作更快。
+\item \verb|Ctrl+D| 或者 \verb|.quit| 可以退出。 \verb|.| 开头的命令是 \verb|sqlite3| 自己的命令而不是 SQL 命令。
+\item 更简单地也可以用 \verb|sqlite3 文件.db "命令; 命令;..."| 直接执行命令不进入 sqlite3 命令行。
+\item \verb|sqlite3 文件.db .dump > 文件.sql| 可以把二进制数据库 dump 成 SQL 命令的文本文件。 用这些命令可以重建该数据库。
+\item 相反， 可以 \verb|sqlite3 文件.db < 文件.sql| 由 \verb|sql| 命令生成数据库（如果 \verb|文件.db| 不存在）。 如果存在， 就打开 \verb|文件.db| 运行 \verb|文件.sql| 中的命令。 等效地也可以用 \verb|sqlite3 文件.db "命令"|。
+\item \verb|SQLite| 不支持删除一列， 需要重新创建新表格， 把需要的列复制进去然后删除旧表格再重命名。
+\begin{lstlisting}[language=none]
+CREATE TABLE 新表名 (...);
+
+INSERT INTO 新表名 (列1, 列2, ...)
+SELECT 列1, 列2, ... FROM 旧表名;
+
+DROP TABLE 旧表名;
+ALTER TABLE 新表名 RENAME TO 旧表名;
+\end{lstlisting}
+\item 默认情况下， sqlite3 的 \verb|INSERT| 命令不检查 \verb|FOREIGN KEY| 是否存在。 要检查， 每次打开文件都要用 \verb|PRAGMA foreign_keys = ON;|
+\item \verb|PRAGMA busy_timeout = 5000;| 可以在数据库被占用时等待 5 秒。
+\end{itemize}
+
+\subsection{GUI 浏览器}
+\begin{itemize}
+\item DB Browser for SQLite 是一个比较简单的 GUI 工具， win/mac/linux 都兼容， 可以直接在 snap store 里面安装。 也可以从\href{https://sqlitebrowser.org/dl/}{官网下载}。
+\item \href{https://sqlitestudio.pl/}{SQLiteStudio} 有更多特性和更漂亮的界面， 无需安装。
+\end{itemize}
+
+\subsection{SQLiteCpp 库（第三方）}
+
+\begin{itemize}
+\item Cpp 推荐使用这个，比 C 接口方便很多。
+\item \href{https://github.com/SRombauts/SQLiteCpp}{GitHub 官网}。
+\item 打开数据库，若只读用 \verb|SQLite::Database db_rw(文件路径, SQLite::OPEN_READONLY);|
+\item 若读写， 用 \verb`SQLite::OPEN_READWRITE`。 若用 \verb`SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE`， 则当文件不存在时会自动创建。
+\end{itemize}
+
+\subsection{关于锁}
+\begin{itemize}
+\item 使用读写模式打开数据库并不会给数据库上锁， 只有当 \verb|BEGIN TRANSACTION| 到 \verb|COMMIT| 之间会上锁。 如果没有使用 transaction， 就只有执行写入命令的时候会上锁。
+\item 事实上 sqlite 鼓励整个程序只打开一次数据库， 程序结束再关上。 中见需要写入的时候就开 transaction， 每次用完马上 commit。
+\end{itemize}
+
+\subsection{CRUD 之繁琐}\label{sub_SQLite_1}
+\textbf{CRUD（create, read, update, delete）} 总的来说是一件很繁琐的事情。
+
+例如很常见的一个情况是，想把数据库的某个表中所有（或满足某个条件的）记录删除再重新写入新的版本。 但这样会导致程序很慢，尤其是如果有很多记录且新版本只修改了少数几条记录。另一个坏处就是会导致 dump 出来的 sql 文本文件有大量改动，即使一模一样的记录 dump 后位置也会改变，不利于版本管理。 sqlite 没有一个稳定的 dump 算法，需要借助第三方工具。
+
+高性能的做法需要复杂得多的编程： 首先把整个表读到程序中（读比写快得多）， 在程序中鉴定三种情况：\textbf{新记录}、\textbf{要更改的记录}、\textbf{要删除的记录}。 然后把使用 \verb`INSERT`， \verb`UPDATE`， \verb`DELETE` 三种不同的命令分别处理。 如果要把这个过程通过函数模板实现则更难。
+
+更优化的做法是先读所有 primary key 用于判断哪些被删除，检查记录是否改变时再读其他字段进行对比。
+
+sqlite 提供 \verb`INSERT OR UPDATE`， 但没有做优化，以至于即使记录一模一样也会重新写一遍数据，速度仍然慢且同样导致 dump 不稳定。 而且无法判断哪些记录被删除。
+
+一个伪代码草稿（使用 SQLiteCPP）：
+\begin{lstlisting}[language=cpp]
+// delete a table (or sub table satisfying a condition)
+    // and insert new records are slow, when there are lots of
+	// unchanged records
+// this is a optimized version
+
+template <class Tdat, class Trec, class Tpk>
+// Trec is a tuple, one element of Tdat
+inline void update_table(
+	Str_I table, vecStr_I columns, Str_I condition,
+	Long_I primary_key1, Long_I primary_key2,
+	const Tdat &data, // new records: container of tuple that's iterable
+	// (e.g. unordered_map, map, vector, set, ...)
+	// assuming `data` doesn't have repeated primary keys
+	// assuming `data` satisfy `condition`
+	SQLite::Database &db_rw
+) {
+	SQLite::Statement stmt_select(db_rw,
+		R"(SELECT primary_key1, primary_key2 FROM table WHERE condition;)");
+	SQLite::Statement stmt_insert(db_rw,
+		R"(INSERT INTO table (col1, col2, ...) VALUES (val1, val2, ...);)");
+	SQLite::Statement stmt_update(db_rw,
+	    R"(UPDATE table SET col1=?, col2=?, ...;)");
+	SQLite::Statement stmt_delete(db_rw,
+	    R"(DELETE FROM table WHERE primary_key1=? AND primary_key2=?;)");
+
+	unordered_set<Tpk> deleted;
+	unordered_map<Trec> data_db;
+	
+	while (stmt_select.executeStep()) {
+		deleted.insert(make_tuple(stmt_select.getColumn(primary_key1_ind), 
+			stmt_select.getColumn(primary_key2_ind)))
+	}
+
+	for (auto &record : data) {
+		Tpk pk = make_tuple(record.key1, record.key2);
+		if (!deleted.count(pk)) {
+			// insert
+		}
+		else { // record exist
+			deleted.erase(pk);
+			// get all columns of record
+			// check change
+			if (/*changed*/) {
+				// update record
+			}
+		}
+	}
+
+	for (auto &pk : deleted) {
+		// delete record
+	}
+}
+\end{lstlisting}
