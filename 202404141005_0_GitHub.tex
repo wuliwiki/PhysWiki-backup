@@ -1,0 +1,68 @@
+% Git 和 GitHub 入门
+% keys 代码管理|Github|git|Github Desktop
+% license Xiao
+% type Tutor
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\subsection{Git 的版本管理}
+Git 是一个文件版本控制程序， 通常用于管理程序代码， 但也可以用来管理任何文件。 通俗来说， Git 类似于一个备份软件， 它可以保存一个指定的文件夹在许多不同时间的快照，而且可以浏览、对比、恢复这些快照。 这样一个被 Git 管理的文件夹叫做 \textbf{Git 仓库（repository）}， 简称 \textbf{repo}，他的每个快照叫做一个\textbf{提交（commit）}。你可以给每次 commit 通过标题命名，并写一个简短的描述。
+
+% \addTODO{注意可查看变化的仅限文本文档（例如 txt 文件，以及代码源文件等）， 二进制文件如 word 和 excel 等可以通过插件先自动转换为文本文档再做对比。}
+
+Git 一旦 commit，它将可以保证仓库中每个文件的任何细微的改变（包括文件名、文件位置）都可以被检测到。你可以用 Git 实时查看相对于最近一次 commit 哪些文件发生了改变，以及改变了什么内容。
+
+在进一步了解 Git 以前，
+
+\subsection{Git 的分支}
+Git 还可以给仓库创造不同的\textbf{分支（branch）}，例如你使用一个 Git 仓库管理自己的简历。每写一部分就做一次 commit，这些 commit 按时间顺序连成一串就是一个分支。通常第一个分支默认的名字是 \verb`master`。 但一段时间后如果你需要把简历修改出稍有不同版本。如果没有 Git，一般的做法是把文件或文件夹复制粘贴多个，然后命名为诸如 \verb`简历-版本1`， \verb`简历-版本2` 然后逐一修改。 但如果你每个版本都需要不断修改更新并保存历史快照，或者你需要给所有版本都进行某种修改，将很容易产生混乱。 如果你用 Git，那么你可以基于某次 commit 创建多个分支。每个分支从此以后都会拥有只属于自己的一串 commit。一个分支也可以把别的分支发生的某些改变直接应用到自己当前分支的 commit 而不需要手动再改一次。在你电脑上，具有多个分支的仓库仍然只是一个文件夹，但你可以随时把文件夹中的内容从一个分支切换到另一个分支。
+% \addTODO{画图}
+
+\subsection{Git 的联网协作}
+如果一个 Git 仓库需要多人分别在自己的电脑上修改，或者同一人在不同电脑上修改，那么就需要使用联网功能。 这时 Git 可以发挥类似于同步网盘的作用。例如你在电脑 A 上创建了一个 Git 仓库并进行了若干次 commit，你可以让 Git 把该仓库和它的所有 commit 上传到 \textbf{Git 服务器}。 然后在电脑 B 上可以把该仓库从服务器上\textbf{克隆（clone）}到硬盘。从此以后，无论哪台电脑产生新的 commit，都可以将其\textbf{推（push）}到服务器，然后在其他电脑将其\textbf{拉（pull）}下来。这样就实现了内容同步。通常来说，每次 push 和 pull 是手动的。为了避免冲突，不同的合作者也可以选择修改不同的分支，再定期把这些分支的变化\textbf{融合（merge）}到一个主分支上。
+
+Git 是一个开源免费的软件，并不存在一个 “官方” 的服务器。 要实现联网，要么自己搭建服务器，要么使用第三方\textbf{代码托管平台}。
+
+\href{https://github.com/}{GitHub} 是世界最大的代码托管平台，但因为众所周知的原因它经常无法从中国大陆正常访问。 而后者目前最大的托管平台是 \href{https://gitee.com/}{码云（Gitee）}，但规模和质量都和 GitHub 有较大差距。
+
+% 回收：主要用于编程项目的合作开发和下载（但也会有人用它分享整理一些文档和资料，或者作为个人网盘）。 虽然 Git 程序会把一个仓库的所有的数据保存在你的电脑上， 但它也可以设置一个或多个\textbf{服务器（remote）}， 并可以把该仓库的数据与服务器同步， 而 GitHub 就提供这样一个服务器。 把仓库托管到服务器上可以使数据在不同设备上同步， 进而可以方便不同的用户合作开发一个项目。 合作编辑时，每个设备上都保存该仓库， 且把服务器设置为 GitHub 上的同一仓库即可。
+
+严格来说 Git 本身是一个基于命令行的程序， 只能手动输入命令操作（详见 Git 命令行教程\upref{Git0}）。 虽然 Git 现在已经有了各种各样的图形界面（GUI）程序， 但命令行版本的功能仍然是最齐全的。 为了快速入门我们以下介绍 \textbf{GitHub Desktop}， 也就是 GitHub 官方的客户端。 虽然目前官方只发布 Windows 和 Mac 的\href{https://desktop.github.com/}{安装包}， 但 Linux 系统也可以下载\href{https://github.com/shiftkey/desktop/releases}{第三方安装包}。
+
+\subsection{用 GitHub Desktop 创建第一个仓库}
+在\href{https://desktop.github.com/}{官网}下载 GitHub Desktop 并安装打开， 可以登录或注册 GitHub 账号（如果你只想把它用于本地的仓库，则不需要账号或登录）。 注意 GitHub Enterprise 是企业账号， 个人账号是免费注册的。 % 注意免费账号只能建立公开仓库（public repo， 任何人都能访问或下载）， 创建私密仓库需要会员。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=13cm]{./figures/175f00b22d270213.png}
+\caption{GitHub Desktop 登录} \label{fig_GitHub_1}
+\end{figure}
+
+登录以后可以选择新建一个 repo 或者从 github 上 clone， 我们这里选择新建（如\autoref{fig_GitHub_2}）。 根据提示输入 repo 的名称 \verb|test|， 描述 \verb|learn to use GitHub Desktop|， 文件夹储存目录（默认是 \verb|Documents/GitHub/|）。 勾选 Initialize this repository with a README。 然后就可以确定了。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/7accfb368360ec66.png}
+\caption{新建仓库} \label{fig_GitHub_2}
+\end{figure}
+
+创建完后界面如\autoref{fig_GitHub_3} 所示
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/3ce87c8e4529502d.png}
+\caption{repo 主界面} \label{fig_GitHub_3}
+\end{figure}
+
+单击 History 可以看到左下角已经有一个 Initial commit 了， 所有的 commit 的历史可以在左上角的 History 找到。 点击 History 可以看到 Initial commit 中添加了两个文件， \verb|README.md| 和 \verb|.gitattributes|。 其中 \verb|README.md| 是一个文本文档， 可以添加 repo 的描述， 使用说明等。 \verb|.gitattributes| 文件用于对 Git 做一些设置， 例如如何处理换行\footnote{Windows 系统的换行使用 CR 和 LF 两个字符， 而 Linux 系统中只用一个 LF 字符。}。 如果新建 repo 的时候没有勾选 Initialize this repository with a README， 就不会有 Initial commit。 点击左上角的 Changes 返回刚才的界面。
+
+注意左下角有一个 Undo 按钮。 如果按下， Initial commit 将被撤销。 再来看右上角的 Push 按钮， 这个按钮用于把新增的 commit 上传（即 push）到 GitHub。 由于我们从来没有 push 过， 现在打开 GitHub 网站是看不到刚刚创建的项目的。 按下 push， 完成后再刷新浏览器就可以在 GitHub 看到了。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/28b0de3d116e69b6.png}
+\caption{GitHub 网站上查看 repo} \label{fig_GitHub_5}
+\end{figure}
+
+\subsection{Commit}
+\addTODO{基本操作和概念}
+\addTODO{...}
