@@ -1,0 +1,22 @@
+% 欧拉函数（数论）
+% keys 数论|欧拉函数
+% license Usr
+% type Tutor
+
+\pentry{数论函数\nref{nod_NumFun}}{nod_24cb}
+
+前面在数论函数中已经提到过欧拉函数，但欧拉函数相关内容很丰富，下面做一些展开。
+首先回顾欧拉函数（Euler's Function/Euler's Totient Function）的定义：
+\begin{definition}{欧拉函数}
+欧拉函数 $\varphi(n)$ 表示 $n$ 以内的非零自然数中与 $n$ 互质的数的个数。也可以表示为，
+$$\varphi(n) = \sum_{1 \le d \le n, \gcd(d, n) = 1} 1  ~.$$
+其中 $\gcd$ 为求最大公约数，故可以用 $\gcd(d, n)=1$ 表示要求 $d$ 与 $n$ 互质。
+\end{definition}
+
+\subsection{素数与素数幂次的欧拉函数}
+考察一个数论函数，我们经常按如下顺序考察：
+\begin{enumerate}
+\item 素数，
+\item 素数幂，
+\item 非零自然数。
+\end{enumerate}
