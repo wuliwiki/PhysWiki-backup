@@ -1,0 +1,28 @@
+% 蒙特卡洛树搜索算法（实现 TicTacToe 机-机对战）
+% keys 蒙特卡洛树搜索算法
+% license Usr
+% type Tutor
+
+\pentry{蒙特卡洛树搜索算法（理论）\nref{nod_MCTS}}{nod_d3cd}
+
+前面已经讨论过蒙特卡洛树搜索算法的理论，下面通过一个例题进行实战练习，利于我们更深入地理解这算法。
+
+\begin{example}{}
+使用蒙特卡洛树搜索算法实现一个\textbf{机器 vs. 机器}的 Tic-Tac-Toe 井字棋对战游戏。Tic-Tac-Toe 有以下规则：
+\begin{enumerate}
+\item 井字棋棋盘是 $n \times n$ 的正方形网格棋盘，例如下面是一个有一些棋子的 $7 \times 7$ 的棋盘：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/4d8426da153f2ff1.png}
+\caption{棋盘例} \label{fig_MCTSci_2}
+\end{figure}
+\item 游戏的下法是有 $\cross$、$\bigcirc$ 两方，每次都可以在没有棋子的正方形内部落子。输赢定义为：最先有\textbf{连续} $m$ 个我方棋子出现的一方获胜。
+\item 连续的定义是：横向、纵向，或两个 $45\deg$ 对角线方向。
+\end{enumerate}
+
+你需要使得以下内容是\textbf{可以自定义}的：
+\begin{enumerate}
+\item 
+\end{enumerate}
+
+\end{example}
