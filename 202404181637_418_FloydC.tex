@@ -1,0 +1,25 @@
+% Floyd 判圈算法
+% keys Floyd|判环|判圈
+% license Usr
+% type Tutor
+
+Floyd 判圈算法的思想类似于快慢指针。原理是“龟兔赛跑”，慢指针每次向前移动 $1$ 步、快指针每次向前移动两步。如果两者在遍历链表的\textbf{过程中}相遇，则说明链表存在一个圈；如果快指针达到了链表的结尾（有尾则一定无环），说明链表无环。
+
+下面给出一个常见的实现方法：
+\begin{lstlisting}[language=cpp]
+bool hasCyc(ListNod* head) {
+    if(head == nullptr)  return false;
+    ListNod *slow = head, *fast = head;
+    fast = fast -> next;
+
+    while(fast != nullptr && fast -> next != nullptr) {
+        if(slow == fast)  return true;
+        slow = slow -> next;
+        fast = fast -> next -> next;
+    }
+    
+    return false;
+}
+\end{lstlisting}
+
+在pan

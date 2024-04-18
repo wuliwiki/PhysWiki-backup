@@ -1,0 +1,31 @@
+% Floyd 判圈算法
+% keys Floyd|判环|判圈
+% license Usr
+% type Tutor
+
+\subsection{Floyd 判圈算法}
+首先需要注意的一点，Floyd 判圈算法\textbf{不是} Floyd 全源最短路算法。Floyd 判圈算法是用来判断链表中是否有圈（或环）的存在的。
+
+Floyd 判圈算法（又称为 Floyd 判环算法或龟兔赛跑算法）的思想类似于快慢指针。原理是“龟兔赛跑”，慢指针每次向前移动 $1$ 步、快指针每次向前移动两步。如果两者在遍历链表的\textbf{过程中}相遇，则说明链表存在一个圈；如果快指针达到了链表的结尾（有尾则一定无环），说明链表无环。
+
+下面给出一个常见的实现方法：
+\begin{lstlisting}[language=cpp]
+bool hasCyc(ListNod* head) {
+    if(head == nullptr)  return false;
+    ListNod *slow = head, *fast = head;
+    fast = fast -> next;
+
+    while(fast != nullptr && fast -> next != nullptr) {
+        if(slow == fast)  return true;
+        slow = slow -> next;
+        fast = fast -> next -> next;
+    }
+    
+    return false;
+}
+\end{lstlisting}
+
+\subsection{Floyd 判圈算法的拓展}
+\subsubsection{求环的长度}
+在找到环后可以很容易地求出环的长度，固定 \verb`fast` 快指针不动，然后让 \verb`slow` 慢指针一直移动直到再与 \verb`fast` 快指针相遇，这移动的距离恰好就是环的长度。
+\subsubsection{求环的起点}
