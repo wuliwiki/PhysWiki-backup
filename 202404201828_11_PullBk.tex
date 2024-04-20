@@ -1,0 +1,140 @@
+% 拉回映射
+% license Xiao
+% type Tutor
+
+\pentry{伴随映射\nref{nod_AdjMap}}{nod_712c}
+
+\begin{issues}
+\issueDraft 
+1.预备知识需新增余切向量的外积。2.最后一条定理待证。
+\end{issues}
+
+设$f:M\rightarrow N$是光滑映射，则可以定义切空间之间前推映射：
+\begin{equation}
+f_*: T_p M\rightarrow T_{f(p)}N~,
+\end{equation}
+切空间是线性空间，因此可以诱导其对偶空间上的伴随映射（或称对偶映射）。简写该伴随映射为$f^*$：
+\begin{equation}
+f^*\equiv(f_*)^*:\,T^*_f(p)N\rightarrow T_p^*M~,
+\end{equation}
+使得其满足伴随映射的基本定义，即对于任意$X\in T_p M,\eta\in T^*_{f(p)}N$有：
+\begin{equation}
+f^*(\eta)X=f_*(X)\eta~.
+\end{equation}
+一般称如上定义的伴随映射为伴随$f$的\textbf{拉回（pull-back）}，以示其把$N$上的余切向量“拉回”到$M$上这一特点。
+
+既然拉回映射是把余切向量映射为余切向量，自然也可以拉回$N$上的余切向量场。
+\begin{lemma}{}\label{lem_PullBk_1}
+设$g\in C^{\infty }N,\sigma$是$N$上的光滑余切场，则有
+\begin{enumerate}
+\item $f^*(dg)=d(g\circ f).$
+\item $f^*(g\sigma)=(g\circ f)f^*\sigma$
+\end{enumerate}
+\end{lemma}
+\textbf{proof.}
+
+设任意$X\in T_pM$，由拉回定义得：$f^*(dg)X=dgf_*(X)$。又因为$f_*(X)$是$N$上的切向量，则由函数微分及前推的定义得：$dgf_*(X)=f_*(X)g=X(g\circ f)=d(g\circ f)X$，第一条得证；
+
+同理可证第二条如下：
+\begin{equation}
+\begin{aligned}
+f^*(g\sigma)|_pX&=(g\sigma)|_{f(p)}f_*(X)\\
+&=g|_{f(p)}f^*(\sigma)X\\
+&=(g\circ f)f^*(\sigma)X
+\end{aligned}
+~,
+\end{equation}
+
+\begin{theorem}{}
+伴随\textbf{光滑映射}的拉回映射把\textbf{光滑余切场}映射为光滑余切场。
+\end{theorem}
+\textbf{proof.}
+
+设$f:M\rightarrow N$为光滑映射，$\sigma$为$N$上的光滑余切场，$\{dy^i\}$为$N$上的局部余切基\footnote{$y^i:V\subset N\rightarrow R$是对应坐标卡的坐标函数}。则可以将光滑余切场表示为$\sigma=\sum_i\sigma_idy^i $，分量均为光滑函数。
+由\autoref{lem_PullBk_1} 得：
+\begin{equation}
+f^*(\sigma)=f^*(\sum_i\sigma_idy^i)=\sum_i(\sigma_i\circ f)f^*(dy^i)=\sum_i(\sigma_i\circ f)d(y^i\circ f)~,
+\end{equation}
+因为光滑映射的复合是光滑的，所以$f^*(\sigma)$是光滑的，得证。
+\subsubsection{张量场的拉回}
+类比余切向量场，我们可以定义张量场的拉回。如果流形间的映射和张量场都是光滑的，通过对应的拉回映射，我们可以得到另一个光滑张量场。
+\begin{definition}{}
+设$f:M\rightarrow N$为光滑映射，$\sigma$是$N$上的$k$阶光滑张量场。定义$f^*\sigma$使得：
+\begin{equation}
+f^*\sigma(X_1,X_2...X_k)=\sigma|_{f(p)}(f_*X_1,f_*X_2...,f_*X_k)~,
+\end{equation}
+称$f^*\sigma$为$\sigma$的拉回。
+\end{definition}
+\begin{exercise}{}
+设$F:M\rightarrow N$和$G:N\rightarrow P$都是光滑映射，$\sigma,\tau$分别是$N$上的$k$阶，$l$阶光滑张量场，$h\in C^{\inf}N$。证明下述结论：
+\begin{enumerate}
+\item 拉回映射$F^*$是$\mathbb R$\textbf{线性}及$C^{\infty }(N)$线性的。也就是说，对于任意$k\in \mathbb R,h$有：$F^*(k\sigma)=kF^*(\sigma),F^*(h\sigma)=h(F^*\sigma)$。
+\item 复合映射的拉回可以表示为拉回映射的\textbf{复合}。即：$(F\circ G)^{*}=G^*\circ F^*$。
+\item 单位映射的拉回还是单位映射。$\opn{Id}^*\tau=\tau$
+\end{enumerate}
+\end{exercise}
+\begin{exercise}{}
+证明：光滑张量场的拉回还是光滑的。
+
+提示：只需要证明其分量光滑即可。
+\end{exercise}
+
+\subsubsection{微分形式的拉回}
+作为交错张量，微分形式也是可以被拉回的。
+\begin{definition}{}
+设$f:M\rightarrow N$是光滑映射，$\omega$是$N$上的$k$次微分形式，则可以定义微分形式的拉回，使之也是微分形式，满足对于任意$M$上的一组切向量$(X_1,X_2...X_k)$有：
+\begin{equation}
+f^*(\omega)(X_1,X_2...X_k)=\omega(f_*(X_1),f_*(X_2)...f_*(X_k))~.
+\end{equation}
+\end{definition}
+由于微分形式的外积依然是微分形式，因此也可以被“拉回”。
+\begin{theorem}{}\label{the_PullBk_1}
+若$f:M\rightarrow N$是光滑的，$\omega,\eta$是$N$上的微分形式。那么有：
+\begin{enumerate}
+\item $f^*(\omega\wedge \eta)=f^*(\omega)\wedge f^*(\eta)$，即保微分形式的外代数同态。
+\item 给定一个$N$上的一个局部余切基$\{dy^{i_1}\}$，定义$k$形式$\omega$为$\omega=\sum_I\omega_I dy^{i_1}\wedge dy^{i_2}...\wedge dy^{i_k}$，则有：
+\begin{equation}
+f^*(\omega)=\sum_I (\omega_I\circ f)d(y^{i_1}\circ f)\wedge...d(y^{i_k}\circ f)~.
+\end{equation}
+\end{enumerate}
+\end{theorem}
+\textbf{proof.}
+
+因为楔积是双线性的，因此我们只需要证明第一条对微分形式的基成立即可。设$\omega$是$k$形式，对应的基为$\{\varepsilon^I\},I=\{i_1,i_2...i_k\}$，$\eta$是$l$形式，对应的基为$\{\varepsilon^J\},J=\{j_1,j_2...j_l\}$。简化左侧表达式为：
+\begin{equation}
+f^*(\varepsilon^I\wedge \varepsilon^J)(X_{1},X_{2}...X_{k+l})=\varepsilon^I\wedge \varepsilon^J(f_*(X_{1}),f_*(X_{2})...f_*(X_{k+l}))~.
+\end{equation}
+根据张量的外积定义，可简化右侧的表达式为：
+\begin{equation}
+\begin{aligned}
+f^*(\varepsilon^I)\wedge f^*(\varepsilon^J)(X_{1},X_{2}...X_{k+l})&=\frac{(k+l)!}{k!l!}\opn{Alt}(f^*(\varepsilon^I)\otimes f^*(\varepsilon^J))(X_{1},X_{2}...X_{k+l})\\
+&=\frac{1}{k!l!}\opn{sgn}\sigma^I\opn{sgn}\sigma^Jf^*(\varepsilon^I)(X_1,X_2...X_k)f^*(\sigma^J)(X_{k+1},X_{K+2}...X_{k+l})\\
+&=\opn{Alt}\varepsilon^I(f_*(X_1),f_*(X_2)...f_*(X_k))\opn{Alt}\varepsilon^J(f_*(X_1),f_*(X_2)...f_*(X_{k+l}))\\
+&=\varepsilon^I\wedge\varepsilon^J(f_*(X_{1}),f_*(X_{2})...f_*(X_{k+l}))~.
+\end{aligned}
+\end{equation}
+现证第二条。由第一条得：
+\begin{equation}
+f^*(\omega)=\sum_If^*(\omega_I dy^{i_1} )\wedge f^*(dy^{i_2})...\wedge f^*(dy^{i_k})~.
+\end{equation}
+
+因为$dy^{i_k}$是光滑余切场，由\autoref{lem_PullBk_1} 得：$f^*(\omega_I)dy^{i_1}=(\omega\circ f)d(y^{i_1}\circ f)$
+且$f^*(dy^{i_k})=d(y^{i_k}\circ f)$，代入上式即可得证。
+
+\begin{theorem}{}
+令$f:M\rightarrow N$是n维微分流形之间的光滑映射。设$\{x_i\}$为$U\subset M$上的局部坐标系，$\{y_i\}$是$V\subset N$上的局部坐标系，$u$是$V$上的光滑函数。那么在$U\cap F^{-1}(V)$上有：
+\begin{equation}
+f^*\left(u d y^1 \wedge \cdots \wedge d y^n\right)=(u \circ f) \operatorname{det}\left(\frac{\partial f^j}{\partial x^i}\right) d x^1 \wedge \cdots \wedge d x^n~.
+\end{equation}
+\end{theorem}
+\textbf{proof.}
+
+由\autoref{the_PullBk_1} 得：
+\begin{equation}\label{eq_PullBk_1}
+f^*\left(u d y^1 \wedge \cdots \wedge d y^n\right)=(u \circ f) df^1\wedge df^2\wedge ...\wedge  df^n~,
+\end{equation}
+又因为$df^i=\frac{\partial y^i}{\partial x^j}dx^j$，结合楔积的反对称性可知：
+\begin{equation}
+df^1\wedge df^2\wedge ...\wedge  df^n=\operatorname{det}\left(\frac{\partial f^j}{\partial x^i}\right) d x^1 \wedge \cdots \wedge d x^n~.
+\end{equation}
+代入\autoref{eq_PullBk_1} 得证。
