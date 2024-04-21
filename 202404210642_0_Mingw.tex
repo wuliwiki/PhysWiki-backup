@@ -1,0 +1,46 @@
+% MinGW-w64 和 MSYS2 笔记
+% license Xiao
+% type Note
+
+不同工具的比较
+\begin{itemize}
+\item \href{https://www.msys2.org/docs/what-is-msys2/}{msys 和 WSL， cygwin 等的对比}
+\item 无论是 MinGW 还是 MSYS，二进制可执行文件都是 Windows 原生的 exe/dll 等文件，在 Linux 上无法运行。
+\item WSL1/2 的可执行文件都是 Linux 的 ELF 文件，可以直接在 Linux 系统上运行，不能直接在 Windows 运行。
+\item 所以选用哪个取决于你开发出来的软件最终要在 Windows 系统还是 Linux 系统或 WSL 上跑。
+\item \verb`MinGW` 加 \verb`MSYS` 相当于一个轻量级的 \verb`Cygwin`，后者编译的软件xu'y
+\end{itemize}
+
+\subsection{MinGW}
+\begin{itemize}
+\item MinGW 只是在 Windows 上提供 GCC 和 GDB 等工具， 不包括 bash shell，\verb`cat, echo` 等命令。 MSYS 提供 bash shell 和 \verb`cat, echo` 等命令但本身不提供编译器。 所以二者通常一起使用。
+\item MinGW 仅支持 32-bit 程序， 现在一般用 \href{https://www.mingw-w64.org/}{MinGW-w64}， 既支持 32 也支持 64-bit
+\item 一个\href{https://www3.ntu.edu.sg/home/ehchua/programming/howto/Cygwin_HowTo.html}{教程}。
+\item \href{https://www.msys2.org/}{MSYS2} 是一个 windows 上的 bash shell 调用 MinGW-W64 来实现编译。 MSYS 最早是 Cygwin 的一个分支。
+\item 双击 \verb|mingw64.exe| 即可打开 mingw 命令行。 \verb|mingw64.exe| 所在的目录就是命令行的根目录。
+\item 可以检查 \verb|g++| 的版本。
+\item 用 \verb|g++| 编译程序以后， 会出现 \verb|a.exe| 而不是 \verb|a.out|。 这个执行文件是可以双击执行的， 但是运行完会马上退出。 可以在程序最后用 \verb|getchar()|。 也可以打开一个 cmd 命令行然后运行 \verb|a.exe|。 当然在 \verb|mingw64| 的命令行也可以执行。 另外执行时 \verb|.exe| 拓展名可以省略。
+\item mingw 不能使用 \verb|apt| 或类似的包管理软件， 一切库都要自己手动编译。 或者用 MinGW instellation 安装 32-bit 版本。 MSYS 上可以用 \verb|pacman|\upref{pacman}。
+\item \verb|MinGW instellation manager| 是一个 GUI 界面，可以下载安装编译好的 mingw 程序。 例如安装 \verb|mingw32-make|， 安装以后就和 \verb|make| 的用法一样。 注意该 manager 并不是一个通用的包管理软件， 里面的包基本还是围绕 GCC 的。
+\item \verb|c| 盘的目录为 \verb|/c|
+\item 如果创建 symlink 会直接复制文件（夹）而不是真的 link。
+\item \verb|g++| 中定义的宏有 \verb|__GNUC__|， \verb|__MINGW32__|， \verb|__MINGW64__|
+\item 编译动态链接库\upref{gppLib}的方法和 linux 中一样， 同样支持用 \verb|ldd| 查看动态程序的库依赖（\verb|dll| 和 \verb|so| 拓展名都会搜索到， 但建议用 \verb|dll|， 让其他 windows 程序也可以使用）。
+\begin{lstlisting}[language=bash]
+g++ -shared -o lib0.dll lib0.o
+g++ -shared -o lib1.dll lib1.o -L . -l 0
+g++ -c main.cpp
+g++ -o main.x main.o -l1 -L./ -Wl,-rpath,./
+\end{lstlisting}
+\end{itemize}
+
+\subsection{MSYS2}
+\begin{itemize}
+\item \href{https://www.msys2.org/}{官网}
+\item MSYS 让 linux 开发者可以开发在 Windows 上运行的软件。 WSL 制作的软件不能不安装 WSL 直接在 Windows 上运行。
+\item MSYS2 使用 Pacman\upref{pacman} 进行包管理， 和 Arch linux 一样。
+\item 所有可用的包在\href{https://packages.msys2.org/queue}{这里}查找。 名字一般和 \verb|apt| 命令中的不一样。
+\item 根目录在 \verb|C:\msys64\|， 和 mingw 一样可以用 \verb|/c| 访问 C 盘。
+\item 用 \verb|g++| 编译时， 宏 \verb|__MSYS__| 有定义， 而 \verb|__MINGW32__| 和 \verb|__MINGW64__| 没定义。
+\item \verb|pacman -S base-devel|
+\end{itemize}
