@@ -1,0 +1,24 @@
+% 网络代理（计算机网络课程）
+% license Xiao
+% type Tutor
+
+\subsubsection{方法}
+\begin{itemize}
+\item 手动设置 Proxy（通过控制面板）： \verb`Contrl Panel > Network and Internet > Internet Options > Connections > LAN settings`
+\item 手动设置 Proxy（通过 Win10 或以上的设置菜单）： \verb`Network & Internet > Proxy`
+\item \verb`Proxy Auto-Configuration (PAC)` 设置文件， \verb`Web Proxy Auto-Discovery Protocol (WPAD)`
+\item 通过设置\textbf{组策略}
+\item 命令行的 \verb`netsh`
+\end{itemize}
+
+\subsubsection{种类}
+\begin{itemize}
+\item HTTP/HTTPS Proxy
+\item FTP Proxy
+\item SOCKS Proxy (SOCKS4、 SOCKS5) 可以代理任意 TCP 和 UDP 连接。Windows 并不原生支持，但是浏览器一般支持，也就是浏览器直接把数据和第三方 proxy 软件交互而不是走系统的 http api。 一般来说其他软件如果想要支持也要专门给 SOCKS 做适配。 但 Proxifier 和一些客户端据说可以把一般应用的网络也通过 SOCKS 代理。
+\end{itemize}
+
+\subsubsection{应用可以选择不遵守系统 proxy}
+\begin{itemize}
+\item 如果 HTTP 请求使用 Windows API 例如 \verb`WinHTTP` or \verb`WinINET`， 那将受系统 proxy 控制。
+\end{itemize}
