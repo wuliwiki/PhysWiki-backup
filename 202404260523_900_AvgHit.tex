@@ -1,0 +1,49 @@
+% 分子平均碰壁数
+% keys 热力学|分子|碰撞|碰壁数
+% license Xiao
+% type Tutor
+
+\pentry{理想气体状态方程\nref{nod_PVnRT}}{nod_7b7d}
+
+我们来考虑理想气体， 即气体分子之间不发生相互作用。 当容器中的气体分子平均速度为 $\bar v$， 分子数密度（单位体积内的分子个数）为 $n$ 时，单位容器面积单位时间受到分子碰撞的平均次数为
+\begin{equation}
+\frac14 n\bar v~,
+\end{equation}
+这个结论与容器的形状无关。
+
+\subsection{简单的推导}
+
+假设所有分子的速度都是 $v$，分子数密度为 $n$ （单位体积内的分子数）。假设分子之间不发生碰撞。如果所有的分子都向同一个方向运动，那么单位时间通过面积为 $a$ 的垂直截面的分子数为 $nva$。 如果容器是一个球壳，那么球壳的一半会受到粒子的撞击，单位时间的撞击次数（碰撞率）等于单位时间粒子通过容器最大截面的个数（如图1），即 $nv \qty(\pi R^2)$。 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4cm]{./figures/f667d3c572f67c61.pdf}
+\caption{分子同向运动的情况} \label{fig_AvgHit_1}
+\end{figure}
+如果有一半的分子向右移动，一半向上移动（如图2），那么每个方向的分子数密度变为原来的一半，总的碰撞率仍为
+\begin{equation}
+\frac12 nv \qty(\pi R^2) + \frac12 nv \qty(\pi R^2) = nv \qty(\pi R^2)~.
+\end{equation}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4cm]{./figures/46038544d5755cd3.pdf}
+\caption{分子向两个方向运动的情况} \label{fig_AvgHit_2}
+\end{figure}
+依此类推，如果分子运动的方向被均匀分布在空间的各个方向上，单位时间碰撞数仍然是 $nv \qty(\pi R^2)$。
+由于球形容器的表面积为 $4\pi R^2$， 所以单位容器壁面积单位时间的碰撞数就是 $nv/4$。 
+
+接下来如果把球形容器改成任意形状的容器，由于分子运动在各个方向都是一样，所以结论不变。 另外，一般情况下并不是每个分子都具有相同的速度，所以速度取平均值 $v$ 即可。
+
+\subsection{积分推导}
+
+利用立体角\upref{SolAng} 对不同运动方向的分子数积分。设运动方向与截面法向量夹角为 $\theta$，那么在 $\dd\omega=\sin\dd\theta\dd\phi$ 所对应的方向上，单位时间内通过面积为 $a$ 的截面的分子数为 $n\bar v\cos\theta \frac{\dd\Omega}{4\pi}$。对 $\theta$ 从 $0$ 到 $\pi/2$ 积分，得到
+\begin{equation}
+\frac{1}{4\pi}\int_0^{2\pi}\dd\phi\int_0^{\pi/2}\sin\theta\dd\theta \cdot (n \bar v\cos\theta)=\frac{n\bar v}{2} \int_0^{\pi/2}\sin\theta\cos\theta \dd\theta = \frac{1}{4} n\bar v ~.
+\end{equation}
+
+特别地，如果考虑一个各向同性的光子气体，也就是说辐射场。每个光子的运动速度都为 $c$。假设频率为 $\nu$ 的辐射场能量密度（具体的定义见黑体辐射定律\upref{BBdLaw}）为 $S_\nu(\nu)$，那么单位面积上的能流辐射强度就是
+\begin{equation}
+J(\nu)=\frac{1}{4} S_\nu(\nu) c ~.
+\end{equation}
+这就是黑体辐射的 Stefan-Boltzmann 定律。

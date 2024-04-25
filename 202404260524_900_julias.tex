@@ -1,0 +1,41 @@
+% Julia 分形
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\issueMissDepend
+\end{issues}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Julia_set}{相关页面}} 这里给出一个 Julia 分形的演示程序，运行结果如\autoref{fig_julias_1}。
+
+\addTODO{说明未完成}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=9cm]{./figures/109b3fb0c4d13408.png}
+\caption{运行结果} \label{fig_julias_1}
+\end{figure}
+
+\begin{lstlisting}[language=matlab, caption=julia\_set.m]
+function julia_set
+close all;
+N = 1000;
+scale = 1.5;
+x = linspace(-1, 1, N); y = x;
+[X, Y] = ndgrid(x, y);
+I = julia2(X*scale, Y*scale);
+I(I > 1000) = 1000;
+surfCart(x, x, I);
+caxis([0, 500]);
+end
+
+function I = julia2(X, Y)
+    c = -0.8 + 0.15745i;
+    Z = X + 1i*Y;
+    for i=1:80
+        Z = Z .* Z + c;
+    end
+    I = abs(Z); % I = I/max(I(:));
+end
+\end{lstlisting}

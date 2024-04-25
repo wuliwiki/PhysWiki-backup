@@ -1,0 +1,253 @@
+% 布洛赫理论
+% keys 晶格|波函数|薛定谔方程|周期函数|bloch|布洛赫
+% license Xiao
+% type Tutor
+
+
+\pentry{定态薛定谔方程\nref{nod_SchEq}，倒格空间\nref{nod_RecLat}}{nod_e4da}
+
+在固体物理中，我们研究原子按一定规则排布而成的理想晶格，研究电子在一个具有晶格周期性的等效势场 $V(\bvec r)$ 中的运动。根据定态薛定谔方程，我们有
+\begin{equation}\label{eq_Bloch_4}
+H\psi=\qty[-\frac{\hbar^2}{2m}\nabla^2+V(\bvec r)] \psi = E\psi~,
+\end{equation}
+势场 $V(\bvec r)$ 满足周期性
+\begin{equation}
+V(\bvec r)=V(\bvec r+\bvec R_n)~,
+\end{equation}
+其中 $\bvec R_n$ 为任意晶格矢量。
+
+为了研究周期性势场下定态薛定谔方程的解，我们可以从最简单的一维薛定谔方程出发。
+
+\subsection{Bloch theory}
+\footnote{参考\cite{GriffQ}}\textbf{布洛赫（Bloch）}理论也叫 Floquet 理论，是由对称性得到的严格结论。它的内容可以表述如下：
+
+\begin{theorem}{Bloch theory I}
+周期势场$V(\bvec r) = V(\bvec k + \bvec R)$ 下的本征态波函数满足
+\begin{equation}\label{eq_Bloch_1}
+\psi(\bvec r + \bvec R) = \E^{\I \bvec k \vdot \bvec R}\psi(\bvec r)~,
+\end{equation}
+其中 $\bvec k$ 的量纲是$[L^{-1}]$，$\bvec R$是晶格矢量，简称为\textbf{格矢}。后面我们将会看到，$\bvec k$ 具有动量的物理意义，是电子的动量的一部分，称为\textbf{波矢}。 
+\end{theorem} 
+
+也就是说，将空间坐标$\bvec r$平移格矢$\bvec R$，平移前后的波函数只相差一个跟$\bvec R$有关的相位因子，不改变波函数本身的物理性质。
+
+$\psi (\bvec r)$称为\textbf{布洛赫函数（Bloch function）}，晶体中用布洛赫函数来描述的电子称为\textbf{布洛赫电子}，与真空中的自由电子区分。
+
+布洛赫定理的另一种等价描述为：
+
+\begin{theorem}{Bloch theory II}
+周期势场中的本征态函数$\psi(\bvec r)$ 可写成一个\textbf{平面波}和\textbf{周期性函数}的乘积：
+\begin{equation}\label{eq_Bloch_2}
+\psi(\bvec r) = \E^{\I \bvec k \vdot \bvec r} u(\bvec r)~.
+\end{equation}
+$u( \bvec r)$ 是布洛赫函数的\textbf{周期部分}，周期为$\bvec R$，$\E^{\I \bvec k \vdot \bvec r}$ 是平面波部分。
+\end{theorem}
+
+从Bloch定理的等价描述中，我们可以初步看到，布洛赫函数是真空中自由电子的平面波受到周期性势场的调制的结果。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/2e18aa109b512caa.png}
+\caption{周期函数$u_1$，蓝线为实部，红线为虚部。} \label{fig_Bloch_3}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8.3cm]{./figures/c78a35e955778d93.png}
+\caption{一维平面波$\E^{\I k_1 x}$} \label{fig_Bloch_4}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7.8cm]{./figures/b4508b55a79e88df.png}
+\caption{一维布洛赫函数$\psi(x)$} \label{fig_Bloch_5}
+\end{figure}
+
+\begin{exercise}{}
+请根据定理证明两种描述的等价性。答案在下面。
+\end{exercise}
+由\autoref{eq_Bloch_1} 到\autoref{eq_Bloch_2} ，等式两边同乘$\E^{-\I \bvec k \vdot (\bvec R + \bvec r)}$:
+\begin{equation}
+\E^{-\I \bvec k \vdot (\bvec R + \bvec r)}\psi(\bvec r + \bvec R) = \E^{-\I \bvec k \vdot \bvec r}\psi(\bvec r)~,
+\end{equation}
+观察左右两式，可以看到明显的周期函数：
+\begin{equation}
+u(\bvec R + \bvec r) = u(\bvec r),~\quad u(\bvec r) = \E^{-\I \bvec k \vdot \bvec r}\psi(\bvec r)~.
+\end{equation}
+整理一下，也即
+\begin{equation}
+\psi(\bvec r) = \E^{\I \bvec k \vdot \bvec r} u(\bvec r)~.
+\end{equation}
+证毕。由\autoref{eq_Bloch_2} 到\autoref{eq_Bloch_1} :
+\begin{align}
+\psi(\bvec r + \bvec R) &= \E^{\I \bvec k \vdot (\bvec R + \bvec r)} u(\bvec r + \bvec R)\\
+&= \E^{\I \bvec k \vdot \bvec R } \E^{\I \bvec k \vdot  \bvec r}u(\bvec r )\\ &= \E^{\I \bvec k \vdot \bvec R } \psi(\bvec r)~.
+\end{align}
+证毕。
+
+\subsubsection{布洛赫定理的量子力学证明}
+上面我们从数学角度出发，仅利用了函数的周期性性质。下面用量子力学的语言证明Bloch定理，即周期性空间平移的效果仅是给波函数添加phase shift, 不改变物理实质。
+
+定义平移算符$\hat{T}_{\bvec R}$，将$\hat{T}_{\bvec R}$作用到任何函数$f(\bvec r)$上的作用是：
+\begin{equation}
+\hat{T}_{\bvec R} f(\bvec r) = f(\bvec R + \bvec r)~,
+\end{equation}
+也即将函数的坐标平移矢量$\bvec R$，这里$\bvec R = n_1 \bvec a_1 + n_2 \bvec a_2 + n_3 \bvec a_3 $ 是任意格矢。我们可以想到，如果对函数 $f(\bvec r + \bvec R)$ 再平移一次空间坐标$\bvec R'$，则应得到$f(\bvec r + \bvec R + \bvec R')$，其效果等价于对 $f(\bvec r)$ 平移坐标$\bvec R + \bvec R'$，也即：
+\begin{equation}
+\hat{T}_{\bvec R'}\hat{T}_{\bvec R} f(\bvec r) = \hat{T}_{\bvec R + \bvec R'}f(\bvec r )~.
+\end{equation}
+
+从物理直觉上，晶体的周期性势场使得周期性平移不改变电子所处的晶格系统的哈密顿量，也即能量守恒。下面将从数学角度证明哈密顿量与平移算符的对易性。
+\begin{equation}
+\begin{aligned}
+\hat{T}_{\bvec R} \hat{H} f(\bvec r) &= \hat{T}_{\bvec R} \qty[\qty(-\frac{\hbar^2}{2m}\nabla^2+V(\bvec r) ) f(\bvec r)] \\
+&= \qty[-\frac{\hbar^2}{2m}\nabla^2+V(\bvec r + \bvec R)]  f(\bvec r + \bvec R)\\
+&= \qty[-\frac{\hbar^2}{2m}\nabla^2+V(\bvec r) ] f(\bvec r+ \bvec R)\\
+& = \hat{H} \hat{T}_{\bvec R} f(\bvec r)~.
+\end{aligned}
+\end{equation}
+
+写成对易算符形式，也即
+\begin{equation}
+[\hat{T},\hat{H}] = 0~.
+\end{equation}
+因此，平移算符$\hat{T}$存在和能量 $\hat{H}$ 相同的本征态。
+为什么我们要关注它的对易性呢？因为\autoref{eq_Bloch_1} 实际上是波函数的本征方程，我们要证明平移算符的本征值为与$\bvec R$有关的相因子，就要先探究它的本征值长什么样。
+
+设哈密顿量的本征态为$\psi$，由算符对易性可知，$\psi$也是算符$\hat{T}$的本征态：
+\begin{equation}\label{eq_Bloch_6}
+\hat{T}_{\bvec R} \psi (\bvec r) = \lambda_{\bvec R}\psi =\psi(\bvec r + \bvec R)~,
+\end{equation}
+由波函数的归一化性质可知，$|\lambda_{\bvec R} |^2 = 1,~ \lambda_{\bvec R} = \E^{\I \beta}$。 利用平移算符的性质
+\begin{equation}
+\hat{T}_{\bvec R'} \hat{T}_{\bvec R}\psi (\bvec r) = \lambda_{\bvec R'}\lambda_{\bvec R}\psi (\bvec r) = \lambda_{\bvec R' + \bvec R} \psi (\bvec r)~,
+\end{equation}
+\begin{equation}
+\lambda_{\bvec R'}\lambda_{\bvec R} =  \lambda_{\bvec R' + \bvec R}~,
+\end{equation}
+\begin{equation}
+\E^{\I (\beta_{\bvec R'}+ \beta_{\bvec R})} = \E^{\I \beta_{\bvec R + \bvec R'}}~,
+\end{equation}
+可以看到，$\beta$是$\bvec R$的线性函数，不妨设
+\begin{equation}
+\lambda_{\bvec R} = \E^{\I \bvec k \vdot  \bvec R}~,
+\end{equation}
+这就是我们要求的平移算符的本征值。其中 $\bvec k$ 是待定的常量。注意，由于不同的平移算符本征值对于不同的本征态，因此我们可以用$\bvec k$ 来区分这些本征态，记为$\psi_{\bvec k} (\bvec r)$。最后，将本征值代入\autoref{eq_Bloch_6}，我们就证明了布洛赫定理\autoref{eq_Bloch_1}。
+
+也许初入量子力学的读者会对这些算符操作产生困惑，因为从表面上看起来，它们和物理实质并不挂钩，依然仅是一通数学操作。但我们要明白，算符操作实际上是将物理意义映射在线性代数空间下的数学操作，看起来抽象的数学，本质上依然是在为物理服务。每一步操作下，都有它们对应的物理含义。
+
+\subsubsection{物理意义}
+不同原胞内的电子具有相同的密度分布：
+\begin{equation}
+|\psi(\bvec r)|^2 = |u(\bvec r)|^2 = |\psi(\bvec r + \bvec R)|^2~,
+\end{equation}
+而波函数仅相差一个相因子，因此，从一个原胞的电子波函数出发，就可以得到电子在整个晶体中的状态。这就是周期性势场带来的效果。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/4f31ce69883a8966.png}
+\caption{晶体中的周期性势场} \label{fig_Bloch_2}
+\end{figure}
+
+\subsection{波矢 $\bvec k$ 的物理意义}
+从上述量子力学的推导过程中我们可以看到，本质上$\bvec k$ 来源于平移算符的本征值：
+\begin{equation}
+\hat{T}_{\bvec R} \psi (\bvec r) = \E^{\I \bvec k \vdot  \bvec R}\psi (\bvec r)~,
+\end{equation}
+因此，真正有意义的、用于描述电子状态在空间平移下性质的是相位因子$\E^{\I \bvec k \vdot  \bvec R}$，而非$\bvec k$ 本身。
+
+那$\hbar \bvec k$ 又代表什么呢？乍一看像是电子的动量。且慢，让我们仔细算算动量算符$\hat{p}$ 的本征值：
+\begin{equation}
+\begin{aligned}
+\hat{p} \psi_{\bvec k} (\bvec r) &= -\I \hbar \dfrac{\partial}{\partial \bvec r} \qty(\E^{\I \bvec k \vdot \bvec r} u(\bvec r))\\
+& = \hbar \bvec k \psi_{\bvec k} (\bvec r) -\I \hbar \E^{\I \bvec k \vdot \bvec r} \dfrac{\partial  u(\bvec r)}{\partial \bvec r}\\
+ &\neq \hbar \bvec k \psi_{\bvec k} (\bvec r)\\~.
+\end{aligned}
+\end{equation}
+所以$\bvec k$ 仅是电子动量的一部分。
+
+$\bvec k$可以取任意值吗？从直觉上这是不可能的，一方面无限大动能的电子不存在，另一方面如果电子动能很大，它早就跑出晶体了。所以我们需要考虑$\bvec k$ 满足的限制条件：周期平移不变性。实际晶体不是无穷大的，周期性平移电子总会跑出晶体之外，这该怎么办？物理学家常用的处理方法是将其“绕回去”，引入周期性边界条件：设晶格在三个方向上的原胞数量分别为 $N_1,N_2,N_3$，则平移$N_1$个原胞后得到的波函数与初态相同，又回去了：
+\begin{equation}
+\hat T _{N_1 \bvec a_1}\psi_{\bvec k}(\bvec r)=\psi_{\bvec k}(\bvec r+N_1 \bvec a_1) = \psi_{\bvec k}(\bvec r)~,
+\end{equation}
+其中$\bvec a_1$ 是 $x$方向的原胞基矢，$N_1$ 是$x$方向总共的原胞数目。则有：
+\begin{equation}
+e^{\I N_1 \bvec k \vdot  \bvec a_1} = 1,~ k_1 =\frac{2\pi m_1}{N_1}~.
+\end{equation}
+同理，沿$y$,$z$方向也满足周期性条件，综上给出的$\bvec k$是\textbf{离散化}的：
+\begin{equation}
+\bvec k = \dfrac{m_1}{N_1 a_1} \bvec b_1 + \dfrac{m_2}{N_2 a_2} \bvec b_2 + \dfrac{m_3}{N_3 a_3} \bvec b_3,~ m_1,m_2,m_3 \in \mathbb{Z}~.
+\end{equation}
+其中$\bvec b_1, \bvec b_2,\bvec b_3$ 是倒格基矢。利用倒格基矢与基矢的关系$\bvec a_i \bvec b_j = 2\pi \delta_{ij}$，则可将$\bvec k$ 的表达式化简如上式。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/3cf2d082925e3724.png}
+\caption{由原胞组成的晶体} \label{fig_Bloch_6}
+\end{figure}
+
+\addTODO{增加倒格基矢、倒格空间等相关的文章}
+
+\subsection{一维布洛赫函数}
+在一维情况下，波函数可以记为
+\begin{equation}
+\psi(x) = e^{\I K x} u(x)~,
+\end{equation}
+其中 $u(x)$ 是一个周期为 $a$ 的函数。 也就是波函数是一个振幅受周期性调制的平面波。
+
+如果我们施加循环边界条件（$N$ 是晶体一个方向的原子数， 阿伏伽德罗常数数量级）
+\begin{equation}
+\psi(x+Na) = \psi(x)~,
+\end{equation}
+得
+\begin{equation}
+K = \frac{2\pi}{a} \frac{n}{N} \qquad (n \in \mathbb Z)~,
+\end{equation}
+
+一个例子见一维 delta 势能晶格\upref{DelCry}。
+
+\subsection{三维布洛赫函数}
+
+\cite{黄昆}\cite{Bransden}布洛赫（Bloch）波函数定义为
+\begin{equation}\label{eq_Bloch_3}
+\phi(\bvec r) = \E^{\I \bvec k \vdot \bvec r} u(\bvec r)~,
+\end{equation}
+其中 $u(\bvec r)$ 具有与晶格同样的周期性。
+\begin{equation}
+u(\bvec r)=u(\bvec r+\bvec R_n)~,
+\end{equation}
+$\bvec R_n$ 为晶格矢量。即在任何平移 $\bvec R_n$ 的操作下势场 $V(\bvec r)$ 都是不变的。我们引入描述晶格平移对称性的算符 $T_1,T_2,T_3$，它们的定义是
+\begin{equation}
+T_\alpha u(\bvec r)= u(\bvec r+\bvec a_\alpha),\alpha=1,2,3~,
+\end{equation}
+其中 $\bvec a_\alpha,\alpha=1,2,3$ 是晶格的三个基矢。它们是相互对易的，而且容易证明它们和哈密顿算符 $H$ 也相互对易。下面我们要做的就是找出 $H,T_1,T_2,T_3$ 的共同本征态，用以描述晶格中的电子。设
+\begin{equation}
+\begin{aligned}
+&H\psi=E\psi,\\
+&T_\alpha \psi = \lambda_\alpha \psi, \alpha=1,2,3~.
+\end{aligned}
+\end{equation}
+设晶格在三个方向上的原胞数量分别为 $N_1,N_2,N_3$，那么可以引入晶格的周期性边界条件：
+\begin{equation}
+\psi(\bvec r)=\psi(\bvec r+N_\alpha \bvec a_\alpha),\alpha=1,2,3~
+\end{equation}
+可以得出 $\lambda_\alpha$ 具有下列形式
+\begin{equation}
+\lambda_\alpha=e^{ \dfrac{2\pi i l_\alpha}{N_\alpha}}~,
+\end{equation}
+其中 $l_\alpha$ 为整数。
+
+如果引入倒格子矢量 $\bvec b_1,\bvec b_2,\bvec b_3$，满足 $\bvec a_i \vdot  \bvec b_j = 2\pi \delta_{ij}$，那么
+\begin{equation}
+\begin{aligned}
+&\lambda_\alpha = e^{i \bvec k \vdot  \bvec a_\alpha}\\
+&\bvec k=\sum_\alpha\frac{l_\alpha}{N_\alpha} \bvec b_\alpha~.
+\end{aligned}
+\end{equation}
+我们可以将 \autoref{eq_Bloch_2} 三维晶格的布洛赫定理写成以下形式
+\begin{equation}
+\begin{aligned}
+\psi\qty(\bvec r+\sum_\alpha m_\alpha\bvec a_\alpha) &= T_1^{m_1} T_2^{m_2} T_3^{m_3} \psi(\bvec r)\\
+&=e^{i\bvec k\vdot  \qty(\sum_\alpha m_\alpha\bvec a_\alpha)}\psi(\bvec r)~.
+\end{aligned}
+\end{equation}
+其中 $\bvec k$ 称为简约波矢，它对应于平移算符操作本征值的量子数 $l_1,l_2,l_3$。注意到当 $l_\alpha$ 增加 $N_\alpha$ 时 $\lambda_\alpha$ 没有发生变化，所以我们将 $l_\alpha$ 限制在 $0\vdot s N_\alpha-1$ 因此得到简约波矢与量子数的一一对应。这相当于把 $\bvec k$ 限制在 $\bvec k$ 空间中由 $\bvec b_1,\bvec b_2,\bvec b_3$ 构成的原胞中，$\bvec k$ 的允许值个数为 $N_1N_2N_3$，也就是晶体的原胞总数。另一种更方便的方式，是将 $\bvec k$ 限制在 $\bvec k$ 空间的维格纳塞茨原胞中，这个区域被称为第一布里渊区。
