@@ -1,0 +1,29 @@
+% Kummer 函数（1F1）
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\footnote{见 NIST \href{https://dlmf.nist.gov/13.2}{相关页面}。}\textbf{Kummer 函数} $M(a, b, z)$， 也叫合流超几何函数 $_1F_1(a, b, z)$， 是以下微分方程的解
+\begin{equation}\label{eq_Kummer_1}
+z\dv[2]{f}{z} + (b-z)\dv{f}{z} - a f = 0~.
+\end{equation}
+
+Kummer 函数是超几何函数\upref{HypGeo}的一个特例， 
+\begin{equation}
+M(a, b, z) = {_1F_1}(a; b; z) = \sum_{n=0}^\infty \frac{(a)_n}{(b)_n} \frac{z^n}{n!}~.
+\end{equation}
+其中 $(a)_n = a(a+1)\dots(a+n-1)$， 叫做 \textbf{Pochhammer 符号}。
+
+
+Kummer 微分方程的形式在类氢原子束缚态的薛定谔方程中很常见，例如\autoref{eq_HWF_11}~\upref{HWF}：
+\begin{equation}
+\dv[2]{u}{\rho} + \qty[-1 - \frac{2\eta}{\rho} - \frac{l(l+1)}{\rho^2}]u = 0~.
+\end{equation}
+考察这微分方程在 $\rho \rightarrow 0$ 时的情形。此时变为
+\begin{equation}
+\dv[2]{u}{\rho} - \frac{l(l+1)}{\rho^2} u = 0 ~.
+\end{equation}
+从而 $u$ 的通解是 $u(\rho) = C_1 \rho^{l+1} + C_2 \rho^{-l}$ 的形式。er

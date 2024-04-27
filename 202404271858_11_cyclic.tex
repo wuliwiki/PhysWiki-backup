@@ -1,0 +1,25 @@
+% 循环群
+% license Usr
+% type Tutor
+
+\begin{definition}{}
+若群$G$的元素都是由某个元素生成，即$G=<a>$，则称群$G$为\textbf{循环群}（cyclic group），称$a$是循环群的生成元。
+\end{definition}
+
+显然，循环群的群元都可以表示为生成元的整数次幂，因此循环群实际上是阿贝尔群。
+\begin{example}{}
+整数群$\mathbb Z$是有无限元素的循环群，群乘法为加法。
+\end{example}
+\begin{example}{}
+模$n$同余类$\mathbb Z_n$。
+\end{example}
+\begin{example}{}
+群$G=\{-1,-\mathrm i,1,\mathrm i\}=<\mathrm i>$。
+\end{example}
+循环群的形式看似没有什么规律，但我们可以借助同构来缩减研究对象。
+\begin{theorem}{}
+无限循环群同构于整数加群；$n$元有限循环群同构于$\{\mathbb Z;+\}$。
+\end{theorem}
+\textbf{proof.}
+
+设$G$是无限循环群，对于任意$n\in \mathbb Z$，都有$f(n)=a^n$。显然这是一个满射，若$f(n_1)=f(n_2)$，即
