@@ -1,0 +1,40 @@
+% 施图姆—刘维尔理论
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{二阶常系数齐次微分方程\nref{nod_Ode2}}{nod_c960}
+
+
+% 研究 S-L 定理前，模仿向量、我们先讨论函数有关的一些定义。
+% \begin{definition}{函数的内积}
+% 对于在 $[a, b]$ 上的函数 $f(x)$、$g(x)$，定义他们的内积：
+% \begin{equation}
+% (f, g) = \int_a^b f(x) g(x) \dd x ~.
+% \end{equation}
+% 若积分存在，则内积存在。
+% \end{definition}
+
+% \begin{definition}{函数正交}
+% 两个函数正交定义为他们的内积为 $0$。
+% \end{definition}
+
+\textbf{施图姆—刘维尔定理（Sturm–Liouville theorem）} 简称施—刘定理或 S-L 定理。提供了一种找到一类正交函数集，使得能将一个函数展开为这一类正交函数集所构成的级数的方法。
+
+\begin{definition}{施图姆—刘维尔型方程（S-L 方程）}
+微分方程
+\begin{equation}
+\dv{x}\qty[p(x)\dv{y}{x}] - q(x) y = -\lambda w(x) y~.
+\end{equation}
+被称为 S-L 方程，限制 $x \in [a, b]$。其中 $w(x)$ 又被称为权函数，又写作 $\rho(x)$。
+\addTODO{不同本征值的解正交， 零点的数量， 等}
+\end{definition}
+
+
+研究二阶常微分方程的本征值问题时，对于一般的二阶常微分方程：
+$$y'' + a(x) y' +b(x) y$$
+ 
+应用： 定态薛定谔方程（束缚态） 为什么不能应用到散射态？

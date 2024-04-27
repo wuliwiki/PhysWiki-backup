@@ -1,0 +1,36 @@
+% 双原子分子克拉策势（量子力学）
+% keys Kratzer|克拉策势|克拉测势
+% license Usr
+% type Tutor
+
+克拉策势（Kratzer's molecular potential，又写作 Kratzer's Potential 或克拉测势等），是另一个描述双原子分子的势能模型，表示为：
+\begin{equation}
+V(r) = -2D [a/r - a^2/(2r^2)] ~.
+\end{equation}
+是对于一般角量子数 $l$ 的，而莫尔斯势\upref{MoPoQM}的求解过程不难发现其实是对应角量子数 $l=0$ 的情况。其中 $r$ 是两原子间距而 $a$ 是平衡核间距，有势能最小值 $V(a) = -D$。下面给出一些经典取值
+\begin{table}[ht]
+\centering
+\caption{经典分子参数}\label{tab_kratPo1}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+分子 & $D/\Si{eV}$ & $a/\mathring{\text{A}}$，埃米 & $\mu/\Si{amu}$，原子质量单位\\
+\hline
+CO & 10.8451 & 1.128 & 6.8606 \\
+\hline
+NO & 8.0438 & 1.151 & 7.4684 \\
+\hline
+O$_2$ & 5.1567 & 1.208 & 7.9974 \\
+\hline
+I$_2$ & 1.5818 & 2.662 & 63.4522 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{简谐近似}
+类似于林纳德-琼斯势\upref{LenJoP}和摩尔斯势\upref{MoPoQM}的方法，仍先考虑简谐近似。有
+\begin{equation}
+\begin{aligned}
+\epsilon = \eval{V}_{r=a} &= -D ~, \\
+k = \eval{\dv{^2 V}{r^2}}_{r=a} &= \frac{2D}{a^2} ~.
+\end{aligned}
+\end{equation}

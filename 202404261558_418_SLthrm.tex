@@ -1,0 +1,74 @@
+% 施图姆—刘维尔理论
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\addTODO{不同本征值的解正交， 零点的数量， 等}
+\end{issues}
+
+\pentry{二阶常系数齐次微分方程\nref{nod_Ode2}}{nod_c960}
+
+
+% 研究 S-L 定理前，模仿向量、我们先讨论函数有关的一些定义。
+% \begin{definition}{函数的内积}
+% 对于在 $[a, b]$ 上的函数 $f(x)$、$g(x)$，定义他们的内积：
+% \begin{equation}
+% (f, g) = \int_a^b f(x) g(x) \dd x ~.
+% \end{equation}
+% 若积分存在，则内积存在。
+% \end{definition}
+
+% \begin{definition}{函数正交}
+% 两个函数正交定义为他们的内积为 $0$。
+% \end{definition}
+
+\textbf{施图姆—刘维尔定理（Sturm–Liouville theorem）} 简称施—刘定理或 S-L 定理。提供了一种找到一类正交函数集，使得能将一个函数展开为这一类正交函数集所构成的级数的方法。
+
+\begin{definition}{}
+从数学物理偏微分方程分离变量法引出的常微分方程往往还附有边界条件，这些边界条件可以是明确写出来 的，也可以是没有写出来的所谓自然边界条件（或自然周期条件）。满足这些边界条件的非零解使得方程的参数只能取某些特定值，这些\textbf{特定值}叫做\textbf{本征值}（或特征值、或固有值），相应的\textbf{非零解}叫做\textbf{本征函数}（特征函数、固有 函数)。
+求\textbf{本征值}和\textbf{本征函数}的问题叫做\textbf{本征值问题}。
+\end{definition}
+
+\begin{definition}{施图姆—刘维尔型方程（S-L 方程）}
+微分方程
+\begin{equation}
+\dv{x}\qty[p(x)\dv{y}{x}] + q(x) y = -\lambda w(x) y~.
+\end{equation}
+被称为 S-L 方程，限制 $x \in [a, b]$。其中 $w(x)$ 又被称为权函数，又写作 $\rho(x)$。
+\end{definition}
+
+根据 S-L 方程的形式，有一简单推论：对于一般的二阶常微分方程的特征值问题，都可以规约到 S-L 方程。
+\begin{corollary}{}
+研究二阶常微分方程的本征值问题时，对于一般的二阶常微分方程：
+$$y'' + a(x) y' +b(x) y + \lambda c(x) y = 0 ~,$$
+乘以 $\exp(\int a(x) \dd x)$ 就可以化为 S-L 型方程：
+$$\dv{x} \left[e^{\int a(x) \dd x} \dv{y}{x}\right]  + [b(x) e^{\int a(x) \dd x}]y +\lambda[c(x) e^{\int a(x) \dd x}] y = 0~.$$
+\end{corollary}
+
+S-L 问题根据边界条件分为“正则的”与“奇异的”两类，下面分别讨论这两类。
+\subsection{正则 S-L 问题}
+规定在 $[a, b]$ 上，$p(x)$、$p'(x)$、$q(x)$、$w(x)$ 都是连续（实值）函数，在 $[a, b]$ 上总有 $p(x) > 0, w(x)> 0$。限制边界条件为：
+\begin{equation}
+\alpha_ay(a) + \beta_a y'(a) = 0, 
+\alpha_b y(b) + \beta_b y'(b) = 0 ~.
+\end{equation}
+其中，$\lambda$ 是方程中的任意常数，而不是给定常数。边界条件的四个常数 $\alpha_a, \alpha_b, \beta_a, \beta_b$ 也都是独立的。
+
+不难发现总有平凡解 $y=0$。
+
+正则 S-L 问题有以下性质：
+\begin{enumerate}
+\item 每个特征值对应一个特征函数（及其常数倍）；
+\item 不同特征值对应的特征函数线性无关；
+\item 存在无穷多个特征值 $\{\lambda_i\}$，且这集合无上界；
+\item 特征函数集合关于权函数 $w(x)$ 在 $[a,b]$ 上正交。即对于每两特征函数 $f \neq g$，总有 $\int_a^b w(x)f(x)g(x) \dd x = 0$。 
+\end{enumerate}
+
+
+
+\subsection{奇异 S-L 问题}
+
+
+ 
+应用： 定态薛定谔方程（束缚态） 为什么不能应用到散射态？

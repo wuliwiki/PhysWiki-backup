@@ -1,0 +1,54 @@
+% 双原子分子莫尔斯势（量子力学）
+% keys 莫尔斯势|摩尔斯势
+% license Usr
+% type Tutor
+
+\pentry{薛定谔方程（单粒子多维）\nref{nod_QMndim}}{nod_67ff}
+
+双原子分子中两原子的相互作用可以理解为是一个弹簧两端连接着两个振子。考虑设两原子在某时刻相距 $r$，存在某 $r_0$ 称为平衡核间距，当 $r>r_0$ 时他们之间互相吸引、$r<r_0$ 时他们之间互相排斥。这将使得原子间距在 $r_0$ 附近振荡。
+
+\subsection{莫尔斯势}
+莫尔斯势（Morse Potential，又写作摩尔斯势）表示为：
+\begin{equation}
+V(r) = D [\exp(-2ax) - 2\exp(-ax)] \ , \left(x \equiv \frac{r-r_0}{r_0}\right)~.
+\end{equation}
+参数 $D$ 与 $a$ 一般都是正数，$D$ 一般有能量量纲、$a$ 一般是无量纲数。莫尔斯势在 $r=r_0$ 时有极小值 $V(r)=-D$。
+
+与林纳德-琼斯势相比较，莫尔斯势在 $r = 0$ 即 $x = -1$ 时是有限值 $V(0) = D(e^{2a}-2e^{a})$。而在 $r \rightarrow +\infty$ 时，$V(r) \rightarrow 0$。
+
+考虑几个经典双原子分子，用 $\widetilde{M} = m_1m_2/(m_1+m_2)$ 描述约化质量，$\Si{cm}^{-1}$ 量纲描述能量，
+\begin{table}[ht]
+\centering
+\caption{经典分子参数}\label{tab_MoPoQM1}
+\begin{tabular}{|c|c|c|c|}
+\hline
+分子 & $\frac{\hbar^2}{2 \widetilde{M} r_0^2}/\Si{cm}^{-1}$ & $D/\Si{cm}^{-1}$ & $a$ \\
+\hline
+$\text{H}_2$ & 60.8296 & 38292 & 1.440 \\
+\hline
+$\text{I}_2$ & 0.0374 & 12550 & 4.954 \\
+\hline
+$\text{HCl}$ & 10.5930 & 37244 & 2.380 \\
+\hline
+\end{tabular}
+\end{table}
+$\Si{cm}^{-1}$ 单位对应在这波数（波长的倒数）下光子能量。转换到 $\Si{eV}$ 是：
+$$E(\Si{eV}) = E(\Si{cm}^{-1}) \times 1.2398 \times 10^{-4} ~.$$
+
+\subsection{简谐近似}
+模仿讨论林纳德-琼斯势中讨论简谐近似（\autoref{sub_LenJoP_1}~\upref{LenJoP}）的方法。可以得到：
+\begin{equation}
+\begin{aligned}
+\epsilon = \eval{v}_{r = r_0}& = -D ,\\
+k = \eval{\dv{^2 V(r)}{r^2}}_{r = r_0}& = \frac{2a^2 D}{r_0^2} ~.
+\end{aligned}
+\end{equation}
+从而 $V(r) = a^2 D[(r-r_0)/r_0]^2 - D$。而 
+$$\omega^2 = \frac{k}{\widetilde M} = \frac{2a^2D}{\widetilde Mr_0^2} ~.$$
+
+\subsection{简谐近似势的量子化}
+振动能级为
+$$E_\nu = \hbar \omega (\nu + \frac12) - D , \ (\nu = 0, 1, 2, \cdots) ~.$$
+
+\subsection{精确解}
+对于径向波函数 $u(r)$ 应满足三维薛定谔方程的描述，
