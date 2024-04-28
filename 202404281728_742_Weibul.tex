@@ -1,0 +1,52 @@
+% Weibull 分布
+% keys 统计
+% license Usr
+% type Tutor
+
+Weibull分布是一种概率分布。这种概率分布非常灵活，可以对各种类型的数据进行建模，是可靠性数据建模中最常用的分布。它可以对左偏斜数据，右偏斜数据，对称数据进行建模。因为这种特性，工程师常用它来评估物体的可靠性和材料强度。
+
+如果一个机器,每次使用有$p$的概率损坏，那么它的使用到$k$次时被损坏的概率为
+\begin{equation}
+P(X=k)=p(1-p)^{k-1}~.
+\end{equation}
+如果我们考虑的是一段时间$t$，这段时间每个小间隔$\Delta t$的时间内都有$p$的概率被损坏，那么，在时间$t$到$t+\Delta t$的时间范围内机器被损坏的概率为
+\begin{equation}
+P(X)=p(1-p)^{\frac{t}{\Delta t}-1}~.
+\end{equation}
+当p非常小的时候，我们可以使用如下的数学公式对上面的式子进行化简
+\begin{equation}
+\lim _{p \rightarrow 0}(1-p)^{\frac{1}{p}}=e^{-1}~.
+\end{equation}
+化简之后的结果为
+\begin{equation}
+P(X)=p(1-p)^{\frac{1}{p}\left(\frac{t}{\Delta t}-1\right) p} \sim p e^{-\frac{t}{\Delta t} p}~.
+\end{equation}
+Weibull分布最简单的情况回到指数分布。如果单次损坏概率与使用次数成指数关系，
+\begin{equation}
+p=p_0 k^\gamma~.
+\end{equation}
+使用到第$k$次损坏的概率是
+\begin{equation}
+P(X=k)=p_0 k^\gamma\left(1-p_0 1^\gamma\right)\left(1-p_0 2^\gamma\right) \ldots\left(1-p_0(k-1)^\gamma\right)~.
+\end{equation}
+连续的情况是
+\begin{equation}
+P(X)=p_0 \frac{t}{\Delta t}^\gamma\left(1-p_0 1^\gamma\right)\left(1-p_0 2^\gamma\right) \ldots\left(1-p_0\left(\frac{t}{\Delta t}-1\right)^\gamma\right)~.
+\end{equation}
+
+\begin{equation}
+\ln P(X)=\ln \left(p_0 \frac{t}{\Delta t}^\gamma\right)+\sum_{i=1}^{t / \Delta t-1} \ln \left(1-p_0 i^\gamma\right)~.
+\end{equation}
+我们使用下面的jin'si
+\begin{equation}
+\ln \left(1-p_0 i^\gamma\right) \sim-p_0 i^\gamma~.
+\end{equation}
+
+\begin{equation}
+\ln P(X) \sim \ln \left(p_0 \frac{t}{\Delta t}^\gamma\right)-p_0 \sum_{i=1}^{t / \Delta t-1} i^\gamma~.
+\end{equation}
+
+\begin{equation}
+\sum_{i=1}^{t / \Delta t} i^\gamma \sim \int_0^{t / \Delta t} x^\gamma \mathrm{d} x=\frac{1}{\gamma+1}\left(\frac{t}{\Delta t}\right)^{\gamma+1}~.
+\end{equation}
+这样就得到了Weibull分布的概率密度函数。
