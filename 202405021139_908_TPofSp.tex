@@ -1,0 +1,232 @@
+% 有限维度下张量积的存在性
+% keys 空间的张量积
+% license Xiao
+% type Tutor
+
+% \begin{issues}
+% \end{issues}
+
+\pentry{向量空间的张量积\nref{nod_vecTsr}，对偶空间\nref{nod_DualSp}，张量的张量积\nref{nod_TsrPrd}}{nod_ade1}
+
+% 向量空间的张量积在微分几何，群表示论。数学物理中有各式各样的作用。参考资料：\cite{聂丁代数学引论}\cite{柯代数学引论}。
+
+\subsection{张量积的存在性}
+
+对于有限维度向量空间来说，对偶对偶空间同构于原空间（\autoref{the_DualSp_4}~\upref{DualSp}），因此我们可以用对偶空间 $V^*$ \upref{DualSp}和多线性映射空间 $\mathcal L(V_1,V_2;\mathbb F)$ \upref{MulMap}来定义来定义它们之间的张量积。
+
+\begin{lemma}{}\label{lem_TPofSp_2}
+设 $V_1,V_2$ 是域 $\mathbb F$ 上的向量空间，$V_1$ 的维数是 $n$，$e_1,\cdots,e_n$ 是 $V_1$ 的一组基。则对 $V_2$ 中任意 $k$ 个元素 $\alpha_1,\cdots,\alpha_n$ ，存在唯一的线性映射 $f: V_1 \rightarrow V_2$ 使
+\begin{equation}
+f(e_i)=\alpha_i, i=1, \cdots, n~.
+\end{equation}
+\end{lemma}
+\textbf{证明：}存在性由线性保证；要证明唯一性，若有另一满足条件的线性映射 $f_1$，那么对任意 $v=\sum\limits_{i}v^ie_i\in V_1$，有
+\begin{equation}
+f_1(v)=\sum_{i}v^if_1(e_i)=\sum_{i}v^i\alpha_i=\sum_{i}v^if(e_i)=f(v)~,
+\end{equation}
+即 $f_1=f$。
+
+\textbf{证毕！}
+
+在\enref{张量的张量积}{TsrPrd}中我们已经定义过线性映射（对偶向量）的张量积了：考虑 $f \in V^*_1,g \in V^*_2$，我们有 $(f \otimes g)(v_1, v_2) = f(v_1) f(v_2)$，其中 $f \otimes g \in \mathcal L(V_1,V_2;\mathbb F)$ 是双线性映射。
+
+\begin{lemma}{}\label{lem_TPofSp_1}
+设 $V_1,V_2$ 分别是 $n$ 维和 $m$ 维的向量空间， $\{\mu^i\}$，$\{\nu^i\}$ 分别是对偶空间 $V^*_1,V^*_2$ 的基，那么
+\begin{equation}\label{eq_TPofSp_1}
+\{\mu^i \otimes \nu^j \mid i=1, \cdots, n,\quad j=1,\cdots,m \}~
+\end{equation}
+是双线性映射空间 $\mathcal L(V_1,V_2;\mathbb F)$ 的一组基。
+\end{lemma}
+
+\textbf{证明：}先证明 \autoref{eq_TPofSp_1} 之间线性无关：如果
+\begin{equation}
+\sum_{i,j}\lambda_{ij}\mu^i\otimes\nu^j=0~,
+\end{equation}
+其中，右边的 $0$ 是向量空间 $\mathcal L(V_1,V_2;\mathbb F)$
+中的零向量，那么
+\begin{equation}
+\lambda_{kl}=\qty(\sum_{i,j}\lambda_{ij}\mu^i\otimes\nu^j)(\mu_k,\nu_l)=0(\mu_k,\nu_l)=0~.
+\end{equation}
+其中，最后的 $0$ 是域 $\mathbb F$ 的零元，$\{\mu_k\},\{\nu_l\}$ 分别是 $V_1,V_2$ 的与 $\{\mu^i\}$，$\{\nu^i\}$ 对偶的基。所以得到\autoref{eq_TPofSp_1} 的线性无关性。
+
+又因为 $\mathcal L(V_1,V_2;\mathbb F)$ 的维数为 $nm$，由基的定义（\autoref{def_VecSpn_2}~\upref{VecSpn}）可得\autoref{eq_TPofSp_1} 就是它的一组基。
+
+\textbf{证毕！}
+
+由\autoref{lem_TPofSp_1} ，容易证得下面的推论
+\begin{corollary}{}\label{cor_TPofSp_1}
+取 $f \in V^*_1,g \in V^*_2$，元素 $f \otimes g$ 是空间 $\mathcal L(V_1,V_2;\mathbb F)$ 中的一个向量，即 $V_1 \times V_2$ 上的一个双线性函数；因此定义了映射$\sigma: V^*_1 \times V^*_2 \to \mathcal L(V_1,V_2;\mathbb F)$。
+\end{corollary}
+
+\addTODO{这不应该单独写一个推论，应当并入\autoref{lem_TPofSp_1} }
+
+注意：上述的引理和推论，将向量空间和其对偶空间互调仍然成立，因为彼此是对方的对偶空间（参考对偶空间\upref{DualSp}），因此我们可以定义
+\begin{equation}
+\sigma: V_1 \times V_2 \to \mathcal L(V^*_1,V^*_2;\mathbb F)~.
+\end{equation}
+
+\begin{theorem}{}\label{the_TPofSp_1}
+设 $V_1,V_2$ 是域 $\mathbb F$ 上有限维向量空间，则向量空间 $V_1,V_2$ 的张量积存在，且在同构的意义下是唯一的。
+\end{theorem}
+\textbf{证明：}先证明定理前一部分：
+
+由\autoref{cor_TPofSp_1} ，映射 $\sigma:V_1\times V_2\rightarrow\mathcal L(V^*_1,V^*_2;\mathbb F) $：
+\begin{equation}\label{eq_TPofSp_7}
+\sigma(v_1,v_2)=v_1\otimes v_2 \quad (v_1\in V_1,v_2\in V_2 )~
+\end{equation}
+是  $\mathcal L(V^*_1,V^*_2;\mathbb F)$ 中的向量。
+
+而由 \autoref{lem_TPofSp_1} ，若 $\{\mu_i\},\{\nu_i\}$ 分别是 $V_1,V_2$ 的基，$n=\dim V_1,m=\dim V_2$ 。那么
+\begin{equation}\label{eq_TPofSp_2}
+\sigma(\mu_i,\nu_j)=\mu_i\otimes \nu_j\qquad (i=1,\cdots,n,\quad j=1,\cdots,m)~
+\end{equation}
+是 $\mathcal L(V^*_1,V^*_2;\mathbb F)$ 的一组基。
+
+现在证明，对 $(\sigma,\mathcal L(V^*_1,V^*_2;\mathbb F))$ 就是 $V_1,V_2$ 的张量积。设 $U$ 是域 $\mathbb F$ 上任一线性空间，
+\begin{equation}\label{eq_TPofSp_3}
+\begin{aligned}
+&\varphi:V_1\times V_2\rightarrow U~,\\
+&\varphi(\mu_i,\nu_j)=\varphi_{ij}\qquad (i=1,\cdots,n,\quad j=1,\cdots m)~.
+\end{aligned}
+\end{equation}
+是任一双线性映射。由\autoref{lem_TPofSp_2} ，存在\textbf{唯一}的线性映射 $\psi:\mathcal L(V^*_1,V^*_2;\mathbb F)\rightarrow U$，使
+\begin{equation}\label{eq_TPofSp_4}
+\psi(\mu_i\otimes \nu_j)=\varphi_{ij}\qquad( i=1,\cdots,n,\quad j=1,\cdots m)~.
+\end{equation}
+
+\autoref{eq_TPofSp_2} 带入\autoref{eq_TPofSp_4}  ，得
+\begin{equation}
+\psi\sigma(\mu_i,\nu_j)=\varphi_{ij}=\varphi(\mu_i,\nu_j)~.
+\end{equation}
+于是对任意 $v_1\in V_1,v_2\in V_2$，由于双线性型，显然
+\begin{equation}
+\psi\sigma(v_1,v_2)=\varphi(v_1,v_2)~,
+\end{equation}
+即 $\psi\sigma=\varphi$。
+
+由向量空间张量积的定义（\autoref{def_vecTsr_1}~\upref{vecTsr}），\textbf{证得}对 $(\sigma,\mathcal L(V^*_1,V^*_2,\mathbb F))$ 就是 $V_1,V_2$ 的张量积。
+
+定义第二部分的证明：设对 $(\sigma,T),(\sigma', T')$ 是 $V_1,V_2$ 的两个张量积，于是存在唯一的线性映射 $\psi:T\rightarrow T',\psi':T'\rightarrow T$ ，使得
+\begin{equation}
+\psi\sigma=\sigma',\quad\psi'\sigma'=\sigma~,
+\end{equation}
+于是
+\begin{equation}
+\psi'\psi\sigma=\sigma=e_T\sigma~.
+\end{equation}
+其中，$e_T$ 是 $T$ 到 $T$ 的恒等映射。
+
+由于 $\psi,\psi'$ 的唯一性
+\begin{equation}\label{eq_TPofSp_5}
+\psi'\psi=e_T~,
+\end{equation}
+同理
+\begin{equation}\label{eq_TPofSp_6}
+\psi\psi'=e_{T'}~.
+\end{equation}
+首先，两个线性映射 $\psi,\psi'$ 的复合 $\psi'\psi$ 仍是线性映射，其次，\autoref{eq_TPofSp_5} ,\autoref{eq_TPofSp_6} 表明 $\psi,\psi'$ 都是双射（因为上两式表明二者都有左逆和右逆，所以必为双射），即 $T,T'$ 同构（向量空间中的同构映射是线性的双射）。
+
+\textbf{证毕！}
+
+现在容易证明，空间张量积中的映射 $\sigma$ 是个满映射。因为由上面证明知道，$\mathcal L(V^*_1,V^*_2;\mathbb F)$ 是空间 $V_1,V_2$ 的张量积中的 $T$。而张量积在同构的意义下是唯一的，所以只需证明 $\sigma:V_1\times V_2\rightarrow \mathcal L(V^*_1,V^*_2;\mathbb F)$ 是个满映射。由\autoref{lem_TPofSp_1} ，$\{e_i\otimes e'_j\}$ 是 $\mathcal L(V^*_1,V^*_2;\mathbb F)$ 的一组基，其中 $\{e_i\},\{e'_j\}$ 分别是 $V_1,V_2$ 的一组基。所以 $\forall t\in \mathcal L(V^*_1,V^*_2;\mathbb F)$，都可写成
+\begin{equation}
+t=t^{ij}e_i\otimes e'_j~.
+\end{equation}
+那么任意的 $v=v^i e_i\in V_1,v'=v'^j e'_j\in V_2$ 只要满足 $v^iv'^j=t^{ij}$ 就有
+\begin{equation}
+v\otimes v'=t~,
+\end{equation}
+由\autoref{eq_TPofSp_7} $\sigma(v,v')=t$。故 $\sigma$ 的满射性得证！
+
+\subsection{张量积的结合性}
+
+由于维数相同的向量空间必同构，由\autoref{lem_TPofSp_1} ，$V_1\otimes V_2$ 和 $V_2\otimes V_1$ 的维数相同，同样，$(V_1\otimes V_2)\otimes V_3$ 和 $V_1\otimes( V_2\otimes V_3)$ 维数也相同，因此它们各自同构。下面定理给出了它们的自然同构，即无关基的选取的同构。
+\begin{theorem}{}\label{the_TPofSp_2}
+设 $U,V,W$ 是域 $\mathbb F$ 上有限维向量空间。则有同构映射 $\psi_1:(U\otimes V)\otimes W\rightarrow U\otimes(V\otimes W)$ 和 $\psi_2:U\otimes V\rightarrow V\otimes U$，使得
+\begin{equation}
+\begin{aligned}
+\psi_1((u\otimes v)\otimes w)&=u\otimes(v\otimes w)~,\\
+\psi_2(u\otimes v)&=v\otimes u~.
+\end{aligned}
+\end{equation}
+\end{theorem}
+\textbf{证明}： 设 $\{\epsilon_i\},\{\eta_j\},\{\xi_k\}$ 分别是 $U,V,W$ 的基底，那么 $\psi_1,\psi_2$ 分别将 $(U\otimes V)\otimes W$ 和 $U\otimes V$ 的基矢
+\begin{equation}
+(\epsilon_i\otimes\eta_j)\otimes\xi_k~,\quad \epsilon_i\otimes\eta_j~,
+\end{equation}
+
+映到 $U\otimes (V\otimes W)$ 和 $V\otimes U$ 的基矢 
+\begin{equation}
+\epsilon_i\otimes(\eta_j\otimes\xi_k)~,\quad \eta_j\otimes\epsilon_i~.
+\end{equation}
+
+那么，如果证明了 $\psi_1,\psi_2$ 的线性性质，就能得到 $\psi_1,\psi_2$ 的同构性。因为从上面容易看出 $\psi_1,\psi_2$ 分别将两空间基底一一对应，如果它们还是线性映射，那么各空间中的向量在 $\psi_1,\psi_2$ 的作用下坐标和原来相同，这时就容易知道 $\psi_1,\psi_2$ 的双射性。
+
+对
+\begin{equation}
+\begin{aligned}
+&\forall u=u^i\epsilon_i\in U,\quad v=v^j\eta_j\in V,\quad w=w^k\xi_k\in W~,\\
+&\forall u'=u'^i\epsilon_i\in U,\quad v'=v'^j\eta_j\in V,\quad w'=w'^k\xi_k\in W~,\\
+&\forall \alpha,\beta \in\mathbb F~.
+\end{aligned}
+\end{equation}
+由纯量与张量积的乘法定律（\autoref{the_TsrPrd_1}~\upref{TsrPrd}），有
+\begin{equation}
+\begin{aligned}
+&\psi_1(\alpha(u\otimes v)\otimes w+\beta(u'\otimes v')\otimes w')\\
+&=\psi_1\qty(\qty(\alpha u^iv^jw^k+\beta u'^iv'^jw'^k)(\epsilon_i\otimes\eta_j)\otimes\xi_k)\\
+&=\qty(\alpha u^iv^jw^k+\beta u'^iv'^jw'^k)\epsilon_i\otimes(\eta_j\otimes\xi_k)\\
+&=\alpha u\otimes (v\otimes w)+\beta u'\otimes (v'\otimes w')\\
+&=\alpha\psi_1((u\otimes v)\otimes w)+\beta\psi_1((u'\otimes v')\otimes w')~,\\
+\\
+&\psi_2\qty(\alpha u\otimes v+\beta u'\otimes v')=\psi_2\qty(\qty(\alpha u^iv^j+\beta u'^iv'^j)\epsilon_i\otimes\eta_j)\\
+&=\qty(\alpha u^iv^j+\beta u'^iv'^j)\eta_j\otimes\epsilon_i\\
+&=\alpha v\otimes u+\beta v'\otimes u'\\
+&=\alpha\psi_2(u\otimes v)+\beta\psi_2(u'\otimes v')~,
+\end{aligned}
+\end{equation}
+于是证得  $\psi_1,\psi_2$ 的线性性质。
+
+\textbf{证毕！}
+
+\autoref{the_TPofSp_2} 给出了空间张量积的结合律，因此对多个空间的张量积，可以不使用括弧。
+
+
+\addTODO{这里没有分清楚内直和和外直和导致了符号混乱}
+另外，下面定理也成立：
+\begin{theorem}{}
+设 $U,V,W$ 是域 $\mathbb F$ 上有限维向量空间。则有同构映射
+\begin{equation}
+\begin{aligned}
+&\psi_1:(U\oplus V)\otimes W\rightarrow (U\otimes W)\oplus (V\otimes W) ~,\\
+&\psi_2:U\otimes(V\oplus W)\rightarrow (U\otimes V)\oplus (U\otimes W)~,
+\end{aligned}
+\end{equation}
+使得
+\begin{equation}\label{eq_TPofSp_8}
+\begin{aligned}
+&\psi_1((u+v)\otimes w)=(u\otimes w)+ (v\otimes w)~,\\
+&\psi_2(u\otimes (v+ w))=(u\otimes v)+ (u\otimes w) ~.
+\end{aligned}
+\end{equation}
+\end{theorem}
+\textbf{证明：}由张量积对加法的分配律（\autoref{the_TsrPrd_1}~\upref{TsrPrd}），\autoref{eq_TPofSp_8} 第一式相当于
+\begin{equation}
+\begin{aligned}
+\psi_1((u+v)\otimes w)&=(u+v)\otimes w~,\\
+\psi_2(u\otimes(v+w))&=u\otimes(v+w)~.
+\end{aligned}
+\end{equation}
+%\begin{equation}
+%\begin{aligned}
+%&\psi_1(\alpha(u+v)\otimes w+\beta(u'+v')\otimes w')\\
+%&=\psi_1\qty(\qty((\alpha u^iw^k+\beta u'^iw'^k)\epsilon_i+(\alpha v^jw^k+\beta v'^jw'^k)\eta_j)\otimes\xi_k)\\
+%&=(\alpha u^iw^k+\beta u'^iw'^k)\epsilon_i\otimes\xi_k+(\alpha v^jw^k+\beta v'^jw'^k)\eta_j\otimes\xi_k\\
+%&=(\alpha u\otimes w+\beta u'\otimes w')+(\alpha v\otimes w+\beta v'\otimes w')\\
+%&=\alpha(u+v)\otimes w+\beta(u'+v')\otimes w'\\
+%&=\alpha\psi_1((u+v)\otimes w)+\beta\psi((u'+v')\otimes w')
+%\end{aligned}
+%\end{equation}
+即 $\psi_1,\psi_2$ 是恒等映射，而空间 $(U\oplus V)\otimes W$ 和空间 $(U\otimes W)\oplus (V\otimes W) $ 基底（在映射 $\sigma(v,w)=v\otimes w$ 下）显然相同，所以这两空间可看成同一空间，那么恒等映射当然是同构映射。
+
+\textbf{证毕！}
