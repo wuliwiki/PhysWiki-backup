@@ -1,0 +1,13 @@
+% 氦原子 TDSE MPI 演化笔记
+% license Usr
+% type Note
+
+类似分块矩阵乘法，但其实有一个元素重叠。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/f0baffec02af1adc.png}
+\caption{径向 prop} \label{fig_HeMPI_1}
+\end{figure}
+另外其实不是一个 node 一个 block， 而是一个 node 多个 block。所有的相邻边界都要在两个 node 重复储存，且做完矩阵乘法后相加并同步（来回传递各一次）。
+
+可以用 block 组成任意形状而不是规则形状。每个 node 有一个整数编号，需要一个描述文件来描述每个 node 的上下左右是谁。

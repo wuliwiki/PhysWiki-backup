@@ -1,0 +1,25 @@
+% 氦原子 TDSE MPI 演化笔记
+% license Usr
+% type Note
+
+\pentry{\href{https://wuli.wiki/changed/HeTDSE.html}{氦原子 TDSE}}{nod_df20}
+
+注意仅支持全局 Lanczos 算法！
+
+类似分块矩阵乘法，但其实有一个元素重叠。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/f0baffec02af1adc.png}
+\caption{径向 prop} \label{fig_HeMPI_1}
+\end{figure}
+另外其实不是一个 node 一个 block， 而是一个 node 多个 block。所有的相邻边界都要在两个 node 重复储存，且做完矩阵乘法后相加并同步（来回传递各一次）。
+
+可以用 block 组成任意形状而不是规则形状。每个 node 有一个整数编号，需要一个描述文件来描述每个 node 的上下左右是谁。注意每个 block 不一定需要大小相同，只需要相邻边长匹配即可。
+
+需要做的修改： 所有的 \verb`obd` 矩阵需要切割（\verb`H`, \verb`D`, \verb`D2` 等），每个 node 要有属于自己的两个径向 obd 矩阵。 我们可以规定 obd 矩阵每个 block 的右下角的矩阵元为零，除了最后一个。这样把边界相加时就不会重复计算。波函数 \verb`Psi` 显然也需要对每个 node 切割，边界处重复储存，四个 block 的交点矩阵元被储存 4 次！
+
+PW 方向的矩阵乘法完全不影响。
+
+这样，Lanczos 算法中每次给 Psi 乘一次 H 就需要把所有边界传两次。另外两个不同波函数的点乘或一个波函数的模方倒不需要什么带宽，直接每个 node 把自己那块做点成得到一个数，然后全部汇总到主节点相加即可。
+
+以上就是 MPI 算法中数据结构需要进行的所有修正！
