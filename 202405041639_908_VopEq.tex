@@ -1,0 +1,83 @@
+% 矢量算符运算法则
+% keys 矢量算符|微积分|叉乘|点乘|内积
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueOther{每个等式给出一些百科中应用的链接}
+\end{issues}
+
+\pentry{梯度\nref{nod_Grad}， 旋度\nref{nod_Curl}， 列维—奇维塔符号\nref{nod_LeviCi}}{nod_dd84}
+
+\footnote{参考 \cite{GriffE} 相关章节。}这里列举一些常用的矢量算符恒等式， 证明见文末。
+
+\subsection{一阶导数}
+\subsubsection{梯度}
+\begin{equation}\label{eq_VopEq_2}
+\grad (fg) = f\grad g + g \grad f~,
+\end{equation}
+
+\begin{equation}
+\grad (\bvec A \vdot \bvec B) = \bvec A \cross (\curl \bvec B) + \bvec B \cross (\curl \bvec A) + (\bvec A \vdot \grad) \bvec B + (\bvec B \vdot \grad) \bvec A~.
+\end{equation}
+
+\subsubsection{散度}
+
+\begin{equation}\label{eq_VopEq_1}
+\div (f \bvec A) = f (\div \bvec A) + \bvec A \vdot (\grad f)~,
+\end{equation}
+
+\begin{equation}\label{eq_VopEq_4}
+\div (\bvec A \cross \bvec B) = \bvec B \vdot (\curl \bvec A) - \bvec A \vdot (\curl \bvec B)~.
+\end{equation}
+
+\subsubsection{旋度}
+\begin{equation}\label{eq_VopEq_3}
+\curl(f\bvec A) = f (\curl\bvec A) + (\grad f) \cross\bvec A~,
+\end{equation}
+
+\begin{equation}\label{eq_VopEq_6}
+\curl (\bvec A \cross \bvec B) = (\bvec B \vdot \grad) \bvec A - (\bvec A \vdot \grad) \bvec B + \bvec A (\div \bvec B) - \bvec B (\div \bvec A)~.
+\end{equation}
+
+\subsection{二阶导数}
+
+\begin{equation}
+\div (\grad f) = \laplacian f~,
+\end{equation}
+
+\begin{equation}\label{eq_VopEq_5}
+\laplacian (f \bvec v) = (\laplacian f)\bvec v + f \laplacian \bvec v + 2 (\grad f \vdot \grad) \bvec v~,
+\end{equation}
+
+\begin{equation}
+\curl (\grad f) = \bvec 0~,
+\end{equation}
+
+\begin{equation}
+\div (\curl \bvec v) = 0~,
+\end{equation}
+
+\begin{equation}\label{eq_VopEq_7}
+\curl(\curl \bvec v) = \grad(\div\bvec v) - \laplacian \bvec v~.
+\end{equation}
+
+\subsection{复合函数求导}
+使用\enref{链式法则}{PChain}容易证明以下关系
+\begin{equation}
+\grad f[g(\bvec r)] = f'[g(\bvec r)] \grad g(\bvec r)~,
+\end{equation}
+\begin{equation}
+\div \bvec f[g(\bvec r)] = \bvec f'[g(\bvec r)] \vdot \grad g(\bvec r)~,
+\end{equation}
+\begin{equation}
+\curl \bvec f[g(\bvec r)] = \qty[\grad g(\bvec r)] \cross \bvec f'[g(\bvec r)]~,
+\end{equation}
+\begin{equation}
+\laplacian f[g(\bvec r)] = f''[g(\bvec r)] (\grad g)^2 + f'[g(\bvec r)] \laplacian g(\bvec r)~.
+\end{equation}
+
+\subsection{证明}
+理论上， 我们可以直接根据定义， 将各个矢量记为分量的形式证明， 但直接写出来非常繁琐。 一种简单的记号是使用\enref{克罗内克 delta 函数}{Kronec} $\delta_{i,j}$ 和 \enref{Levi-Civita 符号}{LeviCi} $\epsilon_{i,j,k}$， 再结合\enref{爱因斯坦求和约定}{EinSum}证明。
+
+我们另外推荐一种不需要写出分量的推导方法， 见 “\enref{一种矢量算符的运算方法}{MyNab}”。
