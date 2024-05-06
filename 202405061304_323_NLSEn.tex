@@ -1,0 +1,21 @@
+% 非线性薛定谔方程的数值解法
+% keys 非线性|薛定谔方程|数值
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueTODO
+\end{issues}
+
+\subsection{非线性薛定谔方程}
+在实际某些科研方向的问题中我们会遇到需要求解非线性薛定谔方程的例子，或者著名的Gross-Pitaevskii方程，不同于薛定谔方程，非线性方程的求解在数值上更有难度。方程的一般形式是
+\begin{equation}
+i \frac{\partial}{\partial t} \psi = -\frac{1}{2}\nabla^2 \psi + g |\psi|^2 \psi + V(r)\psi~,
+\end{equation}
+其中的$V(r)$是外势。读者可能会考虑诸如有限差分法等数值方法求解，我们在这里介绍一些其它的数值计算方法，通常运算速度要优于有限差分法，且精度也更好。
+\subsection{求解基态：梯度下降法}
+寻找基态的过程等价于对能量函数进行优化的过程，找到能量的极小值，这里的能量就是损失函数，见梯度下降\upref{GraDec} 。能量表达式为
+\begin{equation}
+E = \int \frac{1}{2}|\frac{d \psi}{dx}|^2 + V(x)|\psi|^2 + \frac{g}{2}|\psi|^4~.
+\end{equation}
+实际上在这一表达式下，基态可以一眼看出来是$\psi(x) = 0$。

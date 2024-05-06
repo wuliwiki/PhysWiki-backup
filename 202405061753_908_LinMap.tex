@@ -1,0 +1,204 @@
+% 线性映射
+% keys 线性映射|线性变换|子空间|线性算符|值空间|零空间|核空间
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueOther{重整中： 线性变换和线性映射改为同义词}
+\end{issues}
+
+% 未完成：从几何向量出发， 给出 “线性” 的定义， 给出一些平面线性变换的例子（包括投影变换）， 然后再总结出一般的代数形式， 给出矩阵表示
+
+\pentry{子空间\nref{nod_SubSpc}}{nod_85d5}
+
+
+\subsection{概念的引入}
+
+线性空间是一种集合，自然可以考虑其上各种各样的映射。比如在几何向量空间中，向量$\bvec{v}$有长度，表示为$\lVert \bvec{v} \rVert$，我们可以定义映射$f(\bvec{v})=\lVert \bvec{v} \rVert\bvec{v}$，也就是把每个向量都伸长，伸长倍数恰为自己的长度。
+
+可线性空间又不仅仅是个集合，它还有线性结构，即数乘和加法运算。上述$f$并不能体现线性结构的威力，因为它不能保持线性结构——所谓保持线性结构，就是“线性组合与映射可交换”。
+
+比如说，考虑三维几何向量的\textbf{投影变换}，记为$\pi$。任取若干向量$\bvec{v}_i$，它们的线性组合$\sum_{i}a_i\bvec{v}_i$也是一个向量。你可以先将$\bvec{v}_i$组合起来，再将结果用$\pi$投影，得到$\pi\qty(\sum_{i}a_i\bvec{v}_i)$；也可以先将每个$\bvec{v}_i$投影为$\pi(\bvec{v}_i)$，再用同一组系数$a_i$做组合，得到$\sum_{i}a_i\pi(\bvec{v}_i)$。验算一下，两条路是不是殊途同归？这就叫保持线性结构。
+
+保持线性结构的映射体现了线性性的威力，也是线性代数的核心之一。
+
+\subsection{线性映射}
+
+\begin{definition}{线性映射}\label{def_LinMap_1}
+给定\enref域\upref{field} $\mathbb F$ （通常取实数域 $\mathbb R$ 或复数域 $\mathbb C$）上的线性空间 $V$ 和 $U$。 如果有映射\upref{map} $f:V\rightarrow U$ 满足： 对于任意的向量 ${v}_1, {v}_2\in V$ 和标量 $c_1, c_2 \in \mathbb{F}$，都有
+\begin{equation}
+f(c_1 {v}_1+c_2 {v}_2)=c_1f({v}_1)+c_2f({v}_2)~.
+\end{equation}
+则称 $f$ 是 $V$ 到 $U$ 的一个\textbf{线性映射（linear map）}， 也叫\textbf{线性变换（linear transform）}。
+
+特殊地，把 $f:V\to V$ 称为\textbf{线性算子（linear operator）}，“算子” 也叫“\textbf{算符}”。
+\end{definition}
+注意一些材料中只把 $f:V\to V$ 称为线性变换，小时百科以\autoref{def_LinMap_1} 为准。
+
+\autoref{def_LinMap_1} 的内涵比看上去广一些， 不仅仅是对 $V$ 中两个向量的线性组合成立。 容易证明对于任意的一组有限个向量 $\{v_i\}\subseteq V$ 和一组对应的标量 $\{c_i\}\subseteq\mathbb{F}$，都有
+\begin{equation}\label{eq_LinMap_1}
+f\qty(\sum_i c_i v_i)=\sum_i c_i f(v_i)~.
+\end{equation}
+特殊地， 若令所有 $c_i = 0$ 可得
+\begin{corollary}{}\label{cor_LinMap_1}
+线性映射 $f:V\to U$ 总把 $0 \in V$ 映射到 $0 \in U$。
+\end{corollary}
+
+\begin{exercise}{几何矢量的线性变换}
+请证明 $N$ 维几何线性空间 $V_N$ 中， 以下变换 $f:V\to V$ 都是线性变换：
+\begin{itemize}
+\item 缩放： 把矢量乘以一个固定标量 $\lambda$。
+\item 旋转： 把矢量绕任意固定轴逆时针旋转固定角度 $\theta$。
+\item 镜像： 把矢量关于某条过原点的固定直线做镜像对称。
+\item 投影： 把二维矢量垂直投影到过原点的固定直线， 或者把三维矢量垂直投影到过原点的平面（也可以拓展到 $N$ 维空间中的矢量投影到 $N-1$ 维平面）。
+\item 以上几种变换的任意组合。
+\end{itemize}
+\end{exercise}
+注意在以上映射中， 除了投影外都是双射\upref{map}， 且都把零向量映射到零向量。 多对一映射也会把一些非零向量映射到零向量。
+
+\begin{exercise}{}
+请证明两个线性映射 $f, g$ 的复合映射 $f \circ g$ 仍然是线性映射。 注意 $f$ 的值域必须是 $g$ 的定义域的子集。
+\end{exercise}
+
+在映射\upref{map}中， 我们把一个映射的像定义为值域中所有被映射到的元素的集合。
+\begin{definition}{值空间}\label{def_LinMap_3}
+线性映射 $f:V\to U$ 的像 $M = f(V) \subseteq U$ 是一个线性空间， 即 $U$ 的子空间\upref{SubSpc}。 称为 $f$ 的\textbf{值空间（range space）}。 在不造成歧义的情况下我们也可以把该映射记为 $f: V\to M \subseteq U$。
+
+我们把值空间的维度称为线性映射 $f$ 的\textbf{秩}，记做 $\opn{rank}(f)$。
+\end{definition}
+证明留作习题， 使用线性空间的定义\upref{LSpace}即可。
+
+反过来，我们可以定义所有映射到零向量的元素的集合。
+\begin{definition}{零空间}\label{def_LinMap_2}
+给定线性映射 $f:V\to U$， $V$ 中被变映射到 $U$ 中零向量的全体向量所构成的集合 $\{v\in V|f(v)= 0\}$ 构成 $V$ 的子空间， 称为 $f$ 的\textbf{零空间（null space）}， 也称为\textbf{零化子空间}或\textbf{零化子}，记做 $\opn{null} (f)$ 或 $\ker{f}$。
+
+我们把零空间的维度（$\opn{dim}(\opn{null}(f))$）称为线性映射 $f$ 的\textbf{零化度}，记做 $\opn{nullity}(f)$。
+\end{definition}
+证明留做习题： 只需要根据定义证明 $\{v\in V|f(v)= 0\}$ 是一个线性空间即可。 
+
+\addTODO{这两段应该放到后面展开讲解， 太浓缩}
+如果 $\{{e}_i\}_{i=1}^n$ 是 $V$ 的一组基底， 那么任意 $v\in V$ 都可以唯一地表示为 $v=\sum_i c_i {e}_i$ 的形式，其中 $c_i\in\mathbb{F}$。 这样，由于线性性，$f(v)=\sum_ic_if({e}_i)$。也就是说，只需要知道了基向量被 $f$ 映射到哪里，也就可以计算出任意向量映射到哪里。于是，和线性函数一样，确定一个线性映射的时候，我们最多只能自由选择基向量映射到哪里，只不过这里的函数值不再是数字，而是 $U$ 中的向量。
+
+在向量空间的表示\upref{VecRep}中我们还会看到，选定两个空间的基以后，一个线性映射也可以看成是多个线性函数的排列，因此线性映射和线性函数性质很相似。 线性函数是一种特殊的线性映射， $V$ 上的所有线性函数组成的向量空间叫做\textbf{对偶空间}\upref{DualSp}。
+
+
+
+\subsection{线性方程的解}
+% 移动自 LinEq，
+% 原作者 ACertainUser; addis
+% 原标题《线性方程的解》
+
+\begin{definition}{线性方程}
+对给定的线性映射 $A:X\to Y$ 和 $b \in Y$， \textbf{线性方程}为 $A (x) = b$；所有满足该式的 $x \in X$ 的集合 $X_s$ 叫做方程的\textbf{解集}。
+\end{definition}
+
+首先注意 $A$ 未必把 $Y$ 中的每个元素都射中， 即值空间 $A(X) \subseteq Y$ 只是 $Y$ 的一个子空间。 所以只有 $b \in A(X)$ 时方程有解， 否则无解（解集为空集）。 用映射的语言， 解集 $X_s$ 就是集合 $\qty{b}$ 的逆像\upref{map} $A^{-1}(\qty{b})$。
+
+当 $b = 0$ 时方程叫做算符 $A$ 的\textbf{齐次方程}。齐次方程的解就是映射的零空间（\autoref{def_LinMap_2}）。\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Kernel_(linear_algebra)}{相关页面}。}
+
+\begin{theorem}{}
+线性方程 $A (x) = b$ 的解集可以表示为
+\begin{equation}
+X_s = X_0 + x_1~.
+\end{equation}
+其中 $x_1$ 为 $X_s$ 中的任意元素，  $X_0$ 为映射的零空间。
+\end{theorem}
+说明： $X_0 + x_1 = \{x \in x_1 \mid x \in X_0\}$ 表示把 $X_0$ 中的每一个向量与 $x_1$ 相加得到的集合。 易证当 $x_1 \ne 0$ 时解集 $X_s$ 不是一向量个子空间（因为不包含零向量）。
+
+首先证明集合 $X_0 + x_1$ 中的元素满足 $Ax = b$。 令任意 $x_0 \in X_0$
+\begin{equation}
+A(x_0 + x_1) = Ax_0 + Ax_1 = 0 + b = b~,
+\end{equation}
+证毕。 再来证明解集中不存在 $X_0 + x_1$ 之外的向量。 令 $x_2 \in X_S$ 且 $x_2 \ne x_1$， 那么
+\begin{equation}
+A(x_2 - x_1) = Ax_2 - Ax_1 = b - b = 0~,
+\end{equation}
+即 $x_2 - x_1 \in X_0$， 即 $x_2 \in x_1 + X_0$。 证毕。
+
+到此为止我们就可以非常清晰地勾画出多对一线性映射的结构了 $A: X \to Y$。 我们先找到\autoref{the_MatLS2_1}~\upref{MatLS2} 中的零空间 $X_0$ 和它的补空间 $X_1$， 其中 $X_1$ 的元素和值域空间 $A(X)$ 一一对应。 那么对每个 $x_1 \in X_1$， 线性映射就会把集合 $x_1 + X_0$ 所有元素映射到 $A(X)$ 中的同一个元素 $y_1 = Ax_1$ 上。
+
+\addTODO{需要一个 3 维几何向量空间的真实例子， 零空间 1 维， 补空间 2 维}
+
+\subsection{线性映射空间}\label{sub_LinMap_1}
+
+\addTODO{\verb`\mapsto` 第一次出现， 解释一下用法}
+% Giacomo：应该取《映射》这篇文章中解释。
+
+从向量空间 $V$ 到向量空间 $W$ 有很多线性映射，全体线性映射的集合记做 $L(V, W)$，它也构成一个向量空间：对标量 $a \in \mathbb{F}$，线性映射 $f \in L(V, W)$， 我们定义数乘为
+\begin{equation}
+\begin{aligned}
+a \cdot f: V &\to W, \\
+v &\mapsto a \cdot (f(v))~,
+\end{aligned}
+\end{equation}
+对于线性映射 $f, f \in L(V, W)$，我们定义加法为
+\begin{equation}
+\begin{aligned}
+f + f': V &\to W, \\
+v &\mapsto f(v) + f(v')~.
+\end{aligned}
+\end{equation}
+
+特别的，零函数 $v \mapsto 0_W$ 是向量空间 $L(V, W)$ 的零向量。
+
+% Giacomo：将线性算子（自同态）的部分移动到了《线性算子》
+
+\subsection{矩阵表示线性变换}
+
+% Giacomo: 应当改成更一般的 n x m 矩阵
+
+\footnote{节选自小时百科《代数学》。}给定实向量空间 $V$，并指定它的一组基 $\{\bvec{v}_i\}_{i=1}^n$，这样就可以把每个向量都表示为一个 $n\times 1$ 的列矩阵，而每个线性变换也可以表示为一个 $n\times n$ 的\textbf{方阵}。
+
+如果一个线性变换 $f$ 将各基向量 $\bvec{v}_i$ 变换成 $a_{i1}\bvec{v}_2+a_{i2}\bvec{v}_1+\cdots+a_{in}\bvec{v}_n$，那么我们可以把这个线性变换表示为矩阵：
+
+\begin{equation}
+    \begin{pmatrix}
+    a_{11}&a_{12}&a_{13}&\cdots&a_{1n}\\
+    a_{21}&a_{22}&a_{23}&\cdots&a_{2n}\\
+    a_{31}&a_{32}&a_{33}&\cdots&a_{1n}\\
+    \vdots&\vdots&\vdots&\ddots&\vdots\\
+    a_{n1}&a_{n2}&a_{n3}&\cdots&a_{nn}\\
+    \end{pmatrix}~.
+\end{equation}
+
+这样，任何向量 $b_1\bvec{v_1}+b_2\bvec{v}_2+\cdots+b_n\bvec{v}_n$ 变换为 $c_1\bvec{v}_1+c_2\bvec{v}_2+\cdots+c_n\bvec{v}_n$ 的过程，就可以用矩阵表示为：
+
+\begin{equation}
+\begin{pmatrix}
+c_1\\c_2\\c_3\\\vdots\\c_n
+\end{pmatrix}
+=
+    \begin{pmatrix}
+    a_{11}&a_{12}&a_{13}&\cdots&a_{1n}\\
+    a_{21}&a_{22}&a_{23}&\cdots&a_{2n}\\
+    a_{31}&a_{32}&a_{33}&\cdots&a_{1n}\\
+    \vdots&\vdots&\vdots&\ddots&\vdots\\
+    a_{n1}&a_{n2}&a_{n3}&\cdots&a_{nn}\\
+    \end{pmatrix}
+    \begin{pmatrix}
+    b_1\\b_2\\b_3\\\vdots\\b_n
+    \end{pmatrix}~.
+\end{equation}
+
+\textbf{注意}，这个矩阵的第 $j$ 列单独拿出来看的话，正好就是第 $j$ 个\textbf{基向量}变换后的结果 $f(\bvec{v}_j)$。这一点很容易验证，只要把第 $j$ 个基向量的坐标代入计算就可以了。这一点使得我们可以很容易写出给定基下线性变换的矩阵，只需要把第 $j$ 个基向量变换后所得向量的坐标填入变换矩阵的第 $j$ 列就可以了。
+
+最简单的矩阵对应的也就是最简单的线性变换：恒等变换，其矩阵是
+\begin{equation}
+    \begin{pmatrix}
+1&0&0&\cdots&0\\
+0&1&0&\cdots&0\\
+0&0&1&\cdots&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+0&0&0&\cdots&1\\
+    \end{pmatrix}~.
+\end{equation}
+
+
+\subsection{总结与拓展}
+
+到目前为止，我们对于向量的描述依然是抽象的，并未涉及许多具体的性质，如向量垂直、向量长度、向量坐标等概念。
+
+在将来的文章中，我们会看到如何在给定了具体的基时用矩阵来描述向量和线性变换，以及当基的选择变化时，这些矩阵该如何变化。
+
+% 零化子空间是一种子空间，而我们也会在将来的文章中解释子空间的概念。
+
