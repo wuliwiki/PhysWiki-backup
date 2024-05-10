@@ -1,0 +1,42 @@
+% 电磁场的规范变换
+% keys 库仑规范|洛伦兹规范|标量势能|矢量势能|麦克斯韦方程组
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft 
+\end{issues}
+
+\pentry{电磁场标势和矢势\nref{nod_EMPot}}{nod_4d5d}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Gauge_fixing}{相关页面}。}虽然标势和矢势可以唯一确定电磁场，但是同一个电磁场却可能对应不同的标势和矢势。 这是因为在麦克斯韦方程中，有物理意义的是$\bvec E,\bvec B$。我们只需保证：尽管改变四维电磁矢势$(\varphi,\bvec A)$，也对应相同的$\bvec E,\bvec B$即可。
+
+由于$\curl  \bvec A=\bvec B$，利用函数的梯度是一个无旋场，我们可以令$\bvec A'=A+\grad\lambda$，则
+\begin{equation}
+\bvec B' = \curl \bvec A' = \curl (\bvec A + \grad \lambda) = \curl \bvec A = \bvec B~.
+\end{equation}
+ 如果 $\lambda$ 随时间变化，\autoref{eq_EMPot_1}~\upref{EMPot} 中的电场会改变。 因此我们需要同时修正 $\varphi$， 才能确保变换后电场也不改变。 可以发现只需要令 $\varphi' = \varphi - \pdv*{\lambda}{t}$ 即可
+\begin{equation}
+\bvec E' = -\grad \varphi' - \pdv{\bvec A'}{t} = -\grad \qty(\varphi - \pdv{\lambda}{t}) - \pdv{t} (\bvec A + \grad \lambda) = \bvec E~.
+\end{equation}
+
+
+这种“保持电磁场不变时，对势 $\pmat{\varphi, \bvec{A}}$ 进行的变换”被称为\textbf{规范变换（gauge transformation）}：
+\begin{equation}\label{eq_Gauge_3}
+\leftgroup{
+&\bvec A' = \bvec A + \grad \lambda\\
+&\varphi' = \varphi - \pdv{\lambda}{t}~.
+}\end{equation}
+任何产生相同电磁场的两组标势矢势都可以通过规范变换联系起来。
+
+除此以外，考虑到麦克斯韦方程只约束了$\bvec A$的散度，因此我们可以限定$\div \bvec A$的结果来减少冗余的自由度，还可同时简化麦克斯韦方程。
+基于此，常见的两种规范是\enref{库仑规范}{Cgauge}}和\textbf{洛伦兹规范\upref{LoGaug}}。
+下面列出常见的规范条件：
+\begin{enumerate}
+\item 库伦规范：$\div \bvec A=0$。
+\item 洛伦兹规范：$\partial_{\mu}A^{\mu}=0$。
+\item 辐射（radiation）规范：$\div \bvec A=0,A^0=0$。($\bvec A$只有两个自由度，对应电磁场只有两个独立自由度，电磁波只有两个独立偏振方向。)
+\item 瞬时（temporal）规范：$A^0=0$。
+\item 轴（axial）规范：$A^3=0$。
+\end{enumerate}
+这些规范条件总可以通过$\lambda$的具体选定来实现，读者可自证这一点。

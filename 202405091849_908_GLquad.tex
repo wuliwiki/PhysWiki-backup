@@ -1,0 +1,94 @@
+% Gauss-Lobatto 积分
+% keys 高斯积分|数值积分|多项式
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueAbstract
+\end{issues}
+
+\pentry{定积分\nref{nod_DefInt}， 换元积分法\nref{nod_IntCV}}{nod_de05}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Gaussian_quadrature}{相关页面}。}\textbf{高斯积分（Gauss quadrature）}可以用求和来近似表示积分
+\begin{equation}
+\int_{-1}^1 f(x) \dd{x} \approx \sum_i w_i f(x_i)~.
+\end{equation}
+对于某区间的一组 $x_i, w_i$（$i = 1,\dots,N$）， 那么当 $f(x)$ 是小于等于某个阶的多项式时（取决于具体的类型）， 上式取等号。
+
+我们可以用换元积分法把上述定积分的区间变为任意 $[a,b]$。 令
+\begin{equation}
+t = \frac{b-a}{2}x + \frac{b+a}{2}~,
+\end{equation}
+那么换元得（过程略）
+\begin{equation}
+\int_a^b g(t) \dd{t} \approx \sum_i w'_i g(t_i)~.
+\end{equation}
+其中
+\begin{equation}
+g(t) = \frac{2}{b-a} f\qty(\frac{2t - b - a}{b - a}) = \frac{2}{b-a} f(x)~,
+\end{equation}
+\begin{equation}
+t_i = \frac{b-a}{2}x_i + \frac{b+a}{2}~,
+\end{equation}
+\begin{equation}
+\omega'_i = \frac{b-a}{2}\omega~.
+\end{equation}
+
+
+\subsection{Gauss-Lobatto 积分}
+Gauss-Lobatto 积分中令采样点（包括两个端点）的个数为 $N$， 如果 $f(x)$ 是 $2N-3$ （或更低）阶多项式（$f(x) = x^{2N-3} + \dots$）， 则积分没有误差。
+
+注意 Gauss-Lobatto 积分是对称的
+\begin{equation}\label{eq_GLquad_5}
+x_i = -x_{N-i+1}, \qquad w_{i} = w_{N-i+1}~.
+\end{equation}
+
+其中 $x_0 = -1, x_N = 1$， 剩下的 $x_i$ （$1 < i < N$）是 $P'_{N-1}(x)$ 的根\footnote{$P_N(x)$ 在 $[-1,1]$ 有 $l$ 个根。 $P'_N(x)$ 有 $N-1$ 个根， 所以 $P'_{N-1}(x)$ 有 $N-2$ 个根， 加上两个端点就是 $N$ 个。}， $P_N(x)$ 是\enref{勒让德多项式}{Legen}。 另见\autoref{eq_Legen_6}~\upref{Legen}。
+\begin{equation} % 已数值验证
+w_i = \frac{2}{N(N-1)[P_{N-1}(x_i)]^2}~.
+\end{equation}
+
+低阶情况下 $x_i$ 可以表示为带根号的表达式， 在 \enref{Mathematica}{Mma} 中求解解析式和任意精度数值解如\begin{lstlisting}[language=mma, caption=gauss\_lobatto.nb]
+NN = 6;(*Nodes*)
+digits = 38;(*digits*)
+sol = Solve[D[LegendreP[NN - 1, x], x] == 0, x];
+sol = Append[sol, {x -> -1}];
+sol = Append[sol, {x -> 1}];
+xi = N[x /. sol, digits](*DVR points*)
+w = N[2/(NN (NN - 1) (LegendreP[NN - 1, x])^2) /. sol, digits](*DVR weights*)
+\end{lstlisting}
+其中 \verb|sol| 得到的是 list of rule， \verb|/.| 用于把这些 rule 作用到前面的表达式上面。
+
+\subsection{正交归一基底}
+每个基底都是 $N-1$ 阶多项式， 由于阶数和零点数一样， 多项式可以唯一确定， 即拉格朗日插值多项式
+\begin{equation}\label{eq_GLquad_2}
+\ali{
+p_n(x) &= \prod_{i=1}^{n-1} \frac{x-x_i}{x_n-x_i} \prod_{i=n+1}^{N} \frac{x-x_i}{x_n-x_i}\\
+&= \frac{x-x_1}{x_n-x_1} \dots \frac{x-x_{n-1}}{x_n-x_{n-1}}\frac{x-x-{n+1}}{x_n-x_{n+1}} \dots \frac{x-x_N}{x_n-x_N}~,
+}\end{equation}
+\begin{equation}\label{eq_GLquad_1}
+p_n(x_{n'}) = \delta_{n, n'}~.
+\end{equation}
+
+由于任意两个基底乘积只是 $2N-2$ 阶的多项式， 所以用求和代替积分存在误差。 可以证明它们之间有近似的正交关系
+\begin{equation}
+\int_{-1}^1 p_i(x) p_j(x) \dd{x} \approx \sum_k w_k p_i(x_k) p_j(x_k) = w_i \delta_{ij}~.
+\end{equation}
+所以可以定义 $N$ 个近似正交归一的多项式基底
+\begin{equation}\label{eq_GLquad_3}
+f_n(x) = \frac{1}{\sqrt{w_n}} p_n(x)~,
+\end{equation}
+满足
+\begin{equation}
+f_i(x_j) = \frac{1}{\sqrt{w_i}} \delta_{ij}~.
+\end{equation}
+
+基底的另一种等效的表示方法是利用 $N$ 阶 Gauss-Lobatto 数值积分对应的多项式 $P'_{N-1}(x)$ 来构建。 根据定义，其 $N-2$ 个零点分别为 $x_2, x_3\dots x_{N-1}$。给它加入 $x_1=-1$ 与 $x_N=1$ 这两个零点，将其变为 $N$ 阶多项式得
+\begin{equation}\label{eq_GLquad_10}
+(1-x^2)P'_{N-1}(x)~.
+\end{equation}
+然而，\autoref{eq_GLquad_1} 要求 $p_n(x_n)=1$， 所以我们将\autoref{eq_GLquad_10} 除以它自己在 $x_N$ 处的切线，在 $x=x_N$ 处形成极限类型 $0/0=1$ 即可得到多项式 $p_n(x)$。 
+\begin{equation}\label{eq_GLquad_11}
+p_n(x) = \frac{(1-x^2)P'_{N-1}(x)}{[(1-x^2)P'_{N-1}(x)]'_{x = x_n}(x-x_n)}~.
+\end{equation}
+该式与\autoref{eq_GLquad_2} 事实上是完全相同的多项式，因为所有具有 $N-1$ 个零点的 $N-1$ 阶多项式都可以因式分解成\autoref{eq_GLquad_2} 的形式乘以一个待定常数。用\autoref{eq_GLquad_11} 便于快速地展开多项式（因为勒让德多项式的系数可以直接通过公式计算）。

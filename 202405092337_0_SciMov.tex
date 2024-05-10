@@ -1,0 +1,10 @@
+% Matlab 数理教学动画制作笔记
+% license Usr
+% type Note
+
+\subsubsection{导出透明背景图片}
+\begin{itemize}
+\item 例如用 \verb`plot()` 在 figure 中画了一个函数图，如何保存为背景透明的图片呢？ Matlab 这方面的支持并不怎么好。
+\item \verb`saveas(gcf, '...svg')` 和 \verb`print()` 无论是 svg 还是 png 都无法导出透明背景。 目前的方法是导出 svg 然后用一个脚本移除 \verb`<g><rect ... /></g>` 元素。
+\item \verb`exportgraphics(gcf,'transparent.eps', 'ContentType','vector', 'BackgroundColor','none')` 据说可以导出透明矢量图（未测试）。
+\end{itemize}
