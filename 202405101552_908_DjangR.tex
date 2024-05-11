@@ -1,0 +1,42 @@
+% 用 Python Django REST 搭建 Web API 笔记
+% license Xiao
+% type Note
+
+\pentry{Python 虚拟环境 venv 笔记\nref{nod_PyVenv}}{nod_551a}
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item Flask 是一个更加轻量级的 web api 库， 一个教程见\href{https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask}{这里}， 包括什么是 web api。
+\item 用 django 做一个简单的 web form 见\href{https://www.geeksforgeeks.org/how-to-create-a-form-using-django-forms/}{这里}（以及它的预备知识\href{https://www.geeksforgeeks.org/django-project-mvt-structure}{Django 的 MVT 结构}， \href{https://www.geeksforgeeks.org/how-to-create-a-basic-project-using-mvt-in-django/}{创建 MVT 基本工程}和\href{https://www.geeksforgeeks.org/how-to-create-an-app-in-django/}{创建 app}）。
+\item django 基于 \textbf{MVT （Model-View-Template）} 的\textbf{设计模式（design pattern）}。
+\item \textbf{Model}： 整个应用的数据结构和数据库。
+\item \textbf{View}： 渲染用户界面（HTML/CSS/Javascript）。
+\item \textbf{Template}: HTML 模板， 用一些特殊语法指定如何加载动态内容。
+\item Django 主要用于后端（虽然提供少量前端支持）， 前端可以用 \enref{React}{ReactN}， Vue 等框架实现。
+\item \href{https://www.django-rest-framework.org/}{Django REST framework（DRF）} 是基于 django 的用于搭建 web api 的工具。
+\item \href{https://www.django-rest-framework.org/tutorial/quickstart/}{Django REST quick start tutorial}。 下面我们按照这个教程来做。
+\item 创建文件夹 \verb|tutorial| 并进入。
+\item 【可选】创建虚拟环境\upref{PyVenv} \verb|python3 -m venv env|， 然后 \verb|source env/bin/activate| 开启虚拟环境
+\item 在虚拟环境中 \verb|pip install django djangorestframework|， 大概需要安装 9MB 的包。
+\item 如果没有用虚拟环境， 可能需要 \verb|export PATH=$PATH:/home/addis/.local/bin| 把 \verb|pip| 的可执行文件目录添加到路径。
+\item 当然应该也可以在 conda 中安装虚拟环境并安装。
+\item 创建新的 django project（注意后面有一点）： \verb|django-admin startproject tutorial .| 名为 tutorial， 该命令会创建同名文件夹
+\item 运行 \verb|cd tutorial; django-admin startapp quickstart; cd ..|。 会生成如\autoref{fig_DjangR_1} 的 \verb|quickstart| 目录。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/e97789a271890c41.png}
+\caption{quickstart 的目录结构} \label{fig_DjangR_1}
+\end{figure}
+\item \verb|python manage.py migrate|
+\item \verb|python manage.py createsuperuser --email admin@example.com --username admin| 交互创建密码
+\item 创建文件 \verb|tutorial/quickstart/serializers.py|， 插入代码…（见 \href{https://github.com/MacroUniverse/django-test}{GitHub}）
+\item 替换文件 \verb|tutorial/quickstart/views.py| 的代码…
+\item 替换文件 \verb|tutorial/urls.py| 的代码…
+\item 在文件 \verb|vim tutorial/settings.py| 最后插入代码… 并在 \verb|INSTALLED_APPS| 列表的最后插入一行…
+\item 现在启动 api \verb|python manage.py runserver|。 将在 localhost 端口运行。
+\item 现在就可以用 curl 测试我们的 web api 了： \verb|curl -H 'Accept: application/json; indent=4' -u admin:password123 http://127.0.0.1:8000/admin/ -o ret.html|
+\item 或者直接访问 \verb|http://127.0.0.1:8000/users/|
+\end{itemize}
