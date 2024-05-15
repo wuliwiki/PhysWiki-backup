@@ -1,0 +1,62 @@
+% 牛顿—莱布尼兹公式（复变函数）
+% keys 复变函数|矢量场|线积分|托克斯定理|柯西—黎曼|梯度定理|原函数
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{柯西—黎曼条件\nref{nod_CauRie}， 复变函数的积分\nref{nod_CpxInt}}{nod_a58b}
+
+我们来回顾\autoref{the_CpxInt_1}~\upref{CpxInt}： 复积分的实部和虚部可以分别表示为两个二维矢量场的线积分
+\begin{equation}
+\int_{C} f(z) \dd{z} = \int_C \bvec f(\bvec r) \vdot \dd{\bvec r} + \I \int_C \bvec g(\bvec r) \vdot \dd{\bvec r}~,
+\end{equation}
+其中
+\begin{equation}
+\bvec f(\bvec r) = u\uvec x - v\uvec y
+\qquad
+\bvec g(\bvec r) = v\uvec x + u\uvec y~.
+\end{equation}
+什么情况下， 该积分只和积分曲线的起点和终点有关呢？ 根据\enref{斯托克斯定理}{Stokes}，充分必要条件是
+\addTODO{？}
+
+如果其中的函数在某区域 $D$ 解析， 即处处满足柯西—黎曼条件， 那么
+
+
+\begin{theorem}{}
+令复平面的实轴为 $x$ 轴， 虚轴为 $y$ 轴， 用两个二元实函数 $u, v$ 来表示 $f(z)$
+\begin{equation}
+f (z) = u(x, y) + \mathrm iv(x, y)~.
+\end{equation}
+令两个矢量场为（$\bvec r$ 为 $xy$ 平面上的位置矢量）
+
+那么积分 $\int_{C} f(z) \mathrm{d} z$ 的实部和虚部分别可以看作两个矢量场 $\bvec f(\bvec r), \bvec g(\bvec r)$ 在曲线 $C$ 上的线积分
+\begin{equation}
+\begin{aligned}
+\int_{C} f(z) \dd{z} &= \int_C \bvec f(\bvec r) \vdot \dd{\bvec r} + \I \int_C \bvec g(\bvec r) \vdot \dd{\bvec r}\\
+&= \int_{C} u \mathrm{d} x-v \mathrm{d} y+\mathrm{i} \int_{C} v \mathrm{d} x+u \mathrm{d} y~.
+\end{aligned}
+\end{equation}
+\end{theorem}
+
+而\enref{柯西—黎曼条件}{CauRie}恰好规定了这两个矢量场的旋度为零， 所以如果 $f(z)$ 在考虑的区域上解析， 线积分结果只和起点和终点有关， 与路径无关（所有的路径必须在解析的区域内）。 于是可以得到类似于\enref{牛顿—莱布尼兹公式}{NLeib}， 令 $\bvec f_R, \bvec f_I$ 的势函数分别为 $F_R, F_I$， 即
+\begin{equation}
+\grad F_R = f_R~,
+\qquad
+\grad F_I = f_I~.
+\end{equation}
+再令
+\begin{equation}
+F(\bvec r) = F_R(\bvec r) + \I F_I(\bvec r)~,
+\end{equation}
+有
+\begin{equation}\label{eq_AnaInt_2}
+\int_{z_1}^{z_2} f(z) \dd{z} = F(z_2) - F(z_1)~.
+\end{equation}
+对于任意路径成立。 容易证明 $F(z)$ 就是 $f(z)$ 的原函数， 即
+\begin{equation}
+F'(z) = f(z)~.
+\end{equation}
+这相当于对\autoref{eq_AnaInt_2} 实部和虚部分别使用\enref{梯度定理}{Grad}。

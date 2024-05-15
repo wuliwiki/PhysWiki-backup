@@ -1,0 +1,31 @@
+% 极分解
+% license Usr
+% type Tutor
+
+\begin{theorem}{}
+给定酉空间$V$及其上的线性变换$A$，则存在$V$上的半正定厄米变换$H_1,H_2$和酉变换$U_1,U_2$使得
+\begin{equation}
+A=H_1U_1=H_2U_2~,
+\end{equation}
+\end{theorem}
+\textbf{证明：}
+我们可以利用$A^{\dagger}$来构造半正定的厄米变换。
+注意到$AA^{\dagger}$是厄米矩阵，则$V$存在某组标准正交基$\{\bvec e_i\}$，使得$AA^{\dagger}$为对角矩阵，且特征值都是实数，设为$\lambda_i$。
+
+设任意$\bvec x\in V$，由酉内积的正定性得：$\ev{A^{\dagger}\bvec x,A^{\dagger}x}=\ev{\bvec x,AA^{\dagger}x}\ge 0$
+，在$\{\bvec e_i\}$下讨论，易见该正定性要求$AA^{\dagger}$的对角元大于或等于0。
+
+设$H=\sqrt{AA^{\dagger}}$，即对角元为$\sqrt{\lambda_i}$的半正定矩阵，以下简写为$\lambda'_i$。
+
+\begin{theorem}{}
+给定酉空间$V$及其上的线性变换$A$，若半正定厄米变换$H$和酉变换$U$使得$A=HU$，则$UH=HU$当且仅当$A$是正规变换。
+\end{theorem}
+\begin{theorem}{}
+给定酉空间$V$上的酉变换$U$，则其总可以表示为$U=\E^{\I H}$，$H$为半正定的厄米变换。
+\end{theorem}
+\begin{corollary}{}
+给定酉空间$V$及其上的线性变换$A$，则存在$V$上的半正定厄米变换$H_1,H_2,F_1,F_2$，使得
+\begin{equation}
+A=H_1\E^{\I F_1}=\E^{\I F_2}H_2~.
+\end{equation}
+\end{corollary}
