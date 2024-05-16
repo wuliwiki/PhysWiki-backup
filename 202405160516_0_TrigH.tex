@@ -1,0 +1,85 @@
+% 双曲函数
+% keys 双曲函数|指数函数|反函数
+% license Xiao
+% type Tutor
+
+\pentry{指数函数}{nod_9c67}
+
+\footnote{参考 Wikipedia \href{https://en.wikipedia.org/wiki/Hyperbolic_functions}{相关页面}。}这里介绍三种\textbf{双曲函数（hyperbolic function）}：双曲正弦函数， 双曲余弦函数和双曲正切函数。 本文只讨论实数自变量的情况。 他们的定义分别为
+\begin{align}
+\sinh x &= \frac{\E^x - \E^{-x}}{2}~,\\
+\label{eq_TrigH_1}
+\cosh x &= \frac{\E^x + \E^{-x}}{2}~,\\
+\tanh x &= \frac{\sinh x}{\cosh x} = \frac{\E^x - \E^{-x}}{\E^x + \E^{-x}}~.
+\end{align}
+其中 $\E$ 是一个高等数学中常见的常数， 叫做\enref{自然对数底}{E}。 这三个函数的图像如\autoref{fig_TrigH_1}。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/243167422806e60c.pdf}
+\caption{三种双曲函数的图像} \label{fig_TrigH_1}
+\end{figure}
+
+注意 $\sinh x$ 和 $\tanh x$ 是奇函数， $\cosh x$ 是偶函数。
+
+\begin{example}{反双曲正弦函数}\label{ex_TrigH_1}
+要求 $\sinh x$ 的反函数， 我们令
+\begin{equation}
+x = \sinh y =  \frac{\E^y - \E^{-y}}{2}~.
+\end{equation}
+整理成关于 $\E^y$ 的二次方程， 得
+\begin{equation}
+(\E^y)^2 - 2x \E^y - 1 = 0~.
+\end{equation}
+解出 $\E^y$ 为
+\begin{equation}
+\E^y = x \pm \sqrt{x^2 + 1}~.
+\end{equation}
+由于 $\E^y > 0$， 上式取正号。 两边取自然对数， 得
+\begin{equation}
+y = \sinh^{-1} x = \ln(x + \sqrt{x^2 + 1})~.
+\end{equation}
+\end{example}
+
+\subsection{恒等式}
+以下恒等式中， $x,y$ 可以取任意复数
+\begin{equation}
+\cosh^2 x - \sinh^2 x = 1~,
+\end{equation}
+\begin{equation}
+\sinh(x+y) = \sinh x \cosh y + \cosh x \sinh y~,
+\end{equation}
+\begin{equation}
+\cosh(x+y) = \cosh x \cosh y + \sinh x \sinh y~.
+\end{equation}
+
+\subsection{反函数}
+
+\begin{equation}
+\tanh^{-1} x = \frac12 \ln(\frac{1+x}{1-x})~.
+\end{equation}
+
+\subsection{经典积分}
+\begin{equation}\ali{
+\int \frac{1}{\sqrt{2(k^2/2+Z/r)}} \dd{r} &= \frac{r}{k}\sqrt{\frac{2 Z}{k^2 r}+1}-\frac{2 Z}{k^3}\tanh ^{-1}\qty(\sqrt{\frac{2 Z}{k^2 r}+1}) + C\\
+&=\frac{r}{k}\sqrt{\frac{2 Z}{k^2 r}+1}-\frac{Z}{k^3}\ln(\frac{\sqrt{\frac{2 Z}{k^2 r}+1}+1}{\sqrt{\frac{2 Z}{k^2 r}+1}-1})+ C'~.
+}\end{equation}
+其中 $C' = \I \frac{\pi}{2} + C$。 这是因为
+\begin{equation}
+\tanh ^{-1}\qty(x)
+= \frac12 \ln(\frac{x+1}{x-1})+\I \frac{\pi}{2} \qquad (x > 1)~.
+\end{equation}
+令 $C'$ 前面的部分为 $F(x)$， 当 $r\to \infty$， 有
+\begin{equation}\ali{
+F(x)-\frac{r}{k} \to
+\frac{Z}{k^3}\qty[1-\ln(\frac{2k^2 r}{Z})]~.
+}\end{equation}
+当 $r\to 0$， 有
+\begin{equation}\ali{
+F(x)-\frac{r}{k} \to
+\frac{\sqrt{2Zr}}{k^2} \to 0~.
+}\end{equation}
+所以，当一个粒子从 $r\to 0$ 出发，到一个很大的距离，当对于匀速直线运动，产生的延迟就是
+\begin{equation}
+t_\text{C} = \eval{\qty[F(x)-\frac{r}{k}]}_0^{r\to\infty} = \frac{Z}{k^3}\qty[1-\ln(\frac{2k^2 r}{Z})]~.
+\end{equation}

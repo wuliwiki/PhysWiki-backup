@@ -1,0 +1,61 @@
+% 奇异值分解（SVD）
+% keys SVD|singular value decomposition|奇异值分解|正交矩阵|正交变换|线性代数|对角矩阵
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueTODO 引用酉矩阵对角化定理。
+\end{issues}
+
+
+
+本节默认在复数域下讨论。
+\subsection{定理陈述}
+\begin{theorem}{SVD}
+给定复数域$\mathbb{C}$上的$n$行$m$列矩阵$\bvec{M}$，则存在$n$行$m$列对角矩阵$\bvec{D}$和酉矩阵$\bvec{P}$、$\bvec{Q}$，使得
+\begin{equation}
+\bvec{M} = \bvec{PDQ}~. 
+\end{equation}
+称$\bvec{D}$的对角元为$\bvec{M}$的\textbf{奇异值（singular value）}，$\bvec{PDQ}$为$\bvec{M}$的\textbf{奇异值分解（singular value decomposition）}，简称为\textbf{SVD}。
+\end{theorem}
+
+
+\subsection{证明过程}
+我们先从\textbf{可逆方阵}证起，然后再过渡到不要求可逆的\textbf{任意复矩阵}。
+\begin{theorem}{}
+对于$n$阶\textbf{可逆方阵}$M$，存在\textbf{酉方阵}$P,Q$和\textbf{可逆对角矩阵}$D$使得
+\begin{equation}
+M=P^{\dagger}DQ~.
+\end{equation}
+
+\end{theorem}
+\textbf{证明：}因为$MM^{\dagger}$是厄米矩阵，必存在一组标准正交基使之对角化，设为$A$，对应的过渡矩阵为酉方阵$U$，则该过程表示为$U^{\dagger}MM^{\dagger}U=A$。左右取行列式可证$A$是可逆矩阵。
+
+
+
+\begin{lemma}{}
+对于任意矩阵$M$，存在酉矩阵$Q,S$和\textbf{满秩}矩阵$N$，使得
+\begin{equation}
+M=S^{\dagger}\left(\begin{array}{cc}
+N & 0 \\
+0 & 0
+\end{array}\right) Q~.
+\end{equation}
+\end{lemma}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
