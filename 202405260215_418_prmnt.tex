@@ -1,0 +1,34 @@
+% 素数与合数
+% keys 数论|素数|质数
+% license Usr
+% type Tutor
+
+\pentry{整除\nref{nod_divisb}}{nod_7083}
+\begin{definition}{素数}
+若对于一个正整数 $p > 1$，满足 $p$ 除了 $1$ 与 $p$ 自己以外没有其他因子。也就是说：
+\begin{equation}
+\forall n \in (1,p), n \not{\mid} ~ p ~,
+\end{equation}
+就称 $p$ 是\textbf{素数(prime)}，又称质数。
+\end{definition}
+
+\begin{definition}{合数}
+大于 $1$ 且不是素数的整数称为\textbf{合数(composite)}。
+\end{definition}
+
+由定义可以立即得到推论。
+\begin{corollary}{}
+对于所有大于 $1$ 的正整数，其要么是质数，要么是合数。
+\end{corollary}
+\begin{corollary}{}
+合数必定有大于 $1$ 且小于其本身的因子。也就是说对于合数 $m > 1$，必定存在 $1 < l < m$，$l | m$。
+\end{corollary}
+
+
+
+在定义了素数后我们可以引入一个定理。
+\begin{theorem}{}
+对于所有大于 $1$ 的正整数，其都是素数的乘积。
+\end{theorem}
+\textbf{证明}：$n$ 要么自己本身就是素数，否则 $n$ 就有大于 $1$ 且小于 $n$ 的因子。不失一般性的，考虑 $n$ 的大于 $1$ 且小于 $n$ 的最小因子 $a$，则 $a$ 要么是素数，要么 $a$ 是合数。
+

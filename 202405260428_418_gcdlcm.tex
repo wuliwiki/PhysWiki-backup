@@ -1,0 +1,13 @@
+% 最大公约数与最小公倍数
+% keys 最大公约数|最小公倍数
+% license Usr
+% type Tutor
+
+\pentry{整除\nref{nod_divisb}}{nod_10ef}
+\begin{definition}{最大公约数}
+两个不全为零的整数 $a$、$b$ 的\textbf{最大公约数（greatest common divisor）} $d$ 定义为能同时整除 $a$ 与 $b$ 的最大正整数。记作 $d = (a, b)$。
+\end{definition}
+显然，若 $a$ 可表示为 $a = 2^{\alpha_1} \times 3^{\alpha_2} \times \cdots \times p_i^{\alpha_i}$，而 $b$ 可表示为 $b = 2^{\beta_1} \times 3^{\beta_2} \times \cdots \times p_j^{\beta_j}$，不失一般性的令 $i \ge j$（否则交换即可），此时称 $\beta_k = 0$ 若 $k > j$，则
+\begin{equation}
+d = (a, b) = 2^{\min(\alpha_1, \beta_1)} \times 3^{\min(\alpha_2, \beta_2)} \times \cdots \times p_i^{\min(\alpha_i, \beta_i)} ~.
+\end{equation}

@@ -1,0 +1,39 @@
+% 素数与合数
+% keys 数论|素数|质数
+% license Usr
+% type Tutor
+
+\pentry{整除\nref{nod_divisb}}{nod_7083}
+\begin{definition}{素数}
+若对于一个正整数 $p > 1$，满足 $p$ 除了 $1$ 与 $p$ 自己以外没有其他因子。也就是说：
+\begin{equation}
+\forall n \in (1,p), n \not{\mid} ~ p ~,
+\end{equation}
+就称 $p$ 是\textbf{素数（prime）}，又称质数。
+\end{definition}
+
+\begin{definition}{合数}
+大于 $1$ 且不是素数的整数称为\textbf{合数（composite）}。
+\end{definition}
+
+由定义可以立即得到推论。
+\begin{corollary}{}
+对于所有大于 $1$ 的正整数，其要么是质数，要么是合数。
+\end{corollary}
+\begin{corollary}{}
+合数必定有大于 $1$ 且小于其本身的因子。也就是说对于合数 $m > 1$，必定存在 $1 < l < m$，$l | m$。
+\end{corollary}
+
+
+
+在定义了素数后我们可以引入一个定理。
+\begin{theorem}{}\label{the_prmnt_1}
+对于所有大于 $1$ 的正整数都是素数的乘积。
+\end{theorem}
+\textbf{证明}：$n$ 要么自己本身就是素数，否则 $n$ 就有大于 $1$ 且小于 $n$ 的因子。不失一般性的，考虑 $n$ 的大于 $1$ 且小于 $n$ 的最小因子 $a$，则 $a$ 要么是素数，要么 $a$ 是合数。对于 $a$ 是合数的时候，则必定存在 $1 < l < a$ 使得 $l | a$，而 $a | m$，故 $l|m$（整除的传递性）。这使得 $l$ 是更小的一个 $n$ 的大于 $1$ 的因子，矛盾！故 $a$ 必定是素数。
+
+这指出，$n$ 要么本身就是素数，要么可以被一个小于 $n$ 的素数 $p_1$ 整除。而 $n / p_1$ 又是一个数，要么本身是素数，要么可以被一个小于 $n / p_1$ 的素数 $p_2$ 整除，依次类推...... 最终终将得到一个 $p_{m+1} = n/ p_1 / p_2 / \cdots / p_m$ 是一个素数。这就使得 $n$ 可以表示为各个素数 $p_1, p_2, \dots, p_{m+1}$ 的乘积。证毕。
+
+\begin{theorem}{欧几里得第二定理}
+
+\end{theorem}

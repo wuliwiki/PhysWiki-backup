@@ -1,0 +1,32 @@
+% 标准型（分解）与唯一分解定理
+% keys 数论|标准型|分解|唯一分解定理|算数基本定理|欧几里得第一定理|Euclid 第一定理
+% license Usr
+% type Tutor
+
+\pentry{素数与合数\nref{nod_prmnt}，整除\nref{nod_divisb}}{nod_8c50}
+我们对素数与合数一节中讨论到的\autoref{the_prmnt_1}~\upref{prmnt}中的分解结果 $n = p_1 \times p_2\times \cdots \times p_{m+1}$，进行合并，使得相同的 $p_i$ 表示为次方的形式，就得到了 $n$ 的标准型。
+\begin{definition}{标准型}
+对于任意大于 $1$ 的正整数 $n$，将其表示为各个素数的次方的乘积的形式
+\begin{equation}
+n = p_1^{a_1} \times p_2^{a_2} \times \cdots \times p_k^{a_k} ~ (a_1 > 0, a_2 > 0 , \dots, p_1 < p_2<\dots) ~,
+\end{equation}
+其中各个 $p$ 都是素数。这就称 $n$ 被表示为了\textbf{标准型（standard form）}，而这个乘积表示 $p_1^{a_1} \times p_2^{a_2} \times \cdots \times p_k^{a_k}$ 就称为 $n$ 的\textbf{标准型}。
+\end{definition}
+
+而标准型是唯一的，这被是唯一分解定理，又称算术基本定理。
+\begin{theorem}{唯一分解定理（算术基本定理）}
+对于任意大于 $1$ 的正整数，其标准型都是唯一的。即忽略各素数顺序的前提下， $n$ 只能用唯一一种方式表示为各个素数的乘积。
+\end{theorem}
+
+而唯一分解定理是欧几里得第一定理的推论。
+\begin{theorem}{欧几里得第一定理}
+对于素数 $p$ 与两正整数 $a$、$b$，若 $p|ab$，则 $p|a$ 或 $p|b$，即 $p|a$ 与 $p|b$ 中至少一者成立。
+\end{theorem}
+
+先不证明欧几里得第一定理。我们先假设其成立，并从其推导出算数基本定理。
+由欧几里得第一定理，若
+\begin{equation}
+p | (a_1 a_2 \cdots a_n) ~,
+\end{equation}
+则 $p | a_1$ 或 $p | a_2$ 或 $p|a_3$ 或... 或 $p|a_n$。由素数的定义可以立刻得出，若各 $a_i$ 都是素数，则 $p$ 是 $a_i$ 中的一者。
+
