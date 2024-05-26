@@ -1,0 +1,41 @@
+% 数论三角和
+% keys 三角和
+% license Usr
+% type Tutor
+
+\pentry{同余与剩余类\nref{nod_modres}}{nod_521a}
+
+\subsection{数论三角和}
+由于 $e^{\pi \I} = -1$，利用 $e^{2\pi \I} = 1$ 可以构造出诸多三角和。在数论中我们记
+\begin{equation}
+e(t) := e^{2\pi \I t} ~,
+\end{equation}
+则对于 $t$ 的有理值，当 $x \equiv y \pmod m$ 时，将有
+\begin{equation}
+e\left(\frac{x}{m}\right) = e\left(\frac{y}{m}\right) ~.
+\end{equation}
+这是数论三角和的重要性质。
+
+\subsection{Gauss 和}
+\begin{definition}{Gauss 数论三角和}
+定义 $S(m, n)$ 为\textbf{高斯（数论三角）和}，\footnote{在数论中，求和取遍剩余系时，一般都用字母 $h$ 而非其他字母。}
+\begin{equation}
+S(m, n) := \sum_{h = 0}^{n-1} e\left(\frac{h^2m}{n}\right) ~.
+\end{equation}
+
+\end{definition}
+Gauss 和在二次剩余中应用较多。
+
+考虑对于任意 $r$，
+\begin{equation}
+e\left(\frac{(h + rn)^2m}{n}\right) = e\left(\frac{h^2m}{n}\right) ~,
+\end{equation}
+故我们可以不将 $h$ 限定在从 $0$ 到 $(n-1)$ 取遍，而只要 $h$ 取遍一个完全剩余系即可。此时用记号 $h(n)$ 表示取遍一个 $n$ 的完全剩余系。
+\begin{corollary}{}
+\begin{equation}
+S(m, n) := \sum_{h(n)} e\left(\frac{h^2 m}{n}\right) ~.
+\end{equation}
+
+\end{corollary}
+
+下面引出由线性同余中的\autoref{the_linmod_3}~\upref{linmod}的一个推论
