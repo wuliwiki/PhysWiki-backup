@@ -1,0 +1,25 @@
+% 无理数（数论）
+% keys 无理数
+% license Usr
+% type Tutor
+
+\begin{definition}{有理数与无理数}
+能表示为互素的整数 $a$ 与 $b\neq 0$ 的比值 $a/b$ 的数称为\textbf{有理数}。
+
+非有理数，也就是不能表示为互素整数 $a$ 与 $b\neq 0$ 的比值 $a/b$ 的数称为\textbf{无理数}。
+\end{definition}
+
+\begin{theorem}{}
+$\sqrt{2}$ 无理。
+\end{theorem}
+\textbf{证明}：假设若 $\sqrt 2$ 有理，则对于 $\sqrt 2 = a/b$，即方程 $a^2=2b^2$ 有整数解，且 $(a, b) = 1$。
+而注意到等式右侧是 $2$ 的整数倍，是偶数，故 $a$ 也是偶数，即 $a=2c$，这会使得 $(2c)^2 = 2b^2$，可化为 $2c^2=b^2$，同样是的 $b$ 是偶数而 $a, b$ 就有公约数 $2$，与 $(a, b) = 1$ 矛盾！得证。
+
+\begin{theorem}{}
+对于整数 $N$，$\sqrt[m]{N}$ 无理，除非 $N$ 是某整数 $n$ 的 $m$ 次方。
+\end{theorem}
+\textbf{证明}：仍考虑 $\sqrt[m]{N} = a/b$，从而可化为
+\begin{equation}
+a^m = N b^m, ~ (a, b) = 1 ~,
+\end{equation}
+而
