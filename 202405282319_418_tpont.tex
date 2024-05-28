@@ -1,0 +1,63 @@
+% 数论函数 theta 与 psi 函数的阶
+% license Usr
+% type Tutor
+
+\pentry{数论函数\nref{nod_NumFun}，渐进估计与阶\nref{nod_asymeq}}{nod_5d92}
+本文默认若对 $n$ 求和或求积，则范围均满足 $n \ge 1$。
+\subsection{阶}
+\begin{theorem}{}
+函数 $\vartheta(x)$ 与 $\psi(x)$ 的阶是 $x$：
+
+对于足够大的 $x$（$x \ge 2$），
+\begin{equation}
+Ax < \vartheta(x) < Bx, ~ Cx < \psi(x) < Dx ~ ~.
+\end{equation}
+
+\end{theorem}
+
+\subsection{证明}
+我们首先引入一个引理并予以证明。
+\begin{lemma}{}
+\begin{equation}
+\psi(x) = \vartheta(x) + \mathcal O\left( x^{1/2} (\ln x)^{2} \right) ~.
+\end{equation}
+
+\end{lemma}
+\textbf{证明}：考虑 $\psi(x)$ 的定义，由于 $p^2 \le x$, $p^3 \le x$, $\dots$ 等价于 $p \le x^{1/2}$, $p \le x^{1/3}$, $\dots$, 故
+\begin{equation}\label{eq_tpont_2}
+\psi(x) = \vartheta(x) + \vartheta(x^{1/2}) + \vartheta(x^{1/3}) + \cdots = \sum_{m} \vartheta(x^{1/m}) ~.
+\end{equation}
+当 $x^{1/m} < 2$，也就是
+\begin{equation}\label{eq_tpont_3}
+m > \frac{\ln x}{\ln 2} ~~
+\end{equation}
+时，求和结束。由 $\vartheta(x)$ 的定义显然有 $x$ 足够大时 $\vartheta(x) < x \ln x$，故 $m \ge 2$ 时有
+\begin{equation}
+\vartheta(x^{1/m}) < x^{1/m} \ln x \le x^{1/2} \ln x~,
+\end{equation}
+且
+\begin{equation}\label{eq_tpont_1}
+\sum_{m \ge 2} \vartheta(x^{1/m}) = \mathcal O\left( x^{1/2} (\ln x)^{2} \right) ~.
+\end{equation}
+这等式成立是因为由于\autoref{eq_tpont_3} ，这级数仅有 $\mathcal O(\ln x)$ 项。
+
+将\autoref{eq_tpont_1} 与 $\vartheta(x)$ 相加，就得到了\autoref{eq_tpont_2} ，就完成了证明。
+
+
+根据这个引理，我们只需证明对足够大的 $x$ 有 $\vartheta(x) < Bx$ 与 $\psi(x) > Cx$。引入
+\begin{equation}
+M = \frac{(2m+1)!}{m! (m+1)!} = \frac{(2m+1)(2m)\cdots(m+2)}{m!} ~,
+\end{equation}
+这将是一个整数，且由于组合数性质，将在 $(1+1)^{2m+1}$ 的二项式展开中出现两次，故 $2M < 2^{2m+1}$ 即 $M < 2^{2m}$。考虑对于某素数 $p$，若 $m+1 < p \le 2m+1$，那么 $p$ 是 $M$ 的分子的因子，但并不是分母的因子。也就是说，
+\begin{equation}
+\left( \prod_{m+1 < p \le 2m+1} p \right) \mid M ~.
+\end{equation}
+且
+\begin{equation}
+\vartheta(2m+1) - \vartheta(m+1) = \sum_{m+1 < p \le 2m+1} \ln p \le \ln M < 2 m \ln 2 ~.
+\end{equation}
+通过归纳法可以立刻得出 $\vartheta(x) < 2x \ln 2$。就证明了 $\vartheta(x) < Bx$。
+
+
+
+

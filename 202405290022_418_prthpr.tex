@@ -1,0 +1,25 @@
+% 素数定理的证明
+% keys 素数定理
+% license Usr
+% type Tutor
+
+\pentry{素数定理\nref{nod_prithy}，数论函数 theta 与 psi 的阶\nref{nod_tpont}}{nod_6a5d}
+我们利用 $\vartheta(x)$ 与 $\psi(x)$ 的阶的估计可以导出素数定理的证明。首先指出
+\begin{equation}
+\vartheta(x) = \sum_{p \le x} \ln p \le \ln x \sum_{p \le x} 1 = \pi(x) \ln x ~,
+\end{equation}
+从而直接得到了 $\pi(x) \ge \vartheta(x)/\ln x > Ax / \ln x$。而若 $0 < \delta < 1$，
+\begin{equation}
+\begin{aligned}
+\vartheta(x) &\ge \sum_{x^{1-\delta} < p \le x} \ln p ~\\
+&\ge (1-\delta) \ln x \sum_{x^{1-\delta} < p \le x} 1 ~\\
+&= (1-\delta) \ln x \left( \pi(x) - \pi(x^{1-\delta}) \right) ~\\
+&\ge (1-\delta) \ln x \left( \pi(x) - x^{1-\delta} \right) ~.
+\end{aligned}
+\end{equation}
+
+这就是说，
+\begin{equation}
+\pi(x) \le 
+\end{equation}
+
