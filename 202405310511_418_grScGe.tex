@@ -1,0 +1,65 @@
+% 施瓦西度规下时空的测地线
+% keys 广义相对论|施瓦西度规
+% license Usr
+% type Tutor
+
+\pentry{测地线\nref{nod_geodes}，世界线与固有时\nref{nod_wdline}，Christoffel 符号\nref{nod_CrstfS}，自然单位制、普朗克单位制\nref{nod_NatUni}}{nod_6191}
+\subsection{施瓦西度规下时空的测地线}
+回顾施瓦西度规
+\begin{equation}
+\dd  s^2 = -\left(c^2 - \frac{2GM}{r}\right) \dd t^2+ \left(1-\frac{2GM}{r c^2}\right)^{-1}\dd r^2 + r^2(\dd \theta^2 + \sin^2 \theta \dd \varphi^2) ~,
+\end{equation}
+与其 Christoffel 符号（用 $x^0$ 代表时间坐标 $t$，$x^1$ 代表 $r$，$x^2$ 代表 $\theta$，$x^3$ 代表 $\varphi$，使用自然单位制 $G=1, c=1$）
+\begin{equation}
+\left\{
+\begin{aligned}
+\Gamma^0_{01} &= \Gamma^0_{10} = (M/r)(1-2M/r)^{-1},\\
+\Gamma^1_{00} &= (M/r^2)(1-2M/r),\\ 
+\Gamma^1_{11} &= -(M/r^2)(1-2M/r)^{-1},\\
+\Gamma^1_{22} &= -r(1-2M/r),\\
+\Gamma^1_{33} &= -r(1-2M/r)\sin^2 \theta,\\
+\Gamma^2_{12} &= \Gamma^2_{21} = 1/r, \\
+\Gamma^2_{33} &= -\sin \theta \cos \theta, \\
+\Gamma^3_{13} &= \Gamma^3_{31} = 1/r, \\
+\Gamma^3_{23} &= \Gamma^3_{32} = \cot \theta ~.
+\end{aligned}\right. ~~
+\end{equation}
+以及度规降指标后的黎曼曲率张量 $R_{ijkm}$
+\begin{equation}
+\left\{
+\begin{aligned}
+R_{0101} &= -2M/r^3,\\
+R_{0202} &= (M/r)(1-2M/r),\\
+R_{0303} &= (M/r)(1-2M/r)\sin^2 \theta,\\
+R_{1212} &= -(M/r)(1-2M/r)^{-1},\\
+R_{1313} &= -(M/r)(1-2M/r)^{-1} \sin^2 \theta,\\
+R_{2323} &= 2M r \sin^2 \theta .
+\end{aligned}\right. ~~
+\end{equation}
+
+这指出在大天体 $M$ 附近的时空的情况。
+
+而考虑对于一条类时的测地线 $\gamma(\tau)$，其中 $\tau$ 是固有时，若要求分量的参数表达式 $x^\mu(\tau)$ 则是要解测地线方程
+\begin{equation}
+\dv[2]{x^\mu}{\tau} + \Gamma^{\mu}_{\nu \lambda} \dv{x^\nu}{\tau} \dv{x^\lambda}{\tau} = 0~.
+\end{equation}
+其中 $\Gamma^\mu_{\nu \lambda}$ 是 Christoffel 符号。
+
+而对于施瓦西度规下的时空，由于对称性，总可以选取某个坐标系使得 $\gamma(\tau)$ 的 $\theta$ 值恒为 $\pi/2$，即这类时测地线总在赤道面内。利用这性质，考虑 $\theta$ 应满足的测地线方程是
+\begin{equation}
+\dv[2]{\theta}{\tau^2} + \frac{2}{r} \dv{r}{\tau} \dv{\theta}{\tau} - \sin \theta \cos \theta \left(\dv{\theta}{\tau}\right)^{-1} = 0 ~.
+\end{equation}
+而考虑参数方程 $t = t(\tau)$，$r = r(\tau)$，$\theta = \pi/2$，$\varphi = \varphi(\tau)$ 与 $\gamma(\tau)$ 的切矢量 $T^\mu = (\partial/\partial \tau)^\mu$。取 $\kappa = -g_{\mu\nu} T^\mu T^\nu$，则对于类时测地线 $\kappa = 1$，且利用施瓦西度规可以直接得到
+\begin{equation}
+-\kappa = -\left(1 - \frac{2M}{r}\right)\left(\dv{t}{\tau}\right)^2 + \left(1-\frac{2M}{r}\right)^{-1} \left(\dv{r}{\tau}\right)^2 + r^2 \left(\dv{\varphi}{\tau}\right)^2 ~.
+\end{equation}
+
+而若取 $E = (1-2M/r) \dv*{t}{\tau}$ 与 $L = r^2 \dv*{\varphi}{\tau}$，则可改写为
+\begin{equation}
+-\kappa = -\left(1-\frac{2M}{r}\right)^{-1} E^2  + \left(1-\frac{2M}{r}\right)^{-1} \left(\dv{r}{\tau}\right)^2 + L^2/r^2 ~,
+\end{equation}
+可以证明，$E$ 是在那点处单位质量的引力势能，而 $L$ 则是单位质量的角动量。
+
+\subsection{应用：水星近日进动}\label{sub_grScGe_1}
+我们曾在狭义相对论效应造成的近日进动\upref{relPre}中讨论了狭义相对论的影响，下面用广义相对论进行理论预测。
+
