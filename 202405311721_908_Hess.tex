@@ -1,0 +1,123 @@
+% 盖斯定律与设计路径
+% keys 赫斯|赫士|盖斯|Hess|路径|状态量变化
+% license Usr
+% type Tutor
+
+\pentry{态函数\nref{nod_statef}}{nod_e42d}
+
+\footnote{参考了朱文涛的《简明物理化学》，安宇等的《大学物理》课程，李俊杰的《物理化学》课程，刘俊吉等的《物理化学》}
+
+\subsection{盖斯定律}
+\begin{theorem}{盖斯定律}
+（等压或等容过程中）一个反应，不管是一步完成的还是多步完成的，其热效应总是相同。
+\end{theorem}
+盖斯定律最早源于实验观察，是能量守恒在热力学中的另一种体现。
+
+\begin{example}{碳的氧化}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/e2b51798babb30e2.pdf}
+\caption{C的氧化} \label{fig_Hess_2}
+\end{figure}
+一定量的C被氧化为CO2。无论是直接被氧化为CO2，还是先被不完全氧化生成CO、再由CO被氧化为CO2，二者放出的总热量应相同。
+\end{example}
+
+\subsection{盖斯定律的物理内涵}
+事实上，盖斯定律有着更为基本、深刻的物理含义。\textbf{我们知道，根据状态量的特性，系统状态量的改变与路径无关\upref{StaPro}\upref{statef}}。也就是说，无论C是直接被氧化为CO2，还是先被不完全氧化生成CO、再由CO被氧化为CO2，由于系统的始末状态一致，因此系统始、末状态的焓H分别相同，因此系统的焓变也相同$$\Delta H=H_2-H_1=Constant~,$$又因为等压，$$Q=\Delta H~,$$系统的放热自然相同。
+
+可见，盖斯定律正是状态量性质的一种体现。
+
+\subsection{“设计路径”}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/ff70a4006f7b0321.pdf}
+\caption{设计路径} \label{fig_Hess_1}
+\end{figure}
+
+根据系统状态量的改变与路径无关的特性，我们可以\textbf{在两个状态间人为设计一条路径，以求解任意过程前后状态量的变化}。这可以理解为“广义盖斯定律”。
+
+设计的路径一般为等压、等容或等温的可逆（准静态）路径；且可以包括多个步骤，每一步只改变一个变量。这样方便运用现成结论。
+
+此处的状态量不再局限于焓。只要能找到适合的路径，原则上可以计算任意状态量（U，S，G，H...）的变化。然而，由于过程量（Q，W）的变化与路径有关，一般不可设计路径计算过程量的变化\footnote{除了少数 条件特殊 的情况}。
+
+\begin{example}{烧水热力学}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/772465ac907970fb.pdf}
+\caption{烧水} \label{fig_Hess_3}
+\end{figure}
+一大气压下，使用500K的恒温烤炉加热一杯1mol的水，使其从室温273K加热至沸点373K（先不考虑相变）。求该过程中水的熵变。
+
+这个问题粗看无从下手。\enref{热力学第二定律}{Td2Law}阐明的$dS=\delta q/T$只适用于可逆（准静态）过程。但是，视水为系统，根据系统状态量的改变与路径无关的特性，熵变应只和水的初始温度与末温度有关\footnote{别忘了，压力恒为一个大气压}。这启发我们设计一条可逆（准静态）路径，即令热水器的温度与水的温度时时相同。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/14b95cf0dc7aba43.pdf}
+\caption{准静态烧水} \label{fig_Hess_4}
+\end{figure}
+现在，我们可以运用热力学第二定律计算熵变了。
+$$\Delta S=\int \delta q/T~.$$
+
+如果忽略\enref{热容}{ThCapa}随温度的变化，则 
+$$\Delta S=C_p \ln \frac{T}{T_0}~.$$
+
+那么，我们可以计算这个系统的吸热吗？原则上，Q是过程量，不能设计路径；但这个问题有点特殊。由于这是一个等压过程，\textsl{刚好}有$Q=\Delta H$. $\Delta H$是很典型的可设计路径求解的量，$\Delta H = \int C_p \dd T$。
+\end{example}
+
+\subsection{更数学的表述}
+\pentry{热力学关系式\nref{nod_MWRel}}{nod_5c87}
+我们尝试使用更数学的方式说明“设计路径”的含义。假设我们已经知道某一状态下系统的内能，（别忘了\enref{“状态公理”}{statef}）
+$$U_0=U(T_0,V_0)~.$$
+那么怎么求解另一状态下系统的内能
+$$U_1=U(T_1,V_1)~.$$
+（不考虑相变或者化学反应）
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12 cm]{./figures/b4839dbde1fc8eb6.pdf}
+\caption{积分形式} \label{fig_Hess_5}
+\end{figure}
+
+纯粹运用多元微积分，我们将其写为积分的形式：
+\begin{equation}\label{eq_Hess_2}
+U(T_1,V_1)=U(T_0,V_0) + \int_{T_0}^{T_1} \left(\pdv{U}{T}\right)_V \dd T + \int_{V_0}^{V_1} \left(\pdv{U}{V}\right)_T \dd V ~.
+\end{equation}
+
+这两个偏导数就隐含了“设计路径”的思路：先固定体积不变，将温度从$T_0$升高至$T_1$；再控制温度不变，将体积从$V_0$升高至$V_1$。
+
+在上一步我们似乎只玩了一个数学游戏。\textsl{道理我都懂，但 $\left(\pdv{U}{T}\right)_V$与$ \left(\pdv{U}{V}\right)_T $ 到底是什么？} 这就需要化用\enref{热容}{ThCapa}与\enref{热力学关系式}{MWRel}。
+
+根据以上定理，$$\left(\pdv{U}{T}\right)_V = C_V~,$$就是热容；$$ \left(\pdv{U}{V}\right)_T  = PT\beta-P ~.$$，其中$\beta$是定容压强系数。
+
+这些都是方便实验测量（或查表得知）的量，可将他们代入 \autoref{eq_Hess_2} 。因此，尽管我们不知道如何直接测量内能，但\textsl{阴差阳错之间}我们居然能计算内能了。
+\begin{equation}\label{eq_Hess_1}
+U(T_1,V_1)=U(T_0,V_0) + \int_{T_0}^{T_1} C_V \dd T + \int_{V_0}^{V_1} P(T\beta-1) \dd V ~.
+\end{equation}
+
+% 如果是\textbf{对外界变动不敏感的物质（如固体、液体，但一般不适用于气体），且变化不大}，那么\autoref{eq_Hess_1} 可以简化为线性方程
+% $$
+% U(T_1,V_1)=U(T_0,V_0) + C_V \Delta T +  P(T\beta-1) \Delta V 
+% $$
+
+
+那么你可能想问，那么我们如何确定$U(T_0,V_0)$？事实上我们\textsl{不需要确定}，因为在热力学中我们更关心的是状态量的变化，而非他的绝对数值。因此，可将\autoref{eq_Hess_2} 改写为更为实用的变化形式：
+\begin{equation}
+\Delta U = \int_{T_0}^{T_1} \left(\pdv{U}{T}\right)_V \dd T + \int_{V_0}^{V_1} \left(\pdv{U}{V}\right)_T \dd V ~
+\end{equation}
+以及微分形式（可以理解为$T,V$轻微变化后$U$的变化）
+\begin{equation}
+\dd U =  \left(\pdv{U}{T}\right)_V \dd T +\left(\pdv{U}{V}\right)_T \dd V ~.
+\end{equation}
+
+还有一种等效的说法：类似于选取势能零点，人为选定一个$U(T_0,V_0)$作为内能零点（即令$U(T_0,V_0)=0$），那么就可以表达其余情况的$U$了 \footnote{你可能觉得选取$U(T = 0,V = 0)=0$是一个好主意。但不要忘了，在温度趋近绝对零度时物质的性质会变得复杂微妙起来；同时，你也没法将有限的物质压缩进无限小的体积中！}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/7063bf1aef248b8f.pdf}
+\caption{选取一个内能零点} \label{fig_Hess_6}
+\end{figure}
+
+同理，熵也可以写出类似的\enref{表达式}{MacroS}。即使我们不知道什么是熵，但我们也能写出熵的变化量！
+\begin{equation}
+S=\int \left(\frac{C_p}{T}\dd T-\left(\frac{\partial V}{\partial T}\right)_p\dd p\right)+S_0~.
+\end{equation}
