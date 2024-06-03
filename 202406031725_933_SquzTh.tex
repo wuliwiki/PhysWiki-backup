@@ -1,0 +1,44 @@
+% 夹逼定理
+% keys 极限|函数|数列|序列
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+\pentry{极限定义 \nref{nod_Lim}，极限运算法则 \nref{nod_LimOp}}{nod_014c}
+夹逼定理（Squeeze Theorem，或称夹挤定理）
+
+\subsection{数列极限}
+
+\subsection{函数极限}
+
+若$g(x)\leq f(x)\leq h(x)$，且$\lim _{x\to x_0}h(x)=\lim _{x\to x_0}g(x)=a$，则
+\begin{equation}
+\lim _{x\to x_0}f(x)=a.~
+\end{equation}
+
+\begin{lemma}{不等式一端为0时的极限}
+\begin{equation}
+0\leq f(x)\leq h(x),\lim _{x\to x_0}h(x)=0\implies\lim _{x\to x_0}f(x)=0.~
+\end{equation}
+
+证明：
+
+由函数极限定义，$\forall\varepsilon>0$，$\exists\delta>0$，$0<|x-x_0|<\delta\implies|h(x)|<\varepsilon$。
+
+由于$0\leq f(x)\leq h(x)$，所以对$0<|x-x_0|<\delta$，有$|f(x)|\leq |h(x)|<\varepsilon$，即$|f(x)|<\varepsilon$。根据极限定义可知：$\lim _{x\to x_0}f(x)=0$。
+
+\end{lemma}
+
+证明：
+
+由$g(x)\leq f(x)\leq h(x)$，有$0\leq f(x)-g(x)\leq h(x)-g(x)$。
+ 
+$\lim _{x\to x_0}(h(x)-g(x))\overset{\mathrm{1}}{=}\lim _{x\to x_0}h(x)-\lim _{x\to x_0}g(x)=a-a=0$，由引理可知$\lim _{x\to x_0}(f(x)-g(x))=0$。
+ 
+$$\begin{align*} \lim _{x\to x_0}f(x) &= \lim _{x\to x_0}[(f(x)-g(x))+g(x)] \\ 
+ &\overset{\mathrm{1}}{=} \lim _{x\to x_0}(f(x)-g(x))+\lim _{x\to x_0}g(x) \\ 
+ &= 0+a\\ 
+ &=a \end{align*}.~$$
+ 等号1：[[极限#加减]]运算
