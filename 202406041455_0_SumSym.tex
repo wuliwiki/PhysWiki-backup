@@ -1,0 +1,33 @@
+% 求和符号（高中）
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{equation}
+\sum_{i=m}^n a_i = a_m + a_{m+1} + \dots + a_n~.
+\end{equation}
+其中 $i$ 叫做求和指标。
+
+许多时候，如果已经提到了求和中 $i$ 取哪些值，就可以直接写作 $\sum\limits_i$。
+
+指标换元： 例如令 $i=j-1$，则
+\begin{equation}
+\sum_{i=m}^n a_i = \sum_{j=m+1}^{n+1} a_{j-1} ~.
+\end{equation}
+可见对于上下标，
+
+\subsection{乘法}
+\begin{equation}
+\sum_i C a_i = C\sum_i a_i~.
+\end{equation}
+
+\begin{equation}
+\sum_i a_i \sum_j b_j = \sum_{i,j} a_i b_j~.
+\end{equation}
+
+\begin{equation}
+\qty(\sum_i a_i)^2 = \sum_{i,j} a_i a_j = \sum_i a_i^2 + 2\sum_{i<j} a_i a_j~.
+\end{equation}
