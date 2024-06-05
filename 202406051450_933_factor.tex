@@ -1,0 +1,27 @@
+% 阶乘（高中）
+% keys 整数|gamma 函数|pi 符号
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{\enref{求积符号（累乘）}{ProdSy}}{nod_fe64}
+
+在排列组合的学习中，基于乘法原理，
+
+对自然数 $n$\footnote{拓展知识：阶乘的定义本身只限于自然数。但随着研究深入，偶尔会出现使用分数等数值的阶乘的场景，为此，欧拉推导了\enref{Gamma 函数}{Gamma}$\Gamma(x)$实现了对阶乘的解析延拓，即：1.保证它的函数值与阶乘对应$\Gamma(n)=(n-1)!$；2.保证自变量取其他实数值（如：部分负数、分数、和无理数等）时也可以有结果；3.函数的性质满足特定条件。于是，后来经常也会用Gamma函数来代替需要表达“阶乘”概念的场景。}， \textbf{阶乘（factorial）}定义为所有小于等于 $n$ 的正整数的乘积，即
+\begin{equation}
+n! := \prod_{i = 1}^n i =1 \cdot 2 \cdot 3 \dots (n - 2) (n - 1)n~.
+\end{equation}
+其中，$\prod_{i = 1}^n i$为\enref{求积符号}{ProdSy}。特殊地，约定
+\begin{equation}
+0! := 1~.
+\end{equation}
+
+\begin{example}{求5的阶乘}
+小于等于5的正整数有：1，2，3，4，5，因此:
+$$5! = 1\times 2\times 3\times 4\times 5 = 120.~$$
+\end{example}
+

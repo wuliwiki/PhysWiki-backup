@@ -1,0 +1,52 @@
+% 阶乘（高中）
+% keys 整数|gamma 函数|pi 符号
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+%\pentry{\enref{求积符号（累乘）}{ProdSy}}{nod_fe64}
+%933：不需要预备知识
+
+在排列组合的学习中，经常会出现多个连续的整数相乘的情形。
+
+\begin{example}{求：从7名学生中，选出3名学生前后站成一列的方法数}\label{ex_factor_1}
+由于三人前后站成一列，所以对确定的三个人A、B、C，“ABC”和“CBA”是两种站法。因此，分别对三个位置进行考虑，第一个位置可以任选一个人，第二个位置可以从剩下的学生里再选一个人，第三个位置再从剩下的学生里选一个人。由乘法原理，共有$7\times6\times5=210$种方法。
+\end{example}
+
+数字少一点还好说，如果数字过多，要么要写一堆的数字和乘号，要么每次都要写$\cdots$。鉴于这个连续相乘的使用次数太多，数学家们发明了一种用来表示连乘的运算：阶乘。
+
+对自然数 $n$\footnote{拓展知识：阶乘的定义本身只限于自然数。但随着研究深入，偶尔会出现使用分数等数值的阶乘的场景，为此，欧拉推导了\enref{Gamma 函数}{Gamma}$\Gamma(x)$实现了对阶乘的解析延拓，即：1.保证它的函数值与阶乘对应$\Gamma(n)=(n-1)!$；2.保证自变量取其他实数值（如：部分负数、分数、和无理数等）时也可以有结果；3.函数的性质满足特定条件。于是，数学中也经常会用“Gamma函数”来代替需要表达“阶乘”概念的场合。}， \textbf{阶乘}（factorial）定义为所有小于等于 $n$ 的正整数的乘积，即
+\begin{equation}
+n! := 1 \times 2 \times 3 \times \cdots \times(n - 2)\times(n - 1)\times n=\prod_{i = 1}^n i ~.
+\end{equation}
+其中，$\prod_{i = 1}^n i$是使用\enref{求积符号}{ProdSy}来简写乘积，它和阶乘一样是一个简记符号，如果觉得复杂先忽略也不影响。特殊地，约定
+\begin{equation}
+0! := 1~.
+\end{equation}
+
+\begin{example}{求5的阶乘}
+小于等于5的正整数有：1，2，3，4，5，因此:
+$$5! = 1\times 2\times 3\times 4\times 5 = 120.~$$
+\end{example}
+
+使用阶乘不仅可以表达从1开始的连乘，还可以利用除法，可以让两个阶乘做除法来约掉某些项。
+
+\begin{example}{求从某个自然数m到另一个自然数n的连续整数的乘积}
+\begin{equation}
+m\times(m+1)\times\cdots \times(n-1)\times n={1\times\cdots \times(m-1)\times m\times(m+1)\cdots \times(n-1)\times n\over 1\times\cdots \times(m-1)}={n!\over (m-1)!}.~
+\end{equation}
+\end{example}
+
+\begin{example}{求从自然数n开始依次递减的m个数的乘积}
+\begin{equation}
+n\times(n-1)\times\cdots \times[n-(m-2)]\times [n-(m-1)]={n!\over m!}.~
+\end{equation}
+\end{example}
+
+
+因此，\autoref{ex_factor_1} 就可以简单写为：
+
+7!\over (3-1)!
