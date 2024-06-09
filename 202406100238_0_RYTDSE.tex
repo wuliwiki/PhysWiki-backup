@@ -1,0 +1,32 @@
+% 球坐标中的含时薛定谔方程
+% keys 薛定谔方程|球坐标|本征矢|张量积|球谐函数
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueAbstract
+\issueOther{这篇大概是用来数值解 TDSE 的。}
+\end{issues}
+
+\pentry{球坐标系中的定态薛定谔方程\nref{nod_RadSE}， 张量积空间\nref{nod_DirPro}}{nod_4ca7}
+
+本文使用\enref{原子单位制}{AU}。
+
+
+\subsection{回收内容}
+在球坐标系中用球谐函数表示波函数是常用的做法。
+
+我们可以将 $\psi_l (r, t) Y_{l,m} (\uvec r)$ 看做径向空间和角向空间中态矢的张量积。 我们将 $l, m$ 的组合进行排序并给每个组合一个全局下标 $i$ 或 $j$。
+\begin{equation}
+\Psi(\bvec r, t) = \sum_j R_j (r, t) Y_j (\uvec r) = \sum_j \frac{1}{r} \psi_j (r, t) Y_j (\uvec r)~.
+\end{equation}
+
+将波函数代入含时薛定谔方程
+\begin{equation}
+H \sum_j\ket{R_j}\ket{Y_j} = \I \pdv{t}  \sum_j\ket{R_j}\ket{Y_j}~.
+\end{equation}
+左乘 $\bra{Y_i}$， 可以将角向坐标积去， 得到一组径向函数的 coupled equation。 这不完全是 TDSE 的矩阵形式， 因为我们没有在径向选取基底\footnote{另一种理解是在径向选取 $\delta(r - r_0)$ 作为基底， 但本征值连续的基底比较复杂， 就不这么想吧。}。
+\begin{equation}
+\sum_j \mel{Y_i}{H}{Y_j} \ket{R_j} = \I \pdv{t} \ket{R_j}~.
+\end{equation}
+如果 TDSE 可以分离变量， $\ket{Y_j}$ 是 $H$ 的本征矢， 那各个径向波函数将会是独立的 （uncoupled）。
