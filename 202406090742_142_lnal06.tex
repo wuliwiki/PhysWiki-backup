@@ -1,0 +1,69 @@
+% 乘积空间
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueTODO
+\end{issues}
+% Giacomo：我把这篇文章的补空间，商空间部分全部移走了
+
+\pentry{直和与补空间（线性空间）\nref{nod_DirSum}，}{nod_b6c4}
+
+我们可以在向量空间的笛卡尔积上规定向量的数乘和加法，使得它也是一个向量空间，称为\textbf{乘积空间}。
+
+\begin{definition}{乘积空间}
+给定域$\mathbb F $上的线性空间$U$与$V$，定义$U\times V=\{(u, v)|u \in U, v \in V\}$上的数乘和加法运算为：
+\begin{equation}
+\left\{\begin{aligned}
+a \cdot (u, v) &= (a \cdot u, a \cdot v), \quad \forall a \in \mathbb F\\
+(u_1, v_1) + (u_2, v_2) &= (u_1 + u_2, v_1 + v_2)
+\end{aligned}\right.~
+\end{equation}
+\end{definition}
+根据该定义，我们容易验证积空间在数乘和加法下封闭。
+
+% Giacomo: 和商空间重复了
+% 原作者：叶月2_
+% 
+% 从群的角度上看，线性空间是一个加法群，则其任意一个子空间都是正规子群。因此线性空间可以对任意一个子空间求商，商群上的运算为\textbf{向量加法}。由于线性空间在域上运算，所以我们需要证明这样的定义是合理的，即：
+% \begin{enumerate}
+% \item 该商群需要额外满足加法分配性，我们才可以称其为“商空间”；
+% \item 加法分配性对等价类无影响。比如设$V$商去子空间$V_0$后，左陪集$a + V_0=b + V_0$，则$k(a + V_0)=k(b + V_0)$。
+
+% 这两点是显而易见的，读者可自证。
+% \end{enumerate}
+% \begin{definition}{商空间}
+% 给定域$F$上的线性空间$V$及其子空间$V_0$，则对任意$v \in V$，定义左陪集$v + V_0=\{v + v_0|v_0 \in V_0\}$。
+
+% 数乘定义为：$\forall a \in \mathbb F, a(v + V_0)=av + V_0$
+% \end{definition}
+
+% 移动到了商空间
+
+\subsection{乘积空间的维度}
+
+若令$\{x_i\}^r_{i=1}$和$\{y_i\}^s_{i=1}$分别为$U$与$V$的基，我们也容易验证$\{(x_i, 0)\}^r_{i=1}\cup \{(0, y_i)\}^s_{i=1}$为乘积空间的一组基。
+\addTODO{证明}
+
+\begin{theorem}{乘积空间的维度}
+给定域$\mathbb F $上的线性空间$U$与$V$，
+$$
+\dim(U \times V) = \dim(U) + \dim(V)~.
+$$
+\end{theorem}
+
+\subsection{乘积空间与直和空间}
+
+对于乘积空间 $U \times V$，我们定义两个子空间
+$$
+\begin{aligned}
+\tilde{U}: &= U \times \{0\} , \\
+\tilde{V}: &= \{0\} \times V ,
+\end{aligned}~
+$$
+
+可以证明 $\tilde{U} \oplus \tilde{V} = U \times V$。
+
+这也是为什么乘积空间也被称为外直和的原因。
+
+\addTODO{反过来我们也可以从一个向量空间的两个子空间开始解释这个现象}

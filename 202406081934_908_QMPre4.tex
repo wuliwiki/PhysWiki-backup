@@ -1,0 +1,151 @@
+% 线性谐振⼦ (转载)
+% license Usr
+% type Art
+
+（本文根据 CC-BY 协议转载自季燕江的《量子序曲》， 进行了重新排版和少量修改）
+
+\subsection{胡克定律}
+
+中学里我们都学过胡克定律（Hooke's Law），一个弹簧，下面挂个重物，假设弹簧原来的长度是$x_0$，弹簧被拉抻的长度$\Delta x = x - x_0$和重物的重量成正比。表示成数学式子就是：
+
+\begin{equation}
+F = - k \Delta x~
+\end{equation}
+
+这里$F$是弹簧的弹性力，它的方向和弹簧拉抻的方向相反，所以要有个负号“$-$”，$k$是弹性系数，表示弹簧的“软硬”，弹簧越“硬”，$k$就越大，所谓“强弓硬弩”，弹簧越硬，我们只需稍稍使弹簧有个拉抻，它就会有个很大的弹力。$\Delta x$就是拉抻，如果是在重力场中，弹簧会向下被拉长。
+
+弹簧是人类使用的最早的储能器，比如在希腊-罗马时期，西方就懂得制作大型的弩炮，并懂得利用绷紧皮筋发出的声音校准弩炮射击的方向。维特鲁威是罗马时期的建筑师，同时他也是给罗马军团制造大型弩炮的工匠，在他的《建筑十书》中曾有这样的记录：
+
+\begin{equation}
+\text{将皮筋绳索穿入（弹索孔），并以绞车和杠杆将其绷紧，绷到弩炮制作者能听到皮筋绳索发出特定音高的弦音，方可用楔子将它固定住。将弩炮的双臂扣上扳机，一旦发射，两边皮筋就应释放出一致的推力。如果它们发出的音调不一致，弩炮射出的弹丸便不可能是直线的}~
+\end{equation}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/46e0cb460acf27b7.png}
+\caption{ 罗马军团的小型弩炮} \label{fig_QMPre4_1}
+\end{figure}
+
+我们可以把弩炮的皮筋看做是左右两段，只有当左右两段上的张力大小相等时，弩炮才好瞄准。维特鲁威这里叙述的方法是通过分辨张紧弦音的高低来判断左右两段弦是否具有大小相等的张力的。如果音高相同，即说明左右两段弦上的张力相同。
+
+让我们重新回到弹簧，重新选择位置的原点是$x_0 = 0$，形变$\Delta x = x$弹簧中储存的能量是：
+
+\begin{equation}
+- \int_0^x F(x')d x' = \int_0^x k x' d x' = \frac{k x^2}{2}~
+\end{equation}
+
+这个能量和位置有关，我们称之为势能，记作$V(x)$。假设弹簧本身的重量忽略不计，弹簧上悬挂的重物质量为$m$，质量为$m$的物体运动起来，会有动能$T$：
+
+\begin{equation}
+\frac{m {\dot x}^2}{2}~
+\end{equation}
+
+这里$\dot x$表示对位置的求导，即速度。考虑到动量$p = m \dot x$，动能项可以写成：
+
+\begin{equation}
+\frac{p^2}{2m}~
+\end{equation}
+
+根据经典力学中的哈密顿形式，哈密顿量可写为：动能项+势能项：
+
+\begin{equation}
+H = \frac{p^2}{2m} + \frac{kx^2}{2}~
+\end{equation}
+
+这个表达式可以看做是对线性谐振子的定义，很多实际问题可以近似地看做是个线性谐振子的问题（比如单摆和弹簧），或好多线性谐振子的相互耦合（比如绷紧的弦和弹簧床）。
+
+我们先来求“线性谐振子”的经典解，根据哈密顿力学：
+
+\begin{align}
+\dot x &= \frac{\partial H}{\partial p} = \frac{p}{m}\\
+\dot p &= - \frac{\partial H}{\partial x} = - kx~
+\end{align}
+
+由上式，我们可得到：
+
+\begin{equation}
+\dot p = m \ddot x = - k x~
+\end{equation}
+
+即：
+
+\begin{equation}
+\ddot x + \omega^2 x = 0~
+\end{equation}
+
+这是一个标准的二阶微分方程，可以解出：
+
+\begin{equation}
+x = A \cos \omega t + B \sin \omega t~
+\end{equation}
+
+这里A和B都是待定常数，由线性谐振子的初始运动状况（初始位置和初始动量）决定。
+
+$\omega$是简谐振动的振动频率：
+
+\begin{equation}
+\omega = \sqrt{\frac{k}{m}}~
+\end{equation}
+
+在此基础上我们把线性谐振子的哈密顿量写为：
+
+\begin{equation}
+H = \frac{p^2}{2m} + \frac{m \omega^2 x^2}{2}~
+\end{equation}
+
+现在我们就知道所谓“线性谐振子”指的是：
+
+\begin{enumerate}
+
+\item 
+
+弹性回复力和位移成正比，就是线性。
+
+\item
+
+求解出来的运动是周期性的简谐振动，就是谐振子。
+
+\end{enumerate}
+
+下面我们就要研究线性谐振子的量子力学求解了，但在此之前我们先回顾下（或重新讨论下）基础对易式和薛定谔方程。
+
+\subsection{基础对易式和不确定关系}
+
+\subsubsection{平移算符}
+
+在量子力学中，一个物理系统的运动状态是由态矢量$\left| \alpha \right\rangle$刻画的，它可以处在空间的某个位置上，并随时间演化。
+
+我们先来研究态矢量在空间位置上的平移，假想我们自己就是态矢量，我们可以往前走走，或等效地我们可以想象让坐标框架往后动动。
+
+定义平移算符$T$，$T(\delta)$使态矢量向前移动了无穷小距离$\delta$，使得：
+
+\begin{equation}
+\left| \alpha, \delta \right\rangle = T(\delta) \left| \alpha \right\rangle ~
+\end{equation}
+
+假设在空间中移动态矢量并不会导致态矢量本身大小的改变，原来是归一的态矢量，现在还是归一的态矢量。
+
+\begin{equation}
+\left\langle \alpha | \alpha \right\rangle = \left\langle \alpha, \delta | \alpha, \delta \right\rangle = \left\langle \alpha \right| T^\dagger(\delta) T(\delta) \left| \alpha \right\rangle~
+\end{equation}
+
+这个条件要求平移算符是幺正的（Unitary）。
+
+\begin{equation}
+T^\dagger (\delta) T (\delta ) =  1
+\end{equation}
+
+考虑到位置是个连续变量\footnote{对态矢量的平移操作不会改变态矢量的归一性，及平移可以取无限小都是对我们所处的物理空间的性质的假设。这些假设也是康德先验空间概念的具体化。}，我们可以要求$\delta \to 0$，然后把$\delta$看做是小量展开，并略去所有的高阶小量（在这里就是$\delta^2$及$\delta$的更高幂次的项）。
+
+假设$T(\delta)$可表示为：
+
+\begin{eqnarray}
+T(\delta) & = & 1- i K \delta \\
+T^\dagger (\delta) & = & 1+ i K^\dagger \delta
+\end{eqnarray}
+
+代入$T^\dagger T =1$的表达式中：
+
+\begin{equation*}
+\left( 1+ i K^\dagger \delta \right) \left( 1- i K \delta \right) = 1 + i \left( K^\dagger - K \right) \delta = 1
+\end{equation*}
