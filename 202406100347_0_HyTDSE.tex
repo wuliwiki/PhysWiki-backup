@@ -1,0 +1,54 @@
+% 氢原子球坐标薛定谔方程数值解
+% keys 氢原子|薛定谔方程|线偏振|分波|球谐函数
+% license Xiao
+% type Tutor
+
+\pentry{， }{nod_456b}
+
+本文使用\enref{原子单位制}{AU}。
+
+\subsection{算符拆分}
+\pentry{算符的指数函数、波函数传播子\nref{nod_OpExp}}{nod_60f3}
+在实际的程序中， 我们可以把演化子 $\exp(-\I H \Delta t)$ 拆成 3 项。 虽然这么做会引入一定的误差（$H_0$ 和 $\bvec{\mathcal E}\vdot\bvec r$ 不对易）， 但是却大大提高了效率
+\begin{equation}\label{eq_HyTDSE_2}
+\exp(-\I H \Delta t) = \exp(-\I H_0 \frac{\Delta t}{2}) \exp(-\I H_1 \Delta t)\exp(-\I H_0 \frac{\Delta t}{2}) + \order{\Delta t^3}~.
+\end{equation}
+
+例如对于线偏振光（\autoref{eq_HyTDSE_4}~\upref{RYTDSE}）， 在每个时间步长 $\Delta t$ 中， 我们可以把波函数先根据方程
+\begin{equation}\label{eq_HyTDSE_1}
+H_0 \psi_{l} = \I \pdv{\psi_{l}}{t}~.
+\end{equation}
+演化 $\Delta t/2$， 其中 $t_{mid}$ 取这段时间的中点。 再对每个 $r$ 根据方程
+\begin{equation}\label{eq_HyTDSE_9}
+\sum_{l'} \mathcal E(t_{mid})rF_{l, l'} \psi_{l'} = \I \pdv{\psi_{l}}{t}~,
+\end{equation}
+演化 $\Delta t$。 最后再根据\autoref{eq_HyTDSE_1} 演化 $\Delta t/2$。 具体演化算法有多种， 将在下面介绍。
+
+至于相邻两步之间产生的 $\exp(-\I H_0 {\Delta t}/{2})\exp(-\I H_0 {\Delta t}/{2})$ 是否可以合并为 $\exp(-\I H_0 {\Delta t})$， 取决于所使用的算法这么做以后是否会引入额外误差（例如 \enref{Crank-Nicolson 算法}{CraNic} 就不宜这么做）。
+
+\subsection{网格和演化算法}
+\pentry{Crank-Nicolson 算法（一维）\nref{nod_CraNic}}{nod_5b3a}
+\addTODO{以下内容应该放在一维薛定谔方程里面讲解}
+
+可以使用二维数组储存波函数， 每一列（或行）是一个分波的 $\psi_l(r)$。 径向网格可以使用等间距网格， 但 \enref{FEDVR 网格}{FEDVR}效率要更高。
+
+演化可以并使用 Crank-Nicolson 算法\enref{Crank-Nicolson 算法（一维）}{CraNic}演化。但是 \enref{Lanczos 算法}{Lanc}效率更高，而且可以实时判断误差改变步长。
+
+拆分后的每个算符（矩阵）演化的算法可以一样或不一样。
+
+\subsection{电场演化的直接计算}
+\pentry{平面波的球谐展开\nref{nod_Pl2Ylm}}{nod_32c4}
+事实上，注意到 $\exp(\I q\bvec{\mathcal E}\vdot\bvec r\dd t)$ 不过是一个普通的平面波函数而不是微分算符， 所以我们只需要把它和波函数相乘： $\exp(\I q\bvec{\mathcal E}\vdot\bvec r\dd t)\Psi$。 为了使相乘后的函数仍然具有\autoref{eq_HyTDSE_3} 的形式， 可以先根据\autoref{eq_Pl2Ylm_1}~\upref{Pl2Ylm} 对其进行分波展开（$\exp(\I q\bvec{\mathcal E}\vdot\bvec r\dd t) = \sum_{l'',m''}R_{l'',m''}Y_{l'',m''}$）。 所以演化后的每个分波的径向波函数就是
+\begin{equation}\label{eq_HyTDSE_24}
+\begin{aligned}
+\psi_{l,m} &= r\braket{Y_{l,m}}{\exp(\I q\bvec{\mathcal E}\vdot\bvec r\dd t)\Psi} =
+\braket{Y_{l,m}}{\sum_{l'',m''} R_{l'',m''} Y_{l'',m''} \sum_{l',m'} \psi_{l',m'} Y_{l',m'}}\\
+&= \sum_{l',m'} \qty[\sum_{l'',m''}R_{l'',m''}  \mel{Y_{l,m}}{Y_{l'',m''}}{Y_{l',m'}}]\psi_{l',m'}~.
+\end{aligned}
+\end{equation}
+现在和上文一样，可以用\autoref{eq_SphHar_5}~\upref{SphHar} 把三个球谐函数的积分变为两个 \enref{3j 符号}{ThreeJ}的乘积，再根据选择定则，排除两个求和中等于零的项。 另外如果电场只沿 $z$ 方向， 那么式中所有 $m$ 为零。
+
+\autoref{eq_HyTDSE_24} 相当于对每个 $r$ 处不同分波的波函数进行一个矩阵乘法， 但每个 $r$ 处的矩阵是不同的。
+
+一种看似可能的近似方法是把 $\exp(\I q\bvec{\mathcal E}\vdot\bvec r\dd t)$ 展开为前两三项。但这样一来其实和直接求 $\mat F$ 矩阵进而 $\mat F^2$ 没有什么区别了。 事实上保留两三项并不稳定，不然也不需要用 Crank-Nicolson 或者 Lanczos 这么费时的办法了。 所以还是老老实实把平面波展开成贝塞尔函数。
+
