@@ -1,0 +1,20 @@
+% 有限对称群的性质
+% license Usr
+% type Tutor
+
+\begin{definition}{}
+阶数为1或2的置换，称为\textbf{对合变换（involution）}
+\end{definition}
+\begin{theorem}{}
+任意有限置换群都可以表示为两个对合变换的复合。
+\end{theorem}
+\textbf{证明：}
+我们首先证明，循环置换可以分解为两个对合变换的复合。
+
+一个n元循环置换可以看作n边形上的旋转，而我们知道，二维空间上的旋转可以分解为两个反射，只要保证两次反射轴的夹角是旋转角度的$1/2$，对合变换就是这种反射变换的置换表示。以正五边形为例，该过程如下所示：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/f32c9320160af59c.png}
+\caption{} \label{fig_AutSym_2}
+\end{figure}
+该循环的分解写作$(12345)=[(23)(14)[()()]$
