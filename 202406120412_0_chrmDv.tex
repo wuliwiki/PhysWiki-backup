@@ -1,0 +1,26 @@
+% Chrome 开发工具笔记
+% license Usr
+% type Note
+
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item \verb`F12` 打开开发笔记
+\item 主要面板有 \verb`Elements, Console, Sources, Network, ...`
+\item \verb`Elements` 就是当前 DOM 树，其中很多元素可能是 js 运行后的结果，所以跟直接看页面的 source 可能是不一样的。
+\item 打开开发截面以后，在页面任何地方右键 Inspect 都可以直接跳到 \verb`Elements` 的对应元素中。
+\item \verb`Sources` 里面会显示加载的所有源文件，按照 URL 中的层级来分类（云朵图标），如果是方框图标就说明是浏览器插件或者 Chrome 自带的东西。
+\end{itemize}
+
+\subsubsection{Network 面板}
+在 \verb`Network` 面板中选中一个文件
+\begin{itemize}
+\item 在 \verb`General` 里面可以看到 url，ip，端口， http 方法，状态等
+\item \verb`Header` 子面板里面可以看到 http 的请求头和返回头（包括使用的 http 版本，所有的 header 包括 cache 管理等）。
+\item \verb`Payload` 里面有请求中的 \verb`query`， 就是 \verb`?` 后面的东西。
+\item \verb`Initiator` 可以看到这个请求是什么文件发起的（因为最开始在浏览器输入的就是一个 URL，所有其他的文件都是可以追溯来源的）。
+\item \verb`Timing` 可以看到详细的用时，包括什么时候开始请求，等待服务器响应多久，下载多久。
+\end{itemize}
