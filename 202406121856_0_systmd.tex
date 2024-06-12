@@ -1,0 +1,70 @@
+% service、systemd、systemctl 笔记
+% license Xiao
+% type Note
+
+\begin{itemize}
+\item 要创建一个 service， 就创建文件 \verb|/etc/systemd/system/名字.service|：
+\item 需要 sudo 身份。
+\begin{lstlisting}[language=none,caption=名字.service]
+[Unit]
+Description=服务的描述（允许空格）
+
+[Service]
+ExecStart=/路径/命令 参数1 参数2
+# 等 15 秒再运行以上命令，防止系统没有加载完成（如网络设置等）
+ExecStartPre=/bin/sleep 15
+
+[Install]
+WantedBy=multi-user.target
+\end{lstlisting}
+\item 注意 \verb|ExecStart| 不支持 \verb|>| 和 \verb`|` 等
+\item \verb|sudo systemctl daemon-reload| 使 service 文件生效
+\item \verb|sudo systemctl enable 名字.service| 就可以设置开机自启服务（通过创建一个 symlink）。 \verb`.service` 可以省略
+\item \verb|systemctl disable| 不开机自启
+\item \verb|systemctl status| 查看状态
+\item \verb|systemctl start| 启动
+\item \verb|systemctl stop| 停止
+\item \verb|systemctl restart| 重启
+\item 也可以在 \verb`ps aux | grep 名字` 查看是否在运行
+\end{itemize}
+
+\subsubsection{更多参数}
+\begin{lstlisting}[language=none,caption=名字.service]
+[Unit]
+Description=服务的描述（允许空格）
+Documentation=文档的url
+After=在哪些服务运行后运行（如果它们没运行也没关系）
+Before=在哪些服务之前运行（如果它们没运行也没关系）
+Wants=在运行之前试图运行的另一个服务（如果失败也没关系）
+Requires=在运行之前试图运行的另一个服务（如果失败就不运行）
+
+[Service]
+ExecStart=/路径/启动命令 参数1 参数2
+ExecStop=/路径/停止命令 参数1 参数2
+WorkingDirectory=/当前路径/
+ExecStartPre=/路径/命令 参数1 参数2
+Restart=always, on-failure, on-abnormal, on-watchdog, on-abort, no.
+Type=simple(默认)|forking|oneshot|dbus, notify and idle.
+User=运行服务的用户（默认 root）
+Group=运行服务的组（默认 root）
+Environment=环境变量
+EnvironmentFile=环境变量文件
+
+[Install]
+WantedBy=在这个 target 启动该 service，失败也没关系
+RequiredBy=失败有关系
+\end{lstlisting}
+
+\begin{itemize}
+\item 例如我如果有一个脚本 \verb`hello.sh`，内容是 \verb`while true; do echo hello; sleep 3; done`。 那么应该设置 \verb`ExecStop=/bin/kill $MAINPID`，其中 \verb`MAINPID` 是 systemd 的一个变量，即当前服务进程的 PID。
+\item \verb`Type=simple` 意思是 \verb`ExecStart` 命令的进程就是服务进程。 该命令一旦运行就算是服务正在运行。
+\item \verb`Restart=always` 意思是只要服务进程终止了（无论什么原因），就立刻重新开始运行。
+\item \verb`Restart=on-failure` 意思是只有 exit code 不为 0 或者被 signal 终止才 restart。 正常执行完毕（exit code 0）不重启。
+\item \verb`WantedBy=multi-user.target` 意思是启动后到了 \verb`multi-user.target` 阶段才开始运行。 后者大概就是支持多用户登陆，但在 GUI 出现之前，经常使用。
+\item 如果程序输出到 \verb`stdout` 和 \verb`stderr`，那么可以用 \verb`systemctl status 服务` 查看最后的一点 log， 如果要看更多就用 \verb`sudo journalctl -u 服务.service [-n 50]` 后面的 \verb`-n` 可以指定看最后多少行。
+\end{itemize}
+
+\subsection{supervisor}
+\begin{itemize}
+\item 参考\href{https://www.digitalocean.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps}{这里}。
+\end{itemize}
