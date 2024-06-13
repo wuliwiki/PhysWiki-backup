@@ -1,0 +1,35 @@
+% 逻辑门、布尔运算
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\textbf{德摩根定理（De Morgan's laws）}又称\textbf{对偶律}
+
+\begin{itemize}
+\item \textbf{与、或、非（AND, OR, NOT）}是三种最常见的逻辑门
+\item 一个\textbf{布尔变量}的值只能是 0 或 1。
+\item OR, AND, NOT 运算可以表示为 $A + B$， $A\cdot B$， $\overline A$
+
+\item $A+0=A$，$A\cdot 1=A$ 恒等运算（这就是为什么要用加号和乘号，很多性质都很相似）
+\item \textbf{德摩根定律（De Morgan's laws）} $\overline{A+B} = \overline A \cdot \overline B$； $\overline{A \cdot B} = \overline A + \overline B$
+\item \textbf{幂等律（idempotent Laws）} $A+A=A$，$A\cdot A=A$
+\item \textbf{交换律} $A+B=B+A$，$A\cdot B=B\cdot A$
+\item \textbf{分配律} $A\cdot(B+C)=A\cdot B+A\cdot C$， $A+(B\cdot C) = (A+B)\cdot(A+C)$
+\item \textbf{结合率} $A\cdot(B\cdot C) = (A\cdot B)\cdot C$， $A+(B+C)=(A+B)+C$
+\item \textbf{吸收律} $A+(A\cdot B) = A$， $A\cdot(A+B) = A$
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/e677bb4fffc1e571.png}
+\caption{待删除} \label{fig_LogicG_1}
+\end{figure}
+\item 如果德摩根定律两边取 NOT，就可以发现 AND 可以由 OR 和 NOT 构成， OR 可以由 AND 和 NOT 构成。 真正独立的只有两个。
+\item 注意 OR 无法用 AND 和 NOT 构成。
+\item \textbf{与非门 （NAND，NOT AND）}可以构成任意门（NAND 两个输入相连就是 NOT 门）
+\item \textbf{或非门（NOR，NOT OR）}也可以构成任意门。 
+\item NAND 闪存的名字就是 NAND 门命名的。
+\item CPU 里面所有功能都是逻辑门构成的。 例如做整数加法的电路。
+\item 任意个输入变量，经过逻辑运算得到一个输出变量。 如果已知每种输入值对应的输出，那么可以用 NOT 把每种输入值整理成全 1，在用若干 AND 的到 1，并与预期的输出进行与运算。 再把所有结果做 OR 即可。
+\end{itemize}
