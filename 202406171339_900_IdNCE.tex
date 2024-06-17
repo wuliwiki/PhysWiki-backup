@@ -1,0 +1,38 @@
+% 理想气体（微正则系综法）
+% keys 理想气体|微正则系综|相空间|熵
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{理想气体的熵：纯微观分析\nref{nod_IdeaS}，热力学关系式\nref{nod_MWRel}}{nod_751e}
+
+在微正则系综中，计算体系的熵的方式是，计算能壳 $E\sim E+\Delta E$ 内系统能级的个数，也就是微观状态数，再利用玻尔兹曼公式 $S=k\ln \Omega$ 求解体系的熵。可以将微观状态数除以 $\Delta E$ 来忽略能壳厚度对计算结果的影响。经过一系列计算\footnote{具体计算过程可以参考 \upref{IdeaS}。}，能量为 $E$，粒子数为 $N$，体积为 $V$ 的理想气体的熵的公式（\autoref{eq_IdeaS_2}）为
+\begin{equation}\label{eq_IdNCE_1}
+S(E, V, N) = k\ln \Omega  = Nk \qty(\ln \frac{V}{N\lambda^3} + \frac52)~,
+\end{equation}
+该式被称为 \textbf{Sackur-Tetrode 公式}。 其中
+\begin{equation}\label{eq_IdNCE_2}
+\lambda = \frac{h}{\sqrt{4\pi mE/(3N)}} = \frac{h}{\sqrt{2\pi mkT}}~,
+\end{equation}
+
+\subsection{理想气体的热力学量}
+微正则系综的精神是，从熵公式出发，利用熵的微分关系得到各个热力学量——温度、压强、化学势，从而可以利用麦克斯韦关系计算其他的热力学势，这样理论所就能推出平衡态热力学系统的一切信息。
+
+根据熵的微分关系
+% \addTODO{链接}
+\begin{equation}
+\dd{S} = \frac{1}{T} \dd{E} + \frac{P}{T} \dd{V} - \frac{\mu}{T} \dd{N}~.
+\end{equation}
+所以对 $S$ 求三个偏导得
+\begin{equation}
+T = \frac{2E}{3Nk}~,
+\end{equation}
+\begin{equation}
+P = NkT/V~,
+\end{equation}
+\begin{equation}
+\mu = kT \ln \frac{N\lambda^3}{V}~.
+\end{equation}

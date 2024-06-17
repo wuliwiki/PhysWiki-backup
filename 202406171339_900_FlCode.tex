@@ -1,0 +1,110 @@
+% 库仑函数程序（Matlab 和 Mathematica）
+% license Xiao
+% type Tutor
+
+\pentry{库仑函数\nref{nod_CulmF}}{nod_1bb4}
+
+\addTODO{$G_l$ 没有定义。}
+
+\subsection{库仑函数}
+在 Mathematica 中定义库仑函数 $F_l(\eta, \rho)$ 为（\autoref{eq_CulmF_1}）。 注意较新版本的 Mathematica 中已经定义了该函数可以直接使用， 重复定义会报错。
+\begin{lstlisting}[language=mma] % 已验证
+CoulombF[l_, η_, ρ_] := 2^l E^(-π η/2) \
+    Abs[Gamma[l + 1 + I η]]/(2 l + 1)! ρ^(l + 1) E^(-I ρ) \
+    Hypergeometric1F1[l + 1 - I η, 2 l + 2, 2 I ρ]
+\end{lstlisting}
+或者使用\autoref{eq_CulmF_2}  % 已验证
+\begin{lstlisting}[language=mma]
+CoulombF[l_, η_, ρ_] := (-I/2)^(l + 1) \
+   2^l E^(-π η/2) Abs[Gamma[l + 1 + I η]]/(2 l + 1)! \
+   WhittakerM[I η, l + 1/2, 2 I ρ]
+\end{lstlisting}
+
+在 Matlab 中定义（\autoref{eq_CulmF_2}）为， 需要使用符号计算工具箱 % 已验证
+\begin{lstlisting}[language=matlab, caption=coulombF\_sym.m]
+% 第一类库仑函数 F_l(eta, rho)
+% 已使用 Mathematica 验证
+% l, eta 是标量， rho 支持数组
+function ret = coulombF_sym(l, eta, rho)
+syms L Eta Rho;
+F = (-0.5i)^(L+1)*2^L*exp(-sym(pi)*Eta/2)....
+    *abs(gamma(L+1+1i*Eta))/factorial(2*L+1)....
+    *whittakerM(1i*Eta, L+1/2, 2i*Rho);
+
+F = subs(F, L, vpa(l,17));
+F = subs(F, Eta, vpa(eta,17));
+ret = real(double(subs(F, Rho, vpa(rho,17))));
+end
+\end{lstlisting}
+
+库仑相移（\autoref{eq_CulmF_8}），需要 symbolic toolbox
+\begin{lstlisting}[language=matlab, caption=coulomb\_sigma.m]
+% coulomb phase
+% eq_CulmF_8
+% complex gamma() requires symbolic toolbox
+function ret = coulomb_sigma(l, eta)
+ret = double(angle(gamma(l+sym(1)+1i*eta)));
+end
+\end{lstlisting}
+
+\subsection{库仑平面波程序}
+以下 Maltab 程序用于计算\autoref{eq_CulmWf_7}。
+\begin{lstlisting}[language=matlab, caption=coulomb\_plane.m]
+% 直角坐标系的库仑平面波
+% Sign = 1 球面波出射, Sign = -1 球面波入射
+% 'numel(k) = 3'
+% 归一化: delta(\bvec k - \bvec k'),
+%     无穷远平面波振幅 1/(2*pi)^1.5
+function Psi = coulomb_plane(k,X,Y,Z,ZZ,Sign)
+if (ZZ < 0)
+    error('ZZ (nuclear charge) must be positive!');
+end
+Sign = sign(Sign);
+k0 = norm(k);
+eta = -ZZ/k0;
+k_dot_r = k(1)*X + k(2)*Y + k(3)*Z;
+kr = k0*sqrt(X.^2+Y.^2+Z.^2);
+C = 1/(2*pi)^1.5 * double(gamma(1+Sign*1i*vpa(eta))) * exp(-pi*eta*0.5);
+Psi = C * exp(1i*k_dot_r) .* hypergeom(-Sign*1i*eta, 1, ....
+    Sign*1i*kr - 1i*k_dot_r);
+end
+\end{lstlisting}
+
+一个并行版的程序（参考 \enref{Matlab 并行运算笔记}{MatPar}）：
+\begin{lstlisting}[language=matlab, caption=coulomb\_plane\_par.m]
+% 直角坐标系的库仑平面波 （coulomb_plane 的并行版， 需要 parallel toolbox）
+% 6 和 12 线程的机器上， 12 worker 的效率大概是单线程的 5.32 倍
+% parfor 划分成列是划分成元素的 3 倍， 因为 hypergeom 输入矩阵效率最高
+
+% Sign = 1 球面波出射, Sign = -1 球面波入射
+% 'numel(k) = 3'
+% 归一化: delta(\bvec k - \bvec k'),
+%     无穷远平面波振幅 1/(2*pi)^1.5
+function Psi = coulomb_plane_par(k,X,Y,Z,ZZ,Sign)
+if (ZZ < 0)
+    error('ZZ (nuclear charge) must be positive!');
+end
+Sign = sign(Sign);
+k0 = norm(k);
+eta = -ZZ/k0;
+k_dot_r = k(1)*X + k(2)*Y + k(3)*Z;
+kr = k0*sqrt(X.^2+Y.^2+Z.^2);
+C = 1/(2*pi)^1.5 * double(gamma(1+Sign*1i*vpa(eta))) * exp(-pi*eta*0.5);
+Psi = zeros(size(X)); Ncol = size(Psi, 2);
+parfor i = 1:Ncol
+    Psi(:,i) = C * exp(1i*k_dot_r(:,i)) .* hypergeom(-Sign*1i*eta, 1, ....
+        Sign*1i*kr(:,i) - 1i*k_dot_r(:,i));
+end
+end
+\end{lstlisting}
+
+对应的 Mathematica 程序 % 已和 Matlab 数值验证
+\begin{lstlisting}[language=mma]
+CoulombPlane[k_, r_, Z_, Sgn_] := 
+ Module[{k0, η, kdotr, kr, Coef, S},
+  k0 = Norm[k]; η = -Z/k0; S = Sign[Sgn];
+  kdotr = Dot[k, r]; kr = k0 Norm[r];
+  Coef = 1/(2 π)^(3/2) Gamma[1 + S I η] Exp[-π η/2];
+  Psi = Coef Exp[I kdotr] Hypergeometric1F1[-S I η, 1, 
+     S I kr - I kdotr]]
+\end{lstlisting}

@@ -1,0 +1,236 @@
+% 三角恒等变换（高中）
+% keys 高中|三角恒等变换
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\issueOther{和\enref{三角恒等式}{TriEqv}有部分重复，但这篇更符合高中数学要求}
+\issueOther{应该与\enref{三角恒等式}{TriEqv}合并，并讲超出高中范围的知识写在最后}
+\end{issues}
+
+\subsection{两个基本公式}
+\begin{equation}
+\sin^2\alpha + \cos^2\alpha = 1~,
+\end{equation}
+\begin{equation}
+\frac{\sin\alpha}{\cos\alpha} = \tan\alpha~.
+\end{equation}
+
+\subsection{两角和与两角差}
+\begin{equation}\label{eq_HsAnTf_5}
+\sin(\alpha + \beta) = \sin\alpha \cos\beta + \cos\alpha \sin\beta~,
+\end{equation}
+\begin{equation}\label{eq_HsAnTf_6}
+\sin(\alpha - \beta) = \sin\alpha \cos\beta - \cos\alpha \sin\beta~,
+\end{equation}
+\begin{equation}\label{eq_HsAnTf_4}
+\cos(\alpha + \beta) = \cos\alpha \cos\beta - \sin\alpha \sin\beta~,
+\end{equation}
+\begin{equation}\label{eq_HsAnTf_3}
+\cos(\alpha - \beta) = \cos\alpha \cos\beta + \sin\alpha \sin\beta~,
+\end{equation}
+\begin{equation}\label{eq_HsAnTf_7}
+\tan(\alpha + \beta) = \frac{\tan\alpha+\tan\beta}{1-\tan\alpha \tan\beta}~,
+\end{equation}
+\begin{equation}\label{eq_HsAnTf_8}
+\tan(\alpha - \beta) = \frac{\tan\alpha - \tan\beta}{1+\tan\alpha \tan\beta}~.
+\end{equation}
+
+\subsection{二倍角公式}
+\begin{equation}
+\sin2\alpha = 2\sin\alpha \cos\alpha ~,
+\end{equation}
+\begin{equation}
+\cos2\alpha = \cos^2\alpha - \sin^2\alpha = 1 - 2\sin^2\alpha = 2\cos^2\alpha -1~,
+\end{equation}
+\begin{equation}
+\tan2\alpha = \frac{2\tan\alpha}{1-\tan^2\alpha}~.
+\end{equation}
+
+\subsection{半角公式}
+\begin{equation}
+\sin\frac{\alpha}{2} = \pm\sqrt{\frac{1-\cos\alpha}{2}}~,
+\end{equation}
+\begin{equation}
+\cos\frac{\alpha}{2}= \pm\sqrt{\frac{1+\cos\alpha}{2}}~,
+\end{equation}
+\begin{equation}
+\tan\frac{\alpha}{2} = \pm\sqrt{\frac{1-\cos\alpha}{1+\cos\alpha}} = \frac{\sin\alpha}{1+\cos\alpha} = \frac{1-\cos\alpha}{\sin\alpha}~.
+\end{equation}
+注意正负号的选择需要根据 $\alpha$ 的具体取值判断。
+
+\subsection{升幂公式}
+\begin{equation}
+\cos2\alpha + 1 = 2\cos^2\alpha~,
+\end{equation}
+\begin{equation}
+1-\cos2\alpha = 2\sin^2\alpha~.
+\end{equation}
+
+\subsection{降幂公式}
+\begin{equation}
+\cos\alpha = \pm\sqrt{\frac{1+\cos2\alpha}{2}}~,
+\end{equation}
+\begin{equation}
+\sin\alpha = \pm\sqrt{\frac{1-\cos2\alpha}{2}}~.
+\end{equation}
+
+\subsection{万能公式}
+\begin{equation}
+\sin2\alpha = \frac{2\sin\alpha \cos\alpha}{\sin^2\alpha + \cos^2\alpha} = \frac{2\tan\alpha}{1+\tan^2\alpha}~,
+\end{equation}
+\begin{equation}
+\cos2\alpha = \frac{\cos^2\alpha-\sin^2\alpha}{\sin^2\alpha+\cos^2\alpha} = \frac{1-\tan^2\alpha}{1+\tan^2\alpha}~.
+\end{equation}
+
+\subsection{辅助角公式}
+\begin{equation}
+a\sin\alpha + b\cos\alpha = \sqrt{a^2+b^2}\sin(\alpha + \phi)~.
+\end{equation}
+注： $\tan\phi = \frac{b}{a}$
+
+\subsection{证明}
+
+可参考与本节内容相似的\autoref{sub_TriEqv_1}。
+
+\subsubsection{两角和与两角差（旋转法）}
+
+这一证法是先通过旋转法求出余弦的加法公式\autoref{eq_HsAnTf_3}，然后进行简单变换得到剩下的加法公式。思路来自П. М. Котельников的学位论文\footnote{据刘培杰工作室出版的《世界著名三角学经典著作钩沉 平面三角卷I》第22节。笔者按此名字搜索，并未找到出处，特此声明。}。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/75ec09f8befeb803.pdf}
+\caption{旋转法示意图。左图和右图表示的是同样的坐标系，圆都是同一个单位圆。右图中所有图形和点都围绕坐标系原点顺时针旋转了$\beta$，从而使得$B$点落在$x$轴上。} \label{fig_HsAnTf_2}
+\end{figure}
+
+
+如\autoref{fig_HsAnTf_2} 所示，在单位圆上取两个角（不一定是图示的锐角）$\alpha$和$\beta$，与单位元相交得交点$A$和$B$。由于是单位圆，故可知$A$的坐标为$\pmat{x_A, y_A}=\pmat{\cos\alpha, \sin\alpha}$，$B$的坐标为$\pmat{x_B, y_B}=\pmat{\cos\beta, \sin\beta}$。由此可计算线段$AB$的长度，或者准确来说，长度的平方：
+\begin{equation}\label{eq_HsAnTf_1}
+\begin{aligned}
+\abs{AB}^2 =& (x_A-x_B)^2+(y_A-y_B)^2\\
+=& (\cos^2\alpha+\cos^2\beta-2\cos\alpha\cos\beta)+\\&(\sin^2\alpha+\sin^2\beta-2\sin\alpha\sin\beta)\\
+=& 2\qty(1-\cos\alpha\cos\beta-\sin\alpha\sin\beta)~.
+\end{aligned}
+\end{equation}
+
+注意这里利用了$\cos^2x+\sin^2x=1$恒等式，下面也一样。
+
+接下来，把所有点和图形都围绕坐标原点，顺时针旋转$\beta$，得到右图。此时$A$的坐标变成了$\pmat{x'_A, y'_A}=\pmat{\cos(\alpha-\beta), \sin(\alpha-\beta)}$，$B$的坐标变成了$\pmat{x'_B, y'_B}=\pmat{1, 0}$。
+
+同样地，计算线段$AB$的长度平方：
+\begin{equation}\label{eq_HsAnTf_2}
+\begin{aligned}
+\abs{AB}^2 =& (x'_A-x'_B)^2+(y'_A-y'_B)^2\\
+=& \qty(\cos^2(\alpha-\beta)+1-2\cos(\alpha-\beta))+\sin^2(\alpha-\beta)\\
+=& 2(1-\cos(\alpha-\beta))~.
+\end{aligned}
+\end{equation}
+
+\autoref{eq_HsAnTf_1} 和\autoref{eq_HsAnTf_2} 应相等，比较它们的最后一步即可得\autoref{eq_HsAnTf_3}。
+
+计算$\cos\qty(\alpha-(-\beta))$即可得\autoref{eq_HsAnTf_4}。将$\sin x=\cos(x-\pi/2)$代入这两个余弦加法公式，即可得到正弦加法公式\autoref{eq_HsAnTf_5} 与\autoref{eq_HsAnTf_6}。再代入$\tan x=\sin x/\cos x$即可得正切的加法公式\autoref{eq_HsAnTf_7} 与\autoref{eq_HsAnTf_8}。
+
+
+
+\subsubsection{两角和与两角差（几何矢量证法）}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/f6ec01fcb652c036.png}
+\caption{图示} \label{fig_HsAnTf_1}
+\end{figure}
+设 $\alpha$、$\beta$ 对应的单位向量分别为 $a(\cos\alpha,\sin\alpha)$、$b(\cos(\alpha+\beta),\sin(\alpha+\beta))~.$\\
+设 $a$ 与其垂直的单位向量 $m(-\sin\alpha,\cos\alpha)$ 为基向量，则
+\begin{equation}
+\begin{aligned}
+b &= \cos\beta \cdot a + \sin\beta \cdot m \\
+&= (\cos\beta \cos\alpha,\cos\beta \sin\alpha) + (-\sin\beta \sin\alpha,\sin\beta \cos\alpha) \\
+&= (\cos\alpha \cos\beta-\sin\alpha \sin\beta,\sin\alpha \cos\beta + \cos\alpha \sin\beta)~.
+\end{aligned}
+\end{equation}
+由此可得
+\begin{equation}
+\sin(\alpha+\beta) = \sin\alpha \cos\beta + \cos\alpha \sin\beta~,
+\end{equation}
+\begin{equation}
+\cos(\alpha+\beta) = \cos\alpha \cos\beta - \sin\alpha \sin\beta~.
+\end{equation}
+
+用 $-\beta$ 代换 $\beta$ ，可得
+\begin{equation}
+\begin{aligned}
+\sin(\alpha-\beta) &= \sin\alpha \cos(-\beta) + \cos\alpha \sin(-\beta)\\
+&=\sin\alpha \cos\beta - \cos\alpha \sin\beta~,
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\cos(\alpha-\beta) &= \cos\alpha \cos(-\beta) + \sin\alpha \sin(-\beta)\\
+&=\cos\alpha \cos\beta + \sin\alpha \sin\beta~.
+\end{aligned}
+\end{equation}
+
+由 $\tan\alpha = \frac{\sin\alpha}{\cos\alpha}$，得
+\begin{equation}
+\tan(\alpha+\beta) = \frac{\sin\alpha \cos\beta + \cos\alpha \sin\beta}{\cos\alpha \cos\beta - \sin\alpha \sin\beta}~.
+\end{equation}
+上下同除 $\cos\alpha\cos\beta$ ，得
+\begin{equation}
+\tan(\alpha+\beta) = \frac{\tan\alpha+\tan\beta}{1 - \tan\alpha\tan\beta}~.
+\end{equation}
+
+同理，可得
+\begin{equation}
+\tan(\alpha-\beta) = \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\tan\beta}~.
+\end{equation}
+
+\subsubsection{二倍角公式}
+在两角和公式中，令 $\alpha = \beta$
+\begin{equation}
+\sin2\alpha = \sin\alpha \cos\alpha+\cos\alpha \sin\alpha = 2\sin\alpha \cos\alpha~,
+\end{equation}
+\begin{equation}
+\cos2\alpha = \cos^2\alpha - \sin^2\alpha~,
+\end{equation}
+\begin{equation}
+\tan2\alpha = \frac{2\tan\alpha}{1 - \tan^2\alpha}~.
+\end{equation}
+
+由 $\sin^2\alpha + \cos^2\alpha = 1$ ，可得
+\begin{equation}
+\cos^2\alpha = 1 - \sin^2\alpha~,
+\end{equation}
+\begin{equation}
+\sin^2\alpha = 1 - \cos^2\alpha~.
+\end{equation}
+
+代入，可得
+\begin{equation}
+\cos2\alpha = 1 - \sin^2 - \sin^2 = 1 - 2\sin^2\alpha~,
+\end{equation}
+\begin{equation}
+\cos2\alpha = \cos^2\alpha - (1 - cos^2\alpha) = 2\cos^2\alpha - 1~.
+\end{equation}
+
+\subsubsection{半角公式}
+由余弦的二倍角公式，可得
+\begin{equation}
+2\sin^2\alpha = 1 - \cos2\alpha~,
+\end{equation}
+\begin{equation}
+2\cos^2\alpha = 1 + \cos2\alpha~.
+\end{equation}
+
+用 $\frac{\alpha}{2}$ 代还 $\alpha$ ，可得
+\begin{equation}
+\begin{aligned}
+2\sin^2\frac{\alpha}{2} &= 1 - \cos\alpha~,\\
+\sin\frac{\alpha}{2}&= \pm\sqrt{\frac{1-\cos\alpha}{2}}~.
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+2\cos^2\frac{\alpha}{2} &= 1 + \cos\alpha~,\\
+\cos\frac{\alpha}{2} &= \pm\sqrt{\frac{1+\cos\alpha}{2}}~.
+\end{aligned}
+\end{equation}

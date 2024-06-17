@@ -1,0 +1,52 @@
+% 磁场中闭合电流的合力
+% keys 安培力|磁场|回路|曲线积分
+% license Xiao
+% type Tutor
+
+% \addTODO{感觉这个推导太复杂了, 如果用匀强磁场}
+\pentry{安培力\nref{nod_FAmp}， 斯托克斯定理\nref{nod_Stokes}， 静磁场的高斯定律\nref{nod_MagGau}， 矢量算符运算法则\nref{nod_VopEq}}{nod_774e}
+
+假设空间中有任意磁场 $\bvec B(\bvec r)$， 无限细的闭合电流回路 $L$ 中有电流 $I$， 则其受到的安培力可以用线积分表示为
+\begin{equation}
+\bvec F = -\oint I \bvec B(\bvec r)\cross\dd{\bvec r} ~.
+\end{equation}
+电流方向若和积分方向相同，则取正，否则去负。
+
+若磁场是匀强磁场， 则立即得到
+\begin{equation}
+\bvec F = I\qty(\oint \dd{\bvec r}) \cross \bvec B = \bvec 0~.
+\end{equation}
+\addTODO{引用 $\oint \dd{\bvec r}=\bvec 0$ 的出处}
+
+\subsection{证明}
+
+下面为了书写方便， 使用 $\bvec x_i$（$i=1,2,3$） 代替 $\bvec x, \bvec y, \bvec z$， 用 $F_i$（$i=1,2,3$）代替 $F_x, F_y, F_z$， 以此类推。
+
+若磁场是任意的， 那么
+\begin{equation}
+\ali{
+\bvec F &= \oint_L I \dd{\bvec r} \cross \bvec B\\
+&= \sum_i \uvec x_i I\oint_L \dd{\bvec r} \cross \bvec B  \vdot \uvec x_i\\
+&= \sum_i \uvec x_i I\oint_L (\bvec B \cross \uvec x_i) \vdot \dd{\bvec r}\\
+&= \sum_i \uvec x_i I \int_\Sigma  \curl (\bvec B \cross \uvec x_i) \vdot \dd{\bvec s}~.
+}\end{equation}
+求和中 $i=1,2,3$， 下同。 其中用到了斯托克斯定理（\autoref{eq_Stokes_1}）， $\Sigma $ 是以闭合曲线 $L$ 为边界的曲面。上式中（\autoref{eq_VopEq_6}）
+\begin{equation}
+\begin{aligned}
+&\quad\curl (\bvec B \cross \uvec x_i)\\
+&= \bvec B (\div \uvec x) + (\uvec x_i\vdot\bvec\nabla )\bvec B - \uvec x_i (\div \bvec B) - (\bvec B \vdot\bvec\nabla)\uvec x_i\\
+&= (\uvec x\vdot\bvec\nabla)\bvec B\\
+&= \pdv{\bvec B}{x_i}~,
+\end{aligned}
+\end{equation} 
+这里用到了 $\uvec x$ 的任意微分为 0 以及 $\div \bvec B = 0$ 的性质。 对称地， 将上式中的 $\uvec x$ 替换成 $\uvec y$ 和 $\uvec z$ ， 等式也成立。 所以
+\begin{equation}
+\bvec F = \sum_i \uvec x_i I\int_\Sigma  \pdv{\bvec B}{x_i} \vdot \dd{\bvec s}~.
+\end{equation} 
+写成分量的形式， 就是
+\begin{equation}
+F_i = I\int_\Sigma  \pdv{\bvec B}{x_i} \vdot \dd{\bvec s}~.
+\end{equation}
+
+相关文章：“\enref{磁场中闭合电流的力矩}{EBTorq}”。
+
