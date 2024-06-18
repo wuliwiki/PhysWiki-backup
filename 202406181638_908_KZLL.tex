@@ -1,0 +1,158 @@
+% 控制理论
+% license CCBYSA3
+% type Wiki
+
+（本文根据 CC-BY-SA 协议转载自原搜狗科学百科对英文维基百科的翻译）
+
+控制系统工程中的控制理论是数学的一个子领域，用于控制工程过程和机器中连续运行的动力系统。其目的是开发一种控制模型，用于以最佳方式使用控制动作来控制这些系统，而没有延迟或过冲并确保控制的稳定性。
+
+为此，需要具有纠正措施的 控制器。该控制器监控受控过程变量（PV），并将其与参考点或设定点进行比较。过程变量的实际值和期望值之差，称为误差信号或SP-PV误差，作为反馈，产生控制动作，使受控过程变量达到与设定值相同的值。值得研究的其他方面还包括可控性和可观察性。在此基础上，先进的自动化技术彻底改变了制造业、飞机、通信和其他行业。反馈控制，通常是连续的，包括使用传感器进行测量并进行计算调整，以通过“最终控制元件”（例如控制阀）将测量变量保持在设定范围内。[1]
+
+广泛使用的通常是被称为框图的图解样式。其中传递函数也被称为系统函数或网络函数，是描述系统的微分方程的输入和输出之间关系的数学模型。
+
+控制理论的起源可以追溯到19世纪，当时詹姆斯·克拉克·麦克斯韦首次描述了调速器运行的理论基础。[2]1874年，爱德华·劳斯，查尔斯·斯特姆及随后的1895年，阿道夫·胡尔维茨进一步完善了控制理论，他们都对控制稳定性标准的建立做出了贡献；从1922年起，尼古拉斯·米诺斯基发展了 PID控制理论。[3]虽然控制理论的一个主要应用是控制系统工程，它涉及工业过程控制系统的设计，但其应用远远不止这些。作为反馈系统的一般理论，控制理论对于存在反馈的任何地方都是有用的。
+
+\subsection{历史}
+
+
+
+\subsection{开环和闭环(反馈)控制}
+
+
+
+\subsubsection{2.1 其他例子}
+
+
+
+\subsection{经典控制理论}
+
+
+
+\subsection{闭回路传递函数}
+
+
+
+\subsection{PID反馈控制}
+
+
+
+\subsection{线性和非线性控制理论}
+
+
+
+\subsection{分析技术-频域和时域}
+
+
+
+\subsection{系统接口- SISO和MIMO}
+
+
+
+\subsection{控制理论中的主题}
+
+\subsubsection{9.1 稳定性}
+
+
+
+\subsubsection{9.2 可控性和可观察性}
+
+
+
+\subsubsection{9.3 控制规格}
+
+
+
+\subsubsection{9.4 模型识别和鲁棒性}
+
+
+
+\subsection{系统分类}
+
+\subsubsection{10.1 线性系统控制}
+
+
+
+\subsubsection{10.2 非线性系统控制}
+
+
+
+\subsubsection{10.3 分散系统控制}
+
+
+
+\subsubsection{10.4 确定性和随机系统控制}
+
+
+
+\subsection{主要控制策略}
+
+
+
+\subsection{系统和控制的相关人物}
+
+许多活跃的历史人物对控制理论做出了重要贡献，包括
+
+\begin{itemize}
+\item 皮埃尔·西蒙·拉普拉斯在他概率论的工作中发明了 Z变换，现在用于解决离散时间控制理论问题。Z变换是以他的名字拉普拉斯变换命名的离散时间等价物。
+\item Irmgard Flugge-Lotz 发展了间断自动控制理论，并将其应用于自动飞机控制系统。
+\item 亚历山大·李亚普诺夫于19世纪90年代开创了稳定性理论。
+\item 哈罗德·布莱克在1927年发明了负反馈放大器的概念。20世纪30年代，他开发出稳定的负反馈放大器。
+\item 哈利·奈奎斯特在20世纪30年代为反馈系统开发了奈奎斯特稳定判据。
+\item 理查德·贝尔曼从20世纪40年代开始了动态规划的开发 。[22]
+\item 安德雷·柯尔莫哥洛夫在1941年共同开发了维纳-科尔莫戈罗夫滤波器。
+\item 诺伯特·维纳在20世纪40年代共同开发了维纳-科尔莫戈罗夫滤波器，并创造了术语控制论。
+\item 约翰·拉加兹尼在20世纪50年代在控制理论中引入了数字控制和 Z变换(由拉普拉斯发明)。
+\item 列夫·庞特里亚金介绍了最大值原理和爆炸原理。
+\item 皮埃尔-路易·利翁将粘度解发展成随机控制和最优控制方法。
+\item 鲁道夫·卡尔曼开创了系统和控制的状态空间法。引入了可控性和可观性的概念。开发了用于线性估计的卡尔曼滤波器。
+\item Ali H. Nayfeh是非线性控制理论的主要贡献者之一，出版了许多关于微扰理论的书籍
+\item Jan C. Willems 引入了耗散性概念，将李亚普诺夫函数推广到对输入/状态/输出系统。作为李雅普诺夫函数的类比，存储函数的构造促进了控制理论中线性矩阵不等式(LMI)的研究。他开创了数学系统理论的行为方法。
+\end{itemize}
+
+
+\subsection{参考文献}
+
+[1]
+^斯图尔特·班尼特(1992)。控制工程史，1930-1955。IET。第48页。ISBN 978-0-86341-299-8。.
+[2]
+^Maxwell, J. C. (1868). "On Governors" (PDF). Proceedings of the Royal Society. 100..
+[3]
+^Minorsky, Nicolas (1922). "Directional stability of automatically steered bodies". Journal of the American Society of Naval Engineers. 34 (2): 280–309. doi:10.1111/j.1559-3584.1922.tb04958.x..
+[4]
+^Maxwell, J.C. (1868). "On Governors". Proceedings of the Royal Society of London. 16: 270–283. doi:10.1098/rspl.1867.0055. JSTOR 112510..
+[5]
+^控制理论:历史、数学成就和前景|·费尔南德斯·卡拉1和埃·祖阿祖阿.
+[6]
+^Routh, E.J.; Fuller, A.T. (1975). Stability of motion. Taylor & Francis..
+[7]
+^Routh, E.J. (1877). A Treatise on the Stability of a Given State of Motion, Particularly Steady Motion: Particularly Steady Motion. Macmillan and co..
+[8]
+^Hurwitz, A. (1964). "On The Conditions Under Which An Equation Has Only Roots With Negative Real Parts". Selected Papers on Mathematical Trends in Control Theory..
+[9]
+^Flugge-Lotz, Irmgard; Titus, Harold A. (October 1962). "Optimum and Quasi-Optimum Control of Third and Fourth-Order Systems" (PDF). Stanford University Technical Report (134): 8–12..
+[10]
+^Hallion, Richard P. (1980). Sicherman, Barbara; Green, Carol Hurd; Kantrov, Ilene; Walker, Harriette, eds. Notable American Women: The Modern Period: A Biographical Dictionary. Cambridge, Mass.: Belknap Press of Harvard University Press. pp. 241–242. ISBN 9781849722704..
+[11]
+^“反馈和控制系统”——JJ·迪·斯泰法诺，阿尔·斯图布拉德，IJ·威廉姆斯。夏姆斯轮廓系列，麦格劳-希尔1967.
+[12]
+^Mayr, Otto (1970). The Origins of Feedback Control. Clinton, MA USA: The Colonial Press, Inc..
+[13]
+^Mayr, Otto (1969). The Origins of Feedback Control. Clinton, MA USA: The Colonial Press, Inc..
+[14]
+^Ang, K.H.; Chong, G.C.Y.; Li, Y. (2005). "PID control system analysis, design, and technology". IEEE Transactions on Control Systems Technology. 13 (4): 559–576. doi:10.1109/TCST.2005.847331..
+[15]
+^修剪点.
+[16]
+^Donald M Wiberg. State space & linear systems. Schaum's outline series. McGraw Hill. ISBN 978-0-07-070096-3..
+[17]
+^Terrell, William (1999). "Some fundamental control theory I: Controllability, observability, and duality —AND— Some fundamental control Theory II: Feedback linearization of single input nonlinear systems". American Mathematical Monthly. 106 (9): 705–719 and 812–828. doi:10.2307/2589614. JSTOR 2589614..
+[18]
+^Gu Shi; et al. (2015). "Controllability of structural brain networks (Article Number 8414)". Nature Communications. 6 (6). arXiv:1406.5197. Bibcode:2015NatCo...6E8414G. doi:10.1038/ncomms9414. Lay summary. Here we use tools from control and network theories to offer a mechanistic explanation for how the brain moves between cognitive states drawn from the network organization of white matter microstructure..
+[19]
+^Liu, Jie; Wilson Wang; Farid Golnaraghi; Eric Kubica (2010). "A novel fuzzy framework for nonlinear system control". Fuzzy Sets and Systems. 161 (21): 2746–2759. doi:10.1016/j.fss.2010.04.009..
+[20]
+^Melby, Paul; et., al. (2002). "Robustness of Adaptation in Controlled Self-Adjusting Chaotic Systems". Fluctuation and Noise Letters. 02 (4): L285–L292. doi:10.1142/S0219477502000919..
+[21]
+^N. A. Sinitsyn. S. Kundu, S. Backhaus (2013). "Safe Protocols for Generating Power Pulses with Heterogeneous Populations of Thermostatically Controlled Loads". Energy Conversion and Management. 67: 297–308. arXiv:1211.0248. doi:10.1016/j.enconman.2012.11.021..
+[22]
+^Richard Bellman (1964). "Control Theory" (PDF). Scientific American. Vol. 211 no. 3. pp. 186–200..

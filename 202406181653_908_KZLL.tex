@@ -1,0 +1,189 @@
+% 控制理论
+% license CCBYSA3
+% type Wiki
+
+（本文根据 CC-BY-SA 协议转载自原搜狗科学百科对英文维基百科的翻译）
+
+控制系统工程中的控制理论是数学的一个子领域，用于控制工程过程和机器中连续运行的动力系统。其目的是开发一种控制模型，用于以最佳方式使用控制动作来控制这些系统，而没有延迟或过冲并确保控制的稳定性。
+
+为此，需要具有纠正措施的 控制器。该控制器监控受控过程变量（PV），并将其与参考点或设定点进行比较。过程变量的实际值和期望值之差，称为误差信号或SP-PV误差，作为反馈，产生控制动作，使受控过程变量达到与设定值相同的值。值得研究的其他方面还包括可控性和可观察性。在此基础上，先进的自动化技术彻底改变了制造业、飞机、通信和其他行业。反馈控制，通常是连续的，包括使用传感器进行测量并进行计算调整，以通过“最终控制元件”（例如控制阀）将测量变量保持在设定范围内。[1]
+
+广泛使用的通常是被称为框图的图解样式。其中传递函数也被称为系统函数或网络函数，是描述系统的微分方程的输入和输出之间关系的数学模型。
+
+控制理论的起源可以追溯到19世纪，当时詹姆斯·克拉克·麦克斯韦首次描述了调速器运行的理论基础。[2]1874年，爱德华·劳斯，查尔斯·斯特姆及随后的1895年，阿道夫·胡尔维茨进一步完善了控制理论，他们都对控制稳定性标准的建立做出了贡献；从1922年起，尼古拉斯·米诺斯基发展了 PID控制理论。[3]虽然控制理论的一个主要应用是控制系统工程，它涉及工业过程控制系统的设计，但其应用远远不止这些。作为反馈系统的一般理论，控制理论对于存在反馈的任何地方都是有用的。
+
+\subsection{历史}
+
+
+
+\subsection{开环和闭环(反馈)控制}
+
+
+
+\subsubsection{2.1 其他例子}
+
+
+
+\subsection{经典控制理论}
+
+
+
+\subsection{闭回路传递函数}
+
+
+
+\subsection{PID反馈控制}
+
+
+
+\subsection{线性和非线性控制理论}
+
+
+
+\subsection{分析技术-频域和时域}
+
+
+
+\subsection{系统接口- SISO和MIMO}
+
+
+
+\subsection{控制理论中的主题}
+
+\subsubsection{9.1 稳定性}
+
+
+
+\subsubsection{9.2 可控性和可观察性}
+
+
+
+\subsubsection{9.3 控制规格}
+
+在过去的几年中已经存在有几种不同的控制策略。这些控制器从非常通用的( PID控制器)到专门用于非常特殊类别系统的其他控制器(机器人或飞机巡航控制)。
+
+控制问题可以有几种规格。当然，稳定总是存在的。无论开环稳定性如何，控制器必须确保闭环系统稳定。控制器选择不当甚至会降低开环系统的稳定性，这通常是必须避免的。有时希望在闭环中获得特定的动力学：即极点具有$\Re[\lambda] < -\overline{\lambda}$,其中$\overline{\lambda}$ 是一个严格大于零的固定值，而不是简单地令
+
+
+\subsubsection{9.4 模型识别和鲁棒性}
+
+控制系统必须始终具有一定的鲁棒性。鲁棒控制：如果应用于与其合成所用的数学系统略有不同的系统，则其特性不会有太大变化。这一要求很重要，因为没有一个真正的物理系统能够完全与表示它的数学微分方程一样。通常选择更简单的数学模型来简化计算，否则，真正的系统动力学可能会非常复杂，以至于不可能有完整的模型。
+
+系统辨识
+
+确定控制模型动力学方程的过程称为系统识别。这一步骤可以离线完成：例如，执行一系列测量，从中计算近似数学模型，通常是其传递函数或矩阵。然而，这种从输出中的识别不能考虑不可观察的动态。有时模型是直接从已知的物理方程建立的，例如，在我们知道的质量-弹簧-阻尼器系统可以由式$m\ddot{x}(t) = -Kx(t) - B\dot{x}(t)$ 进行描述。即使假设在设计控制器时使用了“完整”的模型，这些方程中包含的所有参数(称为“标称参数”)也永远不会具有绝对精度；即使连接到真实参数值与标称值不同的物理系统，控制系统也必须正确运行。
+
+一些先进的控制技术包括“在线”识别过程(见下文)。当控制器本身运行时，计算(“识别”)模型的参数。这样，如果参数发生剧烈变化，例如，如果机器人的手臂释放了重量，控制器将进行自我调整以确保正确的性能。
+
+分析
+
+考虑到系统的传递函数，并使用奈奎斯特图和波特图，可以在频域中分析SISO(单输入单输出)控制系统的鲁棒性。包括增益和相位裕度以及幅度裕度。对于MIMO(多输入多输出)和一般更复杂的控制系统，必须考虑为每种控制技术设计的理论结果(见下一节)。也就是说，如果需要特定的鲁棒性，工程师需将其注意力转移到控制技术上，以将它们包含在控制技术的属性中。
+
+限制
+
+特定的鲁棒性问题是要求控制系统在存在输入和状态约束的情况下正确执行。在现实世界中，每个信号都是有限的。控制器可能会发送物理系统无法跟踪的控制信号，例如，试图以过高的速度旋转阀门。这可能会导致闭环系统出现不良行为，甚至损坏执行器或其他子系统。可以使用特定的控制技术来解决这个问题：模型预测控制(见下文)和防缠绕系统。后者包括一个附加的控制块，确保控制信号永远不会超过给定的阈值。
+
+\subsection{系统分类}
+
+\subsubsection{10.1 线性系统控制}
+
+对于多输入多输出系统，极点配置可以使用开环系统的状态空间表示进行数学计算，并计算在所需位置分配极点的反馈矩阵。在复杂的系统中，这可能需要计算机辅助计算能力，并且不能一直确保鲁棒性。此外，并非所有系统状态都是一般测量的，因此观测器必须包含在极点配置设计中。
+
+\subsubsection{10.2 非线性系统控制}
+
+像机器人和航空航天工业等行业的过程通常具有很强的非线性动力学。在控制理论中，有时可以应用线性技术线性化这类系统，但在许多情况下，有必要从头设计允许控制非线性系统的理论。例如，反馈线性化，反推，滑模控制，轨迹线性化控制通常利用基于李亚普诺夫理论的结果。微分几何(Differential geometry)已被广泛用作将众所周知的线性控制概念推广到非线性情形的工具，并显示出使其成为解决更具挑战性问题的微妙之处。控制理论也被用来破译指导认知状态的神经机制。[18]
+
+\subsubsection{10.3 分散系统控制}
+
+当系统由多个控制器控制时，则存在分散控制问题。权力下放在许多方面都有帮助，例如，它有助于控制系统在更大的地理区域内运行。分散控制系统中的代理可以使用通信信道进行交互，并协调它们的动作。
+
+\subsubsection{10.4 确定性和随机系统控制}
+
+随机控制问题是状态变量的演化受到系统外部随机冲击的影响。确定性控制问题不受外部随机冲击的影响。
+
+\subsection{主要控制策略}
+
+每个控制系统首先必须保证闭环行为的稳定性。对于线性系统，这可以通过直接放置极点来获得。非线性控制系统使用特定的理论(通常基于亚历山大·李亚普诺夫理论)来确保稳定性，而不考虑系统的内部动态。满足不同规格的可能性因所考虑的模型和所选择的控制策略而异。
+
+主要控制技术列表
+
+\begin{itemize}
+\item 自适应控制使用过程参数的在线识别或对控制器增益的修改，从而获得强鲁棒性。自适应控制在20世纪50年代首次应用于航空航天工业，并在该领域取得了特别的成功。
+\item 分级控制系统是一种控制系统，其中一组设备和控制软件以分级树方式排列 。当树中的链路由计算机网络实现时，该分级控制系统也是网络控制系统的一种形式。
+\item 智能控制使用各种人工智能计算方法，如人工神经网络，贝叶斯概率，模糊逻辑，[19] 机器学习、进化计算和遗传算法来控制动态系统。
+\item 最优控制是一种特殊的控制技术，其中控制信号优化某个“成本指数”:例如，在卫星上，喷射推力需要将它带到消耗最少燃料的期望轨迹。两种最优控制设计方法在工业应用中得到了广泛应用，因为它们可以保证闭环稳定性，包括模型预测控制和线性二次高斯控制 (LQG)。第一种方法可以更明确地考虑系统中信号的约束，这是许多工业过程中的一个重要特征。然而，模型预测控制中的“最佳控制”结构只是达到此目的的一种手段，因为它不能优化闭环控制系统的真实性能指标。MPC系统与PID控制器一起是过程控制中应用最广泛的控制技术。
+\item 鲁棒控制明确处理控制器设计方法中的不确定性。控制器设计使用鲁棒控制方法往往能够处理真实系统和设计使用的名义模型之间的微小差异。[20]Bode和其他人的早期方法相当稳健；20世纪60年代和70年代发明的状态空间方法有时被发现缺乏鲁棒性。现代鲁棒控制技术的例子包括由邓肯·麦克法拉尼和基思·格洛弗开发的 H-infinity环路整形，瓦迪姆·乌特金开发的滑模控制，以及用于控制智能电网应用中大型异构电负载群的安全协议。[21]鲁棒方法旨在对存在小建模误差的情况下实现鲁棒性能或稳定性。
+\item 随机控制涉及模型中具有不确定性的控制设计。在典型的随机控制问题中，假设模型和控制器中存在随机噪声和干扰，控制设计必须考虑这些随机偏差。
+\item 能量整形控制将工厂和控制器视为能量转换设备。控制策略是根据互连的方式(以保持功率的方式)制定的，以便实现期望的行为。
+\item 自组织临界控制可以定义为试图干扰自组织系统耗散能量的过程。
+\end{itemize}
+
+
+\subsection{系统和控制的相关人物}
+
+许多活跃的历史人物对控制理论做出了重要贡献，包括
+
+\begin{itemize}
+\item 皮埃尔·西蒙·拉普拉斯在他概率论的工作中发明了 Z变换，现在用于解决离散时间控制理论问题。Z变换是以他的名字拉普拉斯变换命名的离散时间等价物。
+\item Irmgard Flugge-Lotz 发展了间断自动控制理论，并将其应用于自动飞机控制系统。
+\item 亚历山大·李亚普诺夫于19世纪90年代开创了稳定性理论。
+\item 哈罗德·布莱克在1927年发明了负反馈放大器的概念。20世纪30年代，他开发出稳定的负反馈放大器。
+\item 哈利·奈奎斯特在20世纪30年代为反馈系统开发了奈奎斯特稳定判据。
+\item 理查德·贝尔曼从20世纪40年代开始了动态规划的开发 。[22]
+\item 安德雷·柯尔莫哥洛夫在1941年共同开发了维纳-科尔莫戈罗夫滤波器。
+\item 诺伯特·维纳在20世纪40年代共同开发了维纳-科尔莫戈罗夫滤波器，并创造了术语控制论。
+\item 约翰·拉加兹尼在20世纪50年代在控制理论中引入了数字控制和 Z变换(由拉普拉斯发明)。
+\item 列夫·庞特里亚金介绍了最大值原理和爆炸原理。
+\item 皮埃尔-路易·利翁将粘度解发展成随机控制和最优控制方法。
+\item 鲁道夫·卡尔曼开创了系统和控制的状态空间法。引入了可控性和可观性的概念。开发了用于线性估计的卡尔曼滤波器。
+\item Ali H. Nayfeh是非线性控制理论的主要贡献者之一，出版了许多关于微扰理论的书籍
+\item Jan C. Willems 引入了耗散性概念，将李亚普诺夫函数推广到对输入/状态/输出系统。作为李雅普诺夫函数的类比，存储函数的构造促进了控制理论中线性矩阵不等式(LMI)的研究。他开创了数学系统理论的行为方法。
+\end{itemize}
+
+
+\subsection{参考文献}
+
+[1]
+^斯图尔特·班尼特(1992)。控制工程史，1930-1955。IET。第48页。ISBN 978-0-86341-299-8。.
+[2]
+^Maxwell, J. C. (1868). "On Governors" (PDF). Proceedings of the Royal Society. 100..
+[3]
+^Minorsky, Nicolas (1922). "Directional stability of automatically steered bodies". Journal of the American Society of Naval Engineers. 34 (2): 280–309. doi:10.1111/j.1559-3584.1922.tb04958.x..
+[4]
+^Maxwell, J.C. (1868). "On Governors". Proceedings of the Royal Society of London. 16: 270–283. doi:10.1098/rspl.1867.0055. JSTOR 112510..
+[5]
+^控制理论:历史、数学成就和前景|·费尔南德斯·卡拉1和埃·祖阿祖阿.
+[6]
+^Routh, E.J.; Fuller, A.T. (1975). Stability of motion. Taylor & Francis..
+[7]
+^Routh, E.J. (1877). A Treatise on the Stability of a Given State of Motion, Particularly Steady Motion: Particularly Steady Motion. Macmillan and co..
+[8]
+^Hurwitz, A. (1964). "On The Conditions Under Which An Equation Has Only Roots With Negative Real Parts". Selected Papers on Mathematical Trends in Control Theory..
+[9]
+^Flugge-Lotz, Irmgard; Titus, Harold A. (October 1962). "Optimum and Quasi-Optimum Control of Third and Fourth-Order Systems" (PDF). Stanford University Technical Report (134): 8–12..
+[10]
+^Hallion, Richard P. (1980). Sicherman, Barbara; Green, Carol Hurd; Kantrov, Ilene; Walker, Harriette, eds. Notable American Women: The Modern Period: A Biographical Dictionary. Cambridge, Mass.: Belknap Press of Harvard University Press. pp. 241–242. ISBN 9781849722704..
+[11]
+^“反馈和控制系统”——JJ·迪·斯泰法诺，阿尔·斯图布拉德，IJ·威廉姆斯。夏姆斯轮廓系列，麦格劳-希尔1967.
+[12]
+^Mayr, Otto (1970). The Origins of Feedback Control. Clinton, MA USA: The Colonial Press, Inc..
+[13]
+^Mayr, Otto (1969). The Origins of Feedback Control. Clinton, MA USA: The Colonial Press, Inc..
+[14]
+^Ang, K.H.; Chong, G.C.Y.; Li, Y. (2005). "PID control system analysis, design, and technology". IEEE Transactions on Control Systems Technology. 13 (4): 559–576. doi:10.1109/TCST.2005.847331..
+[15]
+^修剪点.
+[16]
+^Donald M Wiberg. State space & linear systems. Schaum's outline series. McGraw Hill. ISBN 978-0-07-070096-3..
+[17]
+^Terrell, William (1999). "Some fundamental control theory I: Controllability, observability, and duality —AND— Some fundamental control Theory II: Feedback linearization of single input nonlinear systems". American Mathematical Monthly. 106 (9): 705–719 and 812–828. doi:10.2307/2589614. JSTOR 2589614..
+[18]
+^Gu Shi; et al. (2015). "Controllability of structural brain networks (Article Number 8414)". Nature Communications. 6 (6). arXiv:1406.5197. Bibcode:2015NatCo...6E8414G. doi:10.1038/ncomms9414. Lay summary. Here we use tools from control and network theories to offer a mechanistic explanation for how the brain moves between cognitive states drawn from the network organization of white matter microstructure..
+[19]
+^Liu, Jie; Wilson Wang; Farid Golnaraghi; Eric Kubica (2010). "A novel fuzzy framework for nonlinear system control". Fuzzy Sets and Systems. 161 (21): 2746–2759. doi:10.1016/j.fss.2010.04.009..
+[20]
+^Melby, Paul; et., al. (2002). "Robustness of Adaptation in Controlled Self-Adjusting Chaotic Systems". Fluctuation and Noise Letters. 02 (4): L285–L292. doi:10.1142/S0219477502000919..
+[21]
+^N. A. Sinitsyn. S. Kundu, S. Backhaus (2013). "Safe Protocols for Generating Power Pulses with Heterogeneous Populations of Thermostatically Controlled Loads". Energy Conversion and Management. 67: 297–308. arXiv:1211.0248. doi:10.1016/j.enconman.2012.11.021..
+[22]
+^Richard Bellman (1964). "Control Theory" (PDF). Scientific American. Vol. 211 no. 3. pp. 186–200..
