@@ -175,31 +175,96 @@ M步骤
 其中 $\hat{x}_k$ 和 $\hat{x}_{k+1}$ 是由滤波器或平滑器计算的标准状态估计。更新的模型参数估计 $\hat{F}$ 通过以下方式获得
 
 \begin{equation}
-\hat{F} = \frac{\sum_{k=1}^{N} \hat{x}_{k+1} - \hat{F} \hat{x}_k {\sum_{k=1 \hat{x}_k^2}}^{N}~
+\hat{\mathbf{F}} = \frac{\sum_{k=1}^{N} (\hat{x}_{k+1} - \hat{\mathbf{F}} \hat{x}_{k})}{\sum_{k=1}^{N} \hat{x}_{k}^{2}}.~
 \end{equation}
 
+关于参数估计收敛性已经有了很成熟的研究。[21][22][23][24]
 
 \subsection{变体}
 
+目前已经提出了许多方法来加速EM算法，解决有时收敛速度缓慢的问题，例如使用共轭梯度和改进的牛顿方法(牛顿-拉夫森)。[25]此外，EM算法还可以与约束估计方法一起使用。
 
+参数扩展期望最大化 算法通常通过“利用‘协方差调整’来校正对M步的分析，强调估算的完整数据中捕获的额外信息”来加速。[26]
 
-\subsubsection{9.1 α-EM算法}
+期望条件最大化 用一系列条件最大化(CM)步骤替换每个M步，其中每个参数 θi 在其他参数保持不变的情况下，有条件地单独最大化。[27]它可以扩展到期望条件最大化(ECME) 算法。[28]
 
+这个想法是在广义期望最大化(GEM) 算法的基础上进一步扩展，正如“作为最大化-最大化过程”部分所述，其中GEM在E步和M步中都只寻求目标函数F 的增加。[15]GEM在分布式环境中进一步开发，并得到了不错的结果。[29]
 
+也可以将EM算法视为MM算法的子类(最大化/最小化或最小化/最大化，取决于上下文)。[30]因此使用在更一般情况下开发的任何地方。
+
+\subsubsection{9.1 $\alpha$-EM算法}
+
+EM算法中使用的$Q$函数是基于对数似然的。因此，它被视为对数EM算法。对数似然的使用可以推广到α对数似然比。然后，使用$\alpha$对数似然比和α散度的$Q$函数可以与观测数据的$\alpha$对数似然比的表示精确地等价。获得这个$Q$函数是一个广义的E步骤。它的最大化是一个广义的M步。这一对被称为$\alpha$-EM算法[31]其中包含log-EM算法作为其子类。因此，松山靖夫的α-EM算法是对数-EM算法的精确推广。不需要计算梯度或海森矩阵。通过选择合适的$\alpha$，$\alpha$-EM算法算法比对数-EM算法收敛速度更快。$\alpha$-EM算法推导出了隐马尔可夫模型估计算法$\alpha$-HMM的更快版本。[32]
 
 \subsection{与变分贝叶斯方法的关系}
 
-
+EM是一种部分非贝叶斯最大似然方法。它的最终结果给出了一个概率分布在整个潜变量(贝叶斯风格)连同一个点估计$\theta$ (最大似然估计或后验模式)。这可能需要一个完全贝叶斯版本，给出概率分布 $\theta$ 和潜变量。贝叶斯推断方法就是简单地对待$\theta$ 作为另一个潜在变量。在这个范例中，E和M步之间的区别消失了。如果使用如上所述的分解Q近似(变分贝叶斯)，求解可以迭代每个潜在变量(现在包括 $\theta$ )并一次优化一个。现在，k 需要每次迭代的步骤，其中k 是潜变量的号码。对于图形模型，这很容易做到，因为每个变量都是新的Q只依赖于它的马尔可夫毯，所以局部消息传递可以用于有效的推理。
 
 \subsection{几何解释}
 
-
+在信息几何中，E阶和M阶被解释为双仿射联络下的投影，称为E联络和M联络；也可以用这些术语来理解信息增益。
 
 \subsection{例子}
 
 \subsubsection{12.1 混合高斯分布}
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/74648703b58d10e8.png}
+\caption{在人工生成的数据下，K-means算法和#EM算法的比较，由ELKI可视化。利用方差， EM算法可以精确描述正态分布，而K-means算法将数据进行了一个Voronoi单元分割。聚类中心由其中最亮、最大的点所示。} \label{fig_ZDQW_2}
+\end{figure}
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/bab29686af779717.png}
+\caption{EM算法用两个混合高斯分布拟合旧的置信数据集的过程，用动图展示。算法从随机初始化到后来逐渐收敛。} \label{fig_ZDQW_3}
+\end{figure}
+
+$\mathbf{x} = (\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_n)$ 是两个 $d$ 维正态分布混合中的 $n$ 个独立观测的样本，$\mathbf{z} = (z_1, z_2, \ldots, z_n)$ 是决定观测起源的成分的潜变量。
+
+\begin{align}
+X_i \mid (Z_i = 1) &\sim \mathcal{N}_d(\mu_1, \Sigma_1) \quad \text{和} \quad X_i \mid (Z_i = 2) \sim \mathcal{N}_d(\mu_2, \Sigma_2)~
+\end{align}
+
+其中
+
+\begin{align}
+P(Z_i = 1) = \tau_1 \quad \text{和} \quad P(Z_i = 2) = \tau_2 = 1 - \tau_1~
+\end{align}
+
+目标是估计表示多个高斯分布中的混合值的未知参数与每个高斯分布的均值和协方差：
+
+$\theta = (\tau, \mu_1, \mu_2, \Sigma_1, \Sigma_2)$
+
+其中不完全数据似然函数为
+
+$L(\theta; \mathbf{x}) = \prod_{i=1}^{n} \sum_{j=1}^{2} \tau_j f \left( x_i; \mu_j, \Sigma_j \right)$,
+
+完整数据似然函数为
+
+\begin{equation}
+L(\theta; \mathbf{x}, \mathbf{z}) = p(\mathbf{x}, \mathbf{z} \mid \theta) = \prod_{i=1}^{n} \prod_{j=1}^{2} \left[ f(\mathbf{x}_i; \mu_j, \Sigma_j) \tau_j \right]^{\mathbb{I}(z_i = j)}~
+\end{equation}
+
+或者
+\begin{equation}
+\mathcal{L}(\theta; \mathbf{x}, \mathbf{z}) =\exp \left{
+\sum_{i=1}^{n} \sum_{j=1}^{2} \mathbb{I}(z_i = j) \left[ \log \tau_j - \frac{1}{2} \log \Sigma_j - \frac{1}{2} (x_i - \mu_j)^\top \Sigma_j^{-1} (x_i - \mu_j) - \frac{d}{2} \log (2\pi) \right]\right}~
+\end{equation}
+
+其中 $\mathbb{I}$ 是一个指示函数，$f$ 是多元正态分布的概率密度函数。
+
+在最后的等式中，对于每一个 $i$，一个下标 $\mathbb{I}(z_i = j)$ 等于零，一个下标等于一。因此，内和减少到一项。
+
+E步
+
+根据我们目前对参数的估计 $\theta^{(t)}$)，$z_i$) 的条件分布由贝叶斯法则确定，是权重为 $\tau$ 的正态密度的部分高度：
+
+$T_{j,i}^{(t)} := \mathbb{P}(Z_i = j \mid X_i = x_i; \theta^{(t)}) = \frac{ \tau_j^{(t)} f(x_i; \mu_j^{(t)}, \Sigma_j^{(t)})}{ \tau_1^{(t)} f(x_i; \mu_1^{(t)}, \Sigma_1^{(t)}) + \tau_2^{(t)} f(x_i; \mu_2^{(t)}, \Sigma_2^{(t)}) }$
+
+这些被称为“成员概率”，通常被认为是E步的输出(尽管这不是下面的Q函数)。
+
+该步骤对应于为Q的函数：
 
 \subsubsection{12.2 断尾回归和归并回归}
 
