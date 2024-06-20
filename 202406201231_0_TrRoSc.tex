@@ -1,0 +1,24 @@
+% 平面上的平移、旋转与缩放
+% license Usr
+% type Tutor
+
+主动理解：
+
+三个变换的顺序不同，只会导致最终结果相差一个平移。例如：
+
+“平移，旋转，缩放” 为
+\begin{equation}
+s\mat R (\bvec r + \bvec d) = s\mat R\bvec r + s\mat R\bvec d~.
+\end{equation}
+
+“旋转，平移，缩放” 为
+\begin{equation}
+s(\mat R\bvec r + \bvec d) = s\mat R\bvec r + s\bvec d~.
+\end{equation}
+
+“缩放，平移，旋转” 为
+\begin{equation}
+\mat R(s\bvec r + \bvec d) = s\mat R\bvec r + \mat R\bvec d~.
+\end{equation}
+可见第一项都是相同的，只有第二个常数项不同。
+
