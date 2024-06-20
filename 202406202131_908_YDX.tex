@@ -181,6 +181,63 @@ $\mathbf{V}$(t)=$\mathbf{V}_{0}$+$\int_{0}^{1}\mathbf{Ad}\tau$=$\mathbf{V}_{0}$+
 
 第二次积分产生它的路径(轨迹)，
 
+$\mathbf{P}(t)=\mathbf{P}_{0}+\int_{0}^{1}\mathbf{V}(\tau )d\tau=\mathbf{P}_{0}+\int_{0}^{1}(\mathbf{V}_{0}+\mathbf{A}\tau)d\tau=\mathbf{P}_{0}+\mathbf{V}_{0}t+\frac{1}{2}\mathbf{A}t^2$
+
+可以推导出位移、速度、加速度和时间之间的关系。因为加速度是恒定的，
+
+$\mathbf{A} = \frac{\Delta \mathbf{V}}{\Delta t}=\frac{\mathbf{V}-\mathbf{V_0}}{t}$,代入上述方程得到:
+
+$\mathbf{P}(t)=\mathbf{P}_{0}+\Big(\frac{\mathbf{V}+\mathbf{V_0}}{2}\Big )t$
+
+速度、位置和加速度之间的关系没有明确的时间相关性，可以通过求解时间的平均加速度，并进行替换和简化
+
+$t=\frac{\mathbf{V}-\mathbf{V_0}}{A}$
+
+\begin{equation}
+(P - P_0) \circ A = (V - V_0) \circ \frac{V + V_0}{2},~
+\end{equation}
+其中$\circ$表示点积，这是合适的，因为积是标量而不是向量。
+
+\begin{equation}
+2(P - P_0) \circ A = |V|^2 - |V_0|^2.~
+\end{equation}
+
+点积可以用角度的余弦值 $\alpha$ 在向量和矢量的大小之间替代，在这种情况下：
+
+\begin{equation}
+2|P - P_0| \cdot |A| \cdot \cos \alpha = |V|^2 - |V_0|^2.~
+\end{equation}
+
+在加速度总是在运动方向的情况下，矢量之间的角度（$\alpha$）是0，所以 $\cos 0 = 1$，故
+
+\begin{equation}
+|V|^2 = |V_0|^2 + 2|A| \cdot |P - P_0|.~
+\end{equation}
+
+这可以使用向量大小的符号来简化 $\\|A\\| = a, \\|V\\| = v, \\|P - P_0\\| = \Delta x$，这里 $\Delta x$ 可以是任何曲线路径，因为沿着该路径应应用恒定的切向加速度，所以
+
+\begin{equation}
+v^2 = v_0^2 + 2a \cdot \Delta x.~
+\end{equation}
+
+这将粒子运动的参数方程简化为速度与位置的笛卡尔关系。当时间未知时，这种关系很有用。我们也知道
+
+$\Delta x = \int(v)dt$ 或者 $\Delta$x, 是 v-t , 图形下的面积。
+
+我们可以通过增加顶部区域和底部区域来获取 $\Delta$x。底部区域是一个矩形，矩形的面积是 $A \cdot B$。其中 $A$ 是宽，$B$ 是高。既然这样 $A=t$ 和 $B=v_0$（请注意 $A$ 这里不同于加速度 $a$ 中）。这意味着底部区域是 $tv_0$。现在让我们找到顶部区域（三角形）。三角形的面积是 $\frac{1}{2}BH$ 其中 $B$ 是底，$H$ 是高。在这种情况下，$B=t$ & $H=at$ 或者$A = \frac{1}{2}BH = \frac{1}{2}att = \frac{1}{2}at^2 = \frac{at^2}{2}$。在等式中增加 $tv_0$ 和 $\frac{at^2}{2}$,$\Delta x = tv_0 + \frac{at^2}{2}$。当最终速度 $v$ 未知时，这个公式很有用。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/3dc5d5eddef4faee.png}
+\caption{速度时间物理图} \label{fig_YDX_8}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/4e64ad85938e86a2.png}
+\caption{非均匀圆周运动的速度和加速度:速度矢量与轨道相切，但由于其切向分量，加速度矢量不是径向向内的aθ这增加了旋转速度:dω/dt=|aθ|/r。} \label{fig_YDX_9}
+\end{figure}
+
 
 \subsection{圆柱-极坐标中的粒子轨迹}
 

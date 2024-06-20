@@ -181,6 +181,48 @@ $\mathbf{V}$(t)=$\mathbf{V}_{0}$+$\int_{0}^{1}\mathbf{Ad}\tau$=$\mathbf{V}_{0}$+
 
 第二次积分产生它的路径(轨迹)，
 
+$\mathbf{P}(t)=\mathbf{P}_{0}+\int_{0}^{1}\mathbf{V}(\tau )d\tau=\mathbf{P}_{0}+\int_{0}^{1}(\mathbf{V}_{0}+\mathbf{A}\tau)d\tau=\mathbf{P}_{0}+\mathbf{V}_{0}t+\frac{1}{2}\mathbf{A}t^2$
+
+可以推导出位移、速度、加速度和时间之间的关系。因为加速度是恒定的，
+
+$\mathbf{A} = \frac{\Delta \mathbf{V}}{\Delta t}=\frac{\mathbf{V}-\mathbf{V_0}}{t}$,代入上述方程得到:
+
+$\mathbf{P}(t)=\mathbf{P}_{0}+\Big(\frac{\mathbf{V}+\mathbf{V_0}}{2}\Big )t$
+
+速度、位置和加速度之间的关系没有明确的时间相关性，可以通过求解时间的平均加速度，并进行替换和简化
+
+$t=\frac{\mathbf{V}-\mathbf{V_0}}{A}$
+
+
+\begin{equation}
+    (P - P_0) \\circ A = (V - V_0) \\circ \\frac{V + V_0}{2},
+\\end{equation}
+其中$\\circ$表示点积，这是合适的，因为积是标量而不是向量。
+
+\\begin{equation}
+    2(P - P_0) \\circ A = |V|^2 - |V_0|^2.
+\\end{equation}
+
+点积可以用角度的余弦值 $\\alpha$ 在向量和矢量的大小之间替代，在这种情况下：
+
+\\begin{equation}
+    2|P - P_0| \\cdot |A| \\cdot \\cos \\alpha = |V|^2 - |V_0|^2.
+\\end{equation}
+
+在加速度总是在运动方向的情况下，矢量之间的角度（$\\alpha$）是0，所以 $\\cos 0 = 1$，故
+
+\\begin{equation}
+    |V|^2 = |V_0|^2 + 2|A| \\cdot |P - P_0|.
+\\end{equation}
+
+这可以使用向量大小的符号来简化 $\\|A\\| = a, \\|V\\| = v, \\|P - P_0\\| = \\Delta x$，这里 $\\Delta x$ 可以是任何曲线路径，因为沿着该路径应应用恒定的切向加速度，所以
+
+\\begin{equation}
+    v^2 = v_0^2 + 2a \\cdot \\Delta x.
+\\end{equation}
+
+\\end{document}
+
 
 \subsection{圆柱-极坐标中的粒子轨迹}
 
