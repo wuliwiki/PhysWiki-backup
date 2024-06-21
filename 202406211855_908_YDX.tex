@@ -626,6 +626,7 @@ $\omega_f^2 = \omega_i^2 + 2 \alpha (\theta_f - \theta_i)$\\
 \mathbf{P}(t) \\
 1
 \end{bmatrix}~
+\mathbf{V}_P =[\mathbf{S}]\mathbf{P}.~
 \end{equation}
 
 
@@ -638,6 +639,28 @@ $\omega_f^2 = \omega_i^2 + 2 \alpha (\theta_f - \theta_i)$\\
 0 & 0 
 \end{bmatrix}~
 \end{equation}
+
+其中
+
+$[\Omega] = \dot{\mathbf{A}} \mathbf{A}^{\top},$
+
+是角速度矩阵。
+
+乘以算子 $[\mathbf{S}]$，速度 $\mathbf{V}_P$ 的公式为:
+
+$\mathbf{V}_P = [\Omega](\mathbf{P} - \mathbf{d}) + \dot{\mathbf{d}} = \boldsymbol{\omega} \times \mathbf{R}_{P/O} +\mathbf{V}_O,$
+
+其中，矢量$\boldsymbol{\omega}$ 是从矩阵 $[\Omega]$ 的分量中获得的角速度矢量；矢量
+
+$\mathbf{R}_{P/O} = \mathbf{P} - \mathbf{d},$
+
+是 P 相对于移动框架 $m$ 的原点 $O$ 的位置；以及
+
+\begin{equation}
+\mathbf{V}_O = \dot{\mathbf{d}},~
+\end{equation}
+
+是原点的速度。
 
 
 \subsubsection{8.3 加速度}

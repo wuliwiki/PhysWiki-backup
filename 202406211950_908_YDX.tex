@@ -148,6 +148,10 @@ $\mathbf{V}_{A/B}$=$\mathbf{V}_{A}-\mathbf{V}_{B}$
 
 指向B有速度分量$\mathbf{V}_{B}=(V_{B_x},V_{B_y},V_{B_z})$
 
+那么点A的速度相对于点B它们的速度差是:
+
+$\mathbf{V}_{A/B} = \mathbf{V}_A - \mathbf{V}_B = \left( V_{Ax} - V_{Bx}, V_{Ay} - V_{By}, V_{Az} - V_{Bz} \right)$
+
 或者，可以通过计算相对位置矢量的时间导数来获得相同的结果$\mathbf{r}_{B/A}$。
 
 在速度接近光速的情况下 c(通常在95\% 以内)另一种相对速度的方案称为快度，它取决于V与c的比率，用于狭义相对论。
@@ -263,16 +267,16 @@ $\mathbf{e}_{\theta} = -\sin \theta(t) \hat{i} + \cos \theta(t) \hat{j},$
 和它们的初等微积分时间导数:
 
 \begin{align}
-\frac{d}{dt}\mathrm{e}_r &= \dot{\mathrm{e}}_r = \dot{\theta} \mathrm{e}_\theta \\\\
-\frac{d}{dt}\dot{\mathrm{e}}_r &=  \ddot{\mathrm{e}}_r = \ddot{\theta} \mathrm{e}_\theta - \dot{\theta} \dot{\mathrm{e}}_r \\\\
-\frac{d}{dt}\mathrm{e}_\theta &= \dot{\mathrm{e}}_\theta =  -\dot{\theta} \mathrm{e}_r \\\\
-\frac{d}{dt}\dot{\mathrm{e}}_\theta &= \ddot{\mathrm{e}}_\theta = -\ddot{\theta} \mathrm{e}_r - \dot{\theta}^2 \mathrm{e}_\theta ~
+\frac{d}{dt}\mathbf{e}_r &= \dot{\mathbf{e}}_r = \dot{\theta} \mathbf{e}_\theta \\\\
+\frac{d}{dt}\dot{\mathbf{e}}_r &=  \ddot{\mathbf{e}}_r = \ddot{\theta} \mathbf{e}_\theta - \dot{\theta} \dot{\mathbf{e}}_r \\\\
+\frac{d}{dt}\mathbf{e}_\theta &= \dot{\mathbf{e}}_\theta =  -\dot{\theta} \mathbf{e}_r \\\\
+\frac{d}{dt}\dot{\mathbf{e}}_\theta &= \ddot{\mathbf{e}}_\theta = -\ddot{\theta} \mathbf{e}_r - \dot{\theta}^2 \mathbf{e}_\theta ~
 \end{align}
 
-使用这些符号，$\mathrm{P}(t)$ 变成以下形式：
+使用这些符号，$\mathbf{P}(t)$ 变成以下形式：
 
 \begin{equation}
-\mathrm{P}(t) = R\mathrm{e}_r + Z(t)\hat{k}~
+\mathbf{P}(t) = R\mathbf{e}_r + Z(t)\hat{k}~
 \end{equation}
 
 其中在粒子仅在半径为$r$ 的圆柱体表面上移动的情况下为常数。
@@ -280,10 +284,10 @@ $\mathbf{e}_{\theta} = -\sin \theta(t) \hat{i} + \cos \theta(t) \hat{j},$
 一般情况下，轨迹$\mathrm{P}(t)$ 不被约束在圆柱上，因此半径$r$ 随时间变化，圆柱极坐标中的粒子轨迹变为：
 
 \begin{equation}
-\mathrm{P}(t) = R(t)\mathrm{e}_r + Z(t)\hat{k}~
+\mathbf{P}(t) = R(t)\mathbf{e}_r + Z(t)\hat{k}~
 \end{equation}
 
-其中 $R, \theta$ 和 $Z $ 可能是时间的连续可微函数，为了简便起见，函数符号被去掉了。速度矢量 $\mathbf{V}_P $ 是轨迹 $ P(t)$ 的时间导数，即：
+其中 R, $\theta$ 和 Z  可能是时间的连续可微函数，为了简便起见，函数符号被去掉了。速度矢量 $\mathbf{V}_P $ 是轨迹 $ \mathbf{P}$(t) 的时间导数，即：
 
 $\mathbf{V}_P = \frac{d}{dt} (\mathbf{R}e_r + Z\hat{k}) = \dot{\mathbf{R}}e_r + \mathbf{R}\dot{e_r} + \dot{Z}\hat{k} = \dot{\mathbf{R}}e_r + R\dot{\theta}e_{\theta} + \dot{Z}\hat{k}$
 
@@ -369,7 +373,7 @@ m相对于f的所有位移的集合称为m的配置空间。在该配置空间�
 
 \subsubsection{5.2 矩阵表示}
 
-平面 $R^2$ 中旋转和平移的组合可以用一种称为齐次变换的 $3 \times 3 $ 矩阵表示。$ 3 \times 3 $ 齐次变换由 $ 2 \times 2 $ 旋转矩阵 $ A(\phi) $) 和 $2 \times 1 $ 平移向量构成 $\mathbf{d} = (d_x, d_y)$，如：
+平面 R2 中旋转和平移的组合可以用一种称为齐次变换的 $3 \times 3 $ 矩阵表示。$ 3 \times 3 $ 齐次变换由 $ 2 \times 2 $ 旋转矩阵 $ A(\phi) $) 和 $2 \times 1 $ 平移向量构成 $\mathbf{d} = (d_x, d_y)$，如：
 
 $\mathbf{T}(\phi, \mathbf{d}) = \begin{bmatrix}A(\phi) & \mathbf{d} \\0 & 1 \end{bmatrix} = \begin{bmatrix}\cos \phi & -\sin \phi & d_x \\\sin \phi & \cos \phi & d_y \\0 & 0 & 1\end{bmatrix}$.
 
@@ -560,7 +564,7 @@ $\omega_f^2 = \omega_i^2 + 2 \alpha (\theta_f - \theta_i)$\\
 
 \noindent 点表示相对于时间的导数；因为 $\mathbf{p}$ 是常数，它的导数为零。
 
-这个公式可以通过对在固定框架中测得的 $\mathbf{p}(t)$的轨迹进行运算来获得 $\mathbf{p}$ 的速度。将 $\mathbf{p}$ 的逆变换代入速度方程得到：
+这个公式可以通过对在固定框架中测得的 p(t) 的轨迹进行运算来获得 p 的速度。将 p 的逆变换代入速度方程得到：
 
 \begin{equation}
 \mathbf{V}_P = 
@@ -626,6 +630,7 @@ $\omega_f^2 = \omega_i^2 + 2 \alpha (\theta_f - \theta_i)$\\
 \mathbf{P}(t) \\
 1
 \end{bmatrix}~
+\mathbf{V}_P =[\mathbf{S}]\mathbf{P}.~
 \end{equation}
 
 
@@ -639,10 +644,69 @@ $\omega_f^2 = \omega_i^2 + 2 \alpha (\theta_f - \theta_i)$\\
 \end{bmatrix}~
 \end{equation}
 
+其中
+
+$[\Omega] = \dot{\mathbf{A}} \mathbf{A}^{\top},$
+
+是角速度矩阵。
+
+乘以算子 $[\mathbf{S}]$，速度 $\mathbf{V}_P$ 的公式为:
+
+$\mathbf{V}_P = [\Omega](\mathbf{P} - \mathbf{d}) + \dot{\mathbf{d}} = \boldsymbol{\omega} \times \mathbf{R}_{P/O} +\mathbf{V}_O,$
+
+其中，矢量$\boldsymbol{\omega}$ 是从矩阵 $[\Omega]$ 的分量中获得的角速度矢量；矢量
+
+$\mathbf{R}_{P/O} = \mathbf{P} - \mathbf{d},$
+
+是 P 相对于移动框架 m 的原点 O 的位置；以及
+
+$\mathbf{V}_O = \dot{\mathbf{d}},$
+
+是原点的速度$O$。
 
 \subsubsection{8.3 加速度}
 
+在运动体B中的点p的加速度是作为其速度矢量的时间导数获得的：
 
+$A_P = \frac{d}{dt} V_P = \frac{d}{dt} \left( [S]P \right) = \dot{[S]} P + [S] \dot{P} = \dot{[S]} P + [S] [S] P.$
+
+这个方程可以首先通过计算来扩展
+
+$\dot{[S]} = \begin{bmatrix}
+\dot{\Omega} & -\Omega \dot{d}  -\Omega \dot{d}+ \ddot{d} \\
+0 & 0
+\end{bmatrix} = \begin{bmatrix}
+\dot{\Omega} & -\Omega \dot{d} - \Omega V_O + A_O \\
+0 & 0
+\end{bmatrix}$
+
+和
+
+$[S]^2 = \begin{bmatrix}
+\Omega & -\Omega d + V_O \\
+0 & 0
+\end{bmatrix}^2 = \begin{bmatrix}
+\Omega^2 & -\Omega^2 d + \Omega V_O \\
+0 & 0
+\end{bmatrix}.$
+
+加速度 $A_P$ 现在可以变成:
+
+$\mathbf{A}_P = \dot{\Omega} (\mathbf{P - d}) + A_O + \Omega^2 (\mathbf{P - d}),$
+
+或者
+
+$\mathbf{A}_P = \alpha \times \mathbf{R}_{P/O} + \omega \times \omega \times \mathbf{R}_{P/O} + \mathbf{A}_O,$
+
+其中 $\alpha$ 是从角速度矩阵的导数获得的角加速度矢量;
+
+$\mathbf{R}_{P/O}=\mathbf{P}-\mathbf{d}$
+
+是相对位置向量(P相对于移动框架M的原点O)；
+
+$\mathbf{A}_{O}=\ddot{d}$
+
+是移动框架原点的加速度M。
 
 \subsection{运动约束}
 
@@ -654,7 +718,13 @@ $\omega_f^2 = \omega_i^2 + 2 \alpha (\theta_f - \theta_i)$\\
 
 \subsubsection{9.2 滚动而不打滑}
 
+在表面上滚动而不打滑的物体，其质心的速度等于其角速度与从接触点到质心的矢量的叉积:
 
+\begin{equation}
+\mathbf{v}_G(t) = \mathbf{\Omega} \times \mathbf{r}_{G/O}.~
+\end{equation}
+
+对于不倾斜或不转动的对象，这简化为 $v = r\omega$。
 
 \subsubsection{9.3 不可拉伸的绳索}
 

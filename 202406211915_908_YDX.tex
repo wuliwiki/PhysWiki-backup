@@ -560,7 +560,7 @@ $\omega_f^2 = \omega_i^2 + 2 \alpha (\theta_f - \theta_i)$\\
 
 \noindent 点表示相对于时间的导数；因为 $\mathbf{p}$ 是常数，它的导数为零。
 
-这个公式可以通过对在固定框架中测得的 $\mathbf{p}(t)$的轨迹进行运算来获得 $\mathbf{p}$ 的速度。将 $\mathbf{p}$ 的逆变换代入速度方程得到：
+这个公式可以通过对在固定框架中测得的 p(t) 的轨迹进行运算来获得 p 的速度。将 p 的逆变换代入速度方程得到：
 
 \begin{equation}
 \mathbf{V}_P = 
@@ -626,6 +626,7 @@ $\omega_f^2 = \omega_i^2 + 2 \alpha (\theta_f - \theta_i)$\\
 \mathbf{P}(t) \\
 1
 \end{bmatrix}~
+\mathbf{V}_P =[\mathbf{S}]\mathbf{P}.~
 \end{equation}
 
 
@@ -639,10 +640,69 @@ $\omega_f^2 = \omega_i^2 + 2 \alpha (\theta_f - \theta_i)$\\
 \end{bmatrix}~
 \end{equation}
 
+其中
+
+$[\Omega] = \dot{\mathbf{A}} \mathbf{A}^{\top},$
+
+是角速度矩阵。
+
+乘以算子 $[\mathbf{S}]$，速度 $\mathbf{V}_P$ 的公式为:
+
+$\mathbf{V}_P = [\Omega](\mathbf{P} - \mathbf{d}) + \dot{\mathbf{d}} = \boldsymbol{\omega} \times \mathbf{R}_{P/O} +\mathbf{V}_O,$
+
+其中，矢量$\boldsymbol{\omega}$ 是从矩阵 $[\Omega]$ 的分量中获得的角速度矢量；矢量
+
+$\mathbf{R}_{P/O} = \mathbf{P} - \mathbf{d},$
+
+是 P 相对于移动框架 m 的原点 O 的位置；以及
+
+$\mathbf{V}_O = \dot{\mathbf{d}},$
+
+是原点的速度$O$。
 
 \subsubsection{8.3 加速度}
 
+在运动体B中的点p的加速度是作为其速度矢量的时间导数获得的：
 
+$A_P = \frac{d}{dt} V_P = \frac{d}{dt} \left( [S]P \right) = \dot{[S]} P + [S] \dot{P} = \dot{[S]} P + [S] [S] P.$
+
+这个方程可以首先通过计算来扩展
+
+$\dot{[S]} = \begin{bmatrix}
+\dot{\Omega} & -\Omega \dot{d}  -\Omega \dot{d}+ \ddot{d} \\
+0 & 0
+\end{bmatrix} = \begin{bmatrix}
+\dot{\Omega} & -\Omega \dot{d} - \Omega V_O + A_O \\
+0 & 0
+\end{bmatrix}$
+
+和
+
+$[S]^2 = \begin{bmatrix}
+\Omega & -\Omega d + V_O \\
+0 & 0
+\end{bmatrix}^2 = \begin{bmatrix}
+\Omega^2 & -\Omega^2 d + \Omega V_O \\
+0 & 0
+\end{bmatrix}.$
+
+加速度 $A_P$ 现在可以变成:
+
+$\mathbf{A}_P = \dot{\Omega} (\mathbf{P - d}) + A_O + \Omega^2 (\mathbf{P - d}),$
+
+或者
+
+$\mathbf{A}_P = \alpha \times \mathbf{R}_{P/O} + \omega \times \omega \times \mathbf{R}_{P/O} + \mathbf{A}_O,$
+
+其中 $\alpha$ 是从角速度矩阵的导数获得的角加速度矢量;
+
+$\mathbf{R}_{P/O}=\mathbf{P}-\mathbf{d}$
+
+是相对位置向量(P相对于移动框架M的原点O)；
+
+$\mathbf{A}_{O}=\ddot{d}$
+
+是移动框架原点的加速度M。
 
 \subsection{运动约束}
 
@@ -653,6 +713,8 @@ $\omega_f^2 = \omega_i^2 + 2 \alpha (\theta_f - \theta_i)$\\
 运动耦合精确地约束所有6个自由度。
 
 \subsubsection{9.2 滚动而不打滑}
+
+在表面上滚动而不打滑的物体，其质心的速度等于其角速度与从接触点到质心的矢量的叉积:
 
 
 
