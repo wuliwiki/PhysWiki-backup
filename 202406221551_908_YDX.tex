@@ -462,17 +462,20 @@ A & \mathbf{d} \\
 1
 \end{Bmatrix}~
 \end{equation}
+
+
 \begin{equation}
-=
-\dot{\mathbf{A}} & \dot{\mathbf{d}} \\
-0 & 0 
-\end{bmatrix} 
-\mathbf{A}^{-1} 
-\begin{bmatrix} 1 & -\mathbf{d} \\ 
-0 & \mathbf{A} \end{bmatrix} 
-\mathbf{P}(t) \\ 1 
-\end{Bmatrix}~
-\end{equation}
+= 
+\begin{bmatrix}
+\dot{A} & \dot{\mathbf{d}} \\\\
+0 & 0
+\end{bmatrix}
+\mathbf{A^-1}
+\\begin{bmatrix}
+A^{-1} & -A^{-1} \\mathbf{d} \\\\
+0 & 1
+\\end{bmatrix}
+
 \begin{equation}
 =
 \begin{bmatrix}

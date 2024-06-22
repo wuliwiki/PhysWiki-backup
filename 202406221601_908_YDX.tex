@@ -463,22 +463,16 @@ A & \mathbf{d} \\
 \end{Bmatrix}~
 \end{equation}
 \begin{equation}
-=
-\dot{\mathbf{A}} & \dot{\mathbf{d}} \\
-0 & 0 
-\end{bmatrix} 
-\mathbf{A}^{-1} 
-\begin{bmatrix} 1 & -\mathbf{d} \\ 
-0 & \mathbf{A} \end{bmatrix} 
-\mathbf{P}(t) \\ 1 
-\end{Bmatrix}~
-\end{equation}
-\begin{equation}
-=
+= 
 \begin{bmatrix}
-\dot{A} A^{-1} & -\dot{A} A^{-1} \mathbf{d} + \dot{\mathbf{d}} \\
+\dot{A} & \dot{\mathbf{d}} \\
 0 & 0
 \end{bmatrix}
+\mathbf{A}^{-1}
+=\begin{bmatrix}
+1&\mathbf{-d}  \\
+0 & \mathbf{A}
+\end{bmatrix}~
 \begin{Bmatrix}
 \mathbf{P}(t) \\
 1
@@ -506,9 +500,9 @@ A & \mathbf{d} \\
 1
 \end{Bmatrix}~,
 \end{equation}
-
-
-
+\begin{equation}
+\mathbf{V_p}=[S]\mathbf{P}~.
+\end{equation}
 矩阵 $[\mathbf{S}]$ 由下式给出:
 
 \begin{equation}
