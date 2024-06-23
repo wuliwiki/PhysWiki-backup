@@ -1,0 +1,20 @@
+% 欧姆表
+% license CCBYSA3
+% type Wiki
+
+（本文根据 CC-BY-SA 协议转载自原搜狗科学百科对英文维基百科的翻译）
+
+
+7. There's a music box with a circular track on it, and a tree blooming at one point on the trackWhen the music box is in the open mode, the music box wll play music and the track will rotateclockwise at a constant speed
+
+You can place two pieces on the track that represent your lover, We may call them Little Red andLittle Green, When Little Red and Little Green do not reach the tree, they will move on the track. ltthen waits for a period of time unier the tree, durino which time if the other piece also reaches thetree, the two pieces meet, and then they move alona the track toaether, not to separate. Otherwisethe waiting time is over and the two pieces will continue to move along their tracks
+
+Considering the mathematical model of the music box, we parametenze the circular orbit to a circlewith a circumference of 1, and we think that both chess pieces and trees can be represented by pointson the circle. We use X (t) e [0,1] and Y (t) e [0,1] to denote the coordinates of the littie red andlittle green positions on the orbit at time t, respectively, and the coordinates of the tree are = 1. orequivalently,= 0.
+
+When they do not reach under the tree (see left figure), their positions are changed according to the following conditions:  $x(0) = 1, Y(t) = 1 $. Suppose that at the time of $ t_0 $, the little green reaches under the tree (see middle figure), that is, $Y(t_0) = 1 $. It will wait at most for $r = K(X(t_0)) $, in other words, the maximum wait time depends on the location of the little red.
+
+During the waiting period, the little green does not move and the little red continues to move. If at some point during the waiting period \\( t^* \\in (t_0, t_0 + r) \\), Little Red also reaches under the tree, which is \\( X(t^*) \\). If at the end of the waiting time (see the right figure), Little Red has not reached the tree, they move on, their positions are \\( X(t_0 + T) = X(t_0) + T \\) respectively, \\( Y(t_0 + T) = 0 \\). Note that although the coordinates of the little green have been reset, its position on the torus has not changed.
+
+If at some point in time she arrives under the tree, she waits according to the same rules, the maximum wait time depends on the position of the tree. Then, the fate of the tree depends on the form of the longest wait time function \\( K(\\cdot) \\). \\( \\mathbb{R} \\rightarrow \\mathbb{R} \\) is a smooth function with \\( f' > 0, \\ f'' < 0, \\ f(0) = 0, \\ f(0) = 0, \\ f(1) = 1 \\). And it is a sufficiently small positive constant.
+
+$$K(\phi) = f^{-1}(f(\phi) + \epsilon) - \phi$$
