@@ -120,7 +120,7 @@ b．两种表述的统一
 \includegraphics[width=6cm]{./figures/e15029e2a380a72a.png}
 \caption{螺线管} \label{fig_DCGY_5}
 \end{figure}
-在哪里$dA$是由线环包围的表面σ的元素,$B$是磁场。点积$BdA$对应于无穷小量的磁通量。更直观地说，通过线圈的磁通量与通过线圈的磁力线的数量成正比。
+在哪里$dA$是由线环包围的表面$\sigma$的元素,$B$是磁场。点积$BdA$对应于无穷小量的磁通量。更直观地说，通过线圈的磁通量与通过线圈的磁力线的数量成正比。
 
 当通过表面的磁通量变化时，法拉第感应定律说线环获得了一个电动势。[12]该定律最广泛的版本是，任何闭合电路中的感生电动势等于电路包围的磁通量的变化率:[13][14]
 \begin{figure}[ht]
@@ -128,3 +128,69 @@ b．两种表述的统一
 \includegraphics[width=8cm]{./figures/0de712b7659fa747.png}
 \caption{恒定电流流过的螺线管的纵向横截面。磁场线用箭头表示，方向由箭头表示。磁通量对应于“磁力线密度”。因此，磁通量在螺线管中间最密集，在螺线管外部最弱。} \label{fig_DCGY_6}
 \end{figure}
+在哪里  是电动势和$\phi_B$是磁通量。电动势的方向由楞次定律给出，它指出感应电流将沿着与产生它的变化相反的方向流动。[15]这是由于前面等式中的负号。为了增加产生的电动势，一种常见的方法是利用磁链，方法是创建一个紧密缠绕的线圈，包括N相同的匝数，每一个都有相同的磁通量通过。由此产生的电动势为N是单线的数倍。[16][17]
+
+通过线圈表面磁通量的变化产生电动势有几种方法:
+\begin{enumerate}
+\item 磁场$\mathbf B$变化(例如交变磁场，或者将线圈向B场更强的条形磁铁移动)，
+\item 线环变形并且表面 $\sigma$改变，
+\item 表面的方向$dA$变化(例如将线圈旋转成固定磁场)，
+\item 以上任何组合
+\end{enumerate}
+\subsubsection{3.2 麦克斯韦-法拉第方程}
+一般来说，电动势 $\mathcal{E}$ 在环绕表面的线环中 $\sigma$，和电场 $E$ 在导线中由下式给出
+$$\mathcal{E} = \oint_{\sigma} \mathbf{E} \cdot d\mathbf{l}~$$
+在哪里$\alpha$ 是表面轮廓的一个元素$\sigma$ 结合通量的定义
+
+我们可以写出麦克斯韦-法拉第方程的积分形式：
+$$\oint_{\partial \Sigma} \mathbf{E} \cdot d\mathbf{l} = -\frac{d}{dt} \int_{\Sigma} \mathbf{B} \cdot d\mathbf{A}~$$
+它是四大麦克斯韦方程组之一，因此在经典电磁学理论中起着基础性作用。
+\subsubsection{3.3 法拉第定律和相对论}
+法拉第定律描述了两种不同的现象运动电动势由移动电线上的磁力产生(参见洛伦兹力)，而变压器电动势这是由于磁场的变化(由于麦克斯韦-法拉第方程的微分形式，)引起的。詹姆斯·克拉克·麦克斯韦在1861年引起了人们对不同物理现象的注意。[18][19]这被认为是物理学中引用这样一个基本定律来解释两种不同现象的一个独特例子。[20]
+
+爱因斯坦注意到这两种情况都对应于导体和磁体之间的相对运动，并且结果不受哪个运动的影响。这是导致他发展狭义相对论的主要途径之一。[21]
+\subsection{应用程序}
+\begin{itemize}
+\item Current clamp
+\item Electric generators
+\item Electromagnetic forming
+\item Graphics tablet
+\item Hall effect meters
+\item Induction cooking
+\item Induction motors
+\item Induction sealing
+\item Induction welding
+\item Inductive charging
+\item Inductors
+\item Magnetic flow meters
+\item Mechanically powered flashlight
+\item Pickups
+\item Rowland ring
+\item Transcranial magnetic stimulation
+\item Transformers
+\item Wireless energy transfer
+\end{itemize}
+\subsubsection{4.1 发电机}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/3f455cf77fc9dc2f.png}
+\caption{在径向向外指向磁场中以角速度ω旋转的矩形线圈B固定大小的。该电路通过电刷与顶部和底部圆盘滑动接触来完成，顶部和底部圆盘具有导电边缘。这是的简化版本鼓式发电机。} \label{fig_DCGY_7}
+\end{figure}
+由于电路和磁场的相对运动而由法拉第感应定律产生的电动势是发电机下面的现象。当永磁体相对于导体运动时，或者反之亦然，产生电动势。如果电线通过电负载连接，电流将流动，从而产生电能，将运动的机械能转换成电能。例如鼓式发电机基于右下角的数字。这一思想的另一种实现是右边以简化形式显示的法拉第圆盘。
+
+在法拉第圆盘的例子中，圆盘在垂直于圆盘的均匀磁场中旋转，由于洛伦兹力，导致电流在旋臂中流动。驱动这种电流需要机械功。当产生的电流流过导电边缘时，通过安培定律的电流产生磁场(图中标记为“感应B”)。因此，边缘变成了阻止盘旋转的电磁铁(例如楞次定律)。在图的远侧，返回电流从旋转臂通过边缘的远侧流向底部电刷。由该返回电流感应的B场与施加的B场相反，趋向于减少通过电路一侧通量，与提高由于旋转而流动。在图的近侧，返回电流从旋转臂通过边缘的近侧流向底部电刷。感应B场增加电路这一侧的通量，与减少由于r的旋转而流动。尽管有这种反作用力，保持光盘移动所需的能量正好等于产生的电能(加上由于摩擦、焦耳加热和其他低效率而浪费的能量)。所有将机械能转化为电能的发电机都有这种现象。
+\subsubsection{4.2 电力变压器}
+当线圈中的电流变化时，变化的电流产生变化的磁场。到达该磁场的第二根导线将经历磁场的这种变化，作为其耦合磁通量的变化，dφB/d t。因此，在第二个回路中建立起电动势，称为感应电动势或变压器电动势。如果该回路的两端通过电负载连接，电流将会流动。
+
+\textbf{电流箝位}
+
+电流钳是一种具有分裂铁芯的变压器，可以将分裂铁芯散开并夹在电线或线圈上，以测量其中的电流，或者相反，感应电压。与传统仪器不同，夹具不与导体电接触，也不需要在夹具连接期间将其断开。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/a92530941fe74046.png}
+\caption{电流钳} \label{fig_DCGY_8}
+\end{figure}
+
+\textbf{4.3 磁流量计}
+
+法拉第定律用于测量导电液体和泥浆的流量。这种仪器被称为磁流量计。磁场中产生的感应电压$\epsilon B$由于导电液体以一定速度移动v由下式给出:
