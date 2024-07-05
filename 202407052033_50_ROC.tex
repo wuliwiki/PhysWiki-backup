@@ -34,7 +34,7 @@ FPR=\frac{FP}{N}=\frac{FP}{TN+FP}~,
 \end{figure}
 上图中蓝色曲线即为ROC曲线。横坐标为假阳率，纵坐标为真阳率。红色对角线表示一个完全随机分类器的ROC曲线。如果一个分类器的ROC曲线大体在红色虚线的上方，则表示性能优于随机分类器。
 
-ROC曲线分析可以帮助我们做模型选择，选择最优模型，抛弃次优模型。曲线下面积（Aera under curve, AUC）是ROC曲线最基本的评估指标，能表示分类器预测能力的一项常用的统计值。顾名思义，表示的是曲线下方，横轴上方的面积。通常把整图的面积定义为1，则AUC的值在$0$和$1$之间。该面积值越大，则表示分类模型效果越好；反之，则越差。因此，从直观上来看，ROC曲线越靠近右上方越好，因此，ROC曲线下的面积越大越好，代表模型的效益越高。
+ROC曲线分析可以帮助我们做模型选择，选择最优模型，抛弃次优模型。曲线下面积（Aera under curve, AUC）是ROC曲线最基本的评估指标，能表示分类器预测能力的一项常用的统计值。顾名思义，表示的是曲线下方，横轴上方的面积。通常把整图的面积定义为1，则AUC的值在$0$和$1$之间。该面积值越大，则表示分类模型效果越好；反之，则越差。因此，定性地讲，ROC曲线越靠近左上方，ROC曲线下的面积越大，代表模型的效益越高。
 
 \begin{itemize}
 \item 当AUC = 1时，代表分类器非常完美，但这毕竟是理想状况。
@@ -42,3 +42,34 @@ ROC曲线分析可以帮助我们做模型选择，选择最优模型，抛弃�
 \item 当AUC = 0.5时，代表分类器分类效果与随机猜测相同，模型无预测价值。
 \item 当AUC < 0.5时，代表分类器分类效果比随机猜测差，但如果进行反预测，就会优于随机猜测。
 \end{itemize}
+
+
+\verb`\begin{lstlisting}[language=python]
+from sklearn.metrics import roc_curve
+from sklearn.metrics._ranking import auc
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+# 每个样本的实际的标签值
+y = np.array([0, 1, 0, 1, 0, 0, 1, 1]) 
+
+# 分类模型输出的分数值
+scores = np.array([-0.20, -1.54, -1.38, -1.63, -1.70, -2.41, -1.14, -0.79])
+
+# 计算真阳性率和假阳性率
+fpr, tpr, thresholds = roc_curve(y, scores, pos_label=1)  # Please set the correct positive label!
+
+# 计算曲线下面积
+roc_auc = auc(fpr, tpr)
+
+# 绘制接受者操作特征曲线
+plt.title('ROC')
+plt.plot(fpr, tpr, 'b', label="AUC=" + str(roc_auc))
+plt.legend(loc='lower right')
+plt.plot([0, 1], [0, 1], 'r--')
+plt.ylabel('TPR')
+plt.xlabel('FPR')
+plt.show()
+\end{lstlisting}`
