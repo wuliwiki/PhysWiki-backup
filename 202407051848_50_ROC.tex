@@ -1,0 +1,45 @@
+% 接收者操作特征曲线
+% keys 接收|操作|特徵曲線|信号检测论|分类
+% license Xiao
+% type Tutor
+
+\pentry{分类\nref{nod_Class}，模型评估\nref{nod_MoEva}，混淆矩阵\nref{nod_ConMat}}{nod_9fcc}
+
+\textbf{接收者操作特征曲线}（Receiver operating characteristic curve, ROC）是一种用于评价二分类器的分类性能的图表。该方法来源于信号检测论，是在第二次世界大战中，由电子信号工程师发明的。在心理学领域中也有广泛应用。
+
+接收者操作特征曲线能够评估分类模型在不同阈值下的性能，通过绘制\textbf{真阳性率}（True positive rate, TPR）与\textbf{假阳性率}（False positive rate, FPR）的关系来衡量模型的区分能力。
+
+\begin{definition}{真阳性率}
+真正阳性率（TPR）：也称为灵敏度（Sensitivity）或召回率（Recall），表示在实际为正类的样本（阳性样本）中，被分类模型正确判断为正类（阳性）的比例。数学表达式为：
+\begin{equation}
+TPR=\frac{TP}{P}=\frac{TP}{TP+FN}~,
+\end{equation}
+其中，$P$表示实际为阳性的样本数，$TP$表示真阳的样本数，$FN$表示假阴性的样本数。
+\end{definition}
+
+\begin{definition}{假阳性率}
+假正率（FPR）：表示在所有负类样本（阴性样本）中，被分类模型错误判断为正类（阳性）的样本比例。数学表达式为：
+\begin{equation}
+FPR=\frac{FP}{N}=\frac{FP}{TN+FP}~,
+\end{equation}
+其中，$N$表示实际为阴性的样本数，$FP$表示假阳性的样本数，$TN$表示真阴性的样本数，$FP$表示假阳性的样本数。
+\end{definition}
+
+曲线中点的坐标是真阳率和假阳率。随着分类器阈值的变化，真阳率和假阳率分别随之改变，由此产生一系列的点，然后将相邻两点连接起来，即构成接收者操作特征曲线。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/74304970d1216023.png}
+\caption{ROC示意图} \label{fig_ROC_1}
+\end{figure}
+上图中蓝色曲线即为ROC曲线。横坐标为假阳率，纵坐标为真阳率。红色对角线表示一个完全随机分类器的ROC曲线。如果一个分类器的ROC曲线大体在红色虚线的上方，则表示性能优于随机分类器。
+
+ROC曲线分析可以帮助我们做模型选择，选择最优模型，抛弃次优模型。曲线下面积（Aera under curve, AUC）是ROC曲线最基本的评估指标，能表示分类器预测能力的一项常用的统计值。顾名思义，表示的是曲线下方，横轴上方的面积。通常把整图的面积定义为1，则AUC的值在$0$和$1$之间。该面积值越大，则表示分类模型效果越好；反之，则越差。
+
+前面提到，ROC曲线越靠近右上方越好，因此，ROC曲线下的面积越大越好，代表模型的效益越高。
+\begin{itemize}
+\item 当AUC = 1时，代表分类器非常完美，但这毕竟是理想状况。
+\item 当AUC > 0.5时，代表分类器分类效果优于随机猜测，模型有预测价值。
+\item 当AUC = 0.5时，代表分类器分类效果与随机猜测相同，模型无预测价值。
+\item 当AUC < 0.5时，代表分类器分类效果比随机猜测差，但如果进行反预测，就会优于随机猜测。
+\end{itemize}
