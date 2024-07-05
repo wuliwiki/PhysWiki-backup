@@ -1,0 +1,142 @@
+% 双精度和变精度浮点数测试（Matlab）
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{计算机算数\nref{nod_CmArit}， Matlab 符号计算和变精度计算\nref{nod_MatSym}}{nod_5ebe}
+
+另见 “\enref{双精度和高精度浮点数测试（C++）}{FltCpp}”。
+
+\begin{itemize}
+\item 双精度的小数部分有 52 bit（整数部分默认取 1）， 正负号 1 bit。 大概范围是 $[-2,2]$
+\item 2 为底的指数部分有 11 bit。 范围是 $-1022,\dots,1023$， 因为 $-1023, 1024$ 用来表示 \verb`inf, nan` 等。
+\end{itemize}
+
+所以理论上， 双精度类型能精确表示绝对值小于等于 \verb`2^53` 的所有整数。 更大的浮点数也都精确表示整数， 但不连续。 这包括所有 32 bit 整数， 但不包括所有 64 bit 整数， 无论 signed 还是 unsigned。
+
+Matlab 默认用 double 作为数组 index， 而 53 bit 完全足够了， 如果一个元素占一个字节， 那么可以最大支持 9007TB 的数组。
+
+\begin{lstlisting}[language=matlab, caption=digits2.m]
+% 求当前 vpa 变精度计算的有效数字
+% digi_dec 是十进制有效数字
+% digi_bin 是二进制有效数字
+% eps 是最大相对精度
+function [digi_dec, digi_bin, eps] = digits2
+n = 0;
+while true
+    n = n + 1;
+    if (1 + 2^(-vpa(n))) - 1 == 0
+        break;
+    end
+end
+digi_dec = n * log10(2) + 1;
+digi_bin = n + 1;
+eps = 2^(-n);
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=matlab, caption=num2bin.m]
+% x = a*2^Npw (exactly)
+% 1 <= a < 2， 精度为 digits2() 输出的 eps
+% 若 x 是双精度， 则 a 的绝对精度为 2^(-52), 也就是 eps
+% 若 x 是单精度， 则 a 的绝对精度为 2^(-23), 也就是 eps('single')
+% 最小的双精度为 2^(-52)*2^(-1022)， 最大的双精度为 (2-eps)*2^1023
+function [a, Npow] = num2bin(x)
+if isnan(x) || isinf(x)
+    a = x; Npow = x; return;
+end
+sgn = sign(x); x = abs(num2sym(x));
+Npow = floor(log2(x));
+a = sgn * (x * 2^(-Npow));
+if a*2^Npow - sgn*x ~= 0
+    error('something wrong!');
+end
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=matlab, caption=num2bin2.m]
+% 精确解出 x = N*2^Npow， 其中 N 是奇数和整数, Npow 是整数
+function [N, Npow] = num2bin2(x)
+if isnan(x) || isinf(x)
+    N = x; Npow = x; return;
+end
+if x == 0
+    N = 0; Npow = 0; return;
+end
+N = x;
+Npow = 0;
+for e = [32, 16, 8, 4, 2, 1]
+    fac = 2^e;
+    while true
+        if mod(N, 1) == 0
+            break;
+        end
+        N = N * fac;
+        Npow = Npow - e;
+    end
+    while true
+        if mod(N, fac) == 0
+            N = N / fac;
+            Npow = Npow + e;
+        else
+            break;
+        end
+    end
+end
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=matlab, caption=num2sym.m]
+% 双精度转换为符号表达式
+% sym(x) 会对 x 进行猜测和近似，该函数不会
+function s = num2sym(x)
+[N, Npow] = num2bin2(x);
+s = sym(N)*2^sym(Npow);
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=matlab, caption=num2vpa.m]
+% 双精度转换为变精度浮点数
+% vpa(x) 会对 x 进行猜测和近似，该函数不会
+function ret = num2vpa(x, digi)
+[N, Npow] = num2bin2(x);
+if nargin == 1
+    ret = vpa(N)*2^vpa(Npow);
+elseif nargin == 2
+    ret = vpa(N, digi)*2^vpa(Npow, digi);
+end
+end
+\end{lstlisting}
+
+该函数参考 “\enref{计算机算数}{CmArit}”
+\begin{lstlisting}[language=matlab, caption=double2bin.m]
+% 把一个双精度数转换为 '0' '1' 字符串
+% convert a double to bit string
+function str = double2bin(x)
+if abs(x) < 2^-1022 || isnan(x) || isinf(x)
+    error('not implemented!');
+end
+% 1 bit sign
+if x > 0
+    str = '0';
+else
+    str = '1';
+end
+x = abs(x);
+% 11 bit exponent
+[~, e] = num2bin(x);
+str = [str dec2bin(e + 1023, 11)];
+% 52 bit mantessa
+i = int64(num2bin2(x));
+mstr = dec2bin(i);
+str = [str mstr(2:end)];
+if numel(str) < 64
+    str = [str repmat('0', [1,64-numel(str)])];
+elseif numel(str) > 64
+    error('something wrong!');
+end
+end
+\end{lstlisting}
