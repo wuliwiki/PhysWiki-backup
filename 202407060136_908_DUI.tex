@@ -1,0 +1,108 @@
+% 堆（综述）
+% license CCBYSA3
+% type Wiki
+
+（本文根据 CC-BY-SA 协议转载自原搜狗科学百科对英文维基百科的翻译）
+
+在计算机科学中，堆是一种特殊的基于树的数据结构，本质上是一棵几乎完全的[1]树， 它满足堆属性：在最大堆中，对于任意给定的节点C，如果P是C的父节点，那么P的键（值）大于或等于C的键。在最小堆中，P的键小于或等于C的键。堆“顶部”的节点（没有父节点）称为根节点。
+
+堆是称为优先队列的抽象数据类型的最有效实现，事实上优先队列通常被称为“堆”，不管它们是如何实现的。在堆中，最高（或最低）优先级的元素总是存储在根节点。然而，堆不是排序结构，它可以被认为是部分有序的。当需要重复移除优先级最高（或最低）的对象时，堆是一种有用的数据结构。
+
+堆的一个常见实现是二叉堆，其中树是二叉树（见图）。堆数据结构，特别是二叉堆，是由J. W. J. Williams在1964年引入的，作为堆排序算法的数据结构。[2] 堆在一些高效的图算法中也很重要，比如Dijkstra算法。当堆是一棵完全二叉树时，它有一个最小的可能高度——一个有N个节点的堆，对于每个节点，一个分支总是有loga N 的高度。
+
+注意，如图所示，兄弟和堂兄弟之间没有隐含的排序，也没有有序遍历的隐含序列（例如，在二叉搜索树中）。上面提到的堆关系仅适用于节点和它们的父亲、祖父等之间。每个节点可以拥有的最大子节点数取决于堆的类型。
+
+\subsection{操作}
+涉及堆的常见操作有:
+
+基础
+\begin{itemize}
+\item 查找最大值(或查找最小值):分别查找最大堆的最大项或最小堆的最小项(也称为peek)
+插入:向堆中添加一个新键(也可称push[3])
+\item 提取最大值(或提取最小值):从堆中移除节点后，返回最大堆的最大值[或最小堆的最小值](也称为pop)[4])
+\item 删除-最大(或删除-最小):分别删除最大堆(或最小堆)的根节点
+\item 替换:弹出根节点并压入新键。比先进行pop,后进行push更有效，因为只需要平衡一次，而不是两次，并且适合固定大小的堆。[5]
+\end{itemize}
+
+创建
+\begin{itemize}
+\item 创建堆:创建一个空堆
+\item 堆化:用给定的元素数组创建一个堆
+\item 合并（merge、union):连接两个堆，形成一个包含两个堆的所有元素的有效新堆，保留原始堆。
+\item 合并（meld）:连接两个堆，形成一个包含两个堆的所有元素的有效新堆，销毁原始堆。
+\end{itemize}
+
+检查
+\begin{itemize}
+\item 大小（size）:返回堆中的项数。
+\item 判空（is-empty）:如果堆为空，则返回true，否则返回false。
+\end{itemize}
+
+内部的
+\begin{itemize}
+\item 增加键或减少键:分别更新最大堆或最小堆中的键
+\item 删除:删除任意节点(随后移动最后一个节点并筛选以维护堆)
+\item 向上筛选:根据需要在树中向上移动一个节点；用于在插入后恢复堆状态。之所以被称为“筛选”，是因为节点在树中向上移动，直到达到正确的水平，就像在筛子中一样。
+\item 向下筛选:在树中向下移动一个节点，类似于向上筛选；用于在删除或替换后恢复堆状态。
+\end{itemize}
+
+\subsection{实现}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/1e47b4130d0c5882.png}
+\caption{一个完全二叉最大堆的例子，节点是从1到100之间的整数。图示了它将如何存储在数组中。} \label{fig_DUI_1}
+\end{figure}
+堆通常在数组(固定大小或动态数组)中实现，并且不需要元素之间的指针。元素插入堆或从堆中删除后，可能会违反堆性质，必须通过内部操作来平衡堆。
+
+二叉堆可以用单独使用数组的非常节省空间的方式来表示。第一个(或最后一个)元素将包含根元素。数组接下来两个元素包含根元素的孩子。接下来的四个包含两个子节点的四个子节点，等等。因此，在位置n的节点的子节点将在以1为起点编号数组的2n和2n+1位置，或者“以0为起点编号数组的2n+1和2n+2位置。这允许通过简单的索引计算来向上或向下移动树。允许通过向上筛选或向下筛选操作（交换无序元素）来完成平衡堆。因为我们可以从一个数组构建一个堆，而不需要额外的内存(例如，对于节点)，所以heapsort可以用来就地排序一个数组。
+
+不同类型的堆以不同的方式实现操作，但值得注意的是，插入通常是通过在堆的末尾第一个可用空间中添加新元素来完成的。这通常会违反堆性质，因此元素会被向上筛选，直到堆性质被重新建立。类似地，删除根元素是通过移动根元素，然后将最后一个元素放入根并向下筛选以重新平衡。因此，替换是通过删除根并将新元素放入根并向下筛选来完成的，和先pop(向下筛选最后一个元素）,再push（向上筛选新元素）后相比，避免了向上筛选步骤。
+
+从给定的元素数组中构造二叉(或d叉)堆可以使用经典弗洛伊德算法在线性时间内执行，最差情况下的比较次数等于2N − 2s2(N) − e2(N) (对于二叉堆)，其中 s2(N)是N的二进制表示的所有数字的总和，e2(N)是N的素数因子分解中的2的指数，[6] 这比连续插入原始空堆的序列更快，该操作是对数线性的。
+
+\subsection{变体}
+\begin{itemize}
+\item 2–3堆
+\item b堆
+\item Beap
+\item 二进制堆
+\item 二项式堆
+\item Brodal队列
+\item d-ary堆
+\item 斐波那契堆
+\item 树叶堆
+\item 左翼堆
+\item 配对堆
+\item 基数堆
+\item 随机可融合堆
+\item 倾斜堆
+\item 软堆
+\item 三元堆
+\item Treap
+\item 弱势群体
+\end{itemize}
+
+\subsection{变体理论界限的比较}
+以下是各种堆数据结构的时间复杂度。 函数名假设一个最小堆。
+
+In the following time complexities[7] O(f) is an asymptotic upper bound and Θ(f) is an asymptotically tight bound (see Big O notation). Function names assume a min-heap.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/0667843450a522fc.png}
+\caption\label{fig_DUI_2}
+\end{figure}
+\begin{enumerate}
+    \item Each insertion takes $O(\log(k))$ in the existing size of the heap, thus $\sum_{k=1}^n O(\log k)$. Since 
+   $$\log \frac{n}{2} = (\log n) - 1,~$$
+    a constant factor (half) of these insertions are within a constant factor of the maximum, so asymptotically we can assume $k = n$; formally the time is 
+    \\[    n O(\log n) - O(n) = O(n \log n).    \\]
+    This can also be readily seen from Stirling's approximation.
+    
+    \item Brodal and Okasaki later describe a persistent variant with the same bounds except for decrease-key, which is not supported. Heaps with $n$ elements can be constructed bottom-up in $O(n)$.
+    
+    \item Amortized time.
+    
+    \item Lower bound of $\Omega(\log \log n)$, upper bound of $O(2^{2\sqrt{\log \log n}})$.
+    
+    \item $n$ is the size of the larger heap.
+\end{enumerate}
