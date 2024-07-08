@@ -1,0 +1,75 @@
+% 拓扑排序
+% license CCBYSA3
+% type Wiki
+
+（本文根据 CC-BY-SA 协议转载自原搜狗科学百科对英文维基百科的翻译）
+
+在计算机科学中，有向图的拓扑排序或拓扑排序是其顶点的线性排序，使得对于每个从顶点u到顶点v的有向边，代表$u$在排序中位于$v$之前。例如，图的顶点可以表示要执行的任务，而边可以表示一个任务必须先于另一个任务执行的约束；在这个应用中，拓扑排序只是任务的有效序列。当且仅当图没有有向循环时，即当它是有向无环图时，才可能是拓扑排序。任何DAG都至少有一个拓扑排序，并且存在用于在线性时间内构造任何DAG的拓扑排序的算法。
+
+\subsection{例子}
+拓扑排序的典型应用是根据作业或任务的相关性来安排它们的顺序。作业由顶点表示，如果作业x必须在作业y开始之前完成，则从x到y有一条边(例如，洗衣服时，洗衣机必须在我们将衣服放入烘干机之前完成)。然后，拓扑排序给出了执行作业的顺序。拓扑排序算法的一个密切相关的应用是在20世纪60年代早期被首次研究的，其背景是在项目管理中用于调度的PERT技术(Jarnagin 1960)；在这个应用中，图的顶点代表项目的决定性事件，边代表必须在一个决定性事件和另一个之间执行的任务。拓扑排序构成了寻找项目关键路径的线性时间算法的基础，一系列决定性事件和任务控制着整个项目进度的长度。
+
+在计算机科学中，这种类型的应用出现在指令调度、在电子表格中重新计算公式值时对公式单元格求值的排序、逻辑合成、确定在makefiles中执行的编译任务的顺序、数据序列化以及解决链接器中的符号依赖性等方面。它还用于决定在数据库中以何种顺序加载带有外键的表。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/233ea49b288e0d68.png}
+\caption\label{fig_TPPX_1}
+\end{figure}
+
+\subsection{算法}
+拓扑排序的常用算法的运行时间是节点数加上边数的线性渐进，$O(|V|+|E|)$.
+\subsubsection{2.1 卡恩算法}
+卡恩(1962)首先描述了其中一种算法，它通过选择与最终拓扑排序相同顺序的顶点来工作。首先，找到一个没有引入边的“起始节点”列表，并将它们插入到集合S中；非空无环图中必须至少存在一个这样的节点。然后：
+\begin{lstlisting}[language=cpp]
+L ← 包含排序好的元素的空列表
+S ← 没有输入边的所有节点的集合
+while S is non-empty do
+    remove a node n from S
+    add n to tail of L
+    for each node m with an edge e from n to m do
+        remove edge e from the graph
+        if m has no other incoming edges then
+            insert m into S
+if graph has edges then
+    return error   (图表至少有一个环)
+else 
+    return L   (拓扑排序的顺序)
+\end{lstlisting}
+如果该图是一个DAG，一个解决方案将包含在列表L中(该解决方案不一定是唯一的)。否则，图必须至少有一个环，因此拓扑排序是不可能的。
+
+反映出结果排序的非唯一性，结构S可以是简单的集合、队列或堆栈。根据节点n从集合S中移除的顺序，会生产不同的解决方案。卡恩算法的一个变体在字典上打破了联系，这是科菲曼-格雷厄姆并行调度和分层图形绘制算法的一个关键组成部分。
+\subsubsection{2.2 深度优先搜索}
+拓扑排序的另一种算法是基于深度优先搜索。该算法以任意顺序遍历图中的每个节点，启动深度优先搜索，当该搜索到达自拓扑排序开始以来已经被访问过的任何节点或者该节点没有输出边(即叶节点)时终止：
+\begin{lstlisting}[language=cpp]
+L ← 包含已排序节点的空列表
+while exists nodes without a permanent mark do
+    select an unmarked node n
+    visit(n)
+
+function visit(node n)
+    if n has a permanent mark then return
+    if n has a temporary mark then stop   (not a DAG)
+    mark n with a temporary mark
+    for each node m with an edge from n to m do
+        visit(m)
+    remove temporary mark from n
+    mark n with a permanent mark
+    add n to head of L
+\end{lstlisting}
+只有在考虑了依赖于$n$的所有其他节点(图中n的所有后代)之后，每个节点$n$才被添加到输出列表L中。具体来说，当算法添加节点$n$时，我们保证依赖于$n$的所有节点都已经在输出列表$L$中:它们通过递归访问visit()添加到$L$中，该调用在访问$n$的调用之前结束，或者通过甚至在访问$n$的调用之前开始的访问visit()添加到$L$中。由于每个边和节点都被访问一次，所以算法以线性时间运行。这种基于深度优先搜索的算法是由Cormen等人(2001)描述的；塔扬(1976年)似乎首次在文献中描述了这一点。
+\subsubsection{2.3 并行算法}
+在并行随机存取机器上，可以使用多项式数量的处理器在0(log2n)时间内构造拓扑排序，将问题归入复杂性类NC2 (Cook 1985)。一种方法是用最小加矩阵乘法，用最大化代替最小化，对给定图的邻接矩阵进行多次对数平方。得到的矩阵描述了图中最长的路径距离。根据顶点最长输入路径的长度对顶点进行排序，进而构造拓扑排序(Dekel，Nassimi & Sahni 1981)。
+
+\subsection{最短路径查找的应用}
+拓扑排序也可用于通过加权有向无环图快速计算最短路径。假设V是这样一个图中顶点的列表，按拓扑顺序排列。然后，以下算法计算从某个源顶点$s$到所有其他顶点的最短路径:[1]
+\begin{itemize}
+\item Let d be an array of the same length as V; this will hold the shortest-path distances from s. Set d[s] = 0, all other d[u] = ∞.
+\item Let p be an array of the same length as V, with all elements initialized to nil. Each p[u] will hold the predecessor of u in the shortest path from s to u.
+\item Loop over the vertices u as ordered in V, starting from s:
+\item For each vertex v directly following u (i.e., there exists an edge from u to v):
+\item Let w be the weight of the edge from u to v.
+\item Relax the edge: if $d[v] > d[u] + w$, set
+\item $d[v] \to d[u] + w$,
+\item p[v] ← u.
+\end{itemize}
+在$n$个顶点和$m$条边的图上，该算法花费$\Theta(n + m)$，即线性时间。[1]
