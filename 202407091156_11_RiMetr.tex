@@ -1,0 +1,97 @@
+% 黎曼度量与伪黎曼度量
+% keys 度量|metric|流形|微分几何|相对论|闵可夫斯基时空|relativity|minkowski|riemann|riemannian metric|洛伦兹度量|lorentz
+% license Xiao
+% type Tutor
+\pentry{内积\nref{nod_InerPd}，切丛\nref{nod_TanBun}，余切丛（未完成），张量场\nref{nod_TenMan}}{nod_be3a}
+
+本节采用爱因斯坦求和约定。
+
+黎曼度量（Riemannian metric）或伪黎曼度量（pseudo-Riemannian metric）是黎曼几何或伪黎曼几何所要求的基本结构。赋予黎曼度量/伪黎曼度量的微分流形被称为黎曼流形/伪黎曼流形，它们既是几何学研究的对象，也是广义相对论得以展开的舞台。
+
+这里将一直设 $M$ 是一个 $n$ 维实微分流形。
+
+使用其它表述的黎曼度量另见\textbf{黎曼联络}的\autoref{sub_RieCon_1}。
+
+\subsection{黎曼度量}
+\begin{definition}{黎曼度量\footnote{更适合初学者的定义见\enref{黎曼联络}{RieCon}文章。}}
+$M$ 上的一个黎曼度量 $g$ 是指丛 $T^*(M)\otimes T^*(M)$ 的一个对称的正定截面。等价地，给出黎曼度量 $g$，就相当于在每一点 $p$ 的切空间 $T_pM$ 上指定一个内积 $g_p$。指定了黎曼度量的微分流形称为黎曼流形。有时也会把黎曼度量记为 $\langle\cdot,\cdot\rangle_p$.
+\end{definition}
+给定局部坐标系 $\{x^i\}$ 后，黎曼度量 $g$ 的局部表达式是
+$$
+g_{ij}(x)dx^i\otimes dx^j~,
+$$
+这里 $g_{ij}(x)=g_{ji}(x)$，而且对于任何向量 $(X^i)_{i=1}^n\neq0$ 都有
+$$
+g_{ij}X^iX^j>0~.
+$$
+
+有了黎曼度量，就可以谈论诸如长度/面积/体积之类的度量性质了。例如，设 $\gamma:[a,b]\to M$ 是黎曼流形 $(M,g)$ 上的一条道路，则定义其长度为
+$$
+L[\gamma]:=\int_{a}^b \sqrt{g_{\gamma(t)}(\gamma'(t),\gamma'(t))}dt~.
+$$
+如果用局部坐标系给出曲线的局部参数方程 $x(t)=(x^i(t))_{i=1}^n$，则
+$$
+L[\gamma]:=\int_{a}^b \sqrt{g_{ij}(x(t))(\dot x^i(t),\dot x^j(t))}dt~.
+$$
+容易验证：曲线的长度不依赖于其参数化的方式。
+\subsubsection{正切-余切同构}
+通常用$(g,M)$表示赋予了黎曼度量的流形。对于任意黎曼流形，我们总可以定义一个丛映射$\widetilde g:TM\rightarrow T^*M$，对$p$点任意两个切向量$X,Y$满足
+\begin{equation}
+g(X,Y)=\widetilde g(X)Y~.
+\end{equation}
+利用黎曼度量的正定性，易见$\widetilde g$是单射，由定义可知这又是满射，所以该丛映射实际上是丛同构。因此，利用黎曼度量，我们可以将切向量（余切向量）对偶到余切向量（切向量）。下面我们来看对偶后的坐标表示。
+
+由定义可知$g(\partial_i,\partial_j)=g_{ij}(p)(\partial_i\equiv\pdv{x^i})$，则
+\begin{equation}
+g(X,Y)=g_{ij}(p)X^iY^j=\widetilde g(X)Y^j\partial_j~,
+\end{equation}
+所以
+\begin{equation}
+\widetilde g(X)=g_{ij}(p)X^idx^j~.
+\end{equation}
+一般定义相应的余切向量坐标分量为：$X_j=g_{ij}(p)X^i$。
+
+既然$\widetilde g$是丛同构，其逆$\widetilde g^{-1}:T^*M\rightarrow TM$可把余切向量（切向量）对偶到切向量（余切向量）。同理可得，对于任意余切向量$\xi$有：
+\begin{equation}\label{eq_RiMetr_1}
+\widetilde g^{-1}(\xi)=g^{ij} \xi_i\partial_j~,
+\end{equation}
+其中$g^{ij}$是余切丛上的对偶黎曼度量，即满足$g_{ij}g^{jk}=\delta^i_k$。
+
+丛映射自然也可以建立切场和余切场的同构，我们以最常见的1形式为例，将梯度场定义为1形式的对偶。即
+\begin{equation}
+\opn{grad} f\equiv \widetilde g^{-1}(df)~.
+\end{equation}
+又因为
+\begin{equation}
+\begin{aligned}
+g(\opn{grad}f,X)&=\widetilde g\widetilde g^{-1}(df)X\\
+&=Xf~,
+\end{aligned}
+\end{equation}
+则
+\begin{equation}
+df=g(\opn{grad}f,\cdot)~,
+\end{equation}
+余切场$df$作为梯度场的对偶形式可借由上式体现。为表示方便，下面用$\nabla$表示梯度符号。
+
+由微分形式的定义可知，$df=\partial_i fdx^i$，代入\autoref{eq_RiMetr_1} 后便可得到梯度场的坐标形式为：
+\begin{equation}
+\nabla f=g^{ij}(p)\partial_i f\partial_j~.
+\end{equation}
+
+在欧几里得空间则是$\nabla f=\delta^{ij}(p)\partial_i f\partial_j=\partial_i f\partial_i$。
+\begin{exercise}{}
+
+\end{exercise}
+
+\subsection{伪黎曼度量}
+\pentry{伴随映射\nref{nod_AdjMap}}{nod_2d17}
+相对于黎曼度量，伪黎曼度量把对截面的正定性要求放松至只要满足非退化性即可。伪黎曼度量是一个\textbf{光滑、对称、非退化的二阶张量场}。“非退化”与线性代数的定义相同，即有下述等价条件：
+\begin{itemize}
+\item 在同构的欧几里得空间里，伪黎曼度量的矩阵表示是可逆的。
+\item 在同构的欧几里得空间里，伪黎曼度量$g(\bvec x,\bvec y)$对于任意$\bvec y\in V$成立$\Longleftrightarrow\,\bvec x=0$
+\item $g$可以诱导同构映射$\sigma_g:V\rightarrow V^*$，满足$\sigma_g(\bvec x)\bvec y=g(\bvec x,\bvec y)$。
+\end{itemize}
+\begin{example}{洛伦兹度量}
+
+\end{example}
