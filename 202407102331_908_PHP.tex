@@ -1,0 +1,1046 @@
+% PHP
+% license CCBYSA3
+% type Wiki
+
+（本文根据 CC-BY-SA 协议转载自原搜狗科学百科对英文维基百科的翻译）
+
+超文本预处理器（简称PHP）是一种通用编程语言，最初是为了进行网页开发而设计的。它最初是由拉斯马斯·勒德尔夫（Rasmus Lerdorf）在1994年创建的。[1]PHP引用现在是由The PHP Group实现的。PHP最初是个人主页（Personal Home Page）的缩写，[1]但现在它是一个首字母递归型缩略词，全称为Hypertext Preprocessor，即超文本预处理器。[2]
+
+可以通过命令行界面执行PHP代码，也可以将其嵌入到超文本标记语言代码中，还可以与各种网页模板系统、网页内容管理系统和网页框架结合运用。PHP代码通常由PHP解释器处理，该解释器以网络服务器中的一个模块或公共网关接口(CGI)可执行文件的形式安装。网络服务器将解释过和执行后的PHP代码(可能是任何类型的数据，包括图像)结果与生成的网页相结合。PHP可以用于网络环境之外的许多编程任务，例如独立的图形应用程序[3]和无人机遥控。[4]
+
+标准的PHP解释器由Zend引擎驱动，是发布的具有PHP许可证的自由软件。PHP已经得以广泛应用，可以免费安装到与几乎所有操作系统和平台的大多数网络服务器上。
+
+2014年之前，PHP语言一直没有书面的正式规范或标准，最初的应用充当了其他应用需遵循的实际标准。自2014年以来，人们一直在努力制定一份正式的PHP规范。[5]
+
+\subsection{历史}
+\subsubsection{1.1 早期历史}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/e4e58f0fc803a9fc.png}
+\caption\label{fig_PHP_1}
+\end{figure}
+Rasmus Lerdorf编写了最初的公共网关接口(CGI)组件，并与Andi Gutmann和Zeev Suraski一起重写了PHP3的解析器。
+
+PHP的开发始于1994年，当时拉斯马斯·勒德尔夫(Rasmus Lerdorf)用C语言编写了几个通用网关接口(CGI)程序，[6][7][8] 他将这些程序扩展，以与网络表单同时使用和与数据库进行通信，并将这种操作称为“个人主页/表单解释器”（简称 PHP/FI）。
+
+PHP/FI可以用来构建简单的动态网络应用程序。为了提高 bug报告速度并改进代码，Lerdorf最初于1995年6月8日在Usenet讨论组comp.infosystems.www.authoring.cgi上宣布发布 “个人主页工具(PHP Tools)1.0版”的PHP/FI。[9][10] 这个版本的PHP已经具备了目前使用的PHP的基本功能，包括类Perl变量、表单处理以及嵌入超文本标记语言的能力。PHP的语法类似于Perl，但更简单、应用范围较小且一致性较弱。[11]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/66623a418461a1a7.png}
+\caption\label{fig_PHP_2}
+\end{figure}
+早期人们并不打算把PHP发展为一种新的编程语言，但后来PHP得以有机发展。勒德尔夫（Lerdorf）回忆道:“我不知道如何停止，也从来没想过创造一种编程语言。我完全不知道如何创造编程语言，我只是不断地按照逻辑思维走下一步。”[11] 一个开发团队开始组建，几个月的工作和测试之后， 1997年11月正式发布了PHP/FI 2。
+
+最初，PHP不是人们专门创造出来的，而是自然形成的，这一事实造成了函数命及其参数排序的不一致。[12] 在某些情况下，函数命名是为了匹配PHP正在“包装”的低级库。[13] 而在一些早期的PHP版本中，函数名的长度用作内部散列函数，因此此时，命名是为了改善散列值的分布情况。[14]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/78e31904eb3aae33.png}
+\caption\label{fig_PHP_3}
+\end{figure}
+\subsubsection{1.2 PHP 3和PHP 4}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/4bf61896cce4c896.png}
+\caption{这是WordPress内容管理系统的自定义PHP代码的一个示例。} \label{fig_PHP_4}
+\end{figure}
+1997年，齐夫·苏拉斯基(Zeev Suraski)和安迪·古特曼斯(Andi Gutmans)重新编写了解析器，为PHP 3奠定了基础，并将该语言的名称改为PHP。PHP是一个首字母递归型缩略词，中文全称为超文本预处理器。[11][15] 后来便开始公开测试PHP 3，其正式发布是在1998年6月。Suraski和Gutmans随后开始重新编写PHP的核心部分，并于1999年开发了Zend引擎。[16] 他们还在以色列的拉马特甘成立了泽德技术有限公司(Zend Technologies)。[11]
+
+2000年5月22日，PHP 4发布，驱动引擎为Zend 1.0。[11] 截至2008年8月，已经出现了PHP 4.4.9版本。技术人员不会再对PHP 4进行任何开发，也不会再发布任何安全更新。[17][18]
+\subsubsection{1.3 PHP 5}
+2004年7月14日，PHP 5发布，由Zend引擎II（一个新的Zend引擎）驱动。[11] PHP 5具备一些新的特性，比如改进了对面向对象编程的支持，扩展了PHP数据对象(英文简称PDO，指轻薄且连续的访问数据库接口)，许多性能都得以增强。[19] 。2008年，PHP 5成为开发过程中唯一稳定的一个版本。PHP各个版本一直缺少后期静态绑定，直至PHP 5.3版才将其添加进去。[20][21]
+
+自2008年2月5日起，由于GoPHP5倡议的缘故，许多广受关注的开源项目不再支持新代码中的PHP 4。[22] GoPHP5倡议是由一个PHP开发者联盟发起的，他们致力于促进PHP 4到PHP 5的过渡。[23][24]
+
+随着时间的推移，现在大多数的32位和64位操作系统都可以使用PHP解释器。有两种方式，一种是使用PHP源代码构建系统，另外一种是使用预先构建的二进制文件。[25]PHP 5.3和PHP 5.4唯一可用的微软Windows二进制系统是32位x86系列版本，[26][27]且在Window64位操作系统上使用互联网信息服务(IIS)时需要开启Windows32位系统兼容模式。PHP 5.5的出现促进Windows操作系统有了64位x86-64系列版本。[28]
+
+PHP 5.6的官方安全支持已于2018年12月31日结束，[29]但Debian 8.0 Jessies将支持延长至2020年6月。[30]
+\subsubsection{1.4 PHP 6和统一码(Unicode)}
+由于缺乏核心语言级别的本机Unicode支持，人们对PHP的评价褒贬不一。[31][32] 2005年启动了一个由安德烈·兹米耶夫斯基(Andrei Zmievski)带头的项目，试图通过嵌入国际统一码组件(International Components for Unicode，英文简称ICU)库，并在内部将文本字符串表示为UTF-16，使PHP各个部分都具备本地Unicode支持。[33] 由于此举会引起语言内部和用户代码发生重大改变，因此他们计划将这一特质与当时正在开发的其他主要功能结合起来，作为PHP语言6.0版本发布。[34]
+
+然而，由于开发人员不了解必要变化，且UTF-16（很少在网络环境中使用）的转换出现性能问题，上述项目被延迟。 因此，2009年发布了PHP 5.3，该版本的诸多非Unicode特性都来自于PHP 6，尤其是名称空间。2010年3月，正式放弃该项目，并发布了PHP 5.4版本，该版本包含了PHP 6的许多其他非Unicode特性，例如Traits功能和闭包重新绑定功能。[35] 最初的设想是制定一份新的Unicode集成规划，但截至2014年，还没有采用任何一项规划。
+\subsubsection{1.5 PHP 7}
+2014至2015年期间技术人员开发了一个新的PHP主版本，编号为PHP 7。关于这个版本的编号有一些争论。[36]虽然PHP 6 Unicode是一个尝试，从未正式发布过，但有几篇文章和书名用了PHP 6这一说法。[37]如果新版本也用PHP 6命名的话，可能会造成混乱。人们在投票后采用了PHP 7这一名称。[38]
+
+PHP的基础是最初叫做PHP下一代(英文简称phpng)的一个分支。phpng由德米特里·斯托戈夫(Dmitry Stogov)、陈欣·许（Xinchen Hui）和尼基塔·波波夫(Nikita Popov)创建，[39]旨在通过重构Zend引擎来优化PHP的性能，同时保持近乎完全的语言兼容性。[40]截至2014年7月14日，基于WordPress的基准工具（phpng项目的主要基准工具）显示PHP性能几乎提高100\%。对phpng进行改动旨在使性能提高变得更容易一些，因为技术人员认为使数据结构变得更紧凑以及其他变化能够增大数据成功转移到即时编译器上的概率。[41]由于牵扯到上述重大变化，改动后的Zend引擎被称为Zend引擎3，取代了PHP 5中使用的Zend引擎2。[42]
+
+就PHP的发布过程而言， phpng内部有重大变化，因此必须要赋予它一个新的主版本号，而不是PHP 5版本的次版本号。[43]各PHP主版本具备破坏代码向后兼容性的功能，因此PHP 7带来一个机会，这个机会可以让技术人员不受phpng的束缚，做其他方面的改进。在phpng内部做改进，需要破坏向后兼容性。具体包括以下几个方面的变化:
+\begin{itemize}
+\item 现代面向对象的异常取代许多严重或可恢复的遗留PHP错误机制[44]
+\item 改动之后，变量解引用的语法内部更加一致和完整，允许使用运算符“->”、“ ()”、“{}”、和“::”，以及任意有意义的左侧表达式[45]
+\item 不再支持传统PHP 4风格的构造方法[46]
+\item foreach语句的行为变得更可预测[47]
+\item 之前，PHP内置的几类构造函数在失败时返回空值，为保持一致性，将返回空值改为抛出异常[48]
+\item 从PHP核心成分中删除了一些未维护的或不推荐使用的服务器应用程序编程接口和扩展，最突出的是遗留的mysql扩展[49]
+\item 对list()运算符的行为进行更改，以去除对字符串的支持[50]
+\item 去除对传统ASP样式分隔符，如“< \%”和“\% >”和“<脚本语言="php " >...</script >”，的支持已被删除[51]
+\item 之前存在允许switch语句具有多个默认子句的疏忽，改动后对此进行了修复[52]
+\item 从字符串到数字类型的某些隐式转换中不再支持使用十六进制数字[53]
+\item 改动左移位和右移位操作符，使其在平台间具有更加一致的表现[54]
+\item 整数和浮点数之间的转换更加严格，并且在不同平台之间的转换也更加一致[54][55]
+\end{itemize}
+PHP 7还包含了新的语言特性。最值得注意的是，该版本引入了函数的返回类型声明， 是对现有参数类型声明的一种补充，并支持参数和返回类型声明中的标量类型(整数、浮点、字符串和布尔值)。
+\subsubsection{1.6 版本发布历史记录}
+\begin{table}[ht]
+\centering
+\caption\label{PHP}
+\begin{tabular}{|c|c|c|c}
+\hline
+\textbf{版本} & \textbf{发布日期} & \textbf{截止日期[56]} & \textbf{备注}\\
+\hline
+1.0 & 1995年6月8日 &  & 正式名称为个人主页工具（英文为PHP Tools）。这也是“PHP”这个名称的首次使用。[11]\\
+\hline
+2.0 & 1997年11月1日	 &  & 正式名称为PHP/FI 2.0。这是第一个具有PHP实际特色的版本。PHP/FI 2.0是一种独立的语言，具有许多至今仍然沿用的特性。\\
+\hline
+3.0 & 1998年6月6日 & 2000年10月20日[56] & 开发人员从一个人增至多个。齐夫·苏拉斯基(Zeev Suraski)和安迪·古特曼斯(Andi Gutmans)重新编写了该版本的基础部分。[11]\\
+\hline
+4.0 & 2000年5月22日 & 2001年6月23日[56] & 引入了更高级的两阶段解析/执行标签解析系统，称为Zend引擎。[57]\\
+\hline
+4.1 & 2001年12月10日 & 2002年3月12日[56] & 引入了超级全局变量 （ 如“ \$_GET”、“\$_POST”、“\$_SESSION”等）。[57]\\
+\hline
+4.2	2002年4月22日	2002年9月6日[56]	默认禁用register_globals功能。通过网络接收的数据不再直接导入全局命名空间，从而填补了应用程序中可能存在的安全漏洞。[57]\\
+\hline
+4.3 & 2002年12月27日 & 2005年3月31日[56] & 引入了命令行界面来对CGI（通用网关接口）加以补充。[58]\\
+\hline
+4.4 & 2005年7月11日 & 2008年8月7日[56] & 通过破坏与PHP 4.3.x编译扩展的二进制兼容性修正了一个内存损坏的错误。[59]\\
+\hline
+5.0 & 2004年7月13日 & 2005年9月5日[56] & 引入带有一个新对象模型的Zend引擎II。[60]\\
+\hline
+5.1 & 2005年11月24日 & 2006年8月24日[56] & 通过在重新设计的PHP引擎中引入编译器变量提高了性能。[60]将PHP数据对象(PDO)作为访问数据库的一致接口引入。[61]\\
+\hline
+5.2 & 2006年11月2日 & 2011年1月6日[56] & 默认启用过滤器扩展。支持本地JSON文件。[60]\\
+\hline
+5.3 & 2009年6月30日 & 2014年8月14日[56] & 具备以下特点：支持命名空间、后期静态绑定、跳转标签(转到位置受限)、闭包、PHP档案（ 英文简称为phar ）、循环引用垃圾收集、Window系统支持得以改进、sqlite3、mysqlnd取代libmysql成为与MySQL一起使用的扩展的底层库、fileinfo取代mime_magic以更好地支持 MIME、国际化扩展和废弃使用ereg扩展。\\
+\hline
+5.4 & 2012年3月1日 & 2015年9月3日[56] & 支持Trait功能、支持使用短数组语法，并移除以下条目：register_globals、safe_mode、allow_call_time_pass_reference、session_register()、session_unregister()和session_is_registered()；使用内置网络服务器；[62]在现有功能、性能和内存需求方面有所改进。\\
+\hline
+5.5 & 2013年6月20日 & 2016年7月10日[63] & 支持使用生成器和finally块（用于处理异常）；官方发行版本捆绑OpCache(以Zend Optimizer+为基础)。[64]\\
+\hline
+5.6 & 2014年8月28日 & 2018年12月31日[63] & 具有以下特性：常量标量表达式、变量函数、参数解包、新的指数运算符、use语句扩展函数和常量、以SAPI模块形式存在的新phpdbg调试器以及其他较小的改进。[65]\\
+\hline
+6.x & Not released & 不适用 & 该废弃PHP版本原计划引入本机Unicode支持。[66][67]\\
+\hline
+7.0 & 2015年12月3日[68] & 2018年12月3日[43] & 使用Zend引擎3（ 性能有所改进和在Windows系统上支持[41]使用64位整数）[69]；使用统一变量语法；[45]编译过程以 AST（抽象语法树）为基础；[70]引入“闭包::call()”；[71]实现平台间的按位移位一致性；[72]\\
+\hline
+7.0 & 2015年12月3日[68] & 2018年12月3日[43] & 使用Zend引擎3（ 性能有所改进和在Windows系统上支持[41]使用64位整数）[69]；使用统一变量语法；[45]编译过程以 AST（抽象语法树）为基础；[70]引入“闭包::call()”；[71]实现平台间的按位移位一致性；[72]使用“？？（ coalesce函数传空 ）[73]”运算符和Unicode代码点转义语法；[74]引入返回类型声明、标量类型（ 如整数、浮点、字符串和布尔值等）声明和 太空船三向比较运算符“$< = >$”[75]；生成器获授权；[76]使用匿名的类；[77]使用更简单且更一致的可用CSPRNG应用编程接口；[78]用更现代的异常替换许多遗留的PHP内部错误；[44]使用简写语法以从命名空间导入多个条目。[79]\\
+\hline
+7.0 & 2015年12月3日[68] & 2018年12月3日[43] & 使用Zend引擎3（ 性能有所改进和在Windows系统上支持[41]使用64位整数）[69]；使用统一变量语法；[45]编译过程以 AST（抽象语法树）为基础；[70]引入“闭包::call()”；[71]实现平台间的按位移位一致性；[72]使用“？？（ coalesce函数传空 ）[73]”运算符和Unicode代码点转义语法；[74]引入返回类型声明、标量类型（ 如整数、浮点、字符串和布尔值等）声明和 太空船三向比较运算符“$< = >$”[75]；生成器获授权；[76]使用匿名的类；[77]使用更简单且更一致的可用CSPRNG应用编程接口；[78]用更现代的异常替换许多遗留的PHP内部错误；[44]使用简写语法以从命名空间导入多个条目。[79]\\
+\hline
+7.1 & 2016年12月1日 & 2019年12月1日[63] & 引入void返回类型和类常量的可见性修饰符[80][81]\\
+\hline
+7.2 & 2017年11月30日 & 2020年11月30日[63] & 使用对象参数；支持返回类型提示；[82]使用Libsodium扩展；[83]抽象方法重写；[84]拓展参数类型[85]\\
+\hline
+7.3 & 2018年12月6日[86] & 2021年12月6日 & 使用灵活的Heredoc和Nowdoc语法；[87],支持使用list()进行引用分配和数组解构；[88],支持PCRE 2[89], 和hrtime()函数[90]\\
+\hline
+7.4 & 2019年11月21日 & 2022年12月 & 类型属性为2.0；[92]支持预加载；[93]使用空合并赋值运算符；[94]改进openssl_random_pseudo_bytes；[95]支持弱引用；[96]使用外部函数接口（英文简称为FFI）[97]哈希扩展始终可用；[98]使用密码哈希注册表、[99]拆分了的多字节字符串、[100]引用反射、[101]拆分扩展/wddx[102]以及新的自定义对象序列化机制[103]\\
+\hline
+8.0 & 2020年第四季度或2021年第一季度 & 2023年第四季度或2024年第一季度 & 采用准时制编译(JIT)；[104]使用以负索引开始的数组；[105]内部函数[106]的一致类型错误[107]\\
+\hline
+\textbf{格式}：旧版本旧版本，仍被支援当前版本最新的预览版未来版本 &  &  & \\
+\hline
+\end{tabular}
+\end{table}
+PHP开发团队从2011年6月28日开始使用一个发布新版本的时间表。[43] 根据这个时间表的安排，每个月至少应该发布一次新版本，每年应该发布一次包含新功能的次级版本。每个次级版本的有效期至少需包括两年的安全和错误修复期以及至少一年的安全修复期，因此每个次级版本的整个发布过程总共需要至少三年。期间，不会引入新功能（不包括小且独立的功能）。
+
+\subsection{吉祥物}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/f0d7dc5c89e87fdb.png}
+\caption{PHPant，PHP的吉祥物。} \label{fig_PHP_5}
+\end{figure}
+
+PHP项目的吉祥物叫做elePHPant（意为大象），是一头侧面有PHP标志[108]的蓝色大象，由文森特·庞蒂尔(Vincent Pontier)于1998年设计。[109]“从侧面看，这些字母（指PHP三个字母）构成了一头大象的模样。”[110] 有时，长毛绒elePHPant玩具的颜色有所不同。
+
+多年来，出现了许多吉祥物变体，但只有以文森特·庞蒂原始设计为基础的吉祥物得到了计算机领域的官方认可。[111]它们具有很大的收藏价值，而且其中一些极其罕见。《PHP吉祥物“大象”指南》(A Field Guide to Elephants)中列出了不同的吉祥物变体。
+
+\subsection{语法}
+下面的“ 你好，世界！”程序是用嵌入在超文本标记语言文档中的PHP代码编写的：
+\begin{lstlisting}[language=cpp]
+<!DOCTYPE html>
+<title>PHP "Hello, World!" program</title>
+<?php echo '<p>Hello World</p>'; ?>
+\end{lstlisting}
+然而，由于不需要将PHP代码嵌入到超文本标记语言中，可省略包含纯PHP代码的文件中的结束标记，从而形成像下面这种最简单的版本：[112]
+\begin{lstlisting}[language=cpp]
+ <?='Hello world';
+\end{lstlisting}
+PHP解释器只在其分隔符内执行PHP代码。其分隔符外的任何内容都不会被PHP处理，尽管非PHP文本仍然受PHP代码中控制结构的管控。最常见的分隔符是“<?php to open and ?> to close PHP”，简写为“<？”。该简写分隔符降低了脚本文件的可移植性。由于可以在本地PHP配置中禁用对脚本文件的支持，因此不鼓励使用该简写分隔符。[113][114] 但业界并不反对使用其echo短标签“<？=”。[115] 在PHP 5.4.0发布之前，只在short_open_tag配置设置启用的情况下使用“echo()”这一简短语法；但在PHP 5.4.0及后来的各版本中，任何时候都可以使用“echo()”。[116][117][113] 使用上述分隔符的目的是区分PHP代码与非PHP内容（ 如JavaScript代码或HTML标记 等）。[118]
+
+分隔符“<？php”和“？>”在XHTML和其他XML文档中的第一种格式能够创建正确格式的XML处理指令。[119] 这意味着服务器端文件中PHP代码和其他标记混合使用产生的文件本身就是格式良好的XML文件。
+
+变量用美元符号作为前缀，不需要预先指定类型。PHP 5引入了类型提示，允许函数强制其参数作为特定的类、数组、接口或回调函数的对象。然而，在PHP 7.0发布之前，类型提示不适用于标量类型，如整数或字符串。[120]
+
+与函数名和类名不同，变量名有大小写之分。双引号("")和heredoc字符串都具备将变量值插入字符串的能力。[120]PHP以自由格式语言的方式将换行符视为空白字符，分号标志语句结束。[121]PHP有三种类型的注释语法，分别为/* */标记块、/* */内联注释和用于单行注释的//和#。[122]echo语句是PHP用来输出文本的几种工具之一。
+
+PHP的关键字和语法风格与C语言风格类似。PHP的if条件、for和while循环以及函数返回值在语法上都与C语言、C++语言、C#语言、Java语言和Perl语言等相似。
+\subsubsection{3.1 数据类型}
+整数以相关平台范围的格式储存在PHP中，可以是相当于C语言长整数的64位有符号整数，也可以是32位的有符号整数。在特定情况下，无符号的整数被转换为有符号的值，这点与其他编程语言不同。[123]使用十进制（ 正和负 ）、八进制、十六进制和二进制符号对整数变量进行赋值。
+
+浮点数以特定平台范围的格式存储在PHP中。可以用浮点符号或两种形式的科学符号来指定浮点数。[124]PHP有一个本地布尔类型，与Java和C++语言的本地布尔类型相似。[124]根据布尔类型转换规则，将非零值解释为真、零值解释为假，与Perl和C++语言中的操作一样。[124]
+
+空数据类型指没有值的变量，只包括空值这一个值。
+
+资源类型中的变量表示对外部资源的引用，通常由源于特定扩展的函数创建，并且只能由来自同一扩展的函数处理。实例包括文件、图像和数据库资源。[124]
+
+数组包括PHP能够处理的任何类型的元素，包括资源、对象，甚至其他数组。次序保存在值的列表中以及键和值的散列中，并且列表和散列可以混合使用。[124]PHP还支持字符串，字符串可以与单引号、双引号、nowdoc或heredoc语法一起使用。[125]
+
+标准PHP库（英文简称SPL）试图解决标准方面的问题，并具备高效的数据访问接口和类。[126]
+\subsubsection{3.2 函数}
+PHP用核心语言定义了大量函数，其中许多函数在各种扩展中可以继续使用。[127] 线上PHP文档详细记录了这些函数。但是，内置库中存在各种各样的命名习俗及与其相关的不一致性，这一点在前面的“历史”部分中就已提及。
+
+开发人员可对自定义函数进行定义：
+\begin{lstlisting}[language=cpp]
+function myAge(int $birthYear):string {
+    // calculate the age by subtracting the birth year from the current year.
+    \$yearsOld = date('Y') - $birthYear;
+
+    // return the age in a descriptive string.
+    return $yearsOld . ' year' . ($yearsOld != 1 ? 's' : '');
+}
+
+echo 'I am currently ' . myAge(1995) . ' old.';
+\end{lstlisting}
+2019年时，上述示例程序的输出为“ 我今年24岁。 ”
+
+PHP中，函数可以被包含它们名字的字符串引用，而不是被函数指针引用。这种方式使普通的PHP函数也可以被使用，例如，作为回调函数被使用或者在函数表中被使用。[128]任何时候都可以创建用户定义函数，而无需将其原型化。[127][128]可以在代码块中定义函数，允许运行时决定是否应该定义函数。使用函数“function_exists”来确定是否已经对有特定名称的函数进行定义。必须使用括号调用函数，但用PHP运算符“new”调用零参数类构造函数时除外，此时，可以不使用括号。
+
+PHP 5.3之前的各版本均不支持匿名函数和闭包。虽然从PHP 4.0.1开始就有“create_function()”，但它只是作为eval()的一个瘦包装器存在，在程序执行期间允许创建正常的PHP函数。[129]PHP 5.3添加了定义匿名函数或“ 闭包”的语法，可以从周围捕获变量:
+\begin{lstlisting}[language=cpp]
+function getAdder($x) {
+    return function($y) use ($x) {
+        return $x + $y;
+    };
+}
+
+$adder = getAdder(8);
+echo $adder(2); // prints "10"
+\end{lstlisting}
+
+在上面的示例中，getAdder()函数使用经传递的参数\$x （关键字use从词法上下文中导入一个变量）创建了一个闭包 ，然后使用另外一个参数\$y，将创建的闭包返回给调用方。这种函数属于第一类对象，也就是说它可以存储在某一变量中，也可以作为参数传递给其他函数等等。[130]
+
+不同寻常的是，尽管PHP使用的是动态类型语言，却支持函数参数的类型声明，这些声明是在运行时强制执行的。从PHP 5.0开始支持类和接口的类型声明；从PHP 5.1开始支持数组的类型声明；从PHP 5.4开始支持“ 可调用”参数的类型声明；从PHP 7.0开始支持标量（包括整数、浮点、字符串和布尔等）的类型声明。[120] PHP 7.0中还包括函数返回类型的类型声明，表示方法为把类型名称放在参数列表之后，并在前面加上冒号。[131] 例如，在PHP 7中，上一例子中的getAdder函数可以用类似下面的类型进行注释：
+
+\begin{lstlisting}[language=cpp]
+function getAdder(int $x):Closure {
+    return function(int $y) use ($x):int {
+        return $x + $y;
+    };
+}
+
+$adder = getAdder(8);
+echo $adder(2); // prints "10"
+echo $adder(null); // throws an exception because an incorrect type was passed
+$adder = getAdder([]); // would also throw an exception
+\end{lstlisting}
+默认情况下，标量类型声明遵循弱类型原则。例如，如果一个函数的参数类型是int，PHP不仅允许将整数，还允许将可转换的数字字符串、浮点数或布尔值传递给该函数，并对它们进行转换。[120]然而，PHP 7中有一个叫做“ 严格类型”的模式。当使用该模式时，不允许对函数调用值和文件中的返回值进行上述转换。[120]
+
+\subsubsection{3.3 PHP对象}
+PHP 3中添加了基本的面向对象编程功能，该功能在PHP 4中得以改进。[131]这加深了PHP的抽象化，降低了使用PHP的程序员完成创造性任务的难度。PHP 5中，对象处理程序被完全重写，功能集得以扩展，性能得以提高。[131]在PHP的早期版本中，处理对象的方式与处理值类型的方式雷同。[131]这种处理方式有一个缺点——如果代码想要修改传递给它的对象，而不是创建对象的副本，就必须使用大量的PHP “ 引用”变量。在PHP 5采用的新方法中，对象由句柄引用，而不是由值引用。
+
+PHP 5引入了私有成员变量和方法以及受保护的成员变量和方法，还有抽象类、最终类、抽象方法和最终方法。PHP 5也引入了一种标准的方法，用于对构造函数和析构函数进行声明，这一做法类似于其他面向对象语言，如C++语言。PHP 5还引入了一种标准的异常处理模型。此外，PHP 5增加了接口，并允许使用多个接口。有一些特殊的接口允许对象与运行时系统进行交互。可以将实现数组访问的对象与数组语法一起使用，还可以同时使用实现迭代器或迭代器集合的对象和foreach语言构造。引擎中没有虚拟表功能，因此在编译时，绑定静态变量使用的是名称而非引用值。[132]
+
+开发人员使用保留字“clone”创建对象副本时，Zend引擎会检查是否定义了一种__clone()方法。如果没有定义，Zend引擎就会调用默认的__clone()来复制对象的属性；如果已经定义了一种__clone()方法，引擎就会负责在创建的对象中设置必要的属性。为了方便起见，Zend引擎会提供一个导入源对象属性的函数，这样的话，程序员就可以开始按值复制源对象和需要更改的属性。[133]
+
+下面是一个简单的PHP中面向对象编程实例：
+\begin{lstlisting}[language=cpp]
+ 1 <?php
+ 2 abstract class User {
+ 3 	public string $name;
+ 4 
+ 5 	public function __construct(string $name) {
+ 6 		$this->name = $name;
+ 7 	}
+ 8 
+ 9 	public function greet():string {
+10 		return "Hello, my name is " . $this->name;
+11 	}
+12 
+13 	abstract public function job():string;
+14 }
+15 
+16 class Student extends User {
+17 	public string $course;
+18 
+19 	public function __construct(string $name, string $course) {
+20 		$this->course = $course;
+21 		parent::__construct($name);
+22 	}
+23 
+24 	public function job():string {
+25 		return "I learn " . $this->course;
+26 	}
+27 }
+28 
+29 class Teacher extends User {
+30 	public array $teachingCourses;
+\end{lstlisting}
+\begin{lstlisting}[language=cpp]
+31 
+32 	public function __construct(string $name, string...$teachingCourses) {
+33 		$this->teachingCourses = $teachingCourses;
+34 		parent::__construct($name);
+35 	}
+36 
+37 	public function job():string {
+38 		return "I teach " . implode(", ", $this->teachingCourses);
+39 	}
+40 }
+\end{lstlisting}
+\begin{lstlisting}[language=cpp]
+41 
+42 $students = [
+43 	new Student("Alice", "Computer Science"),
+44 	new Student("Bob", "Computer Science"),
+45 	new Student("Charlie", "Business Studies"),
+46 ];
+47 $teachers = [
+\end{lstlisting}
+\begin{lstlisting}[language=cpp]
+48 	new Teacher("Dan", "Computer Science", 
+"Information Security"),
+49 	new Teacher("Erin", "Computer Science", 
+"3D Graphics Programming"),
+50 	new Teacher("Frankie", "Online Marketing", 
+"Business Studies", "E-commerce"),
+51 ];
+52 
+53 echo "Students: \n";
+54 foreach($students as $student) {
+55 	echo $student->greet() . ", " . $student->job() . "\n";
+56 }
+57 
+58 echo "Teachers: \n";
+59 foreach($teachers as $teacher) {
+60 	echo $teacher->greet() . ", " . $teacher->job() . "\n";
+61 }
+62 
+63 // Output of program:
+64 // Students:
+65 // Hello, my name is Alice, I learn Computer Science
+66 // Hello, my name is Bob, I learn Computer Science
+67 // Hello, my name is Charlie, I learn Business Studies
+68 // Teachers:
+69 // Hello, my name is Dan, I teach Computer Science,
+ Information Security
+70 // Hello, my name is Erin, I teach Computer Science, 
+3D Graphics Programming
+71 // Hello, my name is Frankie, I teach Online Marketing,
+ Business Studies, E-commerce
+\end{lstlisting}
+技术人员使用关键字“公有(public)”、“私有(private)”和“受保护(protected)”定义PHP属性和方法的可见性。如果只使用 “var”，则默认为 “公共”。var是public（公共）的同义词。可在任何地方访问声明为“公共”的项。声明为“受保护”的项则表明限制对继承类（ 以及定义该项的类）的访问。声明为“private”的项仅对定义该项的类可见。[134] 相同类型的对象可以访问彼此的私有项和受保护项，即使它们之间存在差异。
+
+\subsection{应用}
+最初唯一完整且使用最广泛的PHP应用简称为PHP，由Zend引擎驱动。为了与其它应用区分开来，有时将其非正式地称为“Zend PHP”。Zend引擎将PHP源代码动态编译成它可以执行的内部格式，因此Zend引擎相当于一个解释器。[135][136]由于PHP没有正式的规范，Zend引擎也是PHP的“引用应用”，Zend PHP的语义也就定义了PHP的语义。由于PHP的语义复杂而微妙（这一点取决于Zend引擎的工作方式），存在竞争关系的各种PHP应用都很难具备完全的兼容性。
+
+PHP采用单请求/脚本执行模型，而且 Zend引擎实际上是一个解释器，二者导致了PHP效率低下。因此，技术人员开发了各种产品来帮助提高PHP性能。为了加快执行速度且不必在每次访问网页时都要编译PHP源代码，也可以使用操作码缓存(opcode cache)在Zend引擎的内部格式中安装PHP脚本。操作码缓存的工作方式是缓存共享内存中编译形式的PHP脚本（操作码），以避免每次脚本运行时，解析和编译代码都要产生费用。PHP 5及之后的各个版本中都有一个叫做Zend Opcache的内置操作码缓存。[137]另一个得以广泛使用的操作码缓存是可选PHP缓存（英文简称APC），在PHP中以PECL扩展的形式存在。[138]
+
+虽然Zend PHP仍然是最流行的PHP应用，但是也已经开发了其它几种应用。其中一些为编译器，也有一些支持JIT编译，因而虽然它们的性能优于Zend PHP，但却缺乏完整的PHP兼容性。其它的应用包括以下几种：
+\begin{itemize}
+\item HHVM (HipHop虚拟机)——由Facebook开发，以开源软件的形式应用，将PHP代码转换成高级字节码（ 通常称为中间语言），然后即时编译器在运行时将高级字节码动态转换成x86-64结构机器码，性能提高了6倍。[139]然而，由于Zend 7.2版本的性能优于HHVM，[140]HHVM 3.24是最后一个正式支持PHP的版本。[141]
+\item Parrot——一个高效运行动态语言的虚拟机；Pipp将PHP源代码转换成Parrot中间表示，然后转换成Parrot字节码，交由Parrot执行。
+\item Phalanger——将PHP编译成通用中间语言(CIL)字节码
+\item Quercus——将PHP编译成Java字节码
+\item HipHop——由Facebook开发，是一种开源软件，将PHP脚本转换成C++语言代码，然后编译生成的代码，将服务器负载降低了50\%。2013年初，由于存在运用困难和缺乏对整个PHP语言（ 包括create_function()和eval()结构）的支持等多个问题，Facebook废弃了HipHop，取而代之的是HHVM。[142]
+\end{itemize}
+
+\subsection{许可}
+PHP是符合《PHP许可证》要求的自由软件，该文件规定:[143]
+
+未经group@php.net事先书面许可，本软件衍生的产品不得以PHP命名，且其名称中不可出现PHP。软件开发商可用“Foo for Php”来表明软件与PHP可协同工作，但不可使用 “PHP Foo”或“phpfoo”这两种说法。
+
+这种对使用“PHP”这一称呼的限制使得PHP许可证与通用公共许可证(GPL)不兼容， Zend许可证也由于存在与原始BSD许可证相似的广告条款而不兼容。[144]
+
+\subsection{PHP发展及社区}
+PHP的源代码分发过程涉及各种自由库和开源库，这些库可以用于生成的PHP二进制版本。从根本上意义上说，PHP是一个互联网感知系统，配备了用于访问文件传输协议(FTP)服务器和许多数据库服务器的内置模块。这些服务器包括PostgreSQL、MySQL、微软SQL Server和SQLite（ 一种嵌入式数据库 ）以及LDAP服务器等。在标准的PHP版本中，存在许多C语言程序员熟悉的函数，比如stdio系列函数。[145]
+
+PHP允许开发人员用C语言编写扩展，为PHP语言添加功能。可以将PHP扩展静态编译成PHP，也可以在运行时动态加载PHP扩展。技术人员已经编写了许多扩展来更好地支持Windows系统应用编程接口、类Unix操作系统上的进程管理、多字节字符串(Unicode)、cURL和几种流行的压缩格式。经由扩展实现的其它PHP特性包括实现与IRC的集成、可动态生成图像和Adobe闪存内容、PHP数据对象(PDO)以用于访问数据库的抽象层的形式存在，[146][147][148][149][150][151][152] 以及语音合成。PHP语言的一些核心功能（如处理字符串和数组的功能）也是作为扩展实现的。[153] PHP扩展社区图书馆(PECL)项目是PHP语言扩展的存储库。[154]
+
+其他一些项目，如Zephir，具备用高级语言创建PHP扩展并编译成本地PHP扩展的能力。与直接用C语言编写PHP扩展的方式相比，这种方法简化了扩展的开发过程，减少了编程和测试所需的时间。[155]
+
+截至2018年12月，PHP Group由10人组成，分别为 Thies C. Arntzen、Stig Bakken、Shane Caraveo、Andi Gutmans、Rasmus Lerdorf、Sam Ruby、Sascha Schumann、Zeev Suraski、Jim Winstead和Andrei Zmievski。[156]
+
+Zend Technologies有限公司设置了一个PHP 5.5考试的PHP证书(PHP Certification)，通过考试的程序员即可成为具备认证资格的PHP开发人员。
+
+\subsection{安装和配置}
+可通过两种基本方法为网络服务器添加对PHP的支持，一种是以本地网络服务器模块的形式，另一种是以CGI可执行文件的形式。PHP中有一个名为服务器应用程序编程接口(SAPI)的直接模块接口，许多网络服务器都支持这个接口，包括阿帕奇服务器、微软IIS、Netscape（ 现已失效）和iPlanet。其他一些网络服务器，如OmniHTTPd，支持互联网服务器应用编程接口(ISAPI)，这是微软的网络服务器模块接口。如果PHP中没有对网络服务器的模块支持，就可以一直将其用作公共网关接口(CGI)或FastCGI处理器。在这种情况下，网络服务器的配置方式是使用PHP的CGI可执行文件来处理与PHP文件相关的所有请求。[157]
+
+PHP-FPM（ FastCGI处理管理器）是另外一种可行的FastCGI应用。它从5.3.3版开始就与正式的PHP发行版捆绑在一起。[158] 与旧的FastCGI版本相比，它具备一些特性，这些特性对负载沉重的网络服务器非常有帮助。[159]
+
+使用PHP编写命令行脚本时，需要有一个可执行的PHP命令行界面。PHP4.3.0及以后的版本都支持命令行界面服务器应用程序编程接口(SAPI)。[160] 引入该接口的重心是使用PHP开发shell应用程序。尽管命令行界面服务器应用程序编程接口和其它服务器应用程序编程接口有许多相似点，但它们之间存在相当大的差异。[161]
+
+PHP有一个叫做SAPI的直接模块接口，适用于不同的网络服务器，[157] 以一个名为php5apache2.dll的DLL文件的形式存在于Windows系统的PHP 5和Apache 2.0。[162] 这个DLL文件是一个模块，除了具备其他功能之外，它还在PHP和网络服务器之间有一个接口，这个接口是以服务器可以理解的形式安装的。这种形式被称为SAPI。
+
+各种网络服务器扩展都有不同种类的SAPI。例如，除了上面列出的那些，PHP语言的SAPI还包括公共网关接口(CGI)和命令行接口(CLI)。[157][160]
+
+还可以通过使用PHP-GTK扩展编写桌面图形用户界面(GUI)应用程序。各个PHP官方版本中都不包括GTK。[157]GTK只能以扩展的形式存在于PHP 5.1.0及以后的版本中。最常见的安装PHP-GTK的方法是用源代码对其进行编译。[163]
+
+在云环境中安装和使用PHP时，提供的软件开发工具包可以帮助发挥只有云环境才具备的特点，例如：
+\begin{itemize}
+\item 亚马逊网络服务为PHP提供AWS软件开发工具包[164]
+\item Windows Azure可以与其PHP软件开发工具包一起使用。[165]
+\end{itemize}
+PHP支持许多配置选项，但这影响了PHP的核心特性和扩展。[166][167]可在不同位置对配置文件“php.ini”进行搜索，[168]这取决于PHP的使用方式。配置文件包含不同的部分，[169]也可以在网络服务器配置中设置其中的一些配置选项。[170]
+
+\subsection{运用}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/3632aeff6d772b18.png}
+\caption{一个广泛的概述LAMP软件包，和Squid一起在图示中。} \label{fig_PHP_6}
+\end{figure}
+PHP是一种通用脚本语言，非常适用于服务器端的网络开发。在这种情况下，PHP通常在网络服务器上运行。PHP运行时，被请求文件中的任何PHP代码都得以执行，通常是为了创建动态网页内容或网站或用于其他地方的动态图像。[171] 还可将PHP语言用于命令行脚本和客户端图形用户界面应用程序中。大多数网络服务器以及许多操作系统和平台都支持PHP，并且可以将其与许多关系数据库管理系统(RDBMS)一起使用。大多数网络托管商支持PHP以供其客户使用。PHP是免费的，PHP Group为用户提供完整的源代码，用户可根据自己的实际情况进行构建、定制或扩展。[172]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/4a42fdb108ca598d.png}
+\caption{动态网页：服务器端脚本示例(PHP和MySQL)。} \label{fig_PHP_7}
+\end{figure}
+PHP主要以过滤器的形式发挥作用 ，即从包含文本和/或PHP指令的文件或流中获取输入信息，并输出另一个数据流。尽管输出的形式有很多，比如JSON、XML和二进制数据（如图像或音频格式）等，但是最常见的输出是超文本标记语言。自PHP 4发布以来，PH解析器对输入的信息进行编译，生成字节码供Zend引擎处理，性能比解释器（其前身）更佳。[172]
+
+PHP最初是为了创建动态网页而设计的，现在其重心为服务器端脚本编写。[173]PHP与其它服务器端脚本编写语言类似，都是从网络服务器向客户端提供动态内容的。这样的语言包括微软的ASP.NET、Sun Microsystems的JavaServer Pages[174]以及mod_perl。PHP还促进了许多软件框架的开发，这些框架具备构建块和设计结构，可促进快速应用程序的开发。此类框架包括PRADO、CakePHP、Symfony、CodeIgniter、Laravel、Yii Framework、Phalcon和Zend Framework，具备与其他网络框架类似的功能。
+
+作为一种网络应用程序部署方式，LAMP架构已经在网络行业流行起来。[175]PHP与Linux、Apache和MySQL一起使用时，通常用大写字母“P”来代表PHP，尽管P也可以指Python、Perl或者三者的某种混合体。类似的软件包，如WAMP和MAMP，也可用于Window和macOS系统，用第一个字母代表各自的操作系统。虽然macOS系统基础安装包含PHP和Apache的安装，但是用户希望这些软件包的安装机制能够更简单，也就是降低维持最新版本的难度。
+
+截至2007年4月，超过2000万个互联网域对安装了PHP的服务器实施了网络托管服务，而且记录显示，mod_php是最受欢迎的Apache HTTP服务器模块。[176]截至2018年6月，83.5\%的网站将PHP作为服务器端编程语言使用，可以在这些网站上选择使用哪种语言。用PHP编写的网络内容管理系统包括MediaWiki、[177] Joomla、[178] eZ Publish、 eZ Platform、SilverStripe、[179]WordPress、[180]Drupal[181]和Moodle。[182]用PHP编写的网站（包括后台和/或面向用户的部分）包括Fackbook、[183]Digg、[184]Tumblr、[185]Dailymotion[186]和Slack。[187]
+
+在特定的和更高级的使用场景下，PHP采用一种发展成熟且以形成文字的方法，来用C或C++语言编写自定义扩展。[188][189][190][191][192][193][194] 除了能够以附加库的形式扩展语言本身之外，扩展还能帮助提高执行速度，其中，PHP至关重要，而且在使用真正的编译语言方面还有改进的空间。[195][196] PHP还可以通过一些明确的方式将自己嵌入到其它软件项目中。这样的话，就可以很容易地将PHP作为另一个项目的内部脚本语言使用，同时还能与项目特定内部数据结构建立紧密连接。[197]
+
+由于PHP在核心语言层面上缺乏对多线程的支持，[198]尽管线程的使用是通过PECL扩展”pthreads”实现的， 评价还是褒贬不一。[199][200]
+
+截至2013年1月，超过2.4亿个网站（ 占抽样网站的39\%）使用PHP，并且有210万个网络服务器上安装了PHP。[201]
+
+已经为PHP开发了一个命令行界面、php-cli和两个ActiveX Windows脚本主机脚本引擎。
+
+\subsection{安全}
+2017年，国家漏洞数据库（National Vulnerability Database ）列出的所有漏洞中，有3\%与PHP相关。[202]自1996年以来，该数据库中列出的所有漏洞中，约有30\%与PHP相关。语言本身或其核心库的技术安全缺陷并不常见（ 2009年有22个，约占总数的1\%，尽管PHP适用于约20\%的所列程序）。[203]认识到程序员会犯错之后，带有污点检查功能的一些语言可自动检测输入验证的缺失，自动检测输入验证缺失会导致许多问题。现在，技术人员正在为PHP开发该自检功能，[204]但是之前，将其用于PHP中的提议已经被拒绝过好几次了。[205][206]
+
+一些高级保护补丁，如Suhosin和Hardening-Patch，是专门为网站托管环境设计的。[207]
+
+历史上，PHP旧版本中有一些运行时的配置参数和缺省值，这使得一些PHP应用程序容易出现安全问题。其中，magic_quotes_gpc和register_globals[208]配置指令最为著名；后者可以将任何网址参数变为PHP变量，允许攻击者设置任何未经初始化的全局变量值，并干扰PHP脚本的执行，从而导致严重的安全漏洞。从PHP 5.3.0开始，不再支持“魔术引号”和“注册全局变量”设置，PHP 5.4.0及以后的版本不再具备上述两种设置。[209]
+
+另一个潜在运行设置漏洞是因为未能禁用PHP执行（可通过使用引擎配置指令实现）[210]存储上传文件的目录。启用该功能可能会导致PHP执行嵌入在上传文件中的恶意代码。[211][212][213]有两种最安全的操作，一种是将图像目录定位在网络服务器可用的文档根目录之外的地方，并通过中间脚本提供图像目录，另一种是将PHP执行存储上传文件目录的功能禁用。
+
+此外，在共享的网络托管环境中启用动态加载PHP扩展（使用enable_dl配置指令）[214]会造成安全问题。[215]
+
+隐含类型转换可能会导致不同值的处理结果相同，在一些情况下，这违背了程序员的意图，也会导致安全问题。例如，比较0e1234 = = 0的结果为真，因为多边的值被当成了数值为零的科学符号0×101234。比较MD5密码散列时，类似的错误会导致Simple Machines Forum、[216]Typo3[217]和phpBB[218]出现身份验证漏洞。由于0e1234 = = = 0的结果是false，因此推荐的解决办法是使用hash_equals()(为了定时攻击安全)、strcmp或identity运算符(= = = =)等。[219]
+
+2013年，Zone-H发表了其对超过170000万网站损坏的分析，其中提到最常用的(53\%)技巧是利用文件包含漏洞，主要与PHP函数“包括(include)”、“要求(require)”和“allow_url_fopen”的不安全使用有关。[220][221]
+
+\subsection{参考文献}
+[1]
+^"History of PHP". php.net..
+
+[2]
+^PHP Manual: Preface, www.php.net..
+
+[3]
+^"Introduction: What can PHP do?". PHP Manual. Retrieved 2009-03-05..
+
+[4]
+^:helicopter: Port of node-ar-drone which allows user to control a Parrot AR Drone over PHP: jolicode/php-ar-drone, JoliCode, 2019-01-11, retrieved 2019-02-23.
+
+[5]
+^Jackson, Joab (2014-07-31). "PHP gets a formal specification, at last". ITworld. IDG..
+
+[6]
+^Lerdorf, Rasmus (2012-07-20). "I wonder why people keep writing that PHP was ever written in Perl. It never was. #php". Twitter. Retrieved 2014-09-04..
+
+[7]
+^Lerdorf, Rasmus (2007-04-26). "PHP on Hormones" (mp3). The Conversations Network. Retrieved 2009-06-22..
+
+[8]
+^Lerdorf, Rasmus (2007). "Slide 3". slides for 'PHP on Hormones' talk. The PHP Group. Retrieved 2009-06-22..
+
+[9]
+^Lerdorf, Rasmus (June 8, 1995). "Announce: Personal Home Page Tools (PHP Tools)". Retrieved 7 June 2011..
+
+[10]
+^Lerdorf, Rasmus (1995-06-08). "Announce: Personal Home Page Tools (PHP Tools)". Newsgroup: comp.infosystems.www.authoring.cgi. Retrieved 2006-09-17..
+
+[11]
+^"Rasmus Lerdorf, Senior Technical Yahoo: PHP, Behind the Mic". 2003-11-19. Archived from the original on 2013-07-28..
+
+[12]
+^"Problems with PHP". Retrieved 20 December 2010..
+
+[13]
+^"php.internals: Re: Function name consistency". news.php.net. 2013-12-28. Retrieved 2014-02-09..
+
+[14]
+^Rasmus Lerdorf (Dec 16, 2013). "Re: Flexible function naming". Newsgroup: php.internals. Retrieved December 26, 2013..
+
+[15]
+^"PHP — Acronym Meaning Vote". PHP.net. Archived from the original on August 15, 2000..
+
+[16]
+^"Zend Engine version 2.0: Feature Overview and Design". Zend Technologies Ltd. Archived from the original on 2006-07-19. Retrieved 2006-09-17..
+
+[17]
+^"php.net 2007 news archive". The PHP Group. 2007-07-13. Retrieved 2008-02-22..
+
+[18]
+^Kerner, Sean Michael (2008-02-01). "PHP 4 is Dead—Long Live PHP 5". 
+InternetNews. Archived from the original on 2018-08-06. Retrieved 2018-12-16..
+
+[19]
+^Trachtenberg, Adam (2004-07-15). "Why PHP 5 Rocks!". O'Reilly. Retrieved 2008-02-22..
+
+[20]
+^"Late Static Binding in PHP". Digital Sandwich. 2006-02-23. Retrieved 2008-03-25..
+
+[21]
+^"Static Keyword". The PHP Group. Retrieved 2008-03-25..
+
+[22]
+^"GoPHP5". Archived from the original on 2011-07-17..
+
+[23]
+^GoPHP5. "PHP projects join forces to Go PHP 5" (PDF). GoPHP5 Press Release. Archived from the original (PDF) on 2009-12-10. Retrieved 2008-02-23..
+
+[24]
+^"GoPHP5". GoPHP5. Archived from the original on 2011-04-27. Retrieved 2008-02-22..
+
+[25]
+^"PHP Installation and Configuration". php.net. Retrieved 2013-10-29..
+
+[26]
+^"PHP for Windows: Binaries and sources releases (5.3)". php.net. Retrieved 2013-10-29..
+
+[27]
+^"PHP for Windows: Binaries and sources releases (5.4)". php.net. Retrieved 2013-10-29..
+
+[28]
+^"PHP for Windows: Binaries and sources releases (5.5)". php.net. Retrieved 2013-10-29..
+
+[29]
+^https://web.archive.org/web/20221025113450/http://php.net/supported-versions.php.
+
+[30]
+^https://web.archive.org/web/20221025113450/https://wiki.debian.org/LTS/Jessie.
+[31]
+^"Types: Strings (PHP Manual)". PHP.net. Retrieved 2013-09-22..
+
+[32]
+^"Details of the String Type (PHP Manual)". PHP.net. Retrieved 2013-09-22..
+
+[33]
+^Andrei Zmievski (2005-08-10). "PHP Unicode support design document" (Mailing list). Retrieved 2014-02-09..
+
+[34]
+^"PHP 5.5 or 6.0". Retrieved 2014-02-09..
+
+[35]
+^Rasmus Lerdorf (2010-03-11). "PHP 6" (Mailing list). Retrieved 2014-02-07..
+
+[36]
+^"The Neverending Muppet Debate of PHP 6 v PHP 7"..
+
+[37]
+^"RFC: Name of Next Release of PHP". php.net. 2014-07-07. Retrieved 2014-07-15..
+
+[38]
+^"Re: [PHP-DEV] [VOTE][RFC] Name of Next Release of PHP (again)". 2014-07-30. 
+Retrieved 2014-07-30..
+
+[39]
+^"phpng: Refactored PHP Engine with Big Performance Improvement". news.php.net..
+
+[40]
+^"PHP: rfc:phpng". php.net. Retrieved 16 December 2014..
+
+[41]
+^"PHP: phpng". php.net. Retrieved 2014-07-15..
+
+[42]
+^"Merge branch 'ZendEngine3'". github.com. 2014-12-05. Retrieved 2014-12-05..
+
+[43]
+^"PHP: Release Process". 2011-06-20. Retrieved 2013-10-06..
+
+[44]
+^"PHP RFC: Exceptions in the engine (for PHP 7)". php.net. Retrieved 2015-05-21..
+
+[45]
+^"PHP RFC: Uniform Variable Syntax". php.net. 2014-05-31. Retrieved 2014-07-30..
+
+[46]
+^"Online PHP shell | 150+ versions + stats + vld + hhvm"..
+
+[47]
+^"PHP RFC: Fix "foreach" behavior". php.net. Retrieved 2015-05-21..
+
+[48]
+^"PHP RFC: Constructor behaviour of internal classes". php.net. Retrieved 2015-05-21..
+
+[49]
+^"PHP RFC: Removal of dead or not yet PHP7 ported SAPIs and extensions". php.net. Retrieved 2015-05-21..
+
+[50]
+^"PHP RFC: Fix list() behavior inconsistency". php.net. Retrieved 2015-05-21..
+
+[51]
+^"PHP RFC: Remove alternative PHP tags". php.net. Retrieved 2015-05-21..
+
+[52]
+^"PHP RFC: Make defining multiple default cases in a switch a syntax error". php.net. Retrieved 2015-05-21..
+
+[53]
+^"PHP RFC: Remove hex support in numeric strings". php.net. Retrieved 2015-05-21..
+
+[54]
+^"PHP RFC: Integer Semantics". php.net. Retrieved 2015-05-21..
+
+[55]
+^"PHP RFC: ZPP Failure on Overflow". php.net. Retrieved 2015-05-21..
+
+[56]
+^"Unsupported Branches". php.net. Retrieved 2015-11-14..
+
+[57]
+^"PHP: PHP 4 ChangeLog". The PHP Group. 2008-01-03. Retrieved 2008-02-22..
+
+[58]
+^"Using PHP from the command line". PHP Manual. The PHP Group. Retrieved 2009-09-11..
+
+[59]
+^"PHP 4.4.0 Release Announcement". PHP Mannual. The PHP Group. Retrieved 2013-11-24..
+
+[60]
+^"PHP: PHP 5 ChangeLog". The PHP Group. 2007-11-08. Retrieved 2008-02-22..
+
+[61]
+^"PHP manual: PDO". The PHP Group. 2011-11-15. Retrieved 2011-11-15..
+
+[62]
+^"Built-in web server". Retrieved March 26, 2012..
+
+[63]
+^"Supported Versions". php.net. Retrieved 2017-12-13..
+
+[64]
+^"PHP 5.5.0 changes". php.net. Retrieved 2015-03-03..
+
+[65]
+^"Migrating from PHP 5.5.x to PHP 5.6.x". php.net. Retrieved 2014-03-24..
+
+[66]
+^"Resetting PHP 6". There have been books on the shelves purporting to cover PHP 6 since at least 2008. But, in March 2010, the PHP 6 release is not out — in fact, it is not even close to out. Recent events suggest that PHP 6 will not be released before 2011 — if, indeed, it is released at all..
+
+[67]
+^"PHP 7 moves full speed ahead". Recent versions of PHP have been part of the 5.x release series, but there will be no PHP 6. "We're going to skip [version] 6, because years ago, we had plans for a 6, but those plans were very different from what we're doing now," Gutmans said. Going right to version 7 avoids confusion..
+
+[68]
+^"News Archive – 2018: PHP 7.2.9 Released". php.net. 2018-08-16. Retrieved 2018-08-16..
+
+[69]
+^"PHP: rfc:size_t_and_int64_next". php.net. Retrieved 16 December 2014..
+
+[70]
+^"PHP: rfc:abstract_syntax_tree". php.net. Retrieved 16 December 2014..
+
+[71]
+^"PHP: rfc:closure_apply". php.net. Retrieved 16 December 2014..
+
+[72]
+^"PHP: rfc:integer_semantics". php.net. Retrieved 16 December 2014..
+
+[73]
+^"PHP: rfc:isset_ternary". php.net. Retrieved 16 December 2014..
+
+[74]
+^"RFC: Unicode Codepoint Escape Syntax". 2014-11-24. Retrieved 2014-12-19..
+
+[75]
+^"Combined Comparison (Spaceship) Operator". php.net. Retrieved 2015-05-21..
+
+[76]
+^"PHP RFC: Generator Delegation". php.net. Retrieved 2015-05-21..
+
+[77]
+^"PHP RFC: Anonymous Classes". php.net. Retrieved 2015-05-21..
+
+[78]
+^"PHP RFC: Easy User-land CSPRNG". php.net. Retrieved 2015-05-21..
+
+[79]
+^"PHP RFC: Group Use Declarations". php.net. Retrieved 2015-05-21..
+
+[80]
+^"PHP: rfc:class_constant_visibility". php.net. 2015-10-27. Retrieved 2015-12-08..
+
+[81]
+^"PHP: rfc:void_return_type". php.net. 2015-11-09. Retrieved 2015-11-14..
+
+[82]
+^"PHP: rfc:object-typehint". wiki.php.net..
+
+[83]
+^"PHP: rfc:libsodium". wiki.php.net..
+
+[84]
+^"PHP: rfc:allow-abstract-function-override". wiki.php.net..
+
+[85]
+^"PHP: rfc:parameter-no-type-variance". wiki.php.net..
+
+[86]
+^"PHP: todo:php73". wiki.php.net..
+
+[87]
+^"PHP: rfc:flexible_heredoc_nowdoc_syntaxes". wiki.php.net..
+
+[88]
+^"PHP: rfc:list_reference_assignment". wiki.php.net..
+
+[89]
+^"PHP: rfc:pcre2-migration". wiki.php.net..
+
+[90]
+^"PHP: hrtime - Manual". php.net..
+
+[91]
+^"PHP 7.4 Preparation Tasks". php.net..
+
+[92]
+^"PHP: rfc:typed_properties_v2". wiki.php.net. Retrieved 2019-04-04..
+
+[93]
+^"PHP: rfc:preload". wiki.php.net. Retrieved 2019-04-04..
+
+[94]
+^"PHP: rfc:null_coalesce_equal_operator". wiki.php.net. Retrieved 2019-04-04..
+
+[95]
+^"PHP: rfc:improve-openssl-random-pseudo-bytes". wiki.php.net. Retrieved 2019-04-04..
+
+[96]
+^"PHP: rfc:weakrefs". wiki.php.net. Retrieved 2019-04-05..
+
+[97]
+^"PHP: rfc:ffi". wiki.php.net. Retrieved 2019-04-05..
+
+[98]
+^"PHP: rfc:permanent_hash_ext". wiki.php.net. Retrieved 2019-04-05..
+
+[99]
+^"PHP: rfc:password_registry". wiki.php.net. Retrieved 2019-04-05..
+
+[100]
+^"PHP: rfc:mb_str_split". wiki.php.net. Retrieved 2019-04-05..
+
+[101]
+^"PHP: rfc:reference_reflection". wiki.php.net. Retrieved 2019-04-05..
+
+[102]
+^"PHP: rfc:deprecate-and-remove-ext-wddx". wiki.php.net. Retrieved 2019-04-05..
+
+[103]
+^"PHP: rfc:custom_object_serialization". wiki.php.net. Retrieved 2019-04-05..
+
+[104]
+^"PHP: rfc:jit". wiki.php.net. Retrieved 2019-04-05..
+
+[105]
+^"PHP: rfc:negative_array_index". wiki.php.net. Retrieved 2019-04-05..
+
+[106]
+^"PHP: rfc:consistent_type_errors". wiki.php.net. Retrieved 2019-04-05..
+
+[107]
+^"PHP: rfc:lsp_errors". wiki.php.net. Retrieved 2019-05-26..
+
+[108]
+^"PHP: ElePHPant". 4 Oct 2014. Retrieved 4 Oct 2014..
+
+[109]
+^"Redirecting…". wwphp-fb.github.io..
+
+[110]
+^"The PHP Mascot's Birth - Creator Of The elePHPant Vincent Pontier Reveals The True Story!". 7php.com..
+
+[111]
+^"PHP: ElePHPant"..
+
+[112]
+^"tags — Manual". php.net. Retrieved 2014-02-17..
+
+[113]
+^"PHP: rfc:shortags". php.net. 2008-04-03. Retrieved 2014-05-08..
+
+[114]
+^"PHP: Basic syntax". The PHP Group. Retrieved 2008-02-22..
+
+[115]
+^"Basic Coding Standard". PHP Framework Interoperability Group. Retrieved 2016-01-03..
+
+[116]
+^"echo — Manual". php.net. Retrieved 2014-02-17..
+
+[117]
+^"Description of core php.ini directives — Manual". php.net. 2002-03-17. 
+Retrieved 2014-02-17..
+
+[118]
+^"Your first PHP-enabled page". The PHP Group. Retrieved 2008-02-25..
+
+[119]
+^Bray, Tim; et al. (26 November 2008). "Processing Instructions". Extensible Markup Language (XML) 1.0 (Fifth Edition). W3C. Retrieved 2009-06-18..
+
+[120]
+^"RFC: Scalar Type Declarations". php.net. 2015-03-16. Retrieved 2015-03-17..
+
+[121]
+^"Instruction separation". The PHP Group. Retrieved 2008-03-16..
+
+[122]
+^"Comments". The PHP Group. Retrieved 2008-03-16..
+
+[123]
+^"Integers in PHP, running with scissors, and portability". MySQL Performance Blog. March 27, 2007. Retrieved 2007-03-28..
+
+[124]
+^"Types". The PHP Group. Retrieved 2008-03-16..
+
+[125]
+^"Strings". The PHP Group. Retrieved 2008-03-21..
+
+[126]
+^"SPL – StandardPHPLibrary". PHP.net. March 16, 2009. Retrieved 2009-03-16..
+
+[127]
+^"User-defined functions (PHP manual)". php.net. 2014-07-04. Retrieved 2014-07-07..
+
+[128]
+^"Variable functions (PHP manual)". php.net. 2014-07-04. Retrieved 2014-07-07..
+
+[129]
+^"create_function() (PHP manual)". php.net. 2014-07-04. Retrieved 2014-07-07..
+
+[130]
+^Christian Seiler; Dmitry Stogov (2008-07-01). "Request for Comments: Lambda functions and closures". php.net. Retrieved 2014-07-07..
+
+[131]
+^"History of PHP and related projects". The PHP Group. Retrieved 2008-02-25..
+
+[132]
+^"Classes and Objects (PHP 5)". The PHP Group. Retrieved 2008-03-16..
+
+[133]
+^"Object cloning". The PHP Group. Retrieved 2008-03-16..
+
+[134]
+^"Visibility (PHP Manual)". theserverpages.com. 2005-05-19. Retrieved 2010-08-26..
+
+[135]
+^"How do computer languages work?". Retrieved 2009-11-04..
+
+[136]
+^Gilmore, W. Jason (2006-01-23). Beginning PHP and MySQL 5: From Novice to Professional. Apress. p. 43. ISBN 1590595521..
+
+[137]
+^"[VOTE] Integrating Zend Optimizer+ into the PHP distribution". news.php.net. Retrieved 2013-03-08..
+
+[138]
+^"Alternative PHP Cache". PHP.net. Retrieved 2013-09-21..
+
+[139]
+^"We are the 98.5\% (and the 16\%) « HipHop Virtual Machine". hhvm.com. December 2013. Retrieved 2014-02-23..
+[140]
+^"The Definitive PHP 5.6, 7.0, 7.1, 7.2 & 7.3 Benchmarks (2019)" (in 英语). 2019-01-14. Retrieved 2019-04-19..
+
+[141]
+^Krill, Paul (2017-09-20). "Forget PHP! Facebook's HHVM engine switches to Hack instead". InfoWorld (in 英语). Retrieved 2019-02-06..
+
+[142]
+^"Announcement on GitHub removing HPHPc support". Retrieved 2013-05-24..
+
+[143]
+^"The PHP License, version 3.01". Retrieved 2010-05-20..
+
+[144]
+^"GPL-Incompatible, Free Software Licenses". Various Licenses and Comments about Them. Free Software Foundation. Retrieved 2011-01-03..
+
+[145]
+^"PHP: Function and Method listing — Manual". The PHP Group. Retrieved 2015-01-14..
+
+[146]
+^"Introduction — Manual". php.net. 2013-06-07. Retrieved 2013-06-13..
+
+[147]
+^Darryl Patterson (5 August 2004). "Simplify Business Logic with PHP DataObjects — O'Reilly Media". ibm.com. Retrieved 16 December 2014..
+
+[148]
+^"IBM — United States". IBM — United States. Retrieved 16 December 2014..
+
+[149]
+^"Five common PHP database problems". ibm.com. 2006-08-01. Retrieved 2013-06-13..
+
+[150]
+^"IBM Redbooks — Developing PHP Applications for IBM Data Servers". redbooks.ibm.com. Retrieved 16 December 2014..
+
+[151]
+^"php[architect] Magazine - The Journal for PHP Programmers". www.phparch.com..
+
+[152]
+^Krill, Paul (19 October 2005). "PHP catching on at enterprises, vying with Java". InfoWorld. Archived from the original on 13 July 2014..
+
+[153]
+^"Cross Reference: /PHP_5_4/ext/standard/". php.net. Archived from the original on 16 March 2012. Retrieved 16 December 2014..
+
+[154]
+^"Developing Custom PHP Extensions". devnewz.com. 2002-09-09. Archived from the original on 2008-02-18. Retrieved 2008-02-25..
+
+[155]
+^"Why Zephir?". zephir-lang.com. 2015-10-20. Retrieved 2015-12-14..
+
+[156]
+^"PHP Credits". Retrieved 2018-12-16..
+
+[157]
+^"General Installation Considerations". php.net. Retrieved 2013-09-22..
+
+[158]
+^"News Archive: PHP 5.3.3 Released!". php.net. 2010-07-22..
+
+[159]
+^"FastCGI Process Manager (FPM)". php.net. Retrieved 2013-09-22..
+
+[160]
+^"Command line usage: Introduction". php.net. Retrieved 2013-09-22..
+
+[161]
+^"Command line usage: Differences to other SAPIs". php.net. Retrieved 2013-09-22..
+[162]
+^"PHP: Apache 2.x on Microsoft Windows". php.net. Archived from the original on 2013-09-26. Retrieved 2013-09-22..
+
+[163]
+^"Installing PHP-GTK 2". php.net. Retrieved 2013-09-22..
+
+[164]
+^"AWS SDK for PHP". aws.amazon.com. Retrieved 2014-03-06..
+
+[165]
+^"Windows Azure SDK for PHP — Interoperability Bridges and Labs Center". interoperabilitybridges.com. Archived from the original on 2014-03-20. Retrieved 2014-03-06..
+
+[166]
+^"Runtime configuration: Table of contents". php.net. Retrieved 2013-09-22..
+
+[167]
+^"php.ini directives: List of php.ini directives". php.net. Retrieved 2013-09-22..
+
+[168]
+^"Runtime configuration: The configuration file". PHP.net. Retrieved 2013-09-22..
+
+[169]
+^"php.ini directives: List of php.ini sections". PHP.net. Retrieved 2013-09-22..
+
+[170]
+^"Runtime configuration: Where a configuration setting may be set". PHP.net. 
+Retrieved 2013-09-22..
+
+[171]
+^"PHP Manual Image Processing and GD;". php.net. Retrieved 2011-04-09..
+
+[172]
+^"Embedding PHP in HTML". O'Reilly. 2001-05-03. Retrieved 2008-02-25..
+
+[173]
+^"PHP Server-Side Scripting Language". Indiana University. 2007-04-04. Retrieved 2008-02-25..
+
+[174]
+^"JavaServer Pages Technology — JavaServer Pages Comparing Methods for Server-Side Dynamic Content White Paper". Sun Microsystems. Retrieved 2008-02-25..
+
+[175]
+^"Five simple ways to tune your LAMP application"..
+
+[176]
+^"PHP: PHP Usage Stats". SecuritySpace. 2007-04-01. Retrieved 2008-02-24..
+
+[177]
+^"Manual:Installation requirements#PHP". MediaWiki. 2010-01-25. Retrieved 2010-02-26. PHP is the programming language in which MediaWiki is written [...].
+[178]
+^Kempkens, Alex. "Joomla! — Content Management System to build websites & apps"..
+
+[179]
+^"Server requirements of SilverStripe". Retrieved 13 October 2014. SilverStripe requires PHP 5.3.2+.
+[180]
+^"About WordPress". Retrieved 2010-02-26. WordPress was [...] built on PHP.
+[181]
+^"PHP and Drupal". Drupal.org. Retrieved 2010-06-13..
+[182]
+^"About". Moodle.org. Retrieved 2009-12-20..
+[183]
+^"PHP and Facebook | Facebook". Blog.facebook.com. Retrieved 2009-07-29..
+[184]
+^"PHP and Digg". O'Reilly. Retrieved 2010-06-13..
+[185]
+^"PHP 7 at Tumblr". Tumblr Engineering. 4 November 2016..
+[186]
+^"PHP 7 deployment at Dailymotion". Dailymotion engineering blog. 3 October 2016..
+[187]
+^"Taking PHP Seriously". Slack Engineering Blog. 12 October 2016..
+[188]
+^"PHP at the core: Extension structure". PHP.net. Retrieved 2013-09-22..
+[189]
+^"PHP at the core: The "counter" Extension – A Continuing Example". PHP.net. Retrieved 2013-09-22..
+[190]
+^"Extension Writing Part I: Introduction to PHP and Zend". Zend Technologies. 2005-03-01. Retrieved 2013-09-22..
+[191]
+^"Extension Writing Part II: Parameters, Arrays, and ZVALs". Zend Technologies. 2005-06-06. Retrieved 2013-09-22..
+[192]
+^"Extension Writing Part II: Parameters, Arrays, and ZVALs (continued)". Zend Technologies. 2005-06-06. Retrieved 2013-09-22..
+[193]
+^"Extension Writing Part III: Resources". Zend Technologies. 2006-05-12. Retrieved 2013-09-22..
+[194]
+^"Wrapping C++ Classes in a PHP Extension". Zend Technologies. 2009-04-22. Retrieved 2013-09-22..
+[195]
+^"Extending PHP with C++?". Stack Overflow. Retrieved 2013-09-22..
+[196]
+^"How can I use C++ code to interact with PHP?". Stack Overflow. Retrieved 2013-09-22..
+[197]
+^Golemon, Sara (2006). Extending and Embedding PHP. ISBN 978-0-672-32704-9..
+[198]
+^"Bug Request #46919: Multi threading". PHP.net. Retrieved 2013-09-22..
+[199]
+^"pthreads: Introduction (PHP Manual)". PHP.net. Retrieved 2013-09-22..
+[200]
+^"PECL :: Package :: pthreads". pecl.php.net. Retrieved 2014-02-09..
+[201]
+^Ide, Andy (2013-01-31). "PHP just grows & grows". Retrieved 2013-04-01..
+[202]
+^"National Vulnerability Database (NVD) Search Vulnerabilities". Retrieved 2014-03-19.[永久失效连结].
+[203]
+^"PHP-related vulnerabilities on the National Vulnerability Database". 2012-07-05. Retrieved 2013-04-01..
+[204]
+^"PHP Taint Mode RFC"..
+[205]
+^"Developer Meeting Notes, Nov. 2005"..
+[206]
+^"Taint mode decision, November 2007". Archived from the original on 2009-02-26..
+[207]
+^"Hardened-PHP Project". 2008-08-15..
+[208]
+^"Security: Using Register Globals". PHP Manual. PHP.net. Retrieved 2013-09-22..
+[209]
+^"Magic Quotes". PHP Manual. PHP.net. Retrieved 2014-01-17..
+[210]
+^"'engine' configuration directive". PHP: Runtime Configuration. PHP.net. Retrieved 2014-02-13..
+[211]
+^"PHP Security Exploit With GIF Images". 2007-06-22. Retrieved 2013-09-22..
+[212]
+^"PHP security exploit with GIF images". PHP Classes blog. 2007-06-20. Retrieved 2013-09-22..
+[213]
+^"Passing Malicious PHP Through getimagesize()". 2007-06-04. Archived from the original on 2013-09-21. Retrieved 2013-09-22..
+[214]
+^"'enable_dl' configuration directive". PHP: Runtime Configuration. PHP.net. Retrieved 2014-02-13..
+[215]
+^"PHP function reference: dl()". PHP.net. Retrieved 2013-09-22..
+[216]
+^Raz0r. "Simple Machines Forum <= 2.0.3 Admin Password Reset"..
+[217]
+^Nibble Security. "TYPO3-SA-2010-020, TYPO3-SA-2010-022 EXPLAINED"..
+[218]
+^Ahack.ru. "Криптостойкость и небезопасное сравнение"..
+[219]
+^"Comparison operators". PHP.net..
+[220]
+^Pawel Krawczyk (2013). "Most common attacks on web applications". IPSec.pl. Retrieved 2015-04-15..
+[221]
+^Pawel Krawczyk (2013). "So what are the "most critical" application flaws? On new OWASP Top 10". IPSec.pl. Retrieved 2015-04-15..

@@ -130,7 +130,10 @@ $$
 \begin{equation}
 \sum_{i\in I} a_i~.
 \end{equation}
-其中，$I$为指标集。
+其中，$I$为指标集。特别的，若$I$为空集，一般称为“空和”，并定义为0，即：
+\begin{equation}
+\sum_{i\in \varnothing} a_i=0~.
+\end{equation}
 
 同时，若通过上下文可以明确指标集$I$或只为表述记号的运算特点而不强调指标集时，在不引起歧义的情况下，为了方便可以直接记作：
 
@@ -187,12 +190,6 @@ $$
 \sum_{i=a}^b g(i) = \sum_{k=a+m}^{b+m} g(k-m).~
 \end{equation}
 
-特别的，可以通过换元来得到倒序求和，只要保证$k+i=a+b$即可得到：
-\begin{equation}
-\sum_{i=a}^b g(i) = \sum_{k=a}^{b} g(a+b-k).~
-\end{equation}
-此时，若称$i$为指标的求和顺序为正序，则以$k$为指标的求和顺序即为倒序。
-
 \begin{example}{将$\sum\limits_{i=m}^n a_i$的指标$i$替换为$j$，且满足替换后的下限为$j=0$。}
 解答：
 \begin{enumerate}
@@ -202,10 +199,14 @@ $$
 \end{enumerate}
 
 因此，换元前后为:
-\begin{equation}
-\sum_{i=m}^n a_i = \sum_{j=0}^{n-m} a_{j+m}~.
-\end{equation}
+$$\sum_{i=m}^n a_i = \sum_{j=0}^{n-m} a_{j+m}~.$$
 \end{example}
+
+特别的，可以通过换元来得到倒序求和，只要保证$k+i=a+b$即可得到：
+\begin{equation}\label{eq_SumSym_4}
+\sum_{i=a}^b g(i) = \sum_{k=a}^{b} g(a+b-k).~
+\end{equation}
+此时，若称$i$为指标的求和顺序为正序，则以$k$为指标的求和顺序即为倒序。
 
 \subsubsection{分组求和}
 
@@ -215,9 +216,7 @@ $$
 \sum_{i=1}^{nk} a_i = \sum_{j=0}^{k-1} \sum_{i=1}^n a_{i+jn}.~
 \end{equation}
 
-\addTODO{拆分页面时着重提一下倒序拆分。}
-
-它的一个特例是，分成两列，并使得两列的顺序相反，即：
+它的一个特例是，分成两列，并利用\autoref{eq_SumSym_4} 使得两列的顺序相反，即：
 
 \begin{equation}\label{eq_SumSym_3}
 \sum_{i=1}^n a_i = \sum_{i=1}^{n/2} (a_i + a_{n+1-i}).~
