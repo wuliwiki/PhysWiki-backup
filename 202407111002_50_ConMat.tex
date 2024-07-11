@@ -23,11 +23,11 @@
 \caption{混淆矩阵基本模式}\label{tab_ConMat_1}
 \begin{tabular}{|c|c|c|}
 \hline
- & 预测为正类 & 预测为负类 \\
+ & 预测为正类 (Positive)& 预测为负类 (Negative)\\
 \hline
-实际为正类 & 真正类 & 假负类 \\
+实际为正类（Positive） & 真正类 (TP)& 假负类 (FN) \\
 \hline
-实际为负类 & 假正类 & 假负类 \\
+实际为负类 （Negative）& 假正类 (FP) & 真负类 (TN)\\
 \hline
 \end{tabular}
 \end{table}
@@ -62,9 +62,7 @@
 \end{tabular}
 \end{table}
 
-从\autoref{tab_ConMat2} 中可以看出，实际有9只羊，模型预测正确了6只（预测为羊），预测错了3只（预测为马）。马实际上有5匹，模型预测正确了4只（预测为马），预测错了1匹（预测为羊）。
-
-（如\autoref{tab_ConMat_2} 所示）。
+从\autoref{tab_ConMat2} 中可以看出，实际有9只羊，模型预测正确了6只（预测为羊），预测错了3只（预测为马）。马实际上有5匹，模型预测正确了4只（预测为马），预测错了1匹（预测为羊）。把结论写下来，就形成了如\autoref{tab_ConMat_2} 所示的混淆矩阵。
 \begin{table}[ht]
 \centering
 \caption{混淆矩阵例子}\label{tab_ConMat_2}
@@ -78,3 +76,5 @@
 \hline
 \end{tabular}
 \end{table}
+
+由混淆矩阵，我们可以得出对于模型的多个常规的评价指标。
