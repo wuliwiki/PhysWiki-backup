@@ -1,0 +1,98 @@
+% 混淆矩阵
+% keys 分类|机器学习|统计学
+% license Xiao
+% type Tutor
+
+\pentry{分类\nref{nod_Class}}{nod_554a}
+
+在机器学习中，\textbf{混淆矩阵}（Confusion Matrix）是一种通过表格可视化的方式呈现分类模型性能的常用工具，能够显示出模型预测值与实际标签之间的对应关系。顾名思义，混淆矩阵能够方便地看出模型是否将两个不同的类混淆了（比如把一个类错误地判定为另一类）以及混淆的数量有多少。
+
+要弄清楚混淆矩阵，首先必须了解以下基本概念。
+
+\begin{enumerate}
+\item True Positive（TP）：真正类。样本的真实类别是正类，并且模型也将其判定为正类。
+\item False Negative（FN）：假负类。样本的真实类别是正类，但模型将其判定为负类。
+\item False Positive（FP）：假正类。样本的真实类别是负类，但模型将其判定为正类。
+\item True Negative（TN）：真负类。样本的真实类别是负类，并且模型将其判定为负类。 
+\end{enumerate}
+
+对于二分类问题而言，混淆矩阵包含两行、两列，一共四个单元格。列（行）分别表示分类器预测的值，行（列）分别表示实际的值。如\autoref{tab_ConMat_1} 所示。
+
+\begin{table}[ht]
+\centering
+\caption{混淆矩阵基本模式}\label{tab_ConMat_1}
+\begin{tabular}{|c|c|c|}
+\hline
+ & 预测为正类 (Positive)& 预测为负类 (Negative)\\
+\hline
+实际为正类（Positive） & 真正类 (TP)& 假负类 (FN) \\
+\hline
+实际为负类 （Negative）& 假正类 (FP) & 真负类 (TN)\\
+\hline
+\end{tabular}
+\end{table}
+
+举个例子，现在有一个训练好的二元分类器，用于判断给定图片上的动物是马还是羊。假设，有一个图片数据集，一共14张图片，其中9只为羊，5只为马。假设用0表示羊，1表示马。样本情况可以表示为\autoref{tab_ConMat1} 。
+
+\begin{table}[ht]
+\centering
+\caption{样本表}\label{tab_ConMat1}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+样本编号 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+\hline
+实际类别 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+
+现在用训练好的分类器来做判断，有可能产生下面的结果。
+
+\begin{table}[ht]
+\centering
+\caption{样本分类表}\label{tab_ConMat2}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+样本编号 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+\hline
+实际类别 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+预测类别 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+
+从\autoref{tab_ConMat2} 中可以看出，实际有9只羊，模型预测正确了6只（预测为羊），预测错了3只（预测为马）。马实际上有5匹，模型预测正确了4只（预测为马），预测错了1匹（预测为羊）。把结论写下来，就形成了如\autoref{tab_ConMat_2} 所示的混淆矩阵。
+\begin{table}[ht]
+\centering
+\caption{混淆矩阵例子}\label{tab_ConMat_2}
+\begin{tabular}{|c|c|c|}
+\hline
+ & 预测为马 & 预测为羊 \\
+\hline
+实际为马 & 4 & 1 \\
+\hline
+实际为羊 & 3 & 6 \\
+\hline
+\end{tabular}
+\end{table}
+
+设样本总数用N表示，本例中N=14。显然，当只给定混淆矩阵时，也可以从中算出样本总数：N=TP+FN+FP+TN=14。由混淆矩阵，我们可以得出对于模型的多个常规的评价指标。
+
+\textbf{精确率}（Accuracy），或者称\textbf{精度}\upref{Accu}：最常用的分类性能指标。可以用来表示模型的分类精度，即模型识别正确的个数/样本的总个数。
+
+本例模型精度 = (TP+TN)/N=(4+6)/14=10/14
+
+\textbf{准确率}（Precision），又称\textbf{查准率}：表示在模型判定为正类的样本中，真正为正类的样本所占的比例。
+
+本例准确率 = TP/(TP+FP)=4/(4+3)=4/7
+
+\textbf{召回率}（Recall），又称\textbf{查全率}：在实际正样本中，模型判定正确的数量。
+
+本例召回率=TP/(TP+FN)=4/(4+1)=4/5
+
+\textbf{特异度}（Specificity）：实际为负类的样本中被模型正确判定为负类的比例。
+
+本例特异度=TN/(TN+FP)=6/(6+3)=2/3
+
+F1分数（F1 score）：就是将正确率和召回率的一种加权平均，在合并的过程中，召回率的权重是正确率的β倍。
