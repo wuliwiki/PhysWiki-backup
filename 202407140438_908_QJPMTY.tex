@@ -113,8 +113,7 @@ $$\frac{4}{(1 + X^2 + Y^2)^2} (\mathrm{d}X^2 + \mathrm{d}Y^2),~$$
 \caption{用不同的颜色表示球面上不同的恒向线} \label{fig_QJPMTY_8}
 \end{figure}
 球面上的恒向线映射到平面上所得到的曲线具有以下形式：
-$R = e^{\frac{\theta}{a}},$
-
+$$R = e^{\frac{\theta}{a}},~$$
 其中参数
 
 a 代表了恒向线的“紧密度”。因此，球面上恒向线对应于平面上的对数螺线。这些螺旋与平面上的径向线等角相交，就像恒向线与球面上的经线等角相交一样。
@@ -132,4 +131,150 @@ a 代表了恒向线的“紧密度”。因此，球面上恒向线对应于平
 \item \(P''\) 是以\(S\) 为投影点时，\(P\) 点球极平面投影，
 \end{itemize}
 那么称 \(P'\) 点和 \(P''\) 点关于单位圆相互逆像。
-$$\triangle NOP' \sim \triangle P''OS \Longrightarrow OP' : ON = OS : OP'' \Longrightarrow OP' \cdot OP'' = 1~$$
+$$\triangle NOP' \sim \triangle P''OS \Longrightarrow OP' : ON = OS : OP'' \Longrightarrow OP' \cdot OP'' = r^2~$$
+
+\subsection{乌尔夫网}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/0647b5f83d7a4a22.png}
+\caption{乌尔夫网或立体网，用于手工绘制球极平面投影图} \label{fig_QJPMTY_10}
+\end{figure}
+球极平面投影图可以由计算机根据上面给出的显式公式进行绘制。然而，当手工绘制时，这些公式是不实用的。作为替代，通常是使用专门为这项任务设计的方格纸。这种特殊的方格纸被称为立体网或乌尔夫网，以俄罗斯矿物学家乔治(尤里·维克托罗维奇)伍尔夫(George (Yuri Viktorovich) Wulff)的名字命名。[11]
+
+这里显示的乌尔夫网是以赤道上的点为中心的半球(如行星的东半球或西半球)纬线和经线网格的球极平面投影。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/adcda92167cd8118.png}
+\caption{通过中心C 及投影平面 的球极平面投影生成一个乌尔夫网红色圆圈内的圆形网)} \label{fig_QJPMTY_11}
+\end{figure}
+在图中，通过比较网格中心附近的网格扇区和最右边或最左边的网格扇区，可以看出球极平面投影的面积扭曲特性。这两个扇区在球面上有着相同的面积。但在平面上，后者的面积几乎是前者的四倍。如果网格变得更细，这个比例将收敛于4。
+
+在乌尔夫网，纬线和经线的图像以直角相交。这种正交性是立体投影的保角特性的结果。(然而，保角特性比该特性更强。并非所有保持纬线和经线正交性的投影都是保角的。)
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/3b2a1f0f4aa94a35.png}
+\caption{在乌尔夫网上绘制点的步骤说明} \label{fig_QJPMTY_12}
+\end{figure}
+举一个使用乌尔夫网的例子，想象两个薄纸上的乌尔夫网副本，一个在另一个上面，对齐并保证它们的共同中心始终重合。令$P$点的球面坐标为(140，60)，笛卡尔坐标为(0.321, 0.557, −0.766)。这一点位于从\(X\)-轴正方向逆时针方向旋转60° (或从\(Y\)-轴正方向顺时针旋转30° )并相对于$z = 0$平面向下旋转50°所得到的直线上。一旦知道这些角度，就有四个步骤来绘图P 点:
+\begin{enumerate}
+\item 使用图中所示间隔为10°的网格线，从点(1, 0)沿逆时针方向找到60°线对应的网格边缘点(或从点(1, 0)沿顺时针方向找到30°线对应的网格边缘点)。
+\item 旋转上层的乌尔夫网，直到该点与下层乌尔夫网的(1, 0)点重合。
+\item 利用下层乌尔夫网的网格线，在上层乌尔夫网上标记出从该点向中心香菊50°的点。
+\item 反向旋转上层乌尔夫网，使其与下层乌尔夫网对齐。那么步骤3中标记的点就是我们想要得到的投影。
+\end{enumerate}
+要绘制角度不是类似于60°和50°的整数的其他点，必须在最近的网格线之间进行可视化的插值。间距小于10°的网将有助于这些点的寻找。2°的间距是很常见的。
+
+要根据球面上两点的球极平面投影图找到球面上两点之间的中心角，需将该图覆盖在乌尔夫网上，并围绕中心旋转该图，直到这两点位于子午线上或附近。然后通过计算子午线上的网格线来测量它们之间的角度。
+\begin{itemize}
+\item $P_1$和$P_2$ 两个点位于一个固定于乌尔夫网格原点的透明薄片上。
+
+\item 透明薄片旋转使得$P_1$和$P_2$和两个点位于同一条经线上，并由此得到两点之间的中心角.
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/b45c9c4b5273b5fa.png}
+\caption{} \label{fig_QJPMTY_13}
+\end{figure}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/f6a32884f4237299.png}
+\caption{} \label{fig_QJPMTY_15}
+\end{figure}
+
+\subsection{数学应用}
+\subsubsection{5.1 复分析}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/529246b8a191acfd.png}
+\caption{复杂的平面及其上面的黎曼球} \label{fig_QJPMTY_17}
+\end{figure}
+虽然任何体球极平面投影都会忽略球面上的一个点(投影点)，但是可以使用来自不同投影点的两个投影来映射整个球面。换句话说，球面可以被平面上的两个球极平面投影参数化(投影的逆)覆盖。可以通过参数化在球面上诱导相同的方向。它们一起将球面描述为一个定向曲面(或二维流形)。
+这种结构在复分析中具有特殊的意义。实平面上的点 $(X, Y)$ 可以用复数来表示 $\zeta = X + iY$。从北极点到赤道平面的球极平面投影是：
+$$\zeta = \frac{x + iy}{1 - z},~$$
+$$(x, y, z) = \left( \frac{2 \Re \zeta}{1 + \bar{\zeta}\zeta }, \frac{2 \Im \zeta}{1 + \bar{\zeta}\zeta }, \frac{-1 + \bar{\zeta}\zeta }{1 + \bar{\zeta}\zeta } \right).~$$
+同样，令 $\xi = X - iY$ 作为另一个复坐标，那么函数：
+$$\xi = \frac{x - iy}{1 + z},~$$
+$$(x, y, z) = \left( \frac{2 \Re \xi}{1 +\bar{\xi} \xi }, \frac{-2 \Im \xi}{1 + \bar{\xi}\xi }, \frac{1 -\bar{\xi} \xi}{1 + \bar{\xi}\xi } \right).~$$
+定义了从南极点到赤道平面的球极平面投影。 $\zeta-$和 $\xi-$坐标之间的变换关系是 $\zeta = 1\xi$ 和 $\xi = 1\zeta$，当 $\zeta$ 趋向于0时，$\xi$ 趋向于无穷大，反之亦然。这有助于为复数提供一个简洁、有用的无穷概念，实际上也就是映射到黎曼球面的整个亚纯函数理论。单位球面上的标准度量与黎曼球面上的富比尼–施图迪度量是一致的。
+\subsubsection{5.2 线条和平面的可视化}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/5c8d4cf707430050.png}
+\caption{面心立方晶体的八个<111>区域中的四个的菊池线动画。平面(带状线)以固定的角度相交。} \label{fig_QJPMTY_18}
+\end{figure}
+三维空间中穿过原点的所有直线的集合形成了一个称为实射影平面的空间。这个空间很难想象，因为它不能嵌入到三维空间中。
+
+然而，“几乎”可以将其想象为一个圆盘。穿过原点的任何直线都与南半球面（$z \leq 0$）相交于一点，该点可以通过球极平面投影映射到圆盘上的一个点。水平线在沿着赤道的两个对跖点与南半球相交，这两个点中的任何一个都可以投影到圆盘上；可以理解，圆盘边界上的对跖点代表一条直线。所以穿过原点的任何一组线几乎可以完美地描绘成圆盘中的一组点。
+
+此外，通过原点的每个平面与单位球面相交于一个大圆，称为平面的“迹”。这个圆在球极平面投影下映射成一个圆。所以投影让我们把平面想象成圆盘中的圆弧。在计算机出现之前，有大圆的球极平面投影通常要画出需要使用横杆圆规的大半径圆弧。而电脑的出现使这项任务变得容易了很多。
+
+与每个平面进一步相关联的是一条独特的线，称为平面的极线，它穿过原点并垂直于平面。这条线可以像穿过原点的任何线一样绘制成圆盘上的一个点。所以球极平面投影也让我们把平面想象成圆盘上的点。对于涉及许多平面的图，绘制它们的极线能得到比绘制它们的迹更不混乱的图像。
+
+如图所示，这种构造可用于可视化晶体学和地质学中的晶向数据。
+\subsubsection{5.3 其他可视化}
+球极平面投影也应用于多胞体的可视化。在施莱格尔图中，一个 n-维正多胞体在 $R^{n+1}$ 投影到 n-维球面，然后用球极平面投影映射到$R^n$。从$R^{n+1}$降维到$R^n$可以更容易地去想象和理解正多胞体。
+\subsubsection{5.4 算术几何}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/fd823567ff6d17b5.png}
+\caption{圆上的有理点在球极平面投影下与直线上的有理点对应。} \label{fig_QJPMTY_19}
+\end{figure}
+在初等算术几何中，单位圆的球极平面投影提供了一种描述所有原始勾股数的方法。具体地说，从北极点 \((0, 1)\) 到 \(X\)-轴的球极平面投影给出了单位圆上的有理数点 \((x, y)\)（其中，\(y \neq 1\)）和 \(x\)-轴上有理数点之间一一对应的关系。如果 \((mn, 0)\) 是 \(x\)-轴上的一个有理数点，那么它的逆球极平面投影就是点：
+$$\left( \frac{2mn}{n^2 + m^2}, \frac{n^2 - m^2}{n^2 + m^2} \right)~$$
+其给出了勾股数的欧几里得公式。
+\subsubsection{5.5 正切半角代换}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/e02d87b20b2b60a5.png}
+\caption{} \label{fig_QJPMTY_20}
+\end{figure}
+三角函数对 $\left(\sin x, \cos x\right)$ 可以看做是单位圆的参数化。球极平面投影给出了一种单位圆的另一种参数化方法：
+$$\cos x = \frac{t^2 - 1}{t^2 + 1}, \quad \sin x = \frac{2t}{t^2 + 1}.~$$
+在这种新的参数化中，单位圆的长度微元 $dx$ 为：
+$$dx = \frac{2 \, dt}{t^2 + 1}.~$$
+这种代换有时可以简化涉及三角函数的积分。
+
+\subsection{其他学科的应用}
+\subsubsection{6.1 制图学}
+制图学的基本问题是从球面到平面的地图不能同时准确地表示角度和面积。一般来说，对于统计应用，优选保面积投影地图，而对于导航，优选保角(共形)投影地图。
+
+球极平面投影属于第二类。当投影以地球的北极点或南极点为中心时，它有额外的理想属性：它将经线映射为从原点呈射线状发出的直线，并将纬线映射为以原点为中心的圆。
+\begin{itemize}
+\item 南纬30°以北的球极平面投影。每个网格为15° 间隔。
+\item 带有天梭变形指标的球极立体投影。
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/468beb82efa3b8f5.png}
+\caption{} \label{fig_QJPMTY_21}
+\end{figure}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/07263214ec238b21.png}
+\caption{} \label{fig_QJPMTY_22}
+\end{figure}
+\subsubsection{6.2 行星科学}
+球极平面投影是唯一能将球面上的所有圆映射为平面上的圆的投影。这一特性在以环形山为典型特征的行星测绘中很有价值。通过投影点的圆的集合具有无穷大的半径，因此退化为直线。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/086c2617d90ddb32.png}
+\caption{月球的球极平面投影，显示了北纬60°以北的极地区域。圆形的陨石坑在这个投影中依然呈现圆形，不管它们是靠近极点还是地图的边缘。} \label{fig_QJPMTY_23}
+\end{figure}
+\subsubsection{6.3 晶体学}
+在晶体学中，晶体轴和面在三维空间中的取向是一个中心几何问题，例如在解释$X$射线和电子衍射图案时。这些方向可以像上面的线和平面可视化部分一样可视化。也就是说，晶体轴和晶体平面的极点与北半球相交，并使用球极平面投影绘制。一个绘制了这些极点的图被称为极点图。
+
+在电子衍射中，菊池线对表现为装饰晶格面迹线和埃瓦尔德球面之间交叉点的带，从而提供实验法获得晶体的球极平面投影的方法。菊池模型映射于互易空间中，[12]用于直接空间弯曲轮廓的条纹可见度图[13]，从而在透射电镜中作为探索晶体取向空间的路线图。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/6641ddc2a4fc7b82.png}
+\caption{金刚石晶格在[111]方向上的一种晶体极点图。} \label{fig_QJPMTY_24}
+\end{figure}
+\subsubsection{6.4 地质学}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/dd2555964f2ef716.png}
+\caption{在构造地质学中，利用下半球的球极立体投影来绘制平面和线性数据，此处以拥有滑擦面线理的断层平面为例进行展示。} \label{fig_QJPMTY_25}
+\end{figure}
+出于多种原因，结构地质学的研究人员关注平面和直线的方向。岩石的叶状结构是一种平面特征，通常包含一种称为线理的线性特征。类似地，断层平面是一个平面特征，可能包含线性特征，如滑擦面。
+
+可以使用上述线和平面可视化部分的方法绘制这些不同比例的线和平面的方向。如同在晶体学中一样，平面通常由它们的极点绘制。与晶体学不同的，通常用南半球来代替北半球(因为所讨论的地质特征位于地表之下)。在这种情况下，球极平面投影通常被称为等角下半球投影。也会使用由朗伯方位等面积投影定义的等面积下半球投影，特别是当该图要进行后续的统计分析时，如密度等值线。

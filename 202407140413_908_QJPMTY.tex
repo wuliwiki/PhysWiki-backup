@@ -113,8 +113,7 @@ $$\frac{4}{(1 + X^2 + Y^2)^2} (\mathrm{d}X^2 + \mathrm{d}Y^2),~$$
 \caption{用不同的颜色表示球面上不同的恒向线} \label{fig_QJPMTY_8}
 \end{figure}
 球面上的恒向线映射到平面上所得到的曲线具有以下形式：
-$R = e^{\frac{\theta}{a}},$
-
+$$R = e^{\frac{\theta}{a}},~$$
 其中参数
 
 a 代表了恒向线的“紧密度”。因此，球面上恒向线对应于平面上的对数螺线。这些螺旋与平面上的径向线等角相交，就像恒向线与球面上的经线等角相交一样。
@@ -132,4 +131,72 @@ a 代表了恒向线的“紧密度”。因此，球面上恒向线对应于平
 \item \(P''\) 是以\(S\) 为投影点时，\(P\) 点球极平面投影，
 \end{itemize}
 那么称 \(P'\) 点和 \(P''\) 点关于单位圆相互逆像。
-$$\triangle NOP' \sim \triangle P''OS \Longrightarrow OP' : ON = OS : OP'' \Longrightarrow OP' \cdot OP'' = 1~$$
+$$\triangle NOP' \sim \triangle P''OS \Longrightarrow OP' : ON = OS : OP'' \Longrightarrow OP' \cdot OP'' = r^2~$$
+
+\subsection{乌尔夫网}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/0647b5f83d7a4a22.png}
+\caption{乌尔夫网或立体网，用于手工绘制球极平面投影图} \label{fig_QJPMTY_10}
+\end{figure}
+球极平面投影图可以由计算机根据上面给出的显式公式进行绘制。然而，当手工绘制时，这些公式是不实用的。作为替代，通常是使用专门为这项任务设计的方格纸。这种特殊的方格纸被称为立体网或乌尔夫网，以俄罗斯矿物学家乔治(尤里·维克托罗维奇)伍尔夫(George (Yuri Viktorovich) Wulff)的名字命名。[11]
+
+这里显示的乌尔夫网是以赤道上的点为中心的半球(如行星的东半球或西半球)纬线和经线网格的球极平面投影。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/adcda92167cd8118.png}
+\caption{通过中心C 及投影平面 的球极平面投影生成一个乌尔夫网红色圆圈内的圆形网)} \label{fig_QJPMTY_11}
+\end{figure}
+在图中，通过比较网格中心附近的网格扇区和最右边或最左边的网格扇区，可以看出球极平面投影的面积扭曲特性。这两个扇区在球面上有着相同的面积。但在平面上，后者的面积几乎是前者的四倍。如果网格变得更细，这个比例将收敛于4。
+
+在乌尔夫网，纬线和经线的图像以直角相交。这种正交性是立体投影的保角特性的结果。(然而，保角特性比该特性更强。并非所有保持纬线和经线正交性的投影都是保角的。)
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/3b2a1f0f4aa94a35.png}
+\caption{在乌尔夫网上绘制点的步骤说明} \label{fig_QJPMTY_12}
+\end{figure}
+举一个使用乌尔夫网的例子，想象两个薄纸上的乌尔夫网副本，一个在另一个上面，对齐并保证它们的共同中心始终重合。令$P$点的球面坐标为(140，60)，笛卡尔坐标为(0.321, 0.557, −0.766)。这一点位于从x-轴正方向逆时针方向旋转60° (或从y-轴正方向顺时针旋转30° )并相对于$z = 0$平面向下旋转50°所得到的直线上。一旦知道这些角度，就有四个步骤来绘图P 点:
+\begin{enumerate}
+\item 使用图中所示间隔为10°的网格线，从点(1, 0)沿逆时针方向找到60°线对应的网格边缘点(或从点(1, 0)沿顺时针方向找到30°线对应的网格边缘点)。
+\item 旋转上层的乌尔夫网，直到该点与下层乌尔夫网的(1, 0)点重合。
+\item 利用下层乌尔夫网的网格线，在上层乌尔夫网上标记出从该点向中心香菊50°的点。
+\item 反向旋转上层乌尔夫网，使其与下层乌尔夫网对齐。那么步骤3中标记的点就是我们想要得到的投影。
+\end{enumerate}
+要绘制角度不是类似于60°和50°的整数的其他点，必须在最近的网格线之间进行可视化的插值。间距小于10°的网将有助于这些点的寻找。2°的间距是很常见的。
+
+要根据球面上两点的球极平面投影图找到球面上两点之间的中心角，需将该图覆盖在乌尔夫网上，并围绕中心旋转该图，直到这两点位于子午线上或附近。然后通过计算子午线上的网格线来测量它们之间的角度。
+\begin{itemize}
+\item $P_1$和$P_2$ 两个点位于一个固定于乌尔夫网格原点的透明薄片上。
+
+\item 透明薄片旋转使得$P_1$和$P_2$和两个点位于同一条经线上，并由此得到两点之间的中心角.
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/b45c9c4b5273b5fa.png}
+\caption{} \label{fig_QJPMTY_13}
+\end{figure}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/f6a32884f4237299.png}
+\caption{} \label{fig_QJPMTY_15}
+\end{figure}
+
+\subsection{数学应用}
+\subsubsection{5.1 复分析}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/529246b8a191acfd.png}
+\caption{复杂的平面及其上面的黎曼球} \label{fig_QJPMTY_17}
+\end{figure}
+虽然任何体球极平面投影都会忽略球面上的一个点(投影点)，但是可以使用来自不同投影点的两个投影来映射整个球面。换句话说，球面可以被平面上的两个球极平面投影参数化(投影的逆)覆盖。可以通过参数化在球面上诱导相同的方向。它们一起将球面描述为一个定向曲面(或二维流形)。
+这种结构在复分析中具有特殊的意义。实平面上的点 $(X, Y)$ 可以用复数来表示 $\zeta = X + iY$。从北极点到赤道平面的球极平面投影是：
+
+$$\zeta = \frac{x + iy}{1 - z},~$$
+
+$$(x, y, z) = \left( \frac{2 \Re \zeta}{1 + \bar{\zeta}\zeta }, \frac{2 \Im \zeta}{1 + \bar{\zeta}\zeta }, \frac{-1 + \bar{\zeta}\zeta }{1 + \bar{\zeta}\zeta } \right).~$$
+
+同样，令 $\zeta = X - iY$ 作为另一个复坐标，那么函数：
+
+$$\zeta = \frac{x - iy}{1 + z},~$$
+
+$$(x, y, z) = \left( \frac{2 \Re \zeta}{1 + \zeta \bar{\zeta}}, \frac{-2 \Im \zeta}{1 + \zeta \bar{\zeta}}, \frac{1 + \zeta \bar{\zeta}}{1 + \zeta \bar{\zeta}} \right).~$$
