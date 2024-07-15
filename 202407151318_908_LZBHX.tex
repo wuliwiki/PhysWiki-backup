@@ -1,0 +1,35 @@
+% 量子不和谐
+% license CCBYSA3
+% type Wiki
+
+（本文根据 CC-BY-SA 协议转载自原搜狗科学百科对英文维基百科的翻译）
+
+在 量子信息论中, \textbf{量子不和谐} 是对一个量子系统中的两个子系统之间非经典相关性的度量 。它包括了由于 量子物理学 效应而产生的关联性，但不一定涉及 量子纠缠。
+
+量子不和谐的概念是由Hardord OLLivier， Wojciech H. Zurek[1][2] 亨德森和 Vlatko Vedral各自提出的。[3] 奥利维尔（OLLivier）和祖里克（Zurek）也将其作为 定量 相关性的量化指标。[2] 从这两个研究小组的工作中可以看出，量子关联可以以某种混合 可分离状态下存在；[4] 换句话说，单独的可分离性并不意味着没有量子关联。因此，量子不和谐的概念超越了早先在纠缠态和可分离(非纠缠)量子态之间所做的区分。
+
+\subsection{定义和数学关系}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/c1e7741235199510.png}
+\caption{单个H（X），H（Y），相关的H（X，Y）及具有互信息I（X，Y）的一对相关子系统X，Y的条件熵} \label{fig_LZBHX_1}
+\end{figure}
+在数学术语中，量子不和谐是由 量子互信息定义的。更具体地说，量子不和谐是两个表达式之间的差异，在 经典极限中，每个表达式都表达 交互信息。这两个表达式是：
+\begin{equation}
+\begin{aligned}
+I(A; B) &= H(A) + H(B) - H(A, B) \\
+J(A; B) &= H(A) - H(A \mid B) \\
+J(A; B) &= H(A) - H(A \mid B)
+\end{aligned}~
+\end{equation}
+在经典案例中，$H(A)$ 是信息熵，$H(A, B)$ 为相关熵和 $H(A|B)$ 为条件熵，这两个表达式产生相同的结果。
+
+在非经典情况下，使用量子物理类比的三项 $S(\rho_A)$ the 冯·诺依曼熵，$S(\rho)$ the 组合量子熵和 $S(\rho_{A|B})$ 条件熵的量子概括（不要混淆条件量子熵），各自为概率密度函数 $\rho$：
+
+$$I(\rho) = S(\rho_A) + S(\rho_B) - S(\rho)~$$
+
+$$J_A(\rho) = S(\rho_B) - S(\rho_{B|A})~$$
+
+这两种表达方式的区别 $I(\rho) - J_A(\rho)$ 证实了依赖于基础的量子不和谐，这在某种意义上是不对称的 $D_A(\rho)$ 可以不同于 $D_B(\rho)$。符号 $\mathbf{I}_A^{\Pi^A_k}(\rho)$ 代表可归因于经典相关性的部分相对熵，并根据所选特征基的不而不同变化。因此，为了让量子不和谐独立于基本反映纯粹的经典关联，有必要首先在特征基上所有可能映射测量的集合中最大化：
+
+$$D_A(\rho) = I(\rho) - \max_{\{\Pi^A_k\}} \mathbf{I}_A^{\Pi^A_k}(\rho) = S(\rho_A) - S(\rho) + \min_{\{\Pi^A_k\}} \sum_k p_k S(\rho_B|\Pi^A_k)~$$
