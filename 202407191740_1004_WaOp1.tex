@@ -1,0 +1,20 @@
+% 光的电磁波性质
+% license Usr
+% type Tutor
+
+\pentry{麦克斯韦方程组\nref{nod_MWEq}}{nod_1dce}
+
+\subsection{回顾}
+
+光的电磁理论认为，光是一种电磁波。电磁场的普遍规律可以总结为麦克斯韦方程组，积分形式的麦克斯韦方程组为：
+
+\begin{equation}
+\begin{aligned}
+& \displaystyle \iint\!\!\!\!\!\!\!\!\!\!\subset\!\supset \bvec D \cdot \dd{\bvec \sigma} = Q ~, \\
+& \displaystyle \iint\!\!\!\!\!\!\!\!\!\!\subset\!\supset \bvec B \cdot \dd{\bvec \sigma} = 0 ~, \\
+& \oint \bvec E \cdot \dd{\bvec l} = - \iint \frac{\partial \bvec B}{\partial t} \dd{\bvec \sigma} ~, \\
+& \oint \bvec H \cdot \dd{\bvec l} = \bvec I + \iint \frac{\partial \bvec D}{\partial t} \dd{\bvec \sigma} ~.
+\end{aligned}
+\end{equation}
+
+方程组中，$\bvec D$、$\bvec E$、$\bvec B$ 和 $\bvec H$ 分别为电位移矢量、电场强度、磁感应强度和磁场强度，对 $\dd{\bvec \sigma}$ 和 $\dd{\bvec l}$ 的积分分别表示对电磁场中任一闭合曲面和闭合回路上的积分。$Q$ 为闭合曲面包含的总电量，$I$ 为闭合回路包围的传导电流\footnote{想象一根闭合绳子捆着若干电线，这些电线都通有电流，你可以把传导电流简单理解为这些电流的总和}。

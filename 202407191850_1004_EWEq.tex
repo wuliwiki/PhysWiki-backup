@@ -1,0 +1,80 @@
+% 电场波动方程
+% keys 麦克斯韦方程组|波动方程|电场|介质|电位移矢量
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\issueOther{需要增加复数形式}
+\end{issues}
+
+\pentry{麦克斯韦方程组（介质）\nref{nod_MWEq1}， 矢量算符运算法则\nref{nod_VopEq}， 平面波\nref{nod_PWave}}{nod_3df3}
+
+从麦克斯韦方程组出发，我们证明电磁场传播具有波动性。
+
+麦克斯韦方程组为：
+
+\begin{equation}
+\begin{aligned}
+& \div \bvec D = \rho ~, \\
+& \div \bvec B = 0 ~, \\
+& \curl \bvec E = -\frac{\partial \bvec B}{\partial t} ~, \\
+& \curl \bvec H = \bvec j + \frac{\partial \bvec D}{\partial t} ~.
+\end{aligned}
+\end{equation}
+
+将 $\bvec D$ 和 $\bvec H$ 转化为 $\bvec E$ 和 $\bvec B$：
+
+\begin{equation}
+\begin{aligned}
+& \div \epsilon \bvec E = \rho ~, \\
+& \div \bvec B = 0 ~, \\
+& \curl \bvec E = -\frac{\partial \bvec B}{\partial t} ~, \\
+& \curl \frac{\bvec B}{\mu} = \bvec j + \frac{\partial \bvec D}{\partial t} ~.
+\end{aligned}
+\end{equation}
+
+在无限大各向同性均匀介质中，
+
+真空中， 由\enref{麦克斯韦方程组}{MWEq}得
+\begin{equation}
+\curl(\curl\bvec E) = -\pdv{t} (\curl\bvec B) = -\epsilon_0\mu_0 \pdv[2]{t} \bvec E~.
+\end{equation}
+根据\autoref{eq_VopEq_7}  化简得
+\begin{equation}
+\laplacian \bvec E - \frac{1}{c^2} \pdv[2]{\bvec E}{t} = 0~,
+\end{equation}
+这就是电场的波动方程。 所以电场的各个分量分别满足三维波动方程。%\addTODO{链接}
+它的解为平面波
+\begin{equation}\label{eq_EWEq_1}
+\bvec E(\bvec r, t) = \bvec E_0 \cos(\bvec k\vdot \bvec r - \omega t)~,
+\end{equation}
+其中 $\omega = c\abs{\bvec k} = ck$。 而通解是这些平面波的任意线性组合。 注意如果 $\bvec E_0$ 中存在平行于 $\bvec k$ 的分量， 那么 $\div \bvec E \ne 0$， 所以二者必须垂直， 即 $\bvec E \vdot \bvec k = 0$。 电场的通解可表示为
+\begin{equation}
+\bvec E(\bvec r, t) = \int \bvec E_0(\bvec k) \cos(\bvec k\vdot \bvec r - \omega k t) \dd[3]{k}~.
+\end{equation}
+
+根据 $\curl \bvec E = -\pdv*{\bvec B}{t}$， 可求出\autoref{eq_EWEq_1} 伴随的磁场为
+\begin{equation}
+\bvec B(\bvec r, t) = \bvec B_0 \cos(\bvec k \vdot \bvec r - \omega t)~.
+\end{equation}
+其中 $\bvec B_0$ 的模长为 $\abs{\bvec B_0} = \abs{\bvec E_0}/c$， 于 $\bvec E_0$ 垂直， 方向满足 $\uvec E \cross \uvec B = \uvec k$。 可见\textbf{电磁波是横波}。
+
+\subsection{介质中}
+
+非线性光学中一般认为介质具有 $\mu = \mu_0$，且假设 $\div\bvec E = 0$ 仍然成立
+
+介质中没有自由电荷或自由电流。
+
+类似真空情况的推导过程，有
+\begin{equation}
+\curl(\curl\bvec E) = -\pdv{t} (\curl\bvec B) = -\mu_0 \pdv{t} (\curl\bvec H)
+= -\mu_0 \pdv[2]{t} \bvec D~.
+\end{equation}
+
+把电位移矢量的定义 $\bvec D = \epsilon_0\bvec E + \bvec P$ 代入上式，化简为
+
+\begin{equation}
+\curl(\curl\bvec E) = -\pdv{t} (\curl\bvec B) = -\mu_0 \pdv{t} (\curl\bvec H)
+= -\mu_0 \pdv[2]{t} \bvec D~.
+\end{equation}
