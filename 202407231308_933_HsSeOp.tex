@@ -57,15 +57,15 @@ A\cup B = \begin{Bmatrix}x|x\in A \lor x\in B\end{Bmatrix}~.
 \hline
  & 交集$\cap$ & 并集$\cup$ & 备注 \\
 \hline
-1 & $A\cap B = B\cap A$ & $A\cup B = B\cup A$ & 交换律 \\
+1 & $A\cap B = B\cap A$ & $A\cup B = B\cup A$ & 交换律（Commutative Law） \\
 \hline
-2 & $ A \cap (B \cap C) = (A \cap B) \cap C$  &$ A \cup (B \cup C) = (A \cup B) \cup C$ & 结合律 \\
+2 & $ A \cap (B \cap C) = (A \cap B) \cap C$  &$ A \cup (B \cup C) = (A \cup B) \cup C$ & 结合律（Associative Law） \\
 \hline
-3 & $ A \cap (B \cup C) = (A \cap B) \cup (A \cap C) $  & $ A \cup (B \cap C) = (A \cup B) \cap (A \cup C) $ & 分配律 \\
+3 & $ A \cap (B \cup C) = (A \cap B) \cup (A \cap C) $  & $ A \cup (B \cap C) = (A \cup B) \cap (A \cup C) $ & 分配律（Distributive Law） \\
 \hline
-4 & $ A \cup (A \cap B) = A $  &$ A \cap (A \cup B) = A $ & 吸收律 \\
+4 & $ A \cup (A \cap B) = A $  &$ A \cap (A \cup B) = A $ & 吸收律 （Absorption Law）\\
 \hline
-5 & $A\cap A = A$ & $A\cup A = A$ & 幂等性 \\
+5 & $A\cap A = A$ & $A\cup A = A$ & 幂等律（Idempotent laws）\\
 \hline
 6 & $(A\cap B) \subseteq A$<br> $(A\cap B) \subseteq B$& $(A\cup B) \supseteq A$<br>$(A\cup B) \supseteq B$ & * \\
 \hline
@@ -73,18 +73,18 @@ A\cup B = \begin{Bmatrix}x|x\in A \lor x\in B\end{Bmatrix}~.
 \hline
 8 & $ A \cap U = A $  &$ A \cup U = U $ & 与全集的关系 \\
 \hline
-9 & $ A \cap \complement_U( A) = \varnothing $ &$ A \cup \complement_U( A) = U $  & 排中律 \\
+9 & $ A \cap \complement_U( A) = \varnothing $ &$ A \cup \complement_U( A) = U $  & 排中律（Laws of the excluded middle） \\
 \hline
-
-
 \end{tabular}
 \end{table}
 
-结合律（Associative Law）、分配律（Distributive Law）、吸收律（Absorption Law）、同一律（Identity Law）：幂等律（Idempotent laws）、排中律（Laws of the excluded middle）
+这些内容不必死记硬背，建议先使用维恩图，理解它成立的原理。就像加减乘除里面的那些运算律一样，随着使用次数的增加，自然就会熟练了。哪怕一时想不起来，用维恩图和原理去现场推导也是可以的。
 
 \subsection{*德摩根定律}
 
-\textbf{德摩根定律}（De Morgan’s Laws）在当前的高中教材中已经移除，但由于其功能强大，且在未来的学习中会经常使用，因此在此处予以介绍。
+下面的内容在部分高中教材中已经移除，但由于其功能强大，且在未来的学习中会经常使用，因此在此处予以介绍。
+
+\textbf{德摩根定律}（De Morgan’s Laws）是同时蕴含了交集、并集、补集运算的定律。
 
 \begin{equation}
 \begin{array}{c} 
@@ -93,7 +93,7 @@ A\cup B = \begin{Bmatrix}x|x\in A \lor x\in B\end{Bmatrix}~.
 \end{array}.~
 \end{equation}
 
-这个关系对多个集合的运算也成立。
+这个关系对多个集合的运算也成立\footnote{可以利用类似求和运算的表达来记录，$\displaystyle\complement_U(\bigcup_{i\in I} A_i)=\bigcap_{i\in I} {\complement_UA_i}$，$\displaystyle\complement_U(\bigcap_{i\in I} A_i)=\bigcup_{i\in I} {\complement_UA_i}$，此处展示只作为拓展视野。}。
 
 \begin{equation}
 \begin{array}{c} 
@@ -104,8 +104,7 @@ A\cup B = \begin{Bmatrix}x|x\in A \lor x\in B\end{Bmatrix}~.
 \end{array}.~
 \end{equation}
 
-\addTODO{写大运算符的统一介绍。}
-$\complement_U(\bigcap_{i\in I} A_i)=\bigcup_{i\in I} {\complement_UA_i}$
+
 \subsection{*集合运算与逻辑运算的关系}
 
 
@@ -114,3 +113,4 @@ $\complement_U(\bigcap_{i\in I} A_i)=\bigcup_{i\in I} {\complement_UA_i}$
 \subsection{*差集}
 \subsection{势}
 \subsection{幂集}
+\addTODO{写大运算符的统一介绍。}
