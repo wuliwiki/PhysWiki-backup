@@ -43,15 +43,15 @@
 \begin{equation}
 \begin{cases}
 F_{r}=-\frac{k}{r^{2}} = m\left(\ddot r -\dot \theta ^{2}r\right)~，\\
-L = mr^{2}\dot \theta~.\\
+L = mr^{2}\dot \theta ~.\\
 \end{cases}
 \end{equation}
 进行变换$u = \frac{1}{r} \Longleftrightarrow r = \frac{1}{u}$
 得到
 \begin{equation}
 \begin{cases}
-F_{r}= -ku^{2}~,\\
-L = \frac{m\dot \theta}{u^{2}}\Rightarrow \dot \theta = \frac{Lu^2}{m}~.\\
+F_{r}= -ku^{2} ~,\\
+L = \frac{m\dot \theta}{u^{2}}\Rightarrow \dot \theta = \frac{Lu^2}{m} ~.\\
 \end{cases}
 \end{equation}
 将r关于时间的导数替换为u关于时间的导数
@@ -69,34 +69,34 @@ L = \frac{m\dot \theta}{u^{2}}\Rightarrow \dot \theta = \frac{Lu^2}{m}~.\\
 解得（选取特殊的$\theta$起点）$u = \frac{mk}{L^{2}} + A \cos \theta$，即$r = \frac{1}{u} = \frac{1}{\frac{mk}{L^{2}} + A \cos \theta} = \frac{\frac{L^2}{mk}}{1 + \frac{L^2}{mk} A \cos \theta}$
 借此我们可以表示出速度
 \begin{align}
-\vec v &= \dot r \hat r + r \dot \theta \hat \theta \\
-&=-\frac{L}{m}\frac{du}{d\theta} \hat r + \frac{1}{u} \frac{Lu^{2}}{m} \hat \theta\\
-&=-\frac{L}{m}\frac{du}{d\theta} \hat r +  \frac{Lu}{m} \hat \theta
+\vec v &= \dot r \hat r + r \dot \theta \hat \theta ~,\\
+&=-\frac{L}{m}\frac{du}{d\theta} \hat r + \frac{1}{u} \frac{Lu^{2}}{m} \hat \theta ~,\\
+&=-\frac{L}{m}\frac{du}{d\theta} \hat r +  \frac{Lu}{m} \hat \theta ~.\\
 \end{align}
 \begin{align}
-\vec p &= m \vec v = -L\frac{du}{d\theta}\hat r + Lu \hat \theta \\
-&=L A \sin \theta \hat r + L \left(\frac{mk}{L^{2}} + A \cos \theta \right)\hat \theta \\
-&=L A \sin \theta \hat r + \left(\frac{mk}{L} +L A \cos \theta \right)\hat \theta
+\vec p &= m \vec v = -L\frac{du}{d\theta}\hat r + Lu \hat \theta ~,\\
+&=L A \sin \theta \hat r + L \left(\frac{mk}{L^{2}} + A \cos \theta \right)\hat \theta ~,\\
+&=L A \sin \theta \hat r + \left(\frac{mk}{L} +L A \cos \theta \right)\hat \theta ~.\\
 \end{align}
 \begin{align}
-\vec R &= \vec p \times \vec L - mk \hat r \\
-&=\left(L A \sin \theta \hat r + \left(\frac{mk}{L} +L A \cos \theta \right)\hat \theta \right) \times L \hat k -mk\hat r\\
-&=\left(-L^{2} A \sin \theta \hat \theta + \left(mk +L^{2} A \cos \theta \right)\hat r \right) \times L \hat k -mk\hat r \\
-&= L^{2}A\left(-\sin \theta \hat \theta+\cos \theta \hat r \right)
+\vec R &= \vec p \times \vec L - mk \hat r ~,\\
+&=\left(L A \sin \theta \hat r + \left(\frac{mk}{L} +L A \cos \theta \right)\hat \theta \right) \times L \hat k -mk\hat r ~,\\
+&=\left(-L^{2} A \sin \theta \hat \theta + \left(mk +L^{2} A \cos \theta \right)\hat r \right) \times L \hat k -mk\hat r ~,\\
+&= L^{2}A\left(-\sin \theta \hat \theta+\cos \theta \hat r \right) ~.\\
 \end{align}
 将极坐标转换为平面直角坐标系
 \begin{equation}
 \begin{cases}
-$$\hat r = \cos \theta \hat{x} + \sin \theta \hat{y}\\
-$$\hat \theta = -\sin \theta \hat{x} +\cos \theta \hat{y}\\
+$$\hat r = \cos \theta \hat{x} + \sin \theta \hat{y} ~,\\
+$$\hat \theta = -\sin \theta \hat{x} +\cos \theta \hat{y} ~.\\
 \end{cases}
 \end{equation}
 故有
 \begin{align}
-&\phantom{=} -\sin \theta \hat \theta+\cos \theta \hat r \\
-&=-\sin \theta \left(-\sin \theta \hat{x} +\cos \theta \hat{y}\right)+ \cos \theta \left(\cos \theta \hat{x} + \sin \theta \hat{y} \right)\\
-&= \left(\sin^{2}\theta + \cos^{2}\theta\right)\hat x + \left(-\sin \theta \cos \theta +\sin \theta \cos \theta \right)\hat y\\
-&= \hat x
+&\phantom{=} -\sin \theta \hat \theta+\cos \theta \hat r ~,\\
+&=-\sin \theta \left(-\sin \theta \hat{x} +\cos \theta \hat{y}\right)+ \cos \theta \left(\cos \theta \hat{x} + \sin \theta \hat{y} \right)~,\\
+&= \left(\sin^{2}\theta + \cos^{2}\theta\right)\hat x + \left(-\sin \theta \cos \theta +\sin \theta \cos \theta \right)\hat y ,\\
+&= \hat x ~.\\
 \end{align}
 即$\vec R = L^{2}A \hat x$与$r$和$\theta$无关
 % \刚刚学会一点点latex，如有错误请多包涵
