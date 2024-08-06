@@ -1,0 +1,31 @@
+% 精确对角化
+% keys 量子力学
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft       % 本文处于草稿阶段
+\end{issues}
+本篇针对科研小白的一个启蒙。
+
+对于量子力学的数值计算，这一篇是基础中的基础，也是必经之路。我们首先需要知道，在所有的模型中哈密顿量是可以写成一个矩阵。
+例如一个最简单的无相互作用的toy模型
+\begin{equation}\label{ham1}
+\hat{H}=  \sum_j^{N}V_j c_j^{\dagger}c_j.~
+\end{equation}
+$N$ 是系统中的粒子数，$V_j$ 是势能项，$c_j^{\dagger}$ 和 $c_j$ 分别是产生和湮灭算符。产生算符 $c_j^{\dagger}$ 在位置 $j$ 创建一个粒子，湮灭算符 $c_j$ 在位置 $j$ 湮灭一个粒子。$c_j^{\dagger}c_j$是表示$\hat{n}$粒子数算符，其定义为：
+\begin{equation}
+\hat{n}_j = c_j^{\dagger} c_j~.
+\end{equation}
+在没有相互作用的情况下，哈密顿量 $\hat{H}$ 是对角化的，这意味着哈密顿量的矩阵形式 $\mathcal{H}$ 是对角矩阵。这样我们就可以直接得到系统的能量本征值，它们对应于对角矩阵 $\hat{H}$ 的对角元素 $V_j$。因此，系统的能量本征值 ${E_j}$ 就是 ${V_j}$。
+设N=4,可以在这里哈密顿量可以直接写为一个4*4的对角矩阵：
+\begin{equation}
+\mathcal{H}=\left(
+\begin{matrix}
+V_1 & 0& 0&0\\
+0 &V_2&0&0\\
+0&0&V_3&0\\
+0&0&0&V_4\\
+\end{matrix}
+\right)~.
+\end{equation}
