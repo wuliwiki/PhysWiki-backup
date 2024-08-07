@@ -1,0 +1,35 @@
+% 量子纠缠 2
+% keys 纠缠|entanglement|施密特秩
+% license Xiao
+% type Tutor
+
+\pentry{约化密度矩阵\nref{nod_partra}}{nod_31fd}
+
+我们研究一个二元纯态 $\ket{\psi}_{AB}$ 的子系统 $A$，假设整个大的孤立系统的 Hilbert 空间可以表示为两个子 Hilbert 空间的张量积：$\mathcal{H}_A\otimes \mathcal{H}_B$，其中 $\mathcal A$ 是待研究的子系统的 Hilbert 空间，设约化密度算符为 $\rho_A=\text{tr}_B \ket{\psi}\bra{\psi}$。在\enref{约化密度矩阵}{partra}文章中，我们证明了 $A,B$ 处于纠缠态的一个判据 \autoref{eq_partra_2}。
+
+\begin{equation}
+\text{tr} \rho^2 <1~.
+\end{equation}
+
+它意味着约化密度算符在某个正交完备基下对角化以后，表现为 $\mathcal{H}_A$ 中若干个纯态（大于一个）组成的系综，系综中每个纯态有 $p_a<1$ 的概率出现。这也意味着\textbf{当且仅当} $\rho_A$ 的\textbf{施密特秩}\footnote{类似于\enref{矩阵的秩}{MatRnk}，可以将这一概念推广到任意线性算符。}大于 $1$， $A,B$ 处于纠缠态。在此处我们考察的约化密度算符是正定算符，因此施密特秩等于正的本征值的个数。若本征值个数 $>1$，体系处于纠缠态，我们称 $A,B$ 之间具有\textbf{量子相关性}。
+
+如果施密特秩为 $1$，那么约化密度算符可以表示为 ${}_A\ket{\varphi}\bra{\varphi}_A,\varphi_A\in \mathcal{H}$，此时 $A$ 与 $B$ 之间是不纠缠的，或者被称为\textbf{可分的}（seperable）。此时二元纯态 $\ket{\psi}$ 实际上可以表示为两个子系统的量子态的张量积：
+\begin{equation}
+\ket{\psi}_{AB}=\ket{\varphi}_A\otimes \ket{\varphi}_B~.
+\end{equation}
+
+为了量化纠缠的程度，我们引入纠缠熵（entanglement entropy）。纠缠熵是通过约化密度算符的谱（即其特征值）来定义的。通常使用冯·诺依曼熵（von Neumann entropy）来表示纠缠熵。如\autoref{def_vonNE_1}：
+\begin{equation}
+S(\rho_A) = - \text{tr}(\rho_A \log \rho_A)~,
+\end{equation}
+其中 $\rho_A$ 是子系统 $A$ 的约化密度算符。
+
+冯·诺依曼熵具有以下性质：
+\begin{enumerate}
+    \item \textbf{非负性}：$S(\rho_A) \geq 0$。
+    \item \textbf{纯态的熵为零}：如果 $\rho_A$ 对应一个纯态，则 $S(\rho_A) = 0$。
+    \item \textbf{最大熵}：对于最大混合态，$S(\rho_A)$ 达到最大值。
+\end{enumerate}
+对于一个二元纯态 $\ket{\psi}_{AB}$，其约化密度矩阵 $\rho_A$ 和 $\rho_B$ 具有相同的谱（特征值），因此 $S(\rho_A) = S(\rho_B)$。纠缠熵可以被解释为子系统 $A$ 和 $B$ 之间量子纠缠的度量。当 $S(\rho_A) = 0$ 时，表示两个子系统是可分的；当 $S(\rho_A)$ 较大时，表示两个子系统之间具有较强的量子纠缠。
+
+总结来说，纠缠熵提供了一种定量描述系统内部量子纠缠程度的方法，它在量子信息理论和量子计算中有广泛的应用。通过计算子系统的冯·诺依曼熵，我们可以确定并量化量子系统中的纠缠程度。这是理解量子系统内部复杂关联的重要工具。我们经常用这个来看模型处于哪一个相，并以此作为一个序参量来判定相变。但是注意不是所有相变都可以用冯·诺依曼熵当序参量，需要参考相变的类型。
