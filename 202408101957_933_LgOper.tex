@@ -1,0 +1,69 @@
+% 大型运算符
+% keys 运算符|求和|求积|极限|积分|并集|交集|最值
+% license Xiao
+% type Wiki
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+这篇文章会介绍大型运算符，他们往往代表了一个过程。
+
+\subsection{累计运算过程}
+\subsubsection{离散}
+累计运算过程一般包括：
+\begin{itemize}
+\item 析取符号：$\bigvee$
+\item 合取符号：$\bigwedge$
+\item 并集符号：$\bigcup$
+\item 交集符号：$\bigcap$
+\item 求和符号：$\sum$
+\item 求积符号：$\prod$
+\item 上积符号：$\coprod$
+\end{itemize}
+\subsubsection{连续}
+积分符号：$\int$
+
+
+\subsubsection{记法}
+
+\subsubsection{*无穷情况}
+\addTODO{预备知识或者上文没有出现极限符号，另外不要在本文出现微积分内容，这不是综述类百科，标题显示为高中内容}
+有时会出现，下限位置为$-\infty$，上限位置为$+\infty$等情况，比如级数等情况。这种情况并非实指去到对应点，而是指取相应极限，即：
+
+\begin{equation}
+\sum_{i=-\infty}^n a_i:= \lim_{a\to-\infty}\sum_{i=a}^n a_i.~
+\end{equation}
+
+\begin{equation}
+\sum_{i=0}^{+\infty} a_i:= \lim_{a\to+\infty}\sum_{i=0}^a a_i.~
+\end{equation}
+
+特殊地：
+\begin{equation}
+\sum_{i=-\infty}^{+\infty} a_i:= \lim_{a\to+\infty\atop b\to-\infty}\sum_{i=b}^a a_i.~
+\end{equation}
+
+\begin{example}{设等比级数通项$a_n=a_1q^{n-1}$，用求和符号表示等比级数和}
+$$
+\sum_{i=1}^{+\infty} a_i=
+\leftgroup{
+{a_1\over 1-q},\qquad |q|<1\\  
+\text{发散},\qquad |q|\geq1
+} ~.
+$$
+\end{example}
+
+
+\subsection{极限运算过程}
+
+$\lim$
+
+\subsection{极值运算过程}
+
+\begin{itemize}
+\item 上确界：$\sup$
+\item 下确界：$\inf$
+\item 最大值：$\max$
+\item 最小值：$\min$
+\end{itemize}

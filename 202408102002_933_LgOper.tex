@@ -1,0 +1,87 @@
+% 大型运算符
+% keys 运算符|求和|求积|极限|积分|并集|交集|最值
+% license Xiao
+% type Wiki
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+这篇文章会介绍大型运算符，他们往往代表了一个过程。
+
+\subsection{累计运算过程}
+\subsubsection{离散}
+累计运算过程一般包括：
+\begin{itemize}
+\item 析取符号：$\bigvee$
+\item 合取符号：$\bigwedge$
+\item 并集符号：$\bigcup$
+\item 交集符号：$\bigcap$
+\item 求和符号：$\sum$
+\item 求积符号：$\prod$
+\item 上积符号：$\coprod$
+\end{itemize}
+\subsubsection{连续}
+积分符号：$\int$
+
+
+\subsubsection{记法}
+
+\subsubsection{*无穷情况}
+
+有时会出现，下限位置为$-\infty$，上限位置为$+\infty$等情况，比如级数等情况。这种情况并非实指去到对应点，而是指取相应极限，即：
+
+\begin{equation}
+\sum_{i=-\infty}^n a_i:= \lim_{a\to-\infty}\sum_{i=a}^n a_i.~
+\end{equation}
+
+\begin{equation}
+\sum_{i=0}^{+\infty} a_i:= \lim_{a\to+\infty}\sum_{i=0}^a a_i.~
+\end{equation}
+
+特殊地：
+\begin{equation}
+\sum_{i=-\infty}^{+\infty} a_i:= \lim_{a\to+\infty\atop b\to-\infty}\sum_{i=b}^a a_i.~
+\end{equation}
+
+\begin{example}{设等比级数通项$a_n=a_1q^{n-1}$，用求和符号表示等比级数和}
+$$
+\sum_{i=1}^{+\infty} a_i=
+\leftgroup{
+{a_1\over 1-q},\qquad |q|<1\\  
+\text{发散},\qquad |q|\geq1
+} ~.
+$$
+\end{example}
+
+\subsubsection{*指标集记法}
+
+上面介绍的求和过程，指标集都是$\mathbb{Z}$与某个区间的交集（这样可以保证自增），对于某些不需要自增或无法使用自增的场合，可以直接给定指标集，求和过程记作：
+
+\begin{equation}
+\sum_{i\in I} a_i~.
+\end{equation}
+其中，$I$为指标集。特别的，若$I$为空集，一般称为“空和”，并定义为0，即：
+\begin{equation}
+\sum_{i\in \varnothing} a_i=0~.
+\end{equation}
+
+同时，若通过上下文可以明确指标集$I$或只为表述记号的运算特点而不强调指标集时，在不引起歧义的情况下，为了方便可以直接记作：
+
+\begin{equation}
+\sum_i a_i.~
+\end{equation}
+
+这样使用时通常不会涉及指标的运算。
+\subsection{极限运算过程}
+
+$\lim$
+
+\subsection{极值运算过程}
+
+\begin{itemize}
+\item 上确界：$\sup$
+\item 下确界：$\inf$
+\item 最大值：$\max$
+\item 最小值：$\min$
+\end{itemize}
