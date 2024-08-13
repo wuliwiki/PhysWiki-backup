@@ -1,0 +1,185 @@
+% 复合命题（高中）
+% keys 命题|高中|且|或|非|条件|量词|逆否|复合
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{命题与推理\nref{nod_HsLogi}}{nod_acc5}
+
+在高中数学中，逻辑是不可忽视的基础工具。尽管教材中逻辑内容的比重有所减少，但掌握逻辑对理解和应用数学知识仍然至关重要。逻辑不仅帮助我们严谨地推导数学定理，还在日常生活中增强了我们分析和解决问题的能力。
+
+当你已经掌握了简单命题的基础后，学习复合命题就成为了你进一步深入逻辑世界的关键一步。顾名思义，\textbf{复合命题}（compound proposition）就是由原子命题通过各种方式（逻辑连接词组合、量词限定变量和条件连接等方式）复合形成的命题。通过学习复合命题，你将学会如何将简单的逻辑拼接成更复杂的推理过程。无论是在解决数学难题时，还是在面对生活中的复杂决策时，理解和应用复合命题都会帮助你更加清晰地思考，增强你的推理能力，为未来的学术挑战和实际应用打下坚实的基础。
+
+\subsection{逻辑连接词}
+
+逻辑连接词用于将简单命题组合成更复杂的复合命题，也可以组合使用，表达更复杂的命题。常见的逻辑连接词包括“且”、“或”和“非”。在接下来的部分中，我们将详细介绍这些逻辑连接词的定义、真值表和应用实例。
+
+请注意，尽管这部分内容已经在当前的高中教材中删除，但事实上总在出现，对下面概念的模糊会造成解题时的困惑。
+
+\subsubsection{且}
+
+若逻辑连接词连接的两个命题$A,B$只有同时成立，整个复合命题才为真，则称这个逻辑连接词为\textbf{且}（and，也称为\textbf{而且}、\textbf{同}、\textbf{合取}），记作$A\land B$\footnote{符号不做硬性要求，下同。}。
+
+\begin{table}[ht]
+\centering
+\caption{“且”真值表}\label{tab_HsCoPr1}
+\begin{tabular}{|c|c|c|}
+\hline
+$A$ & $B$ & $A \land B$ \\
+\hline
+真 & 真 & 真 \\
+\hline
+真 & 假 & 假 \\
+\hline
+假 & 真 & 假 \\
+\hline
+假 & 假 & 假 \\
+\hline
+\end{tabular}
+\end{table}
+
+“且”的实例：
+\begin{itemize}
+\item 我们常常遇到两个或多个方程需要同时成立的情况，这时会把他们放在一起称为“方程组”，而一个方程组中的方程就是“且”的关系。求解方程组的消元方法，依据的就是“且”这个前提。
+\item 在集合论中，$A \cap B$表示集合$A$和$B$的交集，其中的元素必须既属于$A$“且”属于$B$。“且”就出现在交集的定义中。
+\item “且”常被用来描述多重条件，比如证明某个四边形是矩形，就需要满足以下两个条件同时成立：四边形的对角线相等、四个角都是直角。这两个条件就是“且”的关系。
+\end{itemize}
+
+\subsubsection{或}
+
+若逻辑连接词连接的两个命题$A,B$只要有一个成立，整个复合命题就为真，则称这个逻辑连接词为\textbf{或}（or，也称为\textbf{或者}、\textbf{析取}），记作$A\lor B$。
+
+\begin{table}[ht]
+\centering
+\caption{“或”真值表}\label{tab_HsCoPr2}
+\begin{tabular}{|c|c|c|}
+\hline
+$A$ & $B$ & $A \lor B$ \\
+\hline
+真 & 真 & 真 \\
+\hline
+真 & 假 & 真 \\
+\hline
+假 & 真 & 真 \\
+\hline
+假 & 假 & 假 \\
+\hline
+\end{tabular}
+\end{table}
+
+“或”的实例：
+\begin{itemize}
+\item 我们常常遇到两个或多个方程需要同时成立的情况，这时会把他们放在一起称为“方程组”，而一个方程组中的方程就是“且”的关系。求解方程组的消元方法，依据的就是“且”这个前提。
+\item 在集合论中，$A \cup B$表示集合$A$和$B$的并集，其中的元素只要在$A$“或”$B$之中就可以。“或”就出现在并集的定义中。
+\end{itemize}
+
+\subsubsection{非}
+
+\textbf{非}（not，也称为\textbf{否定}）记号为$\lnot A$。
+
+\subsection{量词命题}
+
+描述关于某些变量的通用性质或存在性质的命题，称为\textbf{量词命题}（quantified propositions）。原本开放命题中真值根据变量取值确定，量词命题使用\textbf{量词}（quantifiers）来限定开放命题中的变量，使得量词命题具有明确的真值。以“$x$是一个偶数”为例，如果用“所有”来限定$x$，即“所有的自然数$x$都是偶数”，是假命题，而用“存在”来限定$x$，即“存在一个自然数$x$是偶数”，则是真命题。
+
+注意，如“任意$m>n$”等单独用量词来限定变量的语句是没有意义的，量词需要在命题中使用。
+
+\subsubsection{全称量词}
+
+在陈述中表达所述事物的全体的含义时，使用的量词称为\textbf{全称量词}（universal quantifier），记作$\forall$，可以读作“任意”、“所有”、“每一个”等。形如“集合$M$中所有的元素$x$，都满足性质$P(x)$”的命题称为\textbf{全称量词命题}或称其\textbf{恒成立}（universal proposition），记作：
+
+
+\begin{equation}
+\forall x\in M,P(x).~
+\end{equation}
+
+\subsubsection{存在量词}
+
+在陈述中表达所述事物的个体、部分或特例的含义时，使用的量词称为\textbf{存在量词}（existential quantifier，也称作\textbf{特称量词}，Particular Quantifier），记作$\exists$，可以读作“存在”、“有”、“至少有一个”等。形如“集合$M$中存在某个元素$x$满足性质$P(x)$”的命题称为\textbf{存在量词命题}，记作：
+
+\begin{equation}
+\exists x\in M,P(x).~
+\end{equation}
+
+\subsection{条件命题}
+
+\textbf{条件命题}（conditional proposition或\textbf{蕴含命题}，implication）用于表达两个命题之间的条件关系，通常形如“若 $p$ ，则 $q$ ” ，由一个前件（antecedent）$p$和一个后件（consequent）$q$组成，通过“如果……那么……”（if…then…）的形式来连接。条件命题在计算机领域广泛使用。
+
+%移动自充分必要条件，并加以调整
+若由命题 $A$ 能推导出命题 $B$， 则 $A$ 是 $B$ 的充分条件， $B$ 是 $A$ 的必要条件。如何理解这个定义呢？下面举两个例子。
+
+\begin{example}{}
+命题 $A$：四边形 $ABCD$ 是一个正方形。
+
+命题 $B$：四边形 $ABCD$ 的四条边相等。
+
+首先我们考虑 $A$ 对 $B$ 的关系。显然，由 $A$ 可以推出 $B$， 说明 $A$ 中有充分的信息能得到 $B$， 所以叫做 $B$ 的\textbf{充分条件}。 $A$ 中包括得到 $B$ 所必要的信息，还\textbf{可能}包括一些其他信息，例如由命题 $A$ 可以得出四边形任意两条临边垂直。 这些多出来的信息并不一定是得到 $B$ 所必须的，因为还有许多其他的四边形四条边相等但并不是正方形。
+
+那如何判断 $A$ 中有没有多余的信息呢？我们可以反过来试图用 $B$ 推导命题 $A$， 若原则上得不出 $A$ （而不是因为我们逻辑水平不够），则证明 $A$ 中有多余的条件。这时我们说 $A$ 不是 $B$ 的\textbf{必要条件}，因为 $A$ 中的一些信息是多余的，也就是没有必要的。综上， $A$ 是 $B$ 的\textbf{充分非必要条件}。
+
+现在我们从 $B$ 的角度考虑。虽然由条件 $B$ 不能推导出条件 $A$， 但是 $B$ 是 $A$ 中信息的一部分， $B$ 必须要成立才有可能使 $A$ 成立，也就是说如果 $B$ 不成立 $A$ 就不可能成立（四条边不全相等的四边形一定不是正方形）。所以说 $B$ 是 $A$ 的必要条件。另外，由 $B$ 中的少量信息不能得到 $A$， 所以 $B$ 不是 $A$ 的充分条件。 综上， $B$ 是 $A$ 的\textbf{必要非充分条件}。
+\end{example}
+
+
+\begin{example}{}
+命题 $A$ ：三角形 $X$ 的其中两内个角分别为 $90^\circ$ 和 $45^\circ$。
+
+命题 $B$ ：三角形 $X$ 有两个 $45^\circ$ 的内角。
+
+利用三角形三个内角和为 $180^\circ$ 的事实，可以从 $A$ 推出 $B$， 说明 $A$ 是 $B$ 的充分条件， $B$ 是 $A$ 的必要条件。但也可以从 $B$ 推出 $A$， 说明 $B$ 是 $A$ 的充分条件， $A$ 是 $B$ 的必要条件。所以 $A$ 和 $B$ 既是彼此的充分条件也是彼此的必要条件。所以我们说 $A$ 和 $B$ \textbf{互为充分必要条件}。若 $A$ 是 $B$ 的充分必要条件， $B$ 一定也是 $A$ 的充分必要条件。因为两种表述都意味着 $A$，  $B$ 命题\textbf{等效}，所提供的信息都是一样的，两者都没有任何多余的或者缺失的信息。
+\end{example}
+
+需要注意的是：
+\begin{enumerate}
+\item 充分/必要条件是两个命题之间的关系，若只说一个命题是充分/必要条件没有意义。
+\item 讨论充分/必要条件需要在一定的前提下进行。以上两个例子中的前提如： 我们讨论的是欧几里得几何中的平面四边形和三角形。 当然，我们也可以把这个前提直接写在每个命题中。
+\item 在证明 $A$ 是 $B$ 的充分必要条件时，需要分别证明 $A$ （相对于 $B$）的充分性和必要性。充分性需要由 $A$ 证明 $B$， 必要性需要由 $B$ 证明 $A$。 
+\item 在证明 $A$ 是 $B$ 的充分非必要条件时，除了需要证明 $A$ 的充分性，还需非必要性，即 $B$ 不能推出 $A$。 只要我们可以举出一个 $B$ 成立 $A$ 不成立的反例，就立刻证明了不可能由 $B$ 推出 $A$。 
+\end{enumerate}
+
+简要说明：
+
+有命题 $A$ 和 $B$ 
+\begin{enumerate}
+\item $A$ 推出 $B$ ， $B$ 推不出 $A$ ，则为充分不必要，如图：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/813479566ad8bd27.png}
+\caption{充分不必要} \label{fig_SufCnd_2}
+\end{figure}
+口诀：有之必然，无之未必不然
+\item $A$ 推出 $B$ ， $B$ 推出 $A$ ，则为充要，如图：\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/977aec7c48daaeea.png}
+\caption{充要} \label{fig_SufCnd_3}
+\end{figure}
+\item $A$ 推不出 $B$ ， $B$ 推不出 $A$ ，则既不充分也不必要，如图：\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/72797bcad5cfcfdc.png}
+\caption{既不充分也不必要} \label{fig_SufCnd_4}
+\end{figure}
+\item $A$ 推不出 $B$ ， $B$ 推出 $A$ ，则必要不充分，如图：\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/b8c97ea69e5f63a9.png}
+\caption{必要不充分} \label{fig_SufCnd_5}
+\end{figure}
+口诀：有之未必然，无之必不然
+\end {enumerate}
+
+%以上移动自充分必要条件，并加以调整
+
+\subsubsection{充分与必要}
+
+“若 $p$ ，则 $q$ ”表示如果命题 $p$ 为真，那么命题 $q$ 也为真。条件命题通常用符号$p\Rightarrow q$表示。
+
+如果这个条件命题成立，则$p$称为$q$的充分条件，反过来看则$q$称为$p$的必要条件。
+当且仅当
+
+
+\subsubsection{逆与否}
+
+逆命题、否命题、逆否命题
+
+区分命题的否定和否命题。

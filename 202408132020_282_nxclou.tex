@@ -1,0 +1,25 @@
+% NextCloud 笔记
+% license Usr
+% type Note
+
+\begin{itemize}
+\item \href{https://nextcloud.com/install/}{官方安装页面（推荐用 AOI 即 docker）}
+\begin{lstlisting}[language=bash]
+# For Linux and without a web server
+# or reverse proxy (like Apache, Nginx, Caddy,
+# Cloudflare Tunnel and else) already in place:
+sudo docker run \
+--init \
+--sig-proxy=false \
+--name nextcloud-aio-mastercontainer \
+--restart always \
+--publish 5000:8080 \
+--publish 5001:8080 \
+--publish 5002:8443 \
+--volume nextcloud_aio_mastercontainer:/mnt/docker-aio-config \
+--volume /var/run/docker.sock:/var/run/docker.sock:ro \
+nextcloud/all-in-one:latest
+\end{lstlisting}
+\item 其中 80 和 844 的两行可以删掉
+\item \verb`https://ip地址或localhost:5000` 然后跳过 safty 即可访问
+\end{itemize}

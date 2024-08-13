@@ -1,0 +1,39 @@
+% NextCloud 笔记
+% license Usr
+% type Note
+
+\begin{itemize}
+\item \href{https://nextcloud.com/install/}{官方安装页面（推荐用 AOI 即 docker）}
+\begin{lstlisting}[language=bash]
+# For Linux and without a web server
+# or reverse proxy (like Apache, Nginx, Caddy,
+# Cloudflare Tunnel and else) already in place:
+sudo docker run \
+--init \
+--sig-proxy=false \
+--name nextcloud-aio-mastercontainer \
+--restart always \
+--publish 5001:80 \
+--publish 5002:8080 \
+--publish 8443:8443 \
+--volume nextcloud_aio_mastercontainer:/mnt/docker-aio-config \
+--volume /var/run/docker.sock:/var/run/docker.sock:ro \
+nextcloud/all-in-one:latest
+\end{lstlisting}
+\item 其中 80 和 844 的两行可以删掉
+\item \verb`https://ip地址或localhost:5002` 然后跳过安全警告即可访问
+\item 命令中本机映射的文件夹在 docker 的默认映射文件夹 \verb`/var/lib/docker/volumes/nextcloud_aio_mastercontainer/`
+\item 初始界面千万不要跳过去，记下密码！如果忘了密码可以在映射文件夹中的设置文件查看 \verb`_data/data/configuration.json`
+\end{itemize}
+
+彻底卸载 nextcloud docker：
+\begin{lstlisting}[language=bash]
+sudo docker stop nextcloud-aio-mastercontainer
+sudo docker stop nextcloud-aio-domaincheck
+sudo docker network rm nextcloud-aio
+# 检查是否还有残留 volume
+sudo docker volume ls --filter "dangling=true"
+# 清空 volume
+sudo docker volume prune --filter all=1
+docker volume rm nextcloud_aio_backupdir
+\end{lstlisting}
