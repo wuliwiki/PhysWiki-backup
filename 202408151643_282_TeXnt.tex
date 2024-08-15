@@ -1,0 +1,24 @@
+% TeX 笔记
+% license Usr
+% type Note
+
+
+\subsection{BiTex}
+
+\begin{itemize}
+\item \verb`author` 是作者列表， 多个作者用 \verb`and` 隔开， 如果姓名中间有逗号，那逗号前面就是姓，后面是名。 如果没有逗号则姓在后面。
+\item \verb`number` 和 \verb`issue` 是一回事， issue 一般是一年 12 个，每个 volume 中 issue 一般从 1 开始。
+\item \verb`pages` 是起始页码或者页码范围
+\end{itemize}
+
+\begin{lstlisting}[language=none]
+@article{sampleArticle,
+  author  = {Author Name},
+  title   = {Title of the Article},
+  journal = {Journal Name},
+  year    = {2024},
+  volume  = {10},
+  number  = {2},
+  pages   = {123-130}
+}
+\end{lstlisting}
