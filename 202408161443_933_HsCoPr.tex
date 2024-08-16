@@ -1,0 +1,299 @@
+% 复合命题（高中）
+% keys 命题|高中|且|或|非|条件|量词|逆否|复合
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{命题与推理\nref{nod_HsLogi}，集合的基本运算\nref{nod_HsSeOp}}{nod_acc5}
+
+在高中数学中，逻辑是不可忽视的基础工具。尽管教材中逻辑内容的比重有所减少，但掌握逻辑对理解和应用数学知识仍然至关重要。逻辑不仅帮助我们严谨地推导数学定理，还在日常生活中增强了我们分析和解决问题的能力。
+
+当你已经掌握了简单命题的基础后，学习复合命题就成为了你进一步深入逻辑世界的关键一步。顾名思义，\textbf{复合命题}（compound proposition）就是由原子命题通过各种方式（逻辑连接词组合、量词限定变量和条件连接等方式）复合形成的命题。通过学习复合命题，你将学会如何将简单的逻辑拼接成更复杂的推理过程。无论是在解决数学难题时，还是在面对生活中的复杂决策时，理解和应用复合命题都会帮助你更加清晰地思考，增强你的推理能力，为未来的学术挑战和实际应用打下坚实的基础。
+
+\subsection{逻辑连接词}
+
+逻辑连接词用于将简单命题组合成更复杂的复合命题，也可以组合使用，表达更复杂的命题。常见的逻辑连接词包括“且”、“或”和“非”。在接下来的部分中，我们将详细介绍这些逻辑连接词的定义、真值表和应用实例。
+
+请注意，尽管这部分内容已经在当前的高中教材中删除，但事实上总在出现，对下面概念的模糊会造成解题时的困惑。
+
+\subsubsection{且}
+
+在学习数学的过程中，你应该遇见过以下的情况：
+\begin{itemize}
+\item 两个或多个方程需要同时成立，这时会把他们放在一起称为“方程组”，求解方程组的方法称为“消元”。
+\item 证明某个四边形是矩形，就需要满足以下两个条件同时成立：四边形的对角线相等、四个角都是直角。
+\item 在集合论中，$A \cap B$表示集合$A$和$B$的交集，其中的元素必须既属于$A$，又属于$B$。
+\end{itemize}
+
+在上面的例子中，一个方程组中方程的关系、用来描述某个事物的多个条件的关系，交集的元素和原始集合的关系，就是“且”。“消元”依据的也就是“且”这个前提，毕竟只有不论在哪个方程里，同一个变量取的都是同一个值，才能做代换。
+\begin{definition}{且}\label{def_HsCoPr_1}
+若逻辑连接词连接的两个命题$A,B$只有同时成立，整个复合命题才为真，则这个逻辑连接词称为\textbf{且}（and，也称为\textbf{而且}、\textbf{同}、\textbf{合取}），记作\footnote{符号不做硬性要求，下同。}：
+\begin{equation}
+A\land B~.
+\end{equation}
+，读作“$A$且$B$”或者“（命题）$A,B$的合取”（the conjunction of propositions A and B）。
+\end{definition}
+
+\textbf{真值表}是一种用来系统地列出逻辑命题在各种情况下的真值的工具，下面的表中都给出了两个值，事实上写哪个都可以。通过真值表，我们可以清楚地看到，真值表前面两列是各个命题的真值，最后一列是复合命题在被连接的命题取不同真值时的结果。下面是“且”的真值表。
+
+\begin{table}[ht]
+\centering
+\caption{“且”真值表}\label{tab_HsCoPr1}
+\begin{tabular}{|c|c|c|}
+\hline
+$A$ & $B$ & $A \land B$<br>（$A$且$B$） \\
+\hline
+真（1） & 真（1） & 真（1） \\
+\hline
+真（1） & 假（0） & 假（0）\\
+\hline
+假（0） & 真（1） & 假（0）\\
+\hline
+假（0） & 假（0） & 假（0） \\
+\hline
+\end{tabular}
+\end{table}
+
+可以看出，只有当$A$和$B$都是真的时候$A\land B$（$A$且$B$）才是真，否则只要$A$和$B$里面有任何一个是假（当然也包括两个全是假），$A\land B$就是假。如果把“真”换成$1$，把“假”换成$0$，则上面的真值表看起来就像是乘法运算，在复杂的逻辑表示时，也经常会像乘法一样，在不引起歧义的情况下，将$\land$省略，记作$AB$。
+
+\subsubsection{或}
+
+在学习数学的过程中，你也应该曾遇见过以下几种情况：
+\begin{itemize}
+\item 一元二次方程$(x-1)(x-2)=0$有两个解：$x=1$，$x=2$。这两个解无论代入哪个，原方程都成立。
+\item 如果一个实数$x\neq0$，则要么$x<0$，要么$x>0$。
+\item 在集合论中，$A \cup B$表示集合$A$和$B$的并集，其中的元素不是在$A$中，就是在$B$中（当然也可以同时在两者之中）。
+\end{itemize}
+在上面的例子中，一元二次方程解的关系、不等式之间的关系，并集的元素和原始集合的关系，就是“或”。
+\begin{definition}{或}\label{def_HsCoPr_2}
+若逻辑连接词连接的两个命题$A,B$只要有一个成立，整个复合命题就为真，则称这个逻辑连接词为\textbf{或}（or，也称为\textbf{或者}、\textbf{析取}），记作\footnote{这里提供一个记忆方法，开口向上的像一个将两侧全部装入的容器，开口向下的则像将两侧只各自存在的内容滑出去。这两个符号的开口和与他们关系紧密的“交集”和“并集”一样。}：
+\begin{equation}
+A\lor B~.
+\end{equation}
+，读作“$A$或$B$”或者“（命题）$A,B$的析取”（the disjunction of propositions A and B）。
+\end{definition}
+
+这里需要注意，我们日常生活中使用的“或者”，例如“你或者他”这样的表达，通常意味着二者之一，而不包括两者都选的情况。在逻辑学中，这种情况称为“异或”\footnote{\textbf{异或}（Exclusive or 或XOR），记作$A\oplus B$}，不过这在高中阶段通常不会详细涉及，此处只是用于扩展视野和解答疑惑。
+
+比如上面的第二个例子中“要么$x<0$，要么$x>0$”，这里的“或”其实指的是$x$的实际结果要么在一个区间内，要么在另一个区间内，这种情况在实际中可以理解为“异或”，因为$x$不可能同时在两个互斥的区间中。但在数学中的“或”通常指的是满足任一条件时就可以（即所谓的“包含或”），且在这个例子中，由于$x < 0$和$x > 0$不能同时成立，或者说即使同时成立的情况不影响最终结果，这里的“或”与“异或”是等价的，因此我们通常直接将其归为“或”（认为最终的解集是两个区间的并集）。
+
+在高中数学中，当我们谈到“或”时，指的就是只要满足多个条件中的任意一个（而不是只能一个），结果就成立，“或”的真值表如下：
+
+\begin{table}[ht]
+\centering
+\caption{“或”真值表}\label{tab_HsCoPr2}
+\begin{tabular}{|c|c|c|}
+\hline
+$A$ & $B$ & $A \lor B$<br>（$A$或$B$） \\
+\hline
+真（1） & 真（1） & 真（1） \\
+\hline
+真（1） & 假（0） & 真（1） \\
+\hline
+假（0） & 真（1） & 真（1） \\
+\hline
+假（0） & 假（0） & 假（0） \\
+\hline
+\end{tabular}
+\end{table}
+
+可以看出，只要$A$或$B$有一个是真的时候$A\lor B$（$A$或$B$）就是真，否则也就是两个全是假的时候，$A\land B$才是假。由于真值只有0和1，因此若认为“$1+1=1$”的话，“或”看上去就像加法一样。而就像代数中对最简结果的要求是最简多项式一样，一般逻辑表达式的化简结果是由“或”连接的。
+
+\subsubsection{非}
+
+在我们的日常生活中，“否定”是一种常见的思维方式，它可以帮助我们明确和区分不同的情况。无论是在做决定还是在表达意见时，我们常常会用到“非”的概念，例如：
+\begin{itemize}
+\item 当我们说“今天不是周末”时，我们实际上是在否定“今天是周末”这个命题，明确了今天是工作日。
+\item 在考试中，如果有人说：“我没有不及格。”这句话实际上是对“我不及格”这个命题的否定，意味着“我及格了”。
+\item 朋友问你：“你明天上午有空吗？”你回答：“我明天上午没有空。”这里的“没”体现在对“有空”这个命题的否定，明确表示你有其他安排。
+\end{itemize}
+
+上面的“不”、“没有”、“没”都是用来表示命题的否定，就是逻辑上的“非”。
+
+\begin{definition}{非}
+若一个逻辑连接词修饰命题$A$得到的命题，真值总与原命题$A$相反，则这个逻辑连接词称为\textbf{非}（not，也称为\textbf{否定}），记作：
+\begin{equation}
+\lnot A\qquad\text{或者}\qquad\bar{A}~.
+\end{equation}
+，读作“非$A$”或“（命题）$A$的否定”（the negation of proposition A）。
+\end{definition}
+
+与之前接触的两个符号不同，“非”只作用在一个命题上，不论这个命题是简单命题，还是复合命题。“非” 的真值表如下：
+
+\begin{table}[ht]
+\centering
+\caption{“非”真值表}\label{tab_HsCoPr3}
+\begin{tabular}{|c|c|}
+\hline
+$A$ & $\lnot A$<br>（非$A$） \\
+\hline
+真（1） & 假（0） \\
+\hline
+假（0） & 真（1） \\
+\hline
+\end{tabular}
+\end{table}
+
+“非”作用在修饰的整个命题上，这件事在简单命题上很容易理解，但是作用在复合命题上时，很容易产生混淆，在“量词命题”和“条件命题”中需要提起精神注意。
+
+\subsubsection{逻辑连接词的性质}
+
+就像\aref{交集与并集的性质}{tab_HsSeOp1}，逻辑连接词也有类似的性质。注意，表中的$A,B$代表命题，而等号代表着，不论命题真值为何，只要左右条件相同，等号左右的两个命题永远具有相同的真值。表中的$T,F$代表着真值为真、假的命题。下表不要求推导，也不要求记住，此处给出是为了方便查阅和对照集合中的：空集、全集、交集、并集、补集等概念进行理解。
+
+\begin{table}[ht]
+\centering
+\caption{“且”与“或”的性质}\label{tab_HsCoPr4}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & 且$\land$ & 或$\lor$ & 备注 \\
+\hline
+1 & $A\land B = B\land A$ & $A\lor B = B\lor A$ & 交换律（Commutative Law） \\
+\hline
+2 & $ A \land (B \land C) = (A \land B) \land C$  &$ A \lor (B \lor C) = (A \lor B) \lor C$ & 结合律（Associative Law） \\
+\hline
+3 & $ A \land (B \lor C) = (A \land B) \lor (A \land C) $  & $ A \lor (B \land C) = (A \lor B) \land (A \lor C) $ & 分配律（Distributive Law） \\
+\hline
+4 & $ A \lor (A \land B) = A $  &$ A \land (A \lor B) = A $ & 吸收律 （Absorption Law）\\
+\hline
+5 & $A\land A = A$ & $A\lor A = A$ & 幂等律（Idempotent laws）\\
+\hline
+6 & $ A \land (\lnot A) = F $ &$ A \lor (\lnot A) = T $  & 排中律（Laws of the excluded middle） \\
+\hline
+7 & $A\land F = F$ & $A\lor F = A$ & 与假命题（F）的关系 \\
+\hline
+8 & $ A \land T = A $  &$ A \lor T = T $ & 与真命题（T）的关系 \\
+\hline
+9 & $ \lnot(A \land B) = (\lnot A) \lor (\lnot B) $  &$ \lnot(A \lor B) = (\lnot A) \land (\lnot B)  $ & 德摩根定律 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{量词命题}
+
+描述关于某些变量的通用性质或存在性质的命题，称为\textbf{量词命题}（quantified propositions）。原本开放命题中真值根据变量取值确定，量词命题使用\textbf{量词}（quantifiers）来限定开放命题中的变量，使得量词命题具有明确的真值。以“$x$是一个偶数”为例，如果用“所有”来限定$x$，即“所有的自然数$x$都是偶数”，是假命题，而用“存在”来限定$x$，即“存在一个自然数$x$是偶数”，则是真命题。
+
+注意，如“任意$m>n$”等单独用量词来限定变量的语句是没有意义的，量词需要在命题中使用。
+
+\subsubsection{全称量词}
+
+在陈述中表达所述事物的全体的含义时，使用的量词称为\textbf{全称量词}（universal quantifier），记作$\forall$，可以读作“任意”、“所有”、“每一个”等。形如“集合$M$中所有的元素$x$，都满足性质$P(x)$”的命题称为\textbf{全称量词命题}或称其\textbf{恒成立}（universal proposition），记作：
+
+
+\begin{equation}
+\forall x\in M,P(x)~.
+\end{equation}
+
+\subsubsection{存在量词}
+
+在陈述中表达所述事物的个体、部分或特例的含义时，使用的量词称为\textbf{存在量词}（existential quantifier，也称作\textbf{特称量词}，Particular Quantifier），记作$\exists$，可以读作“存在”、“有”、“至少有一个”等。形如“集合$M$中存在某个元素$x$满足性质$P(x)$”的命题称为\textbf{存在量词命题}，记作：
+
+\begin{equation}
+\exists x\in M,P(x)~.
+\end{equation}
+
+\subsection{条件命题}
+
+\textbf{条件命题}（conditional proposition或\textbf{蕴含命题}，implication）用于表达两个命题之间的条件关系，通常形如“若 $p$ ，则 $q$ ” ，由一个前件（antecedent）$p$和一个后件（consequent）$q$组成，通过“如果……那么……”（if…then…）的形式来连接。条件命题在计算机领域广泛使用。
+
+%移动自充分必要条件，并加以调整
+若由命题 $A$ 能推导出命题 $B$， 则 $A$ 是 $B$ 的充分条件， $B$ 是 $A$ 的必要条件。如何理解这个定义呢？下面举两个例子。
+
+\begin{example}{}
+命题 $A$：四边形 $ABCD$ 是一个正方形。
+
+命题 $B$：四边形 $ABCD$ 的四条边相等。
+
+首先我们考虑 $A$ 对 $B$ 的关系。显然，由 $A$ 可以推出 $B$， 说明 $A$ 中有充分的信息能得到 $B$， 所以叫做 $B$ 的\textbf{充分条件}。 $A$ 中包括得到 $B$ 所必要的信息，还\textbf{可能}包括一些其他信息，例如由命题 $A$ 可以得出四边形任意两条临边垂直。 这些多出来的信息并不一定是得到 $B$ 所必须的，因为还有许多其他的四边形四条边相等但并不是正方形。
+
+那如何判断 $A$ 中有没有多余的信息呢？我们可以反过来试图用 $B$ 推导命题 $A$， 若原则上得不出 $A$ （而不是因为我们逻辑水平不够），则证明 $A$ 中有多余的条件。这时我们说 $A$ 不是 $B$ 的\textbf{必要条件}，因为 $A$ 中的一些信息是多余的，也就是没有必要的。综上， $A$ 是 $B$ 的\textbf{充分非必要条件}。
+
+现在我们从 $B$ 的角度考虑。虽然由条件 $B$ 不能推导出条件 $A$， 但是 $B$ 是 $A$ 中信息的一部分， $B$ 必须要成立才有可能使 $A$ 成立，也就是说如果 $B$ 不成立 $A$ 就不可能成立（四条边不全相等的四边形一定不是正方形）。所以说 $B$ 是 $A$ 的必要条件。另外，由 $B$ 中的少量信息不能得到 $A$， 所以 $B$ 不是 $A$ 的充分条件。 综上， $B$ 是 $A$ 的\textbf{必要非充分条件}。
+\end{example}
+
+
+\begin{example}{}
+命题 $A$ ：三角形 $X$ 的其中两内个角分别为 $90^\circ$ 和 $45^\circ$。
+
+命题 $B$ ：三角形 $X$ 有两个 $45^\circ$ 的内角。
+
+利用三角形三个内角和为 $180^\circ$ 的事实，可以从 $A$ 推出 $B$， 说明 $A$ 是 $B$ 的充分条件， $B$ 是 $A$ 的必要条件。但也可以从 $B$ 推出 $A$， 说明 $B$ 是 $A$ 的充分条件， $A$ 是 $B$ 的必要条件。所以 $A$ 和 $B$ 既是彼此的充分条件也是彼此的必要条件。所以我们说 $A$ 和 $B$ \textbf{互为充分必要条件}。若 $A$ 是 $B$ 的充分必要条件， $B$ 一定也是 $A$ 的充分必要条件。因为两种表述都意味着 $A$，  $B$ 命题\textbf{等效}，所提供的信息都是一样的，两者都没有任何多余的或者缺失的信息。
+\end{example}
+
+需要注意的是：
+\begin{enumerate}
+\item 充分/必要条件是两个命题之间的关系，若只说一个命题是充分/必要条件没有意义。
+\item 讨论充分/必要条件需要在一定的前提下进行。以上两个例子中的前提如： 我们讨论的是欧几里得几何中的平面四边形和三角形。 当然，我们也可以把这个前提直接写在每个命题中。
+\item 在证明 $A$ 是 $B$ 的充分必要条件时，需要分别证明 $A$ （相对于 $B$）的充分性和必要性。充分性需要由 $A$ 证明 $B$， 必要性需要由 $B$ 证明 $A$。 
+\item 在证明 $A$ 是 $B$ 的充分非必要条件时，除了需要证明 $A$ 的充分性，还需非必要性，即 $B$ 不能推出 $A$。 只要我们可以举出一个 $B$ 成立 $A$ 不成立的反例，就立刻证明了不可能由 $B$ 推出 $A$。 
+\end{enumerate}
+
+简要说明：
+
+有命题 $A$ 和 $B$ 
+\begin{enumerate}
+\item $A$ 推出 $B$ ， $B$ 推不出 $A$ ，则为充分不必要，如图：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/813479566ad8bd27.png}
+\caption{充分不必要} \label{fig_SufCnd_2}
+\end{figure}
+口诀：有之必然，无之未必不然
+\item $A$ 推出 $B$ ， $B$ 推出 $A$ ，则为充要，如图：\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/977aec7c48daaeea.png}
+\caption{充要} \label{fig_SufCnd_3}
+\end{figure}
+\item $A$ 推不出 $B$ ， $B$ 推不出 $A$ ，则既不充分也不必要，如图：\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/72797bcad5cfcfdc.png}
+\caption{既不充分也不必要} \label{fig_SufCnd_4}
+\end{figure}
+\item $A$ 推不出 $B$ ， $B$ 推出 $A$ ，则必要不充分，如图：\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/b8c97ea69e5f63a9.png}
+\caption{必要不充分} \label{fig_SufCnd_5}
+\end{figure}
+口诀：有之未必然，无之必不然
+\end {enumerate}
+
+%以上移动自充分必要条件，并加以调整
+
+\subsubsection{充分与必要}
+
+“若 $p$ ，则 $q$ ”表示如果命题 $p$ 为真，那么命题 $q$ 也为真。条件命题通常用符号$p\Rightarrow q$或$p\rightarrow q$表示。
+
+如果这个条件命题成立，则$p$称为$q$的充分条件，反过来看则$q$称为$p$的必要条件。
+当且仅当
+
+
+\subsubsection{逆命题与否命题}
+
+原命题（Original Proposition）:  $p \Rightarrow q $
+
+逆命题 （Converse）:  $q \Rightarrow p$ 
+
+否命题 （Inverse）:  $\neg p \Rightarrow \neg q $
+
+
+\begin{example}{区分命题的否定和否命题}
+\begin{itemize}
+\item 二者只是在中文翻译上，都使用了“否”字，并且在操作时有一点相关，
+\item 否命题是针对条件命题而言的，需要分别否定条件和结论两个命题，否命题与原命题的真值无关。
+\item 命题的否定是针对所有命题而言的，需要对整个命题进行否定，要求真值完全相反。
+\end{itemize}
+
+\end{example}
+
+\subsubsection{逆否命题}
+
+逆否命题 （Contrapositive）:  $\neg q \Rightarrow \neg p $
+原命题与逆否命题相等，而逆命题与否命题互为逆否命题，因此二者也相等。
+
+
+
+\begin{exercise}{求“任意平面四边形，若这个四边形的对角线长度相等且有一个角是直角，则这个四边形是矩形。”的逆否命题。}
+\end{exercise}
