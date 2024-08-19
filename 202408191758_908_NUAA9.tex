@@ -1,0 +1,33 @@
+% 南京航空航天大学 2004 量子真题答案
+% license Usr
+% type Note
+
+\textbf{声明}：“该内容来源于网络公开资料，不保证真实性，如有侵权请联系管理员”
+
+
+\subsection{一}
+1. 解：\\
+(1) 因为 $\hat{p} \psi = p\left[e^{\frac{i}{\hbar}(PX - Et)} - e^{-\frac{i}{\hbar}(PX + Et)}\right] \neq p\psi$\\
+所以 $\psi$不是动量算符$\hat{p}$的本征函数。\\\\
+(2) 因为$\hat{p}^2 \psi = p^2\left[e^{\frac{i}{\hbar}(PX - Et)} + e^{-\frac{i}{\\hbar}(PX + Et)}\right] = p^2\psi$ \\
+所以 $\psi$是动量平方算符$\hat{p}^2$ 的本征值函数。 
+
+2.解:\\
+$(\hat{p} + \hat{x})\psi = \lambda \psi$\\
+即：$(-i\hbar\frac{\partial}{\partial x} + x)\psi = \lambda \psi \quad \frac{\hbar}{i} \frac{d\psi}{dx} = (\lambda - x)\psi$ \\
+所以$\frac{\hbar}{i} \frac{d\psi}{\psi} = (\lambda - x)dx$\\
+附注: 本征函数 $\psi = Ae^{\frac{1}{\hbar}(\lambda x - \frac{x^2}{2})}$ \\
+      本征值 $\lambda$ 为所有实数。
+
+3.解：
+\begin{align}
+\overline{V}(r) &= -\frac{e^2}{4 \pi \epsilon_0} \int_{-\infty}^{+\infty} \psi^* \frac{1}{r} \psi \, d\tau 
+= -\frac{e^2}{4 \pi \epsilon_0} \int_0^\infty \frac{1}{r} |\psi|^2 \, d\tau\\
+&= \left( -\frac{e^2}{4 \pi \epsilon_0} \right) \left( \frac{1}{\pi a_0^3} \right) \int_0^\pi \sin \theta \, d\theta \int_0^{2\pi} \, d\phi \int_0^\infty \frac{1}{r} r^2 e^{-\frac{2}{a_0}^2} \, dr\\
+&= -\frac{1}{4 \pi \epsilon_0} \frac{e^2}{a_0}~
+\end{align}
+
+4.解：\\
+$\therefore B = A^\dagger A$\\
+$\therefore B^2 = A^\dagger A A^\dagger A = A^\dagger A \left(1 - AA^\dagger \right) = A^\dagger A - A^\dagger AA^\dagger A$
+
