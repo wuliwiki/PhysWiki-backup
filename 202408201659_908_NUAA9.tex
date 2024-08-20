@@ -148,25 +148,21 @@ $$\therefore \quad \tau = \frac{\left(2k+1\right)\pi}{2\omega} = \frac{\left(2k+
 $$ H'_{11} = \int_0^{2\pi} \frac{1}{\sqrt{\pi}}\cos m_0 \varphi F_0 \delta(\varphi-\varphi_0)\frac{1}{\sqrt{\pi}}\cos m_0 \varphi d\varphi = \frac{F_0}{\pi} \cos^2(m\varphi_0)~$$
 $$H'_{22} = \int_0^{2\pi} \frac{1}{\sqrt{\pi}}\sin m_0 \varphi F_0 \delta(\varphi-\varphi_0)\frac{1}{\sqrt{\pi}}\sin m_0 \varphi d\varphi = \frac{F_0}{\pi} \sin^2(m\varphi_0)~$$
 $$H'_{12} = H'_{21} = \int_0^{2\pi} \frac{1}{\sqrt{\pi}}\cos m_0 \varphi F_0 \delta(\varphi-\varphi_0)\frac{1}{\sqrt{\pi}}\sin m_0 \varphi d\varphi = \frac{F_0}{2\pi} \sin(2m \varphi_0)~$$
-\begin{align*}
-\text{由久期解：} & \\quad \\frac{F_0}{\\pi} \\cos^2(m\\varphi_0) - E_m^{(1)} \\frac{F_0}{\\pi} \\sin(2m\\varphi_0) &= 0 \\\\
-& \\quad \\frac{F_0}{\\pi} \\sin(m\\varphi_0) \\cos(m\\varphi_0) - E_m^{(1)} \\frac{F_0}{\\pi} \\sin^2(m\\varphi_0) &= 0 \\\\
-\\text{解得：} & \\quad E_m^{(1)} = 
-\\begin{cases} 
-\\frac{F_0}{\\pi} & \\text{若} \\\\
-0 & \\text{若} 
-\\end{cases} 
-\\\\
-& \\quad E_m = E_m^{(0)} + E_m^{(1)} = 
-\\begin{cases} 
-\\frac{2\\hbar^2}{mMR^2} + \\frac{F_0}{\\pi} & \\text{若} \\\\
-m+1\\frac{\\hbar^2}{MR^2} & \\text{若} 
-\\end{cases} 
-\\\\
-\\text{零阶拟对数：} & \\quad \\Phi_m^{(0)} = \\frac{1}{\\sqrt{\\pi}} C_1 \\cos m\\varphi + \\frac{1}{\\sqrt{\\pi}} C_2 \\sin m\\varphi \\\\
-\\text{由方程：} & \\quad \\frac{F_0}{\\pi} \\cos^2(m\\varphi_0) - E_m^{(1)} \\frac{F_0}{\\pi} \\sin m\\varphi_0 \\cos m\\varphi_0 = 0 \\\\
-\\text{设} E_m^{(1)} = 0 \\quad \\text{时：} & \\quad C_1 = -\\sin m\\varphi_0 \\quad C_2 = \\cos m\\varphi_0 \\\\
-\\text{零阶：} & \\quad \\Phi_m^{(0)} = \\frac{1}{\\sqrt{\\pi}} \\sin m(\\varphi - \\varphi_0) \\\\
-\\text{设} E_m^{(1)} = \\frac{F_0}{\\pi} \\quad \\text{时：} & \\quad C_1 = \\cos m\\varphi_0 \\quad C_2 = \\sin m\\varphi_0 \\\\
-\\text{零阶：} & \\quad \\Phi_{2m}^{(0)} = \\frac{1}{\\sqrt{\\pi}} \\cos m(\\varphi - \\varphi_0)
-\end{align}
+由久期方程：
+$$\left| 
+\begin{array}{cc}
+\frac{F_0}{\pi} \cos^2(m\varphi_0) - E_m^{(1)} & \frac{F_0}{2\pi} \sin(2m\varphi_0) \\\\
+\frac{F_0}{2\pi} \sin(2m\varphi_0) & \frac{F_0}{\pi} \sin^2(m\varphi_0) - E_m^{(1)}
+\end{array}
+\right| = 0~$$
+解得:
+$$E_m^{(1)} = 
+\begin{cases} 
+\frac{E_0}{x} \\\\0
+\end{cases}
+\therefore \\ \text{能量二阶近似为：} \ E_m = E_m^{(0)} + E_m^{(1)} = 
+\begin{cases}
+m^2\frac{\hbar^2}{M R^2} + \frac{F_0}{\pi}, \\\\
+m^2\frac{\hbar^2}{M R^2}
+\end{cases}~$$
+零阶波函数：$\Psi_m^{(0)} = C_1 \frac{1}{\sqrt{\pi}} \cos m \varphi + C_2 \frac{1}{\sqrt{\pi}} \sin m \varphi$
