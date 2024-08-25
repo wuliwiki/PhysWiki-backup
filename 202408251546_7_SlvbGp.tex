@@ -1,0 +1,72 @@
+% 可解群
+% keys 可解群|solvable group|导出列|换位子|换位子群|derived series|commutator|commutator group
+% license Usr
+% type Tutor
+
+
+
+可解群在Galois理论中起到关键作用，用于判断代数方程的根式可解性，由此而得名。由于我们现在尚未深入Galois理论，就不讨论何谓“可解”，而仅仅从群结构的角度研究这种群的性质。
+
+
+
+\subsection{换位子群}
+
+
+\begin{definition}{换位子}
+
+给定群$G$以及$x, y\in G$，定义运算
+\begin{equation}
+[x, y] = x^{-1}y^{-1}xy,~
+\end{equation}
+称其为元素$x, y$的\textbf{换位子（commutator）}。
+
+\end{definition}
+
+
+换位子得名的意义很显然，$yx[x, y]=xy$，即把相乘的两个元素位置互换。显然，如果$xy=yx$，则它们的换位子只能是单位元$e$，因此换位子天然和交换性乃至群的中心有深刻联系。
+
+
+\begin{definition}{换位子群}
+
+给定群$G$及其子群$H$和$K$，称
+\begin{equation}
+[H, K] = \langle \{[h, k]\mid h\in H, k\in K\} \rangle~
+\end{equation}
+为$H$和$K$的\textbf{换位子群（commutator subgroup）}或\textbf{导子群（derived subgroup）}。特别地，称$[G, G]$为$G$的换位子群。
+
+\end{definition}
+
+注意，$[H, K]$并不是换位子构成的集合，而是由这个集合生成的子群。换句话说，换位子群中存在不是换位子的元素。
+
+\begin{example}{换位子群中不是换位子的元素}
+
+考虑由四个元素生成的\textbf{自由群}\upref{FreGrp}$\opn{F}_4=\langle x, y, z, w \rangle$，则显然$[x, y][z, w]\in [\opn{F}_4, \opn{F}_4]$，但这个元素本身并不是$\opn{F}_4$的换位子。
+
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
