@@ -1,0 +1,72 @@
+% 群的扩张
+% keys 扩张|group extension|正合序列|exact sequence|短正合序列|short exact sequence
+% license Usr
+% type Tutor
+
+
+\pentry{直积和半直积（群）\nref{nod_GrpPrd}}{nod_4306}
+
+如果说求商群的过程是在“模糊化”一个群，那么直积可以理解为“精细化”一个群。
+
+具体地，考虑群直积$G\times H$，则$\{e\}\times H$是其一个正规子群，于是求商群$G\times H/\{e\}\times H$的过程就是把第一分量相同的元素$(g, h_1)$和$(g, h_2)$都视为同一个元素，即模糊了它们之间的差别。反之，已知群$G$和$H$，则求直积的过程可以理解为把每个元素$g\in G$细化为集合$\{(g, h)\mid h\in H\}$，从一个点变成更多点。
+
+
+那么求商群和求直积是不是互为逆运算呢？很可惜，并不是。
+
+
+
+\begin{example}{}
+考虑循环群$\mathbb{Z}/4\mathbb{Z}$和Klein群$K_4=\mathbb{Z}/2\mathbb{Z}\times \mathbb{Z}/2\mathbb{Z}$。二者都含$4$个元素，都有正规子群$\mathbb{Z}/2\mathbb{Z}$，但$\mathbb{Z}/4\mathbb{Z}\neq \mathbb{Z}/2\mathbb{Z}\times \mathbb{Z}/2\mathbb{Z}$，故不能循环群$\mathbb{Z}/4\mathbb{Z}$写成它的商群和正规子群的直积。
+\end{example}
+
+
+
+
+如何正确表达求商群的逆运算呢？如果说求商群$G/N$是把正规子群$N$的每个左陪集都看成一个元素，抹去其运算细节，那么反过来，把$G/N$中的每个元素都扩张为一个群，就能得到$G$，我们称这个过程为\textbf{群的扩张}。
+
+
+
+\begin{definition}{群的扩张}\label{def_GrpExt_1}
+给定群$K$和$N$，如果存在一个群$G$和群同态$f:G\to K$，使得$\opn{ker}f\cong N$，则称$G$为群$K$过群$N$的\textbf{扩张（extension）}。
+\end{definition}
+
+
+\autoref{def_GrpExt_1} 中要求“存在$G$满足条件”，事实上这样的$G$一定存在。我们可以利用$K$和$N$构造出$G$来。
+
+取集合$K\times N$，定义其上的运算“$\cdot$”，使得
+\begin{equation}
+\forall k_1, k_2\in K, n_1, n_2\in N, (k_1, n_1)\cdot(k_2, n_2)=(k_1k_2, )~, 
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
