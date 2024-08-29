@@ -1,0 +1,96 @@
+% 可解群
+% keys 可解群|solvable group|导出列|换位子|换位子群|derived series|commutator|commutator group|正规序列|次正规序列|normal series|subnormal series|合成序列|composite series
+% license Usr
+% type Tutor
+
+
+\pentry{换位子群\nref{nod_CmtGrp}}{nod_3aa9}
+
+
+可解群在Galois理论中起到关键作用，用于判断代数方程的根式可解性，由此而得名。由于我们现在尚未深入Galois理论，就不讨论何谓“可解”，而仅仅从群结构的角度研究这种群的性质。
+
+
+\begin{definition}{可解群}\label{def_SlvbGp_1}
+给定群$G$，定义$G^{(0)}=G$且对于任意正整数$k$，$G^{(k)}=[G^{(k-1)}, G^{(k-1)}]$。
+
+称
+\begin{equation}\label{eq_SlvbGp_1}
+G^{(0)}\rhd G^{(1)}\rhd G^{(2)}\rhd \cdots~
+\end{equation}
+为$G$的\textbf{导出列（derived series）}。
+
+若导出列在有限步内终结于$\{e\}$，或者等价地说，存在非负整数$n$使得$G^{(n)}=\{e\}$，则称$G$\textbf{可解（solvable）}。
+
+\end{definition}
+
+
+\autoref{def_SlvbGp_1} 的\autoref{eq_SlvbGp_1} 直接使用了正规子群符号$\rhd$，这是由\autoref{the_CmtGrp_2} 保证的。
+
+
+
+\autoref{def_SlvbGp_1} 的基础是换位子群的概念，但我们也可以仅用正规子群的概念来定义可解群：
+
+
+
+\begin{definition}{（次）正规序列}
+
+给定群$G$，称序列
+\begin{equation}
+G=G_1\rhd G_2\rhd\cdots G_n=\{e\}~
+\end{equation}
+为$G$的一个\textbf{次正规序列（subnormal series）}。若该序列还满足$\forall k\in \mathbb{Z}\cap\{1, n\}, G_k\lhd G$，则称之为一个\textbf{正规序列（normal series）}。
+
+\end{definition}
+
+
+
+\begin{theorem}{可解群的另一定义}
+
+给定群$G$，则$G$是可解群，当且仅当存在$G$的正规序列$G=G_1\rhd G_2\rhd\cdots G_n=\{e\}$，且对于任意正整数$k$，$G_k/G_{k+1}$都是阿贝尔群。
+
+\end{theorem}
+
+
+\textbf{证明}：
+
+\textbf{必要性}：
+
+设$G$可解，即存在非负整数$n$使得$G^{(n)}=\{e\}$。令$G_k=G^{(k-1)}$，则对于任意正整数$k$，$G_{k+1}\subseteq [G_k, G_k]$，于是由\autoref{the_CmtGrp_1} 可知，$G_k/G_{k+1}$都是阿贝尔群。又由\autoref{the_CmtGrp_2}，可知各$G$
+
+\textbf{证毕}。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
