@@ -1,0 +1,173 @@
+% 可解群
+% keys 可解群|solvable group|导出列|换位子|换位子群|derived series|commutator|commutator group|正规序列|次正规序列|normal series|subnormal series|合成序列|composite series
+% license Usr
+% type Tutor
+
+
+\pentry{换位子群\nref{nod_CmtGrp}}{nod_3aa9}
+
+
+可解群在Galois理论中起到关键作用，用于判断代数方程的根式可解性，由此而得名。由于我们现在尚未深入Galois理论，就不讨论何谓“可解”，而仅仅从群结构的角度研究这种群的性质。
+
+
+\subsection{可解群的定义}
+
+
+\begin{definition}{可解群}\label{def_SlvbGp_1}
+给定群$G$，定义$G^{(0)}=G$且对于任意正整数$k$，$G^{(k)}=[G^{(k-1)}, G^{(k-1)}]$。
+
+称
+\begin{equation}\label{eq_SlvbGp_1}
+G^{(0)}\rhd G^{(1)}\rhd G^{(2)}\rhd \cdots~
+\end{equation}
+为$G$的\textbf{导出列（derived series）}。
+
+若导出列在有限步内终结于$\{e\}$，或者等价地说，存在非负整数$n$使得$G^{(n)}=\{e\}$，则称$G$\textbf{可解（solvable）}。
+
+\end{definition}
+
+
+\autoref{def_SlvbGp_1} 的\autoref{eq_SlvbGp_1} 直接使用了正规子群符号$\rhd$，这是由\autoref{the_CmtGrp_2} 保证的。
+
+
+
+\autoref{def_SlvbGp_1} 的基础是换位子群的概念，但我们也可以仅用正规子群的概念来定义可解群：
+
+
+
+\begin{definition}{（次）正规序列}
+给定群$G$，称序列
+\begin{equation}
+G=G_1\rhd G_2\rhd\cdots G_n=\{e\}~
+\end{equation}
+为$G$的一个\textbf{次正规序列（subnormal series）}。若该序列还满足$\forall k\in \mathbb{Z}\cap\{1, n\}, G_k\lhd G$，则称之为一个\textbf{正规序列（normal series）}。
+\end{definition}
+
+
+
+\begin{theorem}{可解群的另一定义}\label{the_SlvbGp_1}
+给定群$G$，则$G$是可解群，当且仅当存在$G$的正规序列$G=G_1\rhd G_2\rhd\cdots G_n=\{e\}$，且对于任意正整数$k$，$G_k/G_{k+1}$都是阿贝尔群。
+\end{theorem}
+
+
+\textbf{证明}：
+
+\textbf{必要性}：
+
+设$G$可解，即存在非负整数$n$使得$G^{(n)}=\{e\}$。令$G_k=G^{(k-1)}$，则对于任意正整数$k$，$G_{k+1}\subseteq [G_k, G_k]$，于是由\autoref{the_CmtGrp_1} 可知，$G_k/G_{k+1}$都是\textbf{阿贝尔群}。又由\autoref{the_CmtGrp_2}，可知各$G_k\lhd G$，因此
+\begin{equation}
+G=G_1\rhd G_2\rhd\cdots\rhd G_{n+1}=\{e\}~
+\end{equation}
+是一个\textbf{正规序列}。
+
+\textbf{充分性}：
+
+设存在$G$的正规序列$G=G_1\rhd G_2\rhd\cdots G_n=\{e\}$，且对于任意正整数$k$，$G_k/G_{k+1}$都是阿贝尔群。
+
+由\autoref{the_CmtGrp_1} 可知，$G_{k+1}\supseteq [G_k, G_k]$对任意正整数$k$成立。考虑到$G_2\supseteq[G_1, G_1]=G^{(1)}$，从而$G_3\supseteq[G_2, G_2]\supseteq [G^{(1)}, G^{(1)}]=G^{(2)}$；以此类推，$G_{k}\supseteq G^{(k-1)}$对任意正整数$k$成立。
+
+因此，$G_n=\{e\}\implies G^{(n-1)}=\{e\}$。
+
+\textbf{证毕}。
+
+
+
+
+\subsection{可解群的结构}
+
+
+
+\begin{lemma}{}
+可解群的子群和商群都可解。
+\end{lemma}
+
+
+
+\textbf{证明}：
+
+给定可解群$G$。
+
+设$H$是$G$的子群，则$[H, H]\subseteq [G, G]$，以此类推得$H^{(k)}\subseteq G^{(k)}$对任意非负整数$k$成立。因此$G^{(n)}=\{e\}\implies H^{(n)}=\{e\}$。
+
+设$N\lhd G$。
+
+若$[G, G]\subseteq N$，则任取$g_1, g_2\in G$有$[g_1, g_2]\in N$，于是$[g_1N, g_2N]\subseteq N$，即$[G/N, G/N]=N$。
+
+若$N\subseteq [G, G]$，则类似可得$[G/N, G/N]=G^{(1)}/N$。
+
+以此类推，由$G^{(n)}=\{e\}$即可推出$\qty(G/N)^{(n)}=\{e\}$。
+
+
+\textbf{证毕}。
+
+
+
+
+
+
+\begin{lemma}{}
+给定群$G$及其正规子群$N$，若$N$和$G/N$均可解，则$G$可解。
+\end{lemma}
+
+\textbf{证明}\footnote{此证明照搬自《代数学基础》。}：
+
+\textbf{首先证明}$\pi^{-1}\qty(Q)$也是$G$的正规子群。
+
+由于$Q\lhd G/N$，因此对于任意$g\in G$和$q\in Q$都有
+\begin{equation}
+    \qty(g^{-1}N)\qty(qN)\qty(gN)\in Q，~
+\end{equation}
+这等价于说
+\begin{equation}
+    g^{-1}qg\in \pi^{-1}\qty(Q). ~
+\end{equation}
+由此得证。
+
+\textbf{现在证明}$\qty(G/N)/Q \cong G/\qty(\pi^{-1}\qty(Q))$。
+
+定义映射$f:\qty(G/N)\to G/\qty(\pi^{-1}\qty(Q))$，使得\todo{比如说，$f(N)=\pi^{-1}\qty(Q)$，注意$N\in Q$而$N\subseteq \pi^{-1}\qty(Q)$。这个定义的合理性，即每个$gN$都能被映射，在于$N\in\pi^{-1}\qty(Q)\implies gN\in g\qty(\pi^{-1}\qty(Q))$。}
+\begin{equation}
+    \forall g\in G, gN\subseteq f(gN). ~
+\end{equation}
+任取$x, y\in G$，则由$N \subseteq \qty(\pi^{-1}\qty(Q))$可知$xN \subseteq x\qty(\pi^{-1}\qty(Q))$，即$f(xN) = x\qty(\pi^{-1}\qty(Q))$于是
+\begin{equation}
+    \begin{aligned}
+        f(xNyN) ={}& f(xyN)\\
+        ={}& xy\qty(\pi^{-1}\qty(Q))\\
+        ={}& x\qty(\pi^{-1}\qty(Q))y\qty(\pi^{-1}\qty(Q))\\
+        ={}& f(xN)f(yN), 
+    \end{aligned}~
+\end{equation}
+从而$f$是群同态。
+
+按照$f$的定义，显然$\opn{ker}f=Q$，从而据群同态基本定理，
+\begin{equation}
+    G/\qty(\pi^{-1}\qty(Q)) \cong \qty(G/N)/\opn{ker}f = \qty(G/N)/Q. ~
+\end{equation}
+
+\textbf{证毕}。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
