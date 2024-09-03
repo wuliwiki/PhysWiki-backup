@@ -1,0 +1,81 @@
+% 幂零群
+% keys nilpotent group|正规序列|次正规序列|normal series|subnormal series|可解群
+% license Usr
+% type Tutor
+
+
+\pentry{换位子群\nref{nod_CmtGrp}}{nod_3aa9}
+
+
+
+\autoref{the_CmtGrp_2} 说明，给定群$G$，则求换位子群的运算在$G$的正规子群集合上封闭，因此我们可以认为“求换位子群”运算是定义在全体正规子群集合上的。
+
+从运算的角度，我们可以定义$G^1=G$，而对任意正整数$k$，$G^{k+1}=[G, G^{k}]$，像是用求换位子群运算对$G$反复乘方，求其幂次。当然，这只是一个类比，求换位子群运算和乘法差别很大。
+
+
+\begin{definition}{幂零群}
+给定群$G$，若存在正整数$k$使得$G^k=\{e\}$，则称$G$是\textbf{幂零的（nilpotent）}。
+\end{definition}
+
+一个显而易见的性质是：
+
+
+\begin{lemma}{}
+幂零群的子群和商群都幂零。
+\end{lemma}
+
+\textbf{证明}：
+
+设$G$是幂零群，$H$是其任意子群，$N$是其任意正规子群。
+
+由于$H\subseteq G$，故$[H, H^{k}]\subseteq [G, H^{k}]$；又因为$H^1\subseteq G^1$，故可归纳得$H^k\subseteq G^k$对任意正整数$k$成立。由此易证$H$幂零。
+
+由于$G$幂零，故存在正整数$n$使得$G^n\subseteq N$。这意味着，任取$g_1, g_2, \cdots, g_n\in G$，则
+\begin{equation}
+[g_1, [g_2\cdots[g_{n-1}, g_n]\cdots]] \in N~. 
+\end{equation}
+
+因此
+\begin{equation}
+[g_1N, [g_2N\cdots[g_{n-1}N, g_nN]\cdots]] = N~. 
+\end{equation}
+由此得证$\qty(G/N)^n=N$。
+
+\textbf{证毕}。
+
+
+
+\begin{lemma}{}
+给定群$G$。若群$N\subseteq \opn{C}(G)$，且$$
+\end{lemma}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
