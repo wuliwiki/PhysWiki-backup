@@ -46,5 +46,39 @@
 \subsection{零解的稳定性}
 实际研究过程中，对于任意一个解 $\bvec x = \bvec \varphi(t)$ 的研究，可以通过代换 $\bvec y = \bvec x - \bvec \varphi(t)$ 转化为研究方程 
 \begin{equation}
-\dv{t} \bvec y(t) = \bvec F(t, \bvec y + \bvec \vraphi())
+\dv{t} \bvec y(t) = \bvec F(t, \bvec y + \bvec \varphi(t)) ~~
 \end{equation}
+的零解的稳定性。因为 $\bvec x = \bvec \varphi(t)$ 就对应这方程的零解 $\bvec y= 0$。
+
+\begin{example}{}
+讨论方程 
+\begin{equation}
+\dv{t} x = Cx ~,
+\end{equation}
+的零解 $x = 0$ 的稳定性。其中 $C$ 是一常数。
+\end{example}
+
+方程满足初始条件 $x(t_0) = x_0$ 的解是 
+\begin{equation}
+x(t) = x_0 \exp(C (t - t_0)) ~.
+\end{equation}
+
+i）当 $a<0$ 时，$\forall \varepsilon > 0$，选 $\delta = \varepsilon$，当 $|x_0| < \delta$ 时，$\forall t \ge t_0$，
+\begin{equation}
+|x(t)| = |x_0 \exp(C (t-t_0))| < \varepsilon \exp(C(t-t_0)) < \varepsilon ~,
+\end{equation}
+故零解是稳定的。同时容易证明也是渐近稳定的。
+
+ii）当 $a=0$ 时，选 $\delta = \varepsilon$ 可类似的证明零解是稳定的，但由于 
+\begin{equation}
+\lim_{t \to +\infty} |x(t)| = |x_0| \neq 0 ~,
+\end{equation}
+故并不是渐近稳定的。
+
+iii）当 $a > 0$ 时，无论 $x_0$ 多小，总有 
+\begin{equation}
+\lim_{t \to +\infty} |x(t)| = \lim_{t \to +\infty} |x_0| \exp(C(t-t_0)) = +\infty ~,
+\end{equation}
+故零解是不稳定的。
+
+
