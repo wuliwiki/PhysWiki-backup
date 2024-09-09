@@ -1,0 +1,33 @@
+% Liapunov 稳定性（常微分方程）
+% keys Liapunov|混沌|稳定性
+% license Usr
+% type Tutor
+
+\pentry{李普希茨条件\nref{nod_LipCon}}{nod_d374}
+\begin{issues}
+\issueMissDepend
+\end{issues}
+
+微分方程中经常出现混沌系统，而讨论稳定性的问题直到现在都是较有难度的一件事。李雅普诺夫（Liapunov）稳定性是现在较为成熟的一套理论方法。
+
+\subsection{Liapunov 稳定}
+考虑微分方程组 
+\begin{equation}
+\dv{t} \bvec{x}(t) = \bvec{F}(t, \bvec x) ~,
+\end{equation}
+其中 $t \in \mathbb R$，$\bvec x \in D \subseteq \mathbb R^n$，$\bvec F$ 在 $\mathbb R \times D$ 上连续且关于 $\bvec x$ 满足李普希兹条件。若该方程组有解 $\bvec x = \bvec \varphi(t)$，$t \in [t_0, +\infty)$。
+
+\begin{definition}{Liapunov 稳定}
+若 $\forall \varepsilon > 0$， $\exists \delta > 0$，使得对任意满足 
+\begin{equation}
+\Vert \bvec x_0 - \bvec \varphi(t_0)\Vert < \delta ~~
+\end{equation}
+的 $\bvec x_0$，方程组以 $(t_0, \bvec x_0)$ 为初值的解 $\bvec x= \bvec x(t, t_0, \bvec x_0)$ 在区间 $[t_0, +\infty)$ 上有定义，且 $\forall t \ge t_0$，
+\begin{equation}
+\Vert  \bvec x(t, t_0, \bvec x_0) - \bvec \varphi(t) \Vert < \varepsilon ~,
+\end{equation}
+就称解 $\bvec \varphi(t)$ 是（在 Liapunov 意义下）\textbf{稳定的}，否则称为（在 Liapunov 意义下）\textbf{不稳定的}。
+
+\end{definition}
+
+
