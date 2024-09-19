@@ -64,14 +64,15 @@
 \begin{theorem}{}
 设$f:G_1\to G_2$是满同态，$N=\opn{ker}f$，则
 \begin{enumerate}
-\item $f$建立了$G_1$中包含$N$的子群与$G_2$中子群之间的一一对应；
-\item 若$N\subseteq B$且$B\lhd G$，则$f(B)\lhd G'$；
-\item $H$是$G$。
+\item 若$B$是$G_1$的子群，则$f(B)$是$G_2$的子群。反之，若$K$是$G_2$的子群，则$f^{-1}(K)=\{x\in G_1\mid f(x)\in K\}$是$G_1$的子群\textbf{且$f^{-1}(K)\supseteq N$}。
+\item 若$N\subseteq H,f:H\to f(H)$建立了子群之间的一一对应；在该双射下，$H\lhd G_1$当且仅当$f(H)\lhd G_2$。
+\item $G_1/H\cong G_2/f(H)$。
 \end{enumerate}
 \end{theorem}
 \textbf{证明：}
 \begin{enumerate}
-\item 
+\item 设任意$f(x),f(y)\in f(B)$，则$f(x)f(y)^{-1}=f(xy^{-1})$。又因为$xy^{-1}\in B$，所以$f(xy^{-1})\in f(H)$。所以$f(B)$是$G_2$的子群。反之也同理易证$f^{-1}(K)$是$G_1$的子群\footnote{需要注意映射的逆和群元的逆的区别，$[f^{-1}(a)]^{-1}=f^{-1}(a^{-1})$}。设$e'=f(e)$，由于$e'\in K$，所以$f^{-1}(e')=N\subseteq f^{-1}(K) $。
+\item 由sha
 \end{enumerate}
 
 
