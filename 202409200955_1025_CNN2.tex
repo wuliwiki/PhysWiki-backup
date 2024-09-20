@@ -1,0 +1,50 @@
+% 深度学习 CNN 入门 2
+% keys 卷积
+% license Usr
+% type Wiki
+
+
+\pentry{卷积\nref{nod_Conv}，神经网络\nref{nod_NN}，全连接网络\nref{nod_FCNN}，Python 导航\nref{nod_PyFi}}{nod_c889}
+
+本文从更基础的部分来解释CNN神经网络，上文是说的神经网络的基本结构，这篇解释的是CNN的底层逻辑。
+
+首先需要了解一下卷积的概念。
+定义：在泛函分析中，卷积是通过两个函数$f$和$g$生成第三个函数的一种数学运算，其本质是一种特殊的积分变换，表征函数$f$与$g$经过翻转和平移的重叠部分函数值乘积对重叠长度的积分。
+数学表达式：对于连续函数，卷积的数学表达式通常为
+\begin{equation}
+(f*g)(t)=\int_{-\infty}^{+\infty}f(\tau)g(t-\tau)~.
+\label{juanji}
+\end{equation}
+在CNN中，卷积操作主要用于特征提取。它通过滑动一个称为“卷积核”（或“滤波器”）的小型矩阵窗口在输入数据（如图像）上，进行元素级别的乘法并求和，从而生成新的特征图（Feature Map）。
+
+假设我们有一个简单的3x3的输入矩阵（图像的一个局部区域）和一个2x2的卷积核：
+输入矩阵（Input Matrix）:
+\begin{table}[ht]
+\centering
+\caption{输入矩阵}\label{tab_CNN21}
+\begin{tabular}{|c|c|c|}
+\hline
+1 & 0 & 1 \\
+\hline
+2 & 1 & 0 \\
+\hline
+0 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+卷积核（Kernel）:
+\begin{table}[ht]
+\centering
+\caption{卷积核（Kernel}\label{tab_CNN22}
+\begin{tabular}{|c|c|}
+\hline
+1 & 0 \\
+\hline
+0 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+​
