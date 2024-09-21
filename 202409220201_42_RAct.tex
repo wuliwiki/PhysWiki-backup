@@ -59,14 +59,18 @@ S=-mc\int \sqrt{(c\dd t)^2-\dd{\vec x}^2}=\int\dd t \qty{\frac{m}{2}\qty(\dv{\ve
 E=mc^2.~
 \end{equation}
 
-\subsection{无质量粒子的作用量}
+\subsection{更对称的形式}
 定义对角元为 $(-1,1,1,1)$ 的对角矩阵 $\eta_{\mu\nu}$，我们可将相对论自由粒子的作用量写为
 \begin{equation}
 S=-m\int \sqrt{-\eta_{\mu\nu}\dd x^\mu\dd x^\nu}.~
 \end{equation}
 注意到 $\eta_{\mu\nu}\dd x^\mu\dd x^\nu$ 是两邻近点的Minkowskian距离，因此粒子的作用量（到一个整体常数）是它在时空中所穿越的距离。事实上，我们所能做出的坐标不变的量只能是代表粒子轨迹的世界线的“长度”或本征时间，即 $\int\dd \tau=\int \sqrt{-\eta_{\mu\nu}\dd x^\mu\dd x^\nu}$。我们称比例因子是粒子的质量。因此，质量可定义为几何（世界线的长度）和物理（作用量）之间的转化因子。
 
-需要注意的是，作用量
+需要注意的是，作用量中的记号 $x^\mu$ 代表的是粒子的时空坐标，而不是时空本身。这可以通过考虑多个粒子（用指标 $a$ 标记）的作用量看到： $S=-\sum_a m_a\int \sqrt{-\eta_{\mu\nu}\dd x_a^\mu\dd x_a^\nu}$。为了避免记号的混乱，更好的办法是用 $X^\mu$ 代表粒子的时空坐标。而作用量写为
+\begin{equation}
+S=-m\int \sqrt{-\eta_{\mu\nu}\dd X^\mu\dd X^\nu}.~
+\end{equation}
+
 
 
 
