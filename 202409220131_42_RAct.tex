@@ -1,0 +1,57 @@
+% 光与物质粒子的统一（相对论点粒子的作用量）
+% keys 相对论|非相对论|光|作用量
+% license Usr
+% type Tutor
+
+本节将从作用量的视角介绍牛顿力学到相对论的自然过渡，最终给出适用于物质粒子和光的作用量。阅读本节需带着“民主”的思想：时间和空间应当被平等对待。
+\subsection{Newton力学到狭义相对论}
+\subsubsection{缘起}
+首先看Newton力学中物质粒子的Euler-Lagrange作用量：
+\begin{equation}\label{eq_RAct_5}
+S=\int\dd t\qty[\frac{1}{2}m\qty(\dv{\vec x}{t})^2-V(x)]~.
+\end{equation}
+这一作用量是相当“笨重”的。在这里，让我们只考虑自由粒子，把势 $V(x)$ 给丢掉。那么上式可写为
+\begin{equation}\label{eq_RAct_2}
+S=\int\dd t\frac{1}{2}m\qty(\dv{\vec x}{t})^2=m\int\dd t\frac{(\dd{\vec x})^2}{2\dd t}~.
+\end{equation}
+上式对待 $\dd{\vec x}$ 和 $\dd t$ 的方式是不平等的，$\dd{\vec x}$ 平方的出现来自于旋转不变性，但是为什么 $\dd t$ 只值得1次幂？多么奇怪的组合呀，$\frac{(\dd{\vec x})^2}{\dd t}$，一个东西的平方除以另一个东西。这冒犯了我们自由主义的思想，因此，我们需要进行改变。
+
+\subsubsection{平方根}
+让我们回想一下初次学习平方根概念的情景。我们知道，25的平方根是5，36的平方根是6，等等。但是，对一个不是整数的平方的数，它的平方根是什么？比如24。使用古老的试错方法：计算 $4.9^2,4.8^2,\ldots.$ 很快就能很好的估计这个平方根了。在学会了用字母代表数值的想法后，我们就可以得到我们想要的公式：
+\begin{equation}\label{eq_RAct_1}
+\sqrt{a^2-\epsilon^2}\approx a-\frac{\epsilon^2}{2a}+\cdots.~
+\end{equation}
+验证一下右边，$\qty(a-\frac{\epsilon^2}{2a})^2=a^2-\epsilon^2+\frac{\epsilon^4}{4a^2}$，即：\autoref{eq_RAct_1} 的误差是高阶的。
+
+\subsubsection{写出相对论的作用量}
+比较\autoref{eq_RAct_2} 和\autoref{eq_RAct_1} ，我们改写\autoref{eq_RAct_1} 为
+$
+\frac{\epsilon^2}{2a}\approx-\sqrt{a^2-\epsilon^2}+ a+\cdots
+$。因此
+\begin{equation}
+\frac{(\dd{\vec x})^2}{2\dd t}=c\frac{(\dd{\vec x})^2}{2c\dd t}\approx-c\sqrt{(c\dd t)^2-\dd{\vec x}^2}+c^2\dd t~.
+\end{equation}
+上面第一个等式中添加 $c$ 是为了保持量纲一致，可知 $c$ 具有速度的量纲。注意到唯一具有本征意义的速度是光速，因此 $c$ 代表着光速。因此，我们将自由点粒子的作用量改写为
+\begin{equation}
+S=-mc\int \sqrt{(c\dd t)^2-\dd{\vec x}^2}+\int mc^2\dd t.~
+\end{equation}
+项 $\int mc^2\dd t =m c^2(t_{\mathrm{final}}-t_{\mathrm{intial}})$ 对待 $\dd t,\dd{\vec x}$ 的方式不一样，但幸运的是，它们的变分消失，因此作用量原理允许我们丢掉这一项。令 $c=1$，现在我们得到如下作用量
+\begin{equation}\label{eq_RAct_4}
+S=-m\int \sqrt{(\dd t)^2-\dd{\vec x}^2}.~
+\end{equation}
+这一作用量对待时间和空间的方式相当的“民主”。然而，积分往往写为 $\int\dd t$ 的形式，这很简单：
+\begin{equation}\label{eq_RAct_3}
+S=-m\int\dd t \sqrt{1-\qty(\dv{\vec x}{t})^2}.~
+\end{equation}
+这便得到了相对论自由粒子的作用量。
+
+\subsection{著名的公式}
+为了回到Newton力学，将\autoref{eq_RAct_3} 展开
+\begin{equation}
+S=-m\int\dd t \qty{\frac{m}{2}\qty(\dv{\vec x}{t})^2-m+\cdots}.~
+\end{equation}
+我们不知道如何结合势能，像\autoref{eq_RAct_5} 一样，仅仅在\autoref{eq_RAct_4} 中加入 $-\int\dd t V(x)$，则会得到
+
+
+
+
