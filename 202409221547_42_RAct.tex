@@ -2,8 +2,8 @@
 % keys 相对论|非相对论|光|作用量
 % license Usr
 % type Tutor
-
-本节将从作用量的视角介绍牛顿力学到相对论的自然过渡，最终给出适用于物质粒子和光的作用量。阅读本节需带着“民主”的思想：时间和空间、粒子和光应当被平等对待。
+\pentry{作用量原理}{nod_28f0}
+\footnote{A.Zee,Einstein Gravity in a Nutshell}本节将从作用量的视角介绍牛顿力学到相对论的自然过渡，最终给出适用于物质粒子和光的作用量。阅读本节需带着“民主”的思想：时间和空间、粒子和光应当被平等对待。
 \subsection{Newton力学到狭义相对论}
 \subsubsection{缘起}
 首先看Newton力学中物质粒子的Euler-Lagrange作用量：
@@ -77,5 +77,17 @@ S=-m\int \sqrt{-\eta_{\mu\nu}\dd X^\mu\dd X^\nu}.~
 \begin{equation}\label{eq_RAct_9}
 \tilde S=-\frac{1}{2}\int\dd\zeta\qty(\sigma(\zeta)\qty(\dv{X}{\zeta})^2+\frac{m^2}{\sigma(\zeta)})~.
 \end{equation}
-其中，$\qty(\dv{X}{\zeta})^2=-\eta_{\mu\nu}\dv{X^\mu}{\zeta}\dv{X^\nu}{\zeta}$。这一作用量在 $m=0$ 时是有效的。因此我们，只需要验证\autoref{eq_RAct_8} 和\autoref{eq_RAct_9} 
+其中，$\qty(\dv{X}{\zeta})^2=-\eta_{\mu\nu}\dv{X^\mu}{\zeta}\dv{X^\nu}{\zeta}$。这一作用量在 $m=0$ 时是有效的。因此我们，只需要验证\autoref{eq_RAct_8} 和\autoref{eq_RAct_9} 等价即可。注意\autoref{eq_RAct_9} 的动力学变量不光是 $X^\mu$，也包含 $\sigma(\zeta)$。而 $\dv{\sigma}{\zeta}$ 不在作用量中出现，因此由Euler-Lagrange方程，得 $\sigma$ 满足方程
+\begin{equation}\label{eq_RAct_10}
+\frac{m^2}{\sigma(\zeta)^2}=\qty(\dv{X}{\zeta})^2.~
+\end{equation}
+这是代数方程，不是微分方程。因此，$\sigma$ 并不具有动力学而仅仅与 $X^\mu(\zeta)$ 相结合。
+利用\autoref{eq_RAct_10} 消去 $\tilde S$ 中的 $\sigma(\zeta)$，便回到了 $S$。因此，在产生粒子的运动方程的意义上，两作用量是等价的。
+
+现在，令 $m=0$，就得到了无质量粒子适用的作用量
+\begin{equation}
+ S_{\mathrm{massless}}=\frac{1}{2}\int\dd\zeta\qty(\sigma(\zeta)\eta_{\mu\nu}\dv{X^\mu}{\zeta}\dv{X^\nu}{\zeta}).~
+\end{equation}
+对 $\sigma$ 变分，可以获得 $\eta_{\mu\nu}\dv{X^\mu}{\zeta}\dv{X^\nu}{\zeta}=0$。换句话说 $(\dd{\vec X})^2=(\dd X^0)^2$，即无质量粒子以光速运动。
+
 

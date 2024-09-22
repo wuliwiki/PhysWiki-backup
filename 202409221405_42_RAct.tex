@@ -77,5 +77,11 @@ S=-m\int \sqrt{-\eta_{\mu\nu}\dd X^\mu\dd X^\nu}.~
 \begin{equation}\label{eq_RAct_9}
 \tilde S=-\frac{1}{2}\int\dd\zeta\qty(\sigma(\zeta)\qty(\dv{X}{\zeta})^2+\frac{m^2}{\sigma(\zeta)})~.
 \end{equation}
-其中，$\qty(\dv{X}{\zeta})^2=-\eta_{\mu\nu}\dv{X^\mu}{\zeta}\dv{X^\nu}{\zeta}$。这一作用量在 $m=0$ 时是有效的。因此我们，只需要验证\autoref{eq_RAct_8} 和\autoref{eq_RAct_9} 
+其中，$\qty(\dv{X}{\zeta})^2=-\eta_{\mu\nu}\dv{X^\mu}{\zeta}\dv{X^\nu}{\zeta}$。这一作用量在 $m=0$ 时是有效的。因此我们，只需要验证\autoref{eq_RAct_8} 和\autoref{eq_RAct_9} 等价即可。注意\autoref{eq_RAct_9} 的动力学变量不光是 $X^\mu$，也包含 $\sigma(\zeta)$。而 $\dv{\sigma}{\zeta}$ 不在作用量中出现，因此由Euler-Lagrange方程，得 $\sigma$ 满足方程
+\begin{equation}\label{eq_RAct_10}
+\frac{m^2}{\sigma(\zeta)^2}=\qty(\dv{X}{\zeta})^2.~
+\end{equation}
+这是代数方程，不是微分方程。因此，$\sigma$ 并不具有动力学而仅仅与 $X^mu(\zeta)$ 相结合。
+
+利用\autoref{eq_RAct_10} 消去 $\tilde S$ 中的 $\sigma(\zeta)$，便回到了 $$
 
