@@ -3,7 +3,7 @@
 % license Usr
 % type Tutor
 
-\pentry{光与物质粒子的统一（相对论点粒子的作用量）\nref{nod_RAct}}{nod_e590}
+\pentry{光与物质粒子的统一（相对论点粒子的作用量）\nref{nod_RAct}，相对论补全\nref{nod_Comple}}{nod_e590}
 本节将以一种“统一”的角度给出电磁力和引力的作用量。
 \subsection{从自由粒子到势阱中的粒子}
 在光与物质粒子的统一（相对论点粒子的作用量）\upref{RAct}一节，我们得到了自由粒子的作用量，其具有下面的形式
@@ -44,7 +44,24 @@ S\approx&-m\int \qty{(1+\frac{V}{m})\dd t-\frac{\dd{\vec x}^2}{2\dd t}}\\
 \end{equation}
 上式表明选项 $G$ 的作用量在适宜的极限下取Newton作用量的形式，除了多出一个常数 $-m$，而这一项我们已经知道代表着什么（见\autoref{sub_RAct_1}）。
 
-然而
+然而，无论是选项 E 还是 G，添加在作用量中的项都不是Lorentz不变的。因此，为了保持理论的Lorentz不变性（见相对论补全\upref{Comple}开头的说明），我们必须要进行修正。
+
+\subsection{相对论补全}
+无论是 E 还是 G ，若我们认为 $V$ 是通过外界固定和施加的，那么作用量无论如何都不能是Lorentz不变的。因此，为了保持Lorentz不变性，必须改变 $V(x)$ 的形式。改变的关键便是相对论补全\upref{Comple}。
+\subsubsection{E的改进}
+
+首先看 E，注意 $V(x)$ 是和 $\dd t$ 结合的，因此可将 $V(x)$ 视为Lorentz矢量场 $A_\mu(x)$ 的时间分量 $A_0(x)$，而 $V(x)\dd t$ 仅是 $A_\mu(x)\dd x^\mu=A_0(x)\dd t+A_i(x)\dd x^i$ 的第一项。因此，我们只需引入一个矢量场 $A_\mu(x)$，从而得到如下作用量
+\begin{equation}
+S=\int\qty{-m\sqrt{-\eta_{\mu\nu}\dd x^\mu\dd x^\nu}+A_\mu(x)\dd x^\mu}~.
+\end{equation}
+当我们对 $x^\mu$ 进行Lorentz变换时，也必须对 $A_\mu$ 进行。两个Lorentz矢量的缩并，显然是一个Lorentzbiao
+
+\subsubsection{G的改进}
+
+现在
+
+
+
 
 
 
