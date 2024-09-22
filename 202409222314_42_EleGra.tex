@@ -115,10 +115,28 @@ E^i:=F^{0i},\quad B_i:=\frac{1}{2}\epsilon_{ijk}F^{jk}.~
 
  注意 $p^\mu=(E,\vec p)$，并改用参数 $t$ ，则上式写为
  \begin{equation}
- \dv{\vec p}{t}=\vec E+\vec v\times \vec B,\quad \dv{E}{\tau}=\vec E\cdot \vec v.~
+ \dv{\vec p}{t}=\vec E+\vec v\times \vec B,\quad \dv{E}{\tau}=\vec E\cdot \vec v,~
  \end{equation}
- 因此，我们得到了电磁学中粒子在磁场 $B$ 中运动的Lorentz力定律。
+ 因此，我们得到了电磁学中粒子在磁场 $\vec B$ 中运动的Lorentz力定律，和粒子在电场 $\vec E$ 中如何获得能量的定律。
 
+\subsubsection{电荷的概念}
+注意作用量中的 $x^\mu$ 代表的是粒子的时空坐标，为了不和时空本身混肴，我们最好用 $X^\mu$ 标记。因此，当有多个粒子时，一般的作用量则写为
+\begin{equation}\label{eq_EleGra_8}
+S=-\sum_a m_a\int\dd \tau\sqrt{-\eta_{\mu\nu}\dv{X_a^\mu}{\tau_a}\dv{X_a^\nu}{\tau_a}}+\sum_a e_a\int\dd \tau A_\mu(X_a(\tau_a))\dv{X_a^\mu}{\tau_a}~.
+\end{equation}
+这里，每一粒子通过一个不同的强度 $e_a$ 与场 $A_\mu$ “耦合”，而当只有一个粒子时，$e$ 可以归到 $A_\mu$ 里面。我们称 $e_a$ 为\textbf{电荷}（charge）。对应的运动方程则为
+\begin{equation}
+\dv{p_a^\rho}{\tau_a}=e_a{F^\rho}_{\mu}(X_a(\tau_a))\dv{X_a^\mu}{\tau_a}~.
+\end{equation}
+\autoref{eq_EleGra_8} 无参数化的形式为
+\begin{equation}
+S=\int\sum_a \qty{-m_a\sqrt{-\eta_{\mu\nu}\dd X_a^\mu\dd X_a^\nu}+e_a A_\mu(X_a)\dd X_a^\mu}~.
+\end{equation}
 
-
+\subsection{引力的出现}
+对于选项 G，我们获得了
+\begin{equation}
+S=-m\int\sqrt{-g_{\mu\nu}\dd x^\mu\dd x^\nu}.~
+\end{equation}
+其中，$g_{00}=-\qty(1+\frac{2V}{m}),g_{0i}=g_{i0}=0,g_{ij}\delta$
 
