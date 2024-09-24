@@ -135,19 +135,43 @@ S=\int\sum_a \qty{-m_a\sqrt{-\eta_{\mu\nu}\dd X_a^\mu\dd X_a^\nu}+e_a A_\mu(X_a)
 
 \subsection{引力的出现}
 对于选项 G，我们获得了
-\begin{equation}
+\begin{equation}\label{eq_EleGra_10}
 S=-m\int\sqrt{-g_{\mu\nu}\dd x^\mu\dd x^\nu}.~
 \end{equation}
 其中，$g_{00}=-\qty(1+\frac{2V}{m}),g_{0i}=g_{i0}=0,g_{ij}=\delta_{ij}$ 是其特例。
 
 让我们处理这一特例
-\begin{equation}
+\begin{equation}\label{eq_EleGra_9}
 S=-m\int\sqrt{\qty(1+\frac{2V}{m})\dd t^2-\dd {\vec x}^2}.~
 \end{equation}
-考虑Newton引力下，质量为 $m$ 的粒子在质量为 $M$ 的物体下的受到的势 $V=-\frac{GMm}{r}$。我们可以去掉 $2V/m$ 中的 $m$，得到
+考虑Newton引力下，质量为 $m$ 的粒子在质量为 $M$ 的物体下的受到的势 $V=-\frac{GMm}{r}$。我们可以去掉 $2V/m$ 中的 $m$（这当然需要代表引力质量的 $-GMm/r$ 中的 $m$ 和代表惯性质量的 $ma$ 中的 $m$ 是一样的），得到
 \begin{equation}
-S=-m\int\sqrt{\qty(1+\frac{2GM}{r})\dd t^2-\dd {\vec x}^2}.~
+S=-m\int\sqrt{\qty(1-\frac{2GM}{r})\dd t^2-\dd {\vec x}^2}.~
 \end{equation}
+
+假设粒子静止在势中，即 $\dd {\vec x}=0$，那么
+\begin{equation}
+S=-m\int\sqrt{\qty(1-\frac{2GM}{r})\dd t^2}\approx-m\int\dd t\qty(1-\frac{GM}{r}).~
+\end{equation}
+由于是静止粒子，因此成立 $\dd\tau=\qty(1-\frac{GM}{r})\dd t$，或 $\dd t=\dd \tau/\qty(1-GM/r)>\dd\tau$。这就是说，处于引力场中的粒子的时间走慢了。
+
+引力影响了时间的流动！
+
+\subsubsection{弯曲时空}
+考虑一堆不同质量的粒子，则代替 \autoref{eq_EleGra_9} 的是
+\begin{equation}
+S=-\sum_a m_a\int\sqrt{\qty(1+\frac{2V(x_a)}{m_a})\dd t_a^2-\dd {\vec x_a}^2}.~
+\end{equation}
+若 $V(x_a)$ 不正比于 $m_a$，那么粒子经历的时间 $\dd \tau_a=\sqrt{\qty(1+\frac{2V(x_a)}{m_a})\dd t_a^2-\dd {\vec x_a}^2}$ 将依赖于粒子的质量。即不同质量的粒子经历不同的时间流逝，除非 $V(x_a)$ 正比于 $m_a$。
+
+现在，对一般的情形，即\autoref{eq_EleGra_10} 在多粒子情形将写为
+\begin{equation}
+S=-\sum_a m_a\int\sqrt{-g_{\mu\nu}(x_a)\dd x_a^\mu\dd x_a^\nu}.~\end{equation}
+
+
+
+
+
 
 
 

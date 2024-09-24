@@ -144,9 +144,14 @@ S=-m\int\sqrt{-g_{\mu\nu}\dd x^\mu\dd x^\nu}.~
 \begin{equation}
 S=-m\int\sqrt{\qty(1+\frac{2V}{m})\dd t^2-\dd {\vec x}^2}.~
 \end{equation}
-考虑Newton引力下，质量为 $m$ 的粒子在质量为 $M$ 的物体下的受到的势 $V=-\frac{GMm}{r}$。我们可以去掉 $2V/m$ 中的 $m$，得到
+考虑Newton引力下，质量为 $m$ 的粒子在质量为 $M$ 的物体下的受到的势 $V=-\frac{GMm}{r}$。我们可以去掉 $2V/m$ 中的 $m$（这当然需要代表引力质量的 $-GMm/r$ 中的 $m$ 和代表惯性质量的 $ma$ 中的 $m$ 是一样的），得到
 \begin{equation}
-S=-m\int\sqrt{\qty(1+\frac{2GM}{r})\dd t^2-\dd {\vec x}^2}.~
+S=-m\int\sqrt{\qty(1-\frac{2GM}{r})\dd t^2-\dd {\vec x}^2}.~
+\end{equation}
+
+假设粒子静止在势中，即 $\md{\vec x}=0$，那么
+\begin{equation}
+S=-m\int\sqrt{\qty(1-\frac{2GM}{r})\dd t^2}=-m\int\dd t\sqrt{\qty(1-\frac{2GM}{r})\dd t^2}.~
 \end{equation}
 
 
