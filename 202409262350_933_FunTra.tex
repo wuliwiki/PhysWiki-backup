@@ -7,7 +7,7 @@
 \issueDraft
 \end{issues}
 
-\pentry{函数的性质\nref{nod_HsFunC}}{nod_79ae}
+\pentry{函数\nref{nod_functi}}{nod_79ae}
 
 在生活中，变换的概念随处可见。调整照片大小、改变音乐速度，甚至在地图应用中缩放或旋转视图，都与函数变换的原理密切相关。当函数改变形式时，函数的图像和性质也会发生相应变化，就像镜子里的影像随手势而动，这使得理解和处理函数时，可以采用更灵活的方式。
 
@@ -101,9 +101,47 @@ y_1=Af(x_1)~.
 
 \subsection{*旋转}
 
-这一部分内容需要使用三角函数的知识，如果不太熟悉可以去\addTODO{添加初中部分}回顾。
+\pentry{三角恒等式\nref{nod_TriEqv}}{nod_b895}
 
-\textbf{旋转（Rotation）}
+如果不了解三角恒等式建议先学习那部分知识，或先跳过这部分内容。这部分内容本身也不是高中学习要求的，但难度不高，建议学习。
+
+其实有了之前的经验，求解\textbf{旋转（Rotation）}变换的操作仍然是一样的，表示出原本的点和变换后的点的关系，然后代入就可以了。下面研究绕原点旋转的变换，此时保持不变的是平面上所有点到原点的距离。
+
+
+
+假设$(X_0,Y_0)$和$(X_1,Y_1)$分别代表原坐标系和变换后坐标系上的某一点。由于变换的前后，点到原点的距离相同，于是都设为$r$。假设$(X_0,Y_0)$和$(X_1,Y_1)$都在第一象限，这样假设只是为了方便画图，事实上根据三角函数的性质，在任何象限都可以。
+
+\addTODO{示意图}
+
+假设逆时针旋转$\theta$角，而$(X_0,Y_0)$与$x$轴的夹角为$\alpha$，于是有\footnote{这实际上是点的极坐标表示，但即使没学过，仍然可写出。}：
+\begin{equation}
+\begin{cases}
+X_0&=r\cos\alpha\\
+Y_0&=r\sin\alpha\\
+X_1&=r\cos(\alpha+\theta)\\
+Y_1&=r\sin(\alpha+\theta)\\
+\end{cases}\iff
+\begin{cases}
+X_0&=r\cos\alpha\\
+Y_0&=r\sin\alpha\\
+X_1&=X_ \cos \theta - \sin \alpha \sin \theta\\
+Y_1&=r\sin \alpha \cos \theta + \cos \alpha \sin \theta\\
+\end{cases}~.
+\end{equation}
+
+这里需要使用三角恒等式：
+\begin{itemize}
+\item $\sin(\alpha + \theta)= \sin \alpha \cos \theta + \cos \alpha \sin \theta$
+\item $\cos(\alpha + \theta)=\cos \alpha \cos \theta - \sin \alpha \sin \theta$
+\end{itemize}
+
+
+
+
+
+
+
+
 
 \subsection{复合变换}
 
@@ -125,6 +163,8 @@ $$\displaystyle y=f(x)\Rightarrow y=f(x-c)\Rightarrow y=f(x-c)-b\Rightarrow y=f(
 
 \end{exercise}
 
+通过复合变换，可以得到一些复杂的变换。比如如果不绕原点进行，需要先平移，将旋转中心平移到原点处，再旋转，再将旋转中心平移回来。
+
 \subsection{几何变换总结}
 
 上面接触了平移、缩放、旋转三种几何变换。其实根据它们各自的特点，有一个统一的分类方式。
@@ -138,7 +178,7 @@ $$\displaystyle y=f(x)\Rightarrow y=f(x-c)\Rightarrow y=f(x-c)-b\Rightarrow y=f(
 \begin{itemize}
 \item 欧式变换：将手机图标在屏幕上拖动到另一个位置、旋转手机屏幕中的图片。
 \item 相似变换：缩放地图应用中的视图。
-\item 仿射变换：站在高处俯瞰一个正方形地砖，它看起来像一个平行四边形。
+\item 仿射变换：把一个字变成斜体。
 \item 摄影变换：改变物体的远近感，让近的物体看起来更大，远的物体更小。建筑的高层部分会显得比底层更窄，也就是说一个矩形会看成梯形。
 \end{itemize}
 
