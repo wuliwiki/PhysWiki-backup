@@ -3,16 +3,11 @@
 % license Xiao
 % type Tutor
 
-\begin{issues}
-\issueDraft
-\end{issues}
-
 \pentry{函数（高中）\nref{nod_functi}}{nod_6f70}
 
 在前面的学习中，我们已经接触了函数的概念，以及如何通过复合运算来将多个函数结合起来。现在，我们将深入探讨一个函数的各种性质，比如它的单调性、奇偶性和周期性。这些性质是理解函数行为和性质的关键，它们能够帮助我们更好地分析函数在不同情况下的表现。
 
 然后，我们会大概介绍一下高中阶段需要掌握的几种主要函数类型。这些函数在数学和实际应用中扮演着重要角色，它们构成了函数世界的一大部分。这里会把它们作为两部分来整体介绍，后面的学习中会具体介绍每一个函数的细节。
-
 
 \subsection{零点}
 
@@ -254,26 +249,30 @@ x^2, & x \geq 0 \\
 
 \subsubsection{绝对值函数}
 
-\textbf{绝对值函数(Absolute Value Function)}用于度量一个数与零的距离，它将所有负数映射为其相对应的正数，而正数和零保持不变。
+\textbf{绝对值函数(Absolute Value Function)}在初中就已经非常熟悉了。它用于度量一个数与零的距离，将所有负数映射为相反数，而正数和零保持不变。
 
-|x| =
-\begin{cases}
-x, & \text{当 } x \geq 0 \\
--x, & \text{当 } x < 0
-\end{cases}
-
-\begin{definition}{取整函数}
+\begin{definition}{绝对值函数}
 \begin{equation}
-[x] = n\qquad,\qquad n \leq x<n+1~.
+|x| =\sqrt{x^2}=
+\begin{cases}
+x&,  x > 0 \\
+0&,x=0\\
+-x&,  x < 0
+\end{cases}~.
 \end{equation}
 \end{definition}
-\t
+\addTODO{绝对值函数图像}
+
 它的性质为：
+\begin{itemize}
+\item 连续，$(-\infty,0]$递减，$[0,+\infty)$递增、偶函数
+\item 图像由$y=x$和$y=-x$在上半平面的部分构成。
+\item 在$0$处是一个“尖点”，不可导。
+\end{itemize}
 
 \subsubsection{取整函数}
 
 \textbf{取整函数（Floor Function）}，也称为\textbf{下取整函数}，是定义在$\mathbb{R}$上的一个函数，它将给定实数向下舍入为不大于该数的最大整数，即
-
 
 \begin{definition}{取整函数}
 \begin{equation}
@@ -281,8 +280,10 @@ x, & \text{当 } x \geq 0 \\
 \end{equation}
 \end{definition}
 
+也就是取整操作是将小数部分舍去，并向下取整。
 
-也就将小数部分舍去，并向下取整。
+\addTODO{取整函数图像}
+
 它的性质为：
 \begin{itemize}
 \item 非连续、非单调、非奇偶（$[0.5]=0,[-0.5]=-1$）
@@ -311,6 +312,9 @@ D(x)=\begin{cases}
 
 最后，除却本文提到的性质，还有一些性质是高中不会涉及到的，此处给出供感兴趣的同学了解：
 \begin{itemize}
-\item \enref{极限}{Lim}
-\item \enref{连续性}{contin}， 一致连续
+\item \enref{极限}{FunLim}（Limits）
+\item \enref{连续性}{contin}（Continuity）， 一致连续
+\item \enref{有界性}{conff}（Boundedness）
+\item \enref{凹凸性}{conff}（Convexity/Concavity）
+\item 渐近线（Asymptotes）:水平渐近线（Horizontal Asymptote）、垂直渐近线（Vertical Asymptote）、斜渐近线（Oblique Asymptote）
 \end{itemize}

@@ -254,26 +254,32 @@ x^2, & x \geq 0 \\
 
 \subsubsection{绝对值函数}
 
-\textbf{绝对值函数(Absolute Value Function)}用于度量一个数与零的距离，它将所有负数映射为其相对应的正数，而正数和零保持不变。
-
-|x| =
-\begin{cases}
-x, & \text{当 } x \geq 0 \\
--x, & \text{当 } x < 0
-\end{cases}
+\textbf{绝对值函数(Absolute Value Function)}在初中就已经非常熟悉了。它用于度量一个数与零的距离，将所有负数映射为相反数，而正数和零保持不变。
 
 \begin{definition}{取整函数}
 \begin{equation}
-[x] = n\qquad,\qquad n \leq x<n+1~.
+|x| =
+\begin{cases}
+x&,  x > 0 \\
+0&,x=0\\
+-x&,  x < 0
+\end{cases}~.
 \end{equation}
 \end{definition}
-\t
+\addTODO{绝对值函数图像}
+
 它的性质为：
+\begin{itemize}
+\item 连续，$(-\infty,0]$递减，$[0,+\infty)$递增、偶函数
+\item 图像是由$y=x$和$y=x$和
+\end{itemize}
+
+
+
 
 \subsubsection{取整函数}
 
 \textbf{取整函数（Floor Function）}，也称为\textbf{下取整函数}，是定义在$\mathbb{R}$上的一个函数，它将给定实数向下舍入为不大于该数的最大整数，即
-
 
 \begin{definition}{取整函数}
 \begin{equation}
@@ -281,8 +287,10 @@ x, & \text{当 } x \geq 0 \\
 \end{equation}
 \end{definition}
 
+也就是取整操作是将小数部分舍去，并向下取整。
 
-也就将小数部分舍去，并向下取整。
+\addTODO{取整函数图像}
+
 它的性质为：
 \begin{itemize}
 \item 非连续、非单调、非奇偶（$[0.5]=0,[-0.5]=-1$）
