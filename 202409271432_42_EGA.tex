@@ -28,10 +28,18 @@ S_G=&-m\int\sqrt{-g_{\mu\nu}(x) \,\mathrm{d}{x} ^\mu \,\mathrm{d}{x} ^\nu}.
 \int A_\mu(x) \dd x^\mu.~ 
 \end{equation}
 若进行下列变换
-\begin{equation}
-A_\mu(x)\mapsto A_\mu(x)+\partial_\mu\Gamma(x)~,
+\begin{equation}\label{eq_EGA_1}
+A_\mu(x)\mapsto A_\mu(x)+\partial_\mu\Lambda(x)~,
 \end{equation}
-则 $S_E$ gai变量
+则 $S_E$ 改变量为
+\begin{equation}
+\begin{aligned}
+\Delta S_E=&\int\partial_\mu\Lambda(x)\dd x^\mu=\int_{\tau_i}^{\tau_f}\dd \tau\partial_\mu\Lambda(x)\dv{x^\mu}{\tau}\\
+=&\int_{\tau_i}^{\tau_f}\dv{\Lambda(x)}{\tau}\\
+=&\Lambda(x(\tau_f))-\Lambda(x(\tau_i)).
+\end{aligned}~
+\end{equation}
+取粒子轨迹的端点在远远的过去和未来，并假设 $\Lambda(x)$ 在无穷远处为0（注意 $x$ 无穷远意味着 $t=\int_0^t\dd\tau=\int\sqrt{-\eta_{\mu\nu}\dd x^\mu \dd x^\nu}\rightarrow\infty$，因此 $\tau_f,\tau_i\rightarrow\infty$ 位于无穷远处 ），则 $\Delta S_E=0$。即作用量在变换\autoref{eq_EGA_1} 下不变，\autoref{eq_EGA_1} 称为场 $A_\mu(x)$ 的\textbf{规范变换}。因此，我们发现了作用量在规范变换下具有对称性，称为\textbf{}
 
 
 
