@@ -49,15 +49,20 @@ A_\mu(x)\mapsto A_\mu(x)+\partial_\mu\Lambda(x)~,
 \begin{equation}
 F_{\mu\nu}\mapsto \partial_\mu[ A_\nu+\partial_\nu\Lambda(x)]-\partial_\nu[ A_\mu+\partial_\nu\Lambda(x)]=F_{\mu\nu}.~
 \end{equation}
-因此，我们可以通过 $F_{\mu\nu}$ 来构造电动力学的作用量。为确保Lorentz不变性，最简单的可能就是 $F^2=F_{\mu\nu}F^{\mu\nu}$。
+因此，我们可以通过 $F_{\mu\nu}$ 来构造电动力学的作用量。为确保Lorentz不变性，最简单的可能就是 $F^2=F_{\mu\nu}F^{\mu\nu}$。注意到 $F^2$ 包含有时间偏微分算子的二次幂，
 
 在主导粒子作用量中，动力学变量是粒子的位置 $\vec x(t)$，或更好的记法 $\vec X(t)$，在多粒子情形，则用 $\vec X_a(t)$ 标记，其中 $a$ 是识别不同粒子的标记。因此，主导场 $A_\mu$ 动力学的作用量中，动力学变量是场 $A_\mu(x)=A_\mu(\vec x,t)$ 本身，而 $\vec x$ 仅仅是识别场的不同点的记号。正如在多粒子情形作用量是对 $a$求和，场情形则应是对 $\vec x$ 求和。离散的求和号 $\sum$ 对应连续情形的积分号 $\int\dd{}^3 x$。因此，场 $A_\mu(x)$ 的作用量可写为（为了场运动方程简便起见，往往人们引入 $-\frac{1}{4}$ 的因子）
 \begin{equation}
 -\frac{1}{4}\int\dd{}^4 x F_{\mu\nu}F^{\mu\nu}.~
 \end{equation}
 
+\subsubsection{粒子和电磁场的总作用量}
 
-
+把电磁场的作用量加入到主导多粒子在场 $A_\mu$ 中的作用量中，便得到粒子和场 $A_\mu$ 的总作用量
+\begin{equation}
+ S=\left\{\int\sum_a\qty(-m_a\sqrt{-\eta_{\mu\nu} \,\mathrm{d} X_a ^\mu \,\mathrm{d}X_a ^\nu}+e_aA_\mu(X_a) \,\mathrm{d}X_a ^\mu) \right\}-\frac{1}{4}\int\dd{}^4 x F_{\mu\nu}F^{\mu\nu}.~
+\end{equation}
+其中，第一项代表自由粒子的作用量，第三项代表场 $A_\mu(x)$ 的作用量，而第二项代表场和粒子耦合的作用量。
 
 
 
@@ -69,8 +74,24 @@ F_{\mu\nu}\mapsto \partial_\mu[ A_\nu+\partial_\nu\Lambda(x)]-\partial_\nu[ A_\m
 
 \subsection{引力场的作用量}
 
-
 \subsubsection{微分同胚不变性}
+注意粒子和引力场耦合的作用量为
+\begin{equation}
+-m\int\sqrt{-g_{\mu\nu}(x) \,\mathrm{d}{x} ^\mu \,\mathrm{d}{x} ^\nu}~.
+\end{equation}
+其中 $x$ 的是粒子在时空中的位置。注意到在微分同胚(任意导数存在连续)的坐标变换 $x^\mu(x) \mapsto x^\mu(x')$ 下，张量的缩并不变，因此
+\begin{equation}
+g_{\mu\nu}(x) \dd x^\mu \dd{x} ^\nu=g_{\rho\sigma}(x') \dd{x'} ^\rho \dd{x'} ^{\sigma}~.
+\end{equation}
+因此，描述引力场的 $g_{\mu\nu}(x)$ 的作用量应当在坐标的微分同胚变换下不变。这一不变性称为\textbf{微分同胚不变性}。
+
+因此，和电磁场一样，现在我们需要寻求由 $g_{\mu\nu}(x)$ 构造的具有微分同胚不变性的量作为被积函数加入到积分号 $\int\sqrt{-g(x)}\dd{}^4x$ 中（$\sqrt{-g(x)}\dd{}^4$ 而不是 $\dd{}^4x$ 的原因在于（直角坐标下）欧氏空间的体积元是在一般空间下由 $\sqrt{-g(x)}\dd{}^4 x$ 取代），以得到引力场的作用量。在微分同胚坐标变换下不变的量是一个标量，因此引力场的作用量具有如下形式
+\begin{equation}
+S=\int\dd{}^4x\sqrt{-g(x)}A(x)~.
+\end{equation}
+其中 $A$ 是一个标量，换句话说 $A'(x')=A(x)$。
+
+
 
 
 
