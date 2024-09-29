@@ -1,5 +1,5 @@
-% 幂函数（高中）
-% keys 幂函数
+% 幂运算与幂函数（高中）
+% keys 幂函数|幂运算
 % license Usr
 % type Tutor
 
@@ -12,23 +12,25 @@
 
 幂函数的定义是基于乘方运算的。乘方运算是继加法、减法、乘法和除法之后的另一种重要的数学运算。它最开始的意思是表示一个数自乘若干次，这也是初中学过的含义。但随着各自定义的扩张，乘方运算包含了一些其他内容。
 
-\begin{definition}{乘方运算}
+\begin{definition}{乘方运算}\label{def_power_1}
 形如
 \begin{equation}
 a^b=c~.
 \end{equation}
-的运算称为\textbf{乘方运算（exponentiation，或幂运算）}，其中a称为\textbf{底数（base）}，b称为\textbf{指数（exponent）}，c称为\textbf{幂值（result）}
+的运算称为\textbf{乘方运算（exponentiation，或幂运算）}，其中a称为\textbf{底数（base）}，b称为\textbf{指数（exponent）}，c称为\textbf{幂值（result）}。$b=2$时称为平方，
 \end{definition}
 
 下面是一些乘方运算的法则，如果尚不了解原理或感到陌生，直接默认其成立熟练使用即可：
 \begin{itemize}
 \item 积的幂：$(a \cdot b)^n = a^n \cdot b^n$
-\item 分数次幂：$a^{\frac{m}{n}} = \sqrt[n]{a^m}=(\sqrt[n]{a})^m, \quad a \geq 0$
+\item 分数次幂：$a^{\frac{1}{n}} = \sqrt[n]{a} \quad a \geq 0$
 \item 负次幂：$\displaystyle a^{-1}=\frac{1}{a},a\neq0$
 \item 零次幂：$a^0=1,a\neq0$
 \item 拆分指数的和：$a^{m+n}=a^m \cdot a^n$
 \item 拆分指数的积：$a^{m \cdot n}= (a^m)^n =(a^n)^m $
 \end{itemize}
+
+将指数作为参数，底数作为自变量的函数就称为幂函数，幂函数的名称指的就是自变量的幂次是函数值，注意不要与指数函数相混淆。
 
 \begin{definition}{幂函数}
 形如
@@ -37,7 +39,8 @@ f(x) = x^a~.
 \end{equation}
 的函数称作\textbf{幂函数（Power function）}，其中 $a\in\mathbb Q$。
 \end{definition}
-幂函数的参数在指数位置，自变量在底数位置，幂函数的名称指的就是自变量的幂次是函数值，注意不要与指数函数相混淆。$a$会影响函数的性质的各个方面，在学习时需要时刻注意。本文除最后一章，全都默认$a\in\mathbb Q$。
+
+$a$会影响函数的性质的各个方面，在学习时需要时刻注意。本文除最后一章，全都默认$a\in\mathbb Q$。
 
 由于幂函数的样式很多，直接研究每个具体的形式会很混乱。但对$y=x^a$，在$x>0$时，总是有定义的，而且此时$y$一定为正。因此，函数一定会在第一象限有图象。本文会先讨论定义域以及奇偶性，奠定好研究基础，然后再专注研究其在第一象限的规律。这也反映了一般分析函数的过程。
 
