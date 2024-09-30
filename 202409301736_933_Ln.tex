@@ -1,0 +1,58 @@
+% 对数与对数函数（高中）
+% keys 对数|对数函数
+% license Xiao
+% type Tutor
+\begin{issues}
+\issueDraft
+\end{issues}
+\pentry{函数\nref{nod_functi}，函数的性质\nref{nod_HsFunC}，指数函数\nref{nod_HsExpF}}{nod_c094}
+\subsection{对数运算}
+
+
+对数运算有两个特殊的计算结果：$\log_a a=1,\log_a1=0$
+
+\begin{theorem}{对数运算法则}
+\begin{itemize}
+\item 乘法法则$\log_a(xy)=\log_ax+\log_ay$
+\item 换底公式：$\displaystyle \log_a b=\frac{\log_cb}{\log_ca}$
+\item 幂法则：$\displaystyle \frac{m}{n}\log_a b=\log_{a^n} b^m$
+\end{itemize}
+\end{theorem}
+
+\subsection{自然对数函数}
+以 $\E$ 为底的对数函数 $\log_{\E} x$ 叫做\textbf{自然对数}， 通常记为
+\begin{equation}
+\ln x \qquad \text{或} \qquad \log x~.
+\end{equation}
+函数图如\autoref{fig_Ln_2}。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/ce690bcbd8c28a93.png}
+\caption{几种不同底的对数函数} \label{fig_Ln_2}
+\end{figure}
+
+
+\subsection{指数函数与对数函数的相似性}
+
+\pentry{函数的变换（高中）\nref{nod_FunTra}，导数（高中）\nref{nod_HsDerv}}{nod_a54a}
+
+根据\aref{幂运算}{the_power_1}和对数运算的法则，任意$f(x)=a^x$都可以变形，得到：
+
+\begin{equation}
+f(x)=e^{x\ln a}~.
+\end{equation}
+
+即，所有的指数函数都可以由$\E^x$通过在$x$方向上伸缩或关于$y$轴对称（$\ln a<0$时）得到，或者所有的指数函数$a^x$都可认为是$f(x)=e^x$与$g(x)=x\ln a$复合得到的$f(g(x))$。
+
+同理，根据对数运算的性质，任意$f(x)=\log_ax$都可以变形，得到：
+
+\begin{equation}
+f(x)=\frac{1}{\ln a}\ln x\iff f(x)\ln a=\ln x~.
+\end{equation}
+
+即，所有的对数函数都可以由$\ln x$通过在$y$方向上伸缩或关于$x$轴对称（$\ln a<0$时）得到，或者所有的对数函数$\log_ax$都可认为是$f(x)=\ln x$与$\displaystyle g(x)=\frac{x}{\ln a}$复合得到的$g(f(x))$。同时，这个结论也可由指数函数和对数函数在参数相同时互为反函数验证。
+
+综上，所有的指数函数、对数函数之间都是相似的。根据上述关系，已知$\left(\E^x\right)'=\E^x,\left(\ln x\right)'=\frac{1}{x}$，根据复合函数求导法则，可知：
+\begin{equation}
+\left(a^x\right)'=\ln a\cdot\E^x~,\left(\log_a x\right)'=\frac{1}{x\ln a}.
+\end{equation}
