@@ -89,9 +89,17 @@ d^*(x^*,y^*)=\lim_{n\rightarrow\infty} d(x_n,y_n)=\lim_{n\rightarrow\infty} d(y_
 
 三角不等式：设 $\{x_n\}\in x^*,\{y_n\}\in y^*,\{z_n\}\in Z^*$，则
 \begin{equation}
-d(x_n,z_n)\leq d(x_n,y_n)
+d(x_n,z_n)\leq d(x_n,y_n)+d(y_n,z_n).~
 \end{equation}
-
+上式取极限得
+\begin{equation}
+\begin{aligned}
+\lim_{n\rightarrow\infty}d(x_n,z_n)&\leq \lim_{n\rightarrow\infty}d(x_n,y_n)+\lim_{n\rightarrow\infty}d(y_n,z_n),\\
+&\Downarrow\\
+d^*(x^*,z^*)&\leq d^*(x^*,y^*)+d^*(y^*,z^*).
+\end{aligned}
+~
+\end{equation}
 \textbf{证毕！}
 
 

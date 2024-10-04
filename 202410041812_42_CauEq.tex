@@ -4,7 +4,7 @@
 % type Tutor
 
 \pentry{柯西序列、完备度量空间\nref{nod_cauchy}，二元关系\nref{nod_Relat}}{nod_70ae}
-在柯西序列上可以定义等价关系（\autoref{def_Relat_1}），而通过等价关系可以从原集合得到一个商集，下面将表明，这个由柯西序列得到的商集也具有度量空间的结构。
+在柯西序列上可以定义等价关系（\autoref{def_Relat_1}），而通过等价关系可以从原集合得到一个商集。下面将表明，这个由柯西序列得到的商集也具有度量空间的结构，并且原度量空间可看作它的柯西序列等价关系得到的商空间的子空间。
 
 \begin{theorem}{}
 设 $(X,d)$ 是任一度量空间， $\{x_n\},\{x'_n\}$ 是 $X$ 上的两个柯西序列（\autoref{def_cauchy_3}）。定义柯西序列上的二元关系 $R$：即若
@@ -34,7 +34,7 @@ d(x_n,y_n)<d(x_n,x'_n)+d(x'_n,y_n)<\epsilon/2+\epsilon/2=\epsilon.~
 \textbf{证毕！}
 
 由上面的定理，可以定义柯西序列的等价关系。
-\begin{definition}{}
+\begin{definition}{}\label{def_CauEq_1}
 设 $(X,d)$ 是任一度量空间， $\{x_n\},\{x'_n\}$ 是 $X$ 上的两个柯西序列（\autoref{def_cauchy_3}）。称 $\{x_n\}$ 和 $\{x_n'\}$ 是\textbf{等价}的，并记作 $\{x_n\}\sim\{x'_n\}$ 若
 \begin{equation}
 \lim_{n\rightarrow\infty}d(x_n,x_n')=0.~
@@ -67,7 +67,7 @@ d^*(x^*,y^*):=\lim_{n\rightarrow\infty} d(x_n,y_n),\quad x^*,y^*\in X^*,\{x_n\}\
 
 \textbf{证毕！}
 
-\begin{theorem}{}
+\begin{theorem}{}\label{the_CauEq_2}
 设 $(X,d)$ 是度量空间，$X^*,d^*$ 如\autoref{the_CauEq_1} 定义，则 $(X^*,d^*)$ 是度量空间。
 \end{theorem}
 
@@ -89,9 +89,45 @@ d^*(x^*,y^*)=\lim_{n\rightarrow\infty} d(x_n,y_n)=\lim_{n\rightarrow\infty} d(y_
 
 三角不等式：设 $\{x_n\}\in x^*,\{y_n\}\in y^*,\{z_n\}\in Z^*$，则
 \begin{equation}
-d(x_n,z_n)\leq d(x_n,y_n)
+d(x_n,z_n)\leq d(x_n,y_n)+d(y_n,z_n).~
+\end{equation}
+上式取极限得
+\begin{equation}
+\begin{aligned}
+\lim_{n\rightarrow\infty}d(x_n,z_n)&\leq \lim_{n\rightarrow\infty}d(x_n,y_n)+\lim_{n\rightarrow\infty}d(y_n,z_n),\\
+&\Downarrow\\
+d^*(x^*,z^*)&\leq d^*(x^*,y^*)+d^*(y^*,z^*).
+\end{aligned}
+~
+\end{equation}
+\textbf{证毕！}
+
+\begin{corollary}{}\label{cor_CauEq_1}
+设 $(X,d),(X^*,d^*)$ 如\autoref{the_CauEq_2} 定义，则 $(X,d)$ 和 $(X^*,d^*)$ 的某一子空间等距（\autoref{def_ConIso_2}）。这一等距可由将 $x\in X$ 映射到收敛于 $x$ 的类 $x^*\in X^*$ 指定。
+\end{corollary}
+
+\textbf{证明：}设定理中描述的映射为 $f$，则我们只需证明 $f$ 是等距的，单的，且对任一 $x\in X$， $f(x)\in X^*$。
+
+
+任一 $x\in X$， $f(x)\in X^*$：实数上，任一 $x\in X$，$\{x_n\},x_n\equiv x$ 是柯西序列，因此等价类 $[\{x_n\}]\in X^*$，即 $f(x)\in X^*$。
+
+单射性：设 $x, y\in X$，且 $f(x)\neq f(y)$。取恒等序列 $\{x_n\},\{y_n\}$，其中 $x_n\equiv x_1,y_n\equiv x_2$。那么由 $f(x_1)\neq f(x_2)$，得（根据柯西序列等价的定义（\autoref{def_CauEq_1}） ）
+\begin{equation}
+\begin{aligned}
+\lim_{n\rightarrow\infty}d(x_n,y_n)&\neq 0,\\
+&\Downarrow\\
+d(x,y)&\neq0,\\
+&\Downarrow\\
+x&\neq y.
+\end{aligned}~
 \end{equation}
 
+等距性：取满足 $x_n\equiv x_1,y_n\equiv x_2$ 的等距序列 $\{x_n\}\in f(x),\{y_n\}\in f(y)$，则
+\begin{equation}
+d^*(f(x),f(y))=\lim_{n\rightarrow\infty}d(x_n,y_n)=d(x,y).~
+\end{equation}
 \textbf{证毕！}
+
+由\autoref{cor_CauEq_1} ，我们可以把 $X$ 看作 $X^*$ 的子空间。
 
 
