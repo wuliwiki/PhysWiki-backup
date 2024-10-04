@@ -1,0 +1,56 @@
+% 柯西序列的等价
+% keys 柯西序列|等价
+% license Usr
+% type Tutor
+
+\pentry{柯西序列、完备度量空间\nref{nod_cauchy}，二元关系\nref{nod_Relat}}{nod_70ae}
+在柯西序列上可以定义等价关系（\autoref{def_Relat_1}），而通过等价关系可以从原集合得到一个商集，下面将表明，这个由柯西序列得到的商集也具有度量空间的结构。
+
+\begin{theorem}{}
+设 $(X,d)$ 是任一度量空间， $\{x_n\},\{x'_n\}$ 是 $X$ 上的两个柯西序列（\autoref{def_cauchy_3}）。定义柯西序列上的二元关系 $R$：即若
+\begin{equation}
+\lim_{n\rightarrow\infty}d(x_n,x_n')=0,~
+\end{equation}
+则称 $\{x_n\},\{x_n'\}$ 具有关系 $R$，并记为 $\{x_n\}R\{x_n'\}$。那么关系 $R$ 是等价关系。
+\end{theorem}
+\textbf{证明：}
+自反性 $\{x_n\}R\{x_n\}$：由于 $d(x_n,x_n)=0$ 对所有 $n$ 成立，因此 $\lim\limits_{n\rightarrow\infty}d(x_n,x_n)=0$ 成立。
+
+对称性 $\{x_n\}R\{x_n'\}\Rightarrow\{x_n'\}R\{x_n\}$：由 $d$ 的对称性，$d(x_n,x_n')=d(x_n',x_n)$，因此由 $\{x_n\}R\{x_n'\}$ 得 
+\begin{equation}
+\lim_{n\rightarrow\infty}d(x_n',x_n)=\lim_{n\rightarrow\infty}d(x_n,x_n')=0.~
+\end{equation}
+
+传递性 $\{x_n\}R\{x_n'\},\{x'_n\}R\{y_n\}\Rightarrow\{x_n\}R\{y_n\}$：因为 $\{x_n\}R\{x_n'\},\{x'_n\}R\{y_n\}$，所以对任一 $\epsilon>0$，存在 $N,N'$，使得只要 $n\geq N,n'\geq N'$，就有
+\begin{equation}
+d(x_n,x_n')<\epsilon/2,\quad d(x_{n'}',y_{n'})<\epsilon/2.~
+\end{equation}
+取 $N_1=\max\{N,N'\}$，则只要 $n>N_1$，就有
+\begin{equation}
+d(x_n,y_n)<d(x_n,x'_n)+d(x'_n,y_n)<\epsilon/2+\epsilon/2=\epsilon.~
+\end{equation}
+即 $\lim\limits_{n\rightarrow\infty}d(x_n,y_n)=0$。
+
+\textbf{证毕！}
+
+由上面的定理，可以定义柯西序列的等价关系。
+\begin{definition}{}
+设 $(X,d)$ 是任一度量空间， $\{x_n\},\{x'_n\}$ 是 $X$ 上的两个柯西序列（\autoref{def_cauchy_3}）。称 $\{x_n\}$ 和 $\{x_n'\}$ 是\textbf{等价}的，并记作 $\{x_n\}\sim\{x'_n\}$ 若
+\begin{equation}
+\lim_{n\rightarrow\infty}d(x_n,x_n')=0.~
+\end{equation}
+\end{definition}
+
+\begin{theorem}{}
+设 $C_X$ 是度量空间 $X$ 上的所有柯西序列构成的集族，则由等价关系 $\sim$ 定义的商空间 $X^*:=C_X/\sim$ 上通过如下定义的距离 $d^*$ 是良好的：
+\begin{equation}
+d^*(x^*,y^*):=\lim_{n\rightarrow\infty} d(x_n,y_n),\quad x^*,y^*\in X^*,\{x_n\}\in x^*,\{y_n\}\in y^*.~
+\end{equation}
+即 $d^*(x^*,y^*)$ 的取值不依赖于 $\{x_n\},\{y_n\}$ 
+\end{theorem}
+
+
+
+
+
+
