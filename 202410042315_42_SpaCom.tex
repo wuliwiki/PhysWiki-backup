@@ -41,7 +41,11 @@ d_1(y,y')&=\lim_{n\rightarrow\infty} d_1(x_n,x'_n)\\
 
 \textbf{存在性的证明：}可以证明，由“柯西序列的等价”一节得到的 $X$ 的柯西系列集的商空间 $X^*$正好满足要求。事实上，由\autoref{the_CauEq_3}，$X\subset X^*$；由\autoref{the_CauEq_4}，$X$ 在 $X^*$ 中处处稠密。因此，只需证明 $X^*$ 是完备度量空间。
 
-\autoref{the_CauEq_4}表明， $X^*$ 中的dian
+\autoref{the_CauEq_4} 中 \autoref{eq_CauEq_1} 表明，在 $X^*$ 中，由 $X$ 中的点所构成的任何柯西序列 $\{x_n\}$ 都收敛到 $X^*$ 中的某一点，即收敛到用这个序列本身所定义的点 $x^*\in X^*$。其次，因为 $X$ 在 $X^*$ 中稠密，所以对 $X^*$ 中的点构成的任一柯西序列 $\{x_n^*\}$，只需取 $X$ 中满足 $d(x_n,x_n^*)<1/n$ 的任何 $x_n$，则序列 $\{x_n\}$ 和 $\{x_n^*\}$ 等价。这样的序列 $\{x_n\}$ 在 $X$ 中也是柯西序列，事实上，
+\begin{equation}
+d(x_n,x_m)<d(x_n,x_n^*)+d(x_n^*,x_m^*)+d(x_m^*,x_m)
+\end{equation}
+
 
 
 
