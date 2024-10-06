@@ -4,7 +4,7 @@
 % type Tutor
 
 \pentry{分离性\nref{nod_Topo5}}{nod_cf78}
-拓扑空间是较度量空间更一般的对象，很多度量空间的概念可以拓广到拓扑空间。然而正因为这一一般性，拓扑空间会出现本质上不同于度量空间的情况。例如，有限点集可能不是闭的，收敛序列的极限点可能不唯一等等。为了获得和度量空间更相近的空间来，需要添加一些补充条件。分离性公理\upref{Topo5}就是人们提出的一类重要条件，它衡量了拓扑空间中点的分离程度。本节将给出其中几个分离性公理成立的充要条件。
+\cite{Ke1}拓扑空间是较度量空间更一般的对象，很多度量空间的概念可以拓广到拓扑空间。然而正因为这一一般性，拓扑空间会出现本质上不同于度量空间的情况。例如，有限点集可能不是闭的，收敛序列的极限点可能不唯一等等。为了获得和度量空间更相近的空间来，需要添加一些补充条件。分离性公理\upref{Topo5}就是人们提出的一类重要条件，它衡量了拓扑空间中点的分离程度。本节将给出其中几个分离性公理成立的充要条件。
 
 \subsection{分离性公理成立的充要条件}
 第一分离性公理 $T_1$ 是指对拓扑空间中的任意两个不同点，每一点都存在不包含另一点的邻域。这样的拓扑空间被称为\textbf{ $T_1$ 空间}。
@@ -105,7 +105,7 @@ x\in O_x, \quad y\in y\subset O_y, \quad O_x\cap O_y=\emptyset.~
 满足正规分离性公理的 $T_1$ 空间称为\textbf{正规的}(Normal)。
 \end{definition}
 
-\begin{theorem}{}
+\begin{theorem}{}\label{the_DisAx_2}
 正规空间满足 $T_3$ 分离性公理。
 \end{theorem}
 
@@ -117,13 +117,28 @@ x\in x\subset O_x, \quad A\subset O_A,\quad O_x\cap O_A=\emptyset.~
 
 \textbf{证毕！}
 
-\begin{theorem}{}
+\begin{theorem}{}\label{the_DisAx_3}
 度量空间\upref{Metric}是正规空间。
 \end{theorem}
 
-\textbf{证明：}
+\textbf{证明：}设 $X,Y$ 是度量空间中的两个不相交的闭集。于是由\autoref{the_DisAx_2} ，对每一 $x\in X$，都存在 $x$ 的邻域 $O_x$，使得 $O_x\cap Y=\emptyset$。于是存在开球 $B(x,r)\subset O_x$，其中 $r>0$。因此，每一 $x$ 和 $Y$ 的距离为某一正数 $d_x$。类似的，每一 $y\in Y$ 和 $X$ 的距离是某一正数 $d_y$。显然，下面两个开集分别包含 $X,Y$
+\begin{equation}
+U=\bigcup_{x\in X} B(x,d_x/2),\quad V=\bigcup_{y\in Y} B(y,d_y/2)~.
+\end{equation}
+下面证明它们的交是空的。假设 $z\in U\cap V$，于是存在 $x_0\in X,y_0\in Y$，使得 $d(z,x_0)<d_{x_0}/2,d(z,y_0)<d_{y_0}/2$。不是一般性，设 $d_{x_0}\leq d_{y_0}$，因此
+\begin{equation}
+d(x_0,y_0)\leq d(z,x_0)+d(z,y_0)<d_{x_0}/2+d_{y_0}/2\leq d_{y_0}.~
+\end{equation}
+即， $x_0$ 属于 $B(y_0,d_{y_0})$，但这与 $d_{y_0}$ 的定义矛盾，于是 $U\cap V=\emptyset$。于是度量空间满足正规性公理。
 
+此外，度量空间中任意两不同点都被某两个不相交的开球分开，因而满足 $T_1$ 分离性公理。于是命题得证。
 
 \textbf{证毕！}
 
+\begin{corollary}{}
+任一度量空间的子空间仍是正规空间。
+\end{corollary}
+\textbf{证明：}任一度量空间的子空间仍是度量空间，因此\autoref{the_DisAx_3} 保证了命题的正确性。
+
+\textbf{证毕！}
 

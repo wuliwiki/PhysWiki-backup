@@ -1,0 +1,305 @@
+% C 语言笔记
+% license Xiao
+% type Note
+
+\begin{itemize}
+\item \verb`gcc` 的 C 语言标准有 \verb`-std=c90`， \verb`c99`， \verb`c11`， \verb`c17`， \verb`c2x` 若要使用 GNU 拓展， 也可以用 \verb`gnu99` 等。
+\item 宏 \verb`__STDC_VERSION__` 可以在程序中判断编译器的 C 标准。例如 \verb`199901L` 就是 \verb`c99` 标准， \verb`201112L` 就是 \verb`c11` 标准。 \verb`L` 表示 \verb`long int` 的 literal。 打印如 \verb`printf("C version: %ld\n", __STDC_VERSION__);`
+\end{itemize}
+
+
+\subsection{常用的字符串处理}
+\begin{lstlisting}[language=cpp]
+#include "string.h"
+char s1[20] = "some string1";
+char s2[20] = "some string2";
+strlen(s1) // 字符串长度
+strcpy(s1, s2) // 复制（s2 可以是 literal）
+strcmp(s1, s2) // 比较
+strcat(s1, s2) // 连接
+strrev(s1) // 反转
+\end{lstlisting}
+
+\subsection{printf}
+\begin{lstlisting}[language=cpp]
+#include<stdio.h>
+
+void main()
+{
+char s[20];
+scanf("%s",&s);
+printf("%s\n",s);
+}
+\end{lstlisting}
+具体的格式代码见\href{https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm}{这里}。
+
+\begin{lstlisting}[language=cpp]
+int i = 1234;
+printf("=== int ===\n");
+printf("%6.5d\n", i); // " 01234"
+
+printf("=== string ===\n");
+string s = "abcdABCD";
+printf("%s\n", s.c_str()); // "abcdABCD"
+
+double x = 12.345;
+printf("=== double 1 ===\n");
+printf("%8.3f\n", x); // "  12.345"
+printf("%10.3e\n", x); // " 1.235e+01"
+printf("%g\n", x); // "12.345"
+printf("%5.3g\n", x); // " 12.3"
+
+double y = 0.000012345678;
+printf("=== double 2 ===\n");
+printf("%g\n", y); // "1.23457e-05"
+printf("%10.3g\n", y); // "  1.23e-05"
+\end{lstlisting}
+
+如果不想输出到命令行而是输出到字符串， 就用 \verb`int sprintf(char *str, const char *format, ...)`。 返回写入的字符数。 该函数返回写入到 \verb`str` 的总字符数。
+
+\subsection{scanf}
+\begin{lstlisting}[language=cpp]
+#include <stdio.h>
+int main()
+{
+  int x,y,z;
+  scanf("%d+\n,\n=%d",&x,&y);
+  z=x*y;
+  printf("x=%d,y=%d\n",x,y);
+  printf("xy=%d\n",z);
+}
+// 输入：
+// 123+
+// ,
+// =234
+// 输出：
+// x=123,y=234
+// xy=28782
+\end{lstlisting}
+引号内除了特殊字符，其它都需要输入一摸一样的，否则会出错。但是，1.变量前面可以多打任意多个空格和回车（后面不可以），2.任意多个空格或回车相连等效。
+
+\subsection{getchar}
+\begin{lstlisting}[language=cpp]
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+ int i=1;
+ char str[5]={0};
+    while(i<=5)
+   {str[i]=getchar();i++;}
+
+ i=1;
+ while(i<=5)
+ {printf("%d  ",str[i]);i++;}
+ printf("\n");
+
+ i=1;
+ while(i<=5)
+ {printf("%c",str[i]);i++;}
+ printf("\n");
+}
+\end{lstlisting}
+
+\subsection{enum、 struct 和 union}
+\verb`union` 和 \verb`struct` 类似， 但变量共用内存
+\begin{lstlisting}[language=cpp]
+struct 名称 {} // 声明变量： struct 名称 变量
+enum 名称 {}   // 声明变量： enum   名称 变量
+union 名称 {}  // 声明变量： union  名称 变量
+typedef struct {} 名称 // 声明变量： 名称 变量
+typedef enum {} 名称 // 同理
+typedef union {} 名称 // 同理
+\end{lstlisting}
+
+两种定义方式的使用方法并不完全等效（该代码已使用 \verb`g++` 和 \verb`gcc` 的不同标准测试）。最简单的记忆方法就是第一种声明在使用时需要加 \verb`enum`， 第二种声明不用。
+\begin{lstlisting}[language=cpp]
+enum B {B1, B2};
+
+enum B b1; // GOOD in C++ and c
+// B b2; // good in C++, error in c: unknown type name ‘B’
+
+typedef enum B BB; // GOOD in C++ and c
+// typedef B BBB; // good in C++, error in c
+
+// ==========================
+
+typedef enum {A1, A2} A;
+
+A a1; // GOOD in C++ and c
+// enum A a2; // error in C++ and c
+//     error: using typedef-name ‘A’ after ‘enum’
+
+typedef A AA; // GOOD in C++ and c
+// typedef enum A C; // error in C++, good in c
+\end{lstlisting}
+
+匿名 structure：
+\begin{lstlisting}[language=cpp]
+void myfun(struct {int a; double b;} param) {
+    /*...*/
+}
+int main() {
+  struct {
+    int i;
+    double d;
+  } var1{1,1.1}, var2{2,2.2};
+  myfun(var1);
+  myfun(var2);
+}
+\end{lstlisting}
+注意匿名 structure 只能传给接受同样匿名 structure 的函数，不能给接受实名 structure 的函数，即使函数结构一样。
+
+\subsection{函数指针}
+\begin{lstlisting}[language=cpp]
+// 函数指针（每个括号左右都可以有空格）
+double(*p1)(double) = sin; // 也可以用 \verb`&sin`，下同
+// 定义函数指针类
+typedef double(*Tpf)(double);
+Tpf p3 = sin;
+// 定义函数类
+typedef double(Tf)(double);
+Tf *p2 = sin; // 注意 `Tf my_fun;` 是非法的
+// 作为类型参数
+vector<double(*)(double)> arr{&sin, cos};
+// 调用函数（dereference 可选）
+cout << "sin(1) = " << arr[0](1) << endl;
+cout << "cos(1) = " << (*arr[1])(1) << endl;
+\end{lstlisting}
+
+要获取函数指针，既可以用 \verb`函数名` 也可以用 \verb`&函数名`。
+
+\subsection{文件处理}
+\begin{itemize}
+\item \verb`FILE *fopen(const char *filename, const char *mode);` 创建新文件，读取失败返回 \verb`NULL`。
+\item \verb`fscanf, fgets` 读取文件
+\item \verb`fprintf` 写文件
+\item \verb`fseek, rewind` 移动到文件的某个位置。
+\item \verb`fclose` 关闭文件
+\item \verb`"r"`: 只读 (文件必须存在).
+\item \verb`"w"`: 只写 (新建或覆盖文件).
+\item \verb`"a"`: 最后写 (不存在则新建).
+\item \verb`"r+"`: 读写 (文件必须存在).
+\item \verb`"w+"`: 读写 (新建或覆盖文件).
+\item \verb`"a+"`: 最后写和读 (不存在则新建).
+\item \verb`r` 模式的例子：
+\begin{lstlisting}[language=cpp]
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *file;
+    char *buffer;
+    // start index (will start from the 6th char)
+    int start_ind = 5;
+    // Length of the string to read
+    int length = 10;
+
+    // Open the file in read mode
+    file = fopen("example.txt", "r");
+    if (file == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
+
+    // Allocate memory for the string
+    buffer = (char *)malloc((length + 1) * sizeof(char));
+    if (buffer == NULL) {
+        perror("Memory allocation error");
+        fclose(file);
+        return 1;
+    }
+
+    // Move the file pointer to the start index
+    fseek(file, start_ind, SEEK_SET);
+
+    // Read the bytes from start_ind
+    size_t bytesRead = fread(buffer, sizeof(char), length, file);
+
+    // Null-terminate the buffer if any data was read
+    if (bytesRead > 0)
+        buffer[bytesRead] = '\0';
+
+    // Check if we reached EOF
+    if (feof(file))
+        printf("End of file reached.\n");
+    // Check for read errors
+    else if (ferror(file))
+        perror("Error reading file");
+
+    // Print the string
+    printf("Read string: %s\n", buffer);
+
+    // Free the allocated memory and close the file
+    free(buffer);
+    fclose(file);
+
+    return 0;
+}
+\end{lstlisting}
+\item \verb`size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)` 读取指定 \verb`size*nmemb` 字节的内容到 \verb`ptr`（不会在结尾写 \verb`\0`！需要手动添加）。 函数返回成功读取的元素个数，如果返回值小于 \verb`nmemb`，说明达到了文件末尾，或发生了错误。
+\item \verb`size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)`
+\item \verb`w+` 模式的例子：
+\begin{lstlisting}[language=cpp]
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *file;
+    
+    // Open the file in "w+" mode
+    // (write and read, truncate if exists)
+    file = fopen("example.txt", "wb+");
+    if (file == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    // Step 1: Write to the file
+    fputs("Hello, World!\n", file);
+    fputs("This is a test file.\n", file);
+    fputs("End of writing.\n", file);
+
+    // Step 2: Jump to the beginning of the file using fseek()
+    fseek(file, 0, SEEK_SET);
+
+    // Step 3: Read from the file and print its
+    // contents to the console
+    char buffer[100];
+    printf("Reading the file contents:\n");
+    while (fgets(buffer, sizeof(buffer), file) != NULL) {
+        printf("%s", buffer);
+    }
+
+    // Step 4: Move the file pointer to a specific location, modify contents
+    fseek(file, 7, SEEK_SET); // Jump to the 8th character
+    fputs("Universe", file);  // Overwrite "World" with "Universe"
+
+    // Step 5: Jump to the beginning again to read the updated content
+    fseek(file, 0, SEEK_SET);
+    printf("\nUpdated file contents:\n");
+    while (fgets(buffer, sizeof(buffer), file) != NULL) {
+        printf("%s", buffer);
+    }
+
+    // Close the file
+    fclose(file);
+    return 0;
+}
+\end{lstlisting}
+\item \verb`int fseek(FILE *stream, long offset, int whence);` 可以跳到文件的某个位置。 例如 \verb`fseek(file, 7, SEEK_SET);` 相对于文件开头， \verb`fseek(file, -7, SEEK_CUR);` 相对当前位置， \verb`SEEK_END` 相对于文件 EOF。 如果成功，\verb`fseek()` 返回 0。如果返回非 0 则失败（例如超出范围）。
+\item \verb`void perror(const char *str)` 打印错误信息到 \verb`stderr` 并根据全局变量 \verb`errno` 在后面附上 \verb`: 具体错误原因(如文件不存在，权限不够)`。
+\item \verb`int fgetc(file)` 获取一个字节。 如果因为超出文件结尾没有获取到，则返回 EOF。
+\item \verb`EOF` 是 \verb`stdio.h` 中的一个宏，通常是 -1 但不能保证。
+\item 例如要获取文件最后的三个字节，用 \verb`fseek(file, -3, SEEK_END)` 然后 \verb`fgetc(file)` 三次即可。
+\item ASCII 表不存在 EOF，EOF 是一个概念不是一个字符。
+\end{itemize}
+
+
+
+\subsection{内存分配}
+\begin{itemize}
+\item \verb`void *malloc(size_t size);` 分配内存，如果失败返回 \verb`NULL`。
+\item \verb`void free(void *ptr);` 释放内存。
+\item \verb`void *realloc(void *ptr, size_t new_size);` 会保留之前的数据。 如果可以延长内存就延长， 如果不能就重新分配并复制。 新分配的数据不会初始化。 如果失败返回 \verb`NULL`。
+\end{itemize}

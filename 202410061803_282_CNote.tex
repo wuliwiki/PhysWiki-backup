@@ -1,0 +1,181 @@
+% C 语言笔记
+% license Xiao
+% type Note
+
+\begin{itemize}
+\item \verb`gcc` 的 C 语言标准有 \verb`-std=c90`， \verb`c99`， \verb`c11`， \verb`c17`， \verb`c2x` 若要使用 GNU 拓展， 也可以用 \verb`gnu99` 等。
+\item 宏 \verb`__STDC_VERSION__` 可以在程序中判断编译器的 C 标准。例如 \verb`199901L` 就是 \verb`c99` 标准， \verb`201112L` 就是 \verb`c11` 标准。 \verb`L` 表示 \verb`long int` 的 literal。 打印如 \verb`printf("C version: %ld\n", __STDC_VERSION__);`
+\end{itemize}
+
+
+\subsection{常用的字符串处理}
+\begin{lstlisting}[language=cpp]
+#include "string.h"
+char s1[20] = "some string1";
+char s2[20] = "some string2";
+strlen(s1) // 字符串长度
+strcpy(s1, s2) // 复制（s2 可以是 literal）
+strcmp(s1, s2) // 比较
+strcat(s1, s2) // 连接
+strrev(s1) // 反转
+\end{lstlisting}
+
+\subsection{printf}
+\begin{lstlisting}[language=cpp]
+#include<stdio.h>
+
+void main()
+{
+char s[20];
+scanf("%s",&s);
+printf("%s\n",s);
+}
+\end{lstlisting}
+具体的格式代码见\href{https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm}{这里}。
+
+\begin{lstlisting}[language=cpp]
+int i = 1234;
+printf("=== int ===\n");
+printf("%6.5d\n", i); // " 01234"
+
+printf("=== string ===\n");
+string s = "abcdABCD";
+printf("%s\n", s.c_str()); // "abcdABCD"
+
+double x = 12.345;
+printf("=== double 1 ===\n");
+printf("%8.3f\n", x); // "  12.345"
+printf("%10.3e\n", x); // " 1.235e+01"
+printf("%g\n", x); // "12.345"
+printf("%5.3g\n", x); // " 12.3"
+
+double y = 0.000012345678;
+printf("=== double 2 ===\n");
+printf("%g\n", y); // "1.23457e-05"
+printf("%10.3g\n", y); // "  1.23e-05"
+\end{lstlisting}
+
+如果不想输出到命令行而是输出到字符串， 就用 \verb`int sprintf(char *str, const char *format, ...)`。 返回写入的字符数。 该函数返回写入到 \verb`str` 的总字符数。
+
+\subsection{scanf}
+\begin{lstlisting}[language=cpp]
+#include <stdio.h>
+int main()
+{
+  int x,y,z;
+  scanf("%d+\n,\n=%d",&x,&y);
+  z=x*y;
+  printf("x=%d,y=%d\n",x,y);
+  printf("xy=%d\n",z);
+}
+// 输入：
+// 123+
+// ,
+// =234
+// 输出：
+// x=123,y=234
+// xy=28782
+\end{lstlisting}
+引号内除了特殊字符，其它都需要输入一摸一样的，否则会出错。但是，1.变量前面可以多打任意多个空格和回车（后面不可以），2.任意多个空格或回车相连等效。
+
+\subsection{getchar}
+\begin{lstlisting}[language=cpp]
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+ int i=1;
+ char str[5]={0};
+    while(i<=5)
+   {str[i]=getchar();i++;}
+
+ i=1;
+ while(i<=5)
+ {printf("%d  ",str[i]);i++;}
+ printf("\n");
+
+ i=1;
+ while(i<=5)
+ {printf("%c",str[i]);i++;}
+ printf("\n");
+}
+\end{lstlisting}
+
+\subsection{enum、 struct 和 union}
+\verb`union` 和 \verb`struct` 类似， 但变量共用内存
+\begin{lstlisting}[language=cpp]
+struct 名称 {} // 声明变量： struct 名称 变量
+enum 名称 {}   // 声明变量： enum   名称 变量
+union 名称 {}  // 声明变量： union  名称 变量
+typedef struct {} 名称 // 声明变量： 名称 变量
+typedef enum {} 名称 // 同理
+typedef union {} 名称 // 同理
+\end{lstlisting}
+
+两种定义方式的使用方法并不完全等效（该代码已使用 \verb`g++` 和 \verb`gcc` 的不同标准测试）。最简单的记忆方法就是第一种声明在使用时需要加 \verb`enum`， 第二种声明不用。
+\begin{lstlisting}[language=cpp]
+enum B {B1, B2};
+
+enum B b1; // GOOD in C++ and c
+// B b2; // good in C++, error in c: unknown type name ‘B’
+
+typedef enum B BB; // GOOD in C++ and c
+// typedef B BBB; // good in C++, error in c
+
+// ==========================
+
+typedef enum {A1, A2} A;
+
+A a1; // GOOD in C++ and c
+// enum A a2; // error in C++ and c
+//     error: using typedef-name ‘A’ after ‘enum’
+
+typedef A AA; // GOOD in C++ and c
+// typedef enum A C; // error in C++, good in c
+\end{lstlisting}
+
+匿名 structure：
+\begin{lstlisting}[language=cpp]
+void myfun(struct {int a; double b;} param) {
+    /*...*/
+}
+int main() {
+  struct {
+    int i;
+    double d;
+  } var1{1,1.1}, var2{2,2.2};
+  myfun(var1);
+  myfun(var2);
+}
+\end{lstlisting}
+注意匿名 structure 只能传给接受同样匿名 structure 的函数，不能给接受实名 structure 的函数，即使函数结构一样。
+
+\subsection{函数指针}
+\begin{lstlisting}[language=cpp]
+// 函数指针（每个括号左右都可以有空格）
+double(*p1)(double) = sin; // 也可以用 \verb`&sin`，下同
+// 定义函数指针类
+typedef double(*Tpf)(double);
+Tpf p3 = sin;
+// 定义函数类
+typedef double(Tf)(double);
+Tf *p2 = sin; // 注意 `Tf my_fun;` 是非法的
+// 作为类型参数
+vector<double(*)(double)> arr{&sin, cos};
+// 调用函数（dereference 可选）
+cout << "sin(1) = " << arr[0](1) << endl;
+cout << "cos(1) = " << (*arr[1])(1) << endl;
+\end{lstlisting}
+
+要获取函数指针，既可以用 \verb`函数名` 也可以用 \verb`&函数名`。
+
+\subsection{文件处理}
+见 \enref{C 语言文件处理笔记}{Cfile}。
+
+
+\subsection{内存分配}
+\begin{itemize}
+\item \verb`void *malloc(size_t size);` 分配内存，如果失败返回 \verb`NULL`。
+\item \verb`void free(void *ptr);` 释放内存。
+\item \verb`void *realloc(void *ptr, size_t new_size);` 会保留之前的数据。 如果可以延长内存就延长， 如果不能就重新分配并复制。 新分配的数据不会初始化。 如果失败返回 \verb`NULL`。
+\end{itemize}
