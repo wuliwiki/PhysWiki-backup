@@ -1,0 +1,12 @@
+% 进程和子进程笔记（Linux/C++）
+% license Usr
+% type Note
+
+\begin{itemize}
+\item C/C++ 中最万能的子进程函数是 \verb`int execve(const char *path, char *const argv[], char *const envp[]);`
+\begin{lstlisting}[language=cpp]
+char *args[] = {"/bin/ls", "-l", NULL};
+char *env[] = {"HOME=/usr/home", "LOGNAME=home", NULL};
+execve("/bin/ls", args, env);
+\end{lstlisting}
+\end{itemize}
