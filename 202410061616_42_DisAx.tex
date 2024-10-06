@@ -1,0 +1,81 @@
+% 分离性公理成立的充要条件
+% keys 分离性公理|充要条件
+% license Usr
+% type Tutor
+
+\pentry{分离性\nref{nod_Topo5}}{nod_cf78}
+拓扑空间是较度量空间更一般的对象，很多度量空间的概念可以拓广到拓扑空间。然而正因为这一一般性，拓扑空间会出现本质上不同于度量空间的情况。例如，有限点集可能不是闭的，收敛序列的极限点可能不唯一等等。为了获得和度量空间更相近的空间来，需要添加一些补充条件。分离性公理\upref{Topo5}就是人们提出的一类重要条件，它衡量了拓扑空间中点的分离程度。本节将给出其中几个分离性公理成立的充要条件。
+
+\subsection{分离性公理成立的充要条件}
+第一分离性公理 $T_1$ 是指对拓扑空间中的任意两个不同点，每一点都存在不包含另一点的邻域。这样的拓扑空间被称为\textbf{ $T_1$ 空间}。
+\begin{theorem}{$T_1$ 分离性公理成立的充要条件}
+第一分离性公理 $T_1$ 成立的充要条件是：空间中任意单点集都是闭的。
+\end{theorem}
+\textbf{证明：}
+\textbf{必要性：}假设第一分离性公理成立，设 $x\neq y$，则存在 $y$ 的邻域 $O_y$，使得
+\begin{equation}
+x\notin O_y~.
+\end{equation}
+由闭包的定义，$y\notin [x]$\footnote{为了方便，本文约定单点集 $\{x\}$ 直接写为 $x$。}，即任意不同于 $x$ 的点都不在 $[x]$ 中，因此 $[x]=x$。因此任意单点集都是闭的。
+
+\textbf{充分性：}假设任意单点集都是闭的。设 $x\neq y$，则那么 $x$ 的补集 $C(x)$ 是开的，并且 $y\in C(X),x\notin C(X)$，于是 $C(x)$ 是 $y$ 的满足 $x\notin C(x)$ 的邻域。同理 $C(y)$ 是 $x$ 的满足 $y\notin C(y)$ 的邻域。因此第一分离性公理成立。
+
+\textbf{证毕！}
+
+
+
+第三分离性公理 $T_3$ 是指任一点和不包含它的闭集都各自有一邻域存在，使得两邻域不相交。包含一个集合的邻域是指这个邻域包含一个包含该集合的开集。
+
+
+\begin{theorem}{$T_3$ 分离性公理成立的充要条件}
+第三分离性公理 $T_3$ 成立的充要条件是：任意单点集 $x$ 和其邻域 $O_x$，都存在 $x$ 的邻域 $ O'_x$，使得 $[O'_x]\subset O_x$。
+\end{theorem}
+
+\textbf{证明：}
+\textbf{必要性：}假设 $T_3$ 分离性公理成立。则对任意 $x$ 和其邻域 $O_x$，存在开集 $U\subset O_x$ 包含 $x$。于是 $C(U)$ 是闭的，因此由 $T_3$ 公理，存在开集 $U_x, O$，使得
+\begin{equation}
+x\in U_x,\quad C(U)\subset O,\quad U_x\cap O=\emptyset~.
+\end{equation}
+因此
+\begin{equation}
+U_x\subset C(O)=[C(O)]\subset U\subset O_x.~
+\end{equation}
+$U_x$ 刚好是所需要的 $O_x'$。
+
+\textbf{充分性：} 假设任意单点集 $x$ 和其邻域 $O_x$，都存在 $x$ 的邻域 $ O'_x$，使得 $[O'_x]\subset O_x$。设 $x$ 是任意点，$A$ 是不包含 $x$ 的任一闭集。那么 $C(A)$ 是包含 $x$ 的邻域。于是由假设，存在 $x$ 的邻域 $O$，使得 
+\begin{equation}
+[O]\subset C(A)~.
+\end{equation}
+于是 $C([O])$ 是包含 $A$ 的邻域。且 $C([O])\cap O=\emptyset $。显然 $O,C([O])$ 正是所需要的。
+
+\textbf{证毕！}
+
+
+第四分离性公理 $T_4$ 是指任意两个不相交的闭集都各自有一邻域存在，使得两邻域不相交。
+
+\begin{theorem}{}
+第四分离性公理 $T_4$ 成立的充要条件是：任意闭集 $A$ 和其邻域 $O_A$，都存在 $A$ 的邻域 $ O'_A$，使得 $[O'_A]\subset O_A$。
+\end{theorem}
+
+\textbf{证明：}
+\textbf{必要性：}假设 $T_4$ 分离性公理成立。则对任意闭集 $A$ 和其邻域 $O_A$，存在开集 $U\subset O_A$ 包含 $x$。于是 $C(U)$ 是闭的，因此由 $T_3$ 公理，存在开集 $U_x, O$，使得
+\begin{equation}
+x\in U_x,\quad C(U)\subset O,\quad U_x\cap O=\emptyset~.
+\end{equation}
+因此
+\begin{equation}
+U_x\subset C(O)=[C(O)]\subset U\subset O_x.~
+\end{equation}
+$U_x$ 刚好是所需要的 $O_x'$。
+
+\textbf{充分性：} 假设任意单点集 $x$ 和其邻域 $O_x$，都存在 $x$ 的邻域 $ O'_x$，使得 $[O'_x]\subset O_x$。设 $x$ 是任意点，$A$ 是不包含 $x$ 的任一闭集。那么 $C(A)$ 是包含 $x$ 的邻域。于是由假设，存在 $x$ 的邻域 $O$，使得 
+\begin{equation}
+[O]\subset C(A)~.
+\end{equation}
+于是 $C([O])$ 是包含 $A$ 的邻域。且 $C([O])\cap O=\emptyset $。显然 $O,C([O])$ 正是所需要的。
+
+\textbf{证毕！}
+
+
+
+
