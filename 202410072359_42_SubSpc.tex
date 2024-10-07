@@ -1,0 +1,104 @@
+% 向量子空间
+% keys 向量空间|线性空间|子空间|基底|向量
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{向量空间\nref{nod_LSpace}}{nod_4dd7}
+
+\subsection{子空间}
+
+如果一个向量空间 $S$ 中的所有向量都属于另一个向量空间 $V$， 且两个向量空间中加法和数乘运算的定义相同。 那么前者就是后者的\textbf{子空间}。注意每个向量空间都是它本身的子空间。
+
+\begin{definition}{向量子空间}
+向量空间 $V$ （记其域为 $\mathbb{F}$）的子集 $S$ 被称为 $V$ 的向量子空间意味着
+\begin{enumerate}
+\item $0_V \in S$，
+\item 对任意的 $a, b \in \mathbb{F}$，$x, y \in S$，$a x + b y \in S$。
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}{}
+证明子空间确实是一个向量空间。
+\end{theorem}
+\textbf{证明：}
+
+（线性组合）\textbf{封闭性}成立。 
+
+加法部分：
+
+1. \textbf{结合性，交换律}直接从 $V$ 中继承过来。
+
+2. \textbf{零向量存在：}$0_V \in S$。
+
+3. \textbf{逆元存在性：}$\forall v \in S$，$-1 \cdot v \in S$。
+
+数乘部分：\textbf{结合性，两个分配律}直接从 $V$ 中继承过来。
+
+\textbf{证毕！}
+
+\begin{example}{三维空间中的平面}
+\addTODO{想办法修改成几何向量的语言}
+在三维的几何向量空间 $\mathbb{R}^3$ 中，观察过原点且以向量 $\uvec x + \uvec y + \uvec z$ 为法向量的平面， 平面方程为
+\addTODO{几何向量中关于法向量的条目}
+\begin{equation}\label{eq_SubSpc_1}
+x + y + z = 0~,
+\end{equation}
+所有与该平面重合的向量可以构成这个三维空间中的一个二维子空间 $S$。 证明： 平面上的两个向量相加仍然落在平面上， 数乘也同样落在平面上， 详细过程略。 
+
+但是， 由于 $\uvec x, \uvec y, \uvec z$ 中任意一个都落在该子空间外面， 所以不可能选出两个作为子空间的基底。 如果需要是选一组 $V$ 的基底且包含 $S$ 空间的基底， 可以现在 $S$ 空间中选两个基底（坐标满足\autoref{eq_SubSpc_1}）， 例如坐标为 $(1, -2, 1)/\sqrt{6}$ 和 $(1, 0, -1)/\sqrt{2}$ 的两个向量。 再在空间外取一个基底， 如 $(1, 1, 1)/\sqrt{3}$。 注意这里给出的三个向量是定义了一组新的直角坐标系（\autoref{ex_Gvec2_2}）， 但原则上只需要线性无关即可。 在该情况下， 线性无关意味着三个几何向量两两不共线且不共面（\autoref{def_linDpe_1}）。
+\end{example}
+% Giacomo: 这个例子为什么要放这里？
+
+\begin{theorem}{}\label{the_SubSpc_1}
+若 $V_1, V_2$ 是向量空间 $V$ 的子空间，则 $V_1 \cap V_2$ 仍是 $V$ 的子空间。
+\end{theorem}
+\textbf{证明：}
+
+1. $0_V \in V_1, 0_V \in V_2 \implies 0_V \in V_1 \cap V_2$。
+
+2. $\forall v_1,v_2 \in V_1 \cap V_2, a, b \in \mathbb{F}$ ，由于 $V_1$ 是子空间 ，且 $v_1, v_2 \in V_1$，所以有 $a v_1 + b v_2 \in V_1$，同理 $a v_1 + b v_2 \in V_2$，故 $a v_1 + b v_2 \in V_1 \cap V_2$。
+
+\textbf{证毕！}
+
+\subsection{子空间的和}
+子空间的交是子空间，但是，子空间的并集一般不是子空间。例如，设 $e_1,e_2$ 是两个线性无关的矢量，且 $\langle e_i\rangle:=\{k e_i|k\in\mathbb F\},i=1,2$ 是它们各自生成的一维子空间，那么 $\langle e_1\rangle\cup \langle e_2\rangle$ 不包含 $e_1+e_2$。
+
+容易验证，包含 $\langle e_1\rangle,\langle e_2\rangle$ 的最小子空间是
+\begin{equation}
+U=\{u_1+u_2|u_1\in \langle e_1\rangle,u_1\in\langle e_2\rangle\}~.
+\end{equation}
+
+这引出了下面的定义。
+\begin{definition}{子空间的和}
+设 $U_i,i=1,\cdots,m$ ，则称
+\begin{equation}
+\qty{\sum_{i}^m u_i\Bigg|u_i\in U_i}~
+\end{equation}
+为子空间 $U_i,i=1,\cdots,m$ 的\textbf{和}，记作 $\sum_{i=1}^m U_i$。
+\end{definition}
+\addTODO{是不是应该放到\enref{直和}{DirSum}中讨论？或者至少引用一下。}
+
+\begin{theorem}{}
+子空间 $U_i,i=1,\cdots,m$ 的和 $\sum_{i=1}^m U_i$ 是包含每个 $U_i$ 的最小向量子空间，且和 $\sum_{i=1}^m U_i$ 与 $U_i$ 的排列顺序无关。
+\end{theorem}
+\textbf{证明：} \textbf{$\sum_{i=1}^m U_i$ 是向量空间且包含每一 $U_i$：}由定义每个 $U_i$ 明显都在 $\sum_{i=1}^m U_i$ 中。其是向量空间的证明留给读者。
+
+\textbf{$\sum_{i=1}^m U_i$ 是包含每一 $U_i$ 的最小子空间：}需要证明任意包含每一 $U_i$ 的矢量空间都包含 $\sum_{i=1}^m U_i$ 。设 $U$ 包含每一子空间 $U_i$，$x\in \sum_{i=1}^m U_i$ 是任意的。由子空间和的定义，有
+\begin{equation}
+x=\sum_{i=1}^m x_i,\quad x_i\in U_i.~
+\end{equation}
+由于 $x_i\in U_i\in U$ 且 $U$ 是向量空间，于是 $\sum_{i=1}^m x_i\in U$，即 $x\in U$，从而 $\sum_{i=1}^m U_i\subset U$。
+
+\textbf{和的顺序无关性}：由定义和矢量加法的顺序无关性直接得到，或者由结合性得到。
+
+\textbf{证毕！}
+
+\begin{theorem}{和的维度关系}
+设
+\end{theorem}
+
+
