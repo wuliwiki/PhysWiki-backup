@@ -63,12 +63,12 @@
 
 下面的定理表明利用原空间上的加法和数乘可以定义商空间上的加法和数乘，而使得商空间为矢量空间。这也是称之为“商空间”的原因。
 
-\begin{theorem}{商空间是矢量空间}
+\begin{theorem}{商空间是矢量空间}\label{the_QuoSpa_2}
 设 $U$ 是矢量空间 $V$ 的子空间，则 $V/U$ 在如下加法和数乘下构成一矢量空间：
 \begin{enumerate}
 \item \textbf{加法：}
 $[v_1] + [v_2] := [v_1 + v_2]~;$
-\item \textbf{数乘：} $a \cdot [v] := [a v]\qquad (a \in \mathbb F)~.$
+\item \textbf{数乘：} $a [v] := [a v]\qquad (a \in \mathbb F)~.$
 \end{enumerate}
 \end{theorem}
 
@@ -85,12 +85,21 @@ $[v_1] + [v_2] := [v_1 + v_2]~;$
 \textbf{数乘：}
 \textbf{分配律}来源于 
 \begin{equation}
-\lambda([v_1]+[v_2])=[\lambda v_1+\lambda v_2]=[\lambda v_1]+[\lambda v_2]=\lambda[v_1]+[v_2]
+\begin{aligned}
+\lambda([v_1]+[v_2])=&[\lambda v_1+\lambda v_2]=[\lambda v_1]+[\lambda v_2]=\lambda[v_1]+\lambda[v_2];\\
+(\lambda_1+\lambda_2)[v]=&[(\lambda_1+\lambda_2)v]=[\lambda_1v+\lambda_2 v]=\lambda_1[v]+\lambda_2[v].
+\end{aligned}~
 \end{equation}
 
-
+\textbf{结合律}来源于 $\lambda_1(\lambda_2[v])=\lambda_1[\lambda_2 v]=[\lambda_1\lambda_2 v]=(\lambda_1\lambda_2)[v]$
 
 \textbf{证毕！}
+
+虽然\autoref{the_QuoSpa_2} 表明商空间是矢量空间，但是不代表它上面的加法和数乘定义就是良定义的，即可能依赖于剩余类的代表元。下面定理表明上面在商空间中定义的加法和数乘是良定义的。
+
+\begin{theorem}{}
+\autoref{the_QuoSpa_2} 中定义的加法和数乘是良定义的，即不依赖于同余类中的代表元。
+\end{theorem}
 
 
 通过原空间 $V$ 上的加法，可以得到

@@ -68,7 +68,7 @@
 \begin{enumerate}
 \item \textbf{加法：}
 $[v_1] + [v_2] := [v_1 + v_2]~;$
-\item \textbf{数乘：} $a \cdot [v] := [a v]\qquad (a \in \mathbb F)~.$
+\item \textbf{数乘：} $a [v] := [a v]\qquad (a \in \mathbb F)~.$
 \end{enumerate}
 \end{theorem}
 
@@ -85,9 +85,13 @@ $[v_1] + [v_2] := [v_1 + v_2]~;$
 \textbf{数乘：}
 \textbf{分配律}来源于 
 \begin{equation}
-\lambda([v_1]+[v_2])=[\lambda v_1+\lambda v_2]=[\lambda v_1]+[\lambda v_2]=\lambda[v_1]+[v_2]
+\begin{aligned}
+\lambda([v_1]+[v_2])=&[\lambda v_1+\lambda v_2]=[\lambda v_1]+[\lambda v_2]=\lambda[v_1]+\lambda[v_2];\\
+(\lambda_1+\lambda_2)[v]=&[(\lambda_1+\lambda_2)v]=[\lambda_1v+\lambda_2 v]=\lambda_1[v]+\lambda_2[v].
+\end{aligned}~
 \end{equation}
 
+\textbf{结合律}来源于 $\lambda_1(\lambda_2[v])=\lambda_1[\lambda_2 v]=[\lambda_1\lambda_2 v]=(\lambda_1\lambda_2)[v]$
 
 
 \textbf{证毕！}
