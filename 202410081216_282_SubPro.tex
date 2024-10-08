@@ -1,0 +1,186 @@
+% 进程和子进程笔记（Linux/C++）
+% license Usr
+% type Note
+
+\subsection{exec 系列命令}
+如果不改变环境变量也可以用 \verb`execv()`，完整的例子如
+\begin{lstlisting}[language=cpp]
+#include <unistd.h>    // For execv()
+#include <sys/wait.h>  // For wait()
+#include <iostream>    // For std::cout
+#include <cstdio>      // For perror()
+
+int main() {
+    // Define the command and its arguments
+    char *args[] = {(char *)"/bin/ls",
+        (char *)"-l", (char *)NULL};
+
+    // Fork a new process
+    pid_t pid = fork();
+
+    if (pid == -1) {
+        // Fork failed
+        perror("fork failed");
+        return 1;
+    } else if (pid == 0) {
+        std::cout << "running ls command" << std::endl;
+        // Replace the child process with a new program (ls -l)
+        execv("/bin/ls", args);
+        // If execv() returns, an error occurred
+        perror("execv failed");
+        return 1;
+    } else {
+        // Parent process
+        int status;
+        // Wait for the child to complete. pid is now of the child process
+        waitpid(pid, &status, 0);
+        std::cout << "Child process finished with status: "
+            << status << std::endl;
+    }
+}
+\end{lstlisting}
+该程若运行成功会把 \verb`ls` 的输出打到 stdout。
+
+\begin{itemize}
+\item C/C++ 中最万能的子进程函数是 \verb`int execve(const char *path, char *const argv[], char *const envp[]);`
+\begin{lstlisting}[language=cpp]
+char *args[] = {"/bin/ls", "-l", NULL};
+char *env[] = {"HOME=/usr/home", "LOGNAME=home", NULL};
+execve("/bin/ls", args, env);
+\item \verb`getpid()` 可以获取当前进程的 pid
+\item 子进程中用 \verb`getppid()` 获取父进程的 pid
+\item 对子进程和父进程， \verb`pid_t pid = fork()` 分别返回 0 和子进程的 pid。
+\end{lstlisting}
+\item 如果需要等待多个子进程结束， 可以在循环中用 \verb`pid_t wait(int *status);` 返回结束的子进程的 pid， 如果子进程都结束了， 返回 -1。
+\item \verb`status` 是个 bit field， 不同范围的 bit 用于表示不同信息，可以判断 exit code （即 \verb`exit()` 的参数）， 或者各种 signal。
+\item \verb`WIFEXITED(status)`: Returns true if the child exited normally (i.e., via \verb`exit()` or \verb`_exit()`).
+\item \verb`WEXITSTATUS(status)`: Returns the exit status of the child if \verb`WIFEXITED(status)` is true. This is the value that the child passed to \verb`exit()` or \verb`_exit()`.
+\item \verb`WIFSIGNALED(status)`: Returns true if the child process was terminated by a signal.
+\item \verb`WTERMSIG(status)`: Returns the signal number that caused the child to terminate if \verb`WIFSIGNALED(status)` is true.
+\item \verb`WIFSTOPPED(status)`: Returns true if the child process was stopped (but not terminated) by a signal.
+\item \verb`WSTOPSIG(status)`: Returns the signal number that caused the child to stop if \verb`WIFSTOPPED(status)` is true.
+\item \verb`WCOREDUMP(status)`: (Non-standard, but common) Returns true if the child process produced a core dump when it terminated.
+\item \verb`_exit()` 比 \verb`exit()` 更低级，没有任何 cleanup。 无论 \verb`exit()` 参数是什么数字，都叫做 \textbf{Normal Exit}
+\item \verb`Signal Termination` 见 \enref{Linux 进程的信号（笔记）}{LinSig}
+\item 绝大部分时候， core dump 是被 signal 触发的。 最常见的如 segmentation fault
+\item \verb`int kill(pid_t pid, int sig);` 给某个 pid 或则进程组发送信号。 \verb`pid > 0` 时发送给指定进程， \verb`pid == 0` 时发送给当前程序的进程组的所有进程。
+\item 一个进程组中的所有进程具有相同的 pgid。 例如 \verb`fort()` 产生的子进程默认具有和主进程相同的进程组。
+\item 命令行用 \verb`ps -o pgid -p <PID>` 可以查看一个进程的 \verb`pgid`
+\item 例如 \verb`ls | grep foo` 的两个命令也是一个进程组。
+\item 命令行用 \verb`Ctrl+Z`
+\end{itemize}
+
+\subsection{pipe 管道编程}
+\begin{itemize}
+\item \verb`popen()` 可以读或写入管道，但不能又读又写
+\end{itemize}
+
+写管道
+\begin{lstlisting}[language=cpp]
+#include <cstdio>
+#include <cstdlib>
+int main() {
+    FILE* fp = popen("wc -w", "w");
+    if (fp == nullptr) {
+        perror("popen failed");
+        exit(EXIT_FAILURE);
+    }
+    const char* input = "Hello, how many words are here?\n";
+    fprintf(fp, "%s", input);
+    pclose(fp);
+    return 0;
+}
+\end{lstlisting}
+读管道
+\begin{lstlisting}[language=cpp]
+FILE* fp = popen("ls -l", "r");
+if (fp) {
+    char buffer[128];
+    while (fgets(buffer, sizeof(buffer), fp) != nullptr) {
+        printf("%s", buffer);
+    }
+    pclose(fp);
+}
+\end{lstlisting}
+
+如果要同时读写管道，需要用 \verb`pipe()` 和 \verb`dup2()`
+\begin{itemize}
+\item \verb`int pipe(int pipefd[2]);` 可以创建一个管道，使一个进程可以从 \verb`pipefd[1]` 写入，另一个进程从 \verb`pipefd[0]` 读取。
+\item \verb`dup2(源fd，目标fd)` （fd 是 file descriptor），把 \verb`目标fd` 打开的文件（如果有）先关掉，然后将其指向 \verb`源fd` 的文件。 成功后， 两个 fd 就指向同一个内核中的 file description，包括错误状态，文件中的当前位置全部都共享。
+\item \verb`close(fd)` 并不一定会删除内核中的 file description， 只会解绑 file descriptor。 只有当所有指向它的 descriptor 都被 \verb`close()` 才会释放（类似于 \verb`shared_ptr`）。
+\end{itemize}
+
+\begin{lstlisting}[language=cpp]
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    int pipe_stdin[2];  // Pipe for child's stdin
+    int pipe_stdout[2]; // Pipe for child's stdout
+    pid_t pid;
+
+    // Create pipes
+    if (pipe(pipe_stdin) == -1 || pipe(pipe_stdout) == -1) {
+        perror("pipe failed");
+        exit(EXIT_FAILURE);
+    }
+    // Fork a child process
+    pid = fork();
+    if (pid == -1) {
+        perror("fork failed");
+        exit(EXIT_FAILURE);
+    }
+    if (pid == 0) {
+        // Child process
+
+        // Redirect child's stdin to pipe_stdin[0]
+        dup2(pipe_stdin[0], STDIN_FILENO);
+        close(pipe_stdin[0]);
+        close(pipe_stdin[1]);  // Close unused write end
+
+        // Redirect child's stdout to pipe_stdout[1]
+        dup2(pipe_stdout[1], STDOUT_FILENO);
+        close(pipe_stdout[0]); // Close unused read end
+        close(pipe_stdout[1]);
+
+        // Execute the command
+        // Replace 'cat' with your command
+        execl("/bin/sh", "sh", "-c", "cat", NULL);
+
+        // If execl fails
+        perror("execl failed");
+        exit(EXIT_FAILURE);
+    }
+    else {
+        // Parent process
+        close(pipe_stdin[0]);  // Close unused read end of stdin pipe
+        close(pipe_stdout[1]); // Close unused write end of stdout pipe
+
+        // Write to the child's stdin
+        const char* input = "Hello, child process!\n";
+        write(pipe_stdin[1], input, strlen(input));
+
+        // Close stdin write end after writing
+        close(pipe_stdin[1]);
+
+        // Read the child's stdout
+        char buffer[128];
+        ssize_t count;
+        while ((count = read(pipe_stdout[0],
+            buffer, sizeof(buffer) - 1)) > 0) {
+            buffer[count] = '\0';  // Null-terminate the buffer
+            printf("Child output: %s", buffer);
+        }
+
+        close(pipe_stdout[0]); // Close stdout read end
+
+        // Wait for the child to terminate
+        wait(NULL);
+    }
+
+    return 0;
+}
+\end{lstlisting}
