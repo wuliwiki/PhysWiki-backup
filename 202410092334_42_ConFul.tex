@@ -24,20 +24,62 @@ p(\alpha x)=\alpha p(x).~
 正齐次的凸泛函简称为\textbf{齐次凸泛函}。
 \end{definition}
 
-\begin{theorem}{}
+\begin{theorem}{}\label{the_ConFul_1}
 设 $p$ 是正齐次泛函，则 $p$ 凸当且仅当 
-\begin{equation}
+\begin{equation}\label{eq_ConFul_1}
 p(x+y)\leq p(x)+p(y).~
 \end{equation}
 \end{theorem}
 
 \textbf{证明：}\textbf{当：}设 $p$ 凸。则
 \begin{equation}
-p(x+y)=2p(\frac{x+y}{2}\leq 2\qty(p(\frac{x}{2})+p(\frac{y}{2}))=p(x)+p(y).~
+p(x+y)=2p\qty(\frac{x+y}{2})\leq 2\qty(p\qty(\frac{x}{2})+p\qty(\frac{y}{2}))=p(x)+p(y).~
 \end{equation}
-
-\textbf{仅当：}
-
+\textbf{仅当：}设\autoref{eq_ConFul_1} 成立。则
+\begin{equation}
+p(\alpha x+(1-\alpha)y)\leq p(\alpha x)+p((1-\alpha)y)\leq \alpha p(x)+(1-\alpha)p(y).~
+\end{equation}
+即 $p$ 凸。
 
 \textbf{证毕！}
+
+\subsection{凸泛函的性质}
+
+\begin{theorem}{凸泛函的性质}
+设 $p$ 是凸泛函，则成立
+\begin{enumerate}
+\item $p(0)=0$；
+\item $0\leq p(x)+p(-x)$；
+\item $p(\alpha x)\geq\alpha p(x).\alpha\in\mathbb R$。
+\end{enumerate}
+\end{theorem}
+
+\textbf{证明：}由正齐次性，$\forall \alpha\in\mathbb R,p(\alpha 0)=\alpha p(0)\Rightarrow p(0)=0$；紧接着，由\autoref{the_ConFul_1} ，$0=f(x+(-x))\leq p(x)+p(-x)$。1，2点得证。
+
+第3点证明如下：$\alpha>0$ 由正齐次性直接得到；当 $\alpha=0$ 时可由 $p(0)=0$ 推得；当当 $\alpha<0$，则由已证得的2，得
+\begin{equation}
+0\leq p(\alpha x)+p(\abs{\alpha} x)=p(\alpha x)+\abs{\alpha} p(x).~
+\end{equation}
+即 $p(\alpha x)\geq -\abs{\alpha}p(x)=\alpha p(x)$。
+
+
+
+\textbf{证明！}
+
+
+\subsection{例子}
+
+\begin{example}{}
+设 $m$ 是有界序列 $x=(x_1,\cdots,\cdots,\cdots)$ 组成的空间。泛函
+\begin{equation}
+p(x)=\sup_n\abs{x_n}
+\end{equation}
+是齐q
+
+\end{example}
+
+
+
+
+
 

@@ -26,18 +26,44 @@ p(\alpha x)=\alpha p(x).~
 
 \begin{theorem}{}
 设 $p$ 是正齐次泛函，则 $p$ 凸当且仅当 
-\begin{equation}
+\begin{equation}\label{eq_ConFul_1}
 p(x+y)\leq p(x)+p(y).~
 \end{equation}
 \end{theorem}
 
 \textbf{证明：}\textbf{当：}设 $p$ 凸。则
 \begin{equation}
-p(x+y)=2p(\frac{x+y}{2}\leq 2\qty(p(\frac{x}{2})+p(\frac{y}{2}))=p(x)+p(y).~
+p(x+y)=2p\qty(\frac{x+y}{2})\leq 2\qty(p\qty(\frac{x}{2})+p\qty(\frac{y}{2}))=p(x)+p(y).~
 \end{equation}
-
-\textbf{仅当：}
-
+\textbf{仅当：}设\autoref{eq_ConFul_1} 成立。则
+\begin{equation}
+p(\alpha x+(1-\alpha)y)\leq p(\alpha x)+p((1-\alpha)y)\leq \alpha p(x)+(1-\alpha)p(y).~
+\end{equation}
+即 $p$ 凸。
 
 \textbf{证毕！}
+
+\subsection{凸泛函的性质}
+
+\begin{theorem}{凸泛函的性质}
+设 $p$ 是凸泛函，则成立
+\begin{enumerate}
+\item $p(0)=0$；
+\item $0\leq p(x)+p(-x)$；
+\item $p(\alpha x)\geq\alpha p(x).\alpha\in\mathbb R$。
+\end{enumerate}
+\end{theorem}
+
+\textbf{证明：}
+
+
+
+\textf{证明！}
+
+
+
+
+
+
+
 
