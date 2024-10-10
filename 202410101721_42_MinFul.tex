@@ -1,0 +1,42 @@
+% Minkowski 泛函
+% keys Minkowski泛函
+% license Usr
+% type Tutor
+
+\pentry{齐次凸泛函\nref{nod_ConFul}，凸集和凸体\nref{nod_ConSet}}{nod_bf82}
+
+\begin{definition}{Minkowski泛函}\label{def_MinFul_1}
+设 $L$ 是任一线性空间，$A$ 是\enref{核}{ConSet} 包含 0 的 $L$ 中的凸体（\autoref{def_ConSet_1}），则称泛函
+\begin{equation}\label{eq_MinFul_1}
+p_A(x)=\inf\qty{r:\frac{x}{r}\in A,r>0}~
+\end{equation}
+为凸体 $A$ 的\textbf{Minkowski泛函}。
+
+\end{definition}
+
+
+\begin{theorem}{}
+Minkowski泛函\autoref{eq_MinFul_1} 是齐次凸的与非负的。
+\end{theorem}
+
+\textbf{证明：}对每一 $x\in L$，如果 $r$ 充分大，则元素 $x/r$ 属于 $A$。因此\autoref{def_MinFul_1} 定义的 $p(x)$ 是非负有限的（由于是取下确界）。
+
+
+
+
+\textbf{证毕！}
+
+\begin{theorem}{}
+若 $p(x)$ 是线性空间 $L$ 上任意齐次凸非负泛函，$k$ 是正数，则
+\begin{equation}\label{eq_MinFul_2}
+A=\{x:p(x)\leq k\}~
+\end{equation}
+是凸体，其核是包含 $0$ 的集 $\{x:p(x)<k\}$。如果\autoref{eq_MinFul_2} 中 $k=1$，则原泛函 $p(x)$ 是 $A$ 的Minkowski泛函。
+\end{theorem}
+
+\textbf{证明：}
+
+
+
+
+\textbf{证毕！}
