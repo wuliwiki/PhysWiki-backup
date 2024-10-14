@@ -1,0 +1,35 @@
+% 线性泛函的延拓
+% keys 延拓|泛函|Hahn-Banach定理
+% license Usr
+% type Tutor
+
+\pentry{齐次凸泛函\nref{nod_ConFul}}{nod_4b3f}
+在分析学中函数的延拓是一类重要的问题，而函数空间可以用线性空间来描述，因此函数的延拓是对线性泛函的延拓。本文将讲述在线性泛函延拓的一般概念，及在线性泛函延拓的整个问题中起着重要作用的定理——Hahn-Banach定理。
+
+\begin{definition}{延拓}
+设 $L$ 是实线性空间，而 $L_0$ 是它的某一子空间，$f_0$ 是在 $L_0$ 上定义的线性泛函。若 $f$ 是在 $L$ 上定义的线性泛函，且对 $\forall x\in L_0$，成立 $f(x)=f(x_0)$，则称 $f$ 是 $f_0$ （在全空间 $L$ 上）的\textbf{延拓}。
+\end{definition}
+
+
+\begin{theorem}{Hahn-Banach}
+设 $p$ 是线性空间 $L$ 上的\enref{齐次凸泛函}{ConFul}，$L_0$ 是 $L$ 中的线性子空间。如果 $f_0$ 是 $L_0$ 上的线性泛函，且从属于 $p$ 在 $L_0$ 上的限制，即在 $L_0$ 上
+\begin{equation}\label{eq_ExLina_1}
+f_0(x)\leq q(x),~
+\end{equation}
+则 $f_0$ 在 $L$ 上的延拓 $f$ 存在，且 $f$ 从属于 $p$。
+\end{theorem}
+
+\textbf{证明：}首先证明，若 $L_0\neq L$，则 $f_0$ 可以从 $L_0$ 延拓到保持\autoref{eq_ExLina_1} 的某一更广的子空间上：事实上，设 $z\in L$ 且 $z\notin L_0$，$L'$ 是 $L_0$ 和 $z$ 生成的子空间（即包含 $L_0$ 和 $z$ 的最小子空间）。于是 $L'$ 中的每一元素都具有 $tz+x$ 的形式，其中 $x\in L_0$（试证明）。
+
+若 $f'$ 是 $L'$ 上 $f_0$ 的延拓，则
+\begin{equation}
+f'(tz+x)=tf'(z)+f_0(x),~
+\end{equation}
+现在选取 $f'(z)$ 使得在 $L'$ 上\autoref{eq_ExLina_1} 成立，即：对一切 $x\in L_0$ 及一切实数 $t$ 满足
+
+
+
+\textbf{证毕！}
+
+
+
