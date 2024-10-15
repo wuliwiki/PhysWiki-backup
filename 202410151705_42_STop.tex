@@ -1,0 +1,59 @@
+% 共轭空间中的强拓扑
+% keys 强拓扑|完备
+% license Usr
+% type Tutor
+\pentry{共轭空间与代数共轭空间\nref{nod_ConSpa}，线性算子的范数\nref{nod_ONorm}}{nod_0a2f}
+
+\subsection{赋范空间的强拓扑}
+
+由\autoref{ex_tvs_1} 可知，赋范空间是一个拓扑线性空间，因此其上自然由\enref{线性连续泛函}{LinCon}的定义。而赋范空间上根据
+\begin{equation}\label{eq_STop_1}
+\norm{f}:=\sup_{x\neq0}\frac{\abs{f(x)}}{\norm{x}}~
+\end{equation}
+可引入线性连续泛函的范数，证明\autoref{eq_STop_1} 满足\enref{范数}{norm}的定义和\autoref{ex_ONorm_1} 的证明完全一样。因此赋范空间的共轭空间可赋予赋范空间的自然结构。范数可以用来定义度量，度量有一个自然定义开集的方式，即在赋范空间上有一个自然定义的拓扑，在赋范空间的共轭空间中这样定义的拓扑就是强拓扑。
+\begin{definition}{强拓扑}
+设 $E$ 是赋范空间，则其\enref{共轭空间}{ConSpa} $E^*$ 上由\autoref{eq_STop_1} 定义的范数相应的拓扑称为 $E^*$ 的\textbf{强拓扑}。
+\end{definition}
+
+当希望把 $E^*$ 当作赋范空间时，我们将其写作 $(E^*,\norm{*})$。
+
+\begin{theorem}{}
+设 $E$ 是赋范空间，则 $(E^*,\norm{*})$ 是\enref{完备}{ComSpa}的。
+\end{theorem}
+
+\textbf{证明：}设 $\{f_n\}$ 是线性连续泛函的柯西序列（\autoref{def_ComSpa_1}）。那么对任意 $\epsilon>0$，存在 $N$，使得对所有的 $n,m>N$ 有 $\norm{f_n-f_m}<\epsilon$。由此，对任意 $x\in E$ 得到
+\begin{equation}\label{eq_STop_2}
+\abs{f_n(x)-f_m(x)}\leq\norm{f_n-f_m}\cdot\norm{x}<\epsilon\norm{x},~
+\end{equation}
+即对任意 $x\in E$，数列 $\{f_n(x)\}$ 收敛（$\norm{x}$ 是某一确定的实数，而 $\epsilon$ 任意）。
+
+令 $f(x):=\lim\limits_{n\rightarrow\infty}f_n(x)$。则由
+\begin{equation}
+\begin{aligned}
+f(\alpha x+\beta y)=&\lim_{n\rightarrow\infty}(\alpha x+\beta y)\\
+=&\lim_{n\rightarrow\infty}\qty[\alpha f_n(x)+\beta f_n(y)]\\
+=&\alpha f(x)+\beta f(y),
+\end{aligned}~
+\end{equation}
+得 $f$ 是线性的。此外，取\autoref{eq_STop_2} 的 $m\rightarrow\infty$，则 
+\begin{equation}\label{eq_STop_3}
+\abs{f(x)-f_n(x)}\leq \epsilon\norm{x}.~
+\end{equation}
+由此得 $f-f_n$ 有界（$\norm{x}$ 有限，$\epsilon>0$ 任意）。因而 $f=f_n+(f-f_n)$ 有界（$\{f_n(x)\}$ 对任意 $x$ 收敛）。由\autoref{the_LinCon_2} ， $f$ 连续。 另外，由\autoref{eq_STop_3} 得 $\norm{f-f_n}\leq\epsilon$，即 $\{f_n\}$ 收敛于 $f$。
+
+
+\textbf{证毕！}
+
+该定理表明，无论赋范空间是否完备，其共轭空间都完备。
+
+\begin{theorem}{}
+若赋范空间 $E$ 不完备，而 $\bar{E}$ 是 $E$ 的完备化空间，则 $E^*,\bar{E}^*$ 同构。
+\end{theorem}
+
+\textbf{证明：} 因为 $\bar{E}$ 是 $E$ 的完备化空间，所以 $E$ 在 $\bar{E}$ 中处处稠密（\autoref{def_SpaCom_1}），即对任一 $x\in \bar{E}$，存在 $E$ 中的柯西序列，使得 $\{\}$
+
+
+\textbf{证毕！}
+
+
+

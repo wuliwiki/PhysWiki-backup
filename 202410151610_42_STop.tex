@@ -1,0 +1,33 @@
+% 共轭空间中的强拓扑
+% keys 强拓扑|完备
+% license Usr
+% type Tutor
+\pentry{共轭空间与代数共轭空间\nref{nod_ConSpa}，线性算子的范数\nref{nod_ONorm}}{nod_0a2f}
+
+\subsection{赋范空间的强拓扑}
+
+由\autoref{ex_tvs_1} 可知，赋范空间是一个拓扑线性空间，因此其上自然由\enref{线性连续泛函}{LinCon}的定义。而赋范空间上根据
+\begin{equation}\label{eq_STop_1}
+\norm{f}:=\sup_{x\neq0}\frac{\abs{f(x)}}{\norm{x}}~
+\end{equation}
+可引入线性连续泛函的范数，证明\autoref{eq_STop_1} 满足\enref{范数}{norm}的定义和\autoref{ex_ONorm_1} 的证明完全一样。因此赋范空间的共轭空间可赋予赋范空间的自然结构。范数可以用来定义度量，度量有一个自然定义开集的方式，即在赋范空间上有一个自然定义的拓扑，在赋范空间的共轭空间中这样定义的拓扑就是强拓扑。
+\begin{definition}{强拓扑}
+设 $E$ 是赋范空间，则其\enref{共轭空间}{ConSpa} $E^*$ 上由\autoref{eq_STop_1} 定义的范数相应的拓扑称为 $E^*$ 的\textbf{强拓扑}。
+\end{definition}
+
+当希望把 $E^*$ 当作赋范空间时，我们将其写作 $(E^*,\norm{*})$。
+
+\begin{theorem}{}
+设 $E$ 是赋范空间，则 $(E^*,\norm{*})$ 是\enref{完备}{ComSpa}的。
+\end{theorem}
+
+\textbf{证明：}设 $\{f_n\}$ 是线性连续泛函的柯西序列（\autoref{def_ComSpa_1}）。那么对任意 $\epsilon>0$，存在 $N$，使得对所有的 $n,m>N$ 有 $\norm{f_n-f_m}<\epsilon$。由此，对任意 $x\in E$ 得到
+\begin{equation}
+\abs{f_n(x)-f_m(x)}\leq\norm{f_n-f_m}\cdoy\norm{x}<\epsilon\norm{x},~
+\end{equation}
+
+
+
+\textbf{证毕！}
+
+
