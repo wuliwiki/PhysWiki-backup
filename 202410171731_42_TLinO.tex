@@ -90,7 +90,13 @@ D\varphi_n=\cos(nt)~
 区间 $[a,b]$ 上连续可微函数空间 $C_1[a,b]$ 到空间 $C[a,b]$ 上的算子。此时 $D$ 是线性、连续的，且把整个 $C_1[a,b]$ 映到整个 $C[a,b]$。\\
 事实上，对对任意 $\epsilon>0$，则任意 $\norm{\varphi'-\varphi}_1<\epsilon$ 的 $\varphi'$，都有 $\max\abs{\varphi'-\varphi}\leq \norm{\varphi'-\varphi}_1<\epsilon$。这证明了连续性。而任意 $\varphi\in C[a,b]$，$\int_a^b[\varphi(t)+c]\dd t\in C_1[a,b]$ 是对应的算子。
 
-\item 把微分算子考虑为从 $C_1[a,b]$ 到空间 $C[a,b]$ 上的算子不很方便，因为虽然这时我们得到了定义在整个 $C_1[a,b]$ 上的连续算子，但是并非对 $C_1[a,b]$ 中的任意函数都可应用 $D$ 两次。在比 $C_1[a,b]$ 还窄的无穷次可微函数空间 
+\item 把微分算子考虑为从 $C_1[a,b]$ 到空间 $C[a,b]$ 上的算子不很方便，因为虽然这时我们得到了定义在整个 $C_1[a,b]$ 上的连续算子，但是并非对 $C_1[a,b]$ 中的任意函数都可应用 $D$ 两次。在比 $C_1[a,b]$ 还窄的无穷次可微函数空间 $C_\infty[a,b]$ 上，考虑微分算子是方便的。在此空间上，拓扑由可数范数系
+\begin{equation}
+\norm{\varphi}_n=\sup_{\begin{aligned}
+0\leq k\leq n\\a\leq t\leq b
+\end{aligned}}\abs{\varphi^{(k)}(t)}~
+\end{equation}
+给定。即开集
 \end{enumerate}
 \end{example}
 
