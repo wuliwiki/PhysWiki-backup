@@ -55,7 +55,9 @@ t_nx_n\in[-\delta,\delta]\cdot U_x\subset U~.
 
 若点列 $\{t_n^{-1}y_n\}$ 包含 $\{x_n\}$ 的"无限"个点，即任意 $N>0$，有 $i>N$，使得 $x_i\in\{y_n\}$。那么对任意 $N>0$，存在 $N_2>0$， 使得 $i\geq N_2$， $y_i\in \{x_n|n\geq N\}$：否则，存在 $N>0$，使得对任意 $N_2>0,i\geq N_2$，都有 $y_i\notin\{x_n|n\geq N\}$，于是一切 $y_i$ 只能在 $\{x_1,\cdots,x_N\}$ 中取值而不能取 $N$ 后 $x_i$，这和假设矛盾。因此此时对从某项 $N$ 开始落入任一 $x$ 邻域的 $x_i$ 而言， 对充分大的 $N_2$，从该项开始 $y_i$ 落入该邻域，即 $\{y_n\}\rightarrow x$。由\autoref{lem_BudSet_1} ，这和 $\{t_n^{-1}y_n\}\rightarrow0$ ，这和所有的 $n$，  $t_n^{-1}y_n\notin U$ 矛盾。 
 
- 设点 $\{y_n\}$ 只取 $\{x_n\}$ 上的有限个点 $x_1,\cdots,x_M$。那么由\autoref{lem_BudSet_1} ，每一序列 $\{t_n^{-1}x_i\},i=1\cdots,M$ 都收敛于0，即存在 $N_1,\cdots,N_M>0$，只要 $n_i\geq N_i,i=1,\cdots,M$，就有 $t_{n_i}x_$
+ 设点 $\{y_n\}$ 只取 $\{x_n\}$ 上的有限个点 $x_1,\cdots,x_M$。那么由\autoref{lem_BudSet_1} ，每一序列 $\{t_n^{-1}x_i\},i=1\cdots,M$ 都收敛于0。即对任意零邻域 $U$，存在 $N_1,\cdots,N_M>0$，只要 $n_i\geq N_i,i=1,\cdots,M$，就有 $t_{n_i}x_{n_i}\in U$。取 $N=\max\{N_i|i=1,\cdots,M\}$，则只要 $n\geq N$，就有 $t_n y_n\in U$，即 $\{t_n y_n\}\rightarrow 0$，这也和所有的 $n$，  $t_n^{-1}y_n\notin U$ 矛盾。
+
+ 因此第2点得证。
 
 
 \textbf{证毕！}
