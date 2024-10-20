@@ -99,16 +99,24 @@ y=y_1+\cdots+y_n+\cdots,~
 \begin{equation}
 y=\sum_{k=1}^\infty y_k,~
 \end{equation}
-其中 $\norm{y_k}<3\norm{y}/2^k$。由线性算子的逆算子的线性，上式可得到
+其中 $\norm{y_k}<3\norm{y}/2^k$。令
 \begin{equation}
-A^{-1}y=\sum_{k=1}^\infty A^{-1}y_k=\sum_{k=1}^\infty x_k.~
+x_k:=A^{-1}y_k.~
 \end{equation}
 
 因为
 \begin{equation}
-\norm{x_k}=\norm{A^{-1}y_k}\leq N\norm{y_k}<3\norm{y}/2^k,~
+\norm{x_k}=\norm{A^{-1}y_k}\leq N\norm{y_k}<3N\norm{y}/2^k,~
 \end{equation}
-所以  $\sum\limits_{k=m}^n x_k=3\norm{y}\frac{1}{2^{m-1}}\qty(1-\frac{1}{2^{n-m+1}})$，对充分大的 $N$，可使 $\sum\limits_{k=m}^n x_k$ 对任意 $n,m\geq N$ 成立，即 $\{s_n|s_n:=\sum\limits_{k=1}^n x_k\}$ 是柯西序列，由 $E$ 的完备性，级数 $\sum_{n=1}^\infty x_k$ 收敛到某一 $x$。
+所以  $\sum\limits_{k=m}^n x_k=3\norm{y}\frac{1}{2^{m-1}}\qty(1-\frac{1}{2^{n-m+1}})$，对充分大的 $N$，可使 $\sum\limits_{k=m}^n x_k$ 对任意 $n,m\geq N$ 成立，即 $\{s_n|s_n:=\sum\limits_{k=1}^n x_k\}$ 是柯西序列，由 $E$ 的完备性，级数 $\sum\limits_{n=1}^\infty x_k$ 收敛到某一 $x$。从而由 $A$ 的连续性
+\begin{equation}
+Ax=A\sum\limits_{n=1}^\infty x_k=\sum\limits_{n=1}^\infty Ax_k=y~.
+\end{equation}
+此外
+\begin{equation}
+\norm{A^{-1}y}=\norm{x}\leq\sum_{n=1}^\infty\norm{x_k}=3N\norm{y}.~
+\end{equation}
+因为上式对任意 $y\neq0$ 成立，因此算子 $A^{-1}$ 有界。
 
 
 
