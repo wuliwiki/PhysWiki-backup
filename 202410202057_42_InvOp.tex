@@ -1,0 +1,69 @@
+% 逆算子
+% keys 逆算子|可逆性
+% license Usr
+% type Tutor
+
+\pentry{拓扑线性空间中的线性算子\nref{nod_TLinO}}{nod_d7fd}
+
+逆算子是双射的算子的逆。当算子可逆时，在某些情形下逆算子和算子有很多相同的性质，比如，线性算子的逆算子时线性的，而完备赋范空间之间的线性有界算子的逆是有界的。
+
+
+\begin{definition}{逆算子}
+设 $D_A$ 是拓扑线性空间的子集，$A:D_A\rightarrow E_1$ 是其上的算子（映射），$\Im A$ 是 $A$ 的象。其对任意 $y\in\Im A$，方程
+\begin{equation}
+Ax=y~
+\end{equation}
+ 有唯一解，则称算子 $A$ \textbf{可逆}。此时映射
+ \begin{equation}
+ \Im A\rightarrow E,Ax\mapsto x~  
+ \end{equation}
+ 称为 $A$ 的\textbf{逆算子}，记作 $A^{-1}$。
+
+\end{definition}
+
+\subsection{性质}
+下面定理表明，线性算子的逆算子是线性的。
+
+\begin{theorem}{}
+\enref{线性算子}{TLinO} $A$ 的逆算子 $A^{-1}$ 是线性的。
+\end{theorem}
+
+\textbf{证明：}
+任意 $\Im A$ 中的 $y_1=A x_1,y_2=Ax_2$，因为
+\begin{equation}
+A(\alpha x_1+\beta x_2)=\alpha Ax_1+\beta Ax_2=\alpha y_1+\beta y_2.~
+\end{equation}
+所以
+\begin{equation}
+A^{-1}(\alpha y_1+\beta y_2)=\alpha x_1+\beta x_2=\alpha A^{-1}y_1+\beta A^{-1}y_2.~
+\end{equation}
+
+
+\textbf{证毕！}
+
+下面定理表明，在完备赋范空间（Banach空间）之间的线性有界算子的逆算子是有界的。
+
+\begin{theorem}{逆算子的Banach定理}
+设 $E,E_1$ 是\enref{完备赋范空间}{banach}，$A$ 是 $E$ 到 $E_1$ 的可逆线性算子，则其逆算子 $A^{-1}$ 有界。
+\end{theorem}
+
+为证明它，需要如下引理。
+\begin{lemma}{}
+设 $M$ 是Banach空间 $E$ 中的\enref{处处稠密集}{MaDen}。则任意非零元 $y\in E$ 可展开成级数：
+\begin{equation}
+y=y_1+\cdots+y_n+\cdots,~
+\end{equation}
+其中 $y_k\in M$ 且 $\norm{y_k}\leq 3\norm{y}/2^k$。
+\end{lemma}
+\textbf{证明：}下面用逐次构造 $y_k$ 进行证明。选择 $y_1$ 使得
+\begin{equation}
+\norm{y-y_1}\leq\norm{y}/2.~
+\end{equation}
+这是一个半径为 $\norm{y}/2$ 中心在 $y$ 的球，由于 $M$ 在 $E$ 中处处稠密，因此在该球内任一点的邻域都有 $M$ 的点，因此这样的选择是可能的。
+
+同样由于 $M$ 处处稠密，
+
+
+\textbf{证毕！}
+
+
