@@ -1,0 +1,30 @@
+% testqy
+% license Usr
+% type Test
+
+\begin{itemize}
+\item \verb`lconfig_file`, \verb`Npw_file`: user partial wave configuration, use \verb`[none]` to disable; \verb`Npw_file`: number of partial waves to truncate, use \verb`[0]` to include all pw in lconfig_file
+\item \verb`l1_max`, \verb`l2_max`, \verb`L_max`, \verb`pw_select`. max value for \verb`l1,l2,L`. \verb`pw_select` is \verb`[o|e|a]` to select odd/even/all \verb`l1+l2-L`. Use negative in any to disable. If both this line and \verb`lconfig_file` are on, then compare.
+\item \verb`grid_file`: each line is an FE boundary, \verb`Nfe + 1` boundaries
+\item \verb`fe1start`, \verb`Nfe1`: range of finite elements for r1
+\item \verb`fe2start`, \verb`Nfe2`: range of finite elements for r2
+\item \verb`Ngs`: number of gaussian points
+\item \verb`absorbW1`, \verb`absorbA1`: absorber parameters for r1
+\item \verb`absorbW2`, \verb`absorbA2`: absorber parameters for r2
+\item \verb`check_dt_step`: (almost obsolete, \verb`'c'` algo only) check numerical error caused by dt every \verb`check_dt_step` steps, use 0 to turn off variable time step
+\item \verb`auto_grid_mode`: [d] use the following params to resize based on detector [x] (only useful when \verb`field_file=none`) assume max classical momentum at the start of xuv (pulse center minus half-width) [n] turn off auto-grid completely (warning: using when initial grid too samll can cause distortion to wave function especially for velocity gauge)
+\item \verb`auto_grid_n_sigma`, \verb`auto_grid_r_extra`: (for \verb`auto_grid_mode=x`) number of sigma_x of current xuv PE to determine grid size, and starting point trajectory
+\item detecW1, detecW2: region at the end of r1, r2 to monitor wave function probability (use 0 to turn off each side)
+\item \verb`check_grid_step`: check grid size every ? time steps
+\item \verb`threshP1`, \verb`threshP2`: (only for \verb`auto_grid_mode=detec`) probability threshold to increase grid size
+\item \verb`incW1`, \verb`incW2`: width of grid to increase (not # FE)
+\item \verb`Nfe_max1`, \verb`Nfe_max2`: (only for \verb`auto_grid_mode=detec`) max FE numbers for r1 and r2
+\item \verb`eff_pot_a`, \verb`eff_pot_b`, \verb`eff_pot_V0`, \verb`eff_pot_N`: radius of screening potential, for \verb`eff_pot_N` electron atom (2 electron approximation), \verb`eff_pot_a=0` to turn off
+\item \verb`init_file`: initial wave function file (not used when \verb`imag_time == true`), use \verb`none` for a toy function;
+\item resume_file, resume_ind, force_resume_grid: which Psi*.matb file to resume [none] to run from beginning, [auto] to detect the latest, or use a file path to specify a file; and which wf index to use (as in Psi?.matb), use -1 to auto detect
+\item field_file: electric field file, the 1st column is time and the 2nd column is z direction field, will be spline interpolated. Use "none" to generate field with the following params, otherwise they are not used.
+\item I_xuv (w/cm2), eV_xuv (eV), shape_xuv, as_xuv_FWHMI, cyc_xuv(obsolete), CEP_xuv (rad): XUV intensity (0 to turn off), photon energy, FWHMI (as), pulse shape, center envelope phase. When shape_xuv='s' (sin^2), cyc_xuv is the cycles of total duration, when shape_xuv='g' (gaussian), cyc_xuv is FWHMI.
+\item I_ir (w/cm2), lambda_ir (nm), fs_ir_full_width, cyc_ir(obsolete), CEP_ir (rad): IR intensity (0 to turn off), wavelength, full width (fs), center envelope phase.
+\item xuv_shift: XUV-IR time shift, center of xuv minus center of ir
+\end{itemize}
+

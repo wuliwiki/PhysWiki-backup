@@ -1,0 +1,59 @@
+% 共轭算子
+% keys 共轭算子
+% license Usr
+% type Tutor
+
+\pentry{共轭空间与代数共轭空间\nref{nod_ConSpa}，拓扑线性空间中的线性算子\nref{nod_TLinO}}{nod_0325}
+
+设 $E,E_1$ 是拓扑线性空间， $A$ 是 $E$ 到 $E_1$ 的\enref{线性连续算子}{TLinO}，$g$ 是 $E_1$ 上的\enref{线性连续泛函}{LinCon}，即 $g\in$ \enref{$ E_1^*$}{ConSpa}，则由映射连续和线性的传递性，$gA$ 是 $E$ 上的线性连续泛函，即 $gA\in E^*$。因此，在线性连续算子 $A$ 的作用下，每一 $E_1$ 上的线性连续泛函 $g\in E_1^*$ 都对应一个泛函 $gA\in E^*$。即得从 $E_1^*$ 到 $E^*$ 的某个算子，这就是所谓的算子 $A$ 的共轭算子。
+
+\begin{definition}{共轭算子}\label{def_ConOp_1}
+设 $A$ 是线性拓扑空间 $E$ 到 $E_1$ 的线性连续算子，则称映射 $E_1^*\rightarrow  E^*:g\mapsto gA$ 为 $A$ 的\textbf{共轭算子}，记作 $A^*$。
+\end{definition}
+
+\begin{definition}{符号约定}
+设 $f$ 是泛函，则记 $(f,x):=f(x)$。
+\end{definition}
+
+\begin{theorem}{}
+设 $A$ 是线性连续算子，则
+\begin{equation}\label{eq_ConOp_1}
+(g,Ax)=(A^* g,x).~
+\end{equation}
+\end{theorem}
+
+\textbf{证明：}由共轭算子\autoref{def_ConOp_1} ，有
+\begin{equation}
+A^*g=gA.~
+\end{equation}
+于是 
+\begin{equation}
+(A^*g,x)=(gA,x)=g(Ax)=(g,Ax).~
+\end{equation}
+
+\textbf{证毕！}
+ 
+ 
+\autoref{eq_ConOp_1} 往往被用作共轭算子的定义。
+
+
+\begin{example}{有限维空间的共轭算子}
+设 $A:\mathbb R^n\rightarrow\mathbb R^m$ 是线性连续算子，则 
+\begin{equation}
+A(E_1 X)=A(E_1)X=E_2 \bar AX.~
+\end{equation}
+其中 $E_1=(e_1,\cdots,e_n)$ 是 $\mathbb R^n$ 的基， $E_2=(e'_1,\cdots,e'_n)$ 是 $\mathbb R^m$ 的基，$X=(x_1,\cdots,x_n)^T$ 是矢量 $E_1X\in\mathbb R^n$ 在基 $E_1$ 下的坐标，$\bar A$ 为算子 $A$ 在两基底下对应的矩阵。设 $f$ 是 $\mathbb R^m$ 上的线性连续泛函，则由共轭算子定义，
+\begin{equation}
+A^*f=fA.~
+\end{equation}
+因此
+\begin{equation}
+\begin{aligned}
+(A^*f)(E_1)X&=A^*f(E_1X)=(fA)(E_1X)\\
+&=f(E_2 \bar AX)=f(E_2)\bar AX
+\end{aligned}.~
+\end{equation}
+从而 $A^*f(E_1)=f(E_2)\bar A$
+\end{example}
+
+
