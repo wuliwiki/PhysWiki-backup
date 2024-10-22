@@ -1,0 +1,33 @@
+% 线性算子的谱
+% keys 谱|线性算子
+% license Usr
+% type Tutor
+
+\pentry{拓扑线性空间中的线性算子\nref{nod_TLinO}}{nod_085d}
+\cite{Ke1}在算子理论中，谱的概念或许是最重要的概念。在提到谱的地方，我们都假定算子作用域复空间。
+
+回顾有限维空间的情形。设 $A$ 是 $n$ 维空间 $\mathbb C^n$ 的线性算子，如果方程
+\begin{equation}
+Ax=\lambda x~
+\end{equation}
+有非零解，则数 $\lambda$ 称为算子 $A$ 的\enref{\enref{本征值}{LiOper}}{eign}。所有本征值的总体称为算子的\textbf{谱}。而其它的 $\lambda$ 值称为\textbf{正则点}。即 $\lambda$ 是正则点，当且仅当算子 $(A-\lambda I)$ 可逆。此时 $(A-\lambda I)^{-1}$ 定义在整个 $\mathbb C^n$ 上，并且作为有限为空间的任意算子，它是有界的。于是，在有限维空间中有两种可能：
+\begin{enumerate}
+\item 方程 $Ax=\lambda x$ 有非零解，$\lambda$ 是 $A$ 的本征值，这时算子 $(A-\lambda I)^{-1}$ 不存在；
+\item 存在定义在整个空间上的算子 $(A-\lambda I)^{-1}$，即 $\lambda$ 时正则点。
+\end{enumerate}
+
+但是在无限维空间中，有第三种可能：3）算子 $(A-\lambda I)^{-1}$ 存在，但不是定义在整个空间上的，且可能无界。
+\subsection{基本定义}
+无穷维空间里，本征值、谱和正则点的基本概念是一样的。为正式起见，这里给出基本的定义。一般线性拓扑空间中第三种可能的存在将导致一些本质性区别。
+\begin{definition}{本征值，谱，正则点，预解式}
+设 $A$ 是任意线性拓扑空间中的线性算子（定义空间和象空间一样），如果方程
+\begin{equation}
+Ax=\lambda x~
+\end{equation}
+有非零（矢量）解，则数 $\lambda$ 称为算子 $A$ 的\textbf{本征值}。所有本征值的总体称为算子的\textbf{谱}。而其它的 $\lambda$ 值称为\textbf{正则点}。若算子 $(A-\lambda I)^{-1}$ 存在，则称其为算子 $A$ 的\textbf{预解式}。若预jie'shi
+\end{definition}
+
+
+
+
+
