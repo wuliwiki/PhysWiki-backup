@@ -59,13 +59,27 @@
 \textbf{基本不等式}是基于$(a-b)^2\geq0$得到的一组不等关系。由于$(a-b)^2\geq0$恒成立，因此由此推广得到的不等式也是恒成立的。推广的过程是通过向$a,b$赋值实现的，而推广后由于不等号两边的表达式均为某种均值的形式，因此基本不等式也称为\textbf{均值不等式}或\textbf{均值定理}，而由于存在多种均值，也有人称其为\textbf{（均值）不等式链}。
 
 下面给出的是常见形式：
-\begin{theorem}{基本不等式}
+\begin{theorem}{基本不等式（简易）}
 \begin{equation}
 {a^2+b^2\over2}\geq ab\qquad\text{或}\qquad{a+b\over2}\geq \sqrt{ab}~.
 \end{equation}
 当且仅当$a=b$时取等。
 \end{theorem}
-证明过程是显然的，将$(a-b)^2\geq0$打开并移项就可以得到，或后的写法也只是将$a,b$替换成了$\sqrt{a},\sqrt{b}$。但他背后的意义是深远的，一般称$\displaystyle a+b\over2$为\textbf{算术平均数（arithmetic mean，AM）}，也就是通常生活中提到平均值时所指的数，称$\sqrt{ab}$为\textbf{几何平均数（geometric mean，GM）}。
+证明过程是显然的，将$(a-b)^2\geq0$打开并移项就可以得到，或后的写法也只是将$a,b$替换成了$\sqrt{a},\sqrt{b}$。但他背后的意义是深远的，一般称$\displaystyle a+b\over2$为\textbf{算术平均数（arithmetic mean，AM）}，也就是通常生活中提到平均值时所指的数，称$\sqrt{ab}$为\textbf{几何平均数（geometric mean，GM）}。几何平均数通常在计算增长率时使用，比如投资某个项目，第一年的收益率是$4\%$，第二年是$10\%$，则两年的平均收益率并非$\displaystyle {4\%+10\%\over2}=7\%$，而是$\sqrt{1.04\times1.10}-1=6.96\%$。根据基本不等式，如果直接计算算术平均数，则总会高估实际的收益率。
+
+\begin{theorem}{均值定理}
+对于一列数$a_1,a_2,\cdots,a_n$，称：
+\begin{itemize}
+\item 
+\item \textbf{平方平均数（quadratic mean）}，又称\textbf{均方根（root mean square，RMS）}
+\end{itemize}
+\begin{equation}
+{a^2+b^2\over2}\geq ab\qquad\text{或}\qquad{a+b\over2}\geq \sqrt{ab}~.
+\end{equation}
+当且仅当$a=b$时取等。
+\end{theorem}
+
+\textbf{平方平均数（quadratic mean）}，又称\textbf{均方根（root mean square，RMS）}
 
 \subsubsection{*柯西不等式}
 
@@ -105,7 +119,7 @@ $$|\mathbf{a} \cdot \mathbf{b}| \leq \|\mathbf{a}\| \|\mathbf{b}\|~.$$
 其中 $\sigma$ 表示对 ${1, 2, \cdots, n}$ 的非顺序、逆序的任意排列，当且仅当$\forall 1\leq i,j\leq n,a_i=a_j$或$\forall 1\leq i,j\leq n,b_i=b_j$时，等号成立。
 \end{theorem}
 
-排序不等式可以证明基本不等式、柯西不等式等其他恒成立的不等式。
+排序不等式可以证明基本不等式、柯西不等式、切比雪夫不等式等其他恒成立的不等式。
 
 \begin{lemma}{若$a\geq b,m\geq n$，则$am+bn\geq an+bm$}\label{lem_HsEquN_1}
 证明：
@@ -118,7 +132,7 @@ am+bn&= (b+k)m+(a-k)n \\
 &\geq an+bm
 \end{split}~.
 \end{equation}
-当且仅当$a=b$或$m=n$时取等。
+或者由$a\geq b,m\geq n$有$a-b\geq 0,m- n\geq0$，从而$(a-b)(m- n)\geq0$，打开整理即可得到结论。上面两种方法都有，当且仅当$a=b$或$m=n$时取等。
 \end{lemma}
 
 下面使用数学归纳法证明排序不等式中顺序和不小于乱序和，逆序部分同理：
