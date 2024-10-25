@@ -1,0 +1,534 @@
+% 角动量（综述）
+% license CCBYSA3
+% type Wiki
+
+（本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Angular_momentum}{相关文章}）
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/0e2f9582f8dddda6.png}
+\caption{这个陀螺仪在旋转时由于角动量守恒而保持直立。常用符号：\( L \)   在国际单位制中的基本单位：kg⋅m²⋅s⁻¹   是否守恒：是   由其他量推导：\( L = I\omega = r \times p \)   量纲：\( \mathsf{M L^2 T^{-1}} \)} \label{fig_JDL_1}
+\end{figure}
+\textbf{角动量}（有时称为动量矩或旋转动量）是线性动量的旋转类比。它是一个重要的物理量，因为它是守恒量——封闭系统的总角动量保持不变。角动量既有方向也有大小，并且两者都守恒。自行车和摩托车、飞盘、膛线子弹以及陀螺仪的有用特性都归因于角动量守恒。角动量守恒也是飓风形成螺旋状以及中子星具有高速旋转率的原因。通常，守恒定律限制了系统可能的运动，但并不能唯一确定其运动方式。
+
+三维角动量在经典力学中表示为伪向量 \( \mathbf{r} \times \mathbf{p} \)，即粒子位置向量 \( \mathbf{r} \)（相对于某一原点）与其动量向量的叉积；后者在牛顿力学中为 \( \mathbf{p} = m\mathbf{v} \)。与线性动量不同，角动量取决于原点的选择，因为粒子的位置是从该原点测量的。
+
+角动量是一种广延量；也就是说，任何复合系统的总角动量是其组成部分角动量的总和。对于连续的刚体或流体，系统的总角动量是角动量密度（即单位体积的角动量，当体积趋近于零时）的体积分在整个物体上的积分。
+
+类似于线性动量守恒，如果没有外力作用，线性动量守恒；同样，如果没有外力矩作用，角动量也守恒。力矩可以定义为角动量的变化率，类似于力的作用。任何系统的净外力矩始终等于系统上的总力矩；系统内的所有内力矩之和总是为0（这是牛顿第三运动定律的旋转类比）。因此，对于封闭系统（没有净外力矩），系统的总力矩必须为0，这意味着系统的总角动量是恒定的。
+
+特定相互作用下角动量的变化称为\textbf{角冲量}，有时称为“旋转”。角冲量是线性冲量的旋转类比。[3]
+
+\subsection{示例}
+
+对于一个处于轨道中的物体，其角动量 \( L \) 的简单情况表示为：
+\[
+L = 2\pi Mfr^2~
+\]
+其中，\( M \) 是轨道物体的质量，\( f \) 是轨道的频率，\( r \) 是轨道的半径。
+
+对于一个绕其轴旋转的均匀刚性球体，其角动量 \( L \) 表示为：
+\[
+L = \frac{4}{5} \pi Mfr^2~
+\]
+其中，\( M \) 是球体的质量，\( f \) 是旋转的频率，\( r \) 是球体的半径。
+
+例如，地球相对于太阳的轨道角动量约为 \( 2.66 \times 10^{40} \) kg⋅m²⋅s⁻¹，而地球的自转角动量约为 \( 7.05 \times 10^{33} \) kg⋅m²⋅s⁻¹。
+
+对于一个绕其轴旋转的均匀刚性球体，如果已知其密度而非质量，其角动量 \( L \) 表示为：
+\[
+L = \frac{16}{15} \pi^2 \rho fr^5~
+\]
+其中，\( \rho \) 是球体的密度，\( f \) 是旋转频率，\( r \) 是球体的半径。
+
+对于最简单的旋转圆盘，角动量 \( L \) 表示为：[4]
+\[
+L = \pi Mfr^2~
+\]
+其中，\( M \) 是圆盘的质量，\( f \) 是旋转频率，\( r \) 是圆盘的半径。
+
+如果圆盘绕其直径旋转（例如抛硬币时），其角动量 \( L \) 表示为：[4]
+\[
+L = \frac{1}{2} \pi Mfr^2~
+\]
+\subsection{经典力学中的定义}   
+“轨道角动量”重定向至此。关于其他用途，参见\textbf{轨道角动量（消歧义）}。  
+
+“自旋角动量”重定向至此。关于其他用途，参见\textbf{自旋角动量（消歧义）}。
+
+正如角速度一样，物体的角动量有两种特殊类型：\textbf{自旋角动量}是相对于物体质心的角动量，而\textbf{轨道角动量}是相对于选定旋转中心的角动量。例如，地球因为围绕太阳公转而具有轨道角动量，同时由于每天绕极轴自转而具有自旋角动量。总角动量是自旋角动量和轨道角动量的总和。在地球的情况下，主要守恒量是太阳系的总角动量，因为行星与太阳之间会有少量但重要的角动量交换。质点的轨道角动量矢量始终与其轨道角速度矢量 \( \omega \) 平行且成正比，比例常数取决于粒子的质量和其距离原点的距离。刚体的自旋角动量矢量与自旋角速度矢量 \( \Omega \) 成正比，但不总是平行，因此比例常数是一个二阶张量而非标量。
+\subsection{二维中的轨道角动量}
+角动量是一个矢量量（更准确地说是伪矢量），它表示物体的转动惯量与绕某特定轴的转速（以弧度/秒为单位）的乘积。然而，如果粒子的轨迹位于一个平面内，则可以忽略角动量的矢量性质，将其作为标量（更准确地说是伪标量）处理。[5] 角动量可以看作是线性动量的旋转类比。因此，线性动量 \( p \) 与质量 \( m \) 和线速度 \( v \) 成正比：
+\[
+p = mv,~
+\]
+
+角动量 \( L \) 与转动惯量 \( I \) 和以弧度/秒为单位的角速度 \( \omega \) 成正比。[6]
+\[
+L = I\omega.~
+\]
+
+与只依赖物质数量的质量不同，转动惯量还取决于旋转轴的位置以及物质的分布。与不依赖原点选择的线速度不同，轨道角速度总是相对于固定原点测量。因此，严格来说，\( L \) 应被称为相对于该中心的角动量。[7]
+
+对于单个粒子的圆周运动，可以使用\(I = r^2 m\)和\(\omega = v/r\)来展开角动量为\(L = r^2 m \cdot v/r\)简化为：
+\[
+L = rmv.~
+\]
+角动量是旋转半径 \( r \) 和粒子的线动量 \( p = mv \) 的乘积，其中\(v = r\omega\)是线速度（切向速度）。
+
+如果使用与半径向量垂直的运动分量，这种简单的分析也适用于非圆周运动：
+\[
+L = rmv_{\perp},~
+\]
+其中\(v_{\perp} = v\sin(\theta)\)是运动的垂直分量。展开为：\(L = rmv\sin(\theta)\),重新排列后为：\(L = r\sin(\theta) mv\),简化后，角动量也可以表示为：
+\[
+L = r_{\perp} mv,~
+\]
+其中\(r_{\perp} = r\sin(\theta)\)是力矩臂的长度，即从原点垂直投影到粒子轨迹上的线段。这个定义（力矩臂长度 × 线动量）即为“动量矩”一词的来源。[8]
+\subsubsection{来自拉格朗日力学的标量角动量 } 
+另一种方法是将角动量定义为机械系统的角坐标 \(\phi\) 的共轭动量（也称为正则动量）。考虑一个质量为 \(m\) 的机械系统，它被约束在半径为 \(r\) 的圆上运动，且没有外部力场的存在。系统的动能为” 
+\[ T = \frac{1}{2}mr^2\omega^2 = \frac{1}{2}mr^2{\dot{\phi}}^2. ~\]
+势能为：  
+\[ U = 0.~ \]
+因此，拉格朗日量为：  
+\[ \mathcal{L}(\phi, \dot{\phi}) = T - U = \frac{1}{2}mr^2{\dot{\phi}}^2. ~\]
+广义动量，即与坐标 \(\phi\) 正则共轭的动量，定义为：  
+\[ p_\phi = \frac{\partial \mathcal{L}}{\partial \dot{\phi}} = mr^2{\dot{\phi}} = I\omega = L.~ \]
+这里，\(L\) 是角动量，\(I\) 是转动惯量，\(\omega\) 是角速度。
+\subsubsection{轨道角动量在三维空间中的描述}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/94214524fc2d2d79.png}
+\caption{“在旋转系统中，力（\( F \)）、力矩（\( \tau \)）、动量（\( p \)）和角动量（\( L \)）向量之间的关系。\( r \) 是位置向量。”} \label{fig_JDL_2}
+\end{figure}
+要完全定义三维中的轨道角动量，需要知道位置向量扫过角度的速率、垂直于瞬时角位移平面的方向、相关的质量以及该质量在空间中的分布情况。[9] 通过保留角动量的向量性质，可以保留方程的一般性质，从而能够描述绕旋转中心的任何类型的三维运动——无论是圆周运动、线性运动还是其他形式的运动。用向量表示法，绕原点运动的点质点的轨道角动量可以表示为：
+\[ \mathbf {L} = I{\boldsymbol {\omega }}, ~\]
+其中：
+\begin{itemize}
+\item \(I = r^2 m\) 是质点的转动惯量，
+\item \({\boldsymbol {\omega }} = \frac {\mathbf {r} \times \mathbf {v} }{r^2}\)是该质点绕原点的轨道角速度，
+\item \(\mathbf {r} \)是质点相对于原点的位置向量，\(r = |\mathbf {r}|\)是位置向量的模，
+\item \(\mathbf {v} \)是质点相对于原点的线速度，
+\item \(m \)是质点的质量。
+\end{itemize}
+这个表达式可以展开、化简，并通过向量代数的规则重新排列：
+\[ \mathbf {L} = \left(r^2 m\right)\left(\frac {\mathbf {r} \times \mathbf {v} }{r^2}\right) = m\left(\mathbf {r} \times \mathbf {v} \right) = \mathbf {r} \times m\mathbf {v} = \mathbf {r} \times \mathbf {p},~ \]
+其中，\(\mathbf {p}\)是质点的动量。
+
+这是位置向量 \( \mathbf{r} \) 和粒子的线动量 \( \mathbf{p} = m\mathbf{v} \) 的叉积。根据叉积的定义，角动量向量 \( \mathbf{L} \) 垂直于 \( \mathbf{r} \) 和 \( \mathbf{p} \)。它的方向垂直于角位移的平面，按照右手法则指示的方向——因此角速度从向量的顶端看是逆时针的。相反，角动量向量 \( \mathbf{L} \) 定义了 \( \mathbf{r} \) 和 \( \mathbf{p} \) 所在的平面。
+
+通过定义一个垂直于角位移平面的单位向量 \( \mathbf{\hat{u}} \)，可以得到一个标量角速度 \( \omega \)，其公式为\(\omega \mathbf{\hat{u}} = {\boldsymbol{\omega}},\)并且\(\omega = \frac{v_{\perp}}{r}, \)
+其中 \( v_{\perp} \) 是运动的垂直分量，如上所述。
+
+因此，前一节中的二维标量方程可以赋予方向：
+\[
+\mathbf{L} = I{\boldsymbol{\omega}} = I\omega \mathbf{\hat{u}} = \left(r^{2}m\right)\omega \mathbf{\hat{u}} = rmv_{\perp} \mathbf{\hat{u}} = r_{\perp}mv \mathbf{\hat{u}},~
+\]
+对于圆周运动，其中所有运动都垂直于半径 \( r \)。
+
+在球坐标系中，角动量向量表达为：
+\[
+\mathbf{L} = m\mathbf{r} \times \mathbf{v} = mr^{2} \left( \dot{\theta} \, {\hat{\boldsymbol{\varphi}}} - \dot{\varphi} \sin \theta \, \mathbf{\hat{\boldsymbol{\theta}}} \right).~
+\]
+\subsection{与线性动量的类比 } 
+角动量可以描述为线性动量的旋转类比。与线性动量类似，它涉及质量和位移的元素。不像线性动量，它还涉及位置和形状的元素。  
+
+物理学中的许多问题涉及围绕某个空间点的物质运动，无论是实际围绕它旋转，还是简单地经过它，在这些情况下需要知道移动的物质对该点有什么影响——它是否可以对该点施加能量或在其周围做功？能量，即做功的能力，可以通过让物质运动来储存——这是一种惯性和位移的组合。惯性通过其质量来衡量，位移通过其速度来衡量。它们的乘积：
+
+(惯量) × (位移量) = (惯量·位移量)  
+质量 × 速度 = 动量  
+\( m \times v = p \)
+
+是物质的动量。[10] 将这个动量参照一个中心点会引入一个复杂性：动量并不是直接作用在该点上的。例如，一个位于车轮外缘的物质颗粒实际上位于一个与车轮半径相同长度的杠杆的末端，其动量使杠杆围绕中心点旋转。这个假想的杠杆被称为力臂。它的效果是按其长度的比例放大动量的作用，这种效果被称为力矩。因此，物质颗粒相对于某个特定点的动量为：
+
+（力臂）×（惯量）×（位移量）=（惯量·位移量的力矩）  
+长度 × 质量 × 速度 = 动量矩  
+\( r \times m \times v = L \)
+
+角动量，有时也被称为相对于特定中心点的动量矩。方程\( L = rmv \) 将力矩（质量 \( m \) 旋转力臂 \( r \)）与线性（直线等效）速度 \( v \) 结合起来。相对于中心点的线速度只是距离 \( r \) 和相对于该点的角速度 \( \omega \) 的乘积：  \( v = r\omega \)，这也是一个力矩。因此，角动量包含双重力矩：  \( L = rmr\omega \)。  稍作简化，\( L = r^{2}m\omega \)，其中量 \( r^{2}m \) 是粒子的转动惯量，有时也被称为质量的二阶矩。它是旋转惯性的量度。[11]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/889a66f16cec8566.png}
+\caption{转动惯量（如图所示），因此角动量，对于每种质量配置和旋转轴的不同，都有所不同。} \label{fig_JDL_3}
+\end{figure}
+上述平移动量和旋转动量的类比可以用矢量形式表示：[需要引用]
+\begin{itemize}
+\item \(\mathbf{p} = m\mathbf{v} \) （线性运动中的动量）
+\item \( \mathbf{L} = I{\boldsymbol{\omega}} \) （旋转中的角动量）
+\end{itemize}
+
+动量的方向与线性运动中的速度方向相关，而角动量的方向与旋转的角速度相关。
+
+由于转动惯量是自旋角动量的关键部分，后者必然包含前者的所有复杂性。转动惯量是通过将质量的基本部分与它们到旋转中心的距离的平方相乘来计算的。因此，总的转动惯量和角动量是关于物质配置及其旋转方向的复杂函数。
+
+对于刚体，例如一个轮子或小行星，旋转的方向只是相对于物体本身物质的旋转轴的位置。这个轴可能穿过质心，也可能不穿过，甚至可能完全位于物体之外。对于同一个物体，角动量可能会对每一个可能的旋转轴取不同的值。当旋转轴通过质心时，角动量达到最小值。
+
+对于围绕某个中心旋转的物体集合，例如太阳系中的所有天体，旋转的方向可能是有些组织化的，就像太阳系一样，大多数天体的旋转轴接近系统的轴。它们的方向也可能完全随机。
+
+简言之，质量越大，距离旋转中心越远（即力臂越长），则转动惯量越大，因此在给定的角速度下，角动量越大。在许多情况下，转动惯量以及角动量可以简化为
+\[ I = k^2 m,~ \]
+其中 \( k \) 是回转半径，即可以认为整个质量 \( m \) 集中在距离轴的距离。
+
+类似地，对于一个点质量 \( m \)，转动惯量定义为
+\[ I = r^2 m,~\]
+其中 \( r \) 是点质量距离旋转中心的半径。
+
+对于任意多个粒子 \( m_i \)，转动惯量为各粒子的总和：
+\[ \sum_{i} I_i = \sum_{i} r_i^2 m_i. ~\]
+角动量对位置和形状的依赖性反映在其单位与线动量的单位差异上：角动量的单位是 kg⋅m²/s 或 N⋅m⋅s，而线动量的单位是 kg⋅m/s 或 N⋅s。当计算角动量时，使用转动惯量乘以角速度，角速度必须以弧度每秒表示，其中弧度被视为无量纲单位，取值为 1。（在进行量纲分析时，可以使用将弧度视为基本单位的方向分析，但这在国际单位制中并不使用。）角动量的单位可以解释为力矩⋅时间。具有角动量 L N⋅m⋅s 的物体可以通过一个大小为 L N⋅m⋅s 的角冲量将其角速度降为零。
+
+垂直于角动量轴并通过质心的平面有时被称为不变平面，因为如果只考虑系统内部物体之间的相互作用，而不受外部影响，该轴的方向将保持不变。其中一个这样的平面是太阳系的不变平面。
+\subsubsection{角动量与力矩}  
+牛顿第二运动定律可以通过以下数学公式表达：
+\[ F = ma ~\]
+即，力 = 质量 × 加速度。对于点粒子，旋转等效方程可以推导如下：
+\[ L = I\omega ~\]
+这意味着力矩（即角动量的时间导数）为：
+\[ \tau = \frac{dI}{dt} \omega + I\frac{d\omega}{dt} ~\]
+由于转动惯量是 \( I = mr^2 \)，因此：
+\[ \frac{dI}{dt} = 2mr\frac{dr}{dt} = 2rp_{\parallel} ~\]
+并且：
+\[ \frac{dL}{dt} = I\frac{d\omega}{dt} + 2rp_{\parallel} \omega ~\]
+简化为：
+\[ \tau = I\alpha + 2rp_{\parallel} \omega ~\]
+这就是牛顿第二定律的旋转类比。需要注意的是，力矩不一定与角加速度成正比或平行（如预期的那样）。其原因在于粒子的转动惯量可以随时间变化，而对于普通的质量而言，这种情况是不会发生的。
+\subsection{角动量守恒}
+\subsubsection{一般考虑}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/d3ba7183878da5f0.png}
+\caption{一位花样滑冰选手在旋转时利用了角动量守恒——通过收紧她的手臂和双腿来减少她的转动惯量，从而提高她的旋转速度。} \label{fig_JDL_4}
+\end{figure}
+牛顿第三定律的旋转类比可以写为：“在一个封闭系统中，任何物质上施加的扭矩都无法不对其他物质施加相等且相反的扭矩。”因此，角动量可以在封闭系统中的物体之间交换，但交换前后的总角动量保持不变（守恒）。
+
+从另一个角度来看，牛顿第一定律的旋转类比可以写为：“刚体在没有外部影响作用下，继续保持匀速旋转状态。”因此，在没有外部影响的情况下，系统的原始角动量保持不变。
+
+角动量守恒用于分析中心力运动。如果某个物体上的合力始终指向某个中心点，则该物体相对于中心没有扭矩，因为所有力都沿半径向量方向作用，且没有力垂直于半径。数学上，扭矩 \(\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F} = 0\)，因为在这种情况下，\(\mathbf{r}\) 和 \(\mathbf{F}\) 是平行向量。因此，物体关于中心的角动量是恒定的。这种情况适用于行星和卫星的引力轨道，其中引力始终指向主要天体，运行物体通过交换距离和速度来保持角动量。中心力运动也用于分析波尔原子模型。
+
+对于行星，角动量分布在行星的自转和轨道革命之间，且这两者常通过各种机制进行交换。地月系统中角动量的守恒导致地球向月球转移角动量，这源于月球对地球施加的潮汐扭矩。这反过来导致地球的自转速率减慢，约为每天65.7纳秒，同时月球轨道的半径逐渐增加，约为每年3.82厘米。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/ac05582d7061d070.png}
+\caption{由两个相对的力 \( F_g \) 和 \( -F_g \) 引起的扭矩导致角动量\(L\)在该扭矩方向上发生变化（因为扭矩是角动量的时间导数）。这导致陀螺仪发生进动。} \label{fig_JDL_5}
+\end{figure}
+角动量守恒解释了冰上滑冰者在将手臂和腿靠近垂直旋转轴时的角加速度。通过将身体部分质量靠近轴心，他们减少了身体的转动惯量。由于角动量是转动惯量与角速度的乘积，如果角动量保持不变（守恒），那么滑冰者的角速度（旋转速度）必然增加。
+
+同样的现象导致紧凑星体（如白矮星、中子星和黑洞）在由更大且旋转缓慢的星体形成时，会出现极快的旋转。
+
+守恒并不总能全面解释系统的动力学，但却是一个关键约束。例如，旋转的陀螺受到重力扭矩的影响，导致其倾斜并改变关于摇动轴的角动量，但如果忽略旋转接触点的摩擦，它关于旋转轴的角动量是守恒的，而关于进动轴的角动量也是如此。此外，在任何行星系统中，行星、恒星、彗星和小行星都可以以许多复杂的方式运动，但仅仅是为了确保系统的角动量得到守恒。
+
+诺特定理表明，每个守恒定律都与底层物理的对称性（不变性）相关。与角动量守恒相关的对称性是旋转不变性。这意味着如果一个系统绕某个轴旋转任意角度，其物理性质不发生改变，从而暗示角动量是守恒的。
+\subsubsection{与牛顿第二运动定律的关系} 
+虽然角动量的总守恒可以独立于牛顿运动定律理解，视为源于诺特定理在对称于旋转的系统中的表现，但它也可以被简单地理解为一种有效的计算结果的方法，这些结果也可以直接从牛顿第二运动定律及自然力的相关定律（如牛顿第三定律、麦克斯韦方程和洛伦兹力）得出。实际上，给定每个点的初始位置和速度，以及在这种条件下的力，可以使用牛顿第二运动定律计算位置的二阶导数，解出这个方程可以得到关于物理系统随时间发展的全面信息。然而，值得注意的是，在量子力学中，这一情况不再成立，因为存在粒子自旋，这是无法通过空间中点状运动的累积效应来描述的角动量。
+
+作为一个例子，考虑动量惯量的减少，例如当花样滑冰运动员收紧双手时，圆周运动加速。在角动量守恒的情况下，我们有角动量 \( L \)、动量惯量 \( I \) 和角速度 \( \omega \) 的关系：
+\[
+0 = dL = d(I \cdot \omega) = dI \cdot \omega + I \cdot d\omega~
+\]
+使用这个关系，我们可以看到变化需要的能量为：
+\[
+dE = d\left(\frac{1}{2} I \cdot \omega^2\right) = \frac{1}{2} dI \cdot \omega^2 + I \cdot \omega \cdot d\omega = -\frac{1}{2} dI \cdot \omega^2~
+\]
+因此，动量惯量的减少需要投入能量。
+
+这可以与使用牛顿定律计算的功进行比较。旋转体中的每个点在每个时刻都在加速，其径向加速度为：
+\[
+-r \cdot \omega^2~
+\]
+让我们观察一个质量为 \( m \) 的点，其相对于运动中心的位置向量在某个时刻垂直于 z 轴，且距离为 z。作用在这个点上的向心力，用于保持圆周运动为：
+\[
+-m \cdot z \cdot \omega^2~
+\]
+因此，将这个点移动到距离运动中心更远的距离 \( dz \) 所需的功为：
+\[
+dW = -m \cdot z \cdot \omega^2 \cdot dz = -m \cdot \omega^2 \cdot d\left(\frac{1}{2} z^2\right)~
+\]
+对于非点状物体，必须在此基础上进行积分，用单位 z 的质量密度替换 \( m \)。这给出：
+\[
+dW = -\frac{1}{2} dI \cdot \omega^2~
+\]
+这正是保持角动量守恒所需的能量。
+
+注意，上述计算也可以仅通过运动学按质量进行。因此，滑冰者在收手时加速切向速度的现象可以用通俗的语言理解如下：滑冰者的手掌并不是沿直线移动，因此它们不断向内加速，但由于向内移动的速度始终为零，所以不会获得额外的速度。然而，当手掌靠近身体时情况有所不同：由于旋转产生的加速度现在会增加速度；但由于旋转，速度的增加并不会转化为显著的向内速度，而是导致旋转速度的增加。
+\subsubsection{静止作用原理}
+在经典力学中，可以证明作用泛函的旋转不变性意味着角动量守恒。作用在经典物理中定义为位置的泛函，通常用方括号表示 \( x_{i}(t) \)，以及初始时间和最终时间。它在笛卡尔坐标系中假设如下形式：
+\[
+S\left([x_{i}];t_{1},t_{2}\right) \equiv \int_{t_{1}}^{t_{2}} dt \left({\frac {1}{2}}m {\frac {dx_{i}}{dt}} {\frac {dx_{i}}{dt}} - V(x_{i})\right)~
+\]
+其中重复的指标表示对该指标求和。如果作用在一个无穷小变换下是不变的，可以数学地表示为：
+\[
+\delta S = S\left([x_{i}+\delta x_{i}];t_{1},t_{2}\right) - S\left([x_{i}];t_{1},t_{2}\right) = 0~
+\]
+在变换 \( x_{i} \rightarrow x_{i} + \delta x_{i} \) 下，作用变为：
+\[
+S\left([x_{i}+\delta x_{i}];t_{1},t_{2}\right) = \int_{t_{1}}^{t_{2}} dt \left({\frac {1}{2}}m {\frac {d(x_{i}+\delta x_{i})}{dt}} {\frac {d(x_{i}+\delta x_{i})}{dt}} - V(x_{i}+\delta x_{i})\right)~
+\]
+在这里，我们可以对各项进行展开，直到一阶项 \( \delta x_{i} \)：
+\[
+\begin{aligned}
+\frac{d(x_{i}+\delta x_{i})}{dt}\frac{d(x_{i}+\delta x_{i})}{dt} & \simeq \frac{dx_{i}}{dt}\frac{dx_{i}}{dt} - 2\frac{d^{2}x_{i}}{dt^{2}}\delta x_{i} + 2\frac{d}{dt}\left(\delta x_{i}\frac{dx_{i}}{dt}\right) \\
+V(x_{i}+\delta x_{i}) & \simeq V(x_{i}) + \delta x_{i}\frac{\partial V}{\partial x_{i}}
+\end{aligned}~
+\]
+这给出了作用量的变化：
+\[
+S[x_{i}+\delta x_{i}] \simeq S[x_{i}] + \int_{t_{1}}^{t_{2}}dt\,\delta x_{i}\left(-\frac{\partial V}{\partial x_{i}} - m\frac{d^{2}x_{i}}{dt^{2}}\right) + m\int_{t_{1}}^{t_{2}}dt\frac{d}{dt}\left(\delta x_{i}\frac{dx_{i}}{dt}\right).~
+\]
+由于所有旋转都可以表示为斜对称矩阵的矩阵指数，即\(R({\hat {n}},\theta) = e^{M\theta}\)其中 \(M\) 是一个斜对称矩阵，\(\theta\) 是旋转角度，我们可以将旋转引起的坐标变化 \(R({\hat {n}},\delta \theta)\) 表达为：
+\[
+\delta x_{i} = M_{ij}x_{j}\delta \theta.~
+\]
+结合运动方程和作用的旋转不变性，我们从上述方程得到：
+\[
+0 = \delta S = \int_{t_{1}}^{t_{2}}dt\,\frac{d}{dt}\left(m\frac{dx_{i}}{dt}\delta x_{i}\right) = M_{ij}\,\delta \theta \,m\,x_{j}\frac{dx_{i}}{dt}\Bigg|_{t_{1}}^{t_{2}}~
+\]
+由于这一关系对任何满足 \(M_{ij} = -M_{ji}\) 的矩阵 \(M_{ij}\) 都成立，因此得出以下量的守恒：
+\[
+\ell_{ij}(t) := m\left(x_{i}\frac{dx_{j}}{dt} - x_{j}\frac{dx_{i}}{dt}\right),~
+\]
+并且有\(\ell_{ij}(t_{1}) = \ell_{ij}(t_{2})\).这对应于在运动过程中角动量的守恒。 
+\subsubsection{拉格朗日形式}
+在拉格朗日力学中，围绕给定轴的角动量是该轴上角度广义坐标的共轭动量。例如，围绕 z 轴的角动量 \(L_{z}\) 为：
+\[
+L_{z} = \frac{\partial {\cal L}}{\partial {\dot{\theta}}_{z}}~
+\]
+其中 \({\cal L}\) 是拉格朗日量，\(\theta_{z}\) 是围绕 z 轴的角度。
+
+注意到 \(\dot{\theta}_{z}\) 是角度的时间导数，即角速度 \(\omega_{z}\)。通常，拉格朗日量通过动能依赖于角速度：动能可以通过将速度分解为径向和切向部分来表示，其中在 x-y 平面围绕 z 轴的切向部分为：
+\[
+\sum_{i}{\frac{1}{2}}m_{i}{v_{T}}_{i}^{2} = \sum_{i}{\frac{1}{2}}m_{i}\left(x_{i}^{2}+y_{i}^{2}\right){{\omega_{z}}_{i}}^{2}~
+\]
+其中下标 \(i\) 代表第 \(i\) 个物体，\(m\)、\(v_{T}\) 和 \(\omega_{z}\) 分别表示质量、围绕 z 轴的切向速度和该轴的角速度。
+
+对于一个不是点状的物体，其密度为 \(\rho\)，我们有：
+\[
+\frac{1}{2}\int \rho (x,y,z)\left(x_{i}^{2}+y_{i}^{2}\right){{\omega_{z}}_{i}}^{2}\,dx\,dy = \frac{1}{2}{I_{z}}_{i}{{\omega_{z}}_{i}}^{2}~
+\]
+其中积分遍历物体的面积，\(I_{z}\) 是围绕 z 轴的转动惯量。
+
+因此，假设势能不依赖于 \(\omega_{z}\)（这一假设对于电磁系统可能不成立），我们得到第 \(i\) 个物体的角动量：
+\[
+\begin{aligned}
+{L_{z}}_{i} &= {\frac {\partial {\cal L}}{\partial {{\omega_{z}}_{i}}}} = {\frac {\partial E_{k}}{\partial {{\omega_{z}}_{i}}}} \\
+&= {I_{z}}_{i} \cdot {\omega_{z}}_{i}
+\end{aligned}~
+\]
+到目前为止，我们已将每个物体旋转了一个单独的角度；我们还可以定义一个整体角度 \(\theta_{z}\)，通过它旋转整个系统，从而也使每个物体围绕 z 轴旋转，并得到整体角动量：
+\[
+L_{z} = \sum_{i}{I_{z}}_{i} \cdot {\omega_{z}}_{i}~
+\]
+然后从欧拉–拉格朗日方程可以得出：
+\[
+0 = \frac{\partial {\cal L}}{\partial {{\theta_{z}}_{i}}} - \frac{d}{dt}\left(\frac{\partial {\cal L}}{\partial {{{\dot{\theta}}_{z}}_{i}}}\right) = \frac{\partial {\cal L}}{\partial {{\theta_{z}}_{i}}} - \frac{d{L_{z}}_{i}}{dt}~
+\]
+由于拉格朗日量仅通过势能依赖于物体的角度，我们有：
+\[
+\frac{d{L_{z}}_{i}}{dt} = \frac{\partial {\cal L}}{\partial {{\theta_{z}}_{i}}} = -\frac{\partial V}{\partial {{\theta_{z}}_{i}}}~
+\]
+这就是第 \(i\) 个物体上的扭矩。 
+
+假设系统对旋转不变，因此势能与整体角度 \(\theta_z\) 的旋转无关（因此它可能仅通过物体之间的角度差异依赖于角度，形式为 \(V(\theta_{z_i}, \theta_{z_j}) = V(\theta_{z_i} - \theta_{z_j})\)）。因此我们得到总角动量：
+\[
+\frac{dL_z}{dt} = -\frac{\partial V}{\partial \theta_z} = 0~
+\]
+因此，围绕 z 轴的角动量守恒。
+
+这种分析可以对每个轴分别重复，从而得到角动量向量的守恒。然而，三个轴周围的角度不能同时作为广义坐标处理，因为它们并不是独立的；特别是，每个点用两个角度就足以确定其位置。虽然对于刚体，完整描述其状态需要除了三个平移自由度外，还需要三个旋转自由度；但这些不能定义为围绕笛卡尔坐标轴的旋转（参见欧拉角）。这一警告在量子力学中反映为不同角动量算符分量的非平凡对易关系。 
+\subsubsection{哈密顿形式}
+同样地，在哈密顿力学中，哈密顿量可以描述为角动量的函数。如前所述，第 \(i\) 个物体围绕 z 轴旋转的动能部分为：
+\[
+\frac{1}{2}{I_{z}}_{i}{{\omega_{z}}_{i}}^{2} = \frac{{{L_{z}}_{i}}^{2}}{2{I_{z}}_{i}}~
+\]
+这类似于能量与 z 轴方向动量的依赖关系：\(\frac{{{p_{z}}_{i}}^{2}}{2m_{i}}\).
+
+哈密顿方程将围绕 z 轴的角度与其共轭动量（即围绕同一轴的角动量）联系起来：
+\[
+\begin{aligned}
+\frac{d{\theta_{z}}_{i}}{dt} &= \frac{\partial {\cal H}}{\partial {L_{z}}_{i}} = \frac{{L_{z}}_{i}}{{I_{z}}_{i}} \\
+\frac{d{L_{z}}_{i}}{dt} &= -\frac{\partial {\cal H}}{\partial {\theta_{z}}_{i}} = -\frac{\partial V}{\partial {\theta_{z}}_{i}}.
+\end{aligned}~
+\]
+第一个方程给出：
+\[
+{L_{z}}_{i} = {I_{z}}_{i} \cdot {\dot{\theta_{z}}_{i}} = {I_{z}}_{i} \cdot {\omega_{z}}_{i}~
+\]
+因此，我们得到与拉格朗日形式相同的结果。 
+
+注意，对于将所有轴组合在一起，我们将动能写为：
+\[
+E_{k} = \frac{1}{2} \sum_{i} \frac{|{\bf{p}_{i}}|^{2}}{2m_{i}} = \sum_{i} \left( \frac{{p_{r}}_{i}^{2}}{2m_{i}} + \frac{1}{2} {\bf{L}_{i}}^{\textsf{T}} {I_{i}}^{-1} {\bf{L}_{i}} \right)~
+\]
+其中 \(p_{r}\) 是径向方向的动量，转动惯量是一个三维矩阵；加粗的字母表示三维向量。
+
+对于点状物体，我们有：
+\[
+E_{k} = \sum_{i} \left( \frac{{p_{r}}_{i}^{2}}{2m_{i}} + \frac{|{\bf{L}_{i}}|^{2}}{2m_{i}{r_{i}}^{2}} \right)~
+\]
+这种哈密顿量中动能部分的形式在分析中心势问题时非常有用，并且很容易转化为量子力学的框架（例如在氢原子问题中）。 
+\subsection{轨道力学中的角动量} 
+虽然在经典力学中，角动量的语言可以被牛顿运动定律所取代，但它在分析中心势中的运动（如太阳系中的行星运动）中特别有用。因此，太阳系中行星的轨道由其能量、角动量和轨道长轴相对于坐标系的角度所定义。
+
+在天体动力学和天体力学中，一个与角动量密切相关的量定义为：
+\[
+\mathbf{h} = \mathbf{r} \times \mathbf{v},~
+\]
+称为比角动量。注意到：\(\mathbf{L} = m\mathbf{h}\).在轨道力学计算中，质量通常不重要，因为物体的运动由引力决定。系统中的主天体通常远大于任何围绕它运动的物体，因此较小物体对主天体的引力效应可以忽略；主天体保持近似恒定的速度。所有物体的运动都受到主天体引力的相同影响，无论质量如何，因此在相同条件下它们的运动大致相同。
+\subsection{刚体}  
+角动量也是描述旋转刚体（如陀螺仪或岩质行星）时极其有用的概念。对于具有密度函数 \(\rho(\mathbf{r})\) 的连续质量分布，位于质量内部位置向量为 \(\mathbf{r}\) 的微小体积元 \(dV\) 具有质量元 \(dm = \rho(\mathbf{r})dV\)。因此，该元件的微小角动量为：
+\[
+d\mathbf{L} = \mathbf{r} \times dm \mathbf{v} = \mathbf{r} \times \rho(\mathbf{r})dV \mathbf{v} = dV \mathbf{r} \times \rho(\mathbf{r}) \mathbf{v}~
+\]
+将这个微小量对整个质量的体积积分，得到其总角动量：
+\[
+\mathbf{L} = \int_{V} dV \mathbf{r} \times \rho(\mathbf{r}) \mathbf{v}~
+\]
+在接下来的推导中，类似的积分可以替代连续质量情况下的求和。 
+\subsubsection{粒子集合}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/812b9bab9b435941.png}
+\caption{翻译如下：  “第 \(i\) 个粒子的角动量是以下两个叉积的和：\( \mathbf{R} \times \mathbf{MV} + \sum \mathbf{r_i} \times \mathbf{m_i v_i} \)。”} \label{fig_JDL_6}
+\end{figure}
+对于围绕任意原点运动的粒子集合，通过将它们的运动分解为围绕自身质心和围绕原点的分量来推导角动量方程是很有意义的。给定条件为，
+\begin{itemize}
+\item \({\displaystyle m_{i}}\) 是第 \(i\) 个粒子的质量， 
+\item \({\displaystyle \mathbf {R}_{i}}\) 是第 \(i\) 个粒子相对于原点的位置向量， 
+\item \({\displaystyle \mathbf {V}_{i}}\) 是第 \(i\) 个粒子相对于原点的速度向量，
+\item \({\displaystyle \mathbf {R}}\) 是质心相对于原点的位置向量，
+\item \({\displaystyle \mathbf {V}}\) 是质心相对于原点的速度向量， 
+\item \({\displaystyle \mathbf {r}_{i}}\) 是第 \(i\) 个粒子相对于质心的位置向量， 
+\item \({\displaystyle \mathbf {v}_{i}}\) 是第 \(i\) 个粒子相对于质心的速度向量。
+\end{itemize}
+粒子的总质量就是它们的质量之和，
+\[
+M = \sum_{i} m_{i}.~
+\]
+质心的位置向量定义为，[30]
+\[
+M \mathbf{R} = \sum_{i} m_{i} \mathbf{R}_{i}.~
+\]
+观察可得，\(\mathbf{R}_{i} = \mathbf{R} + \mathbf{r}_{i}\)和\(\mathbf{V}_{i} = \mathbf{V} + \mathbf{v}_{i}.\)
+
+粒子集合的总角动量是每个粒子角动量的总和。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/2d3296af7912de94.png}
+\caption{} \label{fig_JDL_7}
+\end{figure}
+展开 \(\mathbf{R}_{i}\)：
+\[
+\mathbf{L} = \sum_{i} \left[\left(\mathbf{R} + \mathbf{r}_{i}\right) \times m_{i} \mathbf{V}_{i}\right] = \sum_{i} \left[\mathbf{R} \times m_{i} \mathbf{V}_{i} + \mathbf{r}_{i} \times m_{i} \mathbf{V}_{i}\right]~
+\]
+展开 \(\mathbf{V}_{i}\)：
+\[
+\mathbf{L} = \sum_{i} \left[\mathbf{R} \times m_{i} \left(\mathbf{V} + \mathbf{v}_{i}\right) + \mathbf{r}_{i} \times m_{i} \left(\mathbf{V} + \mathbf{v}_{i}\right)\right]~
+\]
+\[
+= \sum_{i} \left[\mathbf{R} \times m_{i} \mathbf{V} + \mathbf{R} \times m_{i} \mathbf{v}_{i} + \mathbf{r}_{i} \times m_{i} \mathbf{V} + \mathbf{r}_{i} \times m_{i} \mathbf{v}_{i}\right]~
+\]
+\[
+= \sum_{i} \mathbf{R} \times m_{i} \mathbf{V} + \sum_{i} \mathbf{R} \times m_{i} \mathbf{v}_{i} + \sum_{i} \mathbf{r}_{i} \times m_{i} \mathbf{V} + \sum_{i} \mathbf{r}_{i} \times m_{i} \mathbf{v}_{i}.~
+\]
+可以证明（见下式。）
+
+证明：\(\sum _{i} m_{i} \mathbf{r}_{i} = \mathbf{0}\)
+\begin{equation}
+\begin{aligned}
+    \mathbf{r}_i &= \mathbf{R}_i - \mathbf{R} \\
+    m_i \mathbf{r}_i &= m_i (\mathbf{R}_i - \mathbf{R}) \\
+    \sum_i m_i \mathbf{r}_i &= \sum_i m_i (\mathbf{R}_i - \mathbf{R}) \\
+    &= \sum_i m_i \mathbf{R}_i - \sum_i m_i \mathbf{R} \\
+    &= \sum_i m_i \mathbf{R}_i - \mathbf{R} \sum_i m_i \\
+    &= \sum_i m_i \mathbf{R}_i - M \mathbf{R}
+\end{aligned}~
+\end{equation} 
+根据质心的定义，\(\mathbf{0}\)同理，对于\(\sum_{i} m_{i} \mathbf{v}_{i}\).
+
+\(\sum _{i}m_{i}\mathbf {r}_{i}=\mathbf{0}\)和\(\sum _{i}m_{i}\mathbf {v}_{i}=\mathbf{0},\)
+
+因此，第二项和第三项消失，
+\[
+\mathbf{L} = \sum_{i} \mathbf{R} \times m_{i} \mathbf{V} + \sum_{i} \mathbf{r}_{i} \times m_{i} \mathbf{v}_{i}.~
+\]
+第一项可以重新排列为，
+\[
+\sum _{i} \mathbf{R} \times m_{i} \mathbf{V} = \mathbf{R} \times \sum _{i} m_{i} \mathbf{V} = \mathbf{R} \times M \mathbf{V},~
+\]
+因此，粒子集合的总角动量最终为，[31]”
+ \begin{figure}[ht]
+ \centering
+ \includegraphics[width=7cm]{./figures/05ffa4e192b1c20a.png}
+ \caption{} \label{fig_JDL_8}
+ \end{figure} 
+ 第一项是质心相对于原点的角动量，类似于下文的‘单个粒子’部分，它是一个质量为 \( M \) 的粒子在质心处以速度 \( V \) 运动的角动量。第二项是粒子相对于质心的角动量，类似于下文的‘固定质心’部分。结果是通用的——粒子的运动不局限于围绕原点或质心的旋转或公转。粒子不必是独立的质量点，而可以是连续分布的元素，如刚体。
+
+通过向量恒等式重新排列方程（2），将两项都乘以“1”，并适当分组后，得到
+\begin{equation}
+\begin{aligned}
+    \mathbf{L} &= M (\mathbf{R} \times \mathbf{V}) + \sum_{i} \left[ m_{i} (\mathbf{r}_{i} \times \mathbf{v}_{i}) \right] \\
+    & = \frac{R^{2}}{R^{2}} M \left( \mathbf{R} \times \mathbf{V} \right) + \sum_{i} \left[ \frac{r_{i}^{2}}{r_{i}^{2}} m_{i} \left( \mathbf{r}_{i} \times \mathbf{v}_{i} \right) \right] \\
+    &=R^{2} M \left( \frac{\mathbf{R} \times \mathbf{V}}{R^{2}} \right) + \sum_{i} \left[ r_{i}^{2} m_{i} \left( \frac{\mathbf{r}_{i} \times \mathbf{v}_{i}}{r_{i}^{2}} \right) \right]
+\end{aligned}~
+\end{equation} 
+以转动惯量 \( I \) 和角速度 \( \boldsymbol{\omega} \) 表示整个粒子系统的总角动量。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/c1b2635f78af885c.png}
+\caption{} \label{fig_JDL_9}
+\end{figure}
+\textbf{单粒子情况}
+
+在单个粒子围绕任意原点运动的情况下，
+\[
+\begin{aligned}
+\mathbf{r}_{i} &= \mathbf{v}_{i} = \mathbf{0}, \\
+\mathbf{r} &= \mathbf{R}, \\
+\mathbf{v} &= \mathbf{V}, \\
+m &= M,
+\end{aligned}~
+\]
+\[
+\sum_{i} \mathbf{r}_{i} \times m_{i} \mathbf{v}_{i} = \mathbf{0},~
+\]
+\[
+\sum_{i} I_{i} \boldsymbol{\omega}_{i} = \mathbf{0},~
+\]
+此时总角动量的方程（2）和（3）简化为：
+\[
+\mathbf{L} = \mathbf{R} \times m \mathbf{V} = I_{R} \boldsymbol{\omega}_{R}.~
+\] 
+\textbf{固定质心情况}
+
+在质心相对于原点固定不动的情况下，
+\[
+\mathbf{V} = \mathbf{0},~
+\]
+\[
+\mathbf{R} \times M \mathbf{V} = \mathbf{0},~
+\]
+\[
+I_{R} \boldsymbol{\omega}_{R} = \mathbf{0},~
+\]
+此时总角动量的方程（2）和（3）简化为：
+\[
+\mathbf{L} = \sum_{i} \mathbf{r}_{i} \times m_{i} \mathbf{v}_{i} = \sum_{i} I_{i} \boldsymbol{\omega}_{i}.~ 
+\] 
+\subsection{广义相对论中的角动量}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{./figures/b423dbc027b65967.png}
+\caption{3-角动量作为双向量（平面元素）和轴向向量，表示质量为   m 的粒子，其瞬时的三维位置为 \(x\) 且三维动量为 \(p\)。} \label{fig_JDL_11}
+\end{figure}
+在现代（20世纪）理论物理中，角动量（不包括任何内禀角动量——见下文）采用不同的形式描述，而不是经典的伪向量。在这种形式中，角动量是与旋转不变性相关的二形式Noether荷。因此，除非时空具有旋转对称性，否则在一般弯曲时空中角动量通常不会局部守恒；而从全局来看，角动量的概念仅在时空渐进平坦的情况下才有意义。如果时空仅具有轴对称性（如Kerr度规），则总角动量不守恒，但 \( p_{\phi} \) 是守恒的，这与绕对称轴旋转的不变性有关，其中\(p_{\phi} = g_{\mu \phi} p^{\phi} = m g_{\mu \phi} dX^{\mu}/d\tau\)其中 \( g_{\mu \nu} \) 是度规，\( m = \sqrt{|p_{\mu} p^{\mu}|} \) 是静止质量，\( dX^{\mu}/d\tau \) 是四维速度，而 \( X^{\mu} = (t, r, \theta, \phi) \) 是球坐标中的四维位置。 
+
+在经典力学中，粒子的角动量可以被重新解释为一个平面元：
+\[
+\mathbf{L} = \mathbf{r} \wedge \mathbf{p}.~
+\]
+其中外积（∧）取代了叉积（×）（这两种乘积具有相似特性，但并不等同）。这种表示的优势在于，它使用向量 \( x \) 和 \( p \) 来定义平面元，使得几何解释更加清晰，并且该表达式在任意维度中都成立。在笛卡尔坐标系下：
+\[
+\begin{align}
+\mathbf{L} &= (x p_y - y p_x) \mathbf{e}_x \wedge \mathbf{e}_y + (y p_z - z p_y) \mathbf{e}_y \wedge \mathbf{e}_z + (z p_x - x p_z) \mathbf{e}_z \wedge \mathbf{e}_x \\
+& = L_{xy} \mathbf{e}_x \wedge \mathbf{e}_y + L_{yz} \mathbf{e}_y \wedge \mathbf{e}_z + L_{zx} \mathbf{e}_z \wedge \mathbf{e}_x , \\
+\end{align}~
+\]
