@@ -1,0 +1,52 @@
+% 哈密顿力学（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Hamiltonian_mechanics}{相关文章}）
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/7110c2a74929e25b.png}
+\caption{威廉·罗恩·哈密顿爵士} \label{fig_HMD_1}
+\end{figure}
+在物理学中，哈密顿力学是拉格朗日力学的重新表述，起源于1833年。由威廉·罗恩·哈密顿爵士提出【1】，哈密顿力学用（广义）动量替代了拉格朗日力学中使用的（广义）速度 \( \dot{q}^i \)。这两种理论都提供了对经典力学的解释，并描述了相同的物理现象。
+
+哈密顿力学与几何学（特别是辛几何和泊松结构）有密切关系，并且作为经典力学与量子力学之间的纽带。
+\subsection{概述}  
+\subsubsection{相空间坐标 \( (p, q) \) 和哈密顿量 \( H \)}  
+设 \( (M, \mathcal{L}) \) 为一个具有构型空间 \( M \) 和光滑拉格朗日量 \( \mathcal{L} \) 的力学系统。选择 \( M \) 上的标准坐标系 \( (\boldsymbol{q}, \boldsymbol{\dot{q}}) \)。量 \( p_i(\boldsymbol{q}, \boldsymbol{\dot{q}}, t) \stackrel{\text{def}}{=} \partial \mathcal{L} / \partial \dot{q}^i \) 称为动量（也称为广义动量、共轭动量或正则动量）。对于时间瞬间 \( t \)，拉格朗日量 \( \mathcal{L} \) 的勒让德变换定义为映射 \( (\boldsymbol{q}, \boldsymbol{\dot{q}}) \to (\boldsymbol{p}, \boldsymbol{q}) \)，假设其具有光滑逆映射 \( (\boldsymbol{p}, \boldsymbol{q}) \to (\boldsymbol{q}, \boldsymbol{\dot{q}}) \)。对于具有 \( n \) 个自由度的系统，拉格朗日力学定义了能量函数
+\[
+E_{\mathcal{L}}(\boldsymbol{q}, \boldsymbol{\dot{q}}, t) \stackrel{\text{def}}{=} \sum_{i=1}^{n} \dot{q}^i \frac{\partial \mathcal{L}}{\partial \dot{q}^i} - \mathcal{L} ~.
+\]
+拉格朗日量 \( \mathcal{L} \) 的勒让德变换将 \( E_{\mathcal{L}} \) 转化为称为哈密顿量的函数 \( \mathcal{H}(\boldsymbol{p}, \boldsymbol{q}, t) \)。哈密顿量满足：
+\[
+\mathcal{H}\left(\frac{\partial \mathcal{L}}{\partial \boldsymbol{\dot{q}}}, \boldsymbol{q}, t\right) = E_{\mathcal{L}}(\boldsymbol{q}, \boldsymbol{\dot{q}}, t)~
+\]
+这意味着：
+\[
+\mathcal{H}(\boldsymbol{p}, \boldsymbol{q}, t) = \sum_{i=1}^{n} p_i \dot{q}^i - \mathcal{L}(\boldsymbol{q}, \boldsymbol{\dot{q}}, t),~
+\]
+其中速度 \( \boldsymbol{\dot{q}} = (\dot{q}^1, \dots, \dot{q}^n) \) 从 \( \boldsymbol{p} = \partial \mathcal{L} / \partial \boldsymbol{\dot{q}} \) （一个 \( n \) 维方程组）中得出，假设它对于 \( \boldsymbol{\dot{q}} \) 的解是唯一的。\( ( \boldsymbol{p}, \boldsymbol{q} ) \)（一个 \( 2n \) 维对）称为相空间坐标（也称为正则坐标）。
+\subsubsection{从欧拉-拉格朗日方程到哈密顿方程 } 
+在相空间坐标 \( (\boldsymbol{p}, \boldsymbol{q}) \) 中，\( n \) 维的欧拉-拉格朗日方程
+\[
+\frac{\partial \mathcal{L}}{\partial \boldsymbol{q}} - \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \boldsymbol{\dot{q}}} = 0~
+\]
+变为 \( 2n \) 维的哈密顿方程：
+\[
+\frac{d \boldsymbol{q}}{dt} = \frac{\partial \mathcal{H}}{\partial \boldsymbol{p}}, \quad \frac{d \boldsymbol{p}}{dt} = -\frac{\partial \mathcal{H}}{\partial \boldsymbol{q}}.~
+\]
+\textbf{证明}  
+
+哈密顿量 \( \mathcal{H}(\boldsymbol{p}, \boldsymbol{q}) \) 是拉格朗日量 \( \mathcal{L}(\boldsymbol{q}, \boldsymbol{\dot{q}}) \) 的勒让德变换，因此有：
+\[
+\mathcal{L}(\boldsymbol{q}, \boldsymbol{\dot{q}}) + \mathcal{H}(\boldsymbol{p}, \boldsymbol{q}) = \boldsymbol{p} \cdot \boldsymbol{\dot{q}}~
+\]
+因此
+\[
+\partial \mathcal{H}/\partial \boldsymbol{p} = \boldsymbol{\dot{q}}, \quad \partial \mathcal{L}/\partial \boldsymbol{q} = -\partial \mathcal{H}/\partial \boldsymbol{q}.~
+\]
+此外，由于 \( \boldsymbol{p} = \frac{\partial \mathcal{L}}{\partial \boldsymbol{\dot{q}}} \)，欧拉-拉格朗日方程给出
+\[
+d \boldsymbol{p}/dt = \partial \mathcal{L}/\partial \boldsymbol{q} = -\partial \mathcal{H}/\partial \boldsymbol{q}.~
+\]
