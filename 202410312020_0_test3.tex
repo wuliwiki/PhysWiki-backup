@@ -16,19 +16,19 @@
 \item \verb`jad_start`, \verb`jad_end`, \verb`jad_step`: joint angular spectrum (\autoref{eq_HeAnal_22} )
 \item jad_kmin, jad_kmax, jad_Nk: jad momentum range
 
-\item \verb`tdcs_start`, \verb`tdcs_end`, \verb`tdcs_step`: triple differential cross section (\autoref{eq_HeAnal_23} )
+\item \verb`tdcs_start`, \verb`tdcs_end`, \verb`tdcs_step`: triple differential cross section (TDCS, \autoref{eq_HeAnal_23} )
 \item \verb`tdcs_th1` [deg], \verb`tdcs_k1`: electron with fixed angle and momentum
-\item \verb`tdcs_k2min`, \verb`tdcs_k2max`, \verb`tdcs_Nk2`: integral range for the second electron
+\item \verb`tdcs_k2min`, \verb`tdcs_k2max`, \verb`tdcs_Nk2`: Integral range for the second electron.
 
-\item \verb`sis_start`, \verb`sis_end`, \verb`sis_step`: for single ionization momentum spectrum (project 1st electron to He+ bound states) (\autoref{eq_HeAnal_10} )
-\item \verb`sis_kmin`, \verb`sis_kmax`, \verb`sis_Nk`: sis momentum range
+\item \verb`sis_start`, \verb`sis_end`, \verb`sis_step`: For single ionization momentum spectrum (project 1st electron to He+ bound states) (\autoref{eq_HeAnal_10} )
+\item \verb`sis_kmin`, \verb`sis_kmax`, \verb`sis_Nk`: (same)
 \item \verb`Nn1`: number of n's for sis bound states, not used for TAE approximation
-\item \verb`sis_r0`: cut from r2 < sis_r0 part from wave function for SIS
+\item \verb`sis_r0`: cut from $r_2$ less than \verb`sis_r0` part from wave function for SIS
 \item \verb`bound_r0`: use [0, bound_r0] to calculate bound states for TAE approximation, will be rounded up to integer FE, use 0 to turn off and use He+ bound states.
-\item \verb`l_max`: For two-active-electron TAE approximation, l_max is maximum l of bound states.
-\item \verb`Nbound`: Nbound is number of lowest bound states to use. Note that bound state energy will depend on $(n, l)$.
+\item \verb`l_max`: For two-active-electron TAE approximation, maximum $l$ of bound states.
+\item \verb`Nbound`: The number of lowest bound states to use. Note that bound state energy will depend on $(n, l)$.
 
-\item \verb`single_prob1_start`, \verb`single_prob1_end`, \verb`single_prob1_step`: probability distribution P(\vec r1) (\autoref{eq_HeAnal_25} )
+\item \verb`single_prob1_start`, \verb`single_prob1_end`, \verb`single_prob1_step`: Probability distribution $P(\bvec r_1)$ (\autoref{eq_HeAnal_25} )
 \item \verb`Nth1`, \verb`ph1` [deg]
 
 \item \verb`single_prob2_start`, \verb`single_prob2_end`, \verb`single_prob2_step` (\autoref{eq_HeAnal_25} )

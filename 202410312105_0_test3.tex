@@ -1,0 +1,36 @@
+% test3
+% license Usr
+% type Test
+
+\begin{itemize}
+\item \verb`Nth`: (same)
+\item \verb`grid_type`: The shape of the $(r_1,r_2)$ grid, \verb`[s]` for squre grid, \verb`[r]` for rectangular grid.
+\item \verb`in_path`: Path to wave functions (where \verb`Psi<index>.matb` are).
+\item \verb`out_path`: Output path for analysis data files.
+
+\item \verb`P12_start`, \verb`P12_end`, \verb`P12_step`: Calculate the radial probability distribution $P(r_1, r_2)$ (\autoref{eq_HeAnal_21} ) and total probability of each partial waves (\verb`P_pw`). For wave function \verb`<index>` starting from \verb`P12_start`, no larger than \verb`P12_end`, and a step size of \verb`P12_step`. Set \verb`P12_end < P12_start` to turn off (same below for all \verb`*_start`, \verb`*_end`, \verb`*_step`).
+
+\item \verb`Imat_start`, \verb`Imat_end`, \verb`Imat_step`: Calculate $I_\lambda(k_1, k_2) = \bra{F_{l_1}(k_1)}\braket{F_{l_2}(k_2)}{\Psi_\lambda(r_1,r_2)}$ (\autoref{eq_HeAnal_13} ) for double ionization momentum spectrum. Also calculates $P(k_1,k_2)$ and total ionization rate (\autoref{eq_HeAnal_8} ).
+\item \verb`Imat_kmin`, \verb`Imat_kmax`, \verb`Imat_Nk`: The discrete values of $k$ for the output of $I_\lambda(k_1, k_2)$.
+\item \verb`jad_start`, \verb`jad_end`, \verb`jad_step`: Calculate the joint angular distribution spectrum (JAD, \autoref{eq_HeAnal_22} )
+\item \verb`jad_kmin`, \verb`jad_kmax`, \verb`jad_Nk`: The discrete momentum values for JAD spectrum.
+
+\item \verb`tdcs_start`, \verb`tdcs_end`, \verb`tdcs_step`: Calculate the triple differential cross section (TDCS, \autoref{eq_HeAnal_23} ).
+\item \verb`tdcs_th1` [deg], \verb`tdcs_k1`: Specify the angle and magnitude of momentum $\bvec k_1$ for TDCS.
+\item \verb`tdcs_k2min`, \verb`tdcs_k2max`, \verb`tdcs_Nk2`: The range of $k_2$ for TDCS.
+
+\item \verb`sis_start`, \verb`sis_end`, \verb`sis_step`: For single ionization momentum spectrum (project 1st electron to He+ bound states) (\autoref{eq_HeAnal_10} ).
+\item \verb`sis_kmin`, \verb`sis_kmax`, \verb`sis_Nk`: (same)
+\item \verb`Nn1`: number of $n$'s for sis bound states, not applicable for TAE approximation.
+\item \verb`sis_r0`: Cut the wave function around the nucleus within a radius of \verb|sis_r0| before projection.
+\item \verb`bound_r0`: Use a spherical box with radius \verb`bound_r0` to calculate bound states, use \verb|[0]| to turn off and use He+ bound states.
+\item \verb`l_max`: For two-active-electron TAE approximation, maximum $l$ of bound states.
+\item \verb`Nbound`: The number of lowest bound states to use. Note that bound state energy will depend on $(n, l)$.
+
+\item \verb`single_prob1_start`, \verb`single_prob1_end`, \verb`single_prob1_step`, \verb`Nth1`, \verb`ph1` [deg]: Calculate the probability distribution $P(\bvec r_1)$ (\autoref{eq_HeAnal_25} ) for a plane across the $z$ axis, with \verb|Nth1| angles and azimuthal angle \verb|ph1|.
+
+\item \verb`single_prob2_start`, \verb`single_prob2_end`, \verb`single_prob2_step`, \verb`Nth2`, \verb`ph2` [deg]: Same for $P(\bvec r_2)$ (\autoref{eq_HeAnal_25} ), the radius range will be different if a rectangular grid is used.
+\item \verb`dipole_r_start`, \verb`dipole_r_end`, \verb`dipole_r_step` Calculate the dipole distribution, for a fixed $\bvec r_2$ (\autoref{eq_HeAnal_4} )
+\item \verb`dipole_r_th2` [deg], \verb`dipole_r_ph2` [deg]
+\item \verb`dipole_r_r2min`, \verb`dipole_r_r2max`, \verb`dipole_r_ir2_step`
+\end{itemize}

@@ -6,9 +6,9 @@
 \item \verb`Nth`: (same)
 \item \verb`grid_type`: The shape of the $(r_1,r_2)$ grid, \verb`[s]` for squre grid, \verb`[r]` for rectangular grid.
 \item \verb`in_path`: Wave function path (where \verb`Psi<index>.matb` are).
-\item \verb`out_path`: Analysis data output path.
+\item \verb`out_path`: Output path for analysis data files.
 
-\item \verb`P12_start`, \verb`P12_end`, \verb`P12_step`: Calculate the radial probability $P(r_1, r_2)$ (\autoref{eq_HeAnal_21} ) and total probability of each partial waves \verb`P_pw`.
+\item \verb`P12_start`, \verb`P12_end`, \verb`P12_step`: Calculate the radial probability distribution $P(r_1, r_2)$ (\autoref{eq_HeAnal_21} ) and total probability of each partial waves \verb`P_pw`. For \verb`Psi<index>.mat` starting from \verb`P12_start`, smaller than \verb`P12_end`, and a step size of \verb`P12_step` (same below for \verb`*_start`, \verb`*_end`, \verb`_step`).
 
 \item \verb`Imat_start`, \verb`Imat_end`, \verb`Imat_step`: $I_\lambda(k_1, k_2) = \bra{F_{l_1k_1}}\braket{F_{l_2k_2}}{\Psi_\lambda(r_1,r_2)}$, for double ionization energy. spectrum; output \verb`Imat.matb` (\autoref{eq_HeAnal_13} ), also output \verb`Pk1k2` matrix and total ionization rate to \verb`Pk1k2.matb` (\autoref{eq_HeAnal_8} ); in the output, total double ionization probability (\autorefeq_HeAnal_14} ) will be print to output and saved to \verb`Pk1k2.matb`
 \item \verb`Imat_kmin`, \verb`Imat_kmax`, \verb`Imat_Nk`
@@ -16,19 +16,19 @@
 \item \verb`jad_start`, \verb`jad_end`, \verb`jad_step`: joint angular spectrum (\autoref{eq_HeAnal_22} )
 \item jad_kmin, jad_kmax, jad_Nk: jad momentum range
 
-\item \verb`tdcs_start`, \verb`tdcs_end`, \verb`tdcs_step`: triple differential cross section (\autoref{eq_HeAnal_23} )
+\item \verb`tdcs_start`, \verb`tdcs_end`, \verb`tdcs_step`: triple differential cross section (TDCS, \autoref{eq_HeAnal_23} )
 \item \verb`tdcs_th1` [deg], \verb`tdcs_k1`: electron with fixed angle and momentum
-\item \verb`tdcs_k2min`, \verb`tdcs_k2max`, \verb`tdcs_Nk2`: integral range for the second electron
+\item \verb`tdcs_k2min`, \verb`tdcs_k2max`, \verb`tdcs_Nk2`: Integral range for the second electron.
 
-\item \verb`sis_start`, \verb`sis_end`, \verb`sis_step`: for single ionization momentum spectrum (project 1st electron to He+ bound states) (\autoref{eq_HeAnal_10} )
-\item \verb`sis_kmin`, \verb`sis_kmax`, \verb`sis_Nk`: sis momentum range
+\item \verb`sis_start`, \verb`sis_end`, \verb`sis_step`: For single ionization momentum spectrum (project 1st electron to He+ bound states) (\autoref{eq_HeAnal_10} )
+\item \verb`sis_kmin`, \verb`sis_kmax`, \verb`sis_Nk`: (same)
 \item \verb`Nn1`: number of n's for sis bound states, not used for TAE approximation
-\item \verb`sis_r0`: cut from r2 < sis_r0 part from wave function for SIS
+\item \verb`sis_r0`: cut from $r_2$ less than \verb`sis_r0` part from wave function for SIS
 \item \verb`bound_r0`: use [0, bound_r0] to calculate bound states for TAE approximation, will be rounded up to integer FE, use 0 to turn off and use He+ bound states.
-\item \verb`l_max`: For two-active-electron TAE approximation, l_max is maximum l of bound states.
-\item \verb`Nbound`: Nbound is number of lowest bound states to use. Note that bound state energy will depend on $(n, l)$.
+\item \verb`l_max`: For two-active-electron TAE approximation, maximum $l$ of bound states.
+\item \verb`Nbound`: The number of lowest bound states to use. Note that bound state energy will depend on $(n, l)$.
 
-\item \verb`single_prob1_start`, \verb`single_prob1_end`, \verb`single_prob1_step`: probability distribution P(\vec r1) (\autoref{eq_HeAnal_25} )
+\item \verb`single_prob1_start`, \verb`single_prob1_end`, \verb`single_prob1_step`: Probability distribution $P(\bvec r_1)$ (\autoref{eq_HeAnal_25} )
 \item \verb`Nth1`, \verb`ph1` [deg]
 
 \item \verb`single_prob2_start`, \verb`single_prob2_end`, \verb`single_prob2_step` (\autoref{eq_HeAnal_25} )
