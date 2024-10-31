@@ -106,7 +106,7 @@
 
 \subsubsection{有理不等式的解集}
 
-有一类常见的不等式，形如$F(x) \geq 0$或$F(x) \leq 0$，其中$\displaystyle F(x)={P(x)\over Q(x)}$为一个有理表达式，即$P(x),Q(x)$为多项式，称为\textbf{有理不等式（rational inequality）}。
+有一类常见的不等式，形如$F(x) \geq 0$或$F(x) \leq 0$的不等式，其中$\displaystyle F(x)={P(x)\over Q(x)}$为一个有理表达式，即$P(x),Q(x)$为多项式，称为\textbf{有理不等式（rational inequality）}。
 
 求解有理不等式时，通常会使用\textbf{根轴法（sign chart method）}，它通过分析函数分子和分母的符号变化，找到$x$的解集区间。根轴法的基本步骤如下：
 \begin{enumerate}
@@ -147,16 +147,21 @@
 
 在多项式方程中，重根指的是方程的某个解（或根）出现了多次的情况。
 
-具体而言，设有一个多项式  p(x) ，例如：
 
 
-p(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0
 
+和上面研究的有理不等式类似，形如$F(x)=0$的方程，其中$\displaystyle F(x)={P(x)\over Q(x)}$为一个有理表达式，即$P(x),Q(x)$为多项式，称为\textbf{有理方程（rational equation）}。有理方程的求解相较于不等式要容易一些，因为不用考虑不等号方向的问题，所以只要求得$P(x)=0$的解$x_0$之后，代入$Q(x)$，只要满足$Q(x_0)\neq0$，$x_0$就是$F(x)=0$的解，否则就需要舍弃。通常，在求解之前，会先将$P(x),Q(x)$因式分解并进行约分，以降低求解的难度。
 
-如果某个数  r  使得  p(r) = 0 ，并且还满足  p(x)  的某次导数的值在  r  处也为 0，那么  r  就是一个重根。更严格地说，如果  r  是  p(x)  的根，并且在分解后，多项式  p(x)  可以表示为：
+有了上面的过程，显然求解的过程主要就是求$P(x)=0$的解$x_0$。这里的$P(x)=0$称作\textbf{多项式方程（polynomial equation）}或\textbf{代数方程（algebraic equation）}。
 
+\begin{definition}{重根与单根}
+如果$x_0$是$P(x)$的根，则$P(x)$可以通过因式分解表示为：
+\begin{equation}
+P(x) = (x - r)^n \cdot R(x)~.
+\end{equation}
+其中$R(x_0) \neq 0$。若$n>1$，则称$x_0$是$P(x)$的\textbf{重根（multiple root）}，其中$n$称为这个根的重数；若$n=1$，则称$x_0$是$P(x)$的\textbf{单根（single root）}。
+\end{definition}
 
-p(x) = (x - r)^k \cdot q(x)
+在学过\enref{导数}{HsDerv}之后，也可以这样理解：对多项式 $P(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$的一个根 $x_0$，若满足$P(x)$的某阶导数$P^{(n)}(x)$在$x_0$处的值$P^{(n)}(x_0)=0$，则称$x_0$为$P(x)$的一个重数为$n$的\textbf{重根（multiple root）}，特别地，当$n=1$时，称为\textbf{单根（single root）}。
 
-
-其中  q(r) \neq 0 ，且  k > 1 ，那么我们称  r  是  p(x)  的重根，其中  k  称为这个根的重数。重数  k  表示根  r  出现了  k  次。
+重数k表示根$x_0$出现了k次。且k > 1 ，那么我们

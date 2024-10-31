@@ -1,0 +1,43 @@
+% test3
+% license Usr
+% type Test
+
+\begin{itemize}
+\item \verb`Nth`: number of threads
+\item \verb`grid_type`: \verb`[s]` squre, \verb`[r]` rectangular
+\item \verb`in_path`: input path (for "params.matb" and "data.matb")
+\item \verb`out_path`: analysis output path
+
+\item \verb`P12_start`, \verb`P12_end`, \verb`P12_step`: $P(r_1, r_2)$ (eq_HeAnal_21) and partial wave probabilities \verb`P_pw`
+
+\item \verb`Imat_start`, \verb`Imat_end`, \verb`Imat_step`: $I_\lambda(k_1, k_2) = \bra{F_{l_1k_1}}\braket{F_{l_2k_2}}{\Psi_\lambda(r_1,r_2)}$, for double ionization energy. spectrum; output Imat.matb (eq_HeAnal_13), also output \verb`Pk1k2` matrix and total ionization rate to \verb`Pk1k2.matb` (eq_HeAnal_8); in the output, total double ionization probability (eq_HeAnal_14) will be print to output and saved to \verb`Pk1k2.matb`
+\item \verb`Imat_kmin`, \verb`Imat_kmax`, \verb`Imat_Nk`
+
+\item \verb`jad_start`, \verb`jad_end`, \verb`jad_step`: joint angular spectrum (eq_HeAnal_22)
+\item jad_kmin, jad_kmax, jad_Nk: jad momentum range
+
+\item \verb`tdcs_start`, \verb`tdcs_end`, \verb`tdcs_step`: triple differential cross section (eq_HeAnal_23)
+\item \verb`tdcs_th1` [deg], \verb`tdcs_k1`: electron with fixed angle and momentum
+\item \verb`tdcs_k2min`, \verb`tdcs_k2max`, \verb`tdcs_Nk2`: integral range for the second electron
+
+\item \verb`sis_start`, \verb`sis_end`, \verb`sis_step`: for single ionization momentum spectrum (project 1st electron to He+ bound states) (eq_HeAnal_10)
+\item sis_kmin, sis_kmax, sis_Nk: sis momentum range
+\item 3               // Nn1: number of n's for sis bound states, not used for TAE approximation
+\item 21              // sis_r0: cut from r2 < sis_r0 part from wave function for SIS
+\item 21              // bound_r0: use [0, bound_r0] to calculate bound states for TAE approximation, will be rounded up to integer FE, use 0 to turn off and use He+ bound states.
+\item 3   0           // l_max, Nbound: for TAE approximation, l_max is maximum l of bound states, Nbound is number of lowest bound states to use. Note that bound state energy will depend on (n, l).
+
+\item 2 1 800         // single_prob1_start, single_prob1_end, single_prob1_step: probability distribution P(\vec r1) (eq_HeAnal_25)
+\item 360   0         // Nth1, ph1 [deg]
+
+\item 2 1 800         // single_prob2_start, single_prob2_end, single_prob2_step (eq_HeAnal_25)
+\item 360   0         // Nth2, ph2 [deg]
+
+\item 2 1 100         // dipole_start, dipole_end, dipole_step (dipole distribution)
+\item 0   0           // dipole_th2 [deg], dipole_ph2 [deg]
+\item 0.01 3 500      // dipole_k2min, dipole_k2max, dipole_Nk2
+
+\item 15200 15200 400 // dipole_r_start, dipole_r_end, dipole_r_step (dipole distribution, fixed r2) (eq_HeAnal_4)
+\item 0    0          // dipole_r_th2 [deg], dipole_r_ph2 [deg]
+\item 0.1 100 1       // dipole_r_r2min, dipole_r_r2max, dipole_r_ir2_step
+\end{itemize}

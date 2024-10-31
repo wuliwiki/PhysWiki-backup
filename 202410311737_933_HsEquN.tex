@@ -106,7 +106,7 @@
 
 \subsubsection{有理不等式的解集}
 
-有一类常见的不等式，形如$F(x) \geq 0$或$F(x) \leq 0$，其中$\displaystyle F(x)={P(x)\over Q(x)}$为一个有理表达式，即$P(x),Q(x)$为多项式，称为\textbf{有理不等式（rational inequality）}。
+有一类常见的不等式，形如$F(x) \geq 0$或$F(x) \leq 0$的不等式，其中$\displaystyle F(x)={P(x)\over Q(x)}$为一个有理表达式，即$P(x),Q(x)$为多项式，称为\textbf{有理不等式（rational inequality）}。
 
 求解有理不等式时，通常会使用\textbf{根轴法（sign chart method）}，它通过分析函数分子和分母的符号变化，找到$x$的解集区间。根轴法的基本步骤如下：
 \begin{enumerate}
@@ -147,13 +147,15 @@
 
 在多项式方程中，重根指的是方程的某个解（或根）出现了多次的情况。
 
-具体而言，设有一个多项式  p(x) ，例如：
+具体而言，对多项式 $P(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$的一个根 $r$，若满足$P(x)$的某阶导数$P^{(n)}(x)$在  $r$  处的值$P^{(n)}(r)=0$，则称$r$为$P(x)$的一个重数为$n$的\textbf{重根（multiple root）}，特别地，当$n=1$时，称为\textbf{单根（single root）}。
 
+更严格地说，
 
-p(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0
+和上面研究的有理不等式类似，形如$F(x)=0$的方程，其中$\displaystyle F(x)={P(x)\over Q(x)}$为一个有理表达式，即$P(x),Q(x)$为多项式，称为\textbf{有理方程（rational equation）}。有理方程的求解相较于不等式要容易一些，因为不用考虑不等号方向的问题，所以只要求得$P(x)=0$的解$x_0$之后，代入$Q(x)$，只要满足$Q(x_0)\neq0$，$x_0$就是$F(x)=0$的解，否则就需要舍弃。通常，在求解之前，会先将$P(x),Q(x)$因式分解并进行约分，以降低求解的难度。
 
+有了上面的过程，显然求解的过程主要就是求$P(x)=0$的解$x_0$。这里的$P(x)=0$称作\textbf{多项式方程（polynomial equation）}或\textbf{代数方程（algebraic equation）}。如前所述，通过因式分解可以将$P(x)$分解为$P^{m_1}_1(x)\cdots P^{m_p}_p(x)$，$m_i$表示每个因式的指数。
 
-如果某个数  r  使得  p(r) = 0 ，并且还满足  p(x)  的某次导数的值在  r  处也为 0，那么  r  就是一个重根。更严格地说，如果  r  是  p(x)  的根，并且在分解后，多项式  p(x)  可以表示为：
+如果  r  是  p(x)  的根，并且在分解后，多项式  p(x)  可以表示为：
 
 
 p(x) = (x - r)^k \cdot q(x)
