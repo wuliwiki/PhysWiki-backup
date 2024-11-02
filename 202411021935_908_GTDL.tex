@@ -1,0 +1,29 @@
+% 刚体动力学 （综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Rigid_body_dynamics}{相关文章}）
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/de33499aa26ca4e3.png}
+\caption{波尔顿和瓦特蒸汽机（1784年）各组成部件的运动可以通过一组运动学和动力学方程来描述。} \label{fig_GTDL_1}
+\end{figure}
+在动力学的物理科学中，刚体动力学研究在外力作用下互连体系统的运动。假设这些物体是刚体（即在外力作用下不发生变形），这简化了分析，因为系统的配置仅需通过每个物体附加的参考框架的平移和旋转来描述。[1][2]这排除了表现出流体、高弹性和塑性行为的物体。
+
+刚体系统的动力学由运动学定律以及牛顿第二定律（动力学）或其导数形式——拉格朗日力学来描述。这些运动方程的解提供了系统中各个组成部分的位置、运动和加速度的描述，以及整个系统随时间的变化。刚体动力学的公式化和求解是机械系统计算机仿真中的重要工具。
+\subsection{平面刚体动力学}
+如果一个粒子系统平行于固定平面运动，则称该系统受到平面运动的约束。在这种情况下，刚体系统中 \( N \) 个粒子 \( P_i \) （\( i=1,...,N \)）的牛顿定律（动力学）简化了，因为在 \( k \) 方向上没有运动。可在参考点 \( R \) 处确定合力和力矩，得到：
+\[
+\mathbf{F} = \sum_{i=1}^{N} m_{i} \mathbf{A}_{i}, \quad \mathbf{T} = \sum_{i=1}^{N} (\mathbf{r}_{i} - \mathbf{R}) \times m_{i} \mathbf{A}_{i},~
+\]
+其中，\( \mathbf{r}_i \) 表示每个粒子的平面轨迹。
+
+刚体运动学给出了粒子 \( P_i \) 的加速度公式，表示为参考点位置 \( \mathbf{R} \) 和加速度 \( \mathbf{A} \)，以及刚体系统的角速度向量 \( \boldsymbol{\omega} \) 和角加速度向量 \( \boldsymbol{\alpha} \)：
+\[
+\mathbf{A}_i = \boldsymbol{\alpha} \times (\mathbf{r}_i - \mathbf{R}) + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times (\mathbf{r}_i - \mathbf{R})) + \mathbf{A}.~
+\]
+对于约束在平面运动的系统，角速度和角加速度向量沿着垂直于运动平面的 \( k \) 方向，使得此加速度方程简化。在这种情况下，可以通过从参考点 \( R \) 到点 \( r_i \) 的单位向量 \( \mathbf{e}_i \) 以及单位向量 \( \mathbf{t}_i = \mathbf{k} \times \mathbf{e}_i \) 来简化加速度向量，因此有：
+\[
+\mathbf{A}_i = \alpha (\Delta r_i \mathbf{t}_i) - \omega^2 (\Delta r_i \mathbf{e}_i) + \mathbf{A}.~
+\]
