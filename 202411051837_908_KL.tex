@@ -123,3 +123,87 @@ k_{\text{e}} = \frac{1}{4 \pi \varepsilon_0} = 8.987\ 551\ 7862(14) \times 10^9 
 \[
 \mathbf{E}(\mathbf{r}) = \frac{1}{4 \pi \varepsilon_0} \sum_{i=1}^{n} q_i \frac{\hat{\mathbf{r}}_i}{|\mathbf{r}_i|^2}~
 \]
+\subsubsection{原子力}    
+库仑定律即使在原子内部也成立，能够正确描述带正电的原子核与每个带负电的电子之间的力。这一定律同样能正确解释将原子结合成分子、以及将原子和分子结合成固体和液体的力。一般来说，随着离子之间距离的增加，吸引力和结合能趋近于零，离子键合变得不那么有利。而当相反电荷的大小增加时，能量增加，离子键合变得更有利。
+\subsection{与高斯定律的关系}
+\subsubsection{从库仑定律推导高斯定律}  
+本节摘自《高斯定律 § 从库仑定律推导高斯定律》。  
+[需要引用] 严格来说，仅凭库仑定律无法推导出高斯定律，因为库仑定律仅给出单个静电点电荷所产生的电场。然而，如果再假设电场遵循叠加原理，那么可以从库仑定律推导出高斯定律。叠加原理指出，结果电场是由每个粒子产生的电场的向量和（或者，如果电荷在空间中平滑分布，则是积分）。\\
+\textbf{证明大纲}\\
+库仑定律指出，静止点电荷所产生的电场为：
+\[
+\mathbf{E}(\mathbf{r}) = \frac{q}{4 \pi \varepsilon_0} \frac{\mathbf{e_r}}{r^2}~
+\]
+其中：
+\begin{itemize}
+\item \(\mathbf{e_r}\) 是径向单位向量，
+\item \(r\) 是半径，\(|r|\) 是距离，
+\item \(\varepsilon_0\) 是电常数，
+\item \(q\) 是粒子的电荷量，假设粒子位于原点。
+\end{itemize}
+使用库仑定律的表达式，我们通过积分将电场在 \(r\) 处的总场计算出来，积分计算由空间中每个点 \(s\) 处的微小电荷对 \(r\) 处的电场贡献，得到：
+\[
+\mathbf{E}(\mathbf{r}) = \frac{1}{4 \pi \varepsilon_0} \int \frac{\rho (\mathbf{s}) (\mathbf{r} - \mathbf{s})}{|\mathbf{r} - \mathbf{s}|^3} \, d^3\mathbf{s}~
+\]
+其中 \(\rho\) 是电荷密度。如果我们对该方程两边分别对 \(r\) 求散度，并使用已知定理：
+\[
+\nabla \cdot \left( \frac{\mathbf{r}}{|\mathbf{r}|^3} \right) = 4 \pi \delta(\mathbf{r})~
+\]
+其中 \(\delta(\mathbf{r})\) 是狄拉克δ函数，结果为：
+\[
+\nabla \cdot \mathbf{E}(\mathbf{r}) = \frac{1}{\varepsilon_0} \int \rho(\mathbf{s}) \delta(\mathbf{r} - \mathbf{s}) \, d^3 \mathbf{s}~
+\]
+使用狄拉克δ函数的“筛选性质”，我们得到：
+\[
+\nabla \cdot \mathbf{E}(\mathbf{r}) = \frac{\rho(\mathbf{r})}{\varepsilon_0}~
+\]
+这就是高斯定律的微分形式，得证。
+
+由于库仑定律仅适用于静止电荷，因此仅基于这个推导没有理由期望高斯定律适用于运动电荷。实际上，高斯定律确实适用于运动电荷，在这一点上，高斯定律比库仑定律更为一般。\\
+\textbf{证明（不使用狄拉克δ函数）}\\
+令 \(\Omega \subseteq \mathbb{R}^3\) 为一个有界开集，并定义电场 \(\mathbf{E}_0(\mathbf{r})\) 为
+\[
+\mathbf{E}_0(\mathbf{r}) = \frac{1}{4\pi \varepsilon_0} \int_\Omega \frac{\rho(\mathbf{r'}) (\mathbf{r} - \mathbf{r'})}{\|\mathbf{r} - \mathbf{r'}\|^3} d\mathbf{r'} \equiv \frac{1}{4\pi \varepsilon_0} \int_\Omega e(\mathbf{r}, \mathbf{r'}) d\mathbf{r'}~
+\]
+其中 \(\rho(\mathbf{r'})\) 是连续函数（电荷密度）。
+
+对于所有 \(\mathbf{r} \neq \mathbf{r'}\)，有
+\[
+\nabla_{\mathbf{r}} \cdot \mathbf{e}(\mathbf{r}, \mathbf{r'}) = 0~
+\]
+现在，考虑一个紧致集 \(V \subseteq \mathbb{R}^3\)，其边界 \(\partial V\) 是分段光滑的，且满足 \(\Omega \cap V = \emptyset\)。由此可得，\(\mathbf{e}(\mathbf{r}, \mathbf{r'}) \in C^1(V \times \Omega)\)，因此根据散度定理，有
+\[
+\oint_{\partial V} \mathbf{E}_0 \cdot d\mathbf{S} = \int_V \nabla \cdot \mathbf{E}_0 \, dV~
+\]
+但是由于 \(\mathbf{e}(\mathbf{r}, \mathbf{r'}) \in C^1(V \times \Omega)\)，我们有
+\[
+\nabla_{\mathbf{r}} \cdot \mathbf{E}_0(\mathbf{r}) = \frac{1}{4\pi \varepsilon_0} \int_\Omega \nabla_{\mathbf{r}} \cdot \mathbf{e}(\mathbf{r}, \mathbf{r'}) d\mathbf{r'} = 0~
+\]
+根据以上推导（\(\Omega \cap V = \emptyset \implies \forall \mathbf{r} \in V, \forall \mathbf{r'} \in \Omega, \mathbf{r} \neq \mathbf{r'}\)），得到\(\nabla_{\mathbf{r}} \cdot \mathbf{e}(\mathbf{r}, \mathbf{r'}) = 0\)
+
+因此，通过闭合表面产生的电通量，由外部电荷密度（表面之外）生成的电通量为零。
+
+现在，考虑 \(\mathbf{r}_0 \in \Omega\)，并且 \(B_R(\mathbf{r}_0) \subseteq \Omega\) 为以 \(\mathbf{r}_0\) 为中心、半径为 \(R\) 的球体（由于 \(\Omega\) 是开集，存在这样的球体）。
+
+令 \(\mathbf{E}_{B_R}\) 和 \(\mathbf{E}_C\) 分别为球体内部和外部生成的电场。则有：
+\[
+\mathbf{E}_{B_R} = \frac{1}{4\pi \varepsilon_0} \int_{B_R(\mathbf{r}_0)} e(\mathbf{r}, \mathbf{r'}) \, d\mathbf{r'}~
+\]
+\[
+\mathbf{E}_C = \frac{1}{4\pi \varepsilon_0} \int_{\Omega \setminus B_R(\mathbf{r}_0)} e(\mathbf{r}, \mathbf{r'}) \, d\mathbf{r'}~
+\]并且\(\mathbf{E}_{B_R} + \mathbf{E}_C = \mathbf{E}_0\)
+\[
+\Phi(R) = \oint_{\partial B_R(\mathbf{r}_0)} \mathbf{E}_0 \cdot d\mathbf{S} = \oint_{\partial B_R(\mathbf{r}_0)} \mathbf{E}_{B_R} \cdot d\mathbf{S} + \oint_{\partial B_R(\mathbf{r}_0)} \mathbf{E}_C \cdot d\mathbf{S} = \oint_{\partial B_R(\mathbf{r}_0)} \mathbf{E}_{B_R} \cdot d\mathbf{S}~
+\]
+最后的等式是由于 \((\Omega \setminus B_R(\mathbf{r}_0)) \cap B_R(\mathbf{r}_0) = \emptyset\)，并且上述论证。
+
+右侧的电通量是由一个带电球体生成的电通量，因此有：
+\[
+\Phi(R) = \frac{Q(R)}{\varepsilon_0} = \frac{1}{\varepsilon_0} \int_{B_R(\mathbf{r}_0)} \rho(\mathbf{r'}) \, d\mathbf{r'} = \frac{1}{\varepsilon_0} \rho(\mathbf{r}_c') |B_R(\mathbf{r}_0)|~
+\]
+其中 \(\mathbf{r}_c' \in B_R(\mathbf{r}_0)\)。
+
+最后的等式是通过积分的均值定理得到的。利用夹逼定理和电荷密度 \(\rho\) 的连续性，可以得到：
+\[
+\nabla \cdot \mathbf{E}_0(\mathbf{r}_0) = \lim_{R \to 0} \frac{1}{|B_R(\mathbf{r}_0)|} \Phi(R) = \frac{1}{\varepsilon_0} \rho(\mathbf{r}_0)~
+\]
