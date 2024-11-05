@@ -1,0 +1,118 @@
+% 一元二次方程与因式分解（高中）
+% license Xiao
+% type Tutor
+
+\subsection{一元二次方程的根}
+
+一元二次方程指形如
+\begin{equation}
+ax^2+bx+c=0 \qquad (a\neq 0)~.
+\end{equation}
+的方程，它可以变形得到如下形式：
+\begin{equation}
+\begin{split}
+ & ax^2+bx+c = 0 \\ 
+\iff&x^2+2{b\over 2a} x+\left({b\over 2a}\right)^2 = \left({b\over 2a}\right)^2-{c\over a} \\ 
+\iff&\left(x+{b\over 2a}\right)^2 = {b^2-4ac\over 4a^2} \\ 
+\end{split}~.
+\end{equation}
+
+\subsubsection{存在性判定}
+
+由于左侧及右侧分母是一个平方形式，因此$x$的值只与右侧分子的符号相关。定义判别式
+\begin{equation}
+\Delta = b^2-4ac~.
+\end{equation}
+
+则：
+\begin{itemize}
+\item $\Delta > 0$时，方程有实数解，为两个不同的实根。
+\item $\Delta = 0$时，方程有实数解，为两个相同的实根。\footnote{这里称两个相同实根而非一个实根，是根据\aref{代数基本定理}{the_HsEquN_1}。}
+\item $\Delta < 0$时，方程无实数解。
+\end{itemize}
+
+且方程有解时，两个根分别为：
+\begin{equation}\label{eq_quasol_1}
+x_1=\frac{-b+\sqrt{\Delta}}{2a}\qquad x_2=\frac{-b-\sqrt{\Delta}}{2a}~.
+\end{equation}
+这被称为\textbf{二次方程的求根公式（Quadratic Formula）}。
+
+\autoref{eq_quasol_1} 中，若$\Delta = 0$，则$x_1=x_2=-\frac{b}{2a}$与之前推理的结论相符。
+
+\subsubsection{几何含义}
+假设$f(x)=ax^2+bx+c$，那么求解方程$ax^2+bx+c=0$即化为寻找函数$f(x)$的所有零点$f(x)=0$。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/652b2f4efe76656f.pdf}
+\caption{$f(x)$示意图。从左到右为$\Delta > 0, \Delta = 0, \Delta < 0$} \label{fig_quasol_1}
+\end{figure}
+可见，$x=-\frac{b}{2a}$ 为函数$f(x)$的对称轴，两个零点（如果存在）关于该轴对称。
+
+\subsection{配方法}
+对于一些特定的问题，可以将方程配方并求解，有时这比直接使用求根公式更为简便。
+
+例如，可以将方程配方为如下形式：
+$$(x-a)(x-b)=0\Rightarrow x_1=a, x_2=b~.$$
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5cm]{./figures/fe527c666ebfd775.pdf}
+\caption{$f(x)=(x-a)(x-b)$示意图} \label{fig_quasol_2}
+\end{figure}
+或者
+$$(x-a)^2=b\Rightarrow x_1=\sqrt{b}+a, x_2=-\sqrt{b}+a~.$$
+
+\subsection{韦达定理}
+
+\textbf{韦达定理（Vieta's formulas）}是一组描述代数方程的根和方程系数的关系的公式，因此也称\textbf{根与系数关系}。
+
+\begin{theorem}{韦达定理（二次情况）}
+设方程 $a x^2 + b x + c = 0\quad(a \neq 0)$的两个根为 $x_1$ 和 $x_2$，则它们满足：
+$$\begin{aligned}
+x_1 + x_2 &= -\frac{b}{a} ~,\\
+x_1 x_2 &= \frac{c}{a}~.
+\end{aligned}$$
+\end{theorem}
+
+下面给出证明：
+
+对方程 $a x^2 + b x + c = 0\quad(a \neq 0)$，设其有两个根 $x_1$ 和 $x_2$，则有：
+\begin{equation}\label{eq_quasol_2}
+\begin{split}
+ax^2+bx+c &= 0 \\ 
+&=a(x-x_1)(x-x_2)\\
+&=ax^2-a(x_1+x_2)x+ax_1x_2
+\end{split}~.
+\end{equation}
+由于\autoref{eq_quasol_2} 为恒成立的代数式，所以两侧对应变量的系数相等，从而有：
+\begin{equation}
+\begin{cases}
+-a(x_1+x_2)=b\\
+ax_1x_2=c
+\end{cases}
+\implies
+\begin{cases}
+x_1 + x_2 &= -\frac{b}{a} \\
+x_1 x_2 &= \frac{c}{a}
+\end{cases}.~
+\end{equation}
+
+证毕。
+
+这是一种常用的证明方法，即恒成立的代数方程，两侧对应位置的系数相等。韦达定理使得面对方程时，即使不求解具体的解的形式，也可以描述两个解之间的关系，这在\enref{解析几何}{JXJH}部分会有非常重要的应用。同理可证，对于任意$n$次代数方程的情况。
+\begin{theorem}{韦达定理}
+对于$n$次代数方程$a_0x^n+a_1x^{n-1}+\cdots+a_n=0\quad(a_0\neq0)$，若存在$n$个根$x_1,x_2,\cdots,x_n$，则有：
+\begin{equation}
+\begin{split}
+x_1+x_2+\cdots +x_n&=-{a_1\over a_0}\\
+(x_1x_2+x_1x_3+\cdots+ x_1x_n)+(x_2x_3+\cdots +x_2x_n)+\cdots+x_{n-1}x_n&={a_2\over a_0}\\
+\vdots\\
+x_1x_2\cdots x_n&=(-1)^n{a_n\over a_0}
+\end{split}~.
+\end{equation}
+也可以统一记作\footnote{此处使用的是\enref{求和符号}{SumSym}和\enref{求积符号}{ProdSy}。如果不理解可以跳过。}：
+\begin{equation}
+\sum_{1\le i_1 < i_2 < \cdots < i_k\le n} \left(\prod_{j = 1}^k r_{i_j}\right)=(-1)^k\frac{a_{n-k}}{a_n}~.
+\end{equation}
+\end{theorem}
+
+它的证明方式与之前完全相同，可以自己尝试做一下，在计数原理部分会有更透彻的讲解。
