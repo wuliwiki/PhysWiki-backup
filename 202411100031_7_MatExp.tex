@@ -1,0 +1,156 @@
+% 矩阵指数
+% keys 矩阵|矩阵指数|本征值|特征子空间|特征分解
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueMissDepend
+\end{issues}
+
+\subsection{定义}
+实数域上的指数函数 $\E^x$ 可以进行Maclaurin展开：\begin{equation}
+\E^x=\sum\limits_{n=0}^\infty \frac{x^n}{n!}~.
+\end{equation}
+
+展开式使得我们只需要用 $x$ 的幂就可以表示指数 $\E^x$。我们把这一点应用到矩阵中，就可以用方阵的幂来定义出矩阵的指数：
+
+\begin{definition}{矩阵指数}
+给定方阵 $\bvec{M}$，定义
+\begin{equation}\label{eq_MatExp_2}
+\E^{\bvec{M}}=\sum_{n=0}^\infty \frac{\bvec{M}^n}{n!}~.
+\end{equation}
+并称之为矩阵 $\bvec{M}$ 的\textbf{指数（matrix exponential）}。 其中对于任意方阵 $\bvec{M}$，都有 $\bvec{M}^0=\bvec{I}$，$\bvec{I}$ 是单位矩阵。
+\end{definition}
+
+矩阵指数在常微分方程中非常常用，是用来解线性齐次方程组的利器。一个矩阵的指数本身还是一个矩阵。
+
+\subsection{矩阵指数的性质}
+
+\subsubsection{相似变换的统一}
+
+由\enref{过渡矩阵}{TransM}可知，如果矩阵 $\bvec{M}$ 在某基下表示一个线性变换，那么当基按过渡矩阵 $\bvec{Q}$ 改变时，同一个线性变换的矩阵表示就变为 $\bvec{Q}^{-1}\bvec{M}\bvec{Q}$。在原基下，$\E^{\bvec{M}}$ 可以表示另一个线性变换，而它在 $\bvec{Q}$ 下的变换是
+\begin{equation}\label{eq_MatExp_1}
+\bvec{Q}^{-1}\E^{\bvec{M}}\bvec{Q}=\E^{\bvec{Q}^{-1}\bvec{M}\bvec{Q}}~.
+\end{equation}
+
+也就是说，$\E^{\bvec{M}}$ 所表示的变换，在基变换的时候，其矩阵表示的变换相当于给 $\bvec{M}$ 变换后再取矩阵指数。这意味着我们也可以定义线性变换的指数——也可以反过来说，这是因为我们可以定义线性变换的指数，方式也是使用Maclaulin级数。
+
+事实上，如果 $\mathcal{T}_i$ 表示若干线性变换，我们可以用映射的复合来定义线性变换的乘法：那么对于任意向量 $\bvec{v}$，$\mathcal{T}^n_i(\bvec{v})=\mathcal{T}_i(\mathcal{T}^{n-1}_i(\bvec{v}))$，其中 $\mathcal{T}_i^1=\mathcal{T}_i$。类似地，也可以定义线性变换的加法：$(\mathcal{T}_1+\mathcal{T}_2)(\bvec{v})=\mathcal{T}_1(\bvec{v})+\mathcal{T}_2(\bvec{v})$。这样，有了乘法和加法，就可以计算线性变换的级数了，而Maclaulin级数就可以定义为其指数：
+\begin{equation}
+\E^\mathcal{T}=\sum\limits_{n=0}^\infty \frac{\mathcal{T}^n}{n!}~.
+\end{equation}
+其中 $\mathcal{T}^0$ 是恒等变换，对应单位矩阵。
+
+\autoref{eq_MatExp_1} 意味着，如果 $\bvec{M}$ 是 $\mathcal{T}$ 在某基下的矩阵表示，那么 $\E^\mathcal{T}$ 在该基下的矩阵表示就是 $\E^{\bvec{M}}$。
+
+\subsubsection{运算性质}
+
+设 $\bvec{M}, \bvec{N}\in \opn{gl}(n, \mathbb{F})$，$a, b\in\mathbb{F}$，则容易得出以下性质：
+
+如果 $\bvec{MN}=\bvec{NM}$，那么我们有 $\E^{\bvec{M}}\E^{\bvec{N}}=\E^{\bvec{M}+\bvec{N}}$。
+
+$\E^{(\bvec{M}\Tr)}=(\E^{\bvec{M}})\Tr$，$\E^{(\bvec{M}^\dagger)}=({\E^{\bvec{M}}})^\dagger$。
+
+\begin{theorem}{矩阵指数的行列式与矩阵的迹}\label{the_MatExp_2}
+对于 $\bvec{M}\in\opn{gl}(n, \mathbb{F})$，有 $\abs{\E^{\bvec{M}}}=\E^{\opn{tr}(\bvec{M})}$。即：矩阵指数的行列式，等于矩阵迹的指数。
+\end{theorem}
+
+\textbf{证明}：
+
+我们只需要考虑上三角矩阵 $\bvec{M}$ 的情况即可，因为任何矩阵总可以通过相似变换变成上三角矩阵。此时，$\bvec{M}$ 的迹就是主对角元素之和，而 $\bvec{M}^k$ 的第 $i$ 个主对角元素都是 $\bvec{M}$ 的第 $i$ 个主对角元素的 $k$ 次方。
+
+如果只看主对角元素，那么可以记 $\bvec{M}$ 为 $(m_1, m_2,\cdots,m_n)$，其中各 $m_i$ 是 $\bvec{M}$ 的第 $i$ 个元素。类似地，$\bvec{M}^k$ 就可以记为 $(m_1^k, m_2^k,\cdots,m_n^k)$。代入矩阵指数的定义式，可得 $\E^{\bvec{M}}$ 的对角线元素为 $(\E^m_1, \E^m_2,\cdots, \E^m_n)$。
+
+由于上三角矩阵的乘积还是上三角矩阵，可知 $\E^{\bvec{M}}$ 是上三角矩阵，因此 $\abs{\E^{\bvec{M}}}=\E^m_1\times\E^m_2\times\cdots\times\E^m_n=\E^{\E^m_1+\E^m_2+\cdots+\E^m_n}=\E^{\opn{tr}(\bvec{M})}$。
+
+\textbf{证毕}。
+
+
+
+
+
+\begin{theorem}{矩阵指数求导}\label{the_MatExp_1}
+矩阵 $\E^{\mat Mt}$ 是一个关于实变量 $t$ 的函数，则
+\begin{equation}\label{eq_MatExp_3}
+\frac{\dd}{\dd t}\E^{\mat Mt}=\mat M\E^{\mat Mt}~,
+\end{equation}
+其中求导定义为对每个矩阵元单独求导的结果。
+\end{theorem}
+
+\autoref{the_MatExp_1} 的形式和 $\frac{\dd}{\dd t}\E^{at}=a\E^{at}$ 是一样的，它们也共享同一个证明，我们留作习题：
+
+\begin{exercise}{}
+根据\autoref{eq_MatExp_2} 的定义，注意 $\mat M$ 是常数矩阵，证明\autoref{eq_MatExp_3}。
+\end{exercise}
+
+
+
+
+
+\subsection{对角化计算矩阵指数}
+
+
+
+最容易计算指数的矩阵，是对角矩阵。由于两个对角矩阵相乘后还是对角矩阵，结果矩阵的第$i$个对角元就是两个矩阵的第$i$个对角元相乘，因此对于任意非负整数$k$有
+\begin{equation}
+\qty(\opn{diag}(a_1, a_2, \cdots, a_n))^k = \opn{diag}(a_1^k, a_2^k, \cdots, a_n^k)~. 
+\end{equation}
+于是易得
+\begin{equation}
+\E^{\opn{diag(a_1, a_2, \cdots, a_n)}} = \opn{diag}(\E^{a_1}, \E^{a_2}, \cdots, \E^{a_n})~. 
+\end{equation}
+
+
+如果矩阵不是对角的，则计算会麻烦很多。但是，如果矩阵能通过相似变换化为对角矩阵，那么根据\autoref{eq_MatExp_1} 即可大大简化计算。对于任意矩阵$\bvec{M}$，如果存在可逆矩阵$\bvec{Q}$使得$\bvec{Q}^{-1}\bvec{MQ}$是对角矩阵，那么$\E^{\bvec{Q}^{-1}\bvec{MQ}}$非常容易计算，从而容易计算出
+\begin{equation}
+\E^{\bvec{M}} = \bvec{Q}\E^{\bvec{Q}^{-1}\bvec{MQ}}\bvec{Q}^{-1}~. 
+\end{equation}
+利用可逆矩阵得到对角矩阵$\bvec{Q}^{-1}\bvec{MQ}$的过程，称为矩阵$\bvec{M}$的对角化。
+
+并不是所有矩阵都能对角化，但复数域上的矩阵一定可以。我们可以利用特征方程来做对角化。求解特征方程
+\begin{equation}
+\det\qty(\bvec{M}-\lambda\bvec{E})=0~, 
+\end{equation}
+这个方程是关于$\lambda$的$n$次多项式方程，其中$n$是$\bvec{M}$的阶数。根据\enref{代数学基本定理}{BscAlg}，此方程一定有$n$个解（计入重数），记为$\lambda_1, \cdots, \lambda_n$。接下来，求解线性方程组（向量的线性方程）
+\begin{equation}
+\bvec{M}\bvec{X} = \lambda_i\bvec{X}~, 
+\end{equation}
+每个这样的方程组一定有非零解（为什么？），每个非零解作为列向量，排成一排，所得的矩阵便是$\bvec{Q}$。
+
+
+\begin{example}{复矩阵对角化}
+
+给定复矩阵
+\begin{equation}
+\pmat{
+    1&-1\\
+    1&1
+}~, 
+\end{equation}
+其特征方程为
+\begin{equation}
+(1-\lambda)(1-\lambda)+1=0~, 
+\end{equation}
+解为
+\begin{equation}
+\lambda_1 = 1-\I, \lambda_2 = 1-\I~. 
+\end{equation}
+
+\end{example}
+
+
+由于实数是复数的子集，故实矩阵也可以在复数域上对角化，虽然对角化后的结果可能不再是实矩阵，但依然可以计算其矩阵指数后再做逆相似变换，还原回实矩阵。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
