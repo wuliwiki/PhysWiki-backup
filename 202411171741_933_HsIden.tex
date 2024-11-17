@@ -170,7 +170,7 @@ Q\geq A\geq G\geq H~.
 
 \pentry{向量\nref{nod_GVec}，几何向量的点乘\nref{nod_Dot}}{nod_fdd1}
 
-\textbf{柯西-施瓦茨不等式（Cauchy-Schwarz Inequality）}，也称\textbf{柯西不等式}，为两个向量的内积（inner product）与它们的模长（norm）之间建立了重要的不等关系。柯西不等式是根据“内积”这种运算的定义推知的属性，因此所有满足“内积”定义要求的运算，或者说可以称为“内积”的运算，都会满足这个不等式\footnote{关于内积更详细的内容可以参考\enref{内积、内积空间}{InerPd}。}。
+\textbf{柯西-施瓦茨不等式（Cauchy-Schwarz Inequality）}，也称\textbf{柯西不等式}，为两个向量的内积（inner product）与它们的模长（norm）之间建立了重要的不等关系。柯西不等式是根据“内积”这种运算的定义推知的基本属性，因此所有满足“内积”定义要求的运算，或者说可以称为“内积”的运算，都会满足这个不等式\footnote{关于内积更详细的内容可以参考\enref{内积、内积空间}{InerPd}。}。
 
 \begin{theorem}{柯西-施瓦茨不等式}
 对于具备内积运算的任意两个向量$\bvec{u},\bvec{v}$，有
@@ -194,11 +194,13 @@ Q\geq A\geq G\geq H~.
 \left( \sum_{i=1}^{n} a_i b_i \right)^2\leq\left( \sum_{i=1}^{n} a_i^2 \right) \left( \sum_{i=1}^{n} b_i^2 \right) ~.
 \end{equation}
 
-这个不等式不仅在几何中起作用，在数学分析、概率等领域都非常重要。
+这个不等式不仅在几何中起作用，在数学分析、线性代数、概率等领域都非常重要。
 
 \subsection{*排序不等式}
 
-假设有两列数字$a_1,a_2,\cdots,a_n;b_1,b_2,\cdots,b_n$。若$\forall 1\leq i<j\leq n,a_i\leq a_j\land b_i\leq b_j$则称二者为顺序排列，也就是两个序列的增长方向相同。若$\forall 1\leq i<j\leq n,a_i\leq a_j\land b_i\geq b_j$，则称二者为逆序排列，也就是两个序列的增长方向相反。其他排列方式称为乱序排列。排序不等式表示：逆序和$\leq$乱序和$\leq$顺序和，规范表述如下：
+假设有两列数字$a_1, a_2, \dots, a_n$和$b_1, b_2, \dots, b_n$。当满足条件$\forall 1 \leq i < j \leq n,  a_i \leq a_j \land b_i \leq b_j$时，称这两列为\textbf{顺序排列（increasingly ordered）}，即两个序列的增长方向一致。当满足$\forall 1 \leq i < j \leq n,  a_i \leq a_j \land b_i \geq b_j$时，则称为\textbf{逆序排列（decreasingly ordered）}，表示两个序列的增长方向相反。若不满足以上任一条件的排列方式，则称为\textbf{乱序排列（unordered）}，即增长方向无规则。
+
+基于上述定义，可以使用排序不等式来比较不同排列的和的大小关系。排序不等式表明：逆序和 $\leq$ 乱序和 $\leq$ 顺序和。这一不等式的证明基于数学归纳法和，因此排序不等式具有广泛的适用范围。规范表述如下：
 
 \begin{theorem}{排序不等式}
 设两列数字 $a_1, a_2, \cdots, a_n$ 和 $b_1, b_2, \cdots, b_n$，两列数分别满足 $a_1 \leq a_2 \leq \cdots \leq a_n$ 和 $b_1 \leq b_2 \leq \cdots \leq b_n$。那么有如下不等式：
