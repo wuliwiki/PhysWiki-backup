@@ -1,0 +1,177 @@
+% 法拉第电磁感应定律（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Faraday\%27s_law_of_induction}{相关文章}。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/0ad787ae5c515839.png}
+\caption{法拉第的实验展示了线圈之间的感应现象：右侧的液体电池提供电流，该电流流经小线圈（A），从而产生一个磁场。当线圈静止时，大线圈中没有感应电流产生。但当小线圈在大线圈中移动或移出时（B），大线圈中的磁通量发生变化，从而在大线圈中感应出电流，这一电流通过检流计（G）检测到。[1]} \label{fig_FLDL_1}
+\end{figure}
+法拉第电磁感应定律（简称法拉第定律）是电磁学中的一条定律，用于预测磁场如何与电路相互作用以产生电动势（emf）。这种现象被称为电磁感应，是变压器、电感器以及许多类型的电动机、发电机和螺线管的基本工作原理。[2][3]
+
+麦克斯韦-法拉第方程（作为麦克斯韦方程组之一）描述了一个事实，即空间变化的（也可能是时间变化的，具体取决于磁场随时间的变化情况）电场总是伴随着时间变化的磁场，而法拉第定律则表明，当通过由导电回路包围的表面的磁通量随时间变化时，导电回路中会产生电动势（即单位电荷沿回路运动一圈时电磁作用所做的功）。
+
+法拉第定律被发现后，其一个方面（变压器电动势）被表述为麦克斯韦-法拉第方程。法拉第定律的方程可以通过麦克斯韦-法拉第方程（描述变压器电动势）和洛伦兹力（描述运动电动势）推导而来。麦克斯韦-法拉第方程的积分形式仅描述变压器电动势，而法拉第定律的方程同时描述变压器电动势和运动电动势。
+\subsection{历史}  
+电磁感应现象分别由迈克尔·法拉第于1831年和约瑟夫·亨利于1832年独立发现。[4] 法拉第是第一个发表其实验结果的人。[5][6]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/40394efd87bbeabe.png}
+\caption{法拉第1831年的演示[7]} \label{fig_FLDL_2}
+\end{figure}
+法拉第在1831年8月29日的笔记[8]中描述了一项电磁感应的实验演示（见图）[9]，他将两根导线缠绕在铁环的两侧（类似于现代的环形变压器）。他对电磁铁新发现的特性进行了评估，并推测，当一侧的导线开始流过电流时，一种波动会通过铁环传播，并在另一侧引起某种电效应。确实，当他将左侧的导线连接或断开电池时，右侧导线连接的电流计的指针显示了瞬时电流（他称之为“电波”）[10]: 182–183 。这种感应是由于电池连接或断开时产生的磁通量变化导致的。[7] 他的笔记还记录到，电池侧导线的圈数越少，电流计指针的扰动就越大。[8]
+
+在两个月内，法拉第发现了几种其他形式的电磁感应。例如，他观察到，当他快速将一根条形磁铁插入或拉出线圈时，会产生瞬时电流；同时，他通过在条形磁铁附近旋转一个带有滑动电接触的铜盘（即“法拉第圆盘”），生成了一个稳定的直流电流（DC）。[10]: 191–195 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/11efdbf01103c931.png}
+\caption{法拉第圆盘，第一台电动发电机，一种同极发电机。} \label{fig_FLDL_3}
+\end{figure}
+迈克尔·法拉第用他称为“力线”的概念解释了电磁感应。然而，当时的科学家普遍拒绝了他的理论观点，主要是因为这些观点没有用数学形式表述。[10]: 510 唯一的例外是詹姆斯·克拉克·麦克斯韦，他在1861-1862年以法拉第的思想为基础，建立了他的定量电磁理论。[10]: 510 [11][12] 在麦克斯韦的论文中，电磁感应的时间变化部分以微分方程的形式表达，奥利弗·亥维赛德将其称为“法拉第定律”，尽管它与法拉第最初的定律版本不同，并未描述运动电动势（motional emf）。亥维赛德的版本（见下文麦克斯韦-法拉第方程）是如今被称为“麦克斯韦方程组”的方程形式之一。
+
+**楞次定律**由埃米尔·楞次（Emil Lenz）于1834年提出，[13] 它描述了“通过回路的磁通量”，并给出了由电磁感应产生的感应电动势和电流的方向（详见下文示例的扩展说明）。
+
+根据阿尔伯特·爱因斯坦的说法，他的狭义相对论理论的大部分基础和发现来源于法拉第1834年提出的电磁感应定律。[14][15]
+\subsection{法拉第定律}
+法拉第定律最广泛接受的版本表述为：  
+
+\textbf{闭合路径上的电动势等于该路径所包围的磁通量随时间变化率的负值。}[16][17]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/bc516561e14bbdfa.png}
+\caption{交变电流流经左侧的螺线管，产生变化的磁场。通过电磁感应，这一磁场使右侧的导线环中产生电流。} \label{fig_FLDL_4}
+\end{figure}
+\subsubsection{数学表述}
+对于位于磁场中的一个导线环，磁通量 \( \Phi_B \) 定义为任何边界为给定导线环的表面 \( \Sigma \) 上的值。由于导线环可能在运动，我们用 \( \Sigma(t) \) 表示随时间变化的表面。磁通量通过以下表面积分定义：  
+\[
+\Phi_B = \iint_{\Sigma(t)} \mathbf{B}(t) \cdot \mathrm{d}\mathbf{A},~
+\]  
+其中，\( \mathrm{d}\mathbf{A} \) 是运动表面 \( \Sigma(t) \) 上的面积矢量元素，\( \mathbf{B} \) 是磁场，\( \mathbf{B} \cdot \mathrm{d}\mathbf{A} \) 是磁通量通过 \( \mathrm{d}\mathbf{A} \) 的矢量点积。从视觉上来说，导线环中的磁通量与穿过环的磁场线的数量成正比。
+
+当磁通量发生变化时（可能因为磁场 \( \mathbf{B} \) 发生变化，或者因为导线环运动或变形，或两者兼有），根据法拉第电磁感应定律，导线环中会产生电动势（emf）。电动势定义为单位电荷绕导线环一圈所能获得的能量。[18]: ch17 [19][20] （尽管某些来源对定义有不同表述，这种定义方式是为与狭义相对论的方程保持一致。）等效地，这也是通过切断导线形成开路并用电压表连接两端测量到的电压。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/09e1b0c0c1bcd1f0.png}
+\caption{曲面积分的定义依赖于将曲面 \( \Sigma \) 分割成小的曲面元素。每个元素都与一个矢量 \( \mathrm{d}\mathbf{A} \) 相关联，其大小等于该元素的面积，方向垂直于该元素并指向“外侧”（相对于曲面方向而言）。} \label{fig_FLDL_5}
+\end{figure}
+法拉第定律表明，电动势（emf）也由磁通量的变化率给出：
+\[
+\mathcal{E} = -\frac{\mathrm{d} \Phi_B}{\mathrm{d} t},~
+\]
+其中 \( \mathcal{E} \) 是电动势（emf），\( \Phi_B \) 是磁通量。
+
+电动势的方向由\textbf{楞次定律}确定。
+
+电流感应定律的数学形式由弗朗茨·恩斯特·诺依曼（Franz Ernst Neumann）于1845年确立。[21]  
+
+法拉第定律包含了关于变量的大小和方向之间关系的信息。然而，方向之间的关系并未明确表达，而是隐含在数学公式中。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/62536549a9f86bbd.png}
+\caption{法拉第定律的左手法则：   磁通量变化 \( \Delta \Phi_B \) 的符号基于磁场 \( \mathbf{B} \)、环路面积 \( A \) 以及该面积的法向量 \( \mathbf{n} \) 之间的关系确定，这些关系由左手的手指表示。如果 \( \Delta \Phi_B \) 为正，则电动势的方向与弯曲手指的方向（黄色箭头）相同。如果 \( \Delta \Phi_B \) 为负，则电动势的方向与箭头方向相反。[22]} \label{fig_FLDL_6}
+\end{figure}
+
+可以直接从法拉第定律确定电动势（emf）的方向，而无需借助楞次定律。以下的**左手法则**可以帮助确定方向：[22][23]  
+
+\begin{itemize}
+\item 将左手的弯曲手指与导线环的方向对齐（黄色线）。  
+\item 伸出大拇指。伸出的拇指表示法向量 \( \mathbf{n} \)（棕色）的方向，即环路所包围区域的法向量。  
+\item 确定磁通量变化 \( \Delta \Phi_B \) 的符号。根据与法向量 \( \mathbf{n} \) 的关系，确定初始磁通量和最终磁通量（它们的差值即为 \( \Delta \Phi_B \)）。  
+\item 如果磁通量变化 \( \Delta \Phi_B \) 为正，弯曲手指的方向即为电动势的方向（黄色箭头）。  
+\item 如果磁通量变化 \( \Delta \Phi_B \) 为负，电动势的方向与弯曲手指的方向相反（与黄色箭头相反）。
+\end{itemize}
+对于由 \( N \) 个相同线圈紧密绕成的导线圈，每个线圈具有相同的磁通量 \( \Phi_B \)，法拉第电磁感应定律表述为：[24][25]  
+\[
+\mathcal{E} = -N \frac{\mathrm{d} \Phi_B}{\mathrm{d} t},~
+\]  
+其中，\( N \) 是线圈的匝数，\( \Phi_B \) 是单个线圈的磁通量。
+\subsubsection{麦克斯韦–法拉第方程}
+麦克斯韦–法拉第方程表明，时间变化的磁场总是伴随着空间变化的（也可能是时间变化的）非保守电场，反之亦然。麦克斯韦–法拉第方程为：
+\[
+\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}~
+\]
+（以国际单位制表示），其中 \( \nabla \times \) 是旋度算符，\( \mathbf{E}(\mathbf{r}, t) \) 是电场，\( \mathbf{B}(\mathbf{r}, t) \) 是磁场。这些场通常是位置 \( \mathbf{r} \) 和时间 \( t \) 的函数。[26]
+
+麦克斯韦–法拉第方程是麦克斯韦方程组中的四个方程之一，因此在经典电磁理论中具有基础性作用。通过开尔文–斯托克斯定理，该方程还可以以积分形式表示，[27] 从而重现法拉第定律：
+\[
+\oint_{\partial \Sigma} \mathbf{E} \cdot \mathrm{d} \mathbf{l} = -\int_{\Sigma} \frac{\partial \mathbf{B}}{\partial t} \cdot \mathrm{d} \mathbf{A}~
+\]
+其中，如图所示，\( \Sigma \) 是由闭合曲线 \( \partial \Sigma \) 包围的一个表面，\( \mathrm{d}\mathbf{l} \) 是曲线 \( \partial \Sigma \) 上的微小矢量元素，\( \mathrm{d}\mathbf{A} \) 是表面 \( \Sigma \) 上的微小矢量元素，其方向垂直于该表面片段，大小为该表面微小片段的面积。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/d06206ba9e72ca64.png}
+\caption{开尔文–斯托克斯定理的示意图，其中包括表面 \( \Sigma \)、其边界 \( \partial \Sigma \)，以及由右手法则确定的方向 \( \mathbf{n} \)。} \label{fig_FLDL_8}
+\end{figure}
+\(\mathrm{d}\mathbf{l}\) 和 \(\mathrm{d}\mathbf{A}\) 都存在符号的歧义。为了确定正确的符号，使用右手法则，如**开尔文–斯托克斯定理**文章中所述。对于平面表面 \(\Sigma\)，曲线 \(\partial \Sigma\) 上的正路径元素 \(\mathrm{d}\mathbf{l}\) 根据右手法则定义：当右手拇指指向表面 \(\Sigma\) 的法向量 \(\mathbf{n}\) 时，手指所指的方向即为正路径方向。
+
+围绕 \(\partial \Sigma\) 的线积分称为**环流**。[18]: ch3 环流为非零的电场 \(\mathbf{E}\) 的行为不同于由静电荷产生的电场。由电荷生成的电场 \(\mathbf{E}\) 可以表示为标量场的梯度，该标量场是泊松方程的解，其路径积分为零（详见梯度定理）。
+
+此积分方程对空间中任何路径 \(\partial \Sigma\) 及以该路径为边界的任何表面 \(\Sigma\) 都成立。
+
+如果表面 \(\Sigma\) 随时间不发生变化，该方程可以改写为：
+\[
+\oint_{\partial \Sigma} \mathbf{E} \cdot \mathrm{d}\mathbf{l} = -\frac{\mathrm{d}}{\mathrm{d}t} \int_{\Sigma} \mathbf{B} \cdot \mathrm{d}\mathbf{A}.~
+\]
+右侧的表面积分是通过 \(\Sigma\) 的磁通量 \(\Phi_B\) 的显式表达式。
+
+由变化的磁通量感应产生的电矢量场（整体电场的旋量分量）在非相对论极限下可以通过以下体积分方程近似表示：[26]: 321
+\[
+\mathbf{E}_s(\mathbf{r}, t) \approx -\frac{1}{4\pi} \iiint_V \frac{\left( \frac{\partial \mathbf{B}(\mathbf{r}', t)}{\partial t} \right) \times (\mathbf{r} - \mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|^3} \, d^3\mathbf{r}'.~
+\]
+\subsection{证明}  
+麦克斯韦的四个方程（包括麦克斯韦–法拉第方程）以及洛伦兹力定律是推导经典电磁学中所有内容的充分基础。[18][19] 因此，可以以这些方程为起点“证明”法拉第定律。[28][29]
+
+起点是空间中任意表面 \( \Sigma \)（可以移动或变形）的磁通量随时间的变化率：
+\[
+\frac{\mathrm{d} \Phi_B}{\mathrm{d} t} = \frac{\mathrm{d}}{\mathrm{d} t} \int_{\Sigma(t)} \mathbf{B}(t) \cdot \mathrm{d} \mathbf{A}~
+\]
+（由定义得出）。利用麦克斯韦–法拉第方程和一些矢量恒等式，可以对该全时间导数进行计算和简化；详细步骤见下方框中：
+
+考虑通过一个可以移动或变形的闭合边界（回路）的磁通量的时间导数。该回路所包围的面积记为 \( \Sigma(t) \)，则时间导数可以表示为：
+\[
+\frac{\mathrm{d} \Phi_B}{\mathrm{d} t} = \frac{\mathrm{d}}{\mathrm{d} t} \int_{\Sigma(t)} \mathbf{B}(t) \cdot \mathrm{d} \mathbf{A}~
+\]
+积分随时间变化有两个原因：积分函数（被积函数）可能变化，或者积分区域可能变化。这两部分的变化是线性叠加的，因此：
+\[
+\left. \frac{\mathrm{d} \Phi_B}{\mathrm{d} t} \right|_{t=t_0} = 
+\left( \int_{\Sigma(t_0)} \left. \frac{\partial \mathbf{B}}{\partial t} \right|_{t=t_0} \cdot \mathrm{d} \mathbf{A} \right) + 
+\left( \frac{\mathrm{d}}{\mathrm{d} t} \int_{\Sigma(t)} \mathbf{B}(t_0) \cdot \mathrm{d} \mathbf{A} \right)~
+\]
+其中，\( t_0 \) 是任意给定的固定时间。接下来将证明右侧的第一项对应于变压器电动势（transformer emf），第二项对应于运动电动势（motional emf），后者来源于导电回路在磁场中运动或变形时，对电荷载流子产生的洛伦兹力。
+
+右侧的第一项可以通过麦克斯韦–法拉第方程的积分形式重新写为：
+\[
+\int_{\Sigma(t_0)} \left. \frac{\partial \mathbf{B}}{\partial t} \right|_{t=t_0} \cdot \mathrm{d} \mathbf{A} = 
+-\oint_{\partial \Sigma(t_0)} \mathbf{E}(t_0) \cdot \mathrm{d} \mathbf{l}~
+\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/f357f0394a6214fe.png}
+\caption{回路 \(\partial \Sigma\) 中的一个矢量元素 \(\mathrm{d}\mathbf{l}\) 以速度 \(\mathbf{v}_\mathbf{l}\) 在时间 \(\mathrm{d}t\) 内移动时所扫过的面积。} \label{fig_FLDL_9}
+\end{figure}
+接下来分析上图的第二项：
+\[
+\frac{\mathrm{d}}{\mathrm{d} t} \int_{\Sigma(t)} \mathbf{B}(t_0) \cdot \mathrm{d} \mathbf{A}~
+\]
+证明这一点比第一项略为复杂，更多细节和替代方法可参阅相关文献。[28][29][30]  
+当回路移动和/或变形时，它会扫过一个表面（参见右图）。当回路的一小部分 \( \mathrm{d}\mathbf{l} \) 以速度 \( \mathbf{v}_\mathbf{l} \) 在短时间 \( \mathrm{d}t \) 内移动时，它扫过的面积矢量为：\(\mathrm{d}\mathbf{A}_{\text{sweep}} = \mathbf{v}_\mathbf{l} \mathrm{d}t \times \mathrm{d}\mathbf{l}\)（注意，在上图中，该矢量指向屏幕外）。因此，由于回路的变形或移动，在时间 \( \mathrm{d}t \) 内通过回路的磁通量变化为：
+\[
+\mathrm{d}\Phi_B = \int \mathbf{B} \cdot \mathrm{d}\mathbf{A}_{\text{sweep}} = \int \mathbf{B} \cdot (\mathbf{v}_\mathbf{l} \mathrm{d}t \times \mathrm{d}\mathbf{l}) = -\int \mathrm{d}t \, \mathrm{d}\mathbf{l} \cdot (\mathbf{v}_\mathbf{l} \times \mathbf{B})~
+\]
+这里使用了三重标量积的恒等式。因此：
+\[
+\frac{\mathrm{d}}{\mathrm{d}t} \int_{\Sigma(t)} \mathbf{B}(t_0) \cdot \mathrm{d}\mathbf{A} = -\oint_{\partial \Sigma(t_0)} (\mathbf{v}_\mathbf{l}(t_0) \times \mathbf{B}(t_0)) \cdot \mathrm{d}\mathbf{l}~
+\]
+其中，\( \mathbf{v}_\mathbf{l} \) 是回路 \(\partial \Sigma\) 中某部分的速度。
+
+将以上结果结合起来，可以得到：
+\[
+\left. \frac{\mathrm{d}\Phi_B}{\mathrm{d}t} \right|_{t=t_0} = \left( -\oint_{\partial \Sigma(t_0)} \mathbf{E}(t_0) \cdot \mathrm{d}\mathbf{l} \right) + \left( -\oint_{\partial \Sigma(t_0)} (\mathbf{v}_\mathbf{l}(t_0) \times \mathbf{B}(t_0)) \cdot \mathrm{d}\mathbf{l} \right)~
+\]
+合并项后：
+\[
+\left. \frac{\mathrm{d}\Phi_B}{\mathrm{d}t} \right|_{t=t_0} = -\oint_{\partial \Sigma(t_0)} \left( \mathbf{E}(t_0) + \mathbf{v}_\mathbf{l}(t_0) \times \mathbf{B}(t_0) \right) \cdot \mathrm{d}\mathbf{l}.~
+\]
