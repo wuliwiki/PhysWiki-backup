@@ -18,13 +18,13 @@
 
 \begin{itemize}
 \item Python 是一门流行的编程语言。由荷兰数学和计算机科学研究学会的吉多·范罗苏姆于1990年代初设计。
-\item Python 是一门解释型编程语言： 这意味着开发过程中没有了编译这个环节。类似于PHP和Perl语言。
+\item Python 是一门解释型编程语言： 这意味着开发过程中没有了像 C 语言的编译这个环节。类似于 Matlab 语言。
 \item Python 是一门交互式编程语言： 这意味着，您可以在一个 Python 提示符 >>> 后直接执行代码。
 \item Python 是一门面向对象的语言: 这意味着Python支持面向对象的风格或代码封装在对象的编程技术。
 \end{itemize}
 
-\addTODO{“PHP 和 Perl 语言” 小白没听说过（大部分人也没用过）”}
-\addTODO{什么是 “提示符 >>>”？（应该在装完后介绍如何进入提示符环境）}
+\addTODO{“PHP 和 Perl 语言” 小白没听说过（大部分人也没用过），可能 Matlab 知道的人更多”}
+\addTODO{什么是 “提示符 >>>”？（应该在装完后介绍如何进入提示符环境），这里可以暂时不提}
 
  
 \subsubsection{1.2.Python 可以做什么？}
@@ -49,11 +49,13 @@
 
 %如果不想安装软件可以直接用浏览器访问 \href{https://jupyter.org/}{Jupyter Notebook} 运行 Python 程序， 要在本地使用 Python 推荐安装 Anoconda 或 miniconda\upref{CondaN}。 以下我们用前者进行讲解。 Jupyter Notebook 的优点是交互式编程， 即每输入一个命令都可以立即执行（快捷键 Shift + Enter）， 利于学习和实验。
 
-\subsection{Python 安装} \label{sub_Python_2}
-\addTODO{什么是 “平台”？ 什么是 “平台的二进制代码不可用的”？（应该在下载安装包时举例介绍）}
-\addTODO{官网下载安装的，和 Anaconda、PyCharm 有什么区别？哪个才是真的 Python？小白应该装哪个？}
+\subsection{常用的 Python 开发环境}
+\addTODO{官网下载安装的，和 Anaconda、PyCharm、Juyter Notebook 有什么区别和关系？哪个才是真的 Python？小白应该装哪个？（大部分小白肯定不会直接装官网的 python 而是用这里列举的，毕竟 IDLE 乃至 python.exe 本身过于简陋）}
 
-Python 已经能够工作在不同平台上。您需要下载适用于您使用平台的二进制代码，然后安装 Python。如果您平台的二进制代码是不可用的，你需要使用C编译器手动编译源代码。编译的源代码，功能上有更多的选择性， 为 Python 安装提供了更多的灵活性。\textbf{不过需要注意：太高版本的 Python 可能会是少数库无法安装。}
+\subsection{Python 安装} \label{sub_Python_2}
+
+Python 已经能够工作在不同平台上。您需要下载适用于您使用平台的二进制代码，然后安装 Python。如果您平台的二进制代码是不可用的，你需要使用 C 编译器手动编译源代码。编译的源代码，功能上有更多的选择性， 为 Python 安装提供了更多的灵活性。\textbf{不过需要注意：太高版本的 Python 可能会是少数库无法安装。}
+\addTODO{什么是 “平台”？ 什么是 “平台的二进制代码不可用的”？（应该在下载安装包时举例介绍，目前除了 Windows 都不能直接从官网下载安装包，官网只提供源码）}
 
 \subsubsection{2.1.Window 平台安装 Python:}
 访问 \href{https://www.python.org/downloads/windows/}{Python 官网关于 Windows 下载}，一般就下载  Windows installer，其中“Stable Releases”是指稳定版本，推荐下载。
