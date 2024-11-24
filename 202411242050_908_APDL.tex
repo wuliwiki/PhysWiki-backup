@@ -51,3 +51,47 @@ SI单位中，磁常数的值为：
 \mathbf{F}_{12} = -\frac{\mu_0}{4\pi} \int_{L_1} \int_{L_2} \frac{\left( I_1 d\boldsymbol{\ell}_1 \cdot I_2 d\boldsymbol{\ell}_2 \right) \hat{\mathbf{r}}_{21}}{|r|^2}.~
 \]
 在这种形式下，可以立即看出，由导线 2 对导线 1 施加的力与由导线 1 对导线 2 施加的力大小相等方向相反，这与牛顿第三定律一致。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/4b3c60656ba01f5b.png}
+\caption{安培原始实验的示意图} \label{fig_APDL_1}
+\end{figure}
+
+1873年，詹姆斯·克拉克·麦克斯韦推导出了通常表述的安培力定律，这是与安培和高斯的原始实验一致的多种表达式之一。关于两个直线电流 \(I\) 和 \(I'\) 之间的力的 \(x\) 分量（见相邻图示），安培在1825年和高斯在1833年分别给出了如下公式：[8]
+\[
+dF_x = kII' ds' \int ds \frac{\cos(x ds) \cos(r ds') - \cos(rx) \cos(ds ds')}{r^2}.~
+\]
+安培之后，众多科学家（包括威廉·韦伯、鲁道夫·克劳修斯、麦克斯韦、伯恩哈德·黎曼、赫尔曼·格拉斯曼和瓦尔特·里茨）对这一表达式进行了发展，试图寻找磁力的基本表达式。通过微分计算可以得到：
+\[
+\frac{\cos(x\,ds) \cos(r\,ds')}{r^2} = -\cos(rx) \frac{\cos \varepsilon - 3 \cos \phi \cos \phi'}{r^2},~
+\]
+以及：
+\[
+\frac{\cos(rx) \cos(ds\,ds')}{r^2} = \frac{\cos(rx) \cos \varepsilon}{r^2}.~
+\]
+基于这些表达式，安培力定律可以进一步表示为：
+\[
+dF_x = kII' ds' \int ds' \cos(rx) \frac{2 \cos \varepsilon - 3 \cos \phi \cos \phi'}{r^2}.~
+\]
+此外，使用以下关系：
+\[
+\frac{\partial r}{\partial s} = \cos \phi,\ \frac{\partial r}{\partial s'} = -\cos \phi',~
+\]
+以及：
+\[
+\frac{\partial^2 r}{\partial s \partial s'} = \frac{-\cos \varepsilon + \cos \phi \cos \phi'}{r}.~
+\]
+可以将安培的结果表示为：
+\[
+d^2F = \frac{kII' ds ds'}{r^2} \left( \frac{\partial r}{\partial s} \frac{\partial r}{\partial s'} - 2r \frac{\partial^2 r}{\partial s \partial s'} \right).~
+\]
+麦克斯韦指出，该表达式中可以添加关于函数 \(Q(r)\) 的导数项，这些项在积分时会相互抵消。麦克斯韦给出了与实验事实一致的“最通用形式”：
+\[
+d^2F_x = kII' ds ds' \frac{1}{r^2} \left[ \left( \frac{\partial r}{\partial s} \frac{\partial r}{\partial s'} - 2r \frac{\partial^2 r}{\partial s \partial s'} + r \frac{\partial^2 Q}{\partial s \partial s'} \right) \cos(rx) + \frac{\partial Q}{\partial s'} \cos(x\,ds) - \frac{\partial Q}{\partial s} \cos(x\,ds') \right].~
+\]
+
+麦克斯韦指出，对于一个封闭电路，函数 \(Q(r)\) 的形式无法通过实验直接确定。假设 \(Q(r)\) 的形式为：
+\[
+Q = -\frac{(1+k)}{2r}.~
+\]

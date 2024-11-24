@@ -1,0 +1,12 @@
+% Python C API 笔记
+% license Usr
+% type Note
+
+% 参考 baltam_python_api 仓库
+
+\begin{itemize}
+\item \verb`PyObject *` 可以容纳任何 python 对象
+\item \verb`PyObject *pName = PyUnicode_DecodeFSDefault("my_python_module");` 可以创建一个 python 字符串变量
+\item \verb`PyObject *pModule = PyImport_Import(pName);` 可以加载 python 模块
+\item \verb`Py_DECREF(PyObject *o);` 是一个宏，可以把 \verb`o` 对象的引用计数减一， 当减少到零该对象就会自动销毁。\verb`Py_INCREF(PyObject *o);` 把引用加一。
+\end{itemize}

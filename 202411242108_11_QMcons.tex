@@ -1,0 +1,55 @@
+% 守恒量（量子力学）
+% keys 量子力学|守恒|本征值|能量守恒
+% license Xiao
+% type Tutor
+
+\pentry{平均值\nref{nod_QMavg}， 无限深势阱\nref{nod_ISW}， 薛定谔方程\nref{nod_TDSE}}{nod_7bdd}
+\addTODO{推论的证明；}
+本文使用\enref{原子单位制}{AU}。 在经典力学中， 某个时刻测量系统的某个量 $Q$ 可以得到唯一确定的值。 如果测量值不随时间变化， 就说它\textbf{守恒（conserved）}。 而在量子力学中， 若对一个系统单次测量， 测量值是不确定的， 那守恒量由该如何理解呢？ 比如两个无限深势阱中的粒子具有相同的波函数——若干能量本征态的线性组合， 测得的能量却可能各不相同， 是否意味着能量不守恒？由于在实际测量中，有意义的物理量是算符的本征值与期待值（平均值）。受此启发，我们定义：
+\begin{definition}{守恒量（量子力学）}\label{def_QMcons_1}
+若算符$\hat Q$不显含时间，且与哈密顿算符对易，则称该力学量为守恒量。
+\end{definition}
+\begin{corollary}{平均值和概率守恒}
+守恒量的平均值及概率分布不随时间变化。
+\end{corollary}
+\textbf{证明：}
+
+算符运动方程为
+\begin{equation}
+\dv{\left\langle \hat A \right\rangle}{t}=\left\langle\frac{\partial \hat A}{\partial t}\right\rangle+\frac{\I}{\hbar}\langle[\hat H, \hat A]\rangle~.
+\end{equation}
+由此可知，若定义成立，则守恒量平均值为0。下面证明第二条。
+
+设$\ket a$为任意态矢，$\hat Q$为守恒量。因为$[\hat Q,\hat H]=0$，所以有共同的本征函数系，令其为$\{\ket n\}$，且设$H\ket n=E_n\ket n$，则
+\begin{equation}
+\begin{aligned}
+\dv{c_n(t)}{t}\equiv\dv{\braket{n}{a}}{t}&=\braket{b}{\pdv{\ket a}{t}}\\
+&=\frac{1}{\I\hbar}\bra n \hat H\ket{a}\\
+&=\frac{1}{\I\hbar}E_nc_n(t)~,
+\end{aligned}
+\end{equation}
+解得
+\begin{equation}
+c_n(t)=c_n(0)\E^{-\I E_n t/\hbar }~.
+\end{equation}
+例如在无限深势阱中任意随时间变化的波包（未必是单个能量本征态， 而是任意能量本征态的线性组合， 例如 “\enref{无限深势阱中的高斯波包}{wvISW}”）， 测得每个能量本征值的概率都不随时间变化， 这就说明能量守恒。
+\subsection{能量守恒}
+
+\begin{theorem}{能量守恒}
+若哈密顿算符 $H$ 不随时间变化， 就有能量守恒。
+\end{theorem}
+\textbf{证明}： 令能量的所有本征态为（为了方便起见， 假设本征态是离散的） $\{\ket{u_i}\}$， 系统状态随时间的演化可以记为（见\autoref{eq_TDSE_5}， 其中 $C_i$ 为常数， 由初始状态决定）
+\begin{equation}
+\ket{v(t)} = \sum_i C_i \E^{-\I E_i t} \ket{u_i}~,
+\end{equation}
+令能量 $E_j$ 对应的所有本征态的编号的集合为 $D_j$（如果 $E_j$ 是非简并的， 那么 $D_j = \qty{j}$），% \addTODO{链接}
+那么测得 $E_j$ 的概率为
+\begin{equation}
+P(E_j) = \sum_{i \in D_j} \abs{C_i}^2~,
+\end{equation}
+不随时间变化， 所以有能量守恒。 证毕。
+
+\begin{example}{}
+能量守恒的简单系统如： \enref{无限深势阱}{ISW}， \enref{简谐振子}{QSHOop}，\enref{自由粒子}{FreeP1}， \enref{有限深势阱}{FiSph}等。 这些系统的哈密顿算符都不随时间变化。 将任意时刻的波函数投影到能量的本征态上， 得到的系数的模方都是相同的。
+\end{example}
+
