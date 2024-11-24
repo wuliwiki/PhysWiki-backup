@@ -1,0 +1,36 @@
+% 导数近似之差分矩阵算法
+% keys 导数近似|差分矩阵
+% license Usr
+% type Tutor
+\pentry{有限差分\nref{nod_Diffen}}{nod_d4df}
+本节介绍利用已知函数点近似函数导数的方法，以及相应的计算机处理，它们将给出所谓的差分矩阵。这一内容将使我们能够更快过渡到谱方法。
+
+首先思考这样的问题：给定一组点 $\{x_i\}$ 和对应的函数值 $u(x_i)$，我们如何使用这些数据近似 $u$ 的导数呢？
+
+最直接的想法就是进行\enref{有限差分}{Diffen}。考虑点 $\{x_i\}$ 是均匀分布的，并记 $x_{i+1}-x_i=h$，则该式对每一 $i$ 都成立。
+
+记 $w_i$ 为 $u'(x_i)$ 的近似值。那么标准的二阶有限差分近似为
+\begin{equation}\label{eq_DifMa_1}
+w_i=\frac{u_{i+1}-u_{i-1}}{2h}.~
+\end{equation}
+所谓的几阶近似公式是指
+\begin{definition}{$n$ 阶近似}
+称函数 $u(x)$ 是 $f(x)$ （关于 $h$）的\textbf{$n$ 阶近似}，是指对任一点 $x_i$，$\abs{f(x_i)-u(x_i)}$ 是关于 $h$ 的 $n$ 阶无穷小。 
+\end{definition}
+
+让我们证明\autoref{eq_DifMa_1} 的差分公式确实是 $u$ 关于 $h$ 的二阶近似。
+
+\textbf{证明：}利用该\enref{泰勒展开}{Taylor}
+\begin{equation}
+\begin{aligned}
+f(x_i+h)=f(x_i)+f'(x_i)h+\frac{1}{2}f''(x_0)h^2+\frac{1}{6}f'''(x_0)h^3,\\
+f(x_i)=f(x_i-h)+f'(x_i-h)h+\frac{1}{2}f''(x_0)h^2+\frac{1}{6}f'''(x_0)h^3.~
+
+\end{aligned}
+\end{equation}
+
+
+\textbf{证毕！}
+
+
+

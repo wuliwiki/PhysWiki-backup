@@ -11,7 +11,7 @@ Toeplitz矩阵是这样的矩阵，处于位置 $(i,j)$ 的矩阵元和 $(i+1,j+
 设 $A$ 是 $m\times n$ 的矩阵，若对任意 $i\in m,j\in n$，矩阵元 $a_{ij}=a_{i+1,j+1}$ 恒成立，则称 $A$ 为\textbf{Toeplitz矩阵}。
 \end{definition}
 
-\begin{theorem}{}
+\begin{theorem}{}\label{the_ToepM_1}
 若 $A$ 是 $m\times n$ 的Toeplitz矩阵，其元记作 $a_{ij}$。则
 \begin{equation}
 a_{ij}=\left\{\begin{aligned}
@@ -31,7 +31,7 @@ a_{ij}=a_{i-1,j-1}=\cdots=a_{i-(i-1),j-(i-1)}=a_{1,j-i+1}.~
 
 若把行指标当 $x$ 轴，列指标当 $y$ 轴，原点取作 $(1,1)$ 构建的平面坐标系。则Toeplitz矩阵是说坐标位于过点 $(1,i)$ 或 $(i,1)$ 的斜率为 $-45^\circ$ 的直线上的矩阵元，取相同值。这些线就是开头提到的“从左上到右下的 $45^\circ$ 斜线”。
 
-\begin{example}{}
+\begin{example}{}\label{ex_ToepM_1}
 矩阵
 \begin{equation}
 (1),
@@ -56,10 +56,10 @@ a_{ij}=a_{i-1,j-1}=\cdots=a_{i-(i-1),j-(i-1)}=a_{1,j-i+1}.~
 \end{example}
 
 \subsection{Mathematica实操}
-Mathematica软件提供了构建Toeplitz矩阵的基本函数，其语法为
+Mathematica软件提供了构建Toeplitz矩阵的基本函数，其语法为 ToeplitzMatrix[a,b],其中 $a$ 告诉Mathematica矩阵的第一列元素，$b$ 则是第一行元素。例如下面的例子给出了\autoref{ex_ToepM_1} 中的第二个矩阵。
 \begin{lstlisting}[language=mathematica, caption=Mathematica构造Toeplitz矩阵]
 ToeplitzMatrix[{1, 2, 3}, {1, 3}]
 \end{lstlisting}
-
+当然，有了Toeplitz矩阵的定义，和\autoref{the_ToepM_1} ，我们完全可以自己写出构造Toeplitz矩阵的代码。这只需要一个For循环嵌套For循环实现。
 
 
