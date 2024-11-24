@@ -47,7 +47,24 @@ f'(x_i)&=\frac{f(x_i+h)-f(x_i-h)}{2h}-\frac{1}{3}h^3f'''(x_i)-o(h^3)\\
 \textbf{证毕！}
 
 \subsection{差分矩阵}
-\autoref{eq_DifMa_1} 告诉我们，已知点 $\{x_i\}$ 处的函数值 $\{u_i\}$，我们可以得到函数 $u$ 在这些点的导数近似 $\{w_i\}$。但是，这一公式仅仅给我们非端点 $i=0,i=N$（$N$ 为 $i$ 的最大取值）处的导数近似。ye
+\autoref{eq_DifMa_1} 告诉我们，已知点 $\{x_i\}$ 处的函数值 $\{u_i\}$，我们可以得到函数 $u$ 在这些点的导数近似 $\{w_i\}$。但是，这一公式仅仅给我们非端点 $i=0,i=N$（$N$ 为 $i$ 的最大取值）处的导数近似。也就是说，若我们通过已知点逐次近似函数的高阶导数，则能通过\autoref{eq_DifMa_1} 近似函数高阶导数的点数会依次减少端点处的2个。
+
+然而，若认为 $u$ 关于 $x$ 是周期性的，即 $u_0=u_N,u_i=u_{N+i}$，那么端点处的导数近似公式就为
+\begin{equation}\label{eq_DifMa_2}
+w_0=\frac{u_{1}-u_{-1}}{2h}=\frac{u_{1}-u_{N-1}}{2h}=w_N.~
+\end{equation}
+这样就不会使得能近似高阶导数的点数减少\footnote{这并不是说这样的处理更合理，而只能让我们能求得 $u$ 满周期性条件时每个点的高阶导数。倘若 $u$ 是非周期的，那么所得的各阶近似就不可信，但是对于没有在求高阶导过程中消掉的“中间点”的值却仍然是合理的。}。在函数的周期性假设下，结合\autoref{eq_DifMa_1} 和\autoref{eq_DifMa_2} 就有
+\begin{equation}
+\begin{pmatrix}
+w_1\\
+\vdots\\
+w_N
+\end{pmatrix}=h^{-1}\begin{pmatrix}
+0&1/2&&&-1/2\\
+-1/2&0&\ddots&&\\
+&&&
+\end{pmatrix}
+\end{equation}
 
 
 
