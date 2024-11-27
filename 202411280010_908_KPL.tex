@@ -146,4 +146,34 @@ dA = \frac{1}{2} (\vec{r} \times \vec{dx}) = \frac{1}{2} (\vec{r} \times \vec{v}
 \]
 由于最终的表达式与总角动量 \( (\vec{r} \times \vec{p}) \) 成正比，开普勒的等面积定律将适用于任何守恒角动量的系统。由于任何径向力都不会对行星的运动产生力矩，角动量将得到守恒。
 
-如果您有其他问题或需要进一步的翻译，请告诉我！
+\textbf{关于椭圆参数}
+
+在一个很短的时间 \( dt \) 内，行星扫过一个小三角形，底边为 \( r \)，高为 \( r \, d\theta \)，其面积为：
+\[
+dA = \frac{1}{2} \cdot r \cdot r \, d\theta~
+\]
+因此，恒定的面积速度为：
+\[
+\frac{dA}{dt} = \frac{r^{2}}{2} \frac{d\theta}{dt}~
+\]
+椭圆轨道所围成的面积为 \( \pi ab \)，因此周期 \( T \) 满足：
+\[
+T \cdot \frac{r^{2}}{2} \frac{d\theta}{dt} = \pi ab~
+\]
+行星围绕太阳的平均运动 \( n \) 满足：
+\[
+n = \frac{2\pi}{T}~
+\]
+于是有：
+\[
+r^{2} d\theta = abn \, dt~
+\]
+因此：
+\[
+\frac{dA}{dt} = \frac{abn}{2} = \frac{\pi ab}{T}~
+\]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/181e72f55483a4d6.png}
+\caption{\textbf{红色射线以恒定的角速度旋转，并且与行星具有相同的轨道周期，}\(T = 1\)S：太阳在主焦点，C：椭圆的中心，S'：次焦点。在每种情况下，所描绘的所有扇形的面积都是相同的。} \label{fig_KPL_5}
+\end{figure}
