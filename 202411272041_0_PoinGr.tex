@@ -1,0 +1,149 @@
+% 庞加莱群
+% license Usr
+% type Tutor
+
+
+\begin{issues}
+\issueTODO 引用半直积
+\end{issues}
+
+
+\subsection{庞家莱群}
+时空平移群，顾名思义，能对任意时空矢量$x\in \mathbb R^{1,3} $进行平移，所以群元就是李群$\mathbb R^{1,3}$本身，群乘法为加法。时空平移群与洛伦兹群的半直积构成\textbf{庞加莱群（Poincaré group）}，用$G$简便表示为：
+\begin{equation}
+G= \mathrm{O}(1,3) \ltimes\mathbb{R}^{1,3}~,
+\end{equation}
+
+任意$(\Lambda,a)\in G$的实际意义为：
+\begin{equation}\label{eq_PoinGr_3}
+G=\left\{(\Lambda, a): x^{\mu} \mapsto x^{\prime \mu}=\Lambda_{\nu}^{\mu} x^{\nu}+a^{\mu}\right\}~.
+\end{equation}
+
+
+对于任意$(\Lambda_1,a),(\Lambda_2,b),(\Lambda_1,a)\in G$，从物理意义出发，群乘法必然为：
+
+\begin{equation}
+(\Lambda_1,a)(\Lambda_2,b)=(\Lambda_1\Lambda_2,\Lambda_1b+a)~.
+\end{equation}
+显然与半直积的乘法定义自洽。此外，半直积的符号表明$(I,\mathbb R^{1,3})\vartriangleleft G$。接下来我们证明庞家莱群满足群定义，且时空平移群是正规子群。
+
+显然庞家莱群的单位元为$(I,0)$，设任意$(\Lambda,a)\in G$，设其逆元素为$(\Lambda^{-1},b)$，对任意坐标矢量$x$作用表示为
+\begin{equation}
+(\Lambda^{-1},b)(\Lambda,a)x=\Lambda^{-1}(\Lambda x+a)+b=x~,
+\end{equation}
+解得$b=-\Lambda^{-1} a$\footnote{或者直接利用群乘法求解。$(\Lambda^{-1},b)(\Lambda,a)=(I,b+\Lambda^{-1}a)=(I,0)$}，显然在庞家莱群内。再由定义可知，封闭性和结合性自然满足，所以这确实是群。
+
+再设任意$(I,b)\in G$，因为
+\begin{equation}
+\begin{aligned}
+(\Lambda,a)^{-1}(I,b)(\Lambda,a)x&=(\Lambda^{-1},-\Lambda^{-1}a)(I,b)(\Lambda,a)x\\
+&=\left\{\Lambda^{-1}\left [\left(\Lambda x+a \right)+b\right]-\Lambda^{-1}a\right\}x\\
+&=(I,\Lambda^{-1}b)x~.
+\end{aligned}
+\end{equation}
+因此，时空平移群等价于庞家莱群的正规子群。
+
+\subsubsection{庞家莱群的有限维线性表示}
+
+建立庞加莱群与五阶矩阵的一一对应关系\footnote{物理意义如下，设$ x$是任意四维矢量，同构为$(x,1)$后被$R(\Lambda,a)$作用，相当于实现\autoref{eq_PoinGr_3} 的过程}：
+\begin{equation}
+(\Lambda,a)\rightarrow \pmat{\Lambda&a\\0&1},\forall \Lambda\in SO^+(1,3),a\in \mathbb R^{1,3}~,
+\end{equation}
+可以验证映射的像确实是全体五阶矩阵的子群，以$R(\Lambda,a)$表示，且该映射满足群同态，所以是同构映射。另外，作为李群子群，$R(\Lambda,a)$可由五维矩阵李群的李子代数通过指数映射生成。从群元形式可知，$R(\Lambda,a)$有10个自由度，6个决定洛伦兹群元，四个决定平移部分。
+
+设$J'_i,K'_i$为洛伦兹部分的李代数，那么我们有
+\begin{equation}
+R(\Lambda,0)=\E^{a^iJ_i+b^iK_i}=\pmat{\Lambda&0\\0&1}~.
+\end{equation}
+因此若令$J_i,K_i$表示$SO^+(1,3)$的李代数，则$J'_i=J_i\oplus 0,K'_i=K_i\oplus 0$。
+
+
+同理，令$P_{\mu}$为为时空平移部分的生成元，我们有：
+\begin{equation}
+R(I,a)=\E^{t^{\mu}P_{\mu}}=\pmat{I&a\\0&1}~,
+\end{equation}
+其中$I$为四维单位矩阵。
+
+解得
+\begin{equation}
+P_1=\pmat{1&0&0&0&1\\0&1&0&0&0\\0&0&1&0&0\\0&0&0&1&0\\0&0&0&0&1},P_2=\pmat{1&0&0&0&0\\0&1&0&0&1\\0&0&1&0&0\\0&0&0&1&0\\0&0&0&0&1},P_3=\pmat{1&0&0&0&0\\0&1&0&0&0\\0&0&1&0&1\\0&0&0&1&0\\0&0&0&0&1}~,
+\end{equation}
+\begin{equation}
+P_4=\pmat{1&0&0&0&0\\0&1&0&0&0\\0&0&1&0&0\\0&0&0&1&1\\0&0&0&0&1}~.
+\end{equation}
+
+
+
+\subsubsection{庞家莱群作用在场函数上}
+%这个表示的名字？点明无限维
+庞家莱群的李代数，即单位元处的切空间，由洛伦兹群的切空间$\mathfrak {so}(1,3)$与时空平移群的切空间直和而成。为了得到李代数的形式，我们需要找到这两个群的共同表示空间。
+
+假设这两个群的群元都有线性算符形式，分别表示为$\Q L(\Lambda),\Q L(a)$，且共同作用在场函数上。在坐标系进行洛伦兹变换后，
+\begin{equation}\label{eq_PoinGr_1}
+\begin{aligned}
+\phi'(x')&=\phi(x)\\
+\phi'(x)&=\phi(\Lambda^{-1}x)\equiv \Q L(\Lambda)\phi(x)~.
+\end{aligned}
+\end{equation}
+
+这个定义自然满足对场函数线性性以及群同态定义。因为对于任意$\Lambda_1,\Lambda_2\in SO^+(1,3)$，我们有$\Q L(\Lambda_1\Lambda_2)=\Q L(\Lambda_1)\Q L(\Lambda_2)$。由洛伦兹群一节可知，任意洛伦兹群元都可以表示为$\E^{-\I t(\bvec a^i\bvec J_i+\bvec b^i\bvec K_i)}$。为了方便，我们引入物理上另一种常见的表示方式：
+\begin{equation}
+\Lambda=\E^{-\frac{i}{2} \omega_{\mu \nu} J^{\mu \nu}}
+~,
+\end{equation}
+其中$\omega_{\mu\nu}$为$(0,2)$型反对称张量，$J^{\mu\nu}$是$(3,1)$型张量$(J^{\mu\nu})^a_b$的缩写。因此这两个张量在进行缩并后是$(1,1)$型张量，其指数函数导出同样是$(1,1)$型张量的洛伦兹矩阵。为使两种定义等价，定义$(J_i)^{\mu}_{\nu}=1/2\varepsilon_{ijk}(J^{jk})^{\mu}_{\nu},(K_i)^{\mu}_{\nu}=(J^{0i})^{\mu}_{\nu}$，即
+
+\begin{equation}\label{eq_PoinGr_2}
+\begin{aligned}
+J_i&=(J_1,J_2,J_3)\equiv(J^{23},J^{31},J^{12});a^i=(a^1,a^2,a^3)\equiv(\omega_{23},\omega_{31},\omega_{12}).\\
+K_i&=(K_1,K_2,K_3)\equiv(J^{01},J^{02},J^{03});b^i=(b^1,b^2,b^3)\equiv(\omega_{01},\omega_{02},\omega_{03})~.
+\end{aligned}
+\end{equation}
+%需要解释为何L是指数映射
+
+$\Q L(\Lambda)$也有满的指数映射。令$\Q L(\Lambda)=\E^{-\frac{i}{2} \omega_{\mu \nu} L^{\mu \nu}}$，代入\autoref{eq_PoinGr_1} 后作泰勒展开并保留一阶项——
+\begin{equation}
+\begin{aligned}
+\Q L(\Lambda)\phi(x)&=\phi(\Lambda^{-1}x)\\
+&=\phi(x-\delta x)\\
+&= \phi(x)-\delta x^{\mu} \partial_{\mu} \phi(x) \\
+&= \phi(x)-\omega^{\mu}{ }_{\nu} x^{\nu} \partial_{\mu} \phi(x) \\
+&=\phi(x)-\omega_{\mu \nu} x^{\nu} \partial^{\mu} \phi(x) \\
+&= \phi(x)-\frac{i}{2} \omega_{\mu \nu} L^{\mu \nu} \phi(x)~.
+\end{aligned}
+\end{equation}
+其中$L^{\mu\nu}\equiv\I(x^{\mu}\partial^{\nu}-x^{\nu}\partial^{\mu})$。显然这就是我们需要的，$SO^+(1,3)$线性算符表示的李代数。我们还需要验证一下李括号关系。类似\autoref{eq_PoinGr_2}  ，$L_i=(L_1,L_2,L_3)\equiv(L^{23},L^{31},L^{12})$，$K'_i=L^{0i}$。则
+\begin{equation}
+\begin{aligned}
+~[L_1,L_2]~&=-[x^{2}\partial^{3}-x^{3}\partial^{2},x^{3}\partial^{1}-x^{1}\partial^{3}]\\
+&=-[x^2\partial^3,x^3\partial^1]-[x^3\partial^2,x^1\partial^3]\\
+&=-x^2[\partial^3,x^3]\partial^1-x^1[x^3,\partial^3]\partial^2\\
+&=\I L_3~.
+\end{aligned}
+\end{equation}
+其他同理亦然。关键是利用$[\partial^{\mu},x^{\nu}]=\eta^{\mu\nu}$，$\eta^{\mu\nu}$的矩阵形式为$\opn{diag}(1,-1,-1,-1)$\footnote{看起来，该对易式的结果依赖于度规的选取，然而我们生成元的形式也是依赖于度规选取的。读者可自行验证，如果度规为$-\eta$，那么洛伦兹群李代数的对易关系为$[J_1,J_2]=-J_3$，线性算符表示李代数的对易关系为$[L_1,L_2]=-L_3$，依然保持一致。}。
+
+设$\Q L(a)$为时空平移群的线性算符表示，假设同样可以用指数映射表示对坐标系平移任意时空四矢量，即$\Q L(a)=\E^{\I a^{\mu}P_{\mu}},L(a)\phi(x)\equiv \phi(x-a)$，都进行泰勒展开并保留一阶项——
+\begin{equation}\begin{aligned}
+\Q L(a)\phi(x)& =\phi(x-a) \\
+&=\phi(x)-a^{\mu}\partial_{\mu}\phi(x)~.
+\end{aligned}\end{equation}
+又因为
+\begin{equation}
+\begin{aligned}
+\Q L(a)\phi(x)& = \E^{ia^{\mu}P_{\mu}}\phi(x) \\
+&=\phi(x)+\I a^{\mu}P_{\mu}\phi(x)~.
+\end{aligned}
+\end{equation}
+所以$P_{\mu}=\I\partial_{\mu}$。这是和经典力学自洽的，也和量子力学里的算符形式一致，动量是空间平移的生成元，能量是时间平移的生成元（$P_0\equiv H$）。
+
+可以验证，庞加莱群的李代数有如下李括号关系：
+\begin{equation}
+\begin{aligned}
+& {\left[L_i, L_j\right]=\I \varepsilon_{i j k} L_k, \quad\left[L_i, K'_j\right]=\I \varepsilon_{i j k} K'_k, \quad\left[L_i, P^j\right]=\I \varepsilon^{i j k} P^k} \\
+& {\left[K'_i, K'_j\right]=-\I \varepsilon_{i j k} L_k, \quad\left[P^i, P^j\right]=0, \quad\left[P^i, K'_j\right]=-\I \delta^i_j H} \\
+& {\left[L_i, H\right]=0, \quad\left[P^i, H\right]=0, \quad\left[H, K'_i\right]=-\I P^i}
+\end{aligned}~.
+\end{equation}
+
+\subsubsection{庞家莱群作用在Fock空间上}
