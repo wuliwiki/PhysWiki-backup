@@ -3,9 +3,7 @@
 % license Xiao
 % type Tutor
 \pentry{定积分（简明微积分）\nref{nod_DefInt}}{nod_3bdc}
-\begin{issues}
-例子需插入链接
-\end{issues}
+
 
 \footnote{$\Gamma$. M. 菲赫金哥尔茨。微积分学教程\;卷三[M].北京：高等教育出版社，2006:345-349}
 \footnote{斯米尔诺夫。斯米尔诺夫高等数学卷四第一分册[M].哈尔滨：哈尔滨工业大学出版社，2018:6-12}
@@ -65,6 +63,8 @@ c_k=\frac{1}{\lambda_k}\int_a^b f(x)\varphi_k(x)\dd x\quad (k\in \mathbb{N})~
 \cos^2 nx&=\frac{1}{2}[\cos(2nx)+1],\\
 \sin nx\cdot\sin mx&=\frac{1}{2}\qty[\cos(n-m)x-\cos(n+m)x],\\
 \sin^2 nx&=\frac{1}{2}[1-\cos(2nx)],\\
+\sin nx\cdot\cos mx&=\frac{1}{2}\qty[\sin(n+m)x+\sin(n-m)x],\\
+\sin nx\cdot\cos nx&=\frac{1}{2}\sin(2nx).
 \end{aligned}~
 \end{equation}
 所以当 $m\neq n$ 时，
@@ -75,6 +75,9 @@ c_k=\frac{1}{\lambda_k}\int_a^b f(x)\varphi_k(x)\dd x\quad (k\in \mathbb{N})~
 &=0,\\
 &\int_{-\pi}^\pi\sin nx \cdot \sin mx\dd x\\
 &=\frac{1}{2}\qty[\frac{\sin(n-m)x}{n-m}-\frac{\sin(n+m)x}{n+m}]{\huge |}_{-\pi}^{\pi}\\
+&=0,\\
+&\int_{-\pi}^\pi\sin nx \cdot \cos mx\dd x\\
+&=-\frac{1}{2}\qty[\frac{\cos(n+m)x}{n+m}+\frac{\cos(n-m)x}{n-m}]{\huge |}_{-\pi}^{\pi}\\
 &=0.\\
 \end{aligned}
 ~
@@ -83,12 +86,19 @@ c_k=\frac{1}{\lambda_k}\int_a^b f(x)\varphi_k(x)\dd x\quad (k\in \mathbb{N})~
 \begin{equation}
 \begin{aligned}
 &\int_{-\pi}^\pi\cos^2 nx\dd x=\frac{1}{2}\qty[\frac{\sin(2nx)}{2n}+x]{\huge |}_{-\pi}^{\pi}=\pi,\\
-&\int_{-\pi}^\pi\cos^2 nx\dd x=\frac{1}{2}\qty[\frac{\sin(2nx)}{2n}+x]{\huge |}_{-\pi}^{\pi}=\pi.
+&\int_{-\pi}^\pi\sin^2 nx\dd x=\frac{1}{2}\qty[x-\frac{\sin(2nx)}{2n}]{\huge |}_{-\pi}^{\pi}=\pi,\\
+&\int_{-\pi}^\pi\sin nx \cdot \cos nx\dd x=-\frac{\cos(2nx)}{4n}{\huge |}_{-\pi}^{\pi}=0.
 \end{aligned}
 ~
 \end{equation}
+此外 $\int_{\pi}^{\pi}\dd x=2\pi$。\\
+
 \textbf{证毕！}\\
-由\autoref{eq_OFS_4} 和证明可看出，$\{\cos(nx)|\}$
+由\autoref{eq_OFS_4} 和证明可看出，三角正交函数系 $\{1,\cos(nx),\sin(nx)|n\in \mathbb Z^{+}\}$ 的标准系是 
+\begin{equation}
+\qty{\frac{1}{\sqrt{2\pi}},\frac{\cos(nx)}{\sqrt{\pi}},\frac{\sin(nx)}{\sqrt{\pi}}{\huge|}n\in \mathbb Z^{+}}~.
+\end{equation}
+
 
 
 
@@ -179,4 +189,21 @@ c_n=\ev{\varphi_n,f}~.
  \begin{equation}
  \sum_{k=1}^\infty\abs{c_k}^2\leq\int_a^b\abs{f}^2\dd x~.
  \end{equation}
+ 
+ \begin{example}{}
+ $\{e^{\I nx}|n\in\mathbb Z\}$ 是 $[-\pi,\pi]$ 上的正交函数系。\\
+ 
+\textbf{证明：}
+\begin{equation}
+\begin{aligned}
+\int_{-\pi}^\pi e^{\I nx}e^{-\I mx}\dd x&=\int_{-\pi}^\pi e^{\I (n-m)x}\dd x\\&=-\I\frac{e^{\I(n-m)x}}{n-m}{\huge|}_{-\pi}^{\pi}\\
+&=0,\quad n\neq m,\\
+\int_{-\pi}^\pi e^{\I nx}e^{-\I nx}\dd x&=\int_{-\pi}^\pi \dd x=2\pi.
+\end{aligned}~
+\end{equation}
+
+\textbf{证毕！}
+
+由证明还可看出，$\qty{\frac{e^{\I nx}}{\sqrt{2\pi}}{\huge|}n\in\mathbb Z}$ 是它的正交标准系。
+ \end{example}
  
