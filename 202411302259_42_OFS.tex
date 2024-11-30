@@ -1,0 +1,259 @@
+% 正交函数系 2
+% keys 正交；函数系；贝塞尔不等式
+% license Xiao
+% type Tutor
+\pentry{定积分（简明微积分）\nref{nod_DefInt}}{nod_3bdc}
+
+
+\footnote{$\Gamma$. M. 菲赫金哥尔茨。微积分学教程\;卷三[M].北京：高等教育出版社，2006:345-349}
+\footnote{斯米尔诺夫。斯米尔诺夫高等数学卷四第一分册[M].哈尔滨：哈尔滨工业大学出版社，2018:6-12}
+若函数系 
+\begin{equation}\label{eq_OFS_1}
+\qty{\varphi_n(x)}\quad(n\in \mathbb{N})~
+\end{equation}
+中各函数及其平方在区间 $\qty[a,b]$ 上皆可积分，且满足
+\begin{equation}
+\int_a^b\varphi_n(x)\varphi_m(x)\dd x=
+\left\{
+    \begin{aligned}
+    &0\quad &(m\neq n)\\
+   &\lambda_n>0\quad &(m=n)~,
+    \end{aligned}
+\right.
+\end{equation}
+则称函数系 $\qty{\varphi_n(x)}$ 为\textbf{正交函数系}。当 $\lambda_n=1(n\in\mathbb{N})$ 时，该函数系称为\textbf{正交规范系}(或\textbf{正交标准系})。显然，任意的正交函数系都可化为正交规范系 
+\begin{equation}\label{eq_OFS_4}
+\qty{\frac{\varphi_n(x)}{\sqrt{\lambda_n}}}\quad(n\in \mathbb{N})~.
+\end{equation}
+
+设 $f(x)$ 是任一实函数，在区间 $[a,b]$ 内是连续的，则数值
+\begin{equation}
+c_k=\frac{1}{\lambda_k}\int_a^b f(x)\varphi_k(x)\dd x\quad (k\in \mathbb{N})~
+\end{equation}
+称为函数 $f(x)$ 关于函数系\autoref{eq_OFS_1} 的\textbf{傅里叶系数}。由 $c_k$ 的定义，我们有等式
+\begin{equation}\label{eq_OFS_2}
+\int_a^b\qty[f(x)-\sum_{k=1}^nc_k\varphi_k(x)]^2\dd x=\int_a^b\qty[f(x)]^2\dd x-\sum_{k=1}^nc_k^2\lambda_k~.
+\end{equation}
+
+根据\autoref{eq_OFS_2}，可得
+\begin{equation}\label{eq_OFS_3}
+\sum_{k=1}^\infty c_k^2\lambda_k\leq\int_a^b\qty[f(x)]^2\dd x~.
+\end{equation}
+对于正交规范系， $\lambda_k=1$，此时\autoref{eq_OFS_3} 便是所谓的\textbf{贝塞尔（bessel）不等式}. 
+
+若对任何在区间 $[a,b]$ 定义的连续函数 $f(x)$，\autoref{eq_OFS_3} 中的等号成立，则称函数系 $\qty{\varphi_n(x)}$ 是\textbf{完整的}(或\textbf{完备的})。
+%\begin{example}{三角函数系}
+%%\begin{equation}
+%\qty{1,\cos nx,\sin nx}\quad(n\in \mathbb{Z^{+}})
+%%\end{equation}
+%是正交函数系。
+\subsection{例子}
+\begin{enumerate}
+\item 在区间 $[-\pi,\pi]$ 上，三角函数系
+\begin{equation}
+\qty{1,\cos nx,\sin nx}\quad(n\in \mathbb{Z^{+}})~
+\end{equation}
+是正交函数系。\\
+
+\textbf{证明：}
+由于
+\begin{equation}
+\begin{aligned}
+\cos nx\cdot\cos mx&=\frac{1}{2}\qty[\cos(n+m)x+\cos(n-m)x],\\
+\cos^2 nx&=\frac{1}{2}[\cos(2nx)+1],\\
+\sin nx\cdot\sin mx&=\frac{1}{2}\qty[\cos(n-m)x-\cos(n+m)x],\\
+\sin^2 nx&=\frac{1}{2}[1-\cos(2nx)],\\
+\sin nx\cdot\cos mx&=\frac{1}{2}\qty[\sin(n+m)x+\sin(n-m)x],\\
+\sin nx\cdot\cos nx&=\frac{1}{2}\sin(2nx).
+\end{aligned}~
+\end{equation}
+所以当 $m\neq n$ 时，
+\begin{equation}
+\begin{aligned}
+&\int_{-\pi}^\pi\cos nx \cdot \cos mx\dd x\\
+&=\frac{1}{2}\qty[\frac{\sin(n+m)x}{n+m}+\frac{\sin(n-m)x}{n-m}]{\huge |}_{-\pi}^{\pi}\\
+&=0,\\
+&\int_{-\pi}^\pi\sin nx \cdot \sin mx\dd x\\
+&=\frac{1}{2}\qty[\frac{\sin(n-m)x}{n-m}-\frac{\sin(n+m)x}{n+m}]{\huge |}_{-\pi}^{\pi}\\
+&=0,\\
+&\int_{-\pi}^\pi\sin nx \cdot \cos mx\dd x\\
+&=-\frac{1}{2}\qty[\frac{\cos(n+m)x}{n+m}+\frac{\cos(n-m)x}{n-m}]{\huge |}_{-\pi}^{\pi}\\
+&=0.\\
+\end{aligned}
+~
+\end{equation}
+而 $m=n$ 时，
+\begin{equation}
+\begin{aligned}
+&\int_{-\pi}^\pi\cos^2 nx\dd x=\frac{1}{2}\qty[\frac{\sin(2nx)}{2n}+x]{\huge |}_{-\pi}^{\pi}=\pi,\\
+&\int_{-\pi}^\pi\sin^2 nx\dd x=\frac{1}{2}\qty[x-\frac{\sin(2nx)}{2n}]{\huge |}_{-\pi}^{\pi}=\pi,\\
+&\int_{-\pi}^\pi\sin nx \cdot \cos nx\dd x=-\frac{\cos(2nx)}{4n}{\huge |}_{-\pi}^{\pi}=0.
+\end{aligned}
+~
+\end{equation}
+此外 $\int_{\pi}^{\pi}\dd x=2\pi$。\\
+
+\textbf{证毕！}\\
+由\autoref{eq_OFS_4} 和证明可看出，三角正交函数系 $\{1,\cos(nx),\sin(nx)|n\in \mathbb Z^{+}\}$ 的标准系是 
+\begin{equation}
+\qty{\frac{1}{\sqrt{2\pi}},\frac{\cos(nx)}{\sqrt{\pi}},\frac{\sin(nx)}{\sqrt{\pi}}{\huge|}n\in \mathbb Z^{+}}~.
+\end{equation}
+
+
+
+
+\item 由超越方程
+\begin{equation}
+\tan\xi=c\xi \quad(c\; \mathrm{is\; a\; constant})~
+\end{equation}
+ 的所有正根组成的集合 $\qty{\xi_n\vert n\in\mathbb{Z}^+}$
+ 构造的函数系
+ \begin{equation}
+ \sin\frac{\xi_1}{l}x,\ \sin\frac{\xi_2}{l}x,\ \cdots,\ \sin\frac{\xi_n}{l}x,\ \cdots~
+ \end{equation}
+ 在区间 $\qty[0,l]$ 上是正交函数系。\\
+ 
+ 同样，以超越方程
+\begin{equation}
+\cot\xi=c\xi \quad(c\; \mathrm{is\; a\; constant})~
+\end{equation}
+ 的所有正根组成的集合 $\qty{\xi'_n\vert n\in\mathbb{Z}^+}$
+ 构造的函数系
+ \begin{equation}
+ \cos\frac{\xi'_1}{l}x,\ \cos\frac{\xi'_2}{l}x,\ \cdots,\ \cos\frac{\xi'_n}{l}x,\ \cdots~
+ \end{equation}
+ 在区间 $\qty[0,l]$ 上也是正交函数系。
+ \item 勒让德多项式
+\begin{equation}
+X_0(x)=1,X_n(x)=\frac{1}{2^nn!}\dv[n]{\qty(x^2-1)^n}{x}\qquad(n=1,2,\cdots)~
+\end{equation}
+是在区间 $\qty[-1,1]$ 是正交函数系，且 $\lambda_n=\frac{2}{2n+1}$
+\item 以贝塞尔函数 $J_0(x)$ 的所有正根构成的集合 $\qty{\xi_n\vert n\in\mathbb{Z}^+}$
+构造的函数系 $\qty{\sqrt{x}J_0(\xi_n x)} $ 在区间 $\qty[0,1]$ 上是正交函数系。
+\end{enumerate}
+
+\subsection{线性无关函数的正交化}
+在线性代数里面，通过斯密特正交化(\autoref{sub_OrNrB_1} )手续，可由 $N$ 个线性无关的向量构造出同样多个两两正交且标准的向量，使原来的向量可由新向量线性表出。这一切对函数来说完全适用。
+
+$N$ 个在区间 $[a,b]$ 上定义的连续函数 $\psi_i(x)\quad (i=1,\cdots ,N)$ 称为在区间 $[a,b]$ 线性无关的，若含常系数 $a_i$ 的关系式
+\begin{equation}
+\sum_i^N a_i\psi_i(x)=0~,
+\end{equation}
+仅当 $a_i=0$ 时成立。现在来作在区间 $[a,b]$ 上可由 ${\psi_i(x)}$ 线性表示的正交标准化的函数 ${\varphi_i(x)}$。
+
+记（显然，这里 $\ev{*,*}$ 相当于矢量空间中的内积）
+\begin{equation}
+\ev{f,F}=\int_a^b f(x)F(x)\dd x~.
+\end{equation}
+
+函数 ${\psi_i(x)}$ 的正交化过程可按如下方式进行（为简洁起见，将函数 $f(x)$ 简记为 $f$）
+\begin{equation}
+\begin{aligned}
+&&\varphi_1=\frac{\psi_1}{\sqrt{\ev{\psi_1,\psi_1}}}\\
+\chi_2&=\psi_2-\ev{\varphi_1,\psi_2}\varphi_1,\quad&\varphi_2=\frac{\chi_2}{\sqrt{\ev{\chi_2,\chi_2}}}\\
+\chi_3&=\psi_3-\ev{\varphi_1,\psi_3}\varphi_1-\ev{\varphi_2,\psi_3}\varphi_2,\quad &\varphi_3=\frac{\chi_3}{\sqrt{\ev{\chi_3,\chi_3}}}\\
+&\vdots &\vdots
+\\
+\chi_N&=\psi_N-\sum_{i=1}^N\ev{\varphi_i,\psi_N}\varphi_i,\quad&\varphi_N=\frac{\chi_N}{\sqrt{\ev{\chi_N,\chi_N}}}~.
+\end{aligned}
+\end{equation}
+
+在函数 $\chi_i$ 中，没有一个可变为恒等于0，即 $\ev{\chi_i,\chi_i}\neq 0$。因为比如说 $\chi_2=0$，则 $\varphi_1$ 与 $\psi_2$ 线性相关
+\begin{equation}
+\psi_2-\ev{\varphi_1,\psi_2}\varphi_1=0~.
+\end{equation}
+这归结为 $\psi_1$ 与 $\psi_2$ 之间线性相关，这与条件 $\psi_1$ 和 $\psi_2$ 的线性无关矛盾。
+\subsection{推广到复函数情形}
+上面关于实函数的一切，可立即推广到实变量 $x$ 的复函数情形
+\begin{equation}
+\varphi_n(x)=\rho_n(x)+\I \sigma_n(x)\quad(n\in \mathbb{Z}^+)~.
+\end{equation}
+
+这时函数系的正交标准性由下式表达
+\begin{equation}
+\ev{\varphi_m,\varphi_n}=\int_a^b\varphi_m^*\varphi_n\dd x=\left\{
+\begin{aligned}
+&0 \quad (p\neq q)\\
+&1 \quad (p=q)~.
+\end{aligned}\right.
+\end{equation}
+复函数 $\varphi_n(x)$ 关于函数 $f(x)$ 的傅里叶系数为
+\begin{equation}
+c_n=\ev{\varphi_n,f}~.
+\end{equation}
+我们处处以模平方代替原值平方，\autoref{eq_OFS_2} 将是
+\begin{equation}
+\int_a^b\abs{f-\sum_{k=1}^nc_k\varphi_k}^2\dd x=\int_a^b\abs{f}^2\dd x-\sum_{k=1}^n\abs{c_k}^2~,
+\end{equation}
+ 而贝塞尔不等式将是
+ \begin{equation}
+ \sum_{k=1}^\infty\abs{c_k}^2\leq\int_a^b\abs{f}^2\dd x~.
+ \end{equation}
+ 
+ \begin{example}{}\label{ex_OFS_1}
+ $\{e^{\I nx}|n\in\mathbb Z\}$ 是 $[-\pi,\pi]$ 上的正交函数系。\\
+ 
+\textbf{证明：}
+\begin{equation}
+\begin{aligned}
+\int_{-\pi}^\pi e^{\I nx}e^{-\I mx}\dd x&=\int_{-\pi}^\pi e^{\I (n-m)x}\dd x\\&=-\I\frac{e^{\I(n-m)x}}{n-m}{\huge|}_{-\pi}^{\pi}\\
+&=0,\quad n\neq m,\\
+\int_{-\pi}^\pi e^{\I nx}e^{-\I nx}\dd x&=\int_{-\pi}^\pi \dd x=2\pi.
+\end{aligned}~
+\end{equation}
+
+\textbf{证毕！}
+
+由证明还可看出，$\qty{\frac{e^{\I nx}}{\sqrt{2\pi}}{\huge|}n\in\mathbb Z}$ 是它的正交标准系。
+ \end{example}
+ \begin{example}{}\label{ex_OFS_2}
+ \autoref{ex_OFS_1} 的函数系是在 $[-\pi,\pi]$ 上的，它刚好是该函数系的函数 $e^{\I x}$ 的最小周期。然而更常见的周期往往不被限定为 $2\pi$，为此，我们希望能将它推广到周期为 $2L$ 的情形，从而积分区间为 $[-L,L]$。若将函数的定义区间 $[-L,L]$ 变到区间 $[-\pi,\pi]$，那么就可以继续使用前面的函数系。设 $f(x)$ 是定义在区间 $[-L,L]$ 上的周期为 $2L$ 的函数，那么 $F(x)=f(\frac{L}{\pi}x)$ 是定义在区间 $[-\pi,\pi]$ 上的周期函数。因此可对 $F(x)$ 使用函数系 $\{e^{\I nx}|n\in\mathbb Z\}$ 展开。若得到了 $F(x)$ 的展开式，那么 $f(x)$ 就可以利用 $f(x)=F(\frac{\pi}{L}x)$ 确定。设 
+ \begin{equation}
+ F(x)=\sum_{n=-\infty}^\infty c_ne^{\I n x},~
+ \end{equation}
+ 那么
+ \begin{equation}\label{eq_OFS_5}
+ f(x)=\sum_{n=-\infty}^\infty c_ne^{\I n\frac{\pi}{L} x}.~
+ \end{equation}
+ 因此，我们希望证明 $\{e^{\I n\frac{\pi}{L} x}|n\in\mathbb Z\}$ 是 $[-L.L]$ 上的正交函数系。\\
+\textbf{证明：}
+\begin{equation}
+\begin{aligned}
+\int_{-L}^L e^{\I n\frac{\pi}{L}x}e^{-\I m\frac{\pi}{L}x}\dd x&=\int_{-L}^L e^{\I (n-m)\frac{\pi}{L}x}\dd x\\
+&=-\I\frac{Le^{\I(n-m)\frac{\pi}{L}x}}{(n-m)\pi}{\huge|}_{-L}^{L}\\
+&=0,\quad n\neq m,\\
+\int_{-L}^L e^{\I n\frac{\pi}{L}x}e^{-\I n\frac{\pi}{L}x}\dd x&=\int_{-L}^L \dd x=2L.
+\end{aligned}~
+\end{equation}
+\textbf{证毕！}
+
+同样的，这表明 $\{\frac{1}{\sqrt{2L}}e^{\I n\frac{\pi}{L} x}|n\in\mathbb Z\}$ 是 $[-L,L]$ 上的标准正交函数系。
+ \end{example}
+
+\begin{example}{傅里叶变换}
+我们考察\autoref{ex_OFS_2} 中 $L\rightarrow\infty$ 的展开式\autoref{eq_OFS_5} 的形式。注意到
+\[
+  \sum_{n=-\infty}^\infty c_ne^{\I n\frac{\pi}{L} x}~  
+\]
+中若令 $z_n=n\frac{\pi}{L}$，那么 $\Delta z_n:=z_{n+1}-z_n=\frac{\pi}{L}$。并注意 $c_n=\frac{1}{2L}\ev{e^{\I z_n x},f}$ 因此\autoref{eq_OFS_5} 可写为
+\begin{equation}\label{eq_OFS_6}
+\begin{aligned}
+f(x)&=\sum_{n=-\infty}^\infty \frac{Lc_n}{\pi}e^{\I z_n x}\Delta z_n\\
+&=\sum_{n=-\infty}^\infty \frac{1}{2\pi}\ev{e^{\I z_n x},f}e^{\I z_n x}\Delta z_n.
+\end{aligned}~
+\end{equation}
+这恰好就是定义在区间 $[-\infty,\infty]$ 上的函数 $F_x(z)=\frac{1}{2\pi}\ev{e^{\I z x},f}e^{\I z x}$ 的积分
+\begin{equation}\label{eq_OFS_7}
+\int_{-\infty}^\infty F_x(z)\dd z~
+\end{equation}
+的近似级数和。当 $\Delta z_n=\frac{\pi}{L}\rightarrow0$ ，即 $L\rightarrow\infty$ 时，\autoref{eq_OFS_6} 就正好是\autoref{eq_OFS_7} 。因此此时有
+\begin{equation}
+\begin{aligned}
+f(x)&=\int_{-\infty}^\infty F_x(z)\dd z\\
+&=\int_{-\infty}^\infty\frac{1}{2\pi}\ev{e^{\I z x},f}e^{\I z x}\dd z\\
+&=
+&=\frac{1}{2\pi}\int_{-\infty}^\infty\mathcal F()e^{\I z x}\dd z\\
+\end{aligned}~
+\end{equation}
+
+\end{example}
