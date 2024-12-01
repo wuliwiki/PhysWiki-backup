@@ -1,0 +1,68 @@
+% 无穷阶差分矩阵
+% keys 差分矩阵|无穷阶|傅里叶变换
+% license Usr
+% type Tutor
+
+\pentry{导数近似之差分矩阵算法\nref{nod_DifMa}}{nod_3681}
+
+\subsection{傅里叶变换回顾}
+\subsubsection{连续区间上的傅里叶变换}
+由\enref{正交函数系}{OFS}中的\autoref{ex_OFS_3} 可知，函数 $u(x),x\in\mathbb R$ 的傅里叶变换定义为
+\begin{equation}\label{eq_InfDM_1}
+\hat u(k):=\int_{-\infty}^{\infty} e^{-\I kx}u(x)\dd x,\quad k\in\mathbb R.~
+\end{equation}
+而从 $\hat u$ 同构逆傅里叶变换可以重构 $u$：
+\begin{equation}\label{eq_InfDM_2}
+u(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty} e^{\I kx}\hat u(k)\dd k.~
+\end{equation}
+这被称为\textbf{傅里叶合成}（Fourier synthesis），变量 $x$ 称为\textbf{物理变量}（physical variable），$k$ 称为\textbf{傅里叶变量}（Fourier variable）或\textbf{波数}（wavenumber）。
+
+\subsubsection{离散点上的傅里叶变换}
+当限定 $x\in hZ$时，即此时 $x$ 只能取离散点，那么只要 $k_1-k_2=\frac{2\pi}{h}$，就有 $e^{\I k_1x}=e^{\I k_2x}$ 对所有的 $x$ 成立。这使得对任意复指数 $e^{\I kx}$，有无穷多个复指数和它在 $h\mathbb Z$ 上具有相同的值。这一现象被称为\textbf{混叠}。为了保持\autoref{eq_InfDM_1} 中傅里叶变换 $\hat u(k)$ 的单值性，需要将 $k$ 限制在长为 $\frac{2\pi}{h}$ 的区间上。因此，我们可以选择 $k$ 的取值区间为 $[-\pi/h,\pi/h]$。注意到 $x$ 是物理变量，$k$ 是傅里叶变量，因此我们可以将这个结果总结为下面的图示：
+\begin{equation}
+\begin{aligned}
+&\text{物理空间:}& \text{离散},&\qquad\text{无界:} &x\in h\mathbb Z\\
+&&\updownarrow&\qquad\updownarrow&\\
+&\text{傅里叶空间:}& \text{有界},&\qquad\text{有界:} &k\in [-pi/h,\pi/h]
+\end{aligned}~
+\end{equation}
+因此，在离散的情形，傅里叶变换及其逆变换\autoref{eq_InfDM_1} 和\autoref{eq_InfDM_2} 应当写为下面的级数和：
+\begin{equation}\label{eq_InfDM_3}
+\begin{aligned}
+\hat u(k)&=h\sum_{i=-\infty}^{\infty}e^{-\I kx_i}u(x_i),\quad k\in[-\pi/h,\pi/h],\\
+u(x_j)&=\frac{1}{2\pi}\int_{-\pi/h}^{\pi/h} e^{\I kx_j}\hat u(k)\dd k,\quad x=jh,j\in \mathbb Z.
+\end{aligned}~
+\end{equation}
+
+
+
+\subsection{插值函数}
+假若我们有定义在 $x_i\in h\mathbb Z$ 上的数据 $u_i=u(x_i)$，那么\autoref{eq_InfDM_3} 将会给我们插值函数：
+
+1.通过\autoref{eq_InfDM_3} 的第一式我们可以获得 $\hat u(k)$，它关于 $k$ 是可微的;
+
+2.而\autoref{eq_InfDM_3} 的第二式可以确定一个函数 
+\begin{equation}\label{eq_InfDM_4}
+p(x)=\frac{1}{2\pi}\int_{-\pi/h}^{\pi/h} e^{\I kx}\hat u(k)\dd k,\quad x\in \mathbb R.~
+\end{equation}
+显然 $p(x)$ 满足 $p(x_i)=u_i$，并且 $p(x)$ 是可微的。因此可以用 $p(x)$ 的导数来近似 $u(x)$ 的导数。$p(x)$ 给了我们一个插值公式。
+
+由\autoref{eq_InfDM_4} ，只需令 $\hat u(k)$ 仅在 $[-\pi/h,\pi/h]$ 上不为零。那么\autoref{eq_InfDM_4} 的积分下限和上限就可以变到 $-\infty,\infty$。因此由\autoref{eq_InfDM_1} 和\autoref{eq_InfDM_2} 可知 $p(x)$ 的傅里叶变换为
+\begin{equation}
+\hat p(k)=\left\{\begin{aligned}
+&\hat u(k),k\in[-\pi/h,\pi/h],\\
+&0,k\not\in[-\pi/h,\pi/h].
+\end{aligned}\right.~
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
