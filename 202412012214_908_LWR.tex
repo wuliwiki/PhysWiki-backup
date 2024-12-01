@@ -1,0 +1,75 @@
+% 刘维尔定理（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Liouville\%27s_theorem_(Hamiltonian)}{相关文章}。
+
+在物理学中，李维尔定理（Liouville's theorem）以法国数学家约瑟夫·李维尔（Joseph Liouville）命名，是经典统计力学和哈密顿力学中的一个关键定理。该定理断言，系统的相空间分布函数在系统的轨迹上是恒定的——即在相空间中，围绕给定系统点的系统点的密度随着时间变化保持不变。这种时间不变的密度在统计力学中称为经典的先验概率。[1]
+
+李维尔定理适用于守恒系统，即在没有摩擦效应或摩擦效应可以忽略的系统。对于这种系统的普遍数学表述是保持度量不变的动力系统。当系统具有可以解释为位置和动量的自由度时，李维尔定理适用；并非所有保持度量不变的动力系统都有这些自由度，但哈密顿系统有。在共轭位置和动量坐标的数学框架中，李维尔定理在辛几何的数学设置下得到了描述。李维尔定理忽略了化学反应的可能性，在化学反应中，粒子的总数可能随时间变化，或能量可能转移到内部自由度。李维尔定理有扩展形式，可以涵盖这些广义的情形，包括随机系统。[2]
+
+\subsection{李维尔方程}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/773e5ba82edae5e7.png}
+\caption{经典系统集群在相空间中的演化（上图）。每个系统由一个质量粒子组成，处于一维势阱中（红色曲线，下图）。虽然单个系统成员的运动由哈密顿方程给出，李维尔方程则描述了整个分布的流动。该运动类似于染料在不可压缩流体中的流动。} \label{fig_LWR_1}
+\end{figure}
+李维尔方程描述了相空间分布函数的时间演化。尽管该方程通常被称为“李维尔方程”，但约西亚·威拉德·吉布斯（Josiah Willard Gibbs）是第一个认识到这个方程作为统计力学基本方程重要性的人。[3][4] 它之所以被称为李维尔方程，是因为其对非正则系统的推导使用了李维尔在1838年首次推导出的一个恒等式。[5][6] 考虑一个哈密顿动力学系统，具有正则坐标 \( q_i \) 和共轭动量 \( p_i \)，其中 \( i = 1, \dots , n \)。那么，相空间分布函数 \( \rho(p,q) \) 决定了系统出现在微小相空间体积 \( \mathrm{d}^n q \, \mathrm{d}^n p \) 中的概率 \( \rho(p,q) \, \mathrm{d}^n q \, \mathrm{d}^n p \)。
+
+李维尔方程描述了 \( \rho(p,q;t) \) 在时间 \( t \) 中的演化：
+\[
+\frac{d\rho}{dt} = \frac{\partial \rho}{\partial t} + \sum_{i=1}^{n} \left( \frac{\partial \rho}{\partial q_i} \dot{q}_i + \frac{\partial \rho}{\partial p_i} \dot{p}_i \right) = 0.~
+\]
+时间导数用点表示，并根据系统的哈密顿方程进行求值。这个方程表明相空间中的密度守恒（这是吉布斯对该定理的称呼）。李维尔定理表明：
+
+分布函数沿着相空间中的任何轨迹保持不变。  
+
+李维尔定理的证明使用了n维散度定理。该证明基于这样一个事实：分布函数 \(\rho\) 的演化服从一个二维n维的连续性方程：
+\[
+\frac{\partial \rho}{\partial t} + \sum_{i=1}^{n} \left( \frac{\partial (\rho \dot{q}_i)}{\partial q_i} + \frac{\partial (\rho \dot{p}_i)}{\partial p_i} \right) = 0~
+\]
+也就是说，三元组 \((\rho, \rho \dot{q}_i, \rho \dot{p}_i)\) 是一个守恒流。注意到，这个式子和李维尔方程的区别在于以下项：
+\[
+\rho \sum_{i=1}^{n} \left( \frac{\partial \dot{q}_i}{\partial q_i} + \frac{\partial \dot{p}_i}{\partial p_i} \right) = \rho \sum_{i=1}^{n} \left( \frac{\partial^2 H}{\partial q_i \, \partial p_i} - \frac{\partial^2 H}{\partial p_i \, \partial q_i} \right) = 0~
+\]
+其中，\( H \) 是哈密顿量，并且偏导数 \(\partial \dot{q}_i/\partial q_i\)和 \(\partial \dot{p}_i/\partial p_i\) 是使用哈密顿运动方程计算的。  
+也就是说，将相空间中的运动看作系统点的“流体流动”，密度的对流导数 \(d\rho/dt\) 为零是由连续性方程得出的，因为相空间中的“速度场” \((\dot{p}, \dot{q})\) 的散度为零（这由哈密顿关系得出）。[7]
+\subsection{其他表述}  
+\subsubsection{泊松括号}  
+上面的定理通常可以用泊松括号重新表述为：
+\[
+\frac{\partial \rho}{\partial t} = \{ H, \rho \}~
+\]
+或者，用线性李维尔算符（或李维尔算子）表示为：
+\[
+i \hat{\mathbf{L}} = \sum_{i=1}^{n} \left[ \frac{\partial H}{\partial p_i} \frac{\partial}{\partial q_i} - \frac{\partial H}{\partial q_i} \frac{\partial}{\partial p_i} \right] = -\{ H, \bullet \}~
+\]
+因此，
+\[
+\frac{\partial \rho}{\partial t} + i \hat{\mathbf{L}} \rho = 0~
+\]
+\subsubsection{遍历理论}  
+在遍历理论和动力学系统中，基于前述的物理考虑，有一个相应的结果也被称为李维尔定理。在哈密顿力学中，相空间是一个光滑的流形，天然地配备有一个光滑的度量（在局部范围内，这个度量是6n维的Lebesgue度量）。该定理指出，这个光滑度量在哈密顿流动下是不变的。更一般地，可以描述一个流下光滑度量不变的充要条件。哈密顿力学的情况则成为一个推论。
+\subsubsection{辛几何} 
+我们也可以用辛几何的语言表述李维尔定理。对于一个给定的系统，我们可以将特定哈密顿量 \( H \) 的相空间 \( (q^\mu, p_\mu) \) 视为一个配备了辛2型的流形 \( (M, \omega) \)，其中辛2型为：
+\[
+\omega = dp_\mu \wedge dq^\mu.~
+\]
+我们的流形的体积形式是辛2型的顶外幂，这也只是上述相空间度量的另一种表示。
+
+在这个相空间辛流形上，我们可以定义由一个函数 \( f(q, p) \) 生成的哈密顿向量场 \( X_f \)：
+\[
+X_f = \frac{\partial f}{\partial p_\mu} \frac{\partial}{\partial q^\mu} - \frac{\partial f}{\partial q^\mu} \frac{\partial}{\partial p_\mu}.~
+\]
+具体来说，当生成函数就是哈密顿量 \( H \) 本身时，即 \( f(q, p) = H \)，我们得到：
+\[
+X_H = \frac{\partial H}{\partial p_\mu} \frac{\partial}{\partial q^\mu} - \frac{\partial H}{\partial q^\mu} \frac{\partial}{\partial p_\mu} = \frac{dq^\mu}{dt} \frac{\partial}{\partial q^\mu} + \frac{dp^\mu}{dt} \frac{\partial}{\partial p_\mu} = \frac{d}{dt}.~
+\]
+在这种形式下，李维尔定理表明，体积形式在由 \( X_H \) 生成的流中，李导数为零。也就是说，对于一个2n维的辛流形 \( (M, \omega) \)，
+\[
+\mathcal{L}_{X_H}(\omega^n) = 0.~
+\]
+事实上，辛结构 \( \omega \) 本身是保持不变的，而不仅仅是它的顶外幂。也就是说，李维尔定理还表明：
+\[
+\mathcal{L}_{X_H}(\omega) = 0.~
+\]
