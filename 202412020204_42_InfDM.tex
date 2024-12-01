@@ -58,7 +58,7 @@ k\in\qty{\qty(-\frac{N}{2}+1)\frac{\pi}{L},\qty(-\frac{N}{2}+2)\frac{\pi}{L},\cd
 相应的，傅里叶变换和逆变换的公式写为下面的级数和，
 \begin{equation}\label{eq_InfDM_7}
 \begin{aligned}
-\hat u(k)&=h\sum_{i=1}^{N}e^{-\I kx_i}u(x_i),\quad k\in\qty{\qty(-\frac{N}{2}+1)\frac{\pi}{L},\qty(-\frac{N}{2}+2)\frac{\pi}{L},\cdots,\frac{N}{2}\frac{\pi}{L}},\\
+\hat u(k)&=h\sum_{i=1}^{N}e^{-\I k\frac{\pi}{L}x_i}u(x_i),\quad k\in\qty{\qty(-\frac{N}{2}+1),\qty(-\frac{N}{2}+2),\cdots,\frac{N}{2}},\\
 u(x_j)&=\frac{1}{2L}\sum_{k=-\frac{N}{2}+1}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}x_j}\hat u(k),\quad j\in\{1,\cdots,N\}.
 \end{aligned}~
 \end{equation}
@@ -69,7 +69,7 @@ u(x_j)&=\frac{1}{2L}\sum_{k=-\frac{N}{2}+1}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}x_j
 
 1.通过\autoref{eq_InfDM_3} 的第一式我们可以获得 $\hat u(k)$，它关于 $k$ 是可微的;
 
-2.而\autoref{eq_InfDM_3} 的第二式可以确定一个函数 
+2.而\autoref{eq_InfDM_3} 的第二式可以确定一个函数
 \begin{equation}\label{eq_InfDM_4}
 p(x)=\frac{1}{2\pi}\int_{-\pi/h}^{\pi/h} e^{\I kx}\hat u(k)\dd k,\quad x\in \mathbb R.~
 \end{equation}
@@ -87,22 +87,16 @@ p(x)=\frac{1}{2\pi}\int_{-\pi/h}^{\pi/h} e^{\I kx}\hat u(k)\dd k,\quad x\in \mat
 \subsubsection{周期情形}
 假设数据定义在 $x_i=ih,i\in\{1,\cdots N\},h=\frac{2L}{N}$ 上，$u_i=u(x_i)$。那么：
 
-1.通过\autoref{eq_InfDM_7} 的第一式我们可以获得 $\hat u(k)$，它关于 $k$ 是可微的;
+1.通过\autoref{eq_InfDM_7} 的第一式我们可以获得 $\hat u(k)$.
 
-2.而\autoref{eq_InfDM_7} 的第二式可以确定一个函数 
-\begin{equation}
-p(x)=\frac{1}{2L}\sum_{k=-\frac{N}{2}+1}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}x}\hat u(k),.~
+2.而\autoref{eq_InfDM_7} 的第二式可以确定一个函数（为了更对称的处理，并考虑到 $e^{\I k\frac{\pi}{L}x}$ 在 $k=\frac{N}{2},-\frac{N}{2}$ 相等）  
+\begin{equation}\label{eq_InfDM_8}
+p(x)=\frac{1}{2L}{\sum'}\limits_{k=-\frac{N}{2}}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}x}\hat u(k),~
 \end{equation}
-显然 $p(x)$ 满足 $p(x_i)=u_i$，并且 $p(x)$ 是可微的。因此可以用 $p(x)$ 的导数来近似 $u(x)$ 的导数。$p(x)$ 给了我们一个插值公式。
+其中 $'$ 表示求和在 $-N/2,N/2$ 处需要乘 $1/2$。显然 $p(x)$ 满足 $p(x_i)=u_i$，并且 $p(x)$ 是可微的。因此可以用 $p(x)$ 的导数来近似 $u(x)$ 的导数。$p(x)$ 便是需要的插值公式。
 
-由\autoref{eq_InfDM_4} ，只需令 $\hat u(k)$ 仅在 $[-\pi/h,\pi/h]$ 上不为零。那么\autoref{eq_InfDM_4} 的积分下限和上限就可以变到 $-\infty,\infty$。因此由\autoref{eq_InfDM_1} 和\autoref{eq_InfDM_2} 可知 $p(x)$ 的傅里叶变换为
-\begin{equation}
-\hat p(k)=\left\{\begin{aligned}
-&\hat u(k),&k\in[-\pi/h,\pi/h],\\
-&0,&k\not\in[-\pi/h,\pi/h].
-\end{aligned}\right.~
-\end{equation}
 \subsection{导数近似算法}
+\subsubsection{无界情形}
 有了\autoref{eq_InfDM_4} 的插值函数 $p(x)$，我们就可以进行导数近似了：
 
 1.给定定义在 $h\mathbb Z$ 上的函数 $u$，利用\autoref{eq_InfDM_4} 确定它的有限带宽函数 $p(x)$；
@@ -124,8 +118,16 @@ u'(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty} \I ke^{\I kx}\hat u(k)\dd k,\quad x\
 2.定义 $\hat w(k)=\I k\hat u(k)$;
 
 3.利用\autoref{eq_InfDM_3} 的第二式从 $\hat w$ 计算 $w$。这即得到在给定点的导数近似。
+\subsubsection{周期情形}
+周期情形的程序为：
+
+1.给定定义在 $\{h,\cdots,Nh=2L\}$（$x_i=ih,i=1,\cdots,N$） 上的函数 $u$，利用\autoref{eq_InfDM_8} 确定它的插值函数 $p(x)$；
+
+2.令 $w_j=p'(x_j)$，则 $w_j$ 就是 $u$ 在 $x_j$ 处的近似导数。
+
 
 \subsection{无穷阶差分矩阵}
+\subsubsection{无界情形}
 由\autoref{eq_InfDM_3}  可知，若 $u(x)=\sum\limits_{j}a_jf_j(x)$，$a_i\in\mathbb C$， 那么
 \begin{equation}
 \begin{aligned}
@@ -206,7 +208,27 @@ h^{-1}
 \end{pmatrix}.~
 \end{equation}
 
-
+\subsection{周期情形}
+同样的，\autoref{eq_InfDM_8} 可以写为
+\begin{equation}
+\begin{aligned}
+p(x)&=\frac{1}{2L}{\sum'}\limits_{k=-\frac{N}{2}}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}x}\hat u(k)\\
+&=\frac{1}{2L}\sum_{m=1}^{N}u(x_m){\sum'}\limits_{k=-\frac{N}{2}}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}x}\hat \delta_m(k),~
+\end{aligned}~
+\end{equation}
+而
+\begin{equation}
+\hat \delta_m(k)=h\sum_{i=1}^{N}e^{-\I k\frac{\pi}{L}x_i}\delta(x_i-x_m)=he^{-\I k\frac{\pi}{L}x_m}.~
+\end{equation}
+所以
+\begin{equation}
+\begin{aligned}
+p(x)
+&=\frac{h}{2L}\sum_{m=1}^{N}u(x_m){\sum'}\limits_{k=-\frac{N}{2}}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}(x-x_m)}\\
+&=\frac{h}{2L}\sum_{m=1}^{N}u(x_m)\qty(\frac{1}{2}\sum_{k=-\frac{N}{2}}^{\frac{N}{2}-1}\limits_{k=-\frac{N}{2}}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}(x-x_m)})\\
+&=,
+\end{aligned}~
+\end{equation}
 
 
 

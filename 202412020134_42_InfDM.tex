@@ -69,7 +69,7 @@ u(x_j)&=\frac{1}{2L}\sum_{k=-\frac{N}{2}+1}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}x_j
 
 1.通过\autoref{eq_InfDM_3} 的第一式我们可以获得 $\hat u(k)$，它关于 $k$ 是可微的;
 
-2.而\autoref{eq_InfDM_3} 的第二式可以确定一个函数 
+2.而\autoref{eq_InfDM_3} 的第二式可以确定一个函数
 \begin{equation}\label{eq_InfDM_4}
 p(x)=\frac{1}{2\pi}\int_{-\pi/h}^{\pi/h} e^{\I kx}\hat u(k)\dd k,\quad x\in \mathbb R.~
 \end{equation}
@@ -87,21 +87,14 @@ p(x)=\frac{1}{2\pi}\int_{-\pi/h}^{\pi/h} e^{\I kx}\hat u(k)\dd k,\quad x\in \mat
 \subsubsection{周期情形}
 假设数据定义在 $x_i=ih,i\in\{1,\cdots N\},h=\frac{2L}{N}$ 上，$u_i=u(x_i)$。那么：
 
-1.通过\autoref{eq_InfDM_7} 的第一式我们可以获得 $\hat u(k)$，它关于 $k$ 是可微的;
+1.通过\autoref{eq_InfDM_7} 的第一式我们可以获得 $\hat u(k)$.
 
-2.而\autoref{eq_InfDM_7} 的第二式可以确定一个函数 
+2.而\autoref{eq_InfDM_7} 的第二式可以确定一个函数（为了更对称的处理，并考虑到 $e^{\I k\frac{\pi}{L}x}$ 在 $k=\frac{N}{2},-\frac{N}{2}$ 相等）  
 \begin{equation}
-p(x)=\frac{1}{2L}\sum_{k=-\frac{N}{2}+1}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}x}\hat u(k),.~
+p(x)=\frac{1}{2L}\sum_{k=-\frac{N}{2}}^{\frac{N}{2}}e^{\I k\frac{\pi}{L}x}\hat u(k),.~
 \end{equation}
-显然 $p(x)$ 满足 $p(x_i)=u_i$，并且 $p(x)$ 是可微的。因此可以用 $p(x)$ 的导数来近似 $u(x)$ 的导数。$p(x)$ 给了我们一个插值公式。
+显然 $p(x)$ 满足 $p(x_i)=u_i$，并且 $p(x)$ 是可微的。因此可以用 $p(x)$ 的导数来近似 $u(x)$ 的导数。$p(x)$ 便是需要的插值公式。
 
-由\autoref{eq_InfDM_4} ，只需令 $\hat u(k)$ 仅在 $[-\pi/h,\pi/h]$ 上不为零。那么\autoref{eq_InfDM_4} 的积分下限和上限就可以变到 $-\infty,\infty$。因此由\autoref{eq_InfDM_1} 和\autoref{eq_InfDM_2} 可知 $p(x)$ 的傅里叶变换为
-\begin{equation}
-\hat p(k)=\left\{\begin{aligned}
-&\hat u(k),&k\in[-\pi/h,\pi/h],\\
-&0,&k\not\in[-\pi/h,\pi/h].
-\end{aligned}\right.~
-\end{equation}
 \subsection{导数近似算法}
 有了\autoref{eq_InfDM_4} 的插值函数 $p(x)$，我们就可以进行导数近似了：
 
