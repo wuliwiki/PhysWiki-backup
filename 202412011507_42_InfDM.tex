@@ -56,7 +56,7 @@ p(x)=\frac{1}{2\pi}\int_{-\pi/h}^{\pi/h} e^{\I kx}\hat u(k)\dd k,\quad x\in \mat
 \end{equation}
 由于这一点， \autoref{eq_InfDM_4} 的  $p(x)$ 被称为是 $v$ 的\textbf{有限带宽插值函数}。这一术语暗示着 $p$ 的傅里叶变换仅在 $[-\pi/h,\pi/h]$ 上不为0（仅在某一区域 $U$ 上不为0的函数往往称为具有支撑，$U$ 称为它的支撑集。若 $U$ 还是拓扑意义上的紧集，又被称为具有紧支撑）。
 
-\subsection{差分矩阵}
+\subsection{导数近似算法}
 有了\autoref{eq_InfDM_4} 的插值函数 $p(x)$，我们就可以进行导数近似了：
 
 1.给定定义在 $h\mathbb Z$ 上的函数 $u$，利用\autoref{eq_InfDM_4} 确定它的有限带宽函数 $p(x)$；
@@ -77,9 +77,16 @@ u'(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty} \I ke^{\I kx}\hat u(k)\dd k,\quad x\
 
 2.定义 $\hat w(k)=\I k\hat u(k)$;
 
+3.利用\autoref{eq_InfDM_3} 的第二式从 $\hat w$ 计算 $w$。这即得到在给定点的导数近似。
 
-
-
+\subsection{无穷阶差分矩阵}
+由\autoref{eq_InfDM_1} 可知，若 $u(x)=\sum_{i}a_if_i(x)$，$a_i\in\mathbb C$， 那么
+\begin{equation}
+\begin{aligned}
+\hat u(k)=\sum_{i}a_i\int_{-\infty}^{\infty} e^{-\I kx}f_i(x)\dd x=\sum_{i}a_i\hat f_i(k).
+\end{aligned}~
+\end{equation}
+即傅里叶变换是线性的。而任意的离散点都可以用Kronecker Delta 函数 $\delta_i=1,$ 表示为
 
 
 
