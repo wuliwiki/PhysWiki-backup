@@ -428,25 +428,197 @@ Dirac方程和伴随Dirac方程都可以通过（变分）一个特定的拉格�
 
 在自然单位制下，采用斜线符号表示，作用量为：
 
+\textbf{Dirac 作用量}
+\[
+S = \int d^4 x \, {\bar {\psi}} \, (i \partial \!\!\! / - m) \, \psi~
+\]
+对于这个作用量，上述的守恒电流 \( J^{\mu} \) 作为与全局 \( U(1) \) 对称性对应的守恒电流，通过诺特定理在场论中得到。通过将对称性更改为局部的、时空点相关的对称性，对该场论进行规范化（即引入规范冗余）得到规范对称性。由此产生的理论是量子电动力学（QED）。详尽的讨论请见下文。
+\subsection{洛伦兹不变性}  
+狄拉克方程在洛伦兹变换下是不变的，也就是说，它在洛伦兹群 \( \text{SO}(1,3) \) 或严格的 \( \text{SO}(1,3)^{+} \)（与恒等变换相连的部分）作用下保持不变。
 
+对于一个被具体视为取值于 \( \mathbb{C}^4 \) 的狄拉克自旋子，洛伦兹变换 \( \Lambda \) 下的变换由一个 \( 4 \times 4 \) 复矩阵 \( S[\Lambda] \) 给出。在定义对应的 \( S[\Lambda] \) 时有一些细节问题，并且通常会有符号上的滥用。
 
+大多数讨论发生在李代数的层面上。更详细的讨论请见此处。洛伦兹群的 \( 4 \times 4 \) 实矩阵作用在 \( \mathbb{R}^{1,3} \) 上，由六个矩阵 \( \{M^{\mu \nu}\} \) 生成，组件为：
+\[
+(M^{\mu \nu})^{\rho}{}_{\sigma} = \eta^{\mu \rho} \delta^{\nu}{}_{\sigma} - \eta^{\nu \rho} \delta^{\mu}{}_{\sigma}.~
+\]
+当 \( \rho, \sigma \) 的指标被升降时，这些矩阵只是反对称矩阵的“标准基”。
 
+这些矩阵满足洛伦兹代数的交换关系：
+\[
+[M^{\mu \nu}, M^{\rho \sigma}] = M^{\mu \sigma} \eta^{\nu \rho} - M^{\nu \sigma} \eta^{\mu \rho} + M^{\nu \rho} \eta^{\mu \sigma} - M^{\mu \rho} \eta^{\nu \sigma}.~
+\]
+在狄拉克代数的讨论中，还可以发现自旋生成元
+\[
+S^{\mu \nu} = \frac{1}{4} [\gamma^{\mu}, \gamma^{\nu}]~
+\]
+也满足洛伦兹代数的交换关系。
 
+洛伦兹变换 \( \Lambda \) 可以写成：
+\[
+\Lambda = \exp\left(\frac{1}{2} \omega_{\mu \nu} M^{\mu \nu}\right)~
+\]
+其中，组件 \( \omega_{\mu \nu} \) 在 \( \mu, \nu \) 上是反对称的。
 
+对应于自旋空间的变换是：
+\[
+S[\Lambda] = \exp\left(\frac{1}{2} \omega_{\mu \nu} S^{\mu \nu}\right).~
+\]
+这是一种符号上的滥用，但它是标准的。原因在于 \( S[\Lambda] \) 不是 \( \Lambda \) 的一个良定义的函数，因为有两组不同的组件 \( \omega_{\mu \nu} \)（等价的情况下）给出相同的 \( \Lambda \)，但得到不同的 \( S[\Lambda] \)。在实际操作中，我们通常隐含地选择其中的一组 \( \omega_{\mu \nu} \)，然后 \( S[\Lambda] \) 就可以在这个基础上得到良定义。
 
+在洛伦兹变换下，狄拉克方程：
+\[
+i \gamma^\mu \partial_\mu \psi(x) - m \psi(x) = 0~
+\]
+变为：
+\[
+i \gamma^\mu \left( (\Lambda^{-1})_{\mu}{}^{\nu} \partial_\nu \right) S[\Lambda] \psi(\Lambda^{-1} x) - m S[\Lambda] \psi(\Lambda^{-1} x) = 0.~
+\]
+\textbf{洛伦兹不变性证明的其余部分}
 
+将两边从左乘以 \( S^{-1}[\Lambda] \) 并将虚变量变回 \( x \) 后，得到：
+\[
+S[\Lambda]^{-1} \gamma^\mu S[\Lambda] \left( (\Lambda^{-1})_{\mu}{}^{\nu} \partial_\nu \right) \psi(x) - m \psi(x) = 0.~
+\]
+如果能证明：
+\[
+S[\Lambda]^{-1} \gamma^\mu S[\Lambda] (\Lambda^{-1})^{\nu}{}_{\mu} = \gamma^\nu,~
+\]
+或者等效地，
+\[
+S[\Lambda]^{-1} \gamma^\mu S[\Lambda] = \Lambda^{\mu}{}_{\nu} \gamma^\nu,~
+\]
+则可以证明不变性。这通常在代数层面上证明最为简便。假设变换由无穷小分量 \( \omega_{\mu \nu} \) 参数化，那么在 \( \omega \) 的一阶近似下，左边得到：
+\[
+\frac{1}{2} \omega_{\rho \sigma} (M^{\rho \sigma})^{\mu}{}_{\nu} \gamma^\nu,~
+\]
+而右边得到：
+\[
+\left[ \frac{1}{2} \omega_{\rho \sigma} S^{\rho \sigma}, \gamma^\mu \right] = \frac{1}{2} \omega_{\rho \sigma} \left[ S^{\rho \sigma}, \gamma^\mu \right].~
+\]
+计算左边的对易子是一个标准的练习。通过将 \( M^{\rho \sigma} \) 写成分量形式，完成证明。
 
+与洛伦兹不变性相关的是一个守恒的诺特电流，或者更确切地说，是一组守恒的诺特电流张量 \( ({\mathcal {J}}^{\rho \sigma})^{\mu} \)。类似地，由于方程在平移下不变，因此也存在一组守恒的诺特电流张量 \( T^{\mu \nu} \)，它可以被识别为理论的应力-能量张量。洛伦兹电流 \( ({\mathcal {J}}^{\rho \sigma})^{\mu} \) 可以通过应力-能量张量以及一个表示内禀角动量的张量来表示。
 
+\textbf{关于狄拉克方程的洛伦兹协变性进一步讨论}
 
+狄拉克方程是洛伦兹协变的。阐明这一点有助于理解狄拉克方程，同时也有助于理解马约拉纳自旋子（Majorana spinor）和埃尔科自旋子（Elko spinor），虽然它们密切相关，但存在微妙且重要的差异。
 
+理解洛伦兹协变性可以通过保持对过程几何性质的理解来简化。[14] 设 \( a \) 为时空流形中的一个固定点。这个点的位置可以在多个坐标系中表达。在物理文献中，这些坐标通常表示为 \( x \) 和 \( x' \)，理解为 \( x \) 和 \( x' \) 描述的是同一个点 \( a \)，但在不同的局部参考系中（即在一个小的时空区域内的参考系）。我们可以把 \( a \) 看作是拥有多个不同坐标系的“纤维”。从几何角度来看，可以说时空可以被描述为一个纤维丛，特别地，它是帧丛（frame bundle）。同一纤维中两个点 \( x \) 和 \( x' \) 的差异是旋转和洛伦兹增强（Lorentz boost）的组合。选择一个坐标系就是在该丛上的（局部）截面。
 
+与帧丛耦合的是第二个丛，称为自旋子丛（spinor bundle）。穿过自旋子丛的截面就是粒子场（在当前情况下是狄拉克自旋子）。自旋子纤维中的不同点对应于相同的物理对象（费米子），但在不同的洛伦兹框架中表示。显然，为了得到一致的结果，帧丛和自旋子丛必须以一致的方式联系在一起；从形式上讲，我们说自旋子丛是关联丛（associated bundle），它与一个主丛（在当前情况下是帧丛）关联。纤维上点之间的差异对应于系统的对称性。自旋子丛有两个不同的对称性生成元：总角动量和内禀角动量。它们都对应于洛伦兹变换，但以不同的方式。
 
+这里的介绍遵循了 Itzykson 和 Zuber 的内容。[15] 它与 Bjorken 和 Drell 的介绍非常相似。[16] 在广义相对论的框架下，可以在 Weinberg 的著作中找到类似的推导。[17] 在这里，我们假设时空是平坦的，也就是说，我们的时空是闵可夫斯基空间。
 
+在洛伦兹变换 \( x \mapsto x' \) 下，狄拉克自旋子变换为  
+\[
+\psi'(x') = S \psi(x)~
+\]  
+可以证明，\( S \) 的显式表达式为  
+\[
+S = \exp \left( \frac{-i}{4} \omega^{\mu \nu} \sigma_{\mu \nu} \right)~
+\]  
+其中，\( \omega^{\mu \nu} \) 参数化了洛伦兹变换，\( \sigma_{\mu \nu} \) 是六个 \( 4 \times 4 \) 矩阵，满足：
+\[
+\sigma^{\mu \nu} = \frac{i}{2} [\gamma^\mu, \gamma^\nu]~
+\]
+这个矩阵可以解释为狄拉克场的内禀角动量。它之所以有这种解释，可以通过与洛伦兹变换生成元 \( J_{\mu \nu} \) 进行对比，后者的形式为  
+\[
+J_{\mu \nu} = \frac{1}{2} \sigma_{\mu \nu} + i \left( x_\mu \partial_\nu - x_\nu \partial_\mu \right)~
+\]  
+这个生成元可以解释为总角动量。它作用在自旋子场上，形式为  
+\[
+\psi'(x) = \exp \left( \frac{-i}{2} \omega^{\mu \nu} J_{\mu \nu} \right) \psi(x)~
+\]  
+请注意，以上公式中的 \( x \) 没有加上撇号：这是通过将 \( x \mapsto x' \) 变换后，得到自旋子 \( \psi(x) \mapsto \psi'(x) \)，然后返回到原始坐标系 \( x' \mapsto x \) 的结果。
 
+上述内容的几何解释是：框架场是仿射的，没有优先的原点。生成元 \( J_{\mu \nu} \) 生成了该空间的对称性：它提供了一个固定点 \( x \) 的重新标定。生成元 \( \sigma_{\mu \nu} \) 则生成从纤维中的一个点到另一个点的运动：即从 \( x \mapsto x' \) 的运动，其中 \( x \) 和 \( x' \) 仍然对应于同一个时空点 \( a \)。这些可能晦涩的评论可以通过明确的代数推导加以阐明。
 
+设 \( x' = \Lambda x \) 为洛伦兹变换。狄拉克方程为  
+\[
+i\gamma^{\mu} \frac{\partial}{\partial x^{\mu}} \psi(x) - m \psi(x) = 0~
+\]  
+如果狄拉克方程要保持协变性，则它在所有洛伦兹框架中应具有完全相同的形式：  
+\[
+i\gamma^{\mu} \frac{\partial}{\partial x^{\prime \mu}} \psi'(x') - m \psi'(x') = 0~
+\]  
+两个自旋子 \( \psi \) 和 \( \psi' \) 应该描述同一个物理场，因此它们应该通过一个变换联系起来，该变换不会改变任何物理观测量（如电荷、电流、质量等）。该变换应该仅仅编码坐标框架的变化。可以证明，这样的变换是一个 \( 4 \times 4 \) 的单位矩阵。因此，可以假设这两个框架之间的关系可以写为  
+\[
+\psi'(x') = S(\Lambda) \psi(x)~
+\]  
+将其代入变换后的方程，结果是  
+\[
+i\gamma^{\mu} \frac{\partial x^{\nu}}{\partial x^{\prime \mu}} \frac{\partial}{\partial x^{\nu}} S(\Lambda) \psi(x) - m S(\Lambda) \psi(x) = 0~
+\]  
+通过洛伦兹变换相关的坐标满足：  
+\[
+\frac{\partial x^{\nu}}{\partial x^{\prime \mu}} = \left(\Lambda^{-1}\right)^{\nu}_{\mu}~
+\]  
+如果满足  
+\[
+S(\Lambda) \gamma^{\mu} S^{-1}(\Lambda) = \left(\Lambda^{-1}\right)^{\mu}_{\nu} \gamma^{\nu}~
+\]  
+则恢复了原始的狄拉克方程。
 
+通过考虑靠近恒等变换的洛伦兹变换的无穷小旋转，可以获得 \( S(\Lambda) \) 的显式表达式（与上面给出的表达式相同）：  
+\[
+\Lambda^\mu_{\nu} = g^\mu_{\nu} + \omega^\mu_{\nu}, \quad (\Lambda^{-1})^\mu_{\nu} = g^\mu_{\nu} - \omega^\mu_{\nu}~
+\]  
+其中 \( g^\mu_{\nu} \) 是度量张量：  
+\[
+g^\mu_{\nu} = g^{\mu \nu'} g_{\nu' \nu} = \delta^\mu_{\nu}~
+\]  
+且 \( \omega_{\mu \nu} = \omega^\alpha_\nu g_{\alpha \mu} \) 是反对称的。通过插入和计算，得到  
+\[
+S(\Lambda) = I + \frac{-i}{4} \omega^{\mu \nu} \sigma_{\mu \nu} + \mathcal{O}(\Lambda^2)~
+\]  
+这是 \( S \) 的（无穷小）形式，并且得到了关系  
+\[
+\sigma^{\mu \nu} = \frac{i}{2} [\gamma^\mu, \gamma^\nu].~
+\]  
 
+为了获得仿射的重新标定，写出  
+\[
+\psi'(x') = \left(I + \frac{-i}{4} \omega^{\mu \nu} \sigma_{\mu \nu}\right) \psi(x)~
+\]  
+\[
+= \left(I + \frac{-i}{4} \omega^{\mu \nu} \sigma_{\mu \nu}\right) \psi(x' + \omega^\mu_\nu x'^\nu)~
+\]  
+\[
+= \left(I + \frac{-i}{4} \omega^{\mu \nu} \sigma_{\mu \nu} - x'_\mu \omega^{\mu \nu} \partial_\nu \right) \psi(x')~
+\]  
+\[
+= \left(I + \frac{-i}{2} \omega^{\mu \nu} J_{\mu \nu} \right) \psi(x')~
+\]  
 
+经过适当的反对称化后，得到前面提到的对称性生成元 \( J_{\mu \nu} \)。因此，\( J_{\mu \nu} \) 和 \( \sigma_{\mu \nu} \) 都可以被称为“洛伦兹变换的生成元”，但有一个微妙的区别：第一个对应于仿射框架束上点的重新标定，它强制沿自旋束的纤维进行平移；而第二个对应于沿自旋束的纤维的平移（当做沿框架束的运动 \( x \mapsto x' \)，以及沿自旋束的运动 \( \psi \mapsto \psi' \)）。Weinberg 提出了更多的论据来阐明这些是总角动量和内在角动量的物理解释。[18]
+\subsection{其他形式}
+狭义相对论中的狄拉克方程已经在平坦时空中得到了展开。实际上，也可以将狄拉克方程表述在弯曲时空中。
+\subsubsection{弯曲时空}
+本文根据狭义相对论在平直时空中推导了狄拉克方程。也可以在弯曲时空中推导出狄拉克方程。
+\subsubsection{物理空间的代数}
+本文使用四维向量和薛定谔算符推导了狄拉克方程。在物理空间的代数中，狄拉克方程使用了实数上的克利福德代数，这是一种几何代数。
+\subsubsection{耦合的魏尔自旋子}
+如上所述，无质量的狄拉克方程立即简化为齐次的魏尔方程。通过使用伽马矩阵的手征表示，无质量方程也可以分解成一对耦合的非齐次魏尔方程，这些方程作用于原始四分量自旋子的第一个和最后一对指标，即\(\psi = \begin{pmatrix} \psi_L \\ \psi_R \end{pmatrix}\)其中 \(\psi_L\) 和 \(\psi_R\) 是各自的两分量魏尔自旋子。这是因为手征伽马矩阵的斜块形式意味着它们交换 \(\psi_L\) 和 \(\psi_R\)，并将二阶保利矩阵应用于每个自旋子：
+\[
+\gamma^\mu \begin{pmatrix} \psi_L \\ \psi_R \end{pmatrix} = \begin{pmatrix} \sigma^\mu \psi_R \\ \overline{\sigma}^\mu \psi_L \end{pmatrix}~
+\]
+因此，狄拉克方程
+\[
+(i \gamma^\mu \partial_\mu - m) \begin{pmatrix} \psi_L \\ \psi_R \end{pmatrix} = 0~
+\]
+变为
+\[
+i \begin{pmatrix} \sigma^\mu \partial_\mu \psi_R \\ \overline{\sigma}^\mu \partial_\mu \psi_L \end{pmatrix} = m \begin{pmatrix} \psi_L \\ \psi_R \end{pmatrix}~
+\]
+这又等价于一对无质量左旋和右旋自旋子的非齐次魏尔方程，其中耦合强度与质量成正比：
+\[
+i \sigma^\mu \partial_\mu \psi_R = m \psi_L~
+\]
+\[
+i \overline{\sigma}^\mu \partial_\mu \psi_L = m \psi_R~
+\]
+这一点被提出作为对“颤动运动”（Zitterbewegung）的直观解释，因为这些无质量分量将以光速传播并朝相反方向运动，因为自旋的螺旋度是自旋沿运动方向的投影。在这里，“质量”\(m\) 的作用不是使速度小于光速，而是控制这些反转发生的平均速率；具体而言，这些反转可以被建模为泊松过程。[20]
 
 
 

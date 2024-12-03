@@ -428,9 +428,52 @@ Dirac方程和伴随Dirac方程都可以通过（变分）一个特定的拉格�
 
 在自然单位制下，采用斜线符号表示，作用量为：
 
+\textbf{Dirac 作用量}
+\[
+S = \int d^4 x \, {\bar {\psi}} \, (i \partial \!\!\! / - m) \, \psi~
+\]
+对于这个作用量，上述的守恒电流 \( J^{\mu} \) 作为与全局 \( U(1) \) 对称性对应的守恒电流，通过诺特定理在场论中得到。通过将对称性更改为局部的、时空点相关的对称性，对该场论进行规范化（即引入规范冗余）得到规范对称性。由此产生的理论是量子电动力学（QED）。详尽的讨论请见下文。
+\subsection{洛伦兹不变性}  
+狄拉克方程在洛伦兹变换下是不变的，也就是说，它在洛伦兹群 \( \text{SO}(1,3) \) 或严格的 \( \text{SO}(1,3)^{+} \)（与恒等变换相连的部分）作用下保持不变。
 
+对于一个被具体视为取值于 \( \mathbb{C}^4 \) 的狄拉克自旋子，洛伦兹变换 \( \Lambda \) 下的变换由一个 \( 4 \times 4 \) 复矩阵 \( S[\Lambda] \) 给出。在定义对应的 \( S[\Lambda] \) 时有一些细节问题，并且通常会有符号上的滥用。
 
+大多数讨论发生在李代数的层面上。更详细的讨论请见此处。洛伦兹群的 \( 4 \times 4 \) 实矩阵作用在 \( \mathbb{R}^{1,3} \) 上，由六个矩阵 \( \{M^{\mu \nu}\} \) 生成，组件为：
+\[
+(M^{\mu \nu})^{\rho}{}_{\sigma} = \eta^{\mu \rho} \delta^{\nu}{}_{\sigma} - \eta^{\nu \rho} \delta^{\mu}{}_{\sigma}.~
+\]
+当 \( \rho, \sigma \) 的指标被升降时，这些矩阵只是反对称矩阵的“标准基”。
 
+这些矩阵满足洛伦兹代数的交换关系：
+\[
+[M^{\mu \nu}, M^{\rho \sigma}] = M^{\mu \sigma} \eta^{\nu \rho} - M^{\nu \sigma} \eta^{\mu \rho} + M^{\nu \rho} \eta^{\mu \sigma} - M^{\mu \rho} \eta^{\nu \sigma}.~
+\]
+在狄拉克代数的讨论中，还可以发现自旋生成元
+\[
+S^{\mu \nu} = \frac{1}{4} [\gamma^{\mu}, \gamma^{\nu}]~
+\]
+也满足洛伦兹代数的交换关系。
+
+洛伦兹变换 \( \Lambda \) 可以写成：
+\[
+\Lambda = \exp\left(\frac{1}{2} \omega_{\mu \nu} M^{\mu \nu}\right)~
+\]
+其中，组件 \( \omega_{\mu \nu} \) 在 \( \mu, \nu \) 上是反对称的。
+
+对应于自旋空间的变换是：
+\[
+S[\Lambda] = \exp\left(\frac{1}{2} \omega_{\mu \nu} S^{\mu \nu}\right).~
+\]
+这是一种符号上的滥用，但它是标准的。原因在于 \( S[\Lambda] \) 不是 \( \Lambda \) 的一个良定义的函数，因为有两组不同的组件 \( \omega_{\mu \nu} \)（等价的情况下）给出相同的 \( \Lambda \)，但得到不同的 \( S[\Lambda] \)。在实际操作中，我们通常隐含地选择其中的一组 \( \omega_{\mu \nu} \)，然后 \( S[\Lambda] \) 就可以在这个基础上得到良定义。
+
+在洛伦兹变换下，狄拉克方程：
+\[
+i \gamma^\mu \partial_\mu \psi(x) - m \psi(x) = 0~
+\]
+变为：
+\[
+i \gamma^\mu \left( (\Lambda^{-1})_{\mu}{}^{\nu} \partial_\nu \right) S[\Lambda] \psi(\Lambda^{-1} x) - m S[\Lambda] \psi(\Lambda^{-1} x) = 0.~
+\]
 
 
 
