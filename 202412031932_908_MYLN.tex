@@ -1,0 +1,124 @@
+% 马约拉纳方程（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Majorana_equation}{相关文章}。
+
+在物理学中，\textbf{Majorana 方程}是一种相对论波动方程。它以意大利物理学家埃托雷·马约拉纳（Ettore Majorana）的名字命名，他于1937年提出这一方程用于描述那些自身即为反粒子的费米子。依据这一方程的粒子被称为\textbf{Majorana 粒子}。然而，如今这个术语涵盖了更广泛的意义，指任何（可能是非相对论的）自身为反粒子的费米子，因此这些粒子必然是电中性的。
+
+有理论提议认为，具有质量的中微子可以用 Majorana 粒子来描述；标准模型的各种扩展允许这种可能性。关于 Majorana 粒子的文章中包含了实验搜索的最新进展，包括中微子的相关细节。而本文则主要关注该理论的数学发展，特别是其离散和连续对称性。离散对称性包括\textbf{电荷共轭}、\textbf{宇称变换}和\textbf{时间反演}；连续对称性为\textbf{洛伦兹不变性}。
+
+电荷共轭在其中扮演了重要角色，这是使得 Majorana 粒子能够被描述为电中性的关键对称性。一个特别值得注意的特性是，电中性允许对左右手螺旋场的全局相位进行自由选择。这意味着，在没有显式限制这些相位的情况下，Majorana 场天然是 CP 破坏的。电中性带来的另一个特性是，左右手螺旋场可以被赋予不同的质量。换句话说，\textbf{电荷}是洛伦兹不变量，同时也是运动常数；而\textbf{手性}则是洛伦兹不变量，但对于具有质量的场来说不是运动常数。因此，电中性的场受到的约束比带电场更少。在电荷共轭作用下，这两个自由的全局相位出现在质量项中（因为它们是洛伦兹不变量），因此 Majorana 质量被描述为一个复矩阵，而不是一个单一数值。
+
+简而言之，Majorana 方程的离散对称性远比 Dirac 方程复杂。在 Dirac 方程中，电荷 
+\( U(1) \) 对称性约束并消除了这些自由度，而在 Majorana 方程中，这些自由度得以保留。
+\subsection{定义} 
+Majorana 方程可以以几种不同的形式表示：
+\begin{itemize}
+\item 作为 Dirac 方程的形式，其中 Dirac 算符是纯粹厄米的，从而得到纯实数解。  
+\item 作为一个算符，将一个四分量自旋子与其电荷共轭相关联。  
+\item 作为一个作用于复数二分量自旋子的 2×2 微分方程，类似于 Weyl 方程，但具有适当的洛伦兹协变质量项。
+\end{itemize}  
+这三种形式是等价的，可以相互推导。每种形式提供了对方程性质的略有不同的理解。第一种形式强调可以找到纯实数解。第二种形式阐明了电荷共轭的作用。第三种形式则提供了与洛伦兹群表示理论最直接的联系。
+\subsubsection{纯实数四分量形式}
+常规的起始点是表述为“Dirac 方程可以写成厄米形式”，当伽马矩阵采用 Majorana 表示时。Dirac 方程可以写成如下形式：[6]
+\[
+\left( -i \frac{\partial}{\partial t} - i \hat{\alpha} \cdot \nabla + \beta m \right) \psi = 0~
+\]
+其中，\(\hat{\alpha}\) 是纯实数的 4×4 对称矩阵，而 \(\beta\) 是纯虚数的斜对称矩阵；这要求确保括号内的算符是厄米算符。在这种情况下，可以找到该方程的纯实数 4-自旋子解，这些解就是 Majorana 自旋子。
+\subsubsection{电荷共轭四分量形式} 
+Majorana 方程为：
+\[
+i \, \partial \!\!\!{\big /} \psi - m \, \psi_c = 0~
+\]
+其中，导数算符 \(\partial \!\!\!{\big /}\) 采用费曼斜线符号表示，包括伽马矩阵以及对自旋子分量的求和。自旋子 \(\psi_c\) 是 \(\psi\) 的电荷共轭。根据构造，电荷共轭必然由以下公式给出：
+\[
+\psi_c = \eta_c \, C \, {\overline{\psi}}^{\mathsf{T}}~
+\]
+其中，\((\cdot)^{\mathsf{T}}\) 表示转置，\(\eta_c\) 是一个任意相位因子，满足 \(|\eta_c| = 1\)，通常取 \(\eta_c = 1\)，而 \(C\) 是 4×4 矩阵，即电荷共轭矩阵。矩阵 \(C\) 的表示依赖于伽马矩阵的选择。根据惯例，共轭自旋子写作：
+\[
+{\overline{\psi}} = \psi^\dagger \, \gamma^0~
+\]
+由电荷共轭矩阵 \(C\) 可以推导出若干代数恒等式。[a] 其中之一表明，在任何伽马矩阵的表示下（包括 Dirac、Weyl 和 Majorana 表示），有：\(C \, \gamma_\mu = - \gamma_\mu^{\mathsf{T}} \, C\)
+因此可以写为：
+\[
+\psi_c = - \eta_c \, \gamma^0 \, C \, \psi^*~
+\]
+其中，\(\psi^*\) 是 \(\psi\) 的复共轭。电荷共轭矩阵 \(C\) 还具有以下性质：
+\[
+C^{-1} = C^\dagger = C^{\mathsf{T}} = -C~
+\]
+在所有表示下（Dirac、手性、Majorana）。由此，通过一些代数运算，可以得到等效方程：
+\[
+i \, \partial \!\!\!{\big /} \psi_c - m \, \psi = 0~
+\]
+
+\textbf{证明} 
+
+这个形式并不完全显而易见，因此值得进行证明。首先从以下方程开始：
+\[
+-i\,{\partial \!\!\!{\big /}}\psi + m\,\psi_c = 0~
+\]
+展开 \(\psi_c = C\,{\overline{\psi}}^{\mathsf{T}}\)：
+\[
+-i\,{\partial \!\!\!{\big /}}\psi + m\,C\,{\overline{\psi}}^{\mathsf{T}} = 0~
+\]
+乘以 \(C\)，并利用 \(C^2 = -1\)：
+\[
+-i\,C\,{\partial \!\!\!{\big /}}C^{-1}\,C\,\psi - m\,{\overline{\psi}}^{\mathsf{T}} = 0~
+\]
+电荷共轭作用使伽马矩阵转置：
+\[
++i\,{\partial \!\!\!{\big /}}^{\mathsf{T}}\,C\,\psi - m\,\left(\gamma^0\right)^{\mathsf{T}}\,\psi^* = 0~
+\]
+对复共轭取反：
+\[
+-i\,{\partial \!\!\!{\big /}}^{\dagger} C^{*}\,\psi^* - m\,\left(\gamma^0\right)^{\dagger}\,\psi = 0~
+\]
+矩阵 \(\gamma^0\) 是厄米矩阵，且在三种表示下都满足 \(\left(\gamma^0\right)^{\dagger} = \gamma^0\)（Dirac、手性、Majorana）：
+\[
+-i\,{\partial \!\!\!{\big /}}^{\dagger} C^{*}\,\psi^* - m\,\gamma^0\,\psi = 0~
+\]
+它也是一个自反算符，即取厄米共轭时有 \(\gamma^0 \gamma^\mu \gamma^0 = (\gamma^\mu)^{\dagger}\)：
+\[
+-i\,\gamma^0\,{\partial \!\!\!{\big /}} \gamma^0\,C^{*}\,\psi^* - m\,\gamma^0\,\psi = 0~
+\]
+乘以 \(\gamma^0\)，注意到 \(\left(\gamma^0\right)^2 = I\)，并且利用 \(C^{*} = C\)：
+\[
+-i\,{\partial \!\!\!{\big /}}\gamma^0\,C\,\psi^* - m\,\psi = 0~
+\]
+上述等式正是共轭的定义，因此可以得出结论：
+\[
+i\,{\partial \!\!\!{\big /}}\psi_c - m\,\psi = 0~
+\]
+关于矩阵 \(C\) 作为电荷共轭的物理解释的详细讨论可以在电荷共轭的相关文章中找到。简而言之，它涉及将粒子映射到其反粒子，这其中包括电荷的反转。虽然 \(\psi_c\) 被定义为 \(\psi\) 的“电荷共轭”，但电荷共轭算符并非只有一个特征值，而是具有两个特征值。这使得第二个自旋子——ELKO 自旋子得以定义。有关这一点的更详细讨论将在下文中进行。
+\subsubsection{复数两分量形式}  
+在本小节中，下标 \(L\) 用于表示一个左旋的自旋子。  
+
+Majorana 算符 \( \mathrm{D}_{L} \) 定义为：
+\[
+\mathrm{D}_{L} \equiv i \, \overline{\sigma}^{\mu} \, \partial_{\mu} + \eta \, m \, \omega \, K~
+\]
+其中：
+\[
+\overline{\sigma}^{\mu} = \begin{bmatrix} \sigma^{0} & -\sigma^{1} & -\sigma^{2} & -\sigma^{3} \end{bmatrix} = \begin{bmatrix} I_{2} & -\sigma_{\text{x}} & -\sigma_{\text{y}} & -\sigma_{\text{z}} \end{bmatrix}~
+\]
+是一个向量，其分量为：对于 \(\mu = 0\)，是 2×2 单位矩阵 \(I_2\)，而对于 \(\mu \in \{1, 2, 3\}\)，是 (负号) 保利矩阵。  
+\(\eta\) 是一个任意相位因子，满足 \(|\eta| = 1\)，通常取 \(\eta = 1\)。  
+\(\omega\) 是一个 2×2 矩阵，可以解释为辛群 \( \operatorname{Sp}(2, \mathbb{C}) \) 的辛形式，它是洛伦兹群的双重覆盖。  
+\[
+\omega = i \, \sigma_2 = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}~
+\]
+它恰好与虚单位 "i" 同构（即 \(\omega^2 = -I\)，且 \(a I + b \omega \cong a + b i \in \mathbb{C}\)，其中 \(a, b \in \mathbb{R}\)），并且矩阵的转置是复共轭的类似物。  
+
+最后，\( K \) 是一个简写，表示取复共轭。对于一个左旋的复数值两分量自旋子 \( \psi_L \)，Majorana 方程为：
+\[
+\mathrm{D}_{L} \psi_L = 0~
+\]
+或者等价地，
+\[
+i \, \overline{\sigma}^{\mu} \, \partial_{\mu} \psi_L(x) + \eta \, m \, \omega \, \psi_L^*(x) = 0~
+\]
+其中 \( \psi_L^*(x) \) 是 \( \psi_L(x) \) 的复共轭。  
+
+下标 \(L\) 在本小节中用于表示左旋自旋子；在一个宇称变换下，这可以转换为右旋自旋子，因此方程也有右旋形式。这同样适用于四分量方程，更多细节将在下文中介绍。
