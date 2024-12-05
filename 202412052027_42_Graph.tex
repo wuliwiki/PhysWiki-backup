@@ -61,13 +61,41 @@
 %一个图的顶点的数目称为这个图的阶,记 作$|G|$，图的边的数目称为它的度，记作$||G||$。
 %\end{definition}
 下面的概念用于表达点和边之间的关系的。
-\begin{definition}{关联；相邻}
-\begin{itemize}
-\item 若有一条边连一个图的某两个顶点，则称这两个顶点相邻，并称这两个顶点为这条边的端点。
-\item 若某一顶点是某一条边的端点，则称这个顶点和这条边关联。
-\item 若两条边和同一顶点关联，则称这两条边相邻.
-\end{itemize}
+\begin{definition}{关联，端点，连接，相邻，独立}
+设 $G=(V,E)$ 是图，$e=\{x,y\},f\in E$。则：
+
+ \begin{enumerate}
+ \item $x$（$y$ 也是同样的） 和 $e$ \textbf{关联}（incident）；
+
+   \item  $x$ 和 $y$ 称为\textbf{相邻的}(adjacent)。
+
+   \item $v$ 称为在 $x$ 上的边。
+  
+   \item $x$ 和 $y$ 也称为 $e$ 的\textbf{端点}（endvertex）或\textbf{顶端}（end）；
+  
+  \item  $e$ 也称为\textbf{连接}（join）$x$ 和 $y$ 的边；
+
+  \item  $\{x,y\}$ 也记作 $xy$ （或 $yx$）。
+  
+   \item 若 $x\in X,y\in Y$，则称边 $xy$ 为 $X-Y$ 边（$X-Y$ edge）。
+  
+   \item 所有 $X-Y$ 边的全体记作 $E(X,Y)$。而 $E(\{x\},Y),E(X,\{y\})$ 则分别简记作 $E(x,Y),E(X,y)$。所有和 $v\in V$ 关联的边的全体记作 $E(v)$。
+
+   \item 若 $e\cap f\neq\varnothing$，则称 $e$ 和 $f$ 是\textbf{相邻的}。
+
+   \item 不相邻的点或边称为是\textbf{独立的}（independent）。
+   
+   \item 若一个点集或边集中没有两个元是相邻的，则称该集是\textbf{独立的}（或\textbf{稳定的}（stable））。
+ \end{enumerate}
 \end{definition}
+
+在集合中，若两个集合是一一对应的，就被称为是对等的。“对等”其实表达了数学的思想，这就是指表示集合的名称和元素的具体符号不重要，重要的仅仅是集合的元素的个数，我们可以完全认为它们是同一个集合，只是不同的人表达同一个东西用了不一样的符号标记而已。当集合的元素之间有某些关系的时候，关系的名称也不重要，重要的是哪些元素之间有关系，哪些元素之间没有关系。对于元素之间有某些关系的集合，不同的人完全可以选择不同的表达方式，即使用不同的符号，
+
+当两个图点集和边集完全一样时，
+
+
+
+
 \subsection{2.特殊图元素}
 \begin{definition}{特殊点；特殊边}
 \begin{itemize}
