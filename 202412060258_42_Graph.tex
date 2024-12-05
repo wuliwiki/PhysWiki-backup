@@ -38,8 +38,8 @@ P_2(A)=[A]^2\cup (A\times A).~
 
 
 
-\begin{definition}{图，顶点，边，阶数}
-设 $V$ 是一个集合，$E\subset P_2(A)$，则称二元组 $G=(V,E)$ 为\textbf{图}（graph）。$V$ 的元素称为 $G$ 的\textbf{顶点}（vertex），$E$ 的元素称为 $G$ 的\textbf{边}（edge）。$V$ 的基数（元素个数）称为图 $G$ 的\textbf{阶数}（order），记作 $\abs{G}$，而 $E$ 的基数记作 $\norm{G}$。
+\begin{definition}{图，顶点，边，关联函数，阶数}
+设 $V,E$ 是集合，$\varphi:E\rightarrow P_2(A)$ 是 $E$ 到 $V$ 的二元对族的映射。则称三元组 $G=(V,E,\varphi)$ 为\textbf{图}（graph）。$V$ 的元素称为 $G$ 的\textbf{顶点}（vertex），$E$ 的元素称为 $G$ 的\textbf{边}（edge），$\varphi$ 称为\textbf{关联函数}（incidence function）。$V$ 的基数（元素个数）称为图 $G$ 的\textbf{阶数}（order），记作 $\abs{G}$，而 $E$ 的基数记作 $\norm{G}$。
 \end{definition}
 
 
@@ -84,15 +84,15 @@ P_2(A)=[A]^2\cup (A\times A).~
 
 根据边集的分类，图又可分为无向图、有向图和混合图
 \begin{definition}{无向图，有向图，混合图}
-设 $G=(V,E)$ 是图，若 $E\subset[V]^2$，则称 $G$ 为\textbf{无向图}（undirected graph）；若 $E\subset V\times V$，则称 $G$ 为\textbf{有向图}（directed graph）；若 $E\cap[V]^2\neq\varnothing,E\cap (V\times V)\neq\varnothing$，则称 $G$ 为\textbf{混合图}（mixed graph）。
+设 $G=(V,E,\varphi)$ 是图，若 $\varphi(E)\subset[V]^2$，则称 $G$ 为\textbf{无向图}（undirected graph）；若 $\varphi(E)\subset V\times V$，则称 $G$ 为\textbf{有向图}（directed graph）；若 $\varphi(E)\cap[V]^2\neq\varnothing,\varphi(E)\cap (V\times V)\neq\varnothing$，则称 $G$ 为\textbf{混合图}（mixed graph）。
 \end{definition}
 
 \begin{definition}{边的分类，有向性}
-设 $G=(V,E)$ 是图，$e\in E$。若 $e\in[V]^2$，则称 $e$ 是\textbf{无向的}（undirected）；若 $e\in V\times V$，则称 $e$ 是\textbf{有向的}（directed）。对有向边 $e=(v_1,v_2)$，称 $v_1$ 是 $e$ 的\textbf{起点}（origin），$v_2$ 是 $e$ 的\textbf{终点}（terminus）。起点和终点统称为\textbf{端点}（end vertex）。
+设 $G=(V,E,\varphi)$ 是图，$e\in E$。若 $\varphi(e)\in[V]^2$，则称 $e$ 是\textbf{无向的}（undirected）；若 $\varphi(e)\in V\times V$，则称 $e$ 是\textbf{有向的}（directed）。若 $\varphi(e)=\{v_1,v_2\}$，则简记 $e=\{v_1,v_2\}$；若 $\varphi(e)=(v_1,v_2)$，则简记 $e=(v_1,v_2)$。对有向边 $e=(v_1,v_2)$，称 $v_1$ 是 $e$ 的\textbf{起点}（origin），$v_2$ 是 $e$ 的\textbf{终点}（terminus）。起点和终点统称为\textbf{端点}（end vertex）。
 \end{definition}
 
-\begin{definition}{环，对称边}
-称起止点相同的边 $(v,v)$ 为\textbf{环}（loop）。称端点相同方向相反的两条边 $(v_1,v_2)$ 和 $(v_2,v_1)$ 为\textbf{对称边}（symmetric edges）。
+\begin{definition}{环，对称边，平行}
+设 $G=(V,E,\varphi)$ 是图，$e_1,e_2\in E$。若 $\varphi(e_1)=(v,v)$，则称 $e$ 为\textbf{环}（loop）。若 $\varphi(e_1)=(v_1,v_2),\varphi(e_2)=(v_2,v_1)$，则称 $e_1,e_2$\textbf{对称}（symmetric）。若$\varphi(e_1)=\varphi(e_2)$，则称 $e_1,e_2$ 为\textbf{平行}（parallel）或\textbf{重边}（multi-edges）。
 \end{definition}
 
 有向边通常也被称为\textbf{弧}（arc）。
