@@ -1,0 +1,54 @@
+% 图的顶点度
+% keys 顶点度
+% license Usr
+% type Tutor
+
+\pentry{图\nref{nod_Graph}}{nod_2e68}
+
+图的某一顶点的度是指与它关联的边数。由于图论的早期主要研究的是无向图，因此顶点度的概念往往专门用于无向图。然而，为了一般化起见我们将它定义在任一图上。
+
+\begin{definition}{顶点度，出度，入度，孤立点}
+设 $G=(V,E,\varphi)$ 是图，$v\in V$。则 $G$ 中与 $v$ \aref{关联}{def_Graph_1}的边数称为 $v$ 在 $G$ 中的\textbf{度}（degree），记作 $d_G(v)$。$G$ 中以 $v$ 为起点的有向边数称为 $v$ 在 $G$ 中的\textbf{出度}（out degree），记作 $d_G^+(v)$。$G$ 中以 $d$ 为终点的有向边数称为 $v$ 在 $G$ 中的\textbf{入度}（in degree），记作 $d_G^-(v)$。度为 $d$ 的点称为 $d$ 度点（d degree vertex）。零度点称为\textbf{孤立点}（isolated vertex）。
+\end{definition}
+
+\begin{example}{}
+设 $G$ 是有向图。试证明 $d_G(v)=d_G^+(v)+d_G^-(v)-r$，其中 $r$ 是过 $v$ 的环数。
+
+\textbf{证明：}设 $E^+$ 是 $G$ 中以 $v$ 为起点的边集，$E^-$ 是 $G$ 中以 $v$ 为终点的边集。则 $E_0=E^+\cap E^-$ 是过 $v$ 的环集。由于
+$E^+\backslash E_0, E_0, E^-\backslash E_0$ 是 $E(v)$ 的划分，因此
+\begin{equation}
+\abs{E(v)}=\abs{E^+\backslash E_0}+\abs{E_0}+\abs{E^-\backslash E_0}.~
+\end{equation}
+又 $\abs{E(v)}=d_G(v),\abs{E^+\backslash E_0}=d_G^+(v)-r, \abs{E_0}=r, \abs{E^-\backslash E_0}=d_G^-(v)-r$，所以
+\begin{equation}
+d_G(v)=d_G^+(v)+d_G^-(v)-r.~
+\end{equation}
+\end{example}
+图的所有点当中最大的度和最小的度人们习惯用记号 $\Delta,\delta$ 分别来标记它。
+\begin{definition}{最大度，最小度}
+设 $G$ 是图。则称 $G$ 中顶点度的最大者称为 $G$ 的\textbf{最大度}（maximum degree），记作 $\Delta(G)$；而 $G$ 中顶点度的最小者称为\textbf{最小度}（minimum degree），记作 $\delta(G)$。
+\begin{equation}
+\Delta(G):=\max\{d_G(v)|v\in V\},\quad \delta(G):=\min\{d_G(v)|v\in V\}.~
+\end{equation}
+\end{definition}
+
+当所有点具有相同的度时，人们习惯用正则这个词来形容图。
+\begin{definition}{正则}
+若图 $G$ 中的所有点都具有相同的度 $k$，则称 $G$ 是 \textbf{$k$ 正则的}（$k$ regular），简称\textbf{正则的}（regular）。特别的，$3$ 正则图称为 \textbf{立方体}（cubic graph）。
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
