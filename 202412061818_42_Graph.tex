@@ -4,7 +4,7 @@
 % type Tutor
 
 
-\pentry{二元关系\nref{nod_Relat}}{nod_84d8}
+\pentry{映射\nref{nod_map}}{nod_84d8}
 
 \cite{graph1}\cite{graph2}直观上，图要描述的是一些带有两端点的边和一些点构成的对象。这样的对象有以下几种情况：
 
@@ -19,7 +19,9 @@
 
 \subsection{图的定义}
 
-当建立起某一对象的数学语言时，我们应当首先借助集合论的基本工具。首先，图包含两个代表点和边的集合。而边是连接两个端点的边，因此若对不同的点最多只有一边连接它们，就可以通过指定端点确定边。这时，对于无连接顺序之分的无向边，可以用代表集合的无序符号 $"\{*\}"$ 把它们括起来；而对于有向的边，则用代表有序对的符号 $"(*)"$ 把它们括起来。然而若允许图的两点之间可以有不同的点相连时，就不能用端点来确定边了，并且边集 $\{\{x,y\},\{x,y\}\}$ 因为有重复元而不满足集合的定义。但是边始终被认为是有端点的，因此我们总可以指定边的端点。这样就在边集和点集之间建立了一个关联，因此一般的图应当包含所谓的关联函数。值得注意的是，很多教材将图定义为只有点集和边集组成的二元组对象，使得它们在建立具有相同端点的不同边的模型的时候，而在“图”的前面加上一些形容词。本文认为，图的概念应当尽可能包含充分多的图，而不限于不同边只能对应不同端点，而把众多已经j
+当建立起某一对象的数学语言时，我们应当首先借助集合论的基本工具。首先，图包含两个代表点和边的集合。而边是连接两个端点的边，因此若对不同的点最多只有一边连接它们，就可以通过指定端点确定边。这时，对于无连接顺序之分的无向边，可以用代表集合的无序符号 $"\{*\}"$ 把它们括起来；而对于有向的边，则用代表有序对的符号 $"(*)"$ 把它们括起来。然而若允许图的两点之间可以有不同的点相连时，就不能用端点来确定边了，并且边集 $\{\{x,y\},\{x,y\}\}$ 因为有重复元而不满足集合的定义。但是边始终被认为是有端点的，因此我们总可以指定边的端点。这样就在边集和点集之间建立了一个关联，因此一般的图应当包含所谓的关联函数。
+
+值得注意的是，很多教材将图定义为只有点集和边集组成的二元组对象，使得它们在建立具有相同端点的不同边的模型的时候，而在“图”的前面加上一些形容词。本文认为，图的概念应当尽可能包含充分多的图，而不限于不同边只能对应不同端点，而把众多已经建立的（带有形容词的）图概念包含在图中来，从而“某某图”只是具有“某某”限制的图。因此，我们采用文献\cite{graph2}的观点。
 
 \begin{definition}{$n$ 元子集的族}
 设 $A$ 是集合，则记 $A$ 的所有 $n$ 元子集的全体为 $[A]^n$。即
@@ -37,7 +39,6 @@ P_2(A)=[A]^2\cup (A\times A).~
 \end{definition}
 
 
-
 \begin{definition}{图，顶点，边，关联函数，阶数}
 设 $V,E$ 是集合，$\varphi:E\rightarrow P_2(A)$ 是 $E$ 到 $V$ 的二元对族的映射。则称三元组 $G=(V,E,\varphi)$ 为\textbf{图}（graph）。$V$ 的元素称为 $G$ 的\textbf{顶点}（vertex），$E$ 的元素称为 $G$ 的\textbf{边}（edge）或弧 (arc)，$\varphi$ 称为\textbf{关联函数}（incidence function）。$V$ 的基数（元素个数）称为图 $G$ 的\textbf{顶点数}或\textbf{阶}（order），记作 $\abs{G}$，而 $E$ 的基数称为 $G$ 的\textbf{边数}（size），记作 $\norm{G}$。
 \end{definition}
@@ -45,13 +46,16 @@ P_2(A)=[A]^2\cup (A\times A).~
 
 当然，顶点也可以称为节点（node）或点（point），边还能叫做线（line），具有顶点集 $V$ 的图也能称为 $V$ 上的图（a graph on $V$），往往图 $G$ 的顶点集记作 $V(G)$，边集记作 $E(G)$，而 $x\in V(G),e\in E(G)$ 直接记作 $x\in G,e\in G$ 等等，这都是习惯的问题，熟悉它们往往是有好处的。
 
+值得强调的是，图中可能有端点相同的边出现，但是 $P_2(V)$ 中包含了 $(x,x)$，它相当于端点相同的边。因此我们无需在 $P_2(V)$ 中加入 $V$ 的单点子集来表示端点相同的边。由于代表边的序对 $(x,x)$ 交换 $x$ 不变，因此可以认为 $(x,x)$ 是无向的。
+
 \subsection{点和边的关系及分类}
 
 
 下面概念给出了边的有向性。
 \begin{definition}{边的有向性，端点}
-设 $G=(V,E,\varphi)$ 是图，$e\in E$。若 $\varphi(e)\in[V]^2$，则称 $e$ 是\textbf{无向的}（undirected）；若 $\varphi(e)\in V\times V$，则称 $e$ 是\textbf{有向的}（directed）。若 $\varphi(e)=\{v_1,v_2\}$，则简记 $e=\{v_1,v_2\}$，而 $v_1,v_2$ 称为 $e$ 的端点；若 $\varphi(e)=(v_1,v_2)$，则简记 $e=(v_1,v_2)$。对有向边 $e=(v_1,v_2)$，称 $v_1$ 是 $e$ 的\textbf{起点}（origin），$v_2$ 是 $e$ 的\textbf{终点}（terminus）。$e$ 的起点和终点也称为 $e$ 的\textbf{端点}（end vertex）。若 $x$ 是 $e$ 的端点，则记 $x\in e$。
+设 $G=(V,E,\varphi)$ 是图，$e\in E$。若 $\varphi(e)\in[V]^2\cup\{(x,x)|x\in V\}$，则称 $e$ 是\textbf{无向的}（undirected）；若 $\varphi(e)\in V\times V$，则称 $e$ 是\textbf{有向的}（directed）。若 $\varphi(e)=\{v_1,v_2\}$，则简记 $e=\{v_1,v_2\}$，而 $v_1,v_2$ 称为 $e$ 的端点；若 $\varphi(e)=(v_1,v_2)$，则简记 $e=(v_1,v_2)$。对有向边 $e=(v_1,v_2)$，称 $v_1$ 是 $e$ 的\textbf{起点}（origin），$v_2$ 是 $e$ 的\textbf{终点}（terminus）。$e$ 的起点和终点也称为 $e$ 的\textbf{端点}（end vertex）。若 $x$ 是 $e$ 的端点，则记 $x\in e$。
 \end{definition}
+
 
 \begin{definition}{边的交}
 设 $e,f$ 是两个边，则它们共同的端点的全体
@@ -63,7 +67,7 @@ P_2(A)=[A]^2\cup (A\times A).~
 
 下面的概念通过边的端点给出了边之间的关系。
 \begin{definition}{环，对称，平行}
-设 $G=(V,E,\varphi)$ 是图，$e_1,e_2\in E$。若 $\varphi(e_1)=(v,v)$，则称 $e$ 为\textbf{环}（loop）。若 $\varphi(e_1)=(v_1,v_2),\varphi(e_2)=(v_2,v_1)$，则称 $e_1,e_2$ 为\textbf{对称边}（symmetric edges）。若$\varphi(e_1)=\varphi(e_2)$ 或 $e_1,e_2$分别是端点相同的有向边和无向边，则称 $e_1,e_2$ 为\textbf{平行边}（parallel edges）或\textbf{重边}（multi-edges）。
+设 $G=(V,E,\varphi)$ 是图，$e_1,e_2\in E$。若 $\varphi(e_1)=(v,v)$，则称 $e$ 为\textbf{环}（loop）。若 $\varphi(e_1)=(v_1,v_2),\varphi(e_2)=(v_2,v_1)$，则称 $e_1,e_2$ 为\textbf{对称边}（symmetric edges）。或 $e_1,e_2$ 分别是起止点相同的有向边，则称 $e_1,e_2$ 为\textbf{平行边}（parallel edges）或\textbf{重边}（multi-edges）。
 \end{definition}
 显然，无向图中端点相同的边是平行的。
 
@@ -251,11 +255,13 @@ $n$ 阶完全图和完全有向图的\enref{等价类}{Relat}分别记作 $K_n,K
 \end{definition}
 下面的概念将有向图变成无向图。
 \begin{definition}{无向化映射}
-设 $G=(V,E,\varphi)$ 是图。则称映射
+设 $G=(V,E,\varphi)$ 是图。设 $\varphi(e)=\{x,y\}\text{或}(x,y)\text{或}(y,x)$，则称映射
 \begin{equation}
 \begin{aligned}
-\pi:E\rightarrow P_2(V),\pi(e)=\{x,y\},\\
-\text{其中} \varphi(e)=\{x,y\}\text{或}(x,y)\text{或}(y,x)
+\pi:E\rightarrow P_2(V),\pi(e)=\left\{\begin{aligned}
+\{x,y\},x\neq y,\\
+(x,y),x=y.
+\end{aligned}\right.
 \end{aligned}~
 \end{equation}
 为（关于 $G$ 的）无向化映射。
