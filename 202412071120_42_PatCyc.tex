@@ -1,0 +1,43 @@
+% 链、路和圈
+% keys 链|路|圈
+% license Usr
+% type Tutor
+
+\pentry{图\nref{nod_Graph}}{nod_9c36}
+本节介绍图中一类特殊的结构——链，而路和圈是一类特殊的链。
+
+\subsection{定义}
+生活中我们习惯把环环相扣的东西叫做链，图论中把点边交叉组成的序列称作链（不同位置的点和边可以相同）。
+
+\begin{definition}{链}
+设 $G=(V,E,\varphi)$ 是一个\enref{图}{Graph}， $v_i\in V,e_j\in E,i=0,\cdots,k,j=1\cdots n$ 分别是其上的 $n+1$ 个点和 $n$ 条边。若序列\footnote{注意因为点边的记号很好区分，往往省略了序列中相邻两元间的逗号}
+\begin{equation}
+W=v_0 e_1v_1e_2\cdots v_{k-1} e_nv_n,~
+\end{equation}
+对所有的 $i=0,\cdots,k$ 满足 $v_{i-1},v_{i}\in e_{i}$，则称 $W$ 是 $G$ 中的端点为 $v_0,v_n$ 长为 $n$ 的\textbf{链}（chain）或\textbf{途径}（walk）。除 $v_0,v_n$ 的 $W$ 中的点称作 $W$ 的\textbf{内点}（internal vertex）。 端点为 $x,y$ 的链通长简称为 \textbf{$xy$ 链}。
+\end{definition}
+人们习惯将不同时刻物体的位置在时空坐标系下的曲线叫做物体的轨迹，而将空间坐标系下的物体的运动曲线称为路径。尽管不同时刻物体可以在同一空间点，使得它在空间上的路径是可以相交的，但是它的轨迹始终都是不能相交的（因为时间只能往前）。在图中人们习惯将边彼此不同的链称为迹，点彼此不同的链称为路，而端点相同的“路”称为圈。
+\begin{definition}{迹，路，圈}
+设 $W$ 是图 $G$ 的链，若组成 $W$ 的边彼此不同，则称 $W$ 是\textbf{迹}(trail)。若组成 $W$ 的边彼此不同，则称 $W$ 是\textbf{路}(path)。端点相同内点不同的链称为\textbf{圈}(cycle)。 对应端点 $x,y$ 的迹和路称为 $xy$ 迹，$xy$ 路。
+\end{definition}
+\textbf{注：}有的文献也会把圈称为\textbf{闭路}，这时候的路就被定义为内点互不相同的迹了。还是一样的，遇到这种情况时只需要注意文献所遵循的约定就好了。
+
+\subsection{有向链}
+若链中的所有边都是有向的，qie
+\begin{definition}{}
+
+\end{definition}
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+

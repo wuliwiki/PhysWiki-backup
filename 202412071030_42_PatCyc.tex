@@ -1,0 +1,32 @@
+% 链、路和圈
+% keys 链|路|圈
+% license Usr
+% type Tutor
+
+\pentry{图\nref{nod_Graph}}{nod_9c36}
+本节介绍图中一类特殊的结构——链，而路是一类特殊的链，圈是一类特殊的路。
+
+\subsection{链}
+生活中我们习惯把环环相扣的东西叫做链，图论中把点边交叉组成的序列称作链（不同位置的点和边可以相同）。
+
+\begin{definition}{链}
+设 $G=(V,E,\varphi)$ 是一个\enref{图}{Graph}， $v_i\in V,e_j\in E,i=0,\cdots,k,j=1\cdots n$ 分别是其上的 $n+1$ 个点和 $n$ 条边。若序列\footnote{注意因为点边的记号很好区分，往往省略了序列中相邻两元间的逗号}
+\begin{equation}
+W=v_0 e_1v_1e_2\cdots v_{k-1} e_nv_n,~
+\end{equation}
+对所有的 $i=0,\cdots,k$ 满足 $v_{i-1},v_{i}\in e_{i}$，则称 $W$ 是 $G$ 中的端点为 $v_0,v_n$ \textbf{链}（chain）或\textbf{途径}（walk）。$v_0,v_n$ 称作 $W$ 的端点（end vertex），其余的点称作 $W$ 的\textbf{内点}（internal vertex）。 
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
