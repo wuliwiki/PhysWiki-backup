@@ -14,7 +14,7 @@
 \begin{equation}
 W=v_0 e_1v_1e_2\cdots v_{k-1} e_nv_n,~
 \end{equation}
-对所有的 $i=0,\cdots,k$ 满足 $v_{i-1},v_{i}\in e_{i}$，则称 $W$ 是 $G$ 中的端点为 $v_0,v_n$ \textbf{长}为 $n$ 的\textbf{链}（chain）或\textbf{途径}（walk）。除 $v_0,v_n$ 的 $W$ 中的点称作 $W$ 的\textbf{内点}（internal vertex）。 端点为 $x,y$ 的链通长简称为 \textbf{$xy$ 链}。
+对所有的 $i=0,\cdots,k$ 满足 $v_{i-1},v_{i}\in e_{i}$，则称 $W$ 是 $G$ 中的\textbf{端点}为 $v_0,v_n$ \textbf{长}为 $n$ 的\textbf{链}（chain）或\textbf{途径}（walk）。除 $v_0,v_n$ 的 $W$ 中的点称作 $W$ 的\textbf{内点}（internal vertex）。 端点为 $x,y$ 的链通长简称为 \textbf{$xy$ 链}。
 \end{definition}
 对于\aref{简单图}{def_Graph_2}而言，其链显然可以通过指定端点确定。
 
@@ -44,8 +44,13 @@ xe_1x_1\cdots e_ky.~
 设 $G$ 是图，则 $G$ 中具有最大长度的路称为 $G$ 的\textbf{最长路}（longest path），具有最小长度的路称为 $G$ 的\textbf{最短路}（shortest path）。
 \end{definition}
 
-\begin{definition}{$H$-路}
-设 $H$ 是图，$P$ 是 $G$ 的一条路，若 $P$ 的点， 
+\begin{definition}{围长，周长，弦}
+图 $G$ 中最短圈的长度叫做 $G$ 的\textbf{围长}（girth），记作 $g(G)$。最长圈的长度叫做 $G$ 的\textbf{周长}（circumference）。图中不在圈上但连接圈中两个点的边称为圈的\textbf{弦}（chord）。
+\end{definition}
+
+
+\begin{definition}{$H$-链}
+设 $H$ 是图，$W$ 是 $G$ 的链，若 $W$ 有端点属于 $H$，而内点不属于 $H$，则称 $W$ 为 \textbf{$H$-链}（H-chain）。 
 \end{definition}
 
 

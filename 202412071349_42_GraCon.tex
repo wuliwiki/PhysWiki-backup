@@ -1,0 +1,46 @@
+% 图的连通性
+% keys 连通
+% license Usr
+% type Tutor
+\pentry{链、路、圈、回\nref{nod_PatCyc}}{nod_11cb}
+图上两点的连通性是指有以这两点为端点的\enref{路}{PatCyc}存在，而连通图是指任意两点都连通的图。
+
+\begin{definition}{连通}
+设 $G$ 是图，$x,y\in V(G)$。若存在连接 $x,y$ 的路，则称 $x,y$ 是\textbf{连通的}（connected）。
+\end{definition}
+
+\begin{theorem}{}
+连通关系是图上的\enref{等价关系}{Relat}。
+\end{theorem}
+\textbf{证明：}
+1.\textbf{自反性：} 设 $x,x$ 连通，那么 $x,x$ 连通。
+
+2.\textbf{对称性：} 设 $x,y$ 连通。于是存在路 $xe_1\cdots e_m y$，而 $ye_m\cdots e_1 x$ 显然也是路，所以 $y,x$ 连通。
+
+3.\textbf{传递性：}设 $x,y$ 连通，$y,z$ 连通。于是存在路 $xe_1\cdots e_m y$ 和 $ye_{m+1}\cdots e_{n}z$。于是
+\begin{equation}
+xe_1\cdots e_m ye_{m+1}\cdots e_{n}z~
+\end{equation}
+是连接 $x,z$ 的链。由\autoref{the_PatCyc_1}，存在连接 $x,z$ 的链，即 $x,z$ 连通。
+
+\textbf{证毕！}
+
+由于连通关系是 $V(G)$ 的等价关系，因此其可以将 $V(G)$ 分成不相交的等价类 $V_1,\cdots V_m$。$G$ 在每一类 $V_i$ 的导图子图 $G[V_i]$ 称为 $G$ 的一个\textbf{连通分支}， $V_i$ 的个数 $m$ 称为 $G$ 的\textbf{连通分支数}。其可以\aref{商集}{def_Relat_2}的概念进行如下严格定义。
+
+\begin{definition}{连通分支}
+设 $G$ 是图，$\overset{c}{\sim}$ 是 $V(G)$ 上的连通关系，$V_i\in V(G)/\overset{c}{\sim}$ 。则称\aref{导出子图}{def_Graph_3} $G[V_i]$ 为 $G$ 的\textbf{连通分支}（connected component）。商集 $V(G)/\overset{c}{\sim}$ 的基数称为 $G$ 的连通分支数（number of components），记作 $\omega(G)$。
+\end{definition}
+
+只有
+
+
+
+
+
+
+
+
+
+
+
+

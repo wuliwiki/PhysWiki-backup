@@ -1,0 +1,39 @@
+% 图的连通性
+% keys 连通
+% license Usr
+% type Tutor
+\pentry{链、路、圈、回\nref{nod_PatCyc}}{nod_11cb}
+图上两点的连通性是指有以这两点为端点的\enref{路}{PatCyc}存在，而连通图是指任意两点都连通的图。
+
+\begin{definition}{连通}
+设 $G$ 是图，$x,y\in V(G)$。若存在连接 $x,y$ 的路，则称 $x,y$ 是\textbf{连通的}（connected）。
+\end{definition}
+
+\begin{theorem}{}
+连通关系是图上的\enref{等价关系}{Relat}。
+\end{theorem}
+\textbf{证明：}
+1.\textbf{自反性：} 设 $x,x$ 连通，那么 $x,x$ 连通。
+
+2.\textbf{对称性：} 设 $x,y$ 连通。于是存在路 $xe_1\cdots e_m y$，而 $ye_m\cdots e_1 x$ 显然也是路，所以 $y,x$ 连通。
+
+3.\textbf{传递性：}设 $x,y$ 连通，$y,z$ 连通。于是存在路 $xe_1\cdots e_m y$ 和 $ye_{m+1}\cdots e_{n}z$。于是
+\begin{equation}
+xe_1\cdots e_m ye_{m+1}\cdots e_{n}z~
+\end{equation}
+是连接 $x,z$ 的链。由\autoref{the_PatCyc_1}，存在连接 $x,z$ 的链，即 $x,z$ 连通。
+
+\textbf{证毕！}
+
+
+
+
+
+
+
+
+
+
+
+
+
