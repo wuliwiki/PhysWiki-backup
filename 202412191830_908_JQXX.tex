@@ -277,19 +277,171 @@ ANN 方法最初的目标是以与人脑相同的方式解决问题。然而，�
 \item 自然语言处理
 \item 自然语言理解
 \item 在线广告
-- 优化
-- 推荐系统
-- 机器人运动
-- 搜索引擎
-- 情感分析
-- 序列挖掘
-- 软件工程
-- 语音识别
-- 结构健康监测
-- 句法模式识别
-- 电信
-- 定理证明
-- 时间序列预测
-- 断层重建[95]
-- 用户行为分析
+\item 优化
+\item 推荐系统
+\item 机器人运动
+\item 搜索引擎
+\item 情感分析
+\item 序列挖掘
+\item 软件工程
+\item 语音识别
+\item 结构健康监测
+\item 句法模式识别
+\item 电信
+\item 定理证明
+\item 时间序列预测
+\item 断层重建[95]
+\item 用户行为分析
 \end{itemize}
+在2006年，媒体服务提供商Netflix举办了首次“Netflix奖”竞赛，旨在寻找一种程序，更好地预测用户偏好，并将其现有的Cinematch电影推荐算法的准确性提高至少10\%。由AT&T Labs-Research的研究人员与Big Chaos和Pragmatic Theory团队合作组成的联合团队，建立了一个集成模型，赢得了2009年100万美元的大奖。[96] 在奖项颁发后不久，Netflix意识到观众的评分并不是衡量观看模式的最佳指标（“一切都是推荐”），因此他们相应地更改了推荐引擎。[97] 2010年，《华尔街日报》报道了Rebellion Research公司及其利用机器学习预测金融危机的做法。[98] 2012年，Sun Microsystems的联合创始人Vinod Khosla预测，在未来二十年内，80\%的医生职位将被自动化的机器学习医学诊断软件取代。[99] 2014年，有报道称，机器学习算法已被应用于艺术史领域，用于研究美术作品，可能揭示了艺术家之间先前未被认出的影响。[100] 2019年，Springer Nature出版了首本使用机器学习创作的研究书籍。[101] 2020年，机器学习技术被用于帮助诊断并帮助研究人员开发COVID-19的治疗方法。[102] 最近，机器学习也被应用于预测旅行者的环保行为。[103] 另外，机器学习技术也被应用于优化智能手机的性能和热行为，依据用户与手机的互动情况。[104][105][106] 当机器学习算法（MLA）正确应用时，可以利用公司特征的广泛范围来预测股票回报，而不会发生过拟合。通过有效的特征工程并结合预测，MLA可以生成远超基本线性技术（如OLS）所得结果的预测。[107]
+
+最近，机器学习的进展已经扩展到量子化学领域，现在新的算法能够预测溶剂对化学反应的影响，从而为化学家提供了新的工具，以便根据最佳结果调整实验条件。[108]
+
+机器学习正成为研究和预测大规模和小规模灾难中的撤离决策的有用工具。不同的解决方案已经被测试，以预测家庭成员在野火和飓风中何时决定撤离。[109][110][111] 其他应用则专注于建筑火灾中的撤离决策。[112][113]
+\subsection{限制}
+尽管机器学习在某些领域具有变革性，但机器学习程序往往未能交付预期的结果。[114][115][116] 造成这种情况的原因有很多：缺乏（合适的）数据、无法访问数据、数据偏差、隐私问题、任务和算法选择不当、工具和人员不合适、资源不足以及评估问题。[117]
+
+“黑箱理论”提出了另一个重大挑战。黑箱是指算法或输出生成过程完全不透明的情况，这意味着即使是算法的编码人员也无法审查机器从数据中提取出的模式。[118] 英国上议院的选择委员会曾声称，像这样的“智能系统”如果对个人生活产生“重大影响”，除非它能够提供“全面且令人满意的解释”，否则是不可接受的。[118]
+
+2018年，Uber的一辆自动驾驶汽车未能发现一名行人，导致行人被撞死。[119] 尝试在医疗健康领域应用机器学习的IBM Watson系统，在经过多年的时间和数十亿美元的投资后，依然未能取得预期效果。[120][121] 微软的Bing Chat聊天机器人被报告对用户产生敌意和冒犯性的回应。[122]
+
+机器学习已被用作更新系统评审相关证据的策略，并增加了与生物医学文献增长相关的审阅者负担。尽管随着训练集的改进，机器学习有所进步，但它仍未发展到足以在不限制研究发现所需敏感性的情况下减少工作负担的程度。[123]
+\subsubsection{可解释性}
+可解释的人工智能（XAI），也称为可解释AI或可解释机器学习（XML），是指人工智能（AI），其决策或预测可以被人类理解。[124] 这与机器学习中的“黑箱”概念相对立，在“黑箱”中，甚至连设计者也无法解释AI为何做出特定的决策。[125] 通过改进AI系统用户的心理模型并消除他们的误解，XAI有望帮助用户更有效地执行任务。XAI可能是对“社会解释权”实施的一种方式。
+\subsubsection{过拟合}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/e6cb1e6d2535e420.png}
+\caption{蓝线可能是由于随机噪声导致的线性函数过拟合的例子。} \label{fig_JQXX_10}
+\end{figure}
+将一个糟糕的、过于复杂的理论调整以适应所有过去的训练数据被称为过拟合。许多系统试图通过根据理论与数据的拟合程度来奖励该理论，同时根据理论的复杂性来惩罚该理论，从而减少过拟合。[126]
+\subsubsection{其他限制与脆弱性}
+学习系统有时会“学到错误的教训”。一个简单的例子是，如果一个图像分类器只在棕色马和黑色猫的图像上进行训练，它可能会错误地得出结论，认为所有棕色的斑点都很可能是马。[127] 一个现实世界中的例子是，与人类不同，当前的图像分类器通常不会主要根据图像组件之间的空间关系来做判断，而是学会了像素之间的关系，这些关系人类并未察觉，但仍然与某些类型的真实物体的图像相关联。在合法图像中修改这些模式可能会导致“对抗性”图像，系统可能会错误分类。[128][129]
+
+对抗性脆弱性也可能出现在非线性系统中，或者由于非模式扰动。对于某些系统，仅通过改变一个特定的对抗性选定像素，就有可能改变其输出。[130] 机器学习模型往往容易受到对抗性机器学习的操控和/或规避。[131]
+
+研究人员已经展示了如何在分类模型中无声地植入后门（例如用于“垃圾邮件”和明显的“非垃圾邮件”分类），这些模型通常是由第三方开发和/或训练的。相关方可以改变任何输入的分类，甚至在某些情况下，即使提供了数据/软件透明度（包括可能的白盒访问权限），也能改变分类结果。[132][133][134]
+\subsection{模型评估}  
+机器学习模型的分类可以通过准确性估计技术进行验证，例如保留法（holdout method），该方法将数据分为训练集和测试集（通常是2/3用于训练集，1/3用于测试集），并评估训练模型在测试集上的表现。相比之下，K折交叉验证（K-fold cross-validation）方法将数据随机划分为K个子集，然后进行K次实验，每次分别考虑1个子集用于评估，剩余的K-1个子集用于训练模型。除了保留法和交叉验证方法外，还可以使用自助法（bootstrap），通过从数据集中有放回地抽取n个实例来评估模型的准确性。[135]
+
+除了整体准确性，研究人员还经常报告敏感度和特异度，分别表示真正率（TPR）和真负率（TNR）。类似地，研究人员有时也会报告假阳性率（FPR）以及假阴性率（FNR）。然而，这些比率仅显示其比值，未揭示分子和分母。受试者工作特征（ROC）曲线及其下面积（AUC）为分类模型评估提供了额外的工具。较高的AUC通常与表现更好的模型相关。[136]
+\subsection{伦理学}  
+人工智能的伦理学涵盖了该领域内广泛的主题，这些主题被认为具有特别的伦理风险。[137] 其中包括算法偏见、公平性、自动化决策、问责制、隐私和监管等问题。它还涵盖了各种新兴或潜在的未来挑战，如机器伦理学（如何让机器表现得符合伦理）、致命自主武器系统、军备竞赛动态、AI安全与对齐、技术失业、AI推动的虚假信息、如何对待具有道德地位的AI系统（AI福利与权利）、人工超智能以及存在性风险。[137]
+
+一些应用领域可能也具有特别重要的伦理影响，比如医疗保健、教育、刑事司法或军事等领域。
+\subsubsection{偏见} 
+不同的机器学习方法可能会受到不同数据偏见的影响。一个专门训练于现有客户数据的机器学习系统，可能无法预测那些在训练数据中没有出现的新客户群体的需求。当机器学习系统训练于人为创建的数据时，往往会继承社会中已存在的结构性和无意识偏见。[138]  
+
+那些训练于带有偏见的数据集的系统，可能在使用时表现出这些偏见（算法偏见），从而数字化文化偏见。[139] 例如，1988年，英国的种族平等委员会发现，圣乔治医学院使用了一种根据先前招生人员数据训练的计算机程序，这个程序拒绝了近60名被认为是女性或具有非欧洲名字的候选人。[138] 使用来自具有种族歧视招聘政策的公司的招聘数据，可能导致机器学习系统通过与以往成功申请者的相似性来打分求职者，从而复制偏见。[140][141] 另一个例子是预测性警务公司Geolitica的预测算法，在使用历史犯罪数据训练后，导致“低收入和少数族裔社区过度警察执法水平过高”。[142]  
+
+虽然负责地收集数据和记录系统所使用的算法规则被认为是机器学习的关键部分，但一些研究人员将机器学习易受偏见影响的原因归咎于在人工智能领域中缺乏少数群体的参与和代表性。[143] 事实上，根据计算研究协会（CRA）在2021年进行的研究，“女性教师仅占全球多所大学专注于AI的教师的16.1\%。”[144] 此外，在“新美国居民AI博士毕业生”群体中，45\%为白人，22.4\%为亚洲人，3.2\%为西班牙裔，2.4\%为非裔美国人，这进一步表明人工智能领域缺乏多样性。[144]  
+
+从数据中学习的语言模型已被证明包含类人偏见。[145][146] 因为人类语言本身就包含偏见，所以在语言语料库上训练的机器也必然会学习到这些偏见。[147][148] 2016年，微软测试了Tay，一个从推特中学习的聊天机器人，结果它迅速学习了种族主义和性别歧视的语言。[149]  
+
+在调查性新闻机构ProPublica进行的一项实验中，机器学习算法对囚犯再犯率的洞察错误地将“黑人被告的高风险判定是白人被告的两倍”。[142] 2015年，谷歌照片曾将几名黑人标记为大猩猩，导致争议。大猩猩标签随后被删除，并且到2023年，系统仍无法识别大猩猩。[150] 许多其他系统也发现了识别非白人群体的问题。[151]  
+
+由于这些挑战，机器学习的有效应用可能需要更长时间才能在其他领域普及。[152] 关于机器学习中的公平性问题，减少偏见并推动其为人类福祉服务的呼声越来越高，人工智能科学家们也在表达这一关切，费菲·李（Fei-Fei Li）曾表示：“AI没有什么人工的东西。它源自于人类，由人类创造，最重要的是——它影响着人类。它是我们刚刚开始理解的强大工具，这是一个深远的责任。”[153]
+\subsubsection{财务激励}  
+医疗保健专业人士担心，这些系统可能不是为了公众利益而设计的，而是作为创造收入的机器。特别是在美国，改善医疗保健和增加利润之间存在长期的伦理困境。例如，算法可能被设计为向患者提供不必要的检查或药物，而这些算法的所有者在其中拥有利益。机器学习在医疗保健中的潜力是为专业人士提供一个额外的工具，以诊断、用药并规划患者的恢复路径，但这需要减轻这些偏见。[154]
+\subsection{硬件}  
+自2010年代以来，机器学习算法和计算机硬件的进步促使训练深度神经网络（机器学习的一个特定子领域）的方法变得更加高效，这些神经网络包含许多层非线性隐藏单元。[155] 到2019年，图形处理单元（GPU），通常具有针对AI的专门增强，已取代中央处理单元（CPU），成为训练大规模商业云AI的主流方法。[156] OpenAI估算了从AlexNet（2012）到AlphaZero（2017）期间，最大深度学习项目中使用的硬件计算量，并发现所需计算量增加了300,000倍，且其翻倍时间趋势为3.4个月。[157][158]
+\subsubsection{类脑计算}  
+类脑计算指的是一类旨在模拟生物神经网络结构和功能的计算系统。这些系统可以通过在常规硬件上的基于软件的模拟实现，也可以通过专门的硬件架构实现。[159]
+
+\textbf{物理神经网络}  
+
+物理神经网络是一种特定类型的类脑硬件，它依赖于电可调材料（如忆阻器）来模拟神经突触的功能。“物理神经网络”这一术语强调使用物理硬件进行计算，而非基于软件的实现。它广泛指代使用具有可调电阻材料来复制神经突触的人工神经网络。[160][161]
+\subsubsection{嵌入式机器学习}  
+嵌入式机器学习是机器学习的一个子领域，它将模型部署在计算资源有限的嵌入式系统上，例如可穿戴计算机、边缘设备和微控制器。[162][163][164] 直接在这些设备上运行模型消除了将数据传输和存储到云服务器进行进一步处理的需求，从而降低了数据泄露、隐私泄露以及知识产权、个人数据和商业机密被盗的风险。嵌入式机器学习可以通过多种技术实现，例如硬件加速，[165][166] 近似计算，[167] 和模型优化。[168][169] 常见的优化技术包括剪枝、量化、知识蒸馏、低秩分解、网络架构搜索和参数共享。
+\subsection{软件}  
+包含多种机器学习算法的软件套件包括以下几种：
+\subsubsection{免费和开源软件}  
+\begin{itemize}
+\item Caffe  
+\item Deeplearning4j  
+\item DeepSpeed  
+\item ELKI  
+\item Google JAX  
+\item Infer.NET  
+\item Keras  
+\item Kubeflow  
+\item LightGBM  
+\item Mahout  
+\item Mallet  
+\item Microsoft Cognitive Toolkit  
+\item ML.NET  
+\item mlpack  
+\item MXNet  
+\item OpenNN  
+\item Orange  
+\item pandas (软件)  
+\item ROOT (TMVA with ROOT)  
+\item scikit-learn  
+\item Shogun  
+\item Spark MLlib  
+\item SystemML  
+\item TensorFlow  
+\item Torch / PyTorch  
+\item Weka / MOA  
+\item XGBoost  
+\item Yooreeka
+\end{itemize}
+\subsubsection{具有免费和开源版本的专有软件 } 
+\begin{itemize}
+\item KNIME  
+\item RapidMiner
+\end{itemize}  
+\subsubsection{专有软件}  
+\begin{itemize}
+\item Amazon Machine Learning  
+\item Angoss KnowledgeSTUDIO  
+\item Azure Machine Learning  
+\item IBM Watson Studio  
+\item Google Cloud Vertex AI  
+\item Google Prediction API  
+\item IBM SPSS Modeler  
+\item KXEN Modeler  
+\item LIONsolver  
+\item Mathematica  
+\item MATLAB  
+\item Neural Designer  
+\item NeuroSolutions  
+\item Oracle Data Mining  
+\item Oracle AI Platform Cloud Service  
+\item PolyAnalyst  
+\item RCASE  
+\item SAS Enterprise Miner  
+\item SequenceL  
+\item Splunk  
+\item STATISTICA Data Miner
+\end{itemize}
+\subsection{期刊}  
+\begin{itemize}
+\item 《机器学习研究杂志》（Journal of Machine Learning Research）  
+\item 《机器学习》（Machine Learning）  
+\item 《自然机器智能》（Nature Machine Intelligence）  
+\item 《神经计算》（Neural Computation）  
+\item 《IEEE模式分析与机器智能汇刊》（IEEE Transactions on Pattern Analysis and Machine Intelligence）
+\end{itemize}  
+\subsection{会议}  
+\begin{itemize}
+\item 美国人工智能协会会议（AAAI Conference on Artificial Intelligence）  
+\item 计算语言学协会（Association for Computational Linguistics，ACL）  
+\item 欧洲机器学习与数据库知识发现原则与实践会议（European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases，ECML PKDD）  
+\item 生物信息学与生物统计学的计算智能方法国际会议（International Conference on Computational Intelligence Methods for Bioinformatics and Biostatistics，CIBB）  
+\item 国际机器学习会议（International Conference on Machine Learning，ICML）  
+\item 国际学习表示会议（International Conference on Learning Representations，ICLR）  
+\item 国际智能机器人与系统会议（International Conference on Intelligent Robots and Systems，IROS）  
+\item 知识发现与数据挖掘会议（Conference on Knowledge Discovery and Data Mining，KDD）  
+\item 神经信息处理系统会议（Conference on Neural Information Processing Systems，NeurIPS）  
+\end{itemize}
+\subsection{参见}  
+\begin{itemize}
+\item 自动化机器学习（Automated machine learning）— 自动化应用机器学习的过程  
+\item 大数据（Big data）— 极其庞大或复杂的数据集  
+\item 深度学习（Deep learning）— 机器学习的一个分支，关注人工神经网络  
+\item 可微编程（Differentiable programming）— 一种编程范式  
+\item 机器学习研究的数据集列表（List of datasets for machine-learning research）  
+\item M理论（学习框架）（M-theory）  
+\item 机器遗忘（Machine unlearning）
+\end{itemize}  
