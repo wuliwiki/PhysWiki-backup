@@ -101,9 +101,9 @@ n_{ij}=\left\{\begin{aligned}
 \end{equation}
 其中 $\mu(v_i,v_j)$ 表示以 $v_i$ 为起点 $v_j$ 为终点的边数，$\nu(v_i,v_j)$ 是以 $v_i,v_j$ 为端点的无向边个数。且 $MM^T$ 的第 $i$ 行和 $i$ 列元素之和为
 \begin{equation}
-4r+2\sum_{j=1,j\neq i}^{\abs{V}}\nu(v_i,v_j).~
+4r+2N_i.~
 \end{equation}
-
+其中 $N_i$ 是过 $v_i$ 的无向边数。
 
 \end{theorem}
 \textbf{证明：}
@@ -133,7 +133,7 @@ n_{ij}=\left\{\begin{aligned}
 0&0&0
 \end{pmatrix}.~
 \end{equation}
-使用\autoref{the_RepGra_1} 的结果计算行和得：第一行和为 $$
+使用\autoref{the_RepGra_1} 的结果计算行和得：第一行和为 $4*2+2*1=10$，第2行为 $1$，第3行为0。由上面的矩阵可验证这是一致的。
 
 \end{example}
 
