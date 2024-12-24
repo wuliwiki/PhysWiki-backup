@@ -50,7 +50,7 @@ V(G)=\{v_1,\cdots,v_n\},E(G)=\{e_1,\cdots,e_m\}.~
 \begin{equation}
 a_{ij}=\left\{\begin{aligned}
 &0,\quad &&v_i\notin e_j,\\
-&1, &&e_j=(*,v_i) or {v_i,v_k},i\neq k\\
+&1, &&e_j=(*,v_i) \quad or\quad \{v_i,v_k\},i\neq k\\
 &-1, &&e_j=(v_i,*) ,\\
 &2, &&e_j=(v_i,v_i)
 \end{aligned}\right.~
@@ -63,10 +63,10 @@ a_{ij}=\left\{\begin{aligned}
  \begin{aligned}
   &V=\{v_1,v_2,v_3\},E=\{e_1,e_2,e_3,e_4,e_5\},\\
  &\varphi(e_1)=(v_1,v_1), \varphi(e_2)=(v_1,v_1), \\
- &\varphi(e_3)=(v_1,v_2), \varphi(e_4)=(v_2,v_1),\varphi(e_5)={v_1,v_2}.
+ &\varphi(e_3)=(v_1,v_2), \varphi(e_4)=(v_2,v_1),\varphi(e_5)=\{v_1,v_2\}.
  \end{aligned}~
  \end{equation}
- 其中我们定义的 $e_1,e_2$ 尽管都是 $(v_1,v_2)$，但是在mathematica中可以将它表示为有向环和无向环。
+ 其中我们定义的 $e_1,e_2$ 尽管都是 $(v_1,v_2)$，但是在mathematica中可以将它表示为有向环和无向环\footnote{在某些现实的意义上其不是等价的，比如一条以 $a$ 为端点的环，规定只能逆时针走，那么它就是单向的，而若双向可走则才等价于无向环，此时应当由表示顺时针和逆时针的记号进行方向的标记，比如"-"，即 $(-a,a)$ 表示逆时针，$(a,-a)$ 表示逆时针。这都是定义的问题，仅仅为了一一对应我们关心的问题，没有标准的表示，只要符合表达了对应关系即可，但是为了方便往往会约定某一种习惯定义，正如我们习惯了集合用花括号定义}，因此可以用它们演示mathematica中它们在关联矩阵中对应的元是相同的。
  该图具有如下的表示
 \begin{figure}[ht]
 \centering
@@ -86,23 +86,32 @@ a_{ij}=\left\{\begin{aligned}
 \begin{figure}[ht]
 \centering
 \includegraphics[width=14.25cm]{./figures/ab6e9336b570e8cc.png}
-\caption{代码记结果展示} \label{fig_RepGra_1}
+\caption{代码及结果展示} \label{fig_RepGra_1}
 \end{figure}
 
 \end{example}
 
 \begin{theorem}{}
-设 $M$ 是有向图的关联矩阵，$M_i$ 是从 $M$ 的终点除掉第 $i$ 行后得到的矩阵。则 $MM^T$ 中所有元素的代数余子式都为 $|M_iM_i^T|$。
+设 $M$ 是图的关联矩阵，$M_i$ 是从 $M$ 的终点除掉第 $i$ 行后得到的矩阵。则 $MM^T$ 中所有元素的代数余子式都为 $|M_iM_i^T|$。
 
 \end{theorem}
 \textbf{证明：}
-设 $N=MM^T$，由于当对某个 $k$ 而言， $M_{ik}M_{jk}$ 在 $v_i\neq v_j$ 为 $e_k$ 的两端点时为 -1，当 $v_i=v_j$ （即 $i=j$）为 $e_k$ 的端点时为1。因此
+设 $N=MM^T$，由于当对某个 $k$ 而言， $M_{ik}M_{jk}$ 在 $i\neq j$ 时，当是有向边 $e_k$ 的两端点时为 -1，当是无向边 $e_k$ 的两端点时1；而 $M_{ik}M_{ik}$ 为 $e_k$ 的端点且 $e_k$ 不是环时为1，是环时为4。因此 $\sum\limits_{k=1}^{\abs{E(G)}}M_{ik}M_{jk},i\neq j$ 表示以 $v_i,v_j$ 为端点的边数的负值+该点上4倍的环数，$\sum\limits_{k=1}^{\abs{E(G)}}M_{ik}M_{ik}$ 表示以 $v_i$ 为端点的边数加上3倍的环数，即该点的度加2倍的环数。因此，若设 $r$ 是过点 $v_i$ 的环数， 则有
 \begin{equation}
 n_{ij}=\left\{\begin{aligned}
-&d_G(v_i)=d_G^+(x_i)+d_G^{-1}(x_i)-c,\quad &i=j,\\
-&-\mu(x_i,x_j)-\mu(x_j,x_i),\quad &i\neq j.
+&d_G(v_i)+2r=d_G^+(v_i)+d_G^{-1}(v_i)+2r,\quad &i=j,\\
+&-\mu(v_i,v_j)-\mu(v_j,v_i)+\nu(v_i,v_j),\quad &i\neq j.
 \end{aligned}\right.~
 \end{equation}
+其中 $\mu(v_i,v_j)$ 表示以 $v_i$ 为起点 $v_j$ 为终点的边数，$\nu(v_i,v_j)$ 是以 $v_i,v_j$ 为端点的无向边个数。由 $N$ 的定义知 $N$ 是对称的。且 
+\begin{equation}
+\begin{aligned}
+\sum_{j=1}^{\abs{V}}n_{ij}&=d_G(v_i)+2r-\sum_{j=1,j\neq i}^{\abs{V}}\qty(\mu(v_i,v_j)+\mu(v_j,v_i)-\nu(v_i,v_j))\\
+&=d_C(v_i)+2r-(d_G(v_i)-2r)-\sum_{j=1,j\neq i}^{\abs{V}}=4r.
+\end{aligned}
+~
+\end{equation}
+
 
 
 \textbf{证毕！}
