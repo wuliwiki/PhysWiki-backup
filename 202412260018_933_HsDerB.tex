@@ -37,7 +37,7 @@
 关于导数的运算法则，有几点需要注意的：
 \begin{itemize}
 \item 加法法则体现了导数运算的线性特性，即两个函数的和的导数等于各函数导数的和。
-\item 初学者常因数字计算的习惯而误认为$(f \cdot g)'= f'\cdot g'$，$\displaystyle\left(\frac{f}{g}\right)'=\frac{f'}{g'}$，事实上这两种计算方法是错误的。
+\item 初学者常因数字计算的习惯而误认为$(f  g)'= f' g'$，$\displaystyle\left(\frac{f}{g}\right)'=\frac{f'}{g'}$，事实上这两种计算方法是错误的。
 \item 商法则的适用条件是分母$g\neq0$ 且导数$g'$存在。
 \item 商法则和倒数法则中的$g^2$指的是将分母原本的函数平方，完全书写则应为$[g(x)]^2$，而非$g^2(x)$\footnote{不排除某些不严谨的场合会有人这样用。$g^2(x)$一般是表示复合函数$g\left(g(x)\right)$。}。
 \item 倒数法则是商法则的一个特例，即$f=1$。
@@ -51,7 +51,7 @@
 $f(2x+3)$是一个复合函数，可以表示为：$y = f(t) , t = 2x+3$。因此，其导数计算如下：
 
 \begin{equation}\label{eq_HsDerB_1}
-\left(f(2x+3)\right)' = f'(t) \cdot t' = f'(2x+3) \cdot t'~.
+\left(f(2x+3)\right)' = f'(t)  t' = f'(2x+3)  t'~.
 \end{equation}
 
 根据后续的求导公式可知 $t' = 2$，将其代入\autoref{eq_HsDerB_1} ，得到：
@@ -104,7 +104,7 @@ f'(x) = g'(x)~.
 
 隐函数的特点是变量 $x$ 和 $y$ 之间的关系被隐藏在一个方程中，而不是通过显式表达式直接给出。例如，圆的方程 $x^2 + y^2 = 1$ 是隐函数的一个典型例子，它描述了 $x$ 和 $y$ 之间的关系，但不能直接将 $y$ 表示为 $x$ 的函数，当然这里的圆并不符合一般的函数定义，但可以通过限定它的定义域和值域，来将其看作函数。对于隐函数的求导，可以对方程两边同时求导，并利用链式法则处理含有 $y$ 的导数项。
 
-\begin{example}{求$x^2 + y^2 = 1$上点$(x_0,y_0)$处的切线方程。}
+\begin{example}{求$x^2 + y^2 = 1$\footnote{这其实就是解析几何阶段会学到的单位圆方程。}上点$(x_0,y_0)$处的切线方程。}
 答：
 
 两侧同时对$x$求导有：
@@ -114,16 +114,17 @@ f'(x) = g'(x)~.
 整理有\begin{equation}
 y'=-\frac{x}{y}~.
 \end{equation}
-因此，$x^2 + y^2 = 1$上任意点$(x_0,y_0)$处的切线方程为
+因此，$x^2 + y^2 = 1$上任意点$(x_0,y_0)$处的切线方程为$\displaystyle y-y_0=-\frac{x_0}{y_0}(x-x_0)$，整理后有：
 \begin{equation}
-y-y_0=-\frac{x_0}{y_0}(x-x_0)~.
+x_0x+y_0y=1~.
 \end{equation}
-
+看上去就像将表达式中的一个$x,y$替换成$x_0,y_0$。
 \end{example}
+注意，尽管涉及隐函数求导的方法都是高中学过的，但是在高中阶段不允许在答题时使用，但由于其计算简便，可以作为代替求解复杂方程或验算的方法。
 
 \subsection{求导法则推导*}
 
-在下面的所有推导之前，先回顾一下导数的\aref{定义}{def_HsDerv_1}，根据这个定义和导函数的描述，可以得到导函数的定义。
+在所有推导之前，先回顾一下导数的\aref{定义}{def_HsDerv_1}，根据这个定义和导函数的描述，可以得到导函数的定义。
 \begin{definition}{导函数}\label{def_HsDerB_1}
 对于函数 $y=f(x)$，其导函数是在 $f(x)$ 的定义域内所有导数存在的点构成定义域，导数值作为函数值的函数，记作$f'(x)$，即：
 \begin{equation}
@@ -131,7 +132,11 @@ f'(x)=\lim_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\to0}\frac{f(x
 \end{equation}
 \end{definition}
 
-注意这里的区别就是原本导数定义中具体数$x_0$变成了变量$x$，计算结果也就从一个数变成了函数。
+注意这里的区别就是原本导数定义中具体数$x_0$变成了变量$x$，计算结果也就从一个数变成了函数。下面的内容在高中教材中提过不严谨的证明，因为高中阶段没有学习极限，因此下面的推导对高中生而言可能较难理解，下面的推导中使用的极限都可以建立在对极限的直观认知上，包括：
+\begin{itemize}
+\item $\displaystyle\lim_{\Delta x\to 0}f(x+\Delta x)=f(x)$
+\item $\displaystyle\lim_{\Delta x\to 0}[f(\Delta x)\pm g(\Delta x)]=\lim_{\Delta x\to 0}f(\Delta x)\pm \lim_{\Delta x\to 0}g(\Delta x)$
+\end{itemize}
 
 
 \subsubsection{和差法则}
@@ -151,9 +156,9 @@ f'(x)=\lim_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\to0}\frac{f(x
 \subsubsection{积法则}
 \begin{equation}
 \begin{split}
-\left[f(x)\cdot g(x)\right]'&=\lim_{\Delta x\to 0}\frac{f(x+\Delta x)\cdot g(x+\Delta x)-f(x)\cdot g(x)}{\Delta x}\\
-&=\lim_{\Delta x\to 0}\frac{f(x+\Delta x)\cdot g(x+\Delta x)-f(x)\cdot g(x+\Delta x)+f(x)\cdot g(x+\Delta x)-f(x)\cdot g(x)}{\Delta x}\\
-&=\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}\cdot g(x+\Delta x)+\lim_{\Delta x\to 0}f(x)\cdot\frac{g(x+\Delta x)-g(x)}{\Delta x}\\
+\left[f(x) g(x)\right]'&=\lim_{\Delta x\to 0}\frac{f(x+\Delta x) g(x+\Delta x)-f(x) g(x)}{\Delta x}\\
+&=\lim_{\Delta x\to 0}\frac{f(x+\Delta x) g(x+\Delta x)-f(x) g(x+\Delta x)+f(x) g(x+\Delta x)-f(x) g(x)}{\Delta x}\\
+&=\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x} g(x+\Delta x)+\lim_{\Delta x\to 0}f(x)\frac{g(x+\Delta x)-g(x)}{\Delta x}\\
 &=f'(x)g(x)+f(x) g'(x)~.
 \end{split}
 \end{equation}
@@ -173,7 +178,7 @@ f'(x)=\lim_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\to0}\frac{f(x
 从而商法则为：
 \begin{equation}
 \begin{split}
-\left[f(x)\cdot \frac{1}{g(x)}\right]'&=f'(x)\frac{1}{g(x)}+f(x) [\frac{1}{g(x)}]'\\
+\left[f(x) \frac{1}{g(x)}\right]'&=f'(x)\frac{1}{g(x)}+f(x) [\frac{1}{g(x)}]'\\
 &=\frac{f'(x)}{g(x)}-\frac{f(x)g'(x)}{[g(x)]^2}\\
 &=\frac{f'(x)g(x)-f(x)g'(x)}{[g(x)]^2}~.
 \end{split}
@@ -194,10 +199,10 @@ g'(x)=\lim_{\Delta x\to 0}\frac{\Delta t}{\Delta x}=\lim_{\Delta x\to 0}\frac{g(
 \begin{equation}
 \begin{split}
 \left[f(g(x))\right]'&=\lim_{\Delta x\to 0}\frac{f(g(x+\Delta x))-f(g(x))}{\Delta x}\\
-&=\lim_{\Delta x\to 0}\frac{f(t+\Delta t)-f(t)}{\Delta t}\cdot\frac{\Delta t}{\Delta x}\\
-&=\lim_{\Delta t\to 0}\frac{f(t+\Delta t)-f(t)}{\Delta t}\cdot\lim_{\Delta x\to 0}\frac{\Delta t}{\Delta x}\\
-&=f'(t)\cdot g'(x)\\
-&=f'(g(x))\cdot g'(x)~.
+&=\lim_{\Delta x\to 0}\frac{f(t+\Delta t)-f(t)}{\Delta t}\frac{\Delta t}{\Delta x}\\
+&=\lim_{\Delta t\to 0}\frac{f(t+\Delta t)-f(t)}{\Delta t}\lim_{\Delta x\to 0}\frac{\Delta t}{\Delta x}\\
+&=f'(t) g'(x)\\
+&=f'(g(x)) g'(x)~.
 \end{split}
 \end{equation}
 \subsection{基本初等函数的导数推导}
@@ -220,8 +225,8 @@ g'(x)=\lim_{\Delta x\to 0}\frac{\Delta t}{\Delta x}=\lim_{\Delta x\to 0}\frac{g(
 \begin{equation}
 \begin{split}
 f'(x) &= \lim_{\Delta x \to 0} \frac{(x+\Delta x)^n - x^n}{\Delta x}\\
-&=\lim_{\Delta x \to 0} \frac{(x+\Delta x-x)[(x+\Delta x)^{n-1}+x(x+\Delta x)^{n-2}+\cdots+x^{n-2}(x+\Delta x)+x^{n-1}]}{\Delta x}\\
-&=\lim_{\Delta x \to 0} [(x+\Delta x)^{n-1}+x(x+\Delta x)^{n-2}+\cdots+x^{n-2}(x+\Delta x)+x^{n-1}]\\
+&=\lim_{\Delta x \to 0} \frac{(x+\Delta x-x)[(x+\Delta x)^{n-1}+x(x+\Delta x)^{n-2}+s+x^{n-2}(x+\Delta x)+x^{n-1}]}{\Delta x}\\
+&=\lim_{\Delta x \to 0} [(x+\Delta x)^{n-1}+x(x+\Delta x)^{n-2}+s+x^{n-2}(x+\Delta x)+x^{n-1}]\\
 &=nx^{n-1}~.
 \end{split}
 \end{equation}
@@ -238,38 +243,15 @@ f'(x) &= \left(\frac{1}{x^n}\right)' \\
 
 由于$(x^0)'=(1)'=0$，因此，任意整数（$n\in\mathbb{Z}$）指数幂的导数都遵循$f'(x) = nx^{n-1}$。
 
-对于有理数指数的幂函数 $f(x) = x^{\frac{p}{q}}$（$p, q \in \mathbb{Z}$，$q > 0$）根据复合函数求导有：
-
+对于有理数指数的幂函数 $f(x) = x^{\frac{p}{q}}$（$p, q \in \mathbb{Z}$，$q > 0$），写成$y=x^{\frac{p}{q}}$的形式，变形可得到恒等式$y^q=x^p$，由于$p,q$均为整数，两侧同时求导有：
 \begin{equation}
-\left(x^{\frac{p}{q}}\right)'=\left(\left(x^\frac{1}{q}\right)^p\right)'=p\left(x^\frac{1}{q}\right)^{p-1}\cdot\left(x^\frac{1}{q}\right)'~.
+q  y^{q-1}  y' = p  x^{p-1}~.
+\end{equation}
+解出 $y'$，并代入 $\displaystyle y = x^{\frac{p}{q}}$ 还原得到：
+\begin{equation}
+y' =\frac{p}{q} x^{\frac{p}{q}-1}~.
 \end{equation}
 
-因此需要求出根式的导数，对$g(x) = x^{\frac{1}{q}}$（$q \in \mathbb{Z}+$），利用反函数求导法则：
+综上，$f'(x) = ax^{a-1}$对所有有理数$a$均成立。
 
-
-
-
-
-，可以先考虑 $q=2$ 的情况，即平方根：
-
-设 $f(x) = x^{1/2}$，我们将其表示为 $y = x^{1/2}$，因此 $y^2 = x$。两边求导，得到：
-
-$$
-2y \cdot \frac{dy}{dx} = 1 \quad \Rightarrow \quad \frac{dy}{dx} = \frac{1}{2y} = \frac{1}{2x^{1/2}}~.
-$$
-
-验证后得 $f'(x) = \frac{1}{2}x^{-1/2}$，与公式 $nx^{n-1}$ 一致。
-
-对于一般形式 $f(x) = x^{p/q}$，将其写为 $y = x^{p/q}$，即 $y^q = x^p$。两边求导，得：
-
-$$
-q \cdot y^{q-1} \cdot \frac{dy}{dx} = p \cdot x^{p-1}~.
-$$
-
-解出 $\frac{dy}{dx}$，利用 $y = x^{p/q}$ 还原得到：
-
-$$
-f'(x) = \frac{p}{q}x^{p/q - 1}~.
-$$
-
-通过以上三步，
+指数函数和对数函数
