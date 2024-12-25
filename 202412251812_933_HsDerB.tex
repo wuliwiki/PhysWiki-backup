@@ -1,0 +1,88 @@
+% 导数的计算（高中）
+% keys 导数|求导
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{导数\nref{nod_HsDerv}}{nod_ed15}
+
+为了更高效地计算函数的导数，数学家在实践中总结和发展了许多求导方法。这些方法不仅大大简化了计算过程，还将求导从一个过程提升为独立的数学运算。在高中阶段，能够快速且熟练地使用这些求导方法是数学学习的基础。然而，高中教材中对求导公式的处理通常是直接给出结果，供学生直接应用，而未深入说明这些公式的推导过程。这种方式虽然足以应对考试和解题，但在数学的逻辑性和严谨性上有所欠缺。
+
+为了为对数学推导感兴趣的读者提供进一步探索的机会，本文将在总结教材中公式的基础上，尝试在高中生能够接受的范围内，尽量给出这些公式的推导和证明过程。需要强调的是，这些推导并非高中学习的必备内容，而是面向那些希望了解数学本质、追求逻辑严谨性的学习者。通过这些推导，读者不仅能更深入地理解公式的来源，还能从中感受到数学推理的魅力，以及逻辑思维的力量。
+
+\subsection{总结对照表}
+
+下面先介绍导数的运算法则，为记录方便，记$f=f(x),g=g(x),f'=f'(x),g'=g'(x)$。
+\begin{table}[ht]
+\centering
+\caption{导数运算法则}\label{tab_HsDerB1}
+\begin{tabular}{|c|c|}
+\hline
+和差 & $(f\pm g)'=f'\pm g'$ \\
+\hline
+积 & $(fg)'=f'g+fg'$ \\
+\hline
+商 & $\displaystyle\left(\frac{f}{g}\right)'=\frac{f'g-fg'}{g^2}$ \\
+\hline
+倒数 & $\displaystyle\left(\frac{1}{g}\right)'=-\frac{g'}{g^2}$ \\
+\hline
+复合函数 & $(f(g))'=f'(g)g'$ \\
+\hline
+\end{tabular}
+\end{table}
+
+关于导数的运算法则，有几点需要注意的：
+\begin{itemize}
+\item 加法法则体现了导数运算的线性特性，即两个函数的和的导数等于各函数导数的和。
+\item 初学者常因数字计算的习惯而误认为$(f \cdot g)'= f'\cdot g'$，$\displaystyle\left(\frac{f}{g}\right)'=\frac{f'}{g'}$，事实上这两种计算方法是错误的。
+\item 商法则的适用条件是分母$g\neq0$ 且导数$g'$存在。
+\item 商法则和倒数法则中的$g^2$指的是将分母原本的函数平方，完全书写则应为$[g(x)]^2$，而非$g^2(x)$\footnote{不排除某些不严谨的场合会有人这样用。$g^2(x)$一般是表示复合函数$g\left(g(x)\right)$。}。
+\item 倒数法则是商法则的一个特例，即$f=1$。
+\item 复合函数的导数运算通常称为\textbf{链式法则（chain rule）}。在初学阶段，可以通过明确拆分内外函数并分别求导的方式来理解链式法则。熟练后，则可直接应用链式法则进行计算。$f'(g)$表示的，是以$g$作为自变量时的$f$的导数。
+\end{itemize}
+下面以一个例子来解释复合函数求导法则的使用。
+\begin{example}{求f(x^2+3)的导数。}
+这里
+\end{example}
+
+
+这里将常见的函数与导数对照表列出如下，方便查询。具体介绍需查看每个函数自己的页面。
+
+\begin{table}[ht]
+\centering
+\caption{高中常见函数及其导数}\label{tab_HsDerB2}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{函数名称}     & \textbf{函数 $f(x)$}     & \textbf{导函数 $f'(x)$}     \\ \hline
+幂函数&$x^n$                    & $n x^{n-1}$                \\ \hline
+反比例函数&$\displaystyle\frac{1}{x}$             & $\displaystyle-\frac{1}{x^2}$           \\ \hline
+指数函数（e为底）&$e^x$                     & $e^x$                      \\ \hline
+对数函数（e为底）&$\ln(x)$                  & $\displaystyle\frac{1}{x}$              \\ \hline
+指数函数&$a^x$                     & $a^x\ln a $                      \\ \hline
+对数函数&$\log_a(x)$                  & $\displaystyle \frac{1}{x\ln a}$              \\ \hline
+正弦函数&$\sin(x)$                 & $\cos(x)$                  \\ \hline
+余弦函数&$\cos(x)$                 & $-\sin(x)$                 \\ \hline
+正切函数&$\tan(x)$                 & $\displaystyle \frac{1}{\cos^2(x)}$                \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{求导法则推导}
+
+在下面的所有推导之前，先回顾一下导数的\aref{定义}{def_HsDerv_1}，这尽管不
+
+
+\subsubsection{和差法则}
+
+这个求导法则是符合生活中的直观认知的，是生活中常用的。如果两个人分别以一定的速度完成各自的任务，合起来的速度就是两者速度的相加。
+
+\subsubsection{积法则}
+
+可以想象一个池塘，水面上漂着一片荷叶。假设池塘面积和荷叶的覆盖率都在增长，那么整个覆盖面积的变化不仅取决于池塘的变化，还取决于荷叶本身的变化。
+
+\subsubsection{商法则}
+\subsubsection{链式法则}
+\subsection{基本初等函数的导数推导}
+
