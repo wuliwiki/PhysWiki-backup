@@ -1,0 +1,50 @@
+% 导数的计算（高中）
+% keys 导数|求导
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{导数\nref{nod_HsDerv}}{nod_ed15}
+
+为了更高效地计算函数的导数，人们在实践中总结并发展了多种求导方法。这些方法不仅极大地简化了计算过程，还将求导这一过程独立化，发展成了一种重要的数学运算。在高中阶段，能够快速、熟练地运用这些求导方法是学习的基本要求。然而，高中教材中对求导公式的处理通常是直接给出结果，供学生直接应用，而未深入说明这些公式的推导过程。尽管熟练运用公式的确可以满足解题需求，但这种方式在数学的逻辑性和严谨性上略显不足。
+
+为了为对数学推导感兴趣的读者提供进一步探索的机会，本文将在高中生能够理解的知识范围内，尽量给出教材中求导公式的推导和证明过程。需要注意的是，这些推导并非高中阶段的必备知识，仅供兴趣驱动的学习者参考。通过这些推导，或许能够帮助读者更深刻地体会数学的严谨之美和逻辑之趣。
+
+\subsection{求导法则}
+
+为记录方便，下面记$u=f(x),v=g(x),u'=f'(x),v'=g'(x)$。
+
+\begin{itemize}
+\item 加减法：$(u\pm v)'=u'\pm v'$
+\item 乘法：$(uv)'=u'v+uv'$
+\item 除法：$\displaystyle\left(\frac{u}{v}\right)'=\frac{u'v-uv'}{v^2}$，特例是某个函数的倒数的导数：$\displaystyle\left(\frac{1}{v}\right)'=-\frac{v'}{v^2}$
+\item 复合函数：$(f(v))'=f'(v)v'$
+\end{itemize}
+
+\subsection{基本初等函数的导数推导}
+
+\subsection{对照表}
+
+这里将常见的函数与导数对照表列出如下，方便查询。具体介绍需查看每个函数自己的页面。
+
+\begin{table}[ht]
+\centering
+\caption{高中常见函数及其导数}\label{tab_HsDerv1}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{函数名称}     & \textbf{函数 $f(x)$}     & \textbf{导函数 $f'(x)$}     \\ \hline
+幂函数&$x^n$                    & $n x^{n-1}$                \\ \hline
+反比例函数&$\displaystyle\frac{1}{x}$             & $\displaystyle-\frac{1}{x^2}$           \\ \hline
+指数函数（e为底）&$e^x$                     & $e^x$                      \\ \hline
+对数函数（e为底）&$\ln(x)$                  & $\displaystyle\frac{1}{x}$              \\ \hline
+指数函数&$a^x$                     & $a^x\ln a $                      \\ \hline
+对数函数&$\log_a(x)$                  & $\displaystyle \frac{1}{x\ln a}$              \\ \hline
+正弦函数&$\sin(x)$                 & $\cos(x)$                  \\ \hline
+余弦函数&$\cos(x)$                 & $-\sin(x)$                 \\ \hline
+正切函数&$\tan(x)$                 & $\displaystyle \frac{1}{\cos^2(x)}$                \\ \hline
+\end{tabular}
+\end{table}
+
