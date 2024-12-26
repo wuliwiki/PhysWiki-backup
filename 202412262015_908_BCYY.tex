@@ -1,0 +1,61 @@
+% 编程语言理论（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Programming_language_theory}{相关文章}。
+
+编程语言理论（PLT）是计算机科学的一个分支，研究编程语言这一形式语言的设计、实现、分析、特征描述和分类。编程语言理论与数学、软件工程和语言学等领域密切相关。该领域有许多学术会议和期刊。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/7180d92ac9151835.png}
+\caption{小写希腊字母 λ（lambda）是编程语言理论领域的一个非官方符号。[citation needed] 这一用法源自 λ 演算，这是一种由阿隆佐·丘奇（Alonzo Church）在1930年代提出的计算模型，并被编程语言研究人员广泛使用。它出现在经典著作《计算机程序的构造与解释》的封面上，以及1975至1980年间由杰拉尔德·杰伊·萨斯曼（Gerald Jay Sussman）和盖伊·斯蒂尔（Guy Steele）编写的《Lambda Papers》一书的标题中，后者是 Scheme 编程语言的开发者。[行话]} \label{fig_BCYY_1}
+\end{figure}
+\subsection{历史}  
+在某些方面，编程语言理论的历史甚至早于编程语言本身的发展。λ 演算（lambda calculus）由阿隆佐·丘奇（Alonzo Church）和斯蒂芬·科尔·克莱尼（Stephen Cole Kleene）在1930年代提出，被一些人认为是世界上第一个编程语言，尽管它的初衷是用来建模计算，而不是作为程序员向计算机系统描述算法的工具。许多现代的函数式编程语言被描述为在 λ 演算之上提供了一个“薄薄的表面层”，[2] 并且许多语言可以通过 λ 演算来简单地描述。
+
+第一个发明的编程语言是 Plankalkül，它由康拉德·祖泽（Konrad Zuse）在1940年代设计，但直到1972年才为公众所知（并且直到1998年才实现）。第一个广为人知且成功的高级编程语言是 FORTRAN（表示“公式翻译”），由IBM研究团队在1954至1957年间开发，约翰·巴克斯（John Backus）领导。FORTRAN的成功促成了一个科学家委员会的形成，旨在开发一种“通用”计算机语言；他们的努力结果是ALGOL 58。与此同时，麻省理工学院的约翰·麦卡锡（John McCarthy）开发了 Lisp，它是首个源自学术界且成功的编程语言。随着这些初步努力的成功，编程语言在1960年代及以后成为了一个活跃的研究主题。
+\subsubsection{时间轴}  
+自那时以来，编程语言理论历史中的一些关键事件：
+
+\textbf{1950年代}  
+\begin{itemize}
+\item 诺姆·乔姆斯基（Noam Chomsky）在语言学领域提出了乔姆斯基层次结构，这一发现直接影响了编程语言理论和计算机科学的其他分支。
+\end{itemize}
+
+\textbf{1960年代}  
+\begin{itemize}
+\item 1962年，Ole-Johan Dahl 和 Kristen Nygaard 开发了 Simula 语言，它被广泛认为是第一个面向对象编程语言的例子；Simula 还引入了协程（coroutine）的概念。  
+\item 1964年，彼得·兰丁（Peter Landin）首次意识到教堂的 λ 演算可以用于建模编程语言。他提出了 SECD 机器，它“解释”λ表达式。  
+\item 1965年，兰丁引入了 J 操作符，本质上是一种延续（continuation）形式。  
+\item 1966年，兰丁在他的文章《The Next 700 Programming Languages》中提出了 ISWIM，它是一种抽象的计算机编程语言，对设计导致 Haskell 编程语言的语言产生了影响。  
+\item 1966年，科拉多·博姆（Corrado Böhm）提出了编程语言 CUCH（Curry-Church）。[3]  
+\item 1967年，克里斯托弗·斯特雷奇（Christopher Strachey）发布了具有影响力的讲义《Fundamental Concepts in Programming Languages》，引入了术语 R 值、L 值、参数多态性和临时多态性。  
+\item 1969年，J·罗杰·辛德利（J. Roger Hindley）发布了《The Principal Type-Scheme of an Object in Combinatory Logic》，后续推广为辛德利-米尔纳类型推导算法。  
+\item 1969年，托尼·霍尔（Tony Hoare）提出了霍尔逻辑（Hoare logic），一种公理化语义形式。  
+\item 1969年，威廉·阿尔文·霍华德（William Alvin Howard）观察到“高级”证明系统，称为自然推理（natural deduction），可以直接在其直觉主义版本中解释为 λ 演算的类型变体。这被称为库里-霍华德对应（Curry–Howard correspondence）。
+\end{itemize}
+\textbf{1970年代}  
+\begin{itemize}
+\item 1970年，达纳·斯科特（Dana Scott）首次发布了他关于指示语义学（denotational semantics）的工作。  
+\item 1972年，逻辑编程和 Prolog 的开发使得计算机程序可以用数学逻辑表示。  
+由艾伦·凯（Alan Kay）领导的一组科学家在施乐 PARC 开发了 Smalltalk，这是一种面向对象的语言，因其创新的开发环境而广为人知。  
+\item 1974年，约翰·C·雷诺兹（John C. Reynolds）发现了系统 F，它早在1971年就已被数学逻辑学家让-伊夫·吉拉尔（Jean-Yves Girard）发现。  
+\item 1975年起，杰拉尔德·杰伊·萨斯曼（Gerald Jay Sussman）和盖伊·斯蒂尔（Guy Steele）开发了 Scheme 编程语言，这是一种 Lisp 方言，融入了词法作用域、统一命名空间以及来自演员模型的元素，包括一类优先的延续（first-class continuations）。  
+\item 在1977年的图灵奖讲座上，巴克斯（Backus）批评了工业语言的现状，并提出了一类新的编程语言，现在被称为函数级编程语言。  
+\item 1977年，戈登·普洛特金（Gordon Plotkin）提出了《编程可计算函数》（Programming Computable Functions），一种抽象类型的函数式语言。  
+\item 1978年，罗宾·米尔纳（Robin Milner）为 ML 引入了辛德利-米尔纳类型推导算法。类型理论作为一种学科应用于编程语言，这一应用在多年里带来了类型理论的巨大进展。
+\end{itemize}
+
+\subsubsection{1980年代}  
+\begin{itemize}
+\item 1981年，戈登·普洛特金发布了关于结构化操作语义学（structured operational semantics）的论文。  
+\item 1988年，吉尔·卡恩（Gilles Kahn）发布了关于自然语义学的论文。  
+\item 出现了过程演算（process calculi），如罗宾·米尔纳（Robin Milner）的《通讯系统演算》（Calculus of Communicating Systems）和C·A·R·霍尔（C. A. R. Hoare）的《通讯顺序过程模型》（Communicating Sequential Processes），以及其他类似的并发模型，如卡尔·休伊特（Carl Hewitt）的演员模型（actor model）。  
+\item 1985年，《Miranda》的发布激发了学术界对懒惰求值的纯函数式编程语言的兴趣。一个委员会成立以定义开放标准，最终导致1990年发布 Haskell 1.0 标准。  
+\item 伯特兰·梅耶（Bertrand Meyer）创建了契约设计法（Design by Contract），并将其纳入了 Eiffel 编程语言中。
+\end{itemize}
+\subsubsection{1990年代}
+\begin{itemize}
+\item 格雷戈尔·基察尔斯（Gregor Kiczales）、吉姆·德里维埃尔（Jim Des Rivieres）和丹尼尔·G·博布罗（Daniel G. Bobrow）出版了《元对象协议的艺术》（The Art of the Metaobject Protocol）。  
+\item 尤金·莫吉（Eugenio Moggi）和菲利普·沃德勒（Philip Wadler）引入了单子（monads）用于结构化函数式编程语言中的程序。
+\end{itemize}
