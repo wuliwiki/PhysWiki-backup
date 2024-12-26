@@ -3,10 +3,6 @@
 % license Usr
 % type Tutor
 
-\begin{issues}
-\issueDraft
-\end{issues}
-
 \pentry{导数\nref{nod_HsDerv}}{nod_ed15}
 
 为了更高效地计算函数的导数，数学家在实践中总结和发展了许多求导方法。这些方法不仅大大简化了计算过程，还将求导从一个过程提升为独立的数学运算。在高中阶段，能够快速且熟练地使用这些求导方法是数学学习的基础。然而，高中教材中对求导公式的处理通常是直接给出结果，供学生直接应用，而未深入说明这些公式的推导过程。这种方式虽然足以应对考试和解题，但在数学的逻辑性和严谨性上有所欠缺。
@@ -160,7 +156,7 @@ f'(x)=\lim_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\to0}\frac{f(x
 \begin{split}
 \left[f(x)\pm g(x)\right]'&=\lim_{\Delta x\to 0}\frac{[f(x+\Delta x)\pm g(x+\Delta x)]-[f(x)\pm g(x)]}{\Delta x}\\
 &=\lim_{\Delta x\to 0}\frac{[f(x+\Delta x)-f(x)]\pm [g(x+\Delta x)]-+g(x)]}{\Delta x}\\
-&=\lim_{\Delta x\to 0}frac{f(x+\Delta x)-f(x)}{\Delta x}\pm\lim_{\Delta x\to 0}\frac{g(x+\Delta x)-g(x)}{\Delta x}\\
+&=\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}\pm\lim_{\Delta x\to 0}\frac{g(x+\Delta x)-g(x)}{\Delta x}\\
 &=f'(x)\pm g'(x)~.
 \end{split}
 \end{equation}
@@ -282,6 +278,7 @@ y' =\frac{p}{q} x^{\frac{p}{q}-1}~.
 综上，$f'(x) = ax^{a-1}$对所有有理数$a$均成立。
 
 \subsubsection{指数函数和对数函数}
+先求$\E^x$：
 
 \begin{equation}
 \begin{split}
@@ -293,7 +290,9 @@ y' =\frac{p}{q} x^{\frac{p}{q}-1}~.
 \end{split}
 \end{equation}
 
-证明过程中，使用了一步代换，尽管这里是在算极限，但这也是求导时经常使用的手段，将复杂的形式设为一个新变量，从而降低计算的难度。当\Delta x \to 0\E^{\Delta x}-1也趋于0。对$y=\ln x$，变形有$x=\E^y$，两侧同时求导有：
+证明过程中，使用了一步代换，尽管这里是在算极限，但这也是求导时经常使用的手段，将复杂的形式设为一个新变量，从而降低计算的难度。当$\Delta x$ 趋于 $0$时，$\E^{\Delta x}-1$也趋于$0$，即此时$t$趋于$0$。而这里使用了一个重要极限，也就是$\E$的\aref{定义}{eq_Ln_3}，变形得到了$\displaystyle\lim_{t \to 0}(1+t)^{1\over t}=\E$，由于对数函数连续，于是可以直接代入得到$\displaystyle\frac{1}{\ln\E}=1$。
+
+对于$y=\ln x$，变形有$x=\E^y$，两侧同时求导有：
 \begin{equation}
 1=\E^y\cdot y'~.
 \end{equation}
@@ -314,7 +313,14 @@ y'=\frac{1}{x}~.
 
 \pentry{三角恒等变换\nref{nod_HsAnTf}}{nod_53df}
 
-$\displaystyle\lim_{\Delta x \to 0}\frac{\sin\Delta x} {\Delta x}=1$
+这里需要使用另一个重要的极限，在高中阶段无法进行严谨证明，结论如下：
+\begin{equation}\label{eq_HsDerB_3}
+\displaystyle\lim_{\Delta x \to 0}\frac{\sin\Delta x} {\Delta x}=1~.
+\end{equation}
+
+这个极限的几何意义可以通过单位圆来直观理解。在单位圆中，设角度为$\Delta x$弧度，则圆弧长度为$\Delta x$，$\sin\Delta x$对应圆上点的垂直高度，$\tan\Delta x$则是过该点的切线段长度，于是始终有$\sin\Delta x \leq \Delta x \leq \tan\Delta x$。当$\Delta x \to 0$时，$\cos \Delta x=1$，进而$\sin\Delta x=\tan\Delta x$。也就是说，随着$\Delta x$缩小，$\sin\Delta x,\Delta x,\tan\Delta x$三者逐渐相等。从而$\displaystyle\lim_{\Delta x \to 0} \frac{\sin\Delta x}{\Delta x} = 1$。
+
+对$\sin x$的导数：
 
 \begin{equation}
 \begin{split}
@@ -326,6 +332,7 @@ $\displaystyle\lim_{\Delta x \to 0}\frac{\sin\Delta x} {\Delta x}=1$
 &=\cos x~.
 \end{split}
 \end{equation}
+其中，使用了两个恒等变换：$\sin (a+b)=\sin a\cos b+\cos a\sin b$和$\displaystyle\cos x-1=2\sin^2\frac{x}{2}$，并在第五个等号使用了\aref{另一个重要极限}{eq_HsDerB_3}。
 
 为求$(\cos x)'$，根据恒等式$\cos^2 x+\sin^2 x=1$，两侧同时对$x$求导有：
 \begin{equation}

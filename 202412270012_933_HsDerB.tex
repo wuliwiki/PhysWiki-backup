@@ -282,6 +282,7 @@ y' =\frac{p}{q} x^{\frac{p}{q}-1}~.
 综上，$f'(x) = ax^{a-1}$对所有有理数$a$均成立。
 
 \subsubsection{指数函数和对数函数}
+先求$\E^x$：
 
 \begin{equation}
 \begin{split}
@@ -293,7 +294,9 @@ y' =\frac{p}{q} x^{\frac{p}{q}-1}~.
 \end{split}
 \end{equation}
 
-证明过程中，使用了一步代换，尽管这里是在算极限，但这也是求导时经常使用的手段，将复杂的形式设为一个新变量，从而降低计算的难度。当\Delta x \to 0\E^{\Delta x}-1也趋于0。对$y=\ln x$，变形有$x=\E^y$，两侧同时求导有：
+证明过程中，使用了一步代换，尽管这里是在算极限，但这也是求导时经常使用的手段，将复杂的形式设为一个新变量，从而降低计算的难度。当$\Delta x$ 趋于 $0$时，$\E^{\Delta x}-1$也趋于$0$，即此时$t$趋于$0$。而这里使用了一个重要极限，也就是$\E$的\aref{定义}{eq_Ln_3}，变形得到了$\displaystyle\lim_{t \to 0}(1+t)^{1\over t}=\E$，由于对数函数连续，于是可以直接代入得到$\displaystyle\frac{1}{\ln\E}=1$。
+
+对于$y=\ln x$，变形有$x=\E^y$，两侧同时求导有：
 \begin{equation}
 1=\E^y\cdot y'~.
 \end{equation}
@@ -314,7 +317,13 @@ y'=\frac{1}{x}~.
 
 \pentry{三角恒等变换\nref{nod_HsAnTf}}{nod_53df}
 
-$\displaystyle\lim_{\Delta x \to 0}\frac{\sin\Delta x} {\Delta x}=1$
+这里需要使用另一个重要的极限，在高中阶段无法进行严谨证明，结论如下：
+\begin{equation}
+\displaystyle\lim_{\Delta x \to 0}\frac{\sin\Delta x} {\Delta x}=1~.
+\end{equation}
+
+这个极限的几何意义可以通过单位圆来直观理解。在单位圆中，设角度为$\Delta x$弧度，则圆弧长度为$\Delta x$，$\sin\Delta x$对应圆上点的垂直高度，$\tan\Delta x$则是过该点的切线段长度，于是始终有$\sin\Delta x \leq \Delta x \leq \tan\Delta x$。当$\Delta x \to 0$时，$\cos \Delta x=1$，进而$\sin\Delta x=\tan\Delta x$。也就是说，随着$\Delta x$缩小，$\sin\Delta x,\Delta x,\tan\Delta x$三者逐渐相等。从而$\displaystyle\lim_{\Delta x \to 0} \frac{\sin\Delta x}{\Delta x} = 1$。
+
 
 \begin{equation}
 \begin{split}
