@@ -144,13 +144,27 @@ f'(x_1) = \lim_{x_2 \to x_1} \frac{f(x_2) - f(x_1)}{x_2 - x_1}~.
 
 \subsubsection{逆向使用求导法则}
 
-逆用积法则：
 
+\begin{table}[ht]
+\centering
+\caption{请输入表格标题}\label{tab_HsDerC1}
+\begin{tabular}{|c|c|c|}
+\hline
+* & * & * \\
+\hline
+* & * & * \\
+\hline
+* & * & * \\
+\hline
+* & * & * \\
+\hline
+\end{tabular}
+\end{table}
 $x^n f'(x) + f(x) \geq 0$，构造 $F(x) = x^n f(x)$，$[x^n f(x)] = x^n f'(x) + nx^{n-1} f(x) = x^{n-1} [x f'(x) + nf(x)]$。特别地，当$n=1$时有$x f'(x) + f(x) \geq 0$，构造 $F(x) = x f(x)$，$[x f(x)]' = x f'(x) + f(x)$
 
 $f'(x) + k f(x) \geq 0$，构造 $F(x) = \E^{kx} f(x)$，$[\E^{kx} f(x)]' = \E^{kx} [f'(x) + kf(x)]$。特别地，当$k=1$时有$f'(x) + f(x) \geq 0$，构造 $F(x) = \E^x f(x)$，$[\E^x f(x)]' = \E^x [f'(x) + f(x)]$
 
-逆用商法则：
+如果目标是和形式，就逆用积法则，如果目标是差形式，就逆用商法则。
 
 $xf'(x) - f(x) \geq 0$，构造 $F(x) = \frac{f(x)}{x}$，  
     $\therefore \left[\frac{f(x)}{x}\right]' = \frac{f'(x) \cdot x - f(x)}{x^2}$
@@ -209,7 +223,8 @@ $f'(x) - k f(x) \geq 0$，构造 $F(x) = \frac{f(x)}{\E^{kx}}$，
 \E^{\I x} = \cos x + \I\sin x~.
 \end{equation}
 
-上面的公式中如果代入$x=\pi$，则会得到数学上最非凡的公式\footnote{物理学家费曼在著作《费曼物理学讲义》中提到的。}：
+上面的公式中如果代入$x=\pi$，则会得到物理学家费曼在著作《费曼物理学讲义》中提到的数学上最非凡的公式——欧拉恒等式：
+
 \begin{equation}
 \E^{\I \pi} + 1= 0~.
 \end{equation}

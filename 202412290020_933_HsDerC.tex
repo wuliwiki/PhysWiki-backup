@@ -141,28 +141,34 @@ f'(x_1) = \lim_{x_2 \to x_1} \frac{f(x_2) - f(x_1)}{x_2 - x_1}~.
 \subsection{常用构造}
 
 \pentry{恒等式与不等式恒成立\nref{nod_HsIden}}{nod_b069}
+对于恒成立问题，通常需要构造函数并求解其导数或本身满足恒为正（负）。
 
-\subsubsection{逆向使用求导法则}
+反向使用求导法则可以快速地通过已知的目标形式反推出原函数的结构，避免在构造函数时同时引入原函数和导函数造成求导和讨论时的困难。下表列举了一些典型的形式以及相应的构造过程，帮助理解这一方法的应用。
 
-逆用积法则：
+\begin{table}[ht]
+\centering
+\caption{反向使用求导法则构造示例}\label{tab_HsDerC1}
+\begin{tabular}{|c|c|c|}
+\hline
+目标函数的形式 &构造的函数$F(x)$& $F'(x)$ \\
+\hline
+$x f'(x) + f(x)$ & $F(x) = x f(x)$ & $x f'(x) + f(x)$ \\
+\hline
+$xf'(x) - f(x)$ & $\displaystyle F(x) = \frac{f(x)}{x}$& $\displaystyle\frac{xf'(x)- f(x)}{x^2}$ \\
+\hline
+$f'(x) + f(x)$ & $F(x) = \E^x f(x)$ & $\E^x [f'(x) + f(x)]$ \\
+\hline
+$f'(x) - f(x)$ & $\displaystyle F(x) = \frac{f(x)}{\E^x}$& $\displaystyle\frac{f'(x) - f(x)}{\E^x}$ \\
+\hline
+$\tan xf'(x) + f(x)$ & $F(x) = \sin x f(x)$ & $\cos x [\tan xf'(x) + f(x)]$ \\
+\hline
+$\tan xf'(x) - f(x)$ & $\displaystyle F(x) = \frac{f(x)}{\sin x}$ & $\displaystyle\frac{\tan xf'(x) - f(x)}{\sin x\tan x}$ \\
+\hline
+\end{tabular}
+\end{table}
 
-$x^n f'(x) + f(x) \geq 0$，构造 $F(x) = x^n f(x)$，$[x^n f(x)] = x^n f'(x) + nx^{n-1} f(x) = x^{n-1} [x f'(x) + nf(x)]$。特别地，当$n=1$时有$x f'(x) + f(x) \geq 0$，构造 $F(x) = x f(x)$，$[x f(x)]' = x f'(x) + f(x)$
+通过观察可以看到，如果目标是和形式，就逆用积法则，如果目标是差形式，就逆用商法则。构造方法不仅限于表中展示的形式，还可以推广，将$g(x)=x$替换成$g(x)=x^n$、$g(x)=\E^x$替换成$g(x)=\E^{kx}$等。
 
-$f'(x) + k f(x) \geq 0$，构造 $F(x) = \E^{kx} f(x)$，$[\E^{kx} f(x)]' = \E^{kx} [f'(x) + kf(x)]$。特别地，当$k=1$时有$f'(x) + f(x) \geq 0$，构造 $F(x) = \E^x f(x)$，$[\E^x f(x)]' = \E^x [f'(x) + f(x)]$
-
-逆用商法则：
-
-$xf'(x) - f(x) \geq 0$，构造 $F(x) = \frac{f(x)}{x}$，  
-    $\therefore \left[\frac{f(x)}{x}\right]' = \frac{f'(x) \cdot x - f(x)}{x^2}$
-
-$f'(x) - f(x) \geq 0$，构造 $F(x) = \frac{f(x)}{\E^x}$，  
-    $\therefore \left[\frac{f(x)}{\E^x}\right]' = \frac{\E^x \cdot f'(x) - \E^x \cdot f(x)}{\E^{2x}} = \frac{f'(x) - f(x)}{\E^x}$
-
-$x^n f'(x) - n f(x) \geq 0$，构造 $F(x) = \frac{f(x)}{x^n}$，  
-    $\therefore \left[\frac{f(x)}{x^n}\right]' = \frac{x^n \cdot f'(x) - n x^{n-1} \cdot f(x)}{x^{2n}} = \frac{f'(x) - n f(x)}{x^{n+1}}$
-
-$f'(x) - k f(x) \geq 0$，构造 $F(x) = \frac{f(x)}{\E^{kx}}$，  
-    $\therefore \left[\frac{f(x)}{\E^{kx}}\right]' = \frac{\E^{kx} \cdot f'(x) - k \E^{kx} \cdot f(x)}{\E^{2kx}} = \frac{f'(x) - k f(x)}{\E^{kx}}$
 
 \subsection{高阶导数*}
 
@@ -209,7 +215,8 @@ $f'(x) - k f(x) \geq 0$，构造 $F(x) = \frac{f(x)}{\E^{kx}}$，
 \E^{\I x} = \cos x + \I\sin x~.
 \end{equation}
 
-上面的公式中如果代入$x=\pi$，则会得到数学上最非凡的公式\footnote{物理学家费曼在著作《费曼物理学讲义》中提到的。}：
+上面的公式中如果代入$x=\pi$，则会得到物理学家费曼在著作《费曼物理学讲义》中提到的数学上最非凡的公式——欧拉恒等式：
+
 \begin{equation}
 \E^{\I \pi} + 1= 0~.
 \end{equation}
