@@ -1,0 +1,107 @@
+% 简谐振子（高中）
+% keys 弹簧振子|simple harmonic oscillation|单摆
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+进一步了解简谐振子，请参考\enref{简谐振子（经典力学）}{SHO}。
+
+
+\subsection{概念}
+
+
+若一个物体受力所产生的加速度总是指向一个位置，且该加速度的大小正比于物体到这个位置的距离，我们就说这个物体结合它所受的力，构成了一个\textbf{简谐振子}，加速度指向的位置被称为该简谐振子的\textbf{平衡位置}。
+
+叫这个名字，首先是因为简谐振子会反复在平衡位置附近做周期性运动，而不会无限远离平衡位置；其次是因为这种周期性运动是最简单的形式，从而被冠以“简单而和谐”之名。我们首先看一些简谐振子的例子，再学着分析它们的运动。
+
+
+
+
+\begin{example}{弹簧振子}
+
+将轻质弹簧的一端固定，另一端连接在一个质量为$m$的物体上，物体可以沿着一个方向运动，弹簧也在这个方向上。此时弹簧和物体构成了一个简谐振子，我们可以称之为“弹簧振子”。
+
+当弹簧处于原长时，物体不受弹簧的作用力，此时物体所在位置就是该简谐振子的平衡位置。当物体到平衡位置的距离为$x$时，物体受到大小为$kx$的拉力，方向指向平衡位置，其中$k$是弹簧的劲度系数。于是，物体的加速度总是指向平衡位置，且其大小正比于到平衡位置的距离：$a=\frac{k}{m}x$。
+
+\end{example}
+
+
+\begin{example}{单摆}
+
+\pentry{导数的计算（高中）\nref{nod_HsDerB}}{nod_3d19}
+
+将长为$L$的轻质杆的一端固定，另一端连接在一个质量为$m$的物体上，让系统在匀强引力场作用下运动。该系统被称为一个“单摆”，它\textbf{不是}简谐振子，但可以近似认为是一个简谐振子。
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/8adf458a581996c7.pdf}
+\caption{单摆示意图。单摆的一端固定在$\color{Red}O\color{Black}$点，另一端拴着质量为$\color{RoyalBlue}m\color{Black}$的物体，物体可在屏幕平面内运动。由于摆长恒为$L$，物体的运动轨迹是以$\color{Red}O\color{Black}$为圆心的一个圆。重力的方向竖直向下，故单摆处于平衡位置时，杆沿着图中虚线。当单摆偏离平衡位置，杆与平衡位置夹角为$\theta$时，物体所受合力$\color{Orange}\vec{F}$垂直于杆指向下方，大小为$mg\sin\theta$；由几何规律也可知，物体到平衡位置的\textbf{竖直}距离为$L-L\cos\theta$。} \label{fig_SHOhs_1}
+\end{figure}
+
+
+显然，当杆沿着重力方向（竖直方向）下垂的时候，单摆处于平衡位置。设在平衡位置时物体的速度大小为$v_0$，角速度为$\omega_0$；当杆偏离竖直方向的角度为$\theta$时，物体速度为$v_\theta$，角速度为$\omega_\theta$；此时物体所受合力$\color{Orange}\vec{F}$垂直于杆指向下方，大小为$mg\sin\theta$，因此物体加速度为$\frac{\dd v_\theta}{\dd t}=g\sin\theta$，角加速度为$\frac{\dd \omega_\theta}{\dd t}=\frac{1}{L}\frac{\dd v_\theta}{\dd t}=\frac{g}{L}\sin\theta$。
+
+当$\theta$很小时，$\sin\theta\approx\theta$，故此时可以认为，参数$\theta$的“加速度”等于$\frac{g}{L}\theta$，和弹簧振子中“$x$的加速度等于$\frac{k}{m}x$”同理。因此，以$\theta$为参数来描述单摆的运动，在角度比较小的情况下，可以认为单摆是一个简谐振子。
+
+\end{example}
+
+
+\begin{example}{二次曲线上的滚动}
+
+设水平面上有一光滑曲面，其上各点的高度$h$和水平位置$x$的关系为$h=\frac{1}{2}x^2$。空间中存在竖直向下、垂直于水平面的匀强引力场$\vec{g}$。一小球在曲面上无摩擦地滚动。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/53df2b0c3a2b2796.pdf}
+\caption{二次曲线简谐振动} \label{fig_SHOhs_2}
+\end{figure}
+
+小球在曲面上一点处时，其加速度相当于小球在一个无摩擦的、与曲线在该点处相切的斜面上一样。由此可算得小球的加速度为
+\begin{equation}
+\frac{\dd v}{\dd t} = g\frac{\frac{1}{2}x^2}{\sqrt{x^2+\frac{1}{4}x^4}} = gx\frac{1}{\sqrt{4+x^2}}~. 
+\end{equation}
+其水平分量为
+\begin{equation}
+\frac{\dd v_\parallel}{\dd t} = \frac{\dd v}{\dd t}\cdot\frac{x}{\sqrt{x^2+\frac{1}{4}x^4}} = \frac{1}{2}gx\frac{4}{4+x^2}~. 
+\end{equation}
+
+\end{example}
+%重新设计一个%设计了一个曲面，使得运动真的是jian'xie'zhen'd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
