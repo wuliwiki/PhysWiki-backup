@@ -1,0 +1,32 @@
+% 斯托克斯定理（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Stokes\%27_theorem}{相关文章}。
+
+斯托克斯定理（Stokes' theorem），[1] 也称为开尔文–斯托克斯定理（Kelvin–Stokes theorem），以开尔文勋爵和乔治·斯托克斯命名，[2][3] 或称为旋度的基本定理（the fundamental theorem for curls）或简单地称为旋度定理（the curl theorem），[4] 是矢量微积分中在三维欧几里得空间（\(\mathbb{R}^3\)）中的一个定理。对于给定的一个向量场，该定理将向量场旋度在某个曲面上的积分与向量场在该曲面边界上的线积分联系起来。斯托克斯定理的经典形式可以用一句话表述为：
+
+一个向量场沿闭合曲线的线积分等于该曲线所包围的曲面上的旋度的曲面积分。
+
+斯托克斯定理是广义斯托克斯定理的一个特例。[5][6] 特别是，在三维空间（\(\mathbb{R}^3\)）中的一个向量场可以视为一个1-形式（1-form），在这种情况下，其旋度是其外微分（exterior derivative），即一个2-形式（2-form）。
+\subsection{定理}
+设 \(\Sigma\) 是三维欧几里得空间 (\(\mathbb{R}^3\)) 中的一个光滑有向曲面，其边界为 \(\partial \Sigma \equiv \Gamma\)。如果在包含 \(\Sigma\) 的区域内定义了一个向量场 
+\[
+\mathbf{F}(x, y, z) = (F_x(x, y, z), F_y(x, y, z), F_z(x, y, z)),~
+\]
+并且该向量场的一阶偏导数是连续的，那么：
+\[
+\iint_{\Sigma} (\nabla \times \mathbf{F}) \cdot \mathrm{d} \mathbf{\Sigma} = \oint_{\partial \Sigma} \mathbf{F} \cdot \mathrm{d} \mathbf{\Gamma}.~
+\]
+更明确地，这个等式可以表示为：
+\[
+\iint_{\Sigma} \left( 
+\left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \right) \mathrm{d}y \mathrm{d}z 
++ \left( \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \right) \mathrm{d}z \mathrm{d}x 
++ \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) \mathrm{d}x \mathrm{d}y 
+\right)
+=
+\oint_{\partial \Sigma} \left( 
+F_x \, \mathrm{d}x + F_y \, \mathrm{d}y + F_z \, \mathrm{d}z 
+\right).~
+\]

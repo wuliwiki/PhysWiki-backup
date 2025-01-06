@@ -1,0 +1,47 @@
+% 费曼-海尔曼定理（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Hellmann\%E2\%80\%93Feynman_theorem}{相关文章}。
+
+在量子力学中，赫尔曼–费曼定理将总能量相对于某个参数的导数与哈密顿量对该参数的导数的期望值关联起来。根据该定理，一旦通过求解薛定谔方程确定了电子的空间分布，系统中的所有力都可以使用经典静电学来计算。
+
+该定理已被许多作者独立证明，包括保罗·古廷格（1932年）、沃尔夫冈·泡利（1933年）、汉斯·赫尔曼（1937年）和理查德·费曼（1939年）。
+
+定理表述为：
+\[
+\frac{\mathrm{d} E_{\lambda}}{\mathrm{d} \lambda} = \langle \psi_{\lambda} | \frac{\mathrm{d} \hat{H}_{\lambda}}{\mathrm{d} \lambda} | \psi_{\lambda} \rangle~
+\]
+其中：
+\begin{itemize}
+\item \(\hat{H}_{\lambda}\) 是一个依赖于连续参数 \(\lambda\) 的厄米算符，
+\item \(|\psi_{\lambda} \rangle\) 是哈密顿量的本征态（本征函数），隐含地依赖于 \(\lambda\)，
+\item \(E_{\lambda}\) 是状态 \(|\psi_{\lambda} \rangle\) 的能量（本征值），即 \(\hat{H}_{\lambda} |\psi_{\lambda} \rangle = E_{\lambda} |\psi_{\lambda} \rangle\)。
+\end{itemize}
+注意，在热力学极限下，赫尔曼-费曼定理在量子临界点附近会出现失效。[5]
+\subsection{证明}
+赫尔曼–费曼定理的证明要求波函数是所考虑的哈密顿量的本征函数；然而，也可以更一般地证明，该定理适用于所有对于所有相关变量（如轨道旋转）是定常的（偏导数为零）的非本征函数波函数。哈特里–福克波函数是一个重要的例子，它是一个近似的本征函数，但仍然满足赫尔曼–费曼定理。赫尔曼–费曼定理不适用的一个显著例子是有限阶的莫勒–普莱塞特微扰理论，因为它不是变分的。[6]
+
+证明中还使用了一个归一化波函数的恒等式——波函数与自身的重叠的导数必须为零。使用狄拉克的bra-ket符号，这两个条件可以写作：
+\[
+\hat{H}_{\lambda} |\psi_{\lambda} \rangle = E_{\lambda} |\psi_{\lambda} \rangle,~
+\]
+\[
+\langle \psi_{\lambda} | \psi_{\lambda} \rangle = 1 \Rightarrow \frac{\mathrm{d}}{\mathrm{d} \lambda} \langle \psi_{\lambda} | \psi_{\lambda} \rangle = 0.~
+\]
+然后，证明通过对哈密顿量的期望值应用导数乘积法则来进行，视哈密顿量为 \(\lambda\) 的函数：
+\[
+\frac{\mathrm{d} E_{\lambda}}{\mathrm{d} \lambda} = \frac{\mathrm{d}}{\mathrm{d} \lambda} \langle \psi_{\lambda} | \hat{H} |\psi_{\lambda} \rangle~
+\]
+\[
+= \langle \frac{\mathrm{d} \psi_{\lambda}}{\mathrm{d} \lambda} | \hat{H} | \psi_{\lambda} \rangle + \langle \psi_{\lambda} | \hat{H} | \frac{\mathrm{d} \psi_{\lambda}}{\mathrm{d} \lambda} \rangle + \langle \psi_{\lambda} | \frac{\mathrm{d} \hat{H}}{\mathrm{d} \lambda} | \psi_{\lambda} \rangle~
+\]
+\[
+= E_{\lambda} \langle \frac{\mathrm{d} \psi_{\lambda}}{\mathrm{d} \lambda} | \psi_{\lambda} \rangle + E_{\lambda} \langle \psi_{\lambda} | \frac{\mathrm{d} \psi_{\lambda}}{\mathrm{d} \lambda} \rangle + \langle \psi_{\lambda} | \frac{\mathrm{d} \hat{H}}{\mathrm{d} \lambda} | \psi_{\lambda} \rangle~
+\]
+\[
+= E_{\lambda} \frac{\mathrm{d}}{\mathrm{d} \lambda} \langle \psi_{\lambda} | \psi_{\lambda} \rangle + \langle \psi_{\lambda} | \frac{\mathrm{d} \hat{H}}{\mathrm{d} \lambda} | \psi_{\lambda} \rangle~
+\]
+\[
+= \langle \psi_{\lambda} | \frac{\mathrm{d} \hat{H}}{\mathrm{d} \lambda} | \psi_{\lambda} \rangle.~
+\]

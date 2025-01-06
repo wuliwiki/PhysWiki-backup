@@ -1,0 +1,48 @@
+% 斯托克斯定理（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Stokes\%27_theorem}{相关文章}。
+
+斯托克斯定理（Stokes' theorem），[1] 也称为开尔文–斯托克斯定理（Kelvin–Stokes theorem），以开尔文勋爵和乔治·斯托克斯命名，[2][3] 或称为旋度的基本定理（the fundamental theorem for curls）或简单地称为旋度定理（the curl theorem），[4] 是矢量微积分中在三维欧几里得空间（\(\mathbb{R}^3\)）中的一个定理。对于给定的一个向量场，该定理将向量场旋度在某个曲面上的积分与向量场在该曲面边界上的线积分联系起来。斯托克斯定理的经典形式可以用一句话表述为：
+
+一个向量场沿闭合曲线的线积分等于该曲线所包围的曲面上的旋度的曲面积分。
+
+斯托克斯定理是广义斯托克斯定理的一个特例。[5][6] 特别是，在三维空间（\(\mathbb{R}^3\)）中的一个向量场可以视为一个1-形式（1-form），在这种情况下，其旋度是其外微分（exterior derivative），即一个2-形式（2-form）。
+\subsection{定理}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/a5471e9bcb930a4e.png}
+\caption{斯托克斯定理的示意图，包括曲面 \(\Sigma\)、其边界 \(\partial\Sigma\) 和法向量 \(n\)。边界曲线 \(\partial\Sigma\) 的正向循环方向与曲面 \(\Sigma\) 的正向通量方向 \(n\) 通过右手定则相联系（即，右手的手指沿 \(\partial\Sigma\) 的循环方向，拇指指向 \(n\) 的方向）。} \label{fig_STKS_1}
+\end{figure}
+设 \(\Sigma\) 是三维欧几里得空间 (\(\mathbb{R}^3\)) 中的一个光滑有向曲面，其边界为 \(\partial \Sigma \equiv \Gamma\)。如果在包含 \(\Sigma\) 的区域内定义了一个向量场 
+\[
+\mathbf{F}(x, y, z) = (F_x(x, y, z), F_y(x, y, z), F_z(x, y, z)),~
+\]
+并且该向量场的一阶偏导数是连续的，那么：
+\[
+\iint_{\Sigma} (\nabla \times \mathbf{F}) \cdot \mathrm{d} \mathbf{\Sigma} = \oint_{\partial \Sigma} \mathbf{F} \cdot \mathrm{d} \mathbf{\Gamma}.~
+\]
+更明确地，这个等式可以表示为：
+\[
+\iint_{\Sigma} \left( 
+\left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \right) \mathrm{d}y \mathrm{d}z 
++ \left( \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \right) \mathrm{d}z \mathrm{d}x 
++ \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) \mathrm{d}x \mathrm{d}y 
+\right)
+=
+\oint_{\partial \Sigma} \left( 
+F_x \, \mathrm{d}x + F_y \, \mathrm{d}y + F_z \, \mathrm{d}z 
+\right).~
+\]
+例如，像科赫雪花（Koch snowflake）这样的曲面，是众所周知的无法展现出黎曼可积的边界，而在勒贝格理论中，非Lipschitz曲面无法定义曲面积的概念。一种（高级）方法是采用弱形式化，并应用几何测度论的工具；有关这种方法，请参阅共面积公式（coarea formula）。在本文中，我们采用更基础的定义，这基于这样的事实：对于\(\mathbb{R}^2\)中全维度子集，可以明确识别其边界。
+
+一个更详细的描述将在后续讨论中给出。设 \(\gamma : [a, b] \to \mathbb{R}^2\) 是一个分段光滑的约旦平面曲线。约旦曲线定理表明，\(\gamma\) 将 \(\mathbb{R}^2\) 分成两个部分，一个是紧致的，另一个是非紧致的。设 \(D\) 表示紧致部分，则 \(D\) 的边界为 \(\gamma\)。现在，我们需要将这种边界的概念通过一个连续映射转移到三维欧几里得空间 (\(\mathbb{R}^3\)) 的曲面上。而这种映射已经存在：\(\Sigma\) 的参数化。
+
+假设 \(\psi : D \to \mathbb{R}^3\) 是在 \(D\) 的邻域中分段光滑的，且 \(\Sigma = \psi(D)\)。如果 \(\Gamma\) 是由以下方式定义的空间曲线：\(\Gamma(t) = \psi(\gamma(t))\)那么我们称 \(\Gamma\) 为 \(\Sigma\) 的边界，记作 \(\partial \Sigma\)。
+
+根据上述记号，如果 \(\mathbf{F}\) 是三维欧几里得空间 (\(\mathbb{R}^3\)) 中的任意光滑向量场，那么[7][8]：
+\[
+\oint_{\partial \Sigma} \mathbf{F} \cdot \mathrm{d} \mathbf{\Gamma} = \iint_{\Sigma} (\nabla \times \mathbf{F}) \cdot \mathrm{d} \mathbf{\Sigma}.~
+\]
+其中，符号“\(\cdot\)”表示 \(\mathbb{R}^3\) 中的点积。
