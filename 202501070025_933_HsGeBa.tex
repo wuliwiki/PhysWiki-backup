@@ -20,16 +20,29 @@
 垂直与平行
 
 几何公理：
+\textbf{垂直平分线（perpendicular bisector）}：性质
+\textbf{角平分线（angle bisector）}：性质
 
 \subsection{三角形}
 
 三角形是最简单的由线段围城的平面几何形状。
+
+高是从三角形的一个顶点垂直于其对边或对边延长线的线段，不一定在三角形内部。
 
 三角形内角和
 
 直角三角形
 等腰三角形
 等边三角形
+
+
+三角形的“四心”包括：
+\begin{itemize}
+\item 三条中线交于一点，称作\textbf{重心（centroid）}，重心将每条中线分为 $2:1$ 的比例（靠近顶点的一段较长）。
+\item 三条高交于一点，称作\textbf{垂心（orthocenter）}。
+\item 三条角平分线交于一点，称作\textbf{内心（incenter）}。
+\item 三边垂直平分线交于一点，称作\textbf{外心（circumcenter）}。
+\end{itemize}
 
 全等
 相似
@@ -64,22 +77,22 @@ $\tan\alpha$ & $\displaystyle\frac{1}{\sqrt{3}}$ & $1$ & $\sqrt{3}$ \\
 \item 顶点位于圆心，且两边与圆相交的角称为\textbf{圆心角（central angle）}。同样，一般包括一个小于$180^\circ$的角和一个大于$180^\circ$的角，二者分别与他们角内夹的弧对应\footnote{有的人分别称这两种为劣角和优角，以求和弧对应，但使用不广泛。劣角在英语中无对应词，优角对应的词为“Reflex Angle”，直译是反射角，对应平面反射的情况。}。
 \end{itemize}
 
-在未特别说明的情况下，通常 $\overset{\frown}{AB}$ 表示两点 $A$ 和 $B$ 之间的劣弧。于是，两点 $A$ 和 $B$ 可以唯一确定一条弦 $AB$，一条$\overset{\frown}{AB}$ 和一个圆心角$\angle AOB$。因此可以称他们三者对应，如：$\overset{\frown}{AB}$ 称为弦 $AB$ 所对应的弧，$\angle AOB$是$AB$所对应的圆心角等。
+在未特别说明的情况下，通常 $\overset{\frown}{AB}$ 表示两点 $A$ 和 $B$ 之间的劣弧。此时，两点 $A$ 和 $B$ 可以唯一确定一条弦 $AB$，一条$\overset{\frown}{AB}$ 和一个圆心角$\angle AOB$。因此可以称他们三者对应，如：$\overset{\frown}{AB}$ 称为弦 $AB$ 所对应的弧，$\angle AOB$是$AB$所对应的圆心角等\footnote{如果有特殊情况，则不一一对应，一条弦对应两段弧，但每个弧仍对应一个圆心角。}。
+
+对于圆上任意不重合的三点 $A,B,C$，有以下概念：
+\begin{itemize}
+\item 顶点位于圆上，两边与圆相交的角称作\textbf{圆周角（inscribed angle）}。设顶点为$C$，则圆周角$\angle ACB$所夹圆弧$\overset{\frown}{AB}$称作其对应的弧\footnote{“所夹圆弧”的意思是指，由$A,B$两点截得，且顶点$C$不在的圆弧。}，同弧对应的圆心角是圆周角的两倍，即$\angle AOB=2\angle ACB$。
+\item 若三角形以 $A$、$B$、$C$ 为顶点，则称为圆的\textbf{内接三角形（inscribed triangle）}，圆称为三角形的\textbf{外接圆}，此时三角形的三个内角均为圆周角，圆心就是三角形的\textbf{外心（circumcenter）}。
+\item 若三角形的三边分别与圆相切于 $A$、$B$、$C$，则称为圆的\textbf{外切三角形（circumscribed triangle）}，圆称为三角形的内切圆。三角形的\textbf{内心（incenter）}也是圆心。
+\end{itemize}
 
 通过圆心的弦称为圆的\textbf{直径（diameter）}，通常记作$d$，满足：
 \begin{equation}
 d = 2r~.
 \end{equation}
+此时，所对弧称为\textbf{半圆（semicircle）}，所对圆心角为平角，即$180^\circ$，所对圆周角为直角，即$90^\circ$。因此，由直径参与构成的圆内接三角形一定是直角三角形。
 
-对于圆上任意不重合的三点 $A,B,C$，有以下概念：
-\begin{itemize}
-\item 顶点位于圆上，两边与圆相交的角称作\textbf{圆周角（inscribed angle）}。设顶点为$C$，则圆周角$\angle ACB$所夹圆弧
-\end{itemize}
 
-\begin{itemize}
-\item 同弧对应的圆心角是圆周角的两倍。
-\item 当圆周角所对应的弧是半圆时，该圆周角等于 $90^\circ$。
-\end{itemize}
 \textbf{圆周率（pi）} $\pi$ 是圆的周长与直径的比值，定义为 $\pi = \frac{C}{d}$。它是一个无理数，近似值为 $\pi \approx 3.14159$。$\pi$ 连接了圆的周长、面积等几何性质，是数学中极为重要的常数。
 
 圆的周长公式为 $C = 2\pi r$，面积公式为 $A = \pi r^2$，其中 $r$ 为半径，$\pi$ 为\textbf{圆周率（pi）}。

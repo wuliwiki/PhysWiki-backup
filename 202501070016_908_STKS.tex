@@ -178,17 +178,45 @@ a_2 \\
 
 将 \((J_{\psi(u, v)} \mathbf{F})\) 替换为 \(A\)，我们得到：
 \[
-\left( (J_{\boldsymbol{\psi}(u, v)} \mathbf{F}) - (J_{\boldsymbol{\psi}(u, v)} \mathbf{F})^{\mathsf{T}} \right) \mathbf{x} = (\nabla \times \mathbf{F}) \times \mathbf{x}, \quad \text{对于所有 } \mathbf{x} \in \mathbb{R}^3.~
+\left( (J_{\psi(u, v)} \mathbf{F}) - (J_{\psi(u, v)} \mathbf{F})^{\mathsf{T}} \right) \mathbf{x} = (\nabla \times \mathbf{F}) \times \mathbf{x}, \quad \text{对于所有 } \mathbf{x} \in \mathbb{R}^3.~
 \]
 现在我们可以将偏导数的差识别为一个（标量）三重积：
 \[
-\frac{\partial P_v}{\partial u} - \frac{\partial P_u}{\partial v} = \frac{\partial \boldsymbol{\psi}}{\partial v} \cdot \left( (\nabla \times \mathbf{F}) \times \frac{\partial \boldsymbol{\psi}}{\partial u} \right) = (\nabla \times \mathbf{F}) \cdot \left( \frac{\partial \boldsymbol{\psi}}{\partial u} \times \frac{\partial \boldsymbol{\psi}}{\partial v} \right).~
+\frac{\partial P_v}{\partial u} - \frac{\partial P_u}{\partial v} = \frac{\partial \psi}{\partial v} \cdot \left( (\nabla \times \mathbf{F}) \times \frac{\partial \psi}{\partial u} \right) = (\nabla \times \mathbf{F}) \cdot \left( \frac{\partial \psi}{\partial u} \times \frac{\partial \psi}{\partial v} \right).~
 \]
 另一方面，曲面积分的定义也包括了一个三重积——完全相同的三重积：
 \[
-\iint_{\Sigma} (\nabla \times \mathbf{F}) \cdot \mathrm{d} \mathbf{\Sigma} = \iint_{D} \left[ (\nabla \times \mathbf{F})(\boldsymbol{\psi}(u, v)) \cdot \left( \frac{\partial \boldsymbol{\psi}}{\partial u}(u, v) \times \frac{\partial \boldsymbol{\psi}}{\partial v}(u, v) \right) \right] \mathrm{d}u \, \mathrm{d}v.~
+\iint_{\Sigma} (\nabla \times \mathbf{F}) \cdot \mathrm{d} \mathbf{\Sigma} = \iint_{D} \left[ (\nabla \times \mathbf{F})(\psi(u, v)) \cdot \left( \frac{\partial \psi}{\partial u}(u, v) \times \frac{\partial \psi}{\partial v}(u, v) \right) \right] \mathrm{d}u \, \mathrm{d}v.~
 \]
 因此，我们得到：
 \[
 \iint_{\Sigma} (\nabla \times \mathbf{F}) \cdot \mathrm{d} \mathbf{\Sigma} = \iint_{D} \left( \frac{\partial P_v}{\partial u} - \frac{\partial P_u}{\partial v} \right) \mathrm{d}u \, \mathrm{d}v.~
+\]
+
+\textbf{初等证明的第四步（化归到格林定理）}
+
+结合第二步和第三步的结论，然后应用格林定理即可完成证明。格林定理表明：对于由约旦闭曲线 \(\gamma\) 所围的任意区域 \(D\)，以及定义在 \(D\) 上的两个标量值光滑函数 \(P_u(u, v)\) 和 \(P_v(u, v)\)，有以下关系：
+
+\[
+\oint_{\gamma} \left( P_u(u, v) \mathbf{e}_u + P_v(u, v) \mathbf{e}_v \right) \cdot \mathrm{d} \mathbf{l} 
+= \iint_{D} \left( \frac{\partial P_v}{\partial u} - \frac{\partial P_u}{\partial v} \right) \mathrm{d}u \, \mathrm{d}v.~
+\]
+\subsubsection{通过微分形式的证明}
+
+函数 \(\mathbb{R}^3 \to \mathbb{R}^3\) 可以通过以下映射与 \(\mathbb{R}^3\) 上的微分 1-形式对应：
+\[
+F_x \mathbf{e}_1 + F_y \mathbf{e}_2 + F_z \mathbf{e}_3 \mapsto F_x \, \mathrm{d}x + F_y \, \mathrm{d}y + F_z \, \mathrm{d}z~
+\]
+
+将与函数 \(\mathbf{F}\) 相关联的微分 1-形式记作 \(\omega_{\mathbf{F}}\)。然后可以计算出：
+\[
+\star \omega_{\nabla \times \mathbf{F}} = \mathrm{d} \omega_{\mathbf{F}}~
+\]
+其中 \(\star\) 是 Hodge 星算子，\(\mathrm{d}\) 是外微分算子。因此，根据广义斯托克斯定理，[11]
+\[
+\oint_{\partial \Sigma} \mathbf{F} \cdot \mathrm{d} \mathbf{\gamma} 
+= \oint_{\partial \Sigma} \omega_{\mathbf{F}} 
+= \int_{\Sigma} \mathrm{d} \omega_{\mathbf{F}} 
+= \int_{\Sigma} \star \omega_{\nabla \times \mathbf{F}} 
+= \iint_{\Sigma} \nabla \times \mathbf{F} \cdot \mathrm{d} \mathbf{\Sigma}~
 \]
