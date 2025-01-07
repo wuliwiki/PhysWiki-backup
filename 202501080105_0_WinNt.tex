@@ -1,0 +1,114 @@
+% Windows 笔记
+% license Xiao
+% type Note
+
+\subsection{常用}
+\begin{itemize}
+\item 把任何程序，脚本，或者他们的快捷方式放\textbf{启动文件夹}，可以在用户登录后执行。 路径为： \verb`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp`（也可以通过 \verb`Win+R` 中输入 \verb`shell:startup` 打开）。
+\item Win 11 恢复老右键菜单， 在 cmd 运行 \verb`reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve`
+\end{itemize}
+
+\subsubsection{快捷键}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14cm]{./figures/c8ce89b316d60827.png}
+\caption{Windows 标准键盘} \label{fig_WinNt_1}
+\end{figure}
+
+\begin{itemize}
+\item 切换屏幕：\verb`Win+Ctrl+方向键` （或者在触控板设置用四指滑动）
+\item 增添屏幕：\verb`Win+Ctrl+D`
+\item 半屏/四分之一屏显示窗口：\verb`Win+方向键`（可以使用两个如左上）
+\item \verb`Ctrl+W`：关闭当前窗口或浏览器或文件浏览器的单个页面（很多其他 app 也适用）。
+\item \verb`Alt+空格`：弹出窗口管理菜单如最大最小化，然后再按一个键可以进行操作
+\item \verb`Win+L`：锁屏
+\item 文件浏览器和 Chrome 中用 \verb`Ctrl+L` 选中当前路径
+\item \verb`Win+Tab`：多桌面管理
+\end{itemize}
+
+\subsubsection{文件浏览器}
+\begin{itemize}
+\item \verb`Win+E`：打开文件浏览器
+\item \verb`F2`： 重命名文件夹
+\item \verb`Alt+上`：上级目录
+\item \verb`Backspace` 或 \verb`Alt + 左` 返回刚才的目录
+\item \verb`Shift+Del`：永久删除
+\item \verb`Ctrl+Shift+N`：新建文件夹并编辑名称
+\item \verb`F2`：重命名
+\item \verb`Ctrl+双击文件夹`：在新窗口中打开文件夹
+\item \verb`Alt+Enter`：显示属性（相当于右键属性）
+\item 在文件浏览器的文件路径后输入 \verb`\abc` 会提示所有 \verb`abc` 开头的子文件夹
+\item 文件夹中直接按字母或数字可以选中以它开头的第一个文件，再按一次会选中下一个
+\item 绝对路径和文件名之和不能超过 256 字符。 Windows 10, version 1607 起可以通过改注册表把总长度扩展到 32767。
+\item 文件和文件夹不区分大小写，如果要改变名字显示的大小写，可以改变后在后面加几个字符，重命名后再删掉
+\item 搜索时不支持搜索任意子字符串，若要这么做需要在前面加通配符 \verb`*` 代表任意多任意字符。 \verb`?` 代表单个任意字符。
+\item 高级条件。这些条件可以在搜索结果中在菜单的 \verb`Search options` 中设置，但大部分等效于直接在搜索框输入相应的命令，如 \verb`搜索词 size:>1GB` 在搜索结果中选择空文件。 如果有多个选项，用空格隔开：\verb`搜索词 size:<30KB datemodified:this week`。要指定拓展名，如 \verb`kind:png`，其他选项如 \verb`pictures, video`。 \verb`datemodified:` 的其他用法如 \verb`today`，\verb`yesterday`，\verb`thisweek`，\verb`lastweek`，\verb`datemodified:<03/10/2023,03/01/2023..03/10/2023`
+\item \verb`Search options` 菜单也可以设置搜索范围为 \verb`All subfolders` 或者 \verb`Current folder`，后者不含子文件夹中的文件。 这无法变为搜索框的命令。
+\end{itemize}
+
+\subsubsection{快捷路径}
+在文件浏览器和 cmd 中均适用
+\begin{itemize}
+\item 在浏览器的 options -> view 中可以设置显示完整路径。
+\item \verb`Desktop` 相当于 \verb`C:\Users\用户名\Desktop`。 \verb`Documents` 同理。 浏览器的路径也不会显示完整路径（设置了也没用）。
+\item \verb`%USERPROFILE%` 相当于 \verb`C:\Users\用户名`
+\item \verb`%APPDATA%` 相当于 \verb`C:\Users\用户名\AppData\Roaming`
+\end{itemize}
+
+\subsubsection{必备软件}
+\begin{itemize}
+\item Everything
+\item \href{https://www.iobit.com/en/iobit-unlocker.php}{IObit Unlocker} 用于解除文件/文件夹占用的工具
+\item \href{https://github.com/BluePointLilac/ContextMenuManager}{ContextMenuManager} 用于管理右键菜单
+\end{itemize}
+
+\subsubsection{Chrome 浏览器}
+\begin{itemize}
+\item \verb`F5` 刷新， \verb`Ctrl+F5` 深度刷新（清除缓存）
+\item \verb`Ctrl+Tab` 下一个 tab， \verb`Ctrl+Shift+Tab` 上一个
+\item \verb`Ctrl+数字` 跳到指定的 tab， \verb`Ctrl+9` 跳到最后一个
+\item 设置 outlook 默认浏览器
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/3d2015f06612199e.png}
+\caption{设置 outlook 默认浏览器} \label{fig_WinNt_2}
+\end{figure}
+
+
+\subsection{清理电脑}
+\begin{itemize}
+\item 用 \href{https://windirstat.net/}{WinDirStat} 查看硬盘被谁占用。
+\item 要清除休眠文件， cmd 用管理员运行 \verb`powercfg -h off`， 然后删除 \verb`C:/hiberfil.sys` 即可（Win 10/11 亲测）。
+\item 要清除 Page file， 在开始菜单搜索 \verb`Adjust the Appearance and Performance of Windows`， 然后在 Advance 面板里面调整 Virtual Memory（内存够大可以直接关掉）。
+\item 在开始菜单搜索 \verb`Disk Cleanup`， 清除里面的选项， 然后再 \verb`Cleanup System Files`。
+\end{itemize}
+
+\subsection{}
+
+\subsection{service 管理}
+\begin{itemize}
+\item Task Manager 里面的开机启动管理并不全， 在开始菜单搜索 \verb`services` 可以看到所有服务， 双击可以修改三种启动模式： 自动，手动，禁止。
+\end{itemize}
+
+\subsection{网络}
+\begin{itemize}
+\item cmd 中的 \verb`ipconfig` 命令可以查看 ip 地址等网络信息， 用 \verb`ipconfig /all` 可以显示更多信息如本地 DNS server 的网址。
+\item 重新启动后，在登录界面是可以自动连接 wifi 的，如果不行，就在该界面手动连接，并选择可用时自动连接再重启试试。
+\item 若插着网线，windows 不会自动连接 wifi （包括登录界面和桌面）。 控制面板的 Network adapter 属性里面的优先级设置无效。
+\item 如果有多块网卡都能联网， 把一块中属性中的 IPv4 里面的网关删掉就可以不联网。
+\item 查看当前 wifi 密码（若已连接）： 在控制面板的网络设置立面，找到当前的 wifi 网卡，右键属性，安全，管理员可以显示密码。
+\end{itemize}
+
+\subsection{Windows Sandbox}
+\begin{itemize}
+\item 最大的缺点是不能保存状态， 每次都是新的， 网上可能有教程可以保存
+\item 传文件直接复制粘贴就可以， 网上也有 map 硬盘的的教程
+\item 轻量级， 占硬盘很小，很快
+\item 还是不能代替 Virtual Box
+\end{itemize}
+
+\subsection{电源管理}
+\begin{itemize}
+\item Control Panel 的 Choose power plan 中， Create a Power Plan， 然后高级面板中选择 Processor Power Management 就可以。
+\end{itemize}
