@@ -1,0 +1,82 @@
+% 角与有向角（高中）
+% keys 高中|角的概念
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueMissDepend
+\end{issues}
+
+\addTODO{直角、锐角、钝角} % Giacomo：属于初中数学的部分
+
+\subsection{弧度制}
+同样的圆心角所对的弧长与半径之比是常数，我们称这个常数为该角的\textbf{弧度数}。
+
+在单位圆中长度为 $1$ 的弧，所对的圆心角称为 \textbf{$1$ 弧度（radian）}角。它的单位符号是 $\Si{rad}$，读作\textbf{弧度}。
+
+\addTODO{补图}
+
+这种以弧度作为单位来度量角的单位制，叫做\textbf{弧度制}。这种度量方法有效地把角的弧度单位与长度单位统一起来。弧度制确立了角的弧度数与十进制实数间的一一对应关系。
+
+我们知道，圆周率的定义是
+\begin{equation}\label{eq_HsAngl_2}
+\pi = \frac{C}{d}~.
+\end{equation}
+在单位圆中，
+\begin{equation}\label{eq_HsAngl_3}
+\begin{aligned}
+r &= 1~,\\
+d &= 2~.
+\end{aligned}
+\end{equation}
+由\autoref{eq_HsAngl_2} 和\autoref{eq_HsAngl_3} 可得
+\begin{equation}
+C = 2\pi~.
+\end{equation}
+根据弧度数的定义，我们可以得到周角 $\alpha$ 的弧度数
+\begin{equation}
+\alpha = C / r = 2\pi~.
+\end{equation}
+同理可以推出$\pi$弧度所对应的角度
+\begin{equation}
+\pi = 180^\circ~.
+\end{equation}
+% Giacomo：这个等式并不合理，可能会误导读者。
+
+弧度制的优点在于，我们可以快速得到角、半径和弧长的关系
+\begin{equation}
+\begin{aligned}
+l &= \alpha \cdot r~, \\
+\alpha &= \frac{l}{r}~, \\
+r &= \frac{l}{\alpha}~.
+\end{aligned}
+\end{equation}
+
+\subsection{为什么采用弧度制？}
+
+很多人会在刚接触弧度制时，对这个问题感到困惑。觉得“度分秒”系统多好啊，大家又熟悉了这么多年了。日常生活中也经常使用这个概念。突然搞出一个弧度制，每次写的时候还要带上$\pi$这么麻烦。教科书上也是空降了这个概念出来，直接呈现出弧度和角度之间的转化结果。
+
+生活中使用角度最多的情况，一个是测倾斜，另一个就是利用圆心角来对圆进行分割。之所以觉得度分秒是常用的是因为生活中的角度往往是指倾斜，而对圆进行分割时，通常进行分割的方式已经熟捻于心，所以并没有想起这个功能。但是在数学研究时，分割是很重要的一个课题。在约公元前2000年，古巴比伦人之所以选择$360^\circ$对应一个圆周，很有可能是因为360这个数字是满足可以被除7以外的所有一位数整除的最小整数，基本可以满足需要分割圆的大部分情景，又不会使得数字太大。而这就产生了一个问题，这里的360完全是因为好用而选取的，如果有一天有个人说，我不我就用$2520^\circ$代表一整个圆周，也没有问题。人类历史上曾经产生很多类似的情况，如英制单位、市制单位等等，都是按照人们的习惯选取了一个数字来作为单位基准。在后续很长一段时间中，一直沿用此种方法。或许在生活中可以，但在数学中这种事情却让人难以接受，因为到了公元6世纪，印度数学家阿耶波多在创新制作正弦表时发现了一个不知如何处理的情况\footnote{\href{https://www.hanspub.org/journal/PaperInformation?paperID=71063&utm_source=chatgpt.com}{马瑞芳, 库在强. 数学史融入弧度制的教学设计研究[J]. 教育进展, 2023, 13(8): 5911-5919.}}：
+\begin{equation}
+60^\circ+\sin30^\circ~.
+\end{equation}
+
+
+角度制和弧度制在形成过程中有些类似之处。，弧度制则是将半径作为度量单位将整个圆周分成2π份。
+
+\subsection{有向角 - 角的概念的推广}
+
+% Giacomo：感觉说的不是很清晰，需要进一步解释。
+
+按逆时针方向旋转形成的角叫做\textbf{正角}；按顺时针方向旋转形成的角叫做\textbf{负角}；如果一条射线从起始位置没有作任何旋转，或终止位置与起始位置重合，我们称这样的角为\textbf{零度角}，又称\textbf{零角}，记作 $\alpha = 0$
+
+角的终边（除端点外）在第几象限，我们就说这个角是第几象限角。
+
+一般地，所有与角 $\alpha$ 终边相同的角，连同角 $\alpha$ 在内，可构成一个集合
+\begin{equation}
+S = \begin{Bmatrix} \beta|\beta=\alpha+2k\pi,k \in Z \end{Bmatrix}~.
+\end{equation}
+
+% \textsl{注：$2k\pi$ 是弧度制写法，在下面介绍}
+
+一般地，正角的弧度数是一个正数，负角的弧度数是一个负数，零角的弧度数是 $0$。
