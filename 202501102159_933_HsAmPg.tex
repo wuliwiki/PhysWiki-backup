@@ -1,0 +1,126 @@
+% 等差数列（高中）
+% keys 高中|等差数
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{数列（高中）\nref{nod_HsSeFu}}{nod_53a2}
+
+在日常生活中，常会遇到一些有规律的现象。例如，每月存固定金额，或者每天增加相同的步行距离。这些“有规律的增加”可以通过数学语言描述，体现为等差数列的应用。
+
+
+
+
+
+
+\subsection{等差数列}
+
+\begin{definition}{等差数列}
+如果数列 $\{a_n\}$ 满足对于 $n > 1$ 的所有项，每一项与前一项的差为同一个常数 $d$，则称 $\{a_n\}$ 为\textbf{等差数列（arithmetic sequence）}，$d$ 称为$\{a_n\}$的\textbf{公差（common difference）}，即等差数列满足递推公式
+\begin{equation}
+a_{n}=a_{n-1}+d\qquad(n>1)~.
+\end{equation}
+\end{definition}
+
+特别地，之前提到的常数列是 $d = 0$ 的等差数列。如果公差 $d$ 为负，数列的值会逐渐减少，例如 $10, 8, 6, \dots$。
+
+\subsection{通项}
+如果等差数列 $\begin{Bmatrix} a_n \end{Bmatrix}$ 的首项是 $a_1$，公差是 $d$，那么根据等差数列的定义可得
+\begin{equation}
+\begin{aligned}
+&a_1 = a_1,\\
+&a_2 = a_1 + d,\\
+&a_3 = a_2 + d = a_1 + 2d,\\
+&\cdots \\
+&a_n = a_{n-1} + d = a_1 + (n - 1)d~.
+\end{aligned}
+\end{equation}
+
+当 $n = 1$ 时
+\begin{equation}
+a_1 = a_1 + (1 - 1)d = a_1~,
+\end{equation}
+也就是说这个公式对 $n = 1$ 同样适用。
+
+综上，等差数列通项公式为
+\begin{equation}
+a_n = a_1 + (n - 1)d~.
+\end{equation}
+其中，$a_n$ 表示数列的第 $n$ 项，$a_1$ 是首项，$d$ 是公差，$n$ 是项数。
+
+\textsl{注：这里需要说明一下，带入 $n = 1$ 验算的原因是，我们推算的是 $n > 1$ 时的通项公式，不能说明对首项成立。正如上一节所说，不是所有数列都能写出通项公式，在题目中，经常会出现首项不符合其余项通项公式的情况。}
+如果能够证明一个数列满足定义，也就是任意相邻两项的差是定值，那么就能确定他是等差数列，同时也能确定公差。对于任何等差数列，如果确定了是等差数列，那么公差和首项就能唯一确定，也就是说两个数列如果（）对应相等，那么他们就是同一个数列。而可以看出，尽管首项对确认等差数列很重要，但更重要的是公差，事实上，知道任意一项都可以通过公差来推出所有其他项，满足：
+\begin{equation}
+a_n=a_k+(n-k)d~.
+\end{equation}
+通过这个关系还可以得到另一个关系：
+\begin{equation}\label{eq_HsAmPg_1}
+d={a_n-a_k\over n-k}~.
+\end{equation}
+这像极了\aref{平均变化率}{def_HsFunC_3}或者\aref{斜率}{def_HsFunC_5}的定义。其实，如果将等差数列的通项公式变形可以得到：
+\begin{equation}
+a_n=dn+(a_1-d)~.
+\end{equation}
+在\enref{数列}{HsSeFu}中曾介绍过，这个形式，其实就是一次函数的离散形式，也就是说，在直角坐标系中，将等差数列的项数$n$作为横坐标，数列的值$a_n$作为纵坐标，点$(n,a_n)$分布在一条直线上。
+
+根据\autoref{eq_HsAmPg_1} 还能得到等差数列的一个重要性质，取
+\subsection{等差中项}
+
+如果在 $a$ 和 $b$ 中间插入一个数 $A$，使 $a,A,b$ 成等差数列，那么 $A$ 叫作 $a$ 与 $b$ 的\textbf{等差中项}.
+
+如果 $A$ 是 $a$ 与 $b$ 的等差中项，那么
+\begin{equation}
+A - a = b - A~,
+\end{equation}
+\begin{equation}
+A = \frac{a+b}{2}~.
+\end{equation}
+
+
+
+\textsl{注：等差中项是等差数列的重要考点，大部分考察等差数列的题目都会考察等差中项。}
+
+\subsection{等差数列的数列和}
+
+等差数列前 $n$ 项的和可以通过如下方法计算：  
+在学习数列时，曾提及过数列和的一个\aref{性质}{eq_HsSeFu_1}，据此将数列两次排列后相加有：
+\begin{equation}
+\begin{split}
+2S_n &= (a_1 + a_2 + \cdots + a_n)+(a_n + a_{n-1} + \cdots + a_1)\\
+&=(a_1+a_{n})+(a_2+a_{n-1}) +\cdots +(a_n+a_1)~.
+\end{split}
+\end{equation}
+
+此时，所有括号中的两项的下标之和都是$n+1$，这意味着他们的和全部相等，也就是是说
+\begin{equation}
+2S = n \cdot (a_1+a_n)~,
+\end{equation}
+\begin{equation}
+S = \frac{n\cdot(a_1+a_n)}{2}~.
+\end{equation}
+
+
+
+每一列的和都是 $a_1 + a_n$，共有 $n$ 项，因此：
+\[
+S_n = \frac{n}{2} \times (a_1 + a_n)
+~.\]
+将通项公式 $a_n = a_1 + (n-1)d$ 代入，有：
+\[
+S_n = \frac{n}{2} \times [2a_1 + (n-1)d]
+~.\]
+
+
+
+\textbf{等差数列与函数}
+
+求数列和的最小值
+
+若$a_0<0,d>0$，则一定有$a_1<a_2<\dots<a_{k}<0$。
+
+验证$a_{k+1} =0$且$a_{k+m}>0(m\in\mathbb{N}^+)$，或$a_{k+m}>0(m\in\mathbb{N})$。
+
+因此$S_n$的最小値$S_k=S_{k+1}=S$或$S_k=S$
