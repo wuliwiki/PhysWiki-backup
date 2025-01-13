@@ -43,19 +43,19 @@ a_n &= a_{n-1} + d \\
 \end{aligned}
 \end{equation}
 
-方法二：错项相减法
+方法二：错位相减法
 
 它是累加法的一个特例，核心思想是利用数列的结构性（如相邻项有规律的差或比），通过累加将多项式或等式中的部分消去，从而简化计算。实际操作时，首先根据递推公式写出$n-1$个等式：
 \begin{equation}\label{eq_HsAmPg_7}
-\begin{aligned}
-&   & a_2 &&- a_1 & = d, \\
-&  a_3  &- a_2&& & = d, \\
-a_4 - & a_3 &  && = d, \\
-&  &  && \cdots \\
-a_n - a_{n-1} &  &  && = d~.
-\end{aligned}
+\begin{split}
+        &      &  &    & & a_2& -a_1 & = d, \\
+        &      & & a_3 & -&a_2&      & = d, \\
+        & \ \ \ \ a_4  &- &a_3& &    &      & = d, \\
+        &        &    && &    &      &\cdots \\
+a_n -   & a_{n-1}&   & & &    &      & = d~.
+\end{split}
 \end{equation}
-然后把将这些等式的左侧和右侧分别相加，得到：
+从上面的格式就可以看出，相邻两行相同的项正好可以抵消。实际操作时，可以把将这些等式的左侧和右侧分别相加，得到：
 \begin{equation}
 (a_2 - a_1) + (a_3 - a_2) + (a_4 - a_3) + \cdots + (a_n - a_{n-1}) = d + d +d+ \cdots + d~.
 \end{equation}
@@ -127,6 +127,19 @@ A - a = b - A~,
 A = \frac{a+b}{2}~.
 \end{equation}
 
+\subsection{错位相减法}
+与\autoref{eq_HsAmPg_7} 类似，许多常见的求和情况，可以利用拆项的方法，变成可以与下一项相抵消的方式，然后得到结果，这种方法被称为\textbf{错位相减法（telescoping method）}。
+\begin{example}{化简$\displaystyle\sum_{n=1}^N {1\over n(n+1)}$}
+解：
+
+\begin{equation}
+\begin{split}
+\sum_{n=1}^N {1\over n(n+1)}&=\sum_{n=1}^N \left({1\over n}-{1\over n+1}\right)\\
+&=\left(1-{1\over2}\right)+\left({1\over2}-{1\over3}\right)+\cdots+\left({1\over n}-{1\over n+1}\right)~.\\
+\end{split}
+\end{equation}
+
+\end{example}
 
 \subsection{等差数列的数列和}
 
