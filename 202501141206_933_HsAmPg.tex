@@ -89,9 +89,7 @@ a_n-a_{n-1}=kn+b-k(n-1)-b=k~.
 \begin{equation}
 a_n=dn+(a_1-d)~.
 \end{equation}
-在\enref{数列}{HsSeFu}中曾介绍过，这一形式实际上是一次函数的离散形式。换句话说，在直角坐标系中，如果将数列的项数 $n$ 作为横坐标，数列的值 $a_n$ 作为纵坐标，则点 $(n, a_n)$ 将分布在一条直线上。
-
-由于直线上任意一点和斜率就可以确定一条直线，对于等差数列，可以证明，只需知道任意一项及公差，就能够推出所有其他项，满足以下关系式：
+在\enref{数列}{HsSeFu}中曾介绍过，这一形式实际上是一次函数的离散形式。换句话说，在直角坐标系中，如果将数列的项数 $n$ 作为横坐标，数列的值 $a_n$ 作为纵坐标，则点 $(n, a_n)$ 将分布在一条直线上。由于直线上任意一点和斜率即可确定整条直线，对于等差数列，同样可以不难证明，只需知道任意一项及公差，就能够确定整个数列，满足以下关系式：
 \begin{equation}
 a_n=a_k+(n-k)d~.
 \end{equation}
@@ -99,11 +97,11 @@ a_n=a_k+(n-k)d~.
 \begin{equation}\label{eq_HsAmPg_1}
 d={a_n-a_k\over n-k}~.
 \end{equation}
-这与\aref{平均变化率}{def_HsFunC_3}或\aref{斜率}{def_HsFunC_5}的定义极为相似，也符合之前一次函数的判断。根据\autoref{eq_HsAmPg_1} 还能得到等差数列的一个重要性质，取四个整数，满足$m+n=p+q$，即$p-n=m-q$，那么根据\autoref{eq_HsAmPg_1} 有：
+这一公式与\aref{平均变化率}{def_HsFunC_3}或\aref{斜率}{def_HsFunC_5}的定义极为相似，也符合之前等差数列与一次函数关系的判断。根据\autoref{eq_HsAmPg_1}，还可以得到等差数列的一个重要性质：取四个整数，满足 $m+n=p+q$，即 $p-n=m-q$，则根据\autoref{eq_HsAmPg_1} 有：
 \begin{equation}
 {a_p-a_n\over p-n}=d={a_m-a_q\over m-q}~.
 \end{equation}
-两侧分母相等，化简得到推论。
+带入两侧分母相等的条件可以得到：
 \begin{corollary}{}\label{cor_HsAmPg_1}
 对于等差数列$\{a_n\}$，若满足$m+n=p+q$，则有：
 \begin{equation}
@@ -217,8 +215,9 @@ a_n-a_{n-1} = (2n+1)A+B-(2n-1)A-B=2A~.
 
 在\autoref{ex_HsAmPg_1} 中，尽管数列 ${a_n}$ 的后续项具有等差性，但由于边界条件的特殊性（首项与后续项之间存在差异），整体判断表明 ${a_n}$ 并非等差数列。边界条件在问题中起到关键作用，其直接影响了解答的完整和正确。在处理计算题时，必须特别注意边界条件是否成立，以避免因忽视边界条件而导致的错误结论。
 
-\textbf{等差数列与函数}
+\subsection{等差数列的性质}
 
+zai zhi
 求数列和的最小值
 
 若$a_0<0,d>0$，则一定有$a_1<a_2<\dots<a_{k}<0$。
