@@ -1,0 +1,84 @@
+% 等比数列（高中）
+% keys 高中|等比数列
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{数列（高中）\nref{nod_HsSeFu}}{nod_d6a2}
+
+在介绍\aref{数列和}{sub_HsSeFu_1}时，曾介绍过那个忘国际象棋棋盘上放麦粒的故事，当时曾提及“依此类推，每一格的麦粒数量是上一格的两倍。”敏锐的读者应该已经意识到，如果把每个格子中的麦粒数量看作是数列中的一项，那么这个“二倍”其实就是数列生成的递推规则。其实，这种生成关系非常常见，细胞的分裂，银行存款的计息等与这个关系其实只是数字不一样。人们为了研究这种关系，以它的特征称其为等比数列。等比数列相较与最简单的等差数列而言，只是规则略有不同，从差变成了比，但最终的形式却大不一样。在之前的故事中，也曾提及，等比数列的数列和背后有指数的力量，那么这个倍数关系是如何变成了指数的？下面就来研究等比数列。
+
+\begin{definition}{等比数列}
+如果数列 $\{a_n\}$ 满足对于 $n > 1$ 的所有项，每一项与前一项的比为同一个常数 $q(q\neq0)$，则称 $\{a_n\}$ 为\textbf{等比数列（geometric sequence）}，$q$ 称为 $\{a_n\}$ 的\textbf{公比（common ratio）}，即等比数列满足递推公式
+\begin{equation}
+a_{n}=a_{n-1}\cdot q\qquad(n>1)~.
+\end{equation}
+\end{definition}
+
+特别地，之前提到的常数列是 $q = 1$ 的等比数列。
+
+\subsubsection{通项公式}
+由定义可得，等比数列的\textbf{通项公式}
+\begin{equation}
+a_n = a_1 q^{n-1} \quad (a_1 \ne 0,\ q\ne 0,\ n=1,2,3\dots)~
+\end{equation}
+
+\subsubsection{等比中项}
+与等差数列类似，如果在 $a$ 和 $b$ 中插入一个数 $G$，使得 $a,G,b$ 成等比数列，那么根据等比数列的定义， $\frac{G}{a} = \frac{b}{G},G^2 = ab,G = \pm \sqrt{ab}$。我们称 $G$ 为 $a,b$ 的\textbf{等比中项}。
+
+易得，在等比数列中，首末两项除外，每一项都是它前后两项的等比中项。
+
+\subsection{等比数列的数列和}
+等比数列求和与等差数列求和有相似之处，
+\begin{equation}\label{eq_HsGmPg_1}
+S = a_1 + a_2 + \cdots + a_n~,
+\end{equation}
+\begin{equation}
+qS = qa_1 + qa_2 + \cdots + qa_n~,
+\end{equation}
+\begin{equation}\label{eq_HsGmPg_2}
+qS= a_2 + a_3 + \cdots + qa_n~.
+\end{equation}
+\autoref{eq_HsGmPg_1} 与 \autoref{eq_HsGmPg_2} 做差
+\begin{equation}
+\begin{aligned}
+(1 - q)S &= a_1 - qa_n\\
+&= a_1(1 - q^n)~,
+\end{aligned}
+\end{equation}
+\begin{equation}
+S = \frac{a_1(1-q^n)}{1-q} \quad (q\neq 1)~.
+\end{equation}
+则等比数列前 $n$ 项和为
+\begin{equation}
+S = 
+\begin{cases}
+\begin{aligned}
+&na_1 &\quad &(q = 1) \\
+&\frac{a_1(1-q^n)}{1-q} &\quad &(q \neq 1)~.
+\end{aligned}
+\end{cases}
+\end{equation}
+
+当等比数列无穷递缩时，即 $0<q<1$， $n\rightarrow \infty$。 这里的极限详见 “\enref{数列的极限（简明微积分）}{Lim0}”。
+\begin{equation}
+S = \frac{a_1}{1 - q}~.
+\end{equation}
+
+\subsection{用数学归纳法证明求和公式}
+要证明求和公式
+\begin{equation}
+1 + q + q^2 + \dots + q^{n-1} = \frac{q^n - 1}{q - 1}~.
+\end{equation}
+使用数学归纳法， 当 $n = 1$ 时
+\begin{equation}
+\frac{q^n - 1}{q - 1} = 1~,
+\end{equation}
+恰好是第 1 项。 第 $n + 1$ 项为
+\begin{equation}
+\frac{q^{n+1} - 1}{q - 1} - \frac{q^n - 1}{q - 1} = q^n~.
+\end{equation}
+证毕。

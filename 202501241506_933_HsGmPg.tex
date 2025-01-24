@@ -1,0 +1,116 @@
+% 等比数列（高中）
+% keys 高中|等比数列
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{数列（高中）\nref{nod_HsSeFu}}{nod_d6a2}
+
+在介绍\aref{数列和}{sub_HsSeFu_1}时，曾提到国际象棋棋盘和麦粒的故事。故事中提到：“依此类推，每一格的麦粒数量是上一格的两倍。”尽管这一描述看似简单，但敏锐的读者可能已经注意到，如果将每一格的麦粒数量视为一个数列中的一项，那么这个“二倍”实际上就是数列生成的递推规则。换句话说，构成数列的每一项都是前一项的若干倍。
+
+这种生成关系在自然界和生活中非常常见。比如，细胞的分裂遵循类似的规律，一个细胞分裂成两个细胞，两个分裂成四个，数量呈倍数增长；银行存款计算复利、声音传播中强度的衰减等场景也遵循类似的关系，每个周期都会在上一次的基础上按一定比例增长。尽管这些现象的具体数值不同，但它们的数学本质却是相同的。
+
+人们以这种倍数特征将其命名为等比数列。与最简单的等差数列相比，等比数列的规则从“差”变成了“比”。这种看似微小的变化，使得数列的增长形式从线性变为指数。等比数列的这种特性不仅在基础数学中有广泛应用，其影响在大学数学中更为突出。例如，等比数列的延伸——等比级数，成为研究无限序列和是否收敛的核心工具。等比级数不仅是微积分的重要内容，还广泛应用于物理、经济学等领域，用于描述振荡、增长、衰减等复杂现象。
+
+在麦粒的故事中，还提到过等比数列的数列和展现了指数的力量。这一力量背后隐藏着怎样的数学机制？理解这些问题，不仅对当前的学习有帮助，更会在未来的数学学习中发挥关键作用。接下来，将深入研究等比数列的特性和应用，揭示其中的规律与奥秘。
+
+\subsection{等比数列}
+
+前面提到的种种例子，无论是细胞分裂、银行存款计息，还是棋盘上的麦粒故事，其核心规律都是相同的，即“按比例增长或减少”的过程。本质上，这些现象都是通过相邻项的固定比值将整个变化过程紧密连接起来。基于这一规律，可以明确等比数列的递推定义：
+
+\begin{definition}{等比数列}
+如果数列 $\{a_n\}$ 满足对于 $n > 1$ 的所有项，每一项与前一项的比为同一个常数 $q(q\neq0)$，则称 $\{a_n\}$ 为\textbf{等比数列（geometric sequence）}，$q$ 称为 $\{a_n\}$ 的\textbf{公比（common ratio）}，即等比数列满足递推公式：
+\begin{equation}
+a_{n}=a_{n-1}\cdot q\qquad(n>1)~.
+\end{equation}
+\end{definition}
+
+显然由于分母不能为0，所以等比数列中不会出现某一项的值为0。特别地，之前提到的常数列是 $q = 1$ 的等比数列。
+
+
+下面根据定义，迭代递推公式来推导等比数列的通项公式。当$n>1$ 时，利用递推公式  $a_n = a_{n-1} \cdot q$ 逐步将数列的前一项用递推公式展开，可以得到：
+\begin{equation}
+\begin{aligned}
+a_n &= a_{n-1} \cdot q\\
+&= a_{n-2}\cdot q\cdot q\\
+&\cdots \\
+&= a_2\cdot q^{n-2}\\
+&=  a_1 \cdot q^{n-1}~.
+\end{aligned}
+\end{equation}
+检查边界条件，当$n=1$时，显然有：
+\begin{equation}
+a_1=a_1q{1-1}
+\end{equation}
+
+\begin{corollary}{等比数列通项公式}
+对等比数列$\{a_n\}$，其通项公式为：
+\begin{equation}
+a_n = a_1 q^{n-1} \quad (a_1 \ne 0,\ q\ne 0,\ n=1,2,3\dots)~
+\end{equation}
+其中，$a_1$ 是首项，$d$ 是公差，$n$ 是项数。
+
+\end{corollary}
+
+
+
+
+\subsubsection{等比中项}
+与等差数列类似，如果在 $a$ 和 $b$ 中插入一个数 $G$，使得 $a,G,b$ 成等比数列，那么根据等比数列的定义， $\frac{G}{a} = \frac{b}{G},G^2 = ab,G = \pm \sqrt{ab}$。我们称 $G$ 为 $a,b$ 的\textbf{等比中项}。
+
+易得，在等比数列中，首末两项除外，每一项都是它前后两项的等比中项。
+
+\subsection{等比数列的数列和}
+等比数列求和与等差数列求和有相似之处，
+\begin{equation}\label{eq_HsGmPg_1}
+S = a_1 + a_2 + \cdots + a_n~,
+\end{equation}
+\begin{equation}
+qS = qa_1 + qa_2 + \cdots + qa_n~,
+\end{equation}
+\begin{equation}\label{eq_HsGmPg_2}
+qS= a_2 + a_3 + \cdots + qa_n~.
+\end{equation}
+\autoref{eq_HsGmPg_1} 与 \autoref{eq_HsGmPg_2} 做差
+\begin{equation}
+\begin{aligned}
+(1 - q)S &= a_1 - qa_n\\
+&= a_1(1 - q^n)~,
+\end{aligned}
+\end{equation}
+\begin{equation}
+S = \frac{a_1(1-q^n)}{1-q} \quad (q\neq 1)~.
+\end{equation}
+则等比数列前 $n$ 项和为
+\begin{equation}
+S = 
+\begin{cases}
+\begin{aligned}
+&na_1 &\quad &(q = 1) \\
+&\frac{a_1(1-q^n)}{1-q} &\quad &(q \neq 1)~.
+\end{aligned}
+\end{cases}
+\end{equation}
+
+当等比数列无穷递缩时，即 $0<q<1$， $n\rightarrow \infty$。 这里的极限详见 “\enref{数列的极限（简明微积分）}{Lim0}”。
+\begin{equation}
+S = \frac{a_1}{1 - q}~.
+\end{equation}
+
+\subsection{用数学归纳法证明求和公式}
+要证明求和公式
+\begin{equation}
+1 + q + q^2 + \dots + q^{n-1} = \frac{q^n - 1}{q - 1}~.
+\end{equation}
+使用数学归纳法， 当 $n = 1$ 时
+\begin{equation}
+\frac{q^n - 1}{q - 1} = 1~,
+\end{equation}
+恰好是第 1 项。 第 $n + 1$ 项为
+\begin{equation}
+\frac{q^{n+1} - 1}{q - 1} - \frac{q^n - 1}{q - 1} = q^n~.
+\end{equation}
+证毕。
