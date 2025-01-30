@@ -73,40 +73,80 @@
 
 \subsection{三角形}
 
-\textbf{三角形（triangle）}是最简单的平面几何形状，它由三条线段首尾相接围成，其基本性质构成了欧几里得几何的重要部分。
+\textbf{三角形（triangle）}是最简单的平面几何形状，它由三条线段首尾相接围成，其基本性质构成了欧几里得几何的重要部分。由于高中阶段研究的都是欧几里得几何，根据前面提及的平行公设的等价的表达方式，任意三角形的内角和等于 $180^\circ$。因此，三角形的内角不会大于$180^\circ$，同时至多有一个内角大于等于$90^\circ$。
 
-从三角形的一个顶点出发，向其对边所在直线作的垂线称为三角形的\textbf{高（altitude）}。垂足可能在边上、与定点重合或在边的延长线上，所以高可能位于三角形内部、与边重合或在三角形外部。高所对的边称作这个高所对的底。顶点与对边中点的连线称为\textbf{中线}。
+\subsubsection{基础概念}
 
-由于高中阶段研究的都是欧几里得几何，根据前面提及的平行公设的等价的表达方式，任意三角形的内角和等于 $180^\circ$。因此，三角形的内角不会大于$180^\circ$，同时至多有一个内角大于等于$90^\circ$。按角的大小或边的长度的特殊情况，有下面几种三角形：
-\begin{itemize}
-\item 三角形的一个内角为 $90^\circ$就称为\textbf{直角三角形（right triangle）}。直角所对边称为\textbf{斜边}，与直角重合的边称为\textbf{直角边}。斜边的中线长度是斜边一半。
-\item 有两条边相等的三角形就称为\textbf{等腰三角形（isosceles triangle）}。相等的边称为\textbf{腰}，腰所夹的角称为\textbf{顶角}。顶角之外的角称为\textbf{底角}，顶角所对的边称为\textbf{底边}，底边的高同时是顶角平分线。
-\item 三边相等或三个角均为 $60^\circ$的三角形称作\textbf{等边三角形（equilateral triangle）}。等边三角形是特殊的等腰三角形。
-\end{itemize}
+从三角形的一个顶点出发，向其对边所在直线作的垂线称为三角形的\textbf{高（altitude）}。高所对的边称作这个高所对的\textbf{底（base）}。三条高所在的直线交于一点，称作\textbf{垂心（orthocenter）}。垂足可能在边上、与顶点重合或在边的延长线上，所以高可能位于三角形内部、与边重合或在外部。对应地，垂心在锐角三角形内部，直角三角形的直角顶点处，钝角三角形外部。
 
-三角形有五个重要的特殊点，称为“五心”：
-\begin{itemize}
-\item 三条中线交于一点，称作\textbf{重心（centroid）}，重心将每条中线分为 $2:1$ 的比例（靠近顶点的一段较长）。它也是三角形的\textbf{质心}，即平衡点。
-\item 三条高所在的直线交于一点，称作\textbf{垂心（orthocenter）}。垂心位置取决于三角形类型，锐角三角形的垂心在内部；直角三角形的垂心是直角顶点；钝角三角形的垂心在外部。
-\item 三个内角的角平分线交于\textbf{内心（incenter）}，它是三角形的\textbf{内切圆}的圆心，它到三边的距离相等。
-\item 三条边的垂直平分线交于\textbf{外心（circumcenter）}，它是三角形\textbf{外接圆}的圆心，它到三个顶点的距离相等。
-\item 三角形\textbf{旁切圆}（外接某一边及其余两边延长线的圆）的圆心\textbf{旁心（excenter）}。一个三角形有三个旁心，每个旁心对应一个旁切圆。
-\end{itemize}
+顶点与对边中点的连线称为\textbf{中线（median）}。三角形的三条中线交于一点，称作\textbf{重心（centroid，或质心）}，重心将每条中线分为 $2:1$ 的比例（靠近顶点的一段较长）。
+
+若三角形至少有两条边相等，则称为\textbf{等腰三角形（isosceles triangle）}。相等的两边称为\textbf{腰（legs）}，它们所夹的角称为\textbf{顶角（vertex angle）}，其余两个角称为\textbf{底角（base angles）}。顶角所对的边称为\textbf{底（base）}，底边上的高同时是顶角的平分线。在等腰三角形的基础上，若其中一个内角为 $60^\circ$，或两腰与底的长度相等，则该三角形为\textbf{等边三角形（equilateral triangle）}，此时三角形的三条边相等，或三个角均为 $60^\circ$。
 
 \subsubsection{三角形的关系}
 
-三角形的\textbf{相似}指两个三角形的对应角相等，对应边成比例。判定两个三角形相似的方法包括：
+两个三角形\textbf{相似（similarity）}，意味着它们的对应角相等，对应边的长度成比例。这种关系可以类比于将一个三角形按某个比例放大或缩小——尽管大小发生了变化，但整体的形状保持不变。常见的相似判定方法包括：
 \begin{itemize}
-\item 存在两个角对应相等；
-\item 存在两边成比例且夹角相等；
-\item 三边成比例。
+\item 两个对应角相等；
+\item 两边的长度成比例，且夹角相等；
+\item 三边的长度成比例。
 \end{itemize}
 
-三角形的\textbf{全等}是相似的特殊情况，对应比例系数为 $1$。
+三角形的\textbf{全等（congruence）}是相似的特殊情况，此时对应边的比例系数为 $1$。这意味着，除了位置可能不同之外，它们的形状和大小完全相同，对应角相等，对应边的长度也完全相等。可以将其理解为，一个三角形可以通过平移、旋转或翻折与另一个完全重合。
 
-\subsubsection{三角函数}
+\subsubsection{直角三角形与三角函数}
 
-正弦、余弦、正切的定义
+一个包含直角的三角形称为\textbf{直角三角形（right triangle）}。在直角三角形中，每条边的命名与所考察的角 $\theta$ 相关：
+\begin{itemize}
+\item 直角所对的最长边称为\textbf{斜边（hypotenuse）}，它在所有直角三角形中都是最长的边。
+\item 角 $\theta$ 所在的边（但不包括斜边）称作\textbf{邻边（adjacent）}。
+\item 角 $\theta$ 对面的边称作\textbf{对边（opposite）}。
+\end{itemize}
+
+\begin{theorem}{勾股定理}
+在直角三角形中，三条边的长度满足\textbf{勾股定理（Pythagorean Theorem）}，即两条直角边的平方和等于斜边的平方：
+\begin{equation}
+a^2 + b^2 = c^2~.
+\end{equation}
+其中，$a$ 和 $b$ 是直角三角形的两条直角边，$c$ 是斜边。
+\end{theorem}
+
+勾股定理既是直角三角形的必要条件，也是充分条件。勾股定理不仅描述了直角三角形的性质，还提供了一种判定三角形是否为直角三角形的方法。若已知三角形的三条边长，检验它们是否满足勾股定理，若成立，则该三角形必为直角三角形；反之，则一定不是直角三角形。
+
+在整数范围内，有一些满足勾股定理的边长组合，被称为\textbf{勾股数（Pythagorean triple）}。最常见的勾股数组合包括$(3,4,5)$，$(5,12,13)$，$(7,24,25)$等。他们都满足一个一般的公式：
+\begin{equation}
+(m^2 - n^2, 2mn, m^2 + n^2)~.
+\end{equation}
+它可以构造所有的原始勾股数（即最大公因数为 1 的勾股数）。之前给出的例子分别是$m=2,n=1$，$m=3,n=2$，$m=4,n=3$的情况。
+
+这些整数边长的直角三角形广泛应用于几何、建筑和工程测量中。例如，在古代建筑中，工匠常利用长度为 $3$、$4$、$5$ 的木杆构造直角，以确保墙壁垂直。
+
+勾股数的生成规律可以通过数学公式推导。例如，若取连续两个正整数 $n$ 和 $n+1$，可以构造出一组勾股数：
+
+(n+1)^2 - n^2 = 2n + 1
+
+当 $n = 6$ 时：
+
+7^2 - 6^2 = 49 - 36 = 13
+
+从而得到勾股数组 $(5,12,13)$。同样，也可以利用更一般的公式：
+
+
+
+其中 $m > n$ 为正整数，来生成更多勾
+
+
+
+\textbf{三角函数（Trigonometric Functions）}描述了直角三角形中角度与边长之间的关系，是几何和数学分析中的核心概念。
+
+常见的三角函数包括\textbf{正弦（sine）}、\textbf{余弦（cosine）}和\textbf{正切（tangent）}，分别记作 $\sin\theta$，$\cos\theta$，$\tan\theta$。设直角三角形 $ABC$，其中角 $C$ 为直角，设角 $A$ 对应的对边、邻边和斜边分别为 $|BC|, |AC|, |AB|$，则角 $A$ 的三角函数定义如下：
+\begin{equation}
+\sin A = \frac{|BC|}{|AB|}, \quad
+\cos A = \frac{|AC|}{|AB|}, \quad
+\tan A = \frac{|BC|}{|AC|}~.
+\end{equation}
+
+三角函数的定义可以形象地理解为，在一定比例缩放下，直角三角形的形状保持不变，而三角函数值反映了角度和边长比例的稳定关系。例如，无论三角形的大小如何，只要角 $A = 30^\circ$，那么 $\sin 30^\circ$ 的值始终为 $\frac{1}{2}$。这也是三角函数在几何测量、建筑设计、物理学等领域广泛应用的原因。下面给出一些常见的三角函数值。
 
 \begin{table}[ht]
 \centering
@@ -123,6 +163,7 @@ $\tan\alpha$ & $\displaystyle\frac{1}{\sqrt{3}}$ & $1$ & $\sqrt{3}$ \\
 \hline
 \end{tabular}
 \end{table}
+
 \subsection{圆}\label{sub_HsGeBa_1}
 
 \textbf{圆（circle）}是平面内与某个定点距离等于定值的所有点组成的图形。其中，该定点称为\textbf{圆心（center）}，通常记作 $O$，并以圆心指代圆，称为圆 $O$。定值称为\textbf{半径（radius）}，通常记作 $r$。
@@ -139,8 +180,9 @@ $\tan\alpha$ & $\displaystyle\frac{1}{\sqrt{3}}$ & $1$ & $\sqrt{3}$ \\
 对于圆上任意不重合的三点 $A,B,C$，有以下概念：
 \begin{itemize}
 \item 顶点位于圆上，两边与圆相交的角称作\textbf{圆周角（inscribed angle）}。设顶点为$C$，则圆周角$\angle ACB$所夹圆弧$\overset{\frown}{AB}$称作其对应的弧\footnote{“所夹圆弧”的意思是指，由$A,B$两点截得，且顶点$C$不在的圆弧。}，同弧对应的圆心角是圆周角的两倍，即$\angle AOB=2\angle ACB$。
-\item 若三角形以 $A$、$B$、$C$ 为顶点，则称为圆的\textbf{内接三角形（inscribed triangle）}，圆称为三角形的\textbf{外接圆（circumcircle）}。三角形的三个内角就是外接圆的三个圆周角，三角形的\textbf{外心（circumcenter）}也就是外接圆的圆心。
-\item 若三角形的三边分别与圆相切于 $A$、$B$、$C$，则称为圆的\textbf{外切三角形（circumscribed triangle）}，圆称为三角形的\textbf{内切圆（incircle）}。三角形的\textbf{内心（incenter）}也就是内切圆的圆心。
+\item 若三角形以 $A$、$B$、$C$ 为顶点，则称为圆的\textbf{内接三角形（inscribed triangle）}，圆称为三角形的\textbf{外接圆（circumcircle）}。三角形的三个内角就是外接圆的三个圆周角，三角形的\textbf{外心（circumcenter）}也就是外接圆的圆心。三条边的垂直平分线交于外心，它到三个顶点的距离相等。
+\item 若三角形的三边分别与圆相切于 $A$、$B$、$C$，则称为圆的\textbf{外切三角形（circumscribed triangle）}，圆称为三角形的\textbf{内切圆（incircle）}。三角形的\textbf{内心（incenter）}也就是内切圆的圆心。三个内角的角平分线交于内心，它到三边的距离相等。
+\item 外接三角形某一边及其余两边延长线的圆，称作三角形\textbf{旁切圆（excircle）}，旁切圆的圆心称作\textbf{旁心（excenter）}\footnote{这里介绍的外心、内心、旁心与之前提到的垂心和重心称作三角形的“五心”。}。一个三角形有三个旁心，每个旁心对应一个旁切圆。
 \end{itemize}
 
 通过圆心的弦称为圆的\textbf{直径（diameter）}，通常记作$d$，满足：
