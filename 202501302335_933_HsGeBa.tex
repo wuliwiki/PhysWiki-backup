@@ -1,0 +1,177 @@
+% 几何与解析几何初步（高中）
+% keys 解析几何|初中|角度|三角|几何|初步|坐标系|点斜式
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+本文主要介绍一些在初中阶段已经学习过，并在高中阶段仍然具有重要作用的几何知识。这些知识不仅构成了高中几何的基础，也在解析几何、三角函数、立体几何等多个数学领域中发挥关键作用。理解和掌握这些概念，有助于更高效地解决高中数学中的几何问题，并为进一步学习提供坚实的基础。
+
+\subsection{几何基础}
+
+\subsubsection{基础的几何元素}
+
+几何中最基本的用于表示位置的元素称为\textbf{点（point）}。尽管在人们的直观印象中，点似乎是一个小的黑色实心圆，但在数学中，点是一种没有大小的抽象概念，并不对应任何具体的实体，仅用于标示位置。通常用大写字母  $A, B, C$  等表示。
+
+由无数个点按照一定顺序排列而成、没有宽度的理想化几何对象称为\textbf{线（line）}。若一条线上的所有点沿固定方向向两侧无限延伸，则称为\textbf{直线（straight line）}。在直线上引入端点截取后，可以得到以下两种特殊情况：
+
+\begin{itemize}
+\item \textbf{射线（ray）}：从某个固定点出发，并沿特定方向无限延伸的部分。
+\item \textbf{线段（segment）}：由两个端点截取直线中确定的有限长度的部分。
+\end{itemize}
+
+线段的\textbf{度量（measurement）}值称为\textbf{长度（length）}，它是欧氏几何中最基本的几何量之一，无法通过更基本的概念加以定义。长度可用于计算两个点之间的\textbf{距离（distance）}\footnote{注意距离和长度的区别：长度是线段的性质，而距离是两个点之间的性质。尽管在此处二者的数值相等，但并不总是如此。}，并在比例关系等计算中发挥作用。将线段平分为两段等长部分的点称为其\textbf{中点（midpoint）}。
+
+由两条射线以同一点为起点构成的几何元素称为\textbf{角（angle）}。该起点称为\textbf{顶点（vertex）}，两条射线分别称为角的\textbf{边（sides）}。
+
+角的度量值称为\textbf{角度（measure of angle）}。角的大小可以用\textbf{度（degree）}、\textbf{分（minute）}、\textbf{秒 （second）}表示，例如 $30^\circ34^{'}56^{"}$。这种表示角大小的单位制称为\textbf{角度制（Degree System）}\footnote{在角度制中，“角度”既可指角的大小，也可指表示角大小的单位，分别类似于线段中的”长度”和”米”。由于语言习惯，这两者通常都称为“角度”。}。角度制规定，\textbf{周角（full angle）}被均分为 $360$ 份，其中每一份称为 $1^\circ$。
+
+根据角度的大小，可以将角分类如下：
+\begin{itemize}
+\item \textbf{锐角（acute angle）}：角度小于 $90^\circ$的角。
+\item \textbf{直角（right angle）}：角度等于 $90^\circ$的角。
+\item \textbf{钝角（obtuse angle）}：角度大于 $90^\circ$ 但小于 $180^\circ$的角。
+\item \textbf{平角（straight angle）}：角度等于$180^\circ$的角。
+\end{itemize}
+
+对于大于 $180^\circ$ 的角，一般会采用其相对于周角另一侧的角度进行描述，以简化表达。
+
+\subsubsection{几何元素间的关系}
+
+在几何中，不同的元素之间存在特定的关系，这些关系决定了它们的相对位置和相互作用方式。以下是几种常见的几何关系。
+
+如果两条直线相交形成 $90^\circ$ 角，则称它们\textbf{垂直（perpendicular）}\footnote{这个概念在向量或更高维的数学里扩展为\textbf{正交（orthogonal）}。}，记作 $AB \perp CD$，表示直线 $AB$ 与直线 $CD$ 相互垂直。如果两条直线位于同一平面内，并且无论如何延长都不会相交，则称它们\textbf{平行（parallel）}，记作$AB{\kern 0.56em/\kern -0.8em /\kern 0.56em}CD$或$AB \parallel CD$。
+
+一个点到一条直线的距离，指的是该点与直线上最近点之间的长度。具体来说，从该点作一条与该直线相交并成 $90^\circ$ 角的直线，称作\textbf{垂线（perpendicular line）}，交点称为\textbf{垂足（perpendicular foot）}。点到直线的距离即为该点与垂足之间的线段长度。
+
+对于一条线段，经过该线段的中点的垂线，称作该线段的\textbf{垂直平分线（perpendicular bisector）}。任何位于垂直平分线上的点，到线段两端点的距离相等。反之，若某个点到线段两端点的距离相等，则该点一定在这条线段的垂直平分线上。
+
+从角的顶点出发，将该角分成两个相等角的射线称作这个角的\textbf{角平分线（angle bisector）}。角平分线上任意一点到角的两边的距离相等，反之，若一个点到角的两边的距离相等，则它必定在该角的平分线上。
+
+若两个角的和等于 $180^\circ$，则称这两个角\textbf{互补（supplementary angles）}；若两个角的和等于 $90^\circ$，则称它们\textbf{互余（complementary angles）}。
+
+\subsubsection{平行公设}
+
+\textbf{欧几里得几何（Euclidean geometry）}，或简称\textbf{欧氏几何}，有一条著名的\textbf{平行公设（Parallel Postulate）}，原始表述是：若一条直线与两条直线相交，并使得同侧内角之和小于 $180^\circ$，则这两条直线在该侧必相交。平行公设有多个等价的表达方式，其中包括：
+\begin{itemize}
+\item 平行线唯一性（Uniqueness of Parallels）：在平面上，给定一条直线和直线外的一个点，至多只能作一条不与该直线相交的直线。
+\item 普罗克洛斯（Proclus）公理：若一条直线与两条平行直线之一相交，则它也必与另一条直线相交。
+\item 克莱因（Playfair）公理：在平面上，给定一条直线和直线外的一点，至多只能作一条平行于该直线的直线。
+\item 三角形内角和公理（Triangle Angle Sum Theorem）：任意三角形的内角和等于 $180^\circ$。
+\end{itemize}
+
+平行公设是欧几里得几何与\textbf{非欧几何（non-Euclidean geometry）}的核心区别。若改变平行公设，将会产生不同的几何体系，例如：
+
+\begin{itemize}
+\item \textbf{双曲几何（hyperbolic geometry）}：在该几何体系中，给定一条直线和直线外的一点，可以作无数条不与已知直线相交的直线。这种几何在广义相对论和宇宙学中具有重要应用，例如描述非平坦的时空结构。
+\item \textbf{球面几何（spherical geometry）}：在该几何体系中，不存在不相交的直线。例如，在球面上，所有“直线”都是\textbf{大圆（great circles）}，它们总会相交。因此，在球面几何中，传统的平行概念不成立。这种几何在导航和天文学中具有重要意义，例如用于描述地球表面的测量和飞行路线的计算。
+\end{itemize}
+
+尽管非欧几何在现代数学和物理学中具有深远影响，但高中阶段所接触的几何仍然基于欧几里得几何，此处仅作简要介绍，以帮助理解几何体系的多样性。
+
+\subsection{三角形}
+
+\textbf{三角形}是最简单的平面几何形状。它的基本性质构成了欧几里得几何的重要部分。
+
+
+三角形是最简单的由线段围城的平面几何形状。
+
+高是从三角形的一个顶点垂直于其对边或对边延长线的线段，不一定在三角形内部。
+
+三角形内角和
+
+直角三角形
+等腰三角形
+等边三角形
+
+
+三角形的“五心”包括：
+\begin{itemize}
+\item 三条中线交于一点，称作\textbf{重心（centroid）}，重心将每条中线分为 $2:1$ 的比例（靠近顶点的一段较长）。如果将也是三角形的质心
+\item 三条高交于一点，称作\textbf{垂心（orthocenter）}。
+\item 三条角平分线交于一点，称作\textbf{内心（incenter）}。
+\item 三边垂直平分线交于一点，称作\textbf{外心（circumcenter）}。
+\item *三角形的旁切圆（外接于三角形的某一边和另外两边的延长线的圆）的圆心，称作\textbf{旁心（excenter）}。一个三角形有三个旁心，每个旁心都对应一个旁切圆。
+\end{itemize}
+
+全等
+相似
+
+\subsubsection{三角函数}
+
+正弦、余弦、正切的定义
+
+\begin{table}[ht]
+\centering
+\caption{常见三角函数值}\label{tab_HsGeBa1}
+\begin{tabular}{|c|c|c|c|}
+\hline
+角$\alpha$ & $30^{\circ}$ & $45^{\circ}$ & $60^{\circ}$ \\
+\hline
+$\sin\alpha$ & $\displaystyle\frac{1}{2}$ & $\displaystyle\frac{\sqrt{2}}{2}$ & $\displaystyle\frac{\sqrt{3}}{2}$ \\
+\hline
+$\cos\alpha$ & $\displaystyle\frac{\sqrt{3}}{2}$& $\displaystyle\frac{\sqrt{2}}{2}$ &  $\displaystyle\frac{1}{2}$ \\
+\hline
+$\tan\alpha$ & $\displaystyle\frac{1}{\sqrt{3}}$ & $1$ & $\sqrt{3}$ \\
+\hline
+\end{tabular}
+\end{table}
+\subsection{圆}\label{sub_HsGeBa_1}
+
+\textbf{圆（circle）}是平面内与某个定点距离等于定值的所有点组成的图形。其中，该定点称为\textbf{圆心（center）}，通常记作 $O$，并以圆心指代圆，称为圆 $O$。定值称为\textbf{半径（radius）}，通常记作 $r$。
+
+对于圆上任意不重合的两点 $A$ 和 $B$，有以下概念：
+\begin{itemize}
+\item \textbf{弦（chord）}是连接圆上任意两点的线段 $AB$。圆心到弦的垂线是该弦的垂直平分线。
+\item \textbf{弧（arc）}是圆上两点之间的弧线。两点 $A$ 和 $B$ 将圆分成两条弧，分别称为\textbf{劣弧（minor arc）}和\textbf{优弧（major arc）}，其中劣弧的长度不超过半个圆周，优弧的长度大于半个圆周。
+\item 顶点位于圆心，且两边与圆相交的角称为\textbf{圆心角（central angle）}。同样，一般包括一个小于$180^\circ$的角和一个大于$180^\circ$的角，二者分别与他们角内夹的弧对应\footnote{有的人分别称这两种为劣角和优角，以求和弧对应，但使用不广泛。劣角在英语中无对应词，优角对应的词为“Reflex Angle”，直译是反射角，对应平面反射的情况。}。一个圆周对应的圆心角为 $360^\circ$，因此也称其为\textbf{周角（perigon）}。
+\end{itemize}
+
+在未特别说明的情况下，通常 $\overset{\frown}{AB}$ 表示两点 $A$ 和 $B$ 之间的劣弧。此时，两点 $A$ 和 $B$ 可以唯一确定一条弦 $AB$，一条$\overset{\frown}{AB}$ 和一个圆心角$\angle AOB$。因此可以称他们三者对应，如：$\overset{\frown}{AB}$ 称为弦 $AB$ 所对应的弧，$\angle AOB$是$AB$所对应的圆心角等\footnote{如果有特殊情况，则不一一对应，一条弦对应两段弧，但每个弧仍对应一个圆心角。}。
+
+对于圆上任意不重合的三点 $A,B,C$，有以下概念：
+\begin{itemize}
+\item 顶点位于圆上，两边与圆相交的角称作\textbf{圆周角（inscribed angle）}。设顶点为$C$，则圆周角$\angle ACB$所夹圆弧$\overset{\frown}{AB}$称作其对应的弧\footnote{“所夹圆弧”的意思是指，由$A,B$两点截得，且顶点$C$不在的圆弧。}，同弧对应的圆心角是圆周角的两倍，即$\angle AOB=2\angle ACB$。
+\item 若三角形以 $A$、$B$、$C$ 为顶点，则称为圆的\textbf{内接三角形（inscribed triangle）}，圆称为三角形的\textbf{外接圆（circumcircle）}。三角形的三个内角就是外接圆的三个圆周角，三角形的\textbf{外心（circumcenter）}也就是外接圆的圆心。
+\item 若三角形的三边分别与圆相切于 $A$、$B$、$C$，则称为圆的\textbf{外切三角形（circumscribed triangle）}，圆称为三角形的\textbf{内切圆（incircle）}。三角形的\textbf{内心（incenter）}也就是内切圆的圆心。
+\end{itemize}
+
+通过圆心的弦称为圆的\textbf{直径（diameter）}，通常记作$d$，满足：
+\begin{equation}
+d = 2r~.
+\end{equation}
+此时，所对弧称为\textbf{半圆（semicircle）}，所对圆心角为平角，即$180^\circ$，所对圆周角为直角，即$90^\circ$。因此，由直径参与构成的圆内接三角形一定是直角三角形。
+
+圆的周长与直径之比是一个定值，其值等于数学常数$\pi$，因此也称作\textbf{圆周率}\footnote{这里并没有采用通常教材中的“圆周长与直径之比定义为圆周率”的表述。现代数学为了避免循环论证，采用其他方法定义$\pi$，之后再得到“圆的周长与直径之比是一个定值”的结论。}。$\pi$是数学中极为重要的常数，它是一个无理数，近似值为 $\pi \approx 3.14159$。
+
+对半径为$r$圆有，其周长：
+\begin{equation}
+C = \pi d=2 \pi r~. 
+\end{equation}
+
+面积：
+\begin{equation}
+S = \pi r^2~.
+\end{equation}
+
+
+\subsection{解析几何基础}
+
+\subsubsection{坐标系}
+将所有的实数和直线上的点一一对应，就形成了\textbf{数轴（number line）}。。数轴的定义基于一个确定的原点、单位长度和正方向，这三个因素唯一地确定了数轴在几何中的位置和方向。法国数学家勒内·笛卡尔（René Descartes）在数学研究中，将两条数轴的原点重叠，并将其正交（即相互垂直）放置，创造了\textbf{坐标系（coordinate system）}。这就是初中阶段学习过的\textbf{笛卡尔坐标系（Cartesian coordinate system）}，也称为\textbf{直角坐标系（rectangular coordinate system）}。
+
+引入坐标系后，平面上的任何一点都可以通过一个\enref{有序数对}{CartPr} $(x, y)$ 来表示。借助这种表示法，几何形状可以通过数对来分析和研究，这一方式称为\enref{解析几何}{JXJH}。而当数对中的值对应于函数的变量及其结果时，几何图形就成为了函数的图像。因此，坐标系不仅为函数的图像提供了清晰的视觉表达，还使得人们可以通过几何图形直观地观察函数的性质，例如其变化趋势、最大值和最小值等。
+
+通常，直角坐标系中，两条数轴称为$x$轴和$y$轴，且向右的方向为$x$轴的正方向，向上为$y$轴的正方向。数轴将平面分为四个区域，称为\textbf{象限（quadrant）}。其中，第一象限是两个坐标都为正的区域，之后按逆时针方向依次为第二、第三和第四象限。
+
+\subsubsection{常见表达式}
+
+\begin{definition}{直线的点斜式}\label{def_HsGeBa_1}
+经过点$(x_0,y_0)$，且斜率为$k$点直线表达式为：
+\begin{equation}
+y-y_0=k(x-x_0)~.
+\end{equation}
+\end{definition}
+
