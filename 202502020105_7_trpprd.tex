@@ -84,9 +84,73 @@ $\bvec{b}\times\bvec{c}$是向量叉乘向量，结果是向量；三重积$\bve
 
 
 具体来说，
-\begin{equation}
-\color{OliveGreen}\vec{a}\color{Black}\times\qty(\color{Red}\vec{b}\color{Black}\times\color{NavyBlue}\vec{c}\color{Black}) = \color{Red}\vec{b}\color{Black}\qty(\color{OliveGreen}\vec{a}\color{Black}\cdot\color{NavyBlue}\vec{c}\color{Black})-\color{NavyBlue}\vec{c}\color{Black}\qty(\color{OliveGreen}\vec{a}\color{Black}\cdot\color{Red}\vec{b}\color{Black})~
+\begin{equation}\label{eq_trpprd_1}
+\color{OliveGreen}\vec{a}\color{Black}\times\qty(\color{Red}\vec{b}\color{Black}\times\color{NavyBlue}\vec{c}\color{Black}) = \color{Red}\vec{b}\color{Black}\qty(\color{OliveGreen}\vec{a}\color{Black}\cdot\color{NavyBlue}\vec{c}\color{Black})-\color{NavyBlue}\vec{c}\color{Black}\qty(\color{OliveGreen}\vec{a}\color{Black}\cdot\color{Red}\vec{b}\color{Black})~. 
 \end{equation}
+
+
+
+\subsubsection{\autoref{eq_trpprd_1} 的几何证明}
+
+\autoref{eq_trpprd_1} 可以用叉乘和点乘的计算公式证明，也可以用下列几何方法证明。
+
+由于$\color{OliveGreen}\vec{a}\color{Black}\times\qty(\color{Red}\vec{b}\color{Black}\times\color{NavyBlue}\vec{c}\color{Black})$在$\color{Red}\vec{b}\color{Black}, \color{NavyBlue}\vec{c}\color{Black}$平面上，因此可以设
+\begin{equation}
+\color{OliveGreen}\vec{a}\color{Black}\times\qty(\color{Red}\vec{b}\color{Black}\times\color{NavyBlue}\vec{c}\color{Black}) = x\color{Red}\vec{b}\color{Black}+y\color{NavyBlue}\vec{c}\color{Black}~. 
+\end{equation}
+
+于是
+\begin{equation}
+\begin{aligned}
+0 ={}& \color{OliveGreen}\vec{a}\color{Black}\cdot\qty(\color{OliveGreen}\vec{a}\color{Black}\times\qty(\color{Red}\vec{b}\color{Black}\times\color{NavyBlue}\vec{c}\color{Black}))\\
+={}& \color{OliveGreen}\vec{a}\color{Black}\cdot\qty(x\color{Red}\vec{b}\color{Black}+y\color{NavyBlue}\vec{c}\color{Black})\\
+={}& x\color{OliveGreen}\vec{a}\color{Black}\cdot\color{Red}\vec{b}\color{Black}+y\color{OliveGreen}\vec{a}\color{Black}\cdot\color{NavyBlue}\vec{c}\color{Black}. 
+\end{aligned}~
+\end{equation}
+因此
+\begin{equation}
+\frac{x}{y} = -\frac{\color{OliveGreen}\vec{a}\color{Black}\cdot\color{NavyBlue}\vec{c}\color{Black}}{\color{OliveGreen}\vec{a}\color{Black}\cdot\color{Red}\vec{b}\color{Black}}~, 
+\end{equation}
+或者说
+\begin{equation}
+x = \gamma\color{OliveGreen}\vec{a}\color{Black}\cdot\color{NavyBlue}\vec{c}\color{Black},\quad y=-\gamma \color{OliveGreen}\vec{a}\color{Black}\cdot\color{Red}\vec{b}\color{Black}~. 
+\end{equation}
+
+这个$\gamma$对任何向量三重积都是一样的。这是因为\textbf{线性性}，比如如果
+\begin{equation}
+\left\{
+\begin{aligned}
+\bvec{a}\times\qty(\bvec{b}_1\times\bvec{c}) ={}& \gamma_1\bvec{b}_1(\bvec{a}\cdot\bvec{c}) - \gamma_1\bvec{c}_1(\bvec{a}\cdot\bvec{b}), \\
+\bvec{a}\times\qty(\bvec{b}_2\times\bvec{c}) ={}& \gamma_2\bvec{b}_2(\bvec{a}\cdot\bvec{c}) - \gamma_2\bvec{c}_2(\bvec{a}\cdot\bvec{b}), 
+\end{aligned}
+\right. ~
+\end{equation}
+那么
+\begin{equation}
+\bvec{a}\times\qty((\bvec{b}_1+\bvec{b}_2)\times\bvec{c}) = (\gamma_1\bvec{b}_1+\gamma_2\bvec{b}_2)(\bvec{a}\cdot\bvec{c}) - (\gamma_1\bvec{c}_1+\gamma_2\bvec{c}_2)(\bvec{a}\cdot\bvec{b})
+~\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
