@@ -1,0 +1,77 @@
+% 三重积
+% keys 向量三重积|标量三重积|triple product
+% license Usr
+% type Tutor
+
+\pentry{几何向量的点乘\nref{nod_Dot}，几何向量的叉乘\nref{nod_Cross}}{nod_744a}
+
+
+
+
+在\textbf{三维欧几里得空间}中，有一类常用的特殊运算，称为\textbf{三重积（triple product）}，就是选三个向量进行点乘或叉乘。三重积分为两类：标量三重积的结果是标量，向量三重积的结果是向量。
+
+
+
+
+\subsection{标量三重积}
+
+
+取三个向量$\bvec{a}, \bvec{b}, \bvec{c}$，定义它们的标量三重积为$\bvec{a}\cdot\qty(\bvec{b}\times\bvec{c})$。$\bvec{b}\times\bvec{c}$是向量$\bvec{b}$和向量$\bvec{c}$的叉乘，结果是向量；于是$\bvec{a}\cdot\qty(\bvec{b}\times\bvec{c})$是向量$\bvec{a}$和向量$\bvec{b}\times\bvec{c}$的点乘，结果是标量。
+
+如果将三个向量分别展开为直角坐标，如下：
+\begin{equation}
+\bvec{a}\sim\pmat{a_1\\a_2\\a_3}, \bvec{b}\sim\pmat{b_1\\b_2\\b_3}, \bvec{c}\sim\pmat{c_1\\c_2\\c_3}, ~
+\end{equation}
+那么根据叉乘和点乘的计算公式可得
+\begin{equation}
+\begin{aligned}
+\bvec{a}\cdot\qty(\bvec{b}\times\bvec{c}) \sim{}& \pmat{a_1\\a_2\\a_3}\cdot\qty(\pmat{b_1\\b_2\\b_3}\times \pmat{c_1\\c_2\\c_3})\\
+={}& \pmat{a_1\\a_2\\a_3}\cdot\pmat{b_2c_3-b_3c_2\\b_3c_1-b_1c_3\\b_1c_2-b_2c_1}\\
+={}& \pmat{a_1b_2c_3-a_1b_3c_2\\a_2b_3c_1-a_2b_1c_3\\a_3b_1c_2-a_3b_2c_1}. 
+\end{aligned}~
+\end{equation}
+
+标量三重积有直观的几何意义。考虑一个平行六面体，取其一个顶点作为原点，过此顶点的三条边作为三个向量，如\autoref{fig_trpprd_1} 所示。
+
+
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/a3cc16a5159b6752.pdf}
+\caption{标量三重积示意图。} \label{fig_trpprd_1}
+\end{figure}
+
+$\color{Blue}\vec{a}$
+
+
+
+
+
+\subsection{向量三重积}
+
+
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/23207c1117f04b94.pdf}
+\caption{向量三重积示意图。} \label{fig_trpprd_2}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
