@@ -1,0 +1,105 @@
+% 三角函数（高中）
+% keys 高中|三角函数
+% license Usr
+% type Tutor
+\pentry{弧度制与任意角\nref{nod_HsAngl}，几何与解析几何初步\nref{nod_HsGeBa}，函数\nref{nod_functi}，函数的性质\nref{nod_HsFunC}}{nod_1829}
+\begin{issues}
+\issueDraft
+\end{issues}
+
+在初中就已经熟悉了\aref{三角函数}{eq_HsGeBa_1}，那时，三角函数是放在直角三角形中的。当时还没有理解为什么叫这个名字，它和函数有什么关系，但是在高中的现在，函数意味着什么已经知道了。人们不仅回想起当时在学习时，不论直角边是有多长，只要内角是一定的，那么这两条直角边的比例就是一定的，而这正得到了一个函数关系及每一个角都对应着唯一的比例，这也就是它称为函数的来源。
+
+三角函数一方面与真实存在的几何图案直接相联系，另一方面也与函数的概念相关联，所以它的复杂是生来就注定的，但复杂的内容往往意味着他具有强大的功能，事实上可以用三角函数来表示几乎所有的函数，而这也催生了很重要的一门护理分析他是现代所有电子信息信号等等系统的基础，它沟通了时间与频率。
+
+随着将角度扩展至任意角和弧度制，三角函数的概念也扩大了。不再是如当初那样只能放在一个直角三角形里，人们扩大了它的范畴，但是仍然他还是可以放在直角三角形中去考量的，下面就结合之前已经推广得到的任意角来了解任意角的三角函数的定义，还有前面弧度的变化也使得
+
+\subsection{定义}
+我们取单位圆上一点 $P(u,v)$，令 $OP$ 与 $x$ 轴夹角为 $\alpha$，则 
+\begin{equation}
+\begin{aligned}
+\cos\alpha &= u,\\
+\sin\alpha &= v,\\
+\tan\alpha &= \frac{v}{u}~.
+\end{aligned}
+\end{equation}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/82d1d7f3babb1847.png}
+\caption{如图所示} \label{fig_HsTrFu_3}
+\end{figure}
+易得，正弦函数和余弦函数的\textbf{定义域为全体实数}，正切函数的定义域为 $\begin{Bmatrix}\alpha|\alpha \neq \frac{\pi}{2}+k\pi,k\in Z\end{Bmatrix}~.$
+
+\subsection{性质}
+
+正弦函数、余弦函数、正切函数的都是周期函数，根据定义易得，正弦函数和余弦函数，周期为 $2k\pi(k\in Z,k\neq0)$，正切函数的周期为 $k\pi(k\in Z,k\neq0)$.
+
+\subsection{图像}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/bb986656153a547d.png}
+\caption{正弦函数} \label{fig_HsTrFu_1}
+\end{figure}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/d0ae1e0d9c167f1e.png}
+\caption{余弦函数} \label{fig_HsTrFu_2}
+\end{figure}
+可以看出正弦函数和余弦函数是定义域为 $R$ 值域为 $[-1,1]$ 最小正周期 $T = 2\pi$ 的周期函数。
+
+\subsection{*同角三角函数的基本关系}
+三角函数除以上介绍的三种，还有三种：
+\begin{enumerate}
+\item 正割函数 \textbf{\textsl{sec α}} 
+\begin{equation}
+\sec \alpha = \frac{r}{u}~.
+\end{equation}
+（这里的 “r” 指上文OP的距离）
+\item 余割函数 \textbf{\textsl{csc α}} 
+\begin{equation}
+\csc \alpha = \frac{r}{v}~.
+\end{equation}
+\item 余切函数 \textbf{\textsl{cot α}} 
+\begin{equation}
+\cot \alpha = \frac{u}{v}~.
+\end{equation}
+\end{enumerate}
+了解三种函数后，同角三角函数的基本关系符合以下图示：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/6390d1e662067a9b.png}
+\caption{同角三角函数的基本关系} \label{fig_HsTrFu_4}
+\end{figure}
+\begin{itemize}
+\item 三角函数倒数关系：
+\begin{equation}
+\tan \alpha  \cot \alpha = 1~,
+\end{equation}
+\begin{equation}
+\sin \alpha  \csc \alpha = 1~,
+\end{equation}
+\begin{equation}
+\sec \alpha  \cos \alpha = 1~.
+\end{equation}
+聪明的你可以发现这个关系是六边形的对角线。
+\item 三角函数商数关系：
+\begin{equation}
+\tan \alpha = \frac{\sin \alpha}{\cos \alpha}~,
+\end{equation}
+\begin{equation}
+\cot \alpha = \frac{\cos \alpha}{\sin \alpha}~.
+\end{equation}
+剩下的不做列举
+聪明的你可以发现这个关系是：顶点函数值等于相邻两顶点乘积
+\item 三角函数平方关系：
+\begin{equation}
+\sin ^{2} \alpha + \cos ^{2}\alpha =1~,
+\end{equation}
+\begin{equation}
+\tan  ^{2} \alpha + 1 =\sec ^{2}\alpha~,
+\end{equation}
+\begin{equation}
+1 + \cot ^{2}\alpha =\csc ^{2}\alpha~.
+\end{equation}
+聪明的你可以发现这个关系按照图示颜色三角形进行。
+\end{itemize}
