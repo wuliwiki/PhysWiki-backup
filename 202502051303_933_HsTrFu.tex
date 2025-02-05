@@ -15,28 +15,50 @@
 
 \subsection{任意角下的三角函数}
 
-我们取单位圆上一点 $P(u,v)$，令 $OP$ 与 $x$ 轴夹角为 $\alpha$，则 
-\begin{equation}
-\begin{aligned}
-\cos\alpha &= u,\\
-\sin\alpha &= v,\\
-\tan\alpha &= \frac{v}{u}~.
-\end{aligned}
-\end{equation}
 \begin{figure}[ht]
 \centering
 \includegraphics[width=10cm]{./figures/82d1d7f3babb1847.png}
 \caption{如图所示} \label{fig_HsTrFu_3}
 \end{figure}
+
+我们取单位圆上一点 $P(u,v)$，令 $OP$ 与 $x$ 轴夹角为 $\alpha$，则
+
+\begin{definition}{三角函数}
+\begin{itemize}
+\item \textbf{正弦函数}
+\begin{equation}
+\displaystyle\sin \alpha = v~.
+\end{equation}
+\item \textbf{余弦函数}
+\begin{equation}
+\displaystyle\cos \alpha = u~.
+\end{equation}
+\item \textbf{正切函数}
+\begin{equation}
+\displaystyle\tan \alpha = \frac{v}{u}~.
+\end{equation}
+\end{itemize}
+\end{definition}
+
 易得，正弦函数和余弦函数的\textbf{定义域为全体实数}，正切函数的定义域为 $\begin{Bmatrix}\alpha|\alpha \neq \frac{\pi}{2}+k\pi,k\in Z\end{Bmatrix}~.$
 
 \subsection{*同角三角函数的基本关系}
-三角函数除以上介绍的三种，还包括：
-\begin{definition}{}
-\begin{enumerate}
+三角函数除以上介绍的三种，还包括\footnote{其实还包括两个已经被弃用的概念：
+
+\textbf{正矢（versine）}\begin{equation}
+\mathrm{versin }\alpha=\displaystyle{r-y\over r}~.
+\end{equation}
+
+\textbf{余矢（vercosine）}
+\begin{equation}
+\mathrm{covers }\alpha=\displaystyle{r-x\over r}~.
+\end{equation}
+它们在早期的三角函数表中出现，本意是避免因正弦或余弦值过小造成的误差，但随着计算机的发展，这两个三角函数由于与其他三角函数关系不那么密切逐渐被弃用。}：
+\begin{definition}{三角函数}
+\begin{itemize}
 \item \textbf{余切函数}
 \begin{equation}
-\displaystyle\sec \alpha = \frac{u}{v}~.
+\displaystyle\cot \alpha = \frac{u}{v}~.
 \end{equation}
 \item \textbf{正割函数}
 \begin{equation}
@@ -44,49 +66,61 @@
 \end{equation}
 \item \textbf{余割函数}
 \begin{equation}
-\displaystyle\sec \alpha = \frac{1}{v}~.
+\displaystyle\csc \alpha = \frac{1}{v}~.
 \end{equation}
-\end{enumerate}
+\end{itemize}
 \end{definition}
-了解三种函数后，同角三角函数的基本关系符合以下图示：
+
+根据现在给出的三角函数定义，很容易得到下面三组同角三角函数的恒等关系：
+\begin{itemize}
+\item 倒数关系：
+\begin{equation}\label{eq_HsTrFu_1}
+\begin{split}
+\tan \alpha \cdot \cot \alpha = 1\\
+\sin \alpha \cdot  \csc \alpha = 1\\
+\sec \alpha  \cdot \cos \alpha = 1
+\end{split}~.
+\end{equation}
+\item 乘积关系：
+\begin{equation}\label{eq_HsTrFu_2}
+\begin{split}
+\tan \alpha \cdot\cos \alpha= \sin \alpha\\
+\sin \alpha \cdot\cot \alpha= \cos \alpha\\
+\cos \alpha \cdot\csc \alpha= \cot \alpha\\
+\cot \alpha \cdot\sec \alpha= \csc \alpha\\
+\csc \alpha \cdot\tan \alpha= \sec \alpha\\
+\sec \alpha \cdot\sin \alpha= \tan \alpha\\
+\end{split}~.
+\end{equation}
+\item 平方关系：
+\begin{equation}\label{eq_HsTrFu_3}
+\begin{split}
+\sin ^{2} \alpha + \cos ^{2}\alpha =1\\
+\tan  ^{2} \alpha + 1 =\sec ^{2}\alpha\\
+1 + \cot ^{2}\alpha =\csc ^{2}\alpha\\
+\end{split}~.
+\end{equation}
+\end{itemize}
 \begin{figure}[ht]
 \centering
 \includegraphics[width=12cm]{./figures/6390d1e662067a9b.png}
 \caption{同角三角函数的基本关系} \label{fig_HsTrFu_4}
 \end{figure}
+上面的公式太多了，不好记怎么办？有人总结了如\autoref{fig_HsTrFu_4} 所示的方法来辅助记忆：
 \begin{itemize}
-\item 三角函数倒数关系：
-\begin{equation}
-\tan \alpha  \cot \alpha = 1~,
-\end{equation}
-\begin{equation}
-\sin \alpha  \csc \alpha = 1~,
-\end{equation}
-\begin{equation}
-\sec \alpha  \cos \alpha = 1~.
-\end{equation}
-可以发现这个关系是六边形的对角线。
-\item 三角函数商数关系：
-\begin{equation}
-\tan \alpha = \frac{\sin \alpha}{\cos \alpha}~,
-\end{equation}
-\begin{equation}
-\cot \alpha = \frac{\cos \alpha}{\sin \alpha}~.
-\end{equation}
-剩下的不做列举
-可以发现这个关系是：顶点函数值等于相邻两顶点乘积
-\item 三角函数平方关系：
-\begin{equation}
-\sin ^{2} \alpha + \cos ^{2}\alpha =1~,
-\end{equation}
-\begin{equation}
-\tan  ^{2} \alpha + 1 =\sec ^{2}\alpha~,
-\end{equation}
-\begin{equation}
-1 + \cot ^{2}\alpha =\csc ^{2}\alpha~.
-\end{equation}
-可以发现这个关系按照图示颜色三角形进行。
+\item 六边形对角线上的函数互为倒数。
+\item 六边形顶点上的函数等于相邻两顶点乘积。
+\item 三个倒立的三角（黄色标记）上方两顶点的平方和等于下方顶点。
 \end{itemize}
+
+
+
+而其实，由于高中阶段不涉及$\cot,\sec,\csc$，因此，上面的关系中，常常使用的只有：
+\begin{gather}
+\sin ^{2} \alpha + \cos ^{2}\alpha =1~.\\
+\tan \alpha= \frac{\sin \alpha}{\cos \alpha}~.
+\end{gather}
+前者就是大名鼎鼎的勾股定理，后者则是初中时学习的$\tan\alpha$的定义。
 
 \subsection{三角函数的性质}
 

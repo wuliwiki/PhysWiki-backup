@@ -15,28 +15,40 @@
 
 \subsection{任意角下的三角函数}
 
-我们取单位圆上一点 $P(u,v)$，令 $OP$ 与 $x$ 轴夹角为 $\alpha$，则 
-\begin{equation}
-\begin{aligned}
-\cos\alpha &= u,\\
-\sin\alpha &= v,\\
-\tan\alpha &= \frac{v}{u}~.
-\end{aligned}
-\end{equation}
 \begin{figure}[ht]
 \centering
 \includegraphics[width=10cm]{./figures/82d1d7f3babb1847.png}
 \caption{如图所示} \label{fig_HsTrFu_3}
 \end{figure}
+
+我们取单位圆上一点 $P(u,v)$，令 $OP$ 与 $x$ 轴夹角为 $\alpha$，则
+
+\begin{definition}{}
+\begin{itemize}
+\item \textbf{正弦函数}
+\begin{equation}
+\displaystyle\sin \alpha = v~.
+\end{equation}
+\item \textbf{余弦函数}
+\begin{equation}
+\displaystyle\cos \alpha = u~.
+\end{equation}
+\item \textbf{正切函数}
+\begin{equation}
+\displaystyle\tan \alpha = \frac{v}{u}~.
+\end{equation}
+\end{itemize}
+\end{definition}
+
 易得，正弦函数和余弦函数的\textbf{定义域为全体实数}，正切函数的定义域为 $\begin{Bmatrix}\alpha|\alpha \neq \frac{\pi}{2}+k\pi,k\in Z\end{Bmatrix}~.$
 
 \subsection{*同角三角函数的基本关系}
-三角函数除以上介绍的三种，还包括：
+三角函数除以上介绍的三种，还包括\footnote{其实还包括两个已经被弃用的概念，\textbf{正矢}$\mathrm{versin }\alpha={r-y\over r}$和\textbf{余矢}$\mathrm{covers }\alpha={r-x\over r}$}：
 \begin{definition}{}
-\begin{enumerate}
+\begin{itemize}
 \item \textbf{余切函数}
 \begin{equation}
-\displaystyle\sec \alpha = \frac{u}{v}~.
+\displaystyle\cot \alpha = \frac{u}{v}~.
 \end{equation}
 \item \textbf{正割函数}
 \begin{equation}
@@ -44,38 +56,32 @@
 \end{equation}
 \item \textbf{余割函数}
 \begin{equation}
-\displaystyle\sec \alpha = \frac{1}{v}~.
+\displaystyle\csc \alpha = \frac{1}{v}~.
 \end{equation}
-\end{enumerate}
+\end{itemize}
 \end{definition}
-了解三种函数后，同角三角函数的基本关系符合以下图示：
-\begin{figure}[ht]
-\centering
-\includegraphics[width=12cm]{./figures/6390d1e662067a9b.png}
-\caption{同角三角函数的基本关系} \label{fig_HsTrFu_4}
-\end{figure}
+三角函数满足如下关系
 \begin{itemize}
-\item 三角函数倒数关系：
+\item 倒数关系：
 \begin{equation}
-\tan \alpha  \cot \alpha = 1~,
+\begin{split}
+\tan \alpha \cdot \cot \alpha = 1\\
+\sin \alpha \cdot  \csc \alpha = 1\\
+\sec \alpha  \cdot \cos \alpha = 1
+\end{split}~.
 \end{equation}
+\item 乘积关系：
 \begin{equation}
-\sin \alpha  \csc \alpha = 1~,
+\begin{split}
+\tan \alpha \cdot\cos \alpha= \sin \alpha\\
+\sin \alpha \cdot\cot \alpha= \cos \alpha\\
+\cos \alpha \cdot\csc \alpha= \cot \alpha\\
+\cot \alpha \cdot\sec \alpha= \csc \alpha\\
+\csc \alpha \cdot\tan \alpha= \sec \alpha\\
+\sec \alpha \cdot\sin \alpha= \tan \alpha\\
+\end{split}~.
 \end{equation}
-\begin{equation}
-\sec \alpha  \cos \alpha = 1~.
-\end{equation}
-可以发现这个关系是六边形的对角线。
-\item 三角函数商数关系：
-\begin{equation}
-\tan \alpha = \frac{\sin \alpha}{\cos \alpha}~,
-\end{equation}
-\begin{equation}
-\cot \alpha = \frac{\cos \alpha}{\sin \alpha}~.
-\end{equation}
-剩下的不做列举
-可以发现这个关系是：顶点函数值等于相邻两顶点乘积
-\item 三角函数平方关系：
+\item 平方关系：
 \begin{equation}
 \sin ^{2} \alpha + \cos ^{2}\alpha =1~,
 \end{equation}
@@ -85,9 +91,16 @@
 \begin{equation}
 1 + \cot ^{2}\alpha =\csc ^{2}\alpha~.
 \end{equation}
-可以发现这个关系按照图示颜色三角形进行。
 \end{itemize}
-
+了解三种函数后，同角三角函数的基本关系符合以下图示：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=12cm]{./figures/6390d1e662067a9b.png}
+\caption{同角三角函数的基本关系} \label{fig_HsTrFu_4}
+\end{figure}
+可以发现这个关系是六边形的对角线。剩下的不做列举
+可以发现这个关系是：顶点函数值等于相邻两顶点乘积
+可以发现这个关系按照图示颜色三角形进行。
 \subsection{三角函数的性质}
 
 \subsubsection{周期性}
