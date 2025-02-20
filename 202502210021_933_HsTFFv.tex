@@ -1,0 +1,71 @@
+% 函数视角下的三角函数（高中）
+% keys 函数|三角函数|周期|性质
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{三角函数\nref{nod_HsTrFu}，函数\nref{nod_functi}，函数的性质\nref{nod_HsFunC}，导数\nref{nod_HsDerv}}{nod_5a43}
+
+在前面的内容中，已经接触过三角函数的定义，并基于这些定义推导出了诱导公式及同角三角函数之间的关系。这些推导主要依赖于任意角和三角函数的几何定义。然而，三角函数不仅仅是几何分析的工具，它们本质上也是一种函数，并具备一般函数的基本性质，如周期性、单调性和对称性。因此，本文将从函数的角度进一步分析三角函数，考察它们的性质、图像、变化趋势等。需要注意的是，这些视角本质上是等价的，它们都在描述同一数学对象。无论是几何定义还是函数分析，最终指向的都是相同的数学结构。这种多重视角的统一性，正是三角函数作为数学工具的强大之处。它不仅能够通过直观的几何形式展现对称性和变换规律，也能在函数的框架下揭示更广泛的性质，为各种数学应用提供坚实的基础。
+
+另外，在三角函数的介绍中，有一个广为流传的动画：一个点在单位圆上运动，表示角度的变化，同时，在单位圆的右侧和上侧，将角度与对应的线段长度映射到另一坐标系，从而自然引出各个三角函数的图像。尽管这种动画能够直观展示三角函数的变化过程，更理想的方式是能够在脑海中主动演练这一过程。看到函数图像时，能够自动联想到单位圆上的点如何旋转；反之，观察圆周运动时，能够迅速在脑海中构建出相应的函数图像。这种能力不仅有助于理解三角函数的本质，也将在更深入的数学学习中提供帮助。本文内容主要关注正弦、余弦与正切函数，其余三角函数由于与它们存在倒数关系，将适当涉及，但不会展开详细推导。
+
+\subsection{定义域与值域}
+
+由于三角函数的自变量是任意角，所以理论上所有三角函数的定义域都应该是实数域，然而在讨论三角函数的集合含义时曾经\aref{提及}{eq_HsTrFu_13}过，$\tan x$在$\displaystyle x\in\{x|x=\frac{\pi}{2}+k\pi,(k\in\mathbb{Z})\}$时无意义，因此：
+\begin{itemize}
+\item $\sin x,\cos x$的定义域为$\mathbb{R}$；
+\item $\tan x,\sec x$的定义域为$\displaystyle\{x|x\neq\frac{\pi}{2}+2k\pi,k\in\mathbb{Z}\}$；
+\item $\cot x,\csc x$的定义域为$\displaystyle\{x|x\neq k\pi,k\in\mathbb{Z}\}$。
+\end{itemize}
+
+关于值域，正弦和余弦对应的都是单位圆上的横纵坐标，显然范围是在$[-1,1]$。而$\tan x$的分析稍微麻烦一些。根据几何定义中正切所对应的线段，参见锐角情况下三角函数的\aref{几何示意图}{fig_HsTrFu_1}，$X_0$作为线段的一个端点是固定的，线段的长度取决于另一个端点。现在分析$\displaystyle x\in[0,{\pi\over2})$的情况，当角的终边与$x$轴重合时，显然线段的两个端点也重合，此时长度为$0$，随着$x$逐渐变大，$T$点逐渐向上移动，直到$x={\pi\over2}$时，二者平行无交点，其余情况下可以取到直线$x=1$在第一象限中的所有点。根据诱导公式和对称性，$\tan (-x)=-\tan x$，因此$\displaystyle x\in(-{\pi\over2},0]$时能够取到直线$x=1$在第四象限中的所有点。综合而言，$\displaystyle x\in(-{\pi\over2},0]{\pi\over2})$
+
+这一点也可以由极限分析得到\footnote{注意下面的分析比较严谨，但在高中阶段不要求。}，由于 $\cos x$在$\tan x={\sin x\over\cos x}$的分母上，而当 $x \to \frac{\pi}{2}$时，$\sin x $始终保持趋近$1$，为正值。因此需要研究 $\cos x$ 在 $\frac{\pi}{2}$ 附近的变化。当 $x \to \frac{\pi}{2}^-$（即 $x$ 从左侧逼近 $\frac{\pi}{2}$，或者说$x$是第一象限角）时，$\cos x$ 逐渐趋近于 $0$ 且 $\cos x > 0$。因此， $\tan x$ 迅速增大，趋于 $+\infty$。类似地，当 $x \to \frac{\pi}{2}^+$（即 $x$ 从右侧逼近 $\frac{\pi}{2}$，或者说$x$是第二象限角），$\cos x$ 依然趋向 $0$，但此时 $\cos x < 0$。所以 $\tan x$ 迅速变小，趋向 $-\infty$，根据诱导公式，$\tan x=\tan(x-\pi)$，因此，当$x \to -\frac{\pi}{2}^+$时，$\tan x$ 趋向 $-\infty$。而根据前面的分析$\tan x$ 在 $(-\frac{\pi}{2}, \frac{\pi}{2})$ 内是 严格递增的，所以$\tan x$ 必然遍历整个 $\mathbb{R}$，即它的值域是 $\mathbb{R}$。
+
+3. 解释 $\tan x$ 在 $(-\frac{\pi}{2}, \frac{\pi}{2})$ 内覆盖 $\mathbb{R}$
+	•	：
+$$
+(\tan x)' = \sec^2 x > 0~.
+$$
+说明它是单调函数，不会有间断的跳跃值。
+	•	$\tan x$ 在这个区间的极限行为表明：
+$$
+\lim\limits_{x \to -\frac{\pi}{2}^+} \tan x = -\infty, \quad \lim\limits_{x \to \frac{\pi}{2}^-} \tan x = +\infty~.
+$$
+	•	既然 $\tan x$ 是单调递增的，并且极限可以分别趋近于 $-\infty$ 和 $+\infty$，那么在 $(-\frac{\pi}{2}, \frac{\pi}{2})$ 内，
+
+\subsection{周期性}
+
+正弦函数、余弦函数、正切函数的都是周期函数，根据定义易得，正弦函数和余弦函数，周期为 $2k\pi(k\in Z,k\neq0)$，正切函数的周期为 $k\pi(k\in Z,k\neq0)$.
+
+
+\subsection{图像}
+根据前面的推导，可以得到基本三角函数的图像如下图。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/14fd66d8d1e6e0b5.png}
+\caption{$\sin x$和$\cos x$} \label{fig_HsTFFv_1}
+\end{figure}
+可以看出正弦函数和余弦函数是定义域为 $R$ 值域为 $[-1,1]$ 最小正周期 $T = 2\pi$ 的周期函数。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/6f97182187b36e36.png}
+\caption{$\tan x$和$\cot x$} \label{fig_HsTFFv_3}
+\end{figure}
+
+作为扩展，下面也给出正割函数与余割函数的函数图像，他们的性质均可通过与正弦和余弦的关系分析得到，此处不予赘述。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/56f93ee1a7fb0faa.png}
+\caption{$\sec x$和$\csc x$} \label{fig_HsTFFv_2}
+\end{figure}
+
+\subsection{从三角函数推广得到的其他三角函数}
+
+\subsection{导数}
