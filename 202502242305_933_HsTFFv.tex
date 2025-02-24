@@ -1,0 +1,431 @@
+% 函数视角下的三角函数（高中）
+% keys 函数|三角函数|周期|性质
+% license Usr
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{三角函数\nref{nod_HsTrFu}，函数\nref{nod_functi}，函数的性质\nref{nod_HsFunC}，导数的计算\nref{nod_HsDerB}}{nod_5a43}
+
+在前面的内容中，已经接触过三角函数的定义，并基于这些定义推导出了诱导公式及同角三角函数之间的关系。这些推导主要依赖于任意角和三角函数的几何定义。然而，三角函数不仅仅是几何分析的工具，它们本质上也是一种函数，并具备一般函数的基本性质，如周期性、单调性和对称性。因此，本文将从函数的角度进一步分析三角函数，考察它们的性质、图像、变化趋势等。需要注意的是，这些视角本质上是等价的，它们都在描述同一数学对象。无论是几何定义还是函数分析，最终指向的都是相同的数学结构。这种多重视角的统一性，正是三角函数作为数学工具的强大之处。它不仅能够通过直观的几何形式展现对称性和变换规律，也能在函数的框架下揭示更广泛的性质，为各种数学应用提供坚实的基础。
+
+另外，在三角函数的介绍中，有一个广为流传的动画：一个点在单位圆上运动，表示角度的变化，同时，在单位圆的右侧和上侧，将角度与对应的线段长度映射到另一坐标系，从而自然引出各个三角函数的图像。尽管这种动画能够直观展示三角函数的变化过程，更理想的方式是能够在脑海中主动演练这一过程。看到函数图像时，能够自动联想到单位圆上的点如何旋转；反之，观察圆周运动时，能够迅速在脑海中构建出相应的函数图像。这种能力不仅有助于理解三角函数的本质，也将在更深入的数学学习中提供帮助。本文内容主要关注正弦、余弦与正切函数，其余三角函数由于与它们存在倒数关系，将适当涉及，但不会展开详细推导。
+
+\subsection{三角函数的性质}
+
+按照之前分析其他函数的思路，仍旧要先讨论三角函数的性质，并在此基础上推导它们的图像。不过下面的分析过程，并未按照之前熟悉的顺序进行，而是基于定义及已研究的恒等关系，利用这些内容快速得出相关性质。事实上，由于函数的关系是确定的，因此在研究其性质时，可以根据分析的难易程度安排顺序，而不必拘泥于固定的讨论方式。
+
+\subsubsection{定义域}
+
+由于三角函数的自变量是任意角，因此理论上，它们的定义域应覆盖整个实数集。然而，在之前的讨论中\aref{提及}{eq_HsTrFu_13}过，某些三角函数在特定角度下无意义。例如，$\tan x$ 在 $\displaystyle x=\frac{\pi}{2}+k\pi, (k\in\mathbb{Z})$ 处没有定义。类似地，其他三角函数也存在某些不可取值的点。
+
+综上所述：
+\begin{itemize}
+\item $\sin x,\cos x$ 的定义域为 $\mathbb{R}$；
+\item $\tan x,\sec x$ 的定义域为 $\displaystyle\{x|x\neq\frac{\pi}{2}+k\pi,k\in\mathbb{Z}\}$，或写作$\displaystyle\{x|x\neq(2k+1)\frac{\pi}{2},k\in\mathbb{Z}\}$，即 $x$ 不能取 $\displaystyle\frac{\pi}{2}$ 的奇数倍；
+\item $\cot x,\csc x$ 的定义域为 $\displaystyle\{x|x\neq k\pi,k\in\mathbb{Z}\}$，即 $x$ 不能取 $\pi$ 的整数倍。
+\end{itemize}
+
+\subsubsection{零点}
+
+根据三角函数的定义，正弦函数和正切函数的零点出现在角 $x$ 的终边与 $x$ 轴重合的情况。按照弧度的定义，这对应于 $x = 0+2k\pi$ 和 $x = \pi+2k\pi$，合并后可得， $\sin x$ 和 $\tan x$ 的零点为：
+\begin{equation}\label{eq_HsTFFv_1}
+x = k\pi, \qquad (k\in\mathbb{Z})~.
+\end{equation}
+这里值得注意的是，$\pi$ 可以通过正弦函数的零点来定义，即将$\pi$定义为满足 $\sin x = 0$ 且 $x > 0$ 的最小实数 $x$。传统上，$\pi$ 被定义为圆的周长与直径之比，但这种定义依赖于欧几里得几何，当推广到更一般的数学体系时，便自然地可能引起循环定义问题。通过正弦函数的零点定义 $\pi$，则完全基于分析学框架，避免了对几何直觉的依赖，具有更强的可追溯性，而使其在更广泛的数学背景下都能成立。
+
+类似地，余弦函数和余切函数的零点出现在角 $x$ 的终边与 $y$ 轴重合的情况。对应的角度分别为 $\displaystyle{\frac{\pi}{2}} + 2k\pi$ 和 $\displaystyle{\frac{3\pi}{2}} + 2k\pi$，合并后可得 $\cos x$ 和 $\cot x$ 的零点为：
+\begin{equation}
+x = \frac{\pi}{2} + k\pi, \qquad (k\in\mathbb{Z})~.
+\end{equation}
+
+另一方面，由于 $\sec x$ 和 $\csc x$ 可理解为单位圆外某点到原点的连线长度，因此它们的值最小为 $1$，不会取到零值，即 $\sec x$ 和 $\csc x$ 不存在零点。
+
+综上所述：
+\begin{itemize}
+\item $\sin x, \tan x$ 的零点为 $x = k\pi, (k\in\mathbb{Z})$；
+\item $\cos x, \cot x$ 的零点为$\displaystyle x = \frac{\pi}{2} + k\pi, (k\in\mathbb{Z})$；
+\item $\sec x, \csc x$没有零点。
+\end{itemize}
+
+值得注意的是，三角函数的零点和奇异点（即定义域中无法取到的点）与其周期性、对称性存在紧密联系。而这些特殊点也都出现在终边与坐标轴重合的情况下，即不是象限角所限定的范围。
+
+\subsubsection{周期性}
+
+根据\aref{之前的分析}{sub_HsTrFu_1}，所有的三角函数都是周期函数，并且 $2\pi$ 是它们的一个周期。下面将分析 $2\pi$ 是否是它们的最小正周期。
+
+对于 $\sin x$，设 $T$ 是其最小正周期，则根据周期函数的\aref{定义}{def_HsFunC_6}，满足：
+\begin{equation}\label{eq_HsTFFv_2}
+\sin (T+x) = \sin x~.
+\end{equation}
+取 $x=0$，得到 $\sin T = \sin 0$。由于 $x=0$ 是 $\sin x$ 的一个零点，因此 $T$ 也必然是$\sin x$\aref{的一个零点}{eq_HsTFFv_1}。若 $T<2\pi$，则 $T=\pi$，但根据诱导公式 $\sin(\pi + x) = -\sin x$，可得：
+\begin{equation}\label{eq_HsTFFv_3}
+\sin (T + x) = -\sin x~.
+\end{equation}
+结合 \autoref{eq_HsTFFv_2} 和 \autoref{eq_HsTFFv_3}，若 $T=\pi$，则要求 $\sin x$ 恒等于零，与实际情况矛盾。因此，$\sin x$ 的最小正周期是$T = 2\pi$。
+
+对于 $\cos x$，同理，取 $\displaystyle x=\frac{\pi}{2}$ 代入类似的推导，也可以得出 $\cos x$ 的最小正周期为 $2\pi$。由于 $\sec x$ 和 $\csc x$ 分别是 $\cos x$ 和 $\sin x$ 的倒数，而$\displaystyle y={1\over x}$在定义域上都是单调的，也即存在一一映射，因此它们也具有相同的最小正周期。
+
+对于 $\tan x$，根据诱导公式$\tan (\pi + x) = \tan x$可知 $\pi$ 是其一个周期，这和之前的正弦和余弦的情况不同。设 $T$ 是 $\tan x$ 的最小正周期，则：
+\begin{equation}
+\tan (T + x) = \tan x~.
+\end{equation}
+取 $x=0$，可知 $T$ 必然是 $\tan x$ 的零点。而根据 \autoref{eq_HsTFFv_1}，$\tan x$ 不存在比$\pi$还小的零点，因此 $\tan x$ 的最小正周期为$T = \pi$。同理，由于 $\cot x$ 是 $\tan x$ 的倒数，它的最小正周期也为$T = \pi$。
+
+综上所述：
+\begin{itemize}
+\item $\sin x, \cos x, \sec x, \csc x$ 的最小正周期为 $\displaystyle 2\pi$；
+\item $\tan x, \cot x$ 的最小正周期为 $\pi$。
+\end{itemize}
+
+\subsubsection{导数及单调性}
+
+在直观理解下，可以从几何视角直接观察三角函数的单调性，这也是高中教材常采用的方法。对于角$x\in(0,2\pi)$的情况，单位圆上的点 $P$ 的横坐标表示 $\cos x$，纵坐标表示 $\sin x$。当 $x$ 处于上半平面（$0 < x < \pi$）时，随着 $x$ 增加，$P$ 的横坐标从 $1$ 变化到 $-1$，即 $\cos x$ 递减；而在下半平面（$\pi < x < 2\pi$）时，$P$ 的横坐标从 $-1$ 变化到 $1$，即 $\cos x$ 递增。综上，结合周期性可知：
+\begin{itemize}
+\item 在 $0 + 2k\pi < x < \pi + 2k\pi$ 内，$\cos x$ 递减。
+\item 在 $\pi + 2k\pi < x < 2\pi + 2k\pi$ 内，$\cos x$ 递增。
+\end{itemize}
+同理，$\sin x$ 和 $\tan x$ 的单调性也可以用类似方式观察。
+
+尽管这种方法直观，但要严格证明三角函数的单调性，需要借助更严谨的数学工具。一般而言，可以利用单调性的定义，即分析函数在不同点的函数值差的符号。然而，由于三角函数的非线性特性，直接计算并判断符号较为复杂。幸运的是，在此前的学习中，已介绍过三角函数的导数。接下来，将基于\aref{$\sin x$的导数}{eq_HsDerB_4}、\aref{$\cos x$的导数}{eq_HsDerB_5}、\aref{$\tan x$的导数}{eq_HsDerB_6} 来严格证明其单调性。另外，由于判定单调性需要分析导数的符号，而此前已经讨论过\aref{三角函数在各个象限的符号}{fig_HsTrFu_6}，这一结论将在后续推导中作为重要的参考。
+
+由于 $(\sin x)' = \cos x$，结合 $\cos x$ 在不同象限的符号，可得：
+\begin{itemize}
+\item 当 $x$ 位于右半平面（即第一、第四象限，$\displaystyle x \in (-\frac{\pi}{2} + k\pi, \frac{\pi}{2} + k\pi), k \in \mathbb{Z}$）时，$\cos x > 0$，故 $\sin x$ 递增。
+\item 当 $x$ 位于左半平面（即第二、第三象限，$\displaystyle x \in (\frac{\pi}{2} + k\pi, \frac{3\pi}{2} + k\pi), k \in \mathbb{Z}$）时，$\cos x < 0$，故 $\sin x$ 递减。
+\end{itemize}
+
+同理，$(\cos x)' = -\sin x$，结合 $\sin x$ 在不同象限的符号，可得：
+\begin{itemize}
+\item 当 $x$ 位于上半平面（即第一、第二象限，$x \in (0 + k2\pi, \pi + k2\pi), k \in \mathbb{Z}$）时，$-\sin x < 0$，故 $\cos x$ 递减。
+\item 当 $x$ 位于下半平面（即第三、第四象限，$x \in (\pi + k2\pi, 2\pi + k2\pi), k \in \mathbb{Z}$）时，$-\sin x > 0$，故 $\cos x$ 递增。
+\end{itemize}
+
+而 $(\tan x)' = \sec^2 x$，由于 $\sec x$ 在其定义域内无零点，故 $\sec^2 x > 0$ 恒成立。这表明 $\tan x$ 在每个连续区间，即$\displaystyle(-\frac{\pi}{2} +k\pi, \frac{\pi}{2} +k\pi), k \in \mathbb{Z}$，上严格递增。然而，需要注意的是，导数恒为正只能保证函数在各个连续区间内递增，但因为 $\tan x$ 存在间断点，所以不能直接推出在整个定义域内任取两个点都满足递增关系。
+
+以下是其余三个三角函数的导数及其单调性：
+
+\begin{itemize}
+\item $(\cot x)' = -\csc^2 x$。
+\item $\cot x$ 在其定义域的连续区间，即$(k\pi, (k+1)\pi), k \in \mathbb{Z}$，上递减。
+\item $(\sec x)' = \sec x \tan x$。
+\item $\sec x$ 在 $\displaystyle\left(-\pi + 2k\pi, -\frac{\pi}{2} +2k\pi\right), k \in \mathbb{Z}$ 和$\displaystyle\left(-\frac{\pi}{2} + 2k\pi, 2k\pi\right), k \in \mathbb{Z}$ 上递减
+\item $\sec x$ 在 $\displaystyle\left(2k\pi,\frac{\pi}{2} + 2k\pi\right), k \in \mathbb{Z}$和$\displaystyle\left(\frac{\pi}{2}  + 2k\pi, \pi+2k\pi\right), k \in \mathbb{Z}$上递增。
+\item $(\csc x)' = -\csc x \cot x$。
+\item $\csc x$ 在$\displaystyle\left(-\frac{\pi}{2} + 2k\pi, 2k\pi\right), k \in \mathbb{Z}$和$\displaystyle\left(2k\pi,\frac{\pi}{2} + 2k\pi\right), k \in \mathbb{Z}$上递减 。
+\item $\csc x$ 在$\displaystyle\left(-\pi + 2k\pi, -\frac{\pi}{2} +2k\pi\right), k \in \mathbb{Z}$ 和$\displaystyle\left(\frac{\pi}{2}  + 2k\pi, \pi+2k\pi\right), k \in \mathbb{Z}$上递增。
+\end{itemize}
+
+\subsubsection{奇偶性及对称性}
+
+由于诱导公式本身是研究三角函数对称性的工具，并且在此前已经进行了深入分析，因此可以直接结合诱导公式和周期性来确定三角函数的奇偶性和对称性。根据\aref{诱导公式}{eq_HsTrFu_14}、奇偶性的\aref{定义}{def_HsFunC_7}以及三角函数的倒数关系可知：
+\begin{itemize}
+\item $\sin x$ 和 $\tan x$ 满足 $f(-x) = -f(x)$，因此它们是奇函数。
+\item $\cos x$ 满足 $f(-x) = f(x)$，因此它是偶函数。
+\item $\csc x$ 和 $\cot x$ 由于与 $\sin x$ 和 $\tan x$ 具有相同的符号变化特性，因此也是奇函数；
+\item $\sec x$ 由于与 $\cos x$ 具有相同的符号变化特性，因此是偶函数。
+\end{itemize}
+
+从三角函数的奇偶性可以直接推得：
+\begin{itemize}
+\item $\cos x$ 和 $\sec x$的对称轴为 $x=0$。
+\item $\sin x,\tan x,\csc x,\cot x$的对称中心为 $(0,0)$。
+\end{itemize}
+然而，对称性不仅限于此。根据\aref{诱导公式}{eq_HsTrFu_16}：
+\begin{equation}
+\cos(x+\pi) = -\cos x,\quad\sin(x+\pi) = -\sin x~.
+\end{equation}
+这意味着：
+\begin{itemize}
+\item $\cos x$ 左移 $\pi$ 个单位变为 $-\cos x$，而 $-\cos x$ 仍是偶函数，因此 $x=\pi$ 也是 $\cos x$ 的对称轴。
+\item $\sin x$ 左移 $\pi$ 个单位变为 $-\sin x$，而 $-\sin x$ 仍是奇函数，因此 $(\pi,0)$ 也是 $\sin x$ 的对称中心。
+\end{itemize}
+
+再考虑\aref{诱导公式}{eq_HsTrFu_14}：
+\begin{equation}
+\sin(x+\frac{\pi}{2}) = \cos x~.
+\end{equation}
+这表明：
+\begin{itemize}
+\item $\sin x$ 左移 $\displaystyle\frac{\pi}{2}$ 变为 $\cos x$，所以 $\sin x$ 具有对称轴 $\displaystyle x=\frac{\pi}{2}$ 和 $\displaystyle x=\frac{3}{2}\pi$。
+\item 反之，$\cos x$ 右移 $\displaystyle\frac{\pi}{2}$ 变为 $\sin x$，因此 $\cos x$ 的对称中心为 $\displaystyle\left(-\frac{\pi}{2},0\right)$ 和 $\displaystyle\left(\frac{\pi}{2},0\right)$。
+\end{itemize} 
+
+对于 $\tan x$ 和 $\cot x$，它们是奇函数，并且在一个周期内保持单调递增或递减，因此不会存在对称轴。但根据\aref{诱导公式}{eq_HsTrFu_14}：
+\begin{equation}
+\tan(x+\frac{\pi}{2}) = -\cot x~.
+\end{equation}
+这意味着：
+\begin{itemize}
+\item $\tan x$ 左移 $\displaystyle\frac{\pi}{2}$ 变为 $-\cot x$，而 $-\cot x$ 仍是奇函数，因此 $\displaystyle\left(\frac{\pi}{2},0\right)$ 也是 $\tan x$ 的对称中心；
+\item 同理，$\displaystyle\left(-\frac{\pi}{2},0\right)$ 也是 $\cot x$ 的对称中心。
+\end{itemize}
+值得注意的是，类似于 $\displaystyle y=\frac{1}{x}$ 在 $x=0$ 处的情况，$\displaystyle x=\frac{\pi}{2}$ 并不属于 $\tan x$ 的定义域，而这也使得这个对称中心容易被忽略。
+
+上面分析的都是一个周期内的情况，由于三角函数具有周期性，其对称中心和对称轴会随周期性重复，取$k\in\in\mathbb{Z}$，可以总结如下：
+\begin{itemize}
+\item $\sin x$ 是奇函数，对称中心为 $(k\pi,0)$，对称轴为 $x = \displaystyle\frac{\pi}{2} + k\pi$。
+\item $\cos x$ 是偶函数，对称中心为 $\displaystyle \left(\frac{\pi}{2} + k\pi,0\right)$。对称轴为 $x = k\pi$。
+\item $\tan x$ 是奇函数，对称中心为$\displaystyle \left(\frac{k}{2}\pi ,0\right)$，无对称轴。
+\item $\cot x$ 是奇函数，对称中心为$\displaystyle \left(\frac{k}{2}\pi ,0\right)$，无对称轴。
+\item $\sec x$ 是偶函数\footnote{这里可以通过倒数关系来推知。}，对称中心为 $\displaystyle \left(\frac{\pi}{2} + k\pi,0\right)$。对称轴为 $x = k\pi$。
+\item $\csc x$ 是奇函数，对称中心为 $(k\pi,0)$，对称轴为 $x = \displaystyle\frac{\pi}{2} + k\pi$。
+\end{itemize}
+
+这些对称关系都是从诱导公式推出来的，而本质上与诱导公式一样，这些对称关系来源于单位圆的对称性，这也解释了为什么它们的对称中心和对称轴如此规整。
+
+\subsubsection{值域}
+
+正弦和余弦函数的值域相对直观，它们对应于单位圆上点的纵坐标和横坐标，因此取值范围显然是 $[-1,1]$。
+
+相比之下，正切函数的值域分析稍显复杂。根据几何定义，在锐角情况下，正切函数对应的线段长度受终边位置影响。参见\aref{几何示意图}{fig_HsTrFu_1}，线段的一端是固定点 $X_0$ ，而长度取决于另一端$T$的移动情况。分析 $\displaystyle x\in\left[0,\frac{\pi}{2}\right)$ 时的情形：
+\begin{itemize}
+\item 当 $x=0$ 时，角的终边与 $x$ 轴重合，线段两个端点也重合，长度为 $0$；
+\item 随着 $x$ 增大，终边与 $x$ 轴夹角增加，点 $T$ 沿着单位圆向上移动，可以取到直线$x=1$在第一象限中的所有点，使得对应的线段长度不断增加；
+\item 当 $\displaystyle x=\frac{\pi}{2}$ 时，终边与 $y$ 轴重合，二者平行无交点。
+\end{itemize}
+同理，利用对称性，由 $\tan(-x) = -\tan x$ 可知，$\displaystyle x\in\left(-{\pi\over2},0\right]$ 时，正切函数的取值是第四象限中对应的所有点。综上所述，$\tan x$ 在 $\displaystyle \left(-\frac{\pi}{2},\frac{\pi}{2}\right)$ 内可以遍历所有实数。
+
+尽管下述分析在高中阶段不作要求，但更严谨的证明方法是通过极限分析。由于 $\tan x$ 在每个连续区间上单调递增，结合其周期性，只需分析 $\displaystyle x\in\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$ 端点处的行为即可。利用 $\displaystyle \tan x = \frac{\sin x}{\cos x}$ 进行分析：
+
+\begin{itemize}
+\item 当 $\displaystyle x \to \frac{\pi}{2}^-$（即 $x$ 从左侧逼近 $\displaystyle \frac{\pi}{2}$）时，$\cos x$ 逐渐趋近于 $0$ 且 $\cos x > 0$，而 $\sin x > 0$，因此 $\tan x$ 趋向 $+\infty$。
+\item 当 $\displaystyle x \to -\frac{\pi}{2}^+$（即 $x$ 从右侧逼近 $\displaystyle -\frac{\pi}{2}$）时，$\cos x$ 逐渐趋近于 $0$ 且 $\cos x > 0$，而 $\sin x < 0$，因此 $\tan x$ 趋向 $-\infty$。
+\end{itemize}
+
+因此，$\tan x$ 必然遍历整个 $\mathbb{R}$，即其值域为 $\mathbb{R}$。
+
+其余三个三角函数的值域如下：
+\begin{itemize}
+\item $\cot x$ 的值域为 $\mathbb{R}$。
+\item $\sec x$和$\csc x$的值域为 $(-\infty, -1] \cup [1, +\infty)$。
+\item $\csc x$ 的值域为 $(-\infty, -1] \cup [1, +\infty)$。
+\end{itemize}
+
+\subsection{三角函数的图像}
+
+相信通过前面的分析，读者不仅对各个三角函数的性质有了更深入的认识，还理解了某些特殊 $x$ 取值（即与 $\displaystyle\pi\over2$、$\pi$、$2\pi$ 相关的值）的意义，以及“正”与“余”的命名方式和弦、切、割之间的关系。在这些性质的基础上，读者应该已经能够大致想象出三角函数的图像形态。接下来，将具体给出每个基本三角函数的图像，以便更直观地理解其变化规律。另外，各个函数的图像有各自的名称，例如，$f(x) = \sin x$ 的图像被称为\textbf{正弦曲线（sine curve）}，其他依此类推。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/14fd66d8d1e6e0b5.png}
+\caption{$\sin x$和$\cos x$} \label{fig_HsTFFv_1}
+\end{figure}
+
+可以看到，这两个函数的图像具有相同的形态，唯一的区别是相对位置。从图像上看，$\cos x$ 可以通过将 $\sin x$ 向左平移 $\displaystyle{\pi\over2}$ 个单位得到。这一性质来源于诱导公式 $\displaystyle\sin(x + {\pi\over2}) = \cos x$，表明正弦函数与余弦函数之间存在相位差 $\displaystyle{\pi\over2}$，后文将对\textbf{相位（phase）}进行进一步讨论。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/6f97182187b36e36.png}
+\caption{$\tan x$和$\cot x$} \label{fig_HsTFFv_3}
+\end{figure}
+
+作为扩展，下面也给出正割函数与余割函数的函数图像。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/56f93ee1a7fb0faa.png}
+\caption{$\sec x$和$\csc x$} \label{fig_HsTFFv_2}
+\end{figure}
+
+基于函数图像，可以直观地读取某些特定角度的三角函数值。\autoref{tab_HsTFFv1} 列出了常用的三角函数值，其中包括的都是常见的解析值，即可以用根式或分数形式准确表示的数值。在高中阶段，通常只考察前四列的值，这些值全部可以通过三角函数的\enref{恒等式}{HsAnTf}推导得到。
+
+\begin{table}[ht]
+\centering
+\caption{常用的三角函数值}\label{tab_HsTFFv1}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$x$  & $\sin x$ & $\cos x$ & $\tan x$ & $\cot x$& $\sec x$ & $\csc x$  \\
+\hline
+$0$ & $0$ & $1$ & $0$ &- & $1$ &-\\
+\hline
+$\displaystyle\frac{\pi}{12}$ & $\displaystyle\frac{\sqrt{6} - \sqrt{2}}{4}$ & $\displaystyle\frac{\sqrt{6} + \sqrt{2}}{4}$ & $2 - \sqrt{3}$ & $2 + \sqrt{3}$ & $\sqrt{6} - \sqrt{2}$ & $\sqrt{6} + \sqrt{2}$\\
+\hline
+$\displaystyle\frac{\pi}{6}$ & $\displaystyle\frac{1}{2}$ & $\displaystyle\frac{\sqrt{3}}{2}$ & $\displaystyle\frac{\sqrt{3}}{3}$ & $\sqrt{3}$ & $\displaystyle\frac{2}{\sqrt{3}}$ & $2$ \\
+\hline
+$\displaystyle\frac{\pi}{4}$ & $\displaystyle\frac{\sqrt{2}}{2}$ & $\displaystyle\frac{\sqrt{2}}{2}$ & $1$ & $1$ & $\sqrt{2}$ & $\sqrt{2}$ \\
+\hline
+$\displaystyle\frac{\pi}{3}$ & $\displaystyle\frac{\sqrt{3}}{2}$ & $\displaystyle\frac{1}{2}$ & $\sqrt{3}$ & $\displaystyle\frac{\sqrt{3}}{3}$ & $2$ & $\displaystyle\frac{2}{\sqrt{3}}$ \\
+\hline
+$\displaystyle\frac{5\pi}{12}$ & $\displaystyle\frac{\sqrt{6} + \sqrt{2}}{4}$ & $\displaystyle\frac{\sqrt{6} - \sqrt{2}}{4}$ & $2 + \sqrt{3}$ & $2 - \sqrt{3}$ & $\sqrt{6} + \sqrt{2}$ & $\sqrt{6} - \sqrt{2}$ \\
+\hline
+$\displaystyle\frac{\pi}{2}$ & $1$ & $0$ &- & $0$ &- & $1$ \\
+\hline
+\end{tabular}
+\end{table}
+
+如今，借助计算机技术，计算任意角度的三角函数值已经不再需要查阅传统的数表。然而，正如上面展示的那样，大多数三角函数值并非有理数，因此计算机通常通过数值方法求解，以满足实际应用中的精度要求。而如何精确计算这些值，则涉及更深入的数学方法，是另一个复杂的话题。
+
+\subsection{正弦型函数}
+
+前面所介绍的三角函数的基本图像是理解和应用的重要基础，需要熟记。这些图像源于对各个自变量对应函数值的计算，凝聚了数学家的长期探索成果。
+
+此前，在研究幂函数等函数时，通常通过分析关键点和整体趋势来绘制其图像。同样的方法也适用于三角函数。正弦函数在所有三角函数中具有特殊地位，许多涉及三角函数的函数在化简和推导后，都可以表示为正弦函数的某种变形。其实在前面的介绍中已经接触过这种例子了，根据诱导公式$\cos x$可以表示为：
+\begin{equation}\label{eq_HsTFFv_4}
+\cos x=\sin(x+{\pi\over2})~.
+\end{equation}
+因此，接下来将以正弦函数为例，探讨如何绘制并理解相关的任意图像。目前研究的三角函数均为 $\sin x$ 形式，即未涉及额外参数。为了进一步拓展应用，需要引入正弦型函数，以更一般的形式刻画这些变形。正弦型函数是对基本正弦函数的扩展，它通过调整振幅、频率和相位来适应不同的周期性变化。
+
+\begin{definition}{正弦型函数}
+形如
+\begin{equation}
+f(x) = A\sin(\omega x + \varphi)~.
+\end{equation}
+的函数称为\textbf{正弦型函数（sinusoidal function）}，其中 $A, \omega, \varphi$ 为常数，且满足 $A\omega \neq 0$。其中：
+\begin{itemize}
+\item $|A|$ 称为\textbf{振幅（amplitude）}；
+\item $\omega x + \varphi$ 称为\textbf{相位（phase）}。
+\end{itemize}
+\end{definition}
+
+如 \autoref{eq_HsTFFv_4} 所示，$\cos x$ 可以视为正弦型函数的一种特殊形式，其中 $\displaystyle A = \omega = 1, \varphi = \frac{\pi}{2}$。此外，通过适当的变形，可以将参数调整至更规范的范围。利用 $\sin(-x) = -\sin x$ 和 $-\sin x = \sin(x + \pi)$，可以确保 $A$ 和 $\omega$ 取正值，而所有的符号变化都体现在 $\varphi$ 的取值变化上\footnote{需要注意的是，这并不意味着仅仅改变 $\varphi$ 的符号，具体情况将在后续讨论中说明}。因此，在规范化的表达中，参数满足 $A \in (0, +\infty)$，$\omega \in (0, +\infty)$。教科书中通常使用 $|A|$ 和 $|\omega|$ 进行表示。同样，相位  $\phi $ 的取值范围一般是任意实数，但在实际应用中，通常约定它的范围在$[0, 2\pi)$  或  $(-\pi, \pi]$ ，以避免冗余描述。由于三角函数的周期性，如果不在此范围内，可以利用 $\sin x = \sin(x + 2k\pi)$ 进行调整，使其化为符合规范的形式。为了简化讨论，后续内容均默认正弦型函数已转换为上述标准形式。
+
+一下子引入多个参数可能会让人感到眼花缭乱，但它们的核心作用是刻画正弦型函数相较于标准正弦函数 $\sin x$ 的变化。这些参数的设置旨在描述明确函数的变换规律，使其与 $\sin x$ 的对应关系更加清晰。
+
+在这些新概念中，相位 $\omega x + \varphi$ 尤其值得关注。与以往的参数不同，它不是单独作为一个数字出现，而是作为整体引入，从而提供了一种新的视角来理解三角函数的变化。具体而言，由于$\sin x$ 是一个非线性函数，直接分析其变化规律并不直观。于是，可以借鉴指数函数的处理方式，将 $\sin(\omega x + \varphi)$ 视为一个复合函数，其中 $\omega x + \varphi$ 对 $x$ 进行线性变换，作为 $\sin$ 的输入，而 $\sin$ 仅在最后起到非线性映射的作用，将输入限制在 $[-1,1]$ 之间，而不直接影响 $x$ 的变换过程。
+
+在这个表达式中，$\omega x + \varphi$ 决定了 $\sin$ 的输入值，其中：
+\begin{itemize}
+\item $\omega$ 称作\textbf{角频率（angular frequency，也称圆频率）}，控制输入值的增长速度，即 $x$ 变化时 $\omega x$ 变化的速率，从而决定了函数的变化频率；
+\item $\varphi$ 称为\textbf{初相（initial phase）}，设定初始相位，决定了函数图像的水平偏移量。
+\end{itemize}
+
+这种分解方式将三角函数的周期性的非线性行为与输入变量的线性变化分离，使得分析更加直观，并有助于理解各参数对函数图像的影响。在数学建模中，许多非线性问题，如神经网络或回归分析，也常采用类似的方法：先处理线性部分，再通过非线性映射得到最终结果。这种思路不仅简化了分析过程，还在广泛的数学和工程领域中发挥了重要作用。
+
+基于上述理解，接下来依次分析 $f(x)$ 中的各个参数，并探讨它们对函数行为的具体影响：
+
+\begin{itemize}
+\item $A$ 决定了 $f(x)$ 的值域 $\left[-A, A\right]$。如果将正弦函数视为一种振动，那么 $A$ 代表的是函数的最大偏离值，这也是“振幅”一词的来源。换句话说，$A$ 控制了函数图像在垂直方向上的伸缩，最高点与最低点的差为 $2A$。
+\item $\omega$用于表示函数变化的快慢，决定了图像在水平方向上的压缩或拉伸程度。周期越短，函数振荡得越快，$\omega$ 也就越大。\textbf{周期（cycle）} $T$ 与 $\omega$ 之间的关系为：
+\begin{equation}
+T = \frac{2\pi}{\omega}~.
+\end{equation}
+在实际应用中，有时直接用 $T$ 代替 $\omega$ 来描述函数的周期性，例如：
+\begin{equation}
+f(x) = A\sin\left(\frac{2\pi}{T} x + \varphi\right)~.
+\end{equation}
+此外，日常生活中常提到另一个有关的概念——\textbf{频率（frequency）}，
+这一概念可以从圆周运动的角速度角度来理解。频率表示单位时间内完成的完整振荡次数，在圆周运动中，它对应于物体转过的圈数。而角频率是圆周运动特有的量，表示单位时间内转过的弧度。由于一个完整的圆周对应 $2\pi$ 弧度，因此频率 $f$与角频率$\omega$、周期$T$的关系为：
+\begin{equation}
+f = \frac{1}{T} = \frac{\omega}{2\pi}~.
+\end{equation}
+这一关系表明，角频率和频率本质上是同一现象的不同刻画方式。而“圆函数”这一名称在这个概念中得到了充分体现。
+
+\item $\varphi$它表示函数在 $x = 0$ 处的相位。改变初相相当于对图像进行水平方向的平移。例如，$A\sin(\omega x)$ 和 $-A\sin(\omega x)$ 的相位相差 $\pi$，这一关系称为\textbf{反相（phase opposition）}。
+\end{itemize}
+
+
+
+对具有相同圆频率或最小正周期的两个正弦型函数：
+\begin{equation}
+f_0\left(x\right)=A_0\sin\left(\omega x+\varphi_0\right),\quad f_1\left(x\right)=A_1\sin\left(\omega x+\varphi_1\right)~.
+\end{equation}
+计算：
+\begin{equation}
+\begin{split}
+f(x) &= A_0\sin(\omega x + \varphi_0) + A_1\sin(\omega x + \varphi_1)\\
+&=(A_0\cos\varphi_0 + A_1\cos\varphi_1) \sin \omega x +
+(A_0\sin\varphi_0 + A_1\sin\varphi_1) \cos \omega x~.
+\end{split}
+\end{equation}
+令：
+\begin{equation}
+C = A_0\cos\varphi_0 + A_1\cos\varphi_1, \quad D = A_0\sin\varphi_0 + A_1\sin\varphi_1~.
+\end{equation}
+
+则合成振幅  A  和相位  \varphi  由以下关系确定：
+\begin{equation}
+A = \sqrt{C^2 + D^2}, \quad \tan\varphi = \frac{D}{C}~.
+\end{equation}
+
+最终，
+\begin{equation}
+f(x) = A \sin(\omega x + \varphi)~.
+\end{equation}
+
+可见，两个相同圆频率的正弦函数的和仍然是同一圆频率的正弦函数，只是振幅和相位发生了变化。
+
+另外，利用余弦和差公式：$\cos(\varphi_0 - \varphi_1) = \cos\varphi_0 \cos\varphi_1 + \sin\varphi_0 \sin\varphi_1$三角恒等式计算得到
+\begin{equation}
+\begin{split}
+A^2 &= C^2+D^2\\
+&=(A_0\cos\varphi_0 + A_1\cos\varphi_1)^2+(A_0\sin\varphi_0 + A_1\sin\varphi_1)^2\\
+&=A_0^2 + A_1^2 + 2 A_0 A_1 (\cos\varphi_0 \cos\varphi_1 + \sin\varphi_0 \sin\varphi_1)\\
+&=A_0^2 + A_1^2 + 2 A_0 A_1 \cos(\varphi_0 - \varphi_1)~.
+\end{split}
+\end{equation}
+
+由于$\cos x$是偶函数，而$A_0,A_1$是定值，所以$A^2$或$|A|$的大小取决于$|\varphi_0 - \varphi_1|$的大小。
+\begin{itemize}
+\item 当 $\varphi_0 = \varphi_1$ 时，$\cos(\varphi_0 - \varphi_1) = 1$， $A$  取得最大值  $A_0 + A_1$ 。
+\item 当 |\varphi_0 - \varphi_1| = \pi ，即$f_0(x),f_1(x)$反相时，$\cos(\varphi_0 - \varphi_1) = -1$， $A$  取得最小值  $|A_0 - A_1|$ 。
+\end{itemize}
+
+
+
+\subsection{五点法作图}
+
+五点作图法是一种简便绘制三角函数图像的方法，主要用于 **正弦函数 $\sin x$、余弦函数 $\cos x$ 和正切函数 $\tan x$**。它利用函数的周期性和对称性，在一个基本周期内选取五个关键点，从而大致勾勒出函数的图像。这些点可以帮助快速绘制正弦或余弦函数的平滑曲线。这种方法简洁高效，适用于手绘和计算机绘图中的初步拟合。
+
+对于更一般形式的三角函数：
+\begin{equation}
+f(x) = A \sin(\omega x + \varphi) + b~.
+\end{equation}
+注意这里在后面加了另一个参数b，这是从线性变换的视角来看了。另外如前所述，内部是线性的，因此经过$\sin x$映射后，仍然会呈现出sinx的形态，外部的A和b是对结果进行第二次线性变换。内外的变化都是线性的，只有sin是非线性的，由于三角函数都是周期函数，因此选取一个周期内的一些点来作为代表就可以大概地刻画函数的图像形态。在幂函数、指数函数等函数的研究时也大概地利用过这种方法，即说函数过定点，然后在按照参数的取值恢复不同的形态。由于三角函数的形态比较统一，不论取什么参数都是类似的振动的样子，因此，就像直线需要两个点来确定位置一样，为了描述sinx的非线性通常选取在一个周期内的五个关键点作为限定。
+
+之前提到过，周期$\displaystyle T = \frac{2\pi}{|\omega|}$
+
+相位平移
+\begin{equation}
+\omega x + \varphi=\alpha\implies x={\alpha-\varphi\over \omega}~.
+\end{equation}
+
+\begin{table}[ht]
+\centering
+\caption{正弦函数的五个关键点}\label{tab_HsTFFv2}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$\alpha$ & $0$ &$\displaystyle {T\over4},\left(\frac{1}{2\omega}\pi\right)$& $\displaystyle {T\over2},\left(\frac{1}{\omega}\pi\right)$ & $\displaystyle {3\over4}T,\left(\frac{3}{2\omega}\pi\right)$ & $\displaystyle T,\left(\frac{2}{\omega}\pi\right)$\\
+\hline
+$\sin \alpha$ & $0$&$1$&$0$&$-1$&$0$ \\
+\hline
+$x=\displaystyle{\alpha-\varphi\over \omega}$&$\displaystyle-{\varphi\over \omega}$&$\displaystyle{1\over 2\omega^2}\pi-{\varphi\over \omega}$&$\displaystyle{1\over \omega^2}\pi-{\varphi\over \omega}$&$\displaystyle{3\over 2\omega^2}\pi-{\varphi\over \omega}$&$\displaystyle{2\over \omega^2}\pi-{\varphi\over \omega}$\\
+\hline
+$f(x)$ & $b$&$b+A$&$b$&$b-A$&$b$ \\
+\hline
+\end{tabular}
+\end{table}
+这五个点包含了一个周期内的零点（对称中心）和极值点（对称轴）的信息，利用周期性扩展基本就能获得完整的函数图像。
+
+五点作图法的核心是 **找到一个周期内的五个等分关键点**，然后利用这些点的函数值来绘制光滑的曲线：**$\sin x$ 和 $\cos x$**：取 **一个周期的五等分点**。
+
+初学者容易混淆此处$\alpha=0$与之前介绍初相时说$\varphi$对应着$x=0$的含义
+\addTODO{这块要重新写一下。就是平移和拉伸先后的问题，是两种思考方式。}
+需要注意的是，相位的引入与之前学习的的函数的水平平移变换和拉伸变换不完全一致，初学者容易在此混淆。例如，对于 $\displaystyle\sin(2x + \frac{\pi}{3})$，可以从两种视角来分析：
+\begin{itemize}
+\item 相位视角：将 $\displaystyle2x + \frac{\pi}{3}$ 视为整体，表示函数的输入值变化方式。$\omega = 2$ 使得输入值增长速度变快，而 $\displaystyle\varphi = \frac{\pi}{3}$ 使得初始位置发生偏移。如果要用平移和伸缩来表示的话，理解为先拉伸后平移。
+\item 平移+拉伸视角：可以将 $\displaystyle\sin(2x + \frac{\pi}{3})$ 变形为 $\displaystyle\sin\left(2(x + \frac{\pi}{6})\right)$，此时可认为先对 $x$ 进行水平平移 $\displaystyle\frac{\pi}{6}$，再进行 $2$ 倍的水平缩放。
+\end{itemize}
+
+这两种分析方式在数学上是等价的，但从直觉上来看，相位视角能够更直接地解释 $\omega$ 和 $\varphi$ 对图像的影响，而平移+拉伸视角更符合传统的变换思路。掌握这两种不同的理解方式，有助于更灵活地分析正弦型函数的变化。
+
+相位  \phi  与  \omega  无关，它只决定了波形的平移量，而  \omega  决定的是波的频率（或波长）。但如果写成 错位的表达式  \sin(\omega(x + \phi)) ，那相位的物理意义会被改变，使得 平移量依赖于频率，这就错误了。
+此时  \phi  不再是简单的平移角度，而是被频率放大了，导致波形的偏移量随着  \omega  增大而增大，这不符合物理意义。
+\addTODO{1}
+另外关于正切，重要的就是找到渐近线和对称点。
+
+\subsection{*三角函数导数的规律}
+
+之前学习过 $(\sin x)' = \cos x$，而 $(\cos x)' = -\sin x$，这说明 $\sin x$ 在求两次导数后会变成与原函数相反的形式。同样，继续求导可以得到 $(-\sin x)' = -\cos x$ 以及 $(-\cos x)' = \sin x$，也就是说，$\sin x$ 经过四次求导后，又回到了它自身。这种求导的循环性质十分有趣，下面对其一般形式进行总结。
+
+\begin{corollary}{正弦函数与余弦函数的 $n$ 阶导数}
+对于任意整数 $n$，正弦函数与余弦函数的 $n$ 阶导数满足：
+\begin{equation}
+(\sin x)' = \sin\left(x + n\frac{\pi}{2}\right), \quad
+(\cos x)'= \cos\left(x + n\frac{\pi}{2}\right)~.
+\end{equation}
+\end{corollary}
+
+这个结果表明，$\sin x$ 和 $\cos x$ 的导数具有周期性的循环结构，每求导一次，相位都会沿 $\frac{\pi}{2}$ 的倍数发生变化。
