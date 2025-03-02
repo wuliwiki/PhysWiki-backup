@@ -339,5 +339,9 @@ entry:
 \end{lstlisting}
 
 \begin{itemize}
-\item \verb`@变量名` 代表全局变量，你也可以用 \verb`my_string`
+\item \verb`@变量名` 代表全局变量， \verb`.str` 没什么特殊的， 也可以用 \verb`@my_string`
+\item \verb`private` 说明仅限于当前 llvm 模块（module）使用
+\item \verb`constant` 不允许修改，只有全局变量有该关键字
+\item \verb`c"..."` 表示字符串常量
+\item \verb`\00` 就是 C 语言的 \verb`\0` 用于结束字符串。
 \end{itemize}

@@ -125,6 +125,7 @@ define i64 @my_func(i64 signext %"my_var") #0 {
 \item 变量名以 \verb`%` 开始
 \item 注释用 \verb`;`
 \item 对本地变量，不存在类似 C 语言的 \verb`const`。
+\item \verb`getelementptr` （GEP）的格式为 \verb`指针 = getelementptr 基类型, 基类型* 指针, 指标类型1 ind1, 指标类型2 ind2 ...`。 在取数组第 3 个元素时，最后是 \verb`i64 0, i64 2`， 第一个从 \verb`指针` 中获取数组， 第二个从 array 中获取获取第 3 个元素。
 \end{itemize}
 
 \subsection{判断}
@@ -339,5 +340,9 @@ entry:
 \end{lstlisting}
 
 \begin{itemize}
-\item \verb`@变量名` 代表全局变量，你也可以用 \verb`my_string`
+\item \verb`@变量名` 代表全局变量， \verb`.str` 没什么特殊的， 也可以用 \verb`@my_string`
+\item \verb`private` 说明仅限于当前 llvm 模块（module）使用
+\item \verb`constant` 不允许修改，只有全局变量有该关键字
+\item \verb`c"..."` 表示字符串常量
+\item \verb`\00` 就是 C 语言的 \verb`\0` 用于结束字符串。
 \end{itemize}
