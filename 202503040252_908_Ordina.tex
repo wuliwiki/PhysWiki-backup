@@ -1,0 +1,50 @@
+% 序数算术（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Ordinal_arithmetic}{相关文章}。
+
+在数学中的集合论领域，序数算术描述了序数上的三种常见运算：加法、乘法和指数运算。每种运算基本上都可以通过两种不同的方式定义：一种是构造一个明确的良序集来表示运算结果；另一种是使用跨无限递归（transfinite recursion）来定义。康托范式（Cantor normal form）提供了一种标准化的序数表示方式。除了这些常见的序数运算之外，还有“自然”序数算术以及nimber运算。
+\subsection{加法}  
+两个良序集 \(S\) 和 \(T\) 的和是一个序数，它表示在直积集 \(S \times \{0\}\) 和 \(T \times \{1\}\) 的并集上定义的变体字典序（即最不重要的位置优先的字典序）。这种排序方式保证了以下几点：\(S\) 中的每个元素都小于 \(T\) 中的每个元素；\(S\) 内部的比较保持原来的顺序；\(T\) 内部的比较也保持原来的顺序。 
+
+对于序数加法 \(\alpha + \beta\)，也可以通过对\(\beta\)进行跨无限递归来定义：当右加数 \(\beta = 0\) 时，\(\alpha + 0 = \alpha\) 对任意 \(\alpha\)成立。当 \(\beta > 0\) 时，\(\alpha + \beta\)是所有\(\alpha + \delta\)（其中 \(\delta < \beta\)）中最小的严格大于它们的序数。  
+
+具体分成后继序数和极限序数的情况：
+\begin{itemize}
+\item \(\alpha + 0 = \alpha\)~
+\item \(\alpha + S(\beta) = S(\alpha + \beta)\) 其中 \(S\) 表示后继函数。
+\item \(\alpha + \beta = \bigcup_{\delta < \beta} (\alpha + \delta)\) 当 \(\beta\)是一个极限序数时。
+\end{itemize}
+在自然数上，序数加法与通常的加法是相同的。  
+第一个超限序数是 \(\omega\)，它是所有自然数的集合，接下来的序数是 \(\omega + 1\)、\(\omega + 2\) 等。  
+
+\(\omega + \omega\) 表示两个按通常顺序排列的自然数副本，第二个副本完全排在第一个副本的右侧。  
+用 \(0' < 1' < 2' < \dots\) 表示第二个副本，那么 \(\omega + \omega\) 看起来像：
+\[
+0 < 1 < 2 < 3 < \dots < 0' < 1' < 2' < \dots~
+\]
+这和 \(\omega\) 不同，因为在 \(\omega\) 中，只有 0 没有直接前驱，而在 \(\omega + \omega\) 中，0 和 0' 都没有直接前驱。
+\subsubsection{性质}  
+序数加法一般不是交换的。例如：\(3 + \omega = \omega\)因为 \(3 + \omega\) 的顺序关系是：\(0 < 1 < 2 < 0' < 1' < 2' < \dots\)
+如果重新标记，就与 \(\omega\) 相同。而\(\omega + 3\)就不等于 \(\omega\)，因为它的顺序关系是：\(0 < 1 < 2 < \dots < 0' < 1' < 2'\)其中 \(2'\) 是最大元素，而 \(\omega\) 没有最大元素。（\(\omega\) 和 \(\omega + 3\) 等势，但不是序同构的。）
+
+序数加法是结合的。例如：\((\omega + 4) + \omega = \omega + (4 + \omega) = \omega + \omega\)
+
+加法在右参数上是严格单调且连续的：
+\[
+\alpha < \beta \implies \gamma + \alpha < \gamma + \beta~
+\]
+但对于左参数不成立。对左参数，我们只有：
+\[
+\alpha < \beta \implies \alpha + \gamma \leq \beta + \gamma~
+\]
+序数加法具有左可消性：如果 \(\alpha + \beta = \alpha + \gamma\}  
+那么\(\beta = \gamma\)。此外，对于满足 \(\beta \leq \alpha\) 的序数，可以定义**左减法**：存在唯一的 \(\gamma\) 使得 \[\alpha = \beta + \gamma\)。  
+
+另一方面，**右消去律**则不成立：
+但是，加法不满足右消去律：
+\[3 + \omega = 0 + \omega = \omega \text{但}3 \neq 0~\]
+即使在 \(\beta \leq \alpha\) 的情况下，**右减法**也不成立。例如，不存在任何 \(\gamma\) 满足：\(\gamma + 42 = \omega\)
+
+如果小于 \(\alpha\) 的所有序数在加法下封闭且包含0，那么这种 \(\alpha\)有时被称为\(\gamma\)数（见：不可加分解序数）。这样的序数恰好是形如：\(\omega^\beta\)的序数。
