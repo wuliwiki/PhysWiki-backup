@@ -18,3 +18,18 @@
 1952年，\textbf{乔治·德拉姆}（Georges de Rham）证明了\textbf{德拉姆分解定理}，该定理通过将切丛分解为在局部平行迁移群作用下的不可约子空间，从而将黎曼流形分解为多个黎曼流形的笛卡尔积。随后在1953年，\textbf{马塞尔·贝尔热}（Marcel Berger）对可能出现的不可约平行迁移群进行了分类。
 
 黎曼平行迁移群的分解和分类在物理学和弦理论中都有应用。
+\subsection{定义} 
+\subsubsection{向量丛上联络的平行迁移群}  
+设\(E\)是光滑流形\(M\)上的一个秩为\(k\)的向量丛，\(\nabla\)是\(E\)上的一个联络。对于一个以\(M\)中点 \(x\) 为基点的分段光滑闭合路径\(\gamma : [0,1] \to M\)，联络\(\nabla\)定义了一个\textbf{平行移动映射}\(P_\gamma : E_x \to E_x\)它作用在 \(E\)在点\(x\)处的纤维上。这个映射是线性的且可逆的，因此它定义了一个属于一般线性群\(GL(E_x)\)的元素。联络\(\nabla\)在基点\(x\)处的\textbf{平行迁移群}（holonomy group）定义为：
+\[
+\operatorname{Hol}_x(\nabla) = \{P_\gamma \in \mathrm{GL}(E_x) \mid \gamma \text{ 是以 } x \text{ 为基点的闭合路径}\}.~
+\]
+其中\(P_\gamma\) 是路径 \(\gamma\)对应的平行移动映射。基点\(x\)处的\textbf{限制平行迁移群}（restricted holonomy group）是子群：\(\operatorname{Hol}_x^0(\nabla)\)它由\textbf{可缩至点的闭合路径} \(\gamma\)所对应的平行移动映射组成。
+
+如果 \(M\) 是连通的，那么平行迁移群（holonomy group）对于基点 \(x\) 的依赖仅体现在一般线性群 \(GL(k, \operatorname{R})\) 中的共轭关系上。具体来说，如果 \(\gamma\) 是从 \(x\) 到 \(y\) 的一条路径，那么：
+\[
+\operatorname{Hol}_y(\nabla) = P_\gamma \operatorname{Hol}_x(\nabla) P_\gamma^{-1}.~
+\]
+此外，选择不同的方式将纤维 \(E_x\) 与 \(\operatorname{R}^k\) 进行同构，也会得到共轭的子群。  
+
+因此，有时，特别是在一般性的或非正式的讨论中（比如下面的内容），人们会省略对基点的引用，此时默认该定义仅确定到共轭的意义下。

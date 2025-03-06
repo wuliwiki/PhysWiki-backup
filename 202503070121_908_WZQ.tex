@@ -1,0 +1,79 @@
+% 完整群（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Holonomy}{相关文章}。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/8ee31b3dfe98af26.png}
+\caption{球面上沿分段光滑路径的平行移动。初始向量标记为 \(V\)，它沿着曲线被平行移动，最终得到的向量标记为 \( \mathcal{P}_\gamma (V) \)。如果路径发生变化，平行移动的结果也会不同。} \label{fig_WZQ_1}
+\end{figure}
+在微分几何中，光滑流形上一个联络的\textbf{平行迁移群}（holonomy）描述的是：沿着闭合回路进行平行移动时，几何数据未被保持的程度。平行迁移群是联络曲率所导致的一种普遍几何效应。对于平坦联络，相关的平行迁移群是一种单值延拓（monodromy），并且本质上是一个全局概念。而对于曲率非零的联络，平行迁移群同时具有非平凡的局部和全局特征。
+
+任何流形上的联络都会通过其平行移动映射引出某种\textbf{平行迁移群}（holonomy）的概念。最常见的平行迁移群形式是具有某种对称性的联络。重要的例子包括：黎曼几何中Levi-Civita联络的平行迁移群（称为黎曼平行迁移群），向量丛上联络的平行迁移群，Cartan联络的平行迁移群，以及主丛上联络的平行迁移群。在这些情形下，联络的平行迁移群都可以与某个李群（即\textbf{平行迁移群}）对应起来。根据Ambrose-Singer定理，联络的平行迁移群与该联络的曲率密切相关。
+
+对\textbf{黎曼平行迁移群}（Riemannian holonomy）的研究推动了许多重要的发展。\textbf{平行迁移群}最早由\textbf{埃利·嘉当}（Élie Cartan）于1926年引入，用于研究和分类对称空间。然而，直到很久之后，平行迁移群才被用来在更一般的背景下研究黎曼几何。
+
+1952年，\textbf{乔治·德拉姆}（Georges de Rham）证明了\textbf{德拉姆分解定理}，该定理通过将切丛分解为在局部平行迁移群作用下的不可约子空间，从而将黎曼流形分解为多个黎曼流形的笛卡尔积。随后在1953年，\textbf{马塞尔·贝尔热}（Marcel Berger）对可能出现的不可约平行迁移群进行了分类。
+
+黎曼平行迁移群的分解和分类在物理学和弦理论中都有应用。
+\subsection{定义} 
+\subsubsection{向量丛上联络的平行迁移群}  
+设\(E\)是光滑流形\(M\)上的一个秩为\(k\)的向量丛，\(\nabla\)是\(E\)上的一个联络。对于一个以\(M\)中点 \(x\) 为基点的分段光滑闭合路径\(\gamma : [0,1] \to M\)，联络\(\nabla\)定义了一个\textbf{平行移动映射}\(P_\gamma : E_x \to E_x\)它作用在 \(E\)在点\(x\)处的纤维上。这个映射是线性的且可逆的，因此它定义了一个属于一般线性群\(GL(E_x)\)的元素。联络\(\nabla\)在基点\(x\)处的\textbf{平行迁移群}（holonomy group）定义为：
+\[
+\operatorname{Hol}_x(\nabla) = \{P_\gamma \in \mathrm{GL}(E_x) \mid \gamma \text{ 是以 } x \text{ 为基点的闭合路径}\}.~
+\]
+其中\(P_\gamma\) 是路径 \(\gamma\)对应的平行移动映射。基点\(x\)处的\textbf{限制平行迁移群}（restricted holonomy group）是子群：\(\operatorname{Hol}_x^0(\nabla)\)它由\textbf{可缩至点的闭合路径} \(\gamma\)所对应的平行移动映射组成。
+
+如果 \(M\) 是连通的，那么平行迁移群（holonomy group）对于基点 \(x\) 的依赖仅体现在一般线性群 \(GL(k, \operatorname{R})\) 中的共轭关系上。具体来说，如果 \(\gamma\) 是从 \(x\) 到 \(y\) 的一条路径，那么：
+\[
+\operatorname{Hol}_y(\nabla) = P_\gamma \operatorname{Hol}_x(\nabla) P_\gamma^{-1}.~
+\]
+此外，选择不同的方式将纤维 \(E_x\) 与 \(\operatorname{R}^k\) 进行同构，也会得到共轭的子群。  
+
+因此，有时，特别是在一般性的或非正式的讨论中（比如下面的内容），人们会省略对基点的引用，此时默认该定义仅确定到共轭的意义下。
+
+关于平行迁移群（holonomy group），以下是一些重要性质：
+\begin{itemize}
+\item \(\operatorname{Hol}^0(\nabla)\)是\(GL(k,\operatorname{R})\) 的一个连通的李子群。
+\item \(\operatorname{Hol}^0(\nabla)\)是\(\operatorname{Hol}(\nabla)\) 的单位连通分量（identity component）。
+\item 存在一个从基本群\(\pi_1(M)\)到商群\(\operatorname{Hol}(\nabla)/\operatorname{Hol}^0(\nabla)\) 的自然满群同态：\(\pi_1(M) \to \operatorname{Hol}(\nabla)/\operatorname{Hol}^0(\nabla)\)
+其中\(\pi_1(M)\)是\(M\)的基本群，该同态将同伦类\([\gamma]\)映射为：\(P_\gamma \cdot \operatorname{Hol}^0(\nabla)\).
+\item 如果\(M\)是单连通的，则：\(\operatorname{Hol}(\nabla) = \operatorname{Hol}^0(\nabla)\).
+\item 当且仅当\(\nabla\)是平坦的（即曲率为零），\(\operatorname{Hol}^0(\nabla)\)是平凡群（只包含单位元）。
+\end{itemize}
+\subsection{主丛上联络的平行迁移群}  
+主丛上联络的平行迁移群的定义与向量丛上的定义类似。  
+
+设 \(G\) 是一个李群，\(P\) 是一个在光滑流形 \(M\) 上的\textbf{主 \(G\)-丛}，并且 \(M\) 是可度量紧化的（paracompact）。设 \(\omega\) 是 \(P\) 上的一个联络。  
+
+给定一条以 \(M\) 中点 \(x\) 为基点的分段光滑闭合路径 \(\gamma : [0,1] \to M\)，以及纤维上点 \(p \in P_x\)（\(p\) 属于 \(x\) 处的纤维），该联络定义了一条唯一的\textbf{水平提升}路径：\(\tilde{\gamma} : [0,1] \to P\)
+满足：\(\tilde{\gamma}(0) = p\).这条提升路径的终点 \(\tilde{\gamma}(1)\) 一般不会等于 \(p\)，而是纤维中某个形如 \(p \cdot g\) 的点，其中 \(g \in G\)。
+
+在 \(P\) 上定义一个等价关系“\(\sim\)”，规定 \(p \sim q\) 当且仅当 \(p\) 和 \(q\) 可以通过一条分段光滑的\textbf{水平路径}连接。
+
+\(\omega\) 在基点 \(p\) 处的\textbf{平行迁移群}（holonomy group）定义为：
+\[
+\operatorname{Hol}_p(\omega) = \{g \in G \mid p \sim p \cdot g\}.~
+\]
+基点 \(p\) 处的\textbf{限制平行迁移群}（restricted holonomy group）是子群 \(\operatorname{Hol}_p^0(\omega)\)，它由可缩闭合路径 \(\gamma\) 的水平提升所产生。
+
+如果 \(M\) 和 \(P\) 都是连通的，那么平行迁移群对于基点 \(p\) 的依赖仅表现为在 \(G\) 中的共轭。具体来说，如果 \(q\) 是平行迁移群选取的另一个基点，则存在唯一的 \(g \in G\)，使得：\(q \sim p \cdot g\)在这个 \(g\) 下，有：
+\[
+\operatorname{Hol}_q(\omega) = g^{-1}\operatorname{Hol}_p(\omega)g~
+\]
+特别地：
+\[
+\operatorname{Hol}_{p \cdot g}(\omega) = g^{-1}\operatorname{Hol}_p(\omega)g~
+\]
+此外，如果\(p \sim q\)，则有：\(\operatorname{Hol}_p(\omega)=\operatorname{Hol}_q(\omega)\)与前面类似，有时在讨论平行迁移群时会省略基点的标注，此时默认该定义只在共轭的意义下成立。
+
+关于平行迁移群和限制平行迁移群的一些重要性质包括：
+\begin{itemize}
+\item \(\operatorname{Hol}_p^0(\omega)\)是李群\(G\) 的一个\textbf{连通李子群}。
+\item \(\operatorname{Hol}_p^0(\omega)\)是\(\operatorname{Hol}_p(\omega)\)的\textbf{单位连通分量}。
+\item 存在一个从基本群 \(\pi_1\) 到商群 \(\operatorname{Hol}_p(\omega)/\operatorname{Hol}_p^0(\omega)\) 的\textbf{自然的满群同态}：\(\pi_1 \to \operatorname{Hol}_p(\omega)/\operatorname{Hol}_p^0(\omega)\)
+\item 如果 \(M\) 是\textbf{单连通}的，那么：\(\operatorname{Hol}_p(\omega) = \operatorname{Hol}_p^0(\omega)\)
+\item \(\omega\) 是\textbf{平坦的}（即曲率为零）当且仅当：\(\operatorname{Hol}_p^0(\omega)\)是\textbf{平凡子群}（只包含单位元）。
+\end{itemize}
