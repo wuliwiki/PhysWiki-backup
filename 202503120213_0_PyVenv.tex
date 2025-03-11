@@ -1,0 +1,33 @@
+% Python 虚拟环境 venv 笔记
+% license Xiao
+% type Note
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{Python 简介与安装\nref{nod_Python}}{nod_702f}
+
+\verb`venv` 是最常用的 python 虚拟环境管理工具（Python 3.3+ 内置），其他还有 \verb`conda, virtualenv, pipenv`。
+
+\subsection{使用}
+\begin{itemize}
+\item \verb`venv` 类似于 \enref{conda}{CondaN} 的虚拟环境。 注意并不会像 \verb`chroot` 一样改变路径。
+\item 要在当前路径创建新环境， 用 \verb`python3 -m venv 环境名`（\verb`-m` 选项是把一个 python 包作为一个程序运）， 然后会出现一个名为 \verb`环境名` 的文件夹。
+\item 在 Ubuntu 下， 该命令会实测失败并提示安装 \verb`sudo apt install python3.10-venv`， 装好再试即可。
+\item 运行 \verb`source 环境名/bin/activate` 进入刚创建的虚拟环境。 此时 bash 的行首会标示当前的环境名（\verb`(环境名) $`）。
+\item 此时 \verb`pip3 install ...` 就可以在当前环境安装一些包。
+\item \verb`pip3 list` 会发现当前几乎没有安装的包。 也可以安装新包。
+\item \verb`deactivate` 退出虚拟环境。 再用 \verb`pip3 list` 就会看到系统默认的包。
+\item 删掉 \verb`环境名` 文件夹即可删掉虚拟环境。
+\item \verb`pip freeze > 依赖.txt` 可以保存当前环境的所有包的版本
+\item \verb`pip install -r 依赖.txt` 可以恢复指定版本的包
+\end{itemize}
+
+\subsection{回收}
+
+\subsubsection{【这是 virtualenv 不是 venv】安装}
+\begin{itemize}
+\item 安装： \verb`pip3 install virtualenv`
+\item 在 ubuntu 上还需要安装 \verb`apt install python版本号-venv` 其中版本号可以用 \verb`python3 --version` 查看。
+\end{itemize}
