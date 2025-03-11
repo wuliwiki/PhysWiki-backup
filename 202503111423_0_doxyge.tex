@@ -1,0 +1,54 @@
+% Doxygen 笔记
+% license Xiao
+% type Note
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\begin{itemize}
+\item \href{https://www.doxygen.nl/}{官方网站}。
+\item \verb`@brief`: Provides a brief description of the function, class, or variable (including data member).
+\item \verb`@class`: Documents a class.
+\item \verb`@param`: Describes a function parameter.
+\item \verb`@return`: Describes the return value of a function.
+\item \verb`@details`: Provides a detailed description (optional).
+\item \verb`@note`: Adds a note or additional information.
+\item \verb`@warning`: Adds a warning message.
+\item \verb`@see`: References other related functions, classes, or documentation.
+\item \verb`@code` and \verb`@endcode`: Inserts a code block in the documentation.
+\item \verb`@enum`: Documents an enumeration.
+\item \verb`@file`: Documents a file.
+\item \verb`@namespace`: Documents a namespace.
+\end{itemize}
+
+例子
+\begin{lstlisting}[language=cpp]
+/**
+ * @brief Calculates the factorial of a number.
+ *
+ * @details This function calculates the factorial of a non-negative integer
+ * using a recursive approach.
+ *
+ * @note The function does not handle negative inputs.
+ *
+ * @param n The number to calculate the factorial for.
+ * @return The factorial of the number.
+ *
+ * @code
+ * int result = factorial(5); // result will be 120
+ * @endcode
+ *
+ * @see https://en.wikipedia.org/wiki/Factorial
+ */
+int factorial(int n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+\end{lstlisting}
+
+\subsection{安装使用}
+\begin{itemize}
+\item Ubuntu 可以直接 \verb`sudo apt install doxygen`。
+
+\end{itemize}
