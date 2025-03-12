@@ -1,0 +1,338 @@
+% 正弦型函数（高中）
+% keys 正弦型函数|五点法作图|相位|角频率|信号
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{函数视角下的三角函数\nref{nod_HsTFFv}，三角恒等变换\nref{nod_HsAnTf}}{nod_373d}
+
+前面所介绍的三角函数的基本图像是理解和应用的重要基础，需要熟记。这些图像源于对各个自变量对应函数值的计算，凝聚了数学家的长期探索成果。
+
+此前，在研究幂函数等函数时，通常通过分析关键点和整体趋势来绘制其图像。同样的方法也适用于三角函数。正弦函数在所有三角函数中具有特殊地位，许多涉及三角函数的函数在化简和推导后，都可以表示为正弦函数的某种变形。其实在前面的介绍中已经接触过这种例子了，根据诱导公式$\cos x$可以表示为：
+\begin{equation}\label{eq_HsSinF_1}
+\cos x=\sin(x+{\pi\over2})~.
+\end{equation}
+因此，接下来将以正弦函数为例，探讨如何绘制并理解相关的任意图像。
+
+\subsection{正弦型函数}
+
+目前研究的三角函数均为 $\sin x$ 形式，即未涉及额外参数。为了进一步拓展应用，需要引入正弦型函数，以更一般的形式刻画这些变形。正弦型函数是对基本正弦函数的扩展，它通过调整振幅、频率和相位来适应不同的周期性变化。
+
+\begin{definition}{正弦型函数}
+形如
+\begin{equation}
+f(x) = A\sin(\omega x + \varphi)~.
+\end{equation}
+的函数称为\textbf{正弦型函数（sinusoidal function）}，其中 $A, \omega, \varphi$ 为常数，且满足 $A\omega \neq 0$。其中：
+\begin{itemize}
+\item $|A|$ 称为\textbf{振幅（amplitude）}；
+\item $\omega x + \varphi$ 称为\textbf{相位（phase）}。
+\end{itemize}
+\end{definition}
+
+如 \autoref{eq_HsSinF_1} 所示，$\cos x$ 可以视为正弦型函数的一种特殊形式，其中 $\displaystyle A = \omega = 1, \varphi = \frac{\pi}{2}$。此外，通过适当的变形，可以将参数调整至更规范的范围。利用 $\sin(-x) = -\sin x$ 和 $-\sin x = \sin(x + \pi)$，可以确保 $A$ 和 $\omega$ 取正值，而所有的符号变化都体现在 $\varphi$ 的取值变化上\footnote{需要注意的是，这并不意味着仅仅改变 $\varphi$ 的符号，具体情况将在后续讨论中说明}。因此，在规范化的表达中，参数满足 $A \in (0, +\infty)$，$\omega \in (0, +\infty)$。教科书中通常使用 $|A|$ 和 $|\omega|$ 进行表示。同样，相位  $\phi $ 的取值范围一般是任意实数，但在实际应用中，通常约定它的范围在$[0, 2\pi)$  或  $(-\pi, \pi]$ ，以避免冗余描述。由于三角函数的周期性，如果不在此范围内，可以利用 $\sin x = \sin(x + 2k\pi)$ 进行调整，使其化为符合规范的形式。为了简化讨论，后续内容均默认正弦型函数已转换为上述标准形式。
+
+一下子引入多个参数可能会让人感到眼花缭乱，但它们的核心作用是刻画正弦型函数相较于标准正弦函数 $\sin x$ 的变化。这些参数的设置旨在描述明确函数的变换规律，使其与 $\sin x$ 的对应关系更加清晰。
+
+\subsection{相位}
+
+在上面提及的新概念中，相位 $\omega x + \varphi$ 尤其值得关注。与以往的参数不同，它不是单独作为一个数值出现，而是作为整体引入，从而提供了一种新的视角来理解三角函数的变化。具体而言，由于 $\sin x$ 是一个非线性函数，直接分析其变化规律并不直观。因此，可以借鉴指数函数的处理方式，将 $\sin(\omega x + \varphi)$ 视为一个复合函数，其中 $\omega x + \varphi$ 对 $x$ 进行线性变换，作为 $\sin$ 的输入，而 $\sin$ 仅在最后起到非线性映射的作用，将输入限制在 $[-1,1]$ 之间，而不直接影响 $x$ 的变换过程。
+
+这种分解方式将三角函数的周期性的非线性行为与输入变量的线性变化分离，使得分析更加直观，并有助于理解各参数对函数图像的影响。在数学建模中，许多非线性问题，如神经网络或回归分析，也常采用类似的方法：先处理线性部分，再通过非线性映射得到最终结果。这种思路不仅简化了分析过程，还在广泛的数学和工程领域中发挥了重要作用。
+
+这里要注意的是，尽管在英语中使用相同的单词，但\textbf{相（phase）} 和 \textbf{相位（phase）}却指向两个不同的概念。理解这两个概念的区别，对于准确把握相位的意义至关重要。
+
+先想象这样一个过程：垂直向上抛出一个球，当球达到某个高度时，它可能处于上升阶段，也可能处于下降阶段。仅凭高度本身无法判断球的运动趋势，必须结合其运动方向的信息。“相”指的是周期性变化过程中某个特定的状态，例如某一时刻球的高度和运动方向的组合，就像一张记录了该瞬间所有信息的特殊照片。而“相位”则标识了该状态在整个周期中的位置，类似于给照片附加的时间戳，使其明确对应于周期内的哪个时刻。
+
+同样，在 $\sin x$ 的周期内，虽然同一个 $y$ 值通常对应两个不同的 $x$ 值，但这两个点的导数符号相反，意味着它们的运动趋势不同。因此，$(y, y')$ 这一组信息可以唯一确定周期运动中的某一状态，称为该状态的“相”\footnote{特别地，以这对变量作为坐标构成的平面称为\textbf{相平面（phase plane）}。}。，而 $x$ 则是指向该状态的唯一“相位”。在正弦型函数中，$x$ 的位置由 $\omega x + \varphi$ 代替，因此确定 $\omega x + \varphi$ 也就等同于确定 $\sin x$ 在周期内的具体位置，从而确保状态信息的完整性。在相位的表达式中：
+\begin{itemize}
+\item $\omega$ 称作\textbf{角频率（angular frequency，也称圆频率）}，它控制输入值的增长速度，即 $x$ 变化时 $\omega x$ 变化的速率，从而决定了函数的变化频率。
+\item $\varphi$ 称为\textbf{初相（initial phase）}，它设定了初始相位，即 $x=0$ 时，决定了函数图像相处于标准 $\sin x$ 的哪一个相。
+\end{itemize}
+
+\subsection{正弦型函数中参数的含义}
+
+接下来依次分析 $f(x)$ 中的各个参数，并探讨它们对函数行为的具体影响。
+
+\subsubsection{振幅$A$}
+
+$A$ 决定了 $f(x)$ 的值域 $\left[-A, A\right]$。如果将正弦函数视为一种振动，那么 $A$ 代表的是函数的最大偏离值，这也是“振幅”一词的来源。换句话说，$A$ 控制了函数图像在垂直方向上的伸缩，最高点与最低点的差为 $2A$。
+\subsubsection{角频率$\omega$}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/c3b9839f4d77cef8.png}
+\caption{不同角频率的正弦函数图像对比} \label{fig_HsSinF_1}
+\end{figure}
+$\omega$ 决定了函数变化的快慢，即图像在水平方向上的压缩或拉伸程度。$\omega$ 越大，周期越短，函数振荡得越快。\textbf{周期（cycle）} $T$ 与 $\omega$ 之间的关系为：
+\begin{equation}
+    T = \frac{2\pi}{\omega}~.
+\end{equation}
+在实际应用中，有时直接用 $T$ 代替 $\omega$ 来描述函数的周期性：
+\begin{equation}
+    f(x) = A\sin\left(\frac{2\pi}{T} x + \varphi\right)~.
+\end{equation}
+
+从圆周运动的视角来理解。角频率 $\omega$ 是圆周运动特有的量，表示单位时间内转过的弧度。在日常生活中，与此类似的另一个常见的概念是\textbf{频率（frequency）}，它频率表示单位时间内完成的完整振荡次数，在圆周运动中，它对应于物体转过的圈数。由于一个完整的圆周对应 $2\pi$ 弧度，因此频率 $f$ \footnote{注意，尽管习惯上都用字母$f$，但频率是一个常数，而函数则对应一个映射关系。}与角频率 $\omega$、周期 $T$ 的关系为：
+\begin{equation}
+    f = \frac{1}{T} = \frac{\omega}{2\pi}~.
+\end{equation}
+这一关系表明，角频率和频率本质上是同一现象的不同刻画方式。值得注意的是，这里的分析基于圆周运动的概念，也正体现了“三角函数”也称为“圆函数”这件事。
+
+\subsubsection{初相$\varphi$}
+
+$\varphi$ 的作用主要体现在比较具有相同角频率的两个正弦型函数时。在给定 $\omega$ 的情况下，两个正弦型函数的形状完全相同，但如果它们具有不同的初相 $\varphi$，则它们的图像将在 $x$ 轴方向上发生平移。两个函数的相位便始终保持固定的\textbf{相差（phase difference）}，因此得知初相便可计算不同函数的相差，进而清晰地描述两个周期信号之间的相对位置。
+
+相差在信号处理、波动分析以及同步系统中具有重要意义，例如，在交流电路中，相差决定了电压与电流的相对关系，从而影响功率的计算和能量的传输。下面来看相差如何具体影响正弦型函数的行为。设有两个具有相同角频率 $\omega$的正弦型函数：
+\begin{equation}
+f_0\left(x\right)=A_0\sin\left(\omega x+\varphi_0\right),\quad f_1\left(x\right)=A_1\sin\left(\omega x+\varphi_1\right)~.
+\end{equation}
+将它们的相差定义为：
+\begin{equation}
+\Delta \varphi = \varphi_1 - \varphi_0~.
+\end{equation}
+若将$f_0,f_1$视作信号，则$\Delta \varphi$ 直接决定了两个信号在时间轴上的相对位置：
+\begin{itemize}
+\item 若 $\Delta \varphi = 0$，则两个信号完全同步，峰值和零点均对齐。
+\item 若 $\Delta \varphi > 0$，则 $f_1(x)$ 相对于 $f_0(x)$ 向左平移，即 $f_0(x)$ 领先于 $f_1(x)$，这意味着在相同时刻，$f_0(x)$ 处于较前的状态，或换句话说，$f_1(x)$ 在更早的时间前就已经达到 $f_0(x)$ 的状态。
+\item 若 $\Delta \varphi < 0$，则 $f_1(x)$ 相对于 $f_0(x)$ 向右平移，即 $f_1(x)$ 滞后于 $f_0(x)$，意味着 $f_1(x)$ 需要经历更长的时间才能达到与 $f_0(x)$ 相同的状态。
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/8625b95d020e5936.png}
+\caption{不同相位的正弦函数对比} \label{fig_HsSinF_2}
+\end{figure}
+另外，当计算两个正弦型函数的和，即将两个信号叠加时，相差将直接影响合成信号的幅度和形态：
+\begin{equation}\label{eq_HsSinF_3}
+\begin{split}
+f(x) &= A_0\sin(\omega x + \varphi_0) + A_1\sin(\omega x + \varphi_1) \\
+&= A_0\sin(\omega x + \varphi_0) + A_1\sin(\omega x + \varphi_0 + \Delta \varphi)\\
+&= A_0\sin(\omega x + \varphi_0) + A_1 \left( \sin(\omega x + \varphi_0) \cos \Delta \varphi + \cos(\omega x + \varphi_0) \sin \Delta \varphi \right) \\
+&= (A_0 + A_1 \cos \Delta \varphi) \sin(\omega x + \varphi_0) + A_1 \sin \Delta \varphi\cos(\omega x + \varphi_0)\\
+&= A \sin(\omega x + \varphi)~.
+\end{split}
+\end{equation}
+
+其中，第三个等号利用了\aref{两角和正弦公式}{eq_HsAnTf_5}，第五个等号利用了\aref{辅助角公式}{eq_HsAnTf_9}。可见，角频率相同的两个正弦函数之和仍然是同一角频率的正弦函数，只是振幅和相位发生了变化。相位差不仅影响数学上的波形关系，在物理应用中也决定了系统的同步性、信号的叠加效果以及能量传输的效率。
+
+\autoref{eq_HsSinF_3} 中相位 $\varphi$\footnote{注意，这里原本利用辅助角公式得到的结果应该是$A \sin(\omega x + \varphi_0+\varphi')$，且\begin{equation}
+\displaystyle\tan\varphi'={A_1 \sin \Delta \varphi\over A_0 + A_1 \cos \Delta \varphi}~.
+\end{equation}
+，此处将它们合并写作$\varphi$。如果觉得化简困难，可以直接利用第一个等号展开整理，此处不予赘述。}和振幅 $A$ 由以下关系确定：
+\begin{equation}\label{eq_HsSinF_4}
+\tan \varphi =\frac{A_0 \sin \varphi_0 + A_1 \sin \varphi_1}{A_0 \cos \varphi_0 + A_1 \cos \varphi_1}~.
+\end{equation}
+\begin{equation}
+\begin{split}
+A &= \sqrt{(A_0 + A_1 \cos \Delta \varphi)^2 + (A_1 \sin \Delta \varphi)^2} \\
+&= \sqrt{A_0^2 + 2 A_0 A_1 \cos \Delta \varphi + A_1^2 \cos^2 \Delta \varphi + A_1^2 \sin^2 \Delta \varphi} \\
+&= \sqrt{A_0^2 + 2 A_0 A_1 \cos \Delta \varphi + A_1^2 (\cos^2 \Delta \varphi + \sin^2 \Delta \varphi)} \\
+&= \sqrt{A_0^2 + A_1^2 + 2 A_0 A_1 \cos \Delta \varphi}~.
+\end{split}
+\end{equation}
+注意到，由于 $\cos x$ 是偶函数，且 $A_0$ 和 $A_1$ 为常数，因此 $|A|$ 的大小仅由相位差 $|\Delta \varphi|$ 决定。不同的相位差对应不同的幅值组合关系：
+\begin{itemize}
+\item 当 $\Delta \varphi = 0$ 时，$f_0(x)$ 和 $f_1(x)$ \textbf{同相（in phase）}，即它们的波峰和波谷完全对齐。这时 $\cos\Delta \varphi = 1$，幅值达到最大值 $A_0 + A_1$，表示两个信号的叠加最强。
+\item 当 $|\Delta \varphi| = \pi$ 时，$f_0(x)$ 和 $f_1(x)$ \textbf{反相（out of phase）}，即一个波峰对应另一个的波谷。这时 $\cos\Delta \varphi = -1$，幅值取得最小值 $|A_0 - A_1|$，表明两信号部分或完全抵消。
+\item 当 $|\Delta \varphi| = \frac{\pi}{2}$ 时，$f_0(x)$ 和 $f_1(x)$ \textbf{正交（orthogonal）}，此时 $\cos\Delta \varphi = 0$，意味着两信号相互独立，不存在相干叠加。
+\end{itemize}
+综上，相位差决定了两个正弦信号的叠加效果：当相位一致时，幅值达到最大；当相位相差 $\pi$ 时，信号完全相反，可能抵消；当相位相差 $\displaystyle\frac{\pi}{2}$ 时，信号相互正交，形成独立分量。这一特性在信号分析、振动系统以及傅里叶变换等领域具有重要意义。
+
+值得注意的是，\autoref{eq_HsSinF_4} 的表达式中，振幅 $A, A_0, A_1$ 之间的关系符合余弦定理的形式，而相位差 $\Delta \varphi$ 对应于 $A_0$ 和 $A_1$ 之间的夹角。这意味着，在一个三角形中，若 $A_0$ 和 $A_1$ 分别表示两条边的长度，而 $\Delta \varphi$ 为它们的夹角，则由它们合成的振幅 $A$ 即为三角形的第三边的长度。
+
+这一关系并非偶然。事实上，若将同频率的正弦型函数表示为复平面上的旋转向量，其投影便对应于实际的正弦型函数。通过复数或向量运算，可以直观地描述正弦信号的振幅与相位的合成及变化，使分析更加简便清晰。这种研究方法称为\textbf{相量法（phasor method）}，在电路分析、振动分析和波动问题等涉及正弦信号的领域具有重要作用。
+
+\subsection{五点法作图}
+
+之前介绍过$\sin x$的图像，下面来介绍一下如何作出正弦型函数的图像，毕竟这个函数图像的应用场景更广泛。对于更一般形式的三角函数：
+
+\begin{equation}
+f(x) = A \sin(\omega x + \varphi) + b~.
+\end{equation}
+
+注意这里在后面加了另一个参数b，这是从线性变换的视角来看了。另外如前所述，内部是线性的，因此经过$\sin x$映射后，仍然会呈现出sinx的形态，外部的A和b是对结果进行第二次线性变换。内外的变化都是线性的，只有sin是非线性的，由于三角函数都是周期函数，因此选取一个周期内的一些点来作为代表就可以大概地刻画函数的图像形态。在幂函数、指数函数等函数的研究时也大概地利用过这种方法，即说函数过定点，然后在按照参数的取值恢复不同的形态。由于三角函数的形态比较统一，不论取什么参数都是类似的振动的样子，因此，就像直线需要两个点来确定位置一样，为了描述sinx的非线性通常选取在一个周期内的五个关键点作为限定。
+
+
+五点作图法是一种用于简便绘制正弦函数 $\sin x$ 和余弦函数 $\cos x$ 图像的方法。它利用函数的周期性和对称性，在一个基本周期内选取五个关键点，并利用这些点的函数值来绘制光滑的曲线，从而大致勾勒出函数的图像。
+
+
+这五个点的选择实际上框定了正弦函数的所有重要信息。从函数的解析表达式来看，幅值 $A$、平移量 $B$ 和角频率 $\omega$ 这三个参数已经决定了函数的整体形态，而周期内的五个关键点则提供了足够的信息来确定曲线的走向。然而，为什么恰好需要五个点，而不是四个或六个？这一点并不十分明确，但可以观察到，五个点能够有效捕捉正弦曲线的关键特征，包括极值点、过零点及对称性，使得在基本周期内能够顺利绘制出函数的整体趋势。
+
+确定了这五个点后，其余的函数图像会严格遵循正弦函数的基本形态，即 $\sin x$ 或 $\cos x$ 的标准曲线。因此，一旦掌握了这些关键点，就可以快速画出函数的近似图像，而无需精确计算所有点的值。
+
+
+
+
+之前提到过，周期$\displaystyle T = \frac{2\pi}{|\omega|}$
+
+相位平移
+\begin{equation}
+\omega x + \varphi=\alpha\implies x={\alpha-\varphi\over \omega}~.
+\end{equation}
+
+\begin{table}[ht]
+\centering
+\caption{正弦函数的五个关键点}\label{tab_HsSinF1}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$\alpha$ & $0$ &$\displaystyle {T\over4},\left(\frac{1}{2\omega}\pi\right)$& $\displaystyle {T\over2},\left(\frac{1}{\omega}\pi\right)$ & $\displaystyle {3\over4}T,\left(\frac{3}{2\omega}\pi\right)$ & $\displaystyle T,\left(\frac{2}{\omega}\pi\right)$\\
+\hline
+$\sin \alpha$ & $0$&$1$&$0$&$-1$&$0$ \\
+\hline
+$x=\displaystyle{\alpha-\varphi\over \omega}$&$\displaystyle-{\varphi\over \omega}$&$\displaystyle{1\over 2\omega^2}\pi-{\varphi\over \omega}$&$\displaystyle{1\over \omega^2}\pi-{\varphi\over \omega}$&$\displaystyle{3\over 2\omega^2}\pi-{\varphi\over \omega}$&$\displaystyle{2\over \omega^2}\pi-{\varphi\over \omega}$\\
+\hline
+$f(x)$ & $b$&$b+A$&$b$&$b-A$&$b$ \\
+\hline
+\end{tabular}
+\end{table}
+这五个点包含了一个周期内的零点（对称中心）、极值点（对称轴）以及单调区间的信息，利用周期性扩展基本就能获得完整的函数图像。
+
+
+初学者容易混淆此处$\alpha=0$与之前介绍初相时说$\varphi$对应着$x=0$的含义
+\addTODO{这块要重新写一下。就是平移和拉伸先后的问题，是两种思考方式。}
+
+
+需要注意的是，相位与之前学习的的函数的平移、伸缩变换的视角略有不同，初学者容易在此混淆。例如，对于 $\displaystyle\sin(2x + \frac{\pi}{3})$，可以从两种视角来分析：
+\begin{itemize}
+\item 相位视角：将 $\displaystyle2x + \frac{\pi}{3}$ 视为整体，表示函数的输入值变化方式。$\omega = 2$ 使得输入值增长速度变快，而 $\displaystyle\varphi = \frac{\pi}{3}$ 使得初始位置发生偏移。如果要用平移和伸缩来表示的话，理解为先拉伸后平移。
+\item 平移+拉伸视角：可以将 $\displaystyle\sin(2x + \frac{\pi}{3})$ 变形为 $\displaystyle\sin\left(2(x + \frac{\pi}{6})\right)$，此时可认为先对 $x$ 进行水平平移 $\displaystyle\frac{\pi}{6}$，再进行 $2$ 倍的水平缩放。
+\end{itemize}
+
+这两种分析方式在数学上是等价的，但从直觉上来看，平移+拉伸视角更符合传统的变换思路，相位视角能够更直接地解释 $\omega$ 和 $\varphi$ 对图像的影响，也避免了伸缩变换不保持距离的影响。掌握这两种不同的理解方式，有助于更灵活地分析正弦型函数的变化。
+
+相位  \phi  与  \omega  无关，它只决定了波形的平移量，而  \omega  决定的是波的频率（或波长）。但如果写成 错位的表达式  \sin(\omega(x + \phi)) ，那相位的物理意义会被改变，使得 平移量依赖于频率，这就错误了。
+此时  \phi  不再是简单的平移角度，而是被频率放大了，导致波形的偏移量随着  \omega  增大而增大，这不符合物理意义。
+\addTODO{1}
+
+另外关于正切，重要的就是找到渐近线和对称点的位置。因此一般找到三个点即可。
+
+\subsection{*三角函数的高阶导数}
+
+\pentry{复数\nref{nod_CplxNo}}{nod_7e14}
+
+注意本章内容在高中数学课程中并未涉及，仅作为视野拓展。之前学习过 $\sin x$ 的导数为 $\cos x$，而 $\cos x$ 的导数为 $-\sin x$，如果将其视为对 $\sin x$ 求二阶导数，可以发现 $\sin x$ 经过两次求导后变为其相反数。这启发人们进一步探究 $\sin x$ 和 $\cos x$ 的高阶导数 $(\sin x)^{(n)}$ 和 $(\cos x)^{(n)}$ 是否具有某种周期性规律。
+
+观察前几阶导数的变化情况：
+\begin{itemize}
+\item $n = 1$ 时，$\sin x$ 变为 $\cos x$，$\cos x$ 变为 $-\sin x$。
+\item $n = 2$ 时，$\sin x$ 变为 $-\sin x$，$\cos x$ 变为 $-\cos x$，二者均为原函数的相反数。
+\item $n = 3$ 时，$\sin x$ 变为 $-\cos x$，$\cos x$ 变为 $\sin x$。
+\item $n = 4$ 时，$\sin x$ 和 $\cos x$分别还是变成$\sin x$ 和 $\cos x$。
+\end{itemize}
+由此可见，$\sin x$ 和 $\cos x$ 经过四次求导后又回到了自身，再求导下去就又开始循环了，即：
+\begin{equation}\label{eq_HsSinF_2}
+(\sin x)^{(n)}  =
+\begin{cases}
+\sin x, & n \equiv 0 \pmod{4} \\
+\cos x, & n \equiv 1 \pmod{4} \\
+-\sin x, & n \equiv 2 \pmod{4} \\
+-\cos x, & n \equiv 3 \pmod{4}
+\end{cases},\quad(\cos x)^{(n)} =
+\begin{cases}
+\cos x, & n \equiv 0 \pmod{4} \\
+-\sin x, & n \equiv 1 \pmod{4} \\
+-\cos x, & n \equiv 2 \pmod{4} \\
+\sin x, & n \equiv 3 \pmod{4}
+\end{cases}~.
+\end{equation}
+其中，$n \equiv m \pmod{4}$ 表示 $n$ 除以 $4$ 余 $m$。结合诱导公式，上述周期性可进一步归纳为：
+
+\begin{corollary}{正弦函数与余弦函数的 $n$ 阶导数}
+对于任意整数 $n$，正弦函数与余弦函数的 $n$ 阶导数满足：
+\begin{equation}
+(\sin x)^{(n)} = \sin\left(x + n\frac{\pi}{2}\right), \quad
+(\cos x)^{(n)} = \cos\left(x + n\frac{\pi}{2}\right)~.
+\end{equation}
+\end{corollary}
+
+这一结果表明，$\sin x$ 和 $\cos x$ 的高阶导数呈现周期性变化。对于 $\sin x$，每求一次导数，相位都会提前 $\displaystyle\frac{\pi}{2}$\footnote{这与先前讨论的 $\cos x$ 和 $\sin x$ 之间相差 $\displaystyle\frac{\pi}{2}$ 的相位关系相一致。另外，在 \autoref{eq_HsSinF_2} 中，$\cos x$ 相对于 $\sin x$ 总是滞后 $\frac{\pi}{2}$，这一特性进一步揭示了相与相位的联系。此处指出希望能加深读者对于相和相位的理解}。由于 $\sin x$ 的周期为 $2\pi$，两次求导导致反相，而四次求导则保持同相，回归原函数。
+
+三角函数的高阶导数所展现的对称性和周期性，在数学和物理学中具有广泛的应用。特别是在信号处理、振动分析、傅里叶级数和控制理论等领域，三角函数的导数结构决定了系统的动态特性。进一步的分析可以借助指数函数的表示形式，从而更直观地揭示其周期性结构。下面对此进行一些讨论。
+
+\subsubsection{从复数的角度解释}
+
+由\aref{欧拉公式}{the_CplxNo_3}变形可以得到：
+
+\begin{equation}
+\sin x = \frac{e^{\I x} - e^{-\I x}}{2i}, \quad \cos x = \frac{e^{\I x} + e^{-\I x}}{2}~.
+\end{equation}
+
+考虑$e^{\I x},e^{-\I x}$的$n$阶导数：
+\begin{equation}
+\left(e^{\I x}\right)^{(n)} = \I^n e^{\I x},\quad\left(e^{-\I x}\right)^{(n)} = (-\I)^n e^{-\I x}~.
+\end{equation}
+这里涉及到复变函数的求导，尽管没有接触过，但不必担心。无论是此处还是后续推导中，都可以将 $\I$ 视作一个类似于实数的常数，并按照常规的求导公式或法则进行计算，于是有：
+\begin{equation}
+\begin{split}
+\left( \sin x \right)^{(n)} &= \left( \frac{e^{\I x} - e^{-\I x}}{2i} \right)^{(n)}\\
+&=\frac{\I^n e^{\I x} - (-\I)^n e^{-\I x}}{2i}\\
+&=\I^{n-1} \frac{(\cos x+\I\sin x) - (-1)^{n}(\cos x-\I\sin x )}{2}\\
+&=\frac{1+(-1)^{n-1}}{2}\I^{n-1} \cos x+\frac{1+(-1)^{n}}{2}\I^{n} \sin x~.
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\left( \cos x \right)^{(n)} &= \left( \frac{e^{\I x} + e^{-\I x}}{2} \right)^{(n)}\\
+&=\frac{\I^n e^{\I x} + (-\I)^n e^{-\I x}}{2}\\
+&=\I^{n} \frac{(\cos x+\I\sin x) + (-1)^{n}(\cos x-\I\sin x )}{2}\\
+&=\frac{1+(-1)^{n}}{2}\I^{n} \cos x+\frac{1+(-1)^{n+1}}{2}\I^{n+1} \sin x~.
+\end{split}
+\end{equation}
+分别看结果中每一项的三部分，最后一部分是三角函数自不必说。第一部分随着 $n$ 取奇数或偶数，分别取 $0$ 和 $1$，呈现两种状态。而巧的是第一部分为$1$时，也都对应着第二部分取到实数的场景。中间部分的 $\I^n$ 也具有 $4$ 为周期的循环特性：
+\begin{equation}
+\I^0 = 1, \quad \I^1 = \I, \quad \I^2 = -1, \quad \I^3 = -\I, \quad \I^4 = 1~.
+\end{equation}
+
+因此，$\sin x$ 和 $\cos x$ 的高阶导数的周期性可以从复数的角度得到解释。这与圆周运动中速度与位置垂直的关系相对应。在圆周运动中，位置矢量与速度矢量始终保持正交，而求导操作在复数表示下就正体现为旋转。
+
+\subsubsection{以简谐振动系统为例}
+
+在简谐振动系统中，位置 $x(t)$ 通常满足：
+\begin{equation}
+x(t) = A \sin(\omega t + \varphi)~.
+\end{equation}
+求导得到速度：
+\begin{equation}
+v(t) = A\omega \cos(\omega t + \varphi)~.
+\end{equation}
+再求导得到加速度：
+\begin{equation}
+a(t) = -A\omega^2 \sin(\omega t + \varphi)~.
+\end{equation}
+可以看到，加速度$a(t) = -\omega^2 x(t)$，这正是简谐振动的特征方程。
+
+在简谐振动中，位置、速度和加速度的相位关系如下：
+	•	速度 $v(t)$ 比位移 $x(t)$ 超前 $\frac{\pi}{2}$；
+	•	加速度 $a(t)$ 比速度 $v(t)$ 超前 $\frac{\pi}{2}$，即比位移 $x(t)$ 超前 $\pi$，与位移完全反相。
+
+这种相位关系意味着：
+	•	当物体位于最大正位移时（$x = A$），速度为零，加速度最大且指向负方向；
+	•	当物体通过平衡位置（$x = 0$）时，速度达到最大值，加速度为零；
+	•	当物体位于最大负位移时（$x = -A$），速度再次为零，加速度最大且指向正方向。
+
+角频率的物理意义
+
+在上述推导中，角频率 $\omega$ 在每次求导时都会作为系数出现，影响速度和加速度的大小：角频率 $\omega$ 的存在会导致二阶导数的\textbf{振幅因子}发生变化。这一点在振动系统中尤为关键，例如在描述弹簧振子的运动时，其加速度（即二阶导数）与位移成正比，比例系数正是 $-\omega^2$。
+
+\begin{equation}
+|v_{\max}| = A\omega, \quad |a_{\max}| = A\omega^2~.
+\end{equation}
+这说明：
+	•	角频率 $\omega$ 越大，速度变化得越快，即物体在单位时间内振动得更快；
+	•	由于加速度正比于 $\omega^2$，因此 $\omega$ 越大，回复力越强，振动的加速度越大，说明系统对位移的恢复趋势越明显。
+
+
+如果继续求导，可以得到简谐振动系统的更高阶导数：
+\begin{equation}
+\frac{d^3x}{dt^3} = -A\omega^3 \cos(\omega t + \varphi),\quad
+\frac{d^4x}{dt^4} = A\omega^4 \sin(\omega t + \varphi)~.
+\end{equation}
+
+注意到 $x(t)$ 的四阶导数等于自身乘以 $\omega^4$，即
+\begin{equation}
+\frac{d^4x}{dt^4} = \omega^4 x(t)~.
+\end{equation}
+这说明，在振动系统中，高阶导数依然遵循三角函数的周期性变化，同时 $\omega$ 的幂次决定了振动强度在高阶导数上的放大效应。例如，在某些机械振动和电路振荡系统中，四阶或更高阶导数可以用于描述系统的非线性特性或响应的复杂性。
