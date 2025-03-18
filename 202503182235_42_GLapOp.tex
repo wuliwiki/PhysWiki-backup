@@ -28,7 +28,7 @@ v\cdot w:=(v|w)=(e_i,e_j)v^iv^j=g_{ij}v^iv^j.~
 由于度规矩阵的可逆性，因此常常用其和其逆矩阵 $g^{ij}$ 来升降指标，比如 $v^i=g^{ij}v_j$。
 
 因此\autoref{eq_GLapOp_2} 现在成为
-\begin{equation}
+\begin{equation}\label{eq_GLapOp_3}
 \Delta u=g^{ij}\Nabla_i(\Nabla_j u).~
 \end{equation}
 
@@ -36,25 +36,29 @@ v\cdot w:=(v|w)=(e_i,e_j)v^iv^j=g_{ij}v^iv^j.~
 \begin{equation}
 \Nabla u=\pdv{u}{x^i}.~
 \end{equation}
-但是算符 $\Nabla$ 作用在带有分量指标的矢量上时，时间的弯曲将带来额外的影响。此时算符 $\Nabla$ 称为\enref{协变导数}{CoDer}，其作用在矢量 $v^j$ 上效果为
-\begin{equation}
+但是算符 $\Nabla$ 作用在带有分量指标的矢量上时，时间的弯曲将带来额外的影响。此时算符 $\Nabla$ 称为\enref{协变导数}{CoDer}，其作用在矢量场 $v^j$ 上效果为
+\begin{equation}\label{eq_GLapOp_5}
 \Nabla_i v^j= \pdv{v^j}{x^i}+{\Gamma^{j}}_{ki}v^k.~
 \end{equation}
 右边额外的部分来自时空弯曲的影响，（在黎曼几何下）其可以由每一点的度规进行通过 $\Nabla_i g_{ik}=0$ 进行定义。因此
 
-\begin{equation}
+\begin{equation}\label{eq_GLapOp_4}
 \begin{aligned}
 &g^{ij}\Nabla_i(\Nabla_j u)\\
 &=\Nabla_i(g^{ij}\Nabla_j u)\\
-&=\partial_i\qty(g^{ij}\Nabla_j u)+{\Gamma^{i}}_{ki}g^{kj}\Nabla_j u\\
-&=\partial_i\qty(g^{ij}\pdv{u}{x^j})+{\Gamma^{i}}_{ki}g^{kj}\pdv{u}{x^j}\\
-&=\partial_i\qty(g^{ij}\pdv{u}{x^j})+\frac{1}{\sqrt{\abs{g}}}\qty(\pdv{}{x^i}\sqrt{\abs{g}})g^{kj}\pdv{u}{x^j}\\
-&=\partial_i\qty(g^{ij}\pdv{u}{x^j})+\frac{1}{\sqrt{\abs{g}}}\qty(\pdv{}{x^k}\sqrt{\abs{g}})g^{kj}\pdv{u}{x^j}\\
+&=\pdv{}{x^i}\qty(g^{ij}\Nabla_j u)+{\Gamma^{i}}_{ki}g^{kj}\Nabla_j u\\
+&=\pdv{}{x^i}\qty(g^{ij}\pdv{u}{x^j})+{\Gamma^{i}}_{ki}g^{kj}\pdv{u}{x^j}\\
+&=\pdv{}{x^i}\qty(g^{ij}\pdv{u}{x^j})+\frac{1}{\sqrt{\abs{g}}}\qty(\pdv{}{x^k}\sqrt{\abs{g}})g^{kj}\pdv{u}{x^j}\\
+&=\frac{1}{\sqrt{\abs{g}}}\pdv{}{x^i}\qty(\sqrt{\abs{g}}g^{ij}\pdv{u}{x^j}).
 \end{aligned}~
 \end{equation}
+其中倒数第二式可从 $\Nabla_i g_{ik}=0$ 和\autoref{eq_GLapOp_5} 推得。
 
+结合\autoref{eq_GLapOp_3} 和\autoref{eq_GLapOp_4} ，就得到在\textbf{一般高维弯曲空间中的拉普拉斯算符的形式}，其由下式定义：
+\begin{equation}
+\Delta u=\frac{1}{\sqrt{\abs{g}}}\pdv{}{x^i}\qty(\sqrt{\abs{g}}g^{ij}\pdv{u}{x^j}).~
+\end{equation}
 
-定义。其中 $u$ 是 $N$ 个坐标变量的函数。
 
 
 
