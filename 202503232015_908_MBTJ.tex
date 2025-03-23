@@ -1,0 +1,102 @@
+% 麦克斯韦-玻尔兹曼统计（综述）
+% license CCBYNCSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Maxwell\%E2\%80\%93Boltzmann_statistics}{相关文章}。
+
+在统计力学中，麦克斯韦–玻尔兹曼统计描述了经典物质粒子在热平衡中不同能级上的分布。当温度足够高或粒子密度足够低，以至于量子效应可以忽略不计时，这一统计方法适用。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/edce00b1e7050d6f.png}
+\caption{麦克斯韦–玻尔兹曼统计可用于推导理想气体中粒子速度的麦克斯韦–玻尔兹曼分布。展示了：在 -100°C、20°C 和 600°C 下，106 个氧分子的速度分布。} \label{fig_MBTJ_1}
+\end{figure}
+对于麦克斯韦–玻尔兹曼统计，能量为\(\varepsilon_i\)的粒子的期望数为：
+\[
+\langle N_i \rangle = \frac{g_i}{e^{(\varepsilon_i - \mu) / kT}} = \frac{N}{Z} g_i e^{-\varepsilon_i / kT}~
+\]
+其中：
+\begin{itemize}
+\item \(\varepsilon_i\)是第\( i \)个能级的能量，
+\item \( \langle N_i \rangle \)是能量为\( \varepsilon_i \)的状态集合中粒子的平均数，
+\item \( g_i \)是第\( i \)个能级的简并度，即具有能量 \( \varepsilon_i \)的状态的数量，这些状态可以通过其他方式加以区分[注1]，
+\item \( \mu \)是化学势，
+\item \( k \)是玻尔兹曼常数，
+\item \( T \)是绝对温度，
+\item \( N \)是总粒子数：
+  \[
+  N = \sum_i N_i~
+  \]
+\item \( Z \) 是配分函数：
+  \[
+  Z = \sum_i g_i e^{-\varepsilon_i / kT}~
+  \]
+\item \( e \) 是欧拉数。
+\end{itemize}
+等效地，粒子数有时表示为：
+\[
+\langle N_i \rangle = \frac{1}{e^{(\varepsilon_i - \mu) / kT}} = \frac{N}{Z} e^{-\varepsilon_i / kT}~
+\]
+其中，索引\( i \)现在指定了一个特定的状态，而不是所有能量为\( \varepsilon_i \)的状态集合，并且配分函数\( Z \)由以下式子给出：
+\[
+Z = \sum_i e^{-\varepsilon_i / kT}~
+\]
+\subsection{历史}  
+麦克斯韦–玻尔兹曼统计源于麦克斯韦–玻尔兹曼分布，很可能是对基础技术的提炼。该分布最早由麦克斯韦于1860年根据启发式方法推导出来。后来，玻尔兹曼在1870年代对该分布的物理起源进行了重要研究。该分布可以通过最大化系统熵的原理推导出来。
+\subsection{与麦克斯韦–玻尔兹曼分布的关系}  
+麦克斯韦–玻尔兹曼分布和麦克斯韦–玻尔兹曼统计密切相关。麦克斯韦–玻尔兹曼统计是统计力学中的一个更为一般的原理，用于描述经典粒子处于特定能量状态的概率：
+\[
+P_i = \frac{e^{-E_i / k_B T}}{Z}~
+\]
+其中：
+\begin{itemize}
+\item \( Z \) 是配分函数：
+  \[
+  Z = \sum_i e^{-E_i / k_B T}~
+  \]
+\item \( E_i \) 是状态 \( i \) 的能量，
+\item \( k_B \) 是玻尔兹曼常数，
+\item \( T \) 是绝对温度。
+\end{itemize}
+麦克斯韦–玻尔兹曼分布是麦克斯韦–玻尔兹曼统计在气体粒子动能上的具体应用。理想气体中粒子速度（或速率）的分布可以从统计假设推导得出，该假设认为气体分子的能级由其动能给出：
+\[
+f(v) = \left( \frac{m}{2 \pi k_B T} \right)^{3/2} 4 \pi v^2 e^{-\frac{m v^2}{2 k_B T}}~
+\]
+其中：
+\begin{itemize}
+\item \( f(v) \)是粒子速度的概率密度函数，
+\item \( m \)是粒子的质量，
+\item \( k_B \)是玻尔兹曼常数，
+\item \( T \)是绝对温度，
+\item \( v \)是粒子的速度。
+\end{itemize}
+\subsubsection{推导}
+我们可以从麦克斯韦–玻尔兹曼统计推导出麦克斯韦–玻尔兹曼分布，首先从麦克斯韦–玻尔兹曼的能级概率出发，并将动能\( E = \frac{1}{2} m v^2 \)代入，来将概率表示为速度的函数：
+\[
+P(E) = \frac{1}{Z} \exp \left( \frac{-E}{k_B T} \right) \rightarrow P(v) = \frac{1}{Z} \exp \left( \frac{-m v^2}{2 k_B T} \right)~
+\]
+在三维空间中，这与球面面积成正比，\( 4 \pi v^2 \)。因此，速度\( v \)的概率密度函数（PDF）变为：
+\[
+f(v) = C \cdot 4 \pi v^2 \exp \left( -\frac{m v^2}{2 k_B T} \right)~
+\]
+为了找到归一化常数\( C \)，我们要求概率密度函数对所有可能速度的积分为 1：
+\[
+\int_0^\infty f(v) dv = 1 \quad \rightarrow \quad C \int_0^\infty 4 \pi v^2 \exp \left( -\frac{m v^2}{2 k_B T} \right) dv = 1~
+\]
+通过使用已知的积分结果：
+\[
+\int_0^\infty v^2 e^{-a v^2} dv = \frac{\sqrt{\pi}}{4 a^{3/2}}~
+\]
+其中 \( a = \frac{m}{2 k_B T} \)，我们得到：
+\[
+C \cdot 4 \pi \cdot \frac{\sqrt{\pi}}{4 \left( \frac{m}{2 k_B T} \right)^{3/2}} = 1 \quad \rightarrow \quad C = \left( \frac{m}{2 \pi k_B T} \right)^{3/2}~
+\]
+因此，麦克斯韦–玻尔兹曼速度分布为：
+\[
+f(v) = \left( \frac{m}{2 \pi k_B T} \right)^{3/2} 4 \pi v^2 \exp \left( -\frac{m v^2}{2 k_B T} \right)~
+\]
+\subsection{适用性}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/b1e4965e444d5eff.png}
+\caption{} \label{fig_MBTJ_2}
+\end{figure}
