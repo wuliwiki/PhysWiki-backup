@@ -44,7 +44,7 @@ g_{ij}&=\mathrm{diag}(\eta_i),\\
 \end{aligned}~
 \end{equation}
 由此，
-\begin{equation}
+\begin{equation}\label{eq_HDsphF_1}
 \begin{aligned}
 g^{ij}&=\mathrm{diag}(h^i),\\
 h^{i}&=\left\{\begin{aligned}
@@ -71,7 +71,11 @@ h^{i}&=\left\{\begin{aligned}
 =&Nr^{-1}\pdv{u}{r}+\sum_{i=1}^{N}h^{i}(i-1)\cot\theta^i\pdv{u}{\theta^i}\\
 \end{aligned}~
 \end{equation}
-而 $\pdv$
+而由\autoref{eq_HDsphF_1} ， $\pdv{g^{ij}}{\theta^i}=0$。且
+\begin{equation}
+g^{ij}\frac{\partial^2 u}{\partial x^i\partial x^j}=\sum_{i=1}^{N}h^{i}\frac{\partial^2 u}{\partial {\theta^i}^2}+\frac{\partial^2 u}{\partial r^2}~
+\end{equation}
+
 
 \subsection{将球谐函数分离变量}
 

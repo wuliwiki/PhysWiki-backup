@@ -17,7 +17,7 @@
 
 \subsection{高维拉普拉斯方程的角坐标部分}
 对一般高维空间的拉普拉斯方程，可由对应空间的\enref{拉普拉斯算符}{GLapOp}获得，即从 $\Delta u=0$ 一般高维空间的拉普拉斯方程如下：
-\begin{equation}
+\begin{equation}\label{eq_HDsphF_2}
 \begin{aligned}
 &\frac{1}{\sqrt{ \left\lvert g \right\rvert }} \frac{\partial }{\partial x^i} \left(\sqrt{ \left\lvert g \right\rvert }g^{ij} \frac{\partial u}{\partial x^j} \right)\\
 =&\frac{1}{\sqrt{ \left\lvert g \right\rvert }} \qty(\frac{\partial }{\partial x^i} \sqrt{ \left\lvert g \right\rvert })g^{ij} \frac{\partial u}{\partial x^j}+\qty(\frac{\partial }{\partial x^i} g^{ij}) \frac{\partial u}{\partial x^j}+g^{ij}\frac{\partial^2 u}{\partial x^i\partial x^j}\\
@@ -44,7 +44,7 @@ g_{ij}&=\mathrm{diag}(\eta_i),\\
 \end{aligned}~
 \end{equation}
 由此，
-\begin{equation}
+\begin{equation}\label{eq_HDsphF_1}
 \begin{aligned}
 g^{ij}&=\mathrm{diag}(h^i),\\
 h^{i}&=\left\{\begin{aligned}
@@ -71,7 +71,17 @@ h^{i}&=\left\{\begin{aligned}
 =&Nr^{-1}\pdv{u}{r}+\sum_{i=1}^{N}h^{i}(i-1)\cot\theta^i\pdv{u}{\theta^i}\\
 \end{aligned}~
 \end{equation}
-而 $\pdv$
+而由\autoref{eq_HDsphF_1} ， $\pdv{g^{ij}}{\theta^i}=0$。且
+\begin{equation}
+g^{ij}\frac{\partial^2 u}{\partial x^i\partial x^j}=\sum_{i=1}^{N}h^{i}\frac{\partial^2 u}{\partial {\theta^i}^2}+\frac{\partial^2 u}{\partial r^2}~
+\end{equation}
+所以最后\autoref{eq_HDsphF_2} 变成
+\begin{equation}
+\begin{aligned}
+\sum_{i=1}^{N}h^{i}\qty[(i-1)\cot\theta^i\pdv{u}{\theta^i}+\frac{\partial^2 u}{\partial {\theta^i}^2}]+r^{-N}\frac{\partial^2 }{\partial r^2}(r^{N}u).
+\end{aligned}~
+\end{equation}
+
 
 \subsection{将球谐函数分离变量}
 
