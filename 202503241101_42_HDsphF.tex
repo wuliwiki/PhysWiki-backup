@@ -91,7 +91,7 @@ r^{-2}\Nabla^{2}_{S^N}u+r^{-N}\frac{\partial }{\partial r}\qty(r^{N}\frac{\parti
 \end{equation}
 其中
 \begin{equation}
-\Nabla^{2}_{S^N}u:=h^{i}_{(N)}\qty[(i-1)\cot\theta^i\pdv{u}{\theta^i}]~
+\Nabla^{2}_{S^N}u:=\sum_{i=1}^N h^{i}_{(N)}\qty[(i-1)\cot\theta^i\pdv{u}{\theta^i}]~
 \end{equation}
 定义了单位 $N$ 球上的 \textbf{Laplace-Beltrami 算子}。
 \subsection{高维球谐函数}
@@ -99,13 +99,23 @@ r^{-2}\Nabla^{2}_{S^N}u+r^{-N}\frac{\partial }{\partial r}\qty(r^{N}\frac{\parti
 \begin{equation}
 u(r,\theta_1,\cdots,\theta_N)=R(r)W_N(\theta_1,\cdots,\theta_N),~
 \end{equation}
-就有
-\begin{equation}
+\autoref{eq_HDsphF_3} 就可写为
+\begin{equation}\label{eq_HDsphF_4}
 \frac{1}{R}r^{-N+2}\frac{\partial }{\partial r}\qty(r^{N}\frac{\partial u}{\partial r}R)=-\frac{1}{W_N}\Delta_{S^N}W_N=\lambda_N.~
 \end{equation}
-其中 $\lambda_N$ 是分离常数。
+其中 $\lambda_N$ 是分离常数，$\Delta_{S^N}:=\Nabla_{S^N}^2$。
 
-将只含角度变量的部分提取出来，
+将\autoref{eq_HDsphF_4} 中只含角度变量的部分提取出来，就得到如下角变量部分满足的方程：
+\begin{equation}
+\Delta_{S^N}W_N+\lambda_N W_N=0.~
+\end{equation}
+该方程的解 $W_N$ 便是所谓的 $N$ 维\textbf{球谐函数}（因为它是定义在 $N+1$ 维空间的 $N$ 维球上的）。
+
+\subsection{球谐函数的}
+
+
+
+
 
 
 
