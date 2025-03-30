@@ -1,0 +1,90 @@
+% 棣莫弗公式（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Laplace\%27s_equation}{相关文章}。
+
+在数学中，德摩根公式（也称为德摩根定理或德摩根恒等式）表明，对于任何实数\( x \)和整数\( n \)，有
+\[
+(\cos x + i \sin x)^n = \cos(nx) + i \sin(nx),~
+\]
+其中\( i \)是虚数单位（\( i^2 = -1 \)）。该公式以亚伯拉罕·德摩根的名字命名\(^\text{[1]}\)，尽管他在自己的著作中并未明确提出该公式\(^\text{[2]}\)。表达式\( \cos x + i \sin x \)有时简写为\( \text{cis} \, x \)。
+
+该公式非常重要，因为它将复数和三角学联系起来。通过展开左侧表达式，并在假设\( x \)为实数的情况下比较实部和虚部，可以推导出\( \cos(nx) \)和 \( \sin(nx) \)的有用表达式，形式为\( \cos x \)和\( \sin x \)的函数。
+
+如所写，该公式对非整数幂\( n \)无效。然而，存在该公式的广义形式，适用于其他指数。这些广义形式可用于给出统一根的显式表达式，即使得\( z^n = 1 \)的复数\( z \)。
+
+使用正弦和余弦函数对复数的标准扩展，该公式即使在\( x \)为任意复数时也成立。
+\subsection{示例}  
+对于\( x = 30^\circ \)和\( n = 2 \)，德摩根公式断言：
+\[
+\left( \cos(30^\circ) + i \sin(30^\circ) \right)^2 = \cos(2 \cdot 30^\circ) + i \sin(2 \cdot 30^\circ),~
+\]
+或者等效地：
+\[
+\left( \frac{\sqrt{3}}{2} + \frac{i}{2} \right)^2 = \frac{1}{2} + \frac{i \sqrt{3}}{2}.~
+\]
+在这个例子中，通过展开左侧表达式很容易验证该等式的有效性。
+
+\subsection{与欧拉公式的关系}  
+德摩根公式是欧拉公式的前身：
+\[
+e^{ix} = \cos x + i \sin x,~
+\]
+其中\( x \)以弧度而非度数表示，这建立了三角函数与复指数函数之间的基本关系。
+
+可以通过使用欧拉公式和整数幂的指数法则推导出德摩根公式：
+\[
+(e^{ix})^n = e^{inx},~
+\]
+因为欧拉公式意味着左侧等于\(\left( \cos x + i \sin x \right)^n\),而右侧等于\(\cos(nx) + i \sin(nx)\).
+\subsection{归纳法证明}
+通过数学归纳法可以证明 de Moivre 定理的正确性，并由此将其扩展到所有整数。对于一个整数\( n \)，定义以下命题\( S(n) \)：
+\[
+(\cos x + i \sin x)^n = \cos(nx) + i \sin(nx).~
+\]
+对于\( n > 0 \)，我们通过数学归纳法进行证明。显然，\( S(1) \)是成立的。假设对于某个自然数\( k \)，\( S(k) \)成立。即，我们假设：
+\[
+(\cos x + i \sin x)^k = \cos(kx) + i \sin(kx)~
+\]
+现在，考虑\( S(k+1) \)：
+\[
+(\cos x + i \sin x)^{k+1} = (\cos x + i \sin x)^k (\cos x + i \sin x)~
+\]
+根据归纳假设：
+\[
+= (\cos kx + i \sin kx) (\cos x + i \sin x)~
+\]
+利用三角恒等式展开：
+\[
+= \cos kx\cos x - \sin kx\sin x + i(\cos kx\sin x + \sin kx\cos x)~
+\]
+通过三角函数的和角公式：
+\[
+= \cos((k+1)x) + i \sin((k+1)x)~
+\]
+这就证明了\( S(k+1) \)的成立。因此，由数学归纳法可得，定理对于所有自然数\( n \)成立。
+
+我们推导出\( S(k) \)蕴含\( S(k+1) \)。根据数学归纳法原理，由此可得该结果对于所有自然数都成立。现在，显然\(S(0)\)成立，因为\( \cos(0x) + i \sin(0x) = 1 + 0i = 1 \)。最后，对于负整数的情况，我们考虑\( -n \)的指数，其中\( n \)为自然数。
+\begin{equation}
+\begin{aligned}
+(\cos x + i \sin x)^{-n}
+&= \left( (\cos x + i \sin x)^n \right)^{-1}\\
+&= (\cos nx + i \sin nx)^{-1} \\
+&= \cos nx - i \sin nx \quad (\ast)\\
+&= \cos(-nx) + i \sin(-nx)
+\end{aligned}~
+\end{equation}
+等式\( (\ast) \)是由恒等式
+\[
+z^{-1} = \frac{\bar{z}}{|z|^2}~
+\]
+得出的，其中\( z = \cos(nx) + i \sin(nx) \)。因此，\( S(n) \)对于所有整数\( n \)成立。
+\subsection{余弦和正弦的单独公式}  
+对于复数的等式，必须保证方程两边的实部和虚部都相等。如果\( x \)，因此\( \cos x \)和\( \sin x \)，都是实数，则这些部分的恒等式可以使用二项式系数来表示。这个公式是由16世纪法国数学家弗朗索瓦·维耶特提出的：
+\[
+\sin(nx) = \sum_{k=0}^{n} \binom{n}{k} (\cos x)^k (\sin x)^{n-k} \sin \left( \frac{(n-k)\pi}{2} \right)~
+\]
+\[
+\cos(nx) = \sum_{k=0}^{n} \binom{n}{k} (\cos x)^k (\sin x)^{n-k} \cos \left( \frac{(n-k)\pi}{2} \right)~
+\]
