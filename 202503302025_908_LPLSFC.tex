@@ -1,0 +1,225 @@
+% 拉普拉斯方程（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Laplace\%27s_equation}{相关文章}。
+
+在数学和物理学中，拉普拉斯方程是一个二阶偏微分方程，得名于皮埃尔-西蒙·拉普拉斯，他在1786年首次研究了其性质。通常写作：
+\[
+\nabla^2 f = 0~
+\]
+或
+\[
+\Delta f = 0~
+\]
+其中\(\Delta = \nabla \cdot \nabla = \nabla^2\)是拉普拉斯算符，\(^\text{[注1]}\)\(\nabla\cdot\)是散度算符（也表示为“div”），\(\nabla\)是梯度算符（也表示为“grad”），\(f(x, y, z)\)是一个二次可微的实值函数。因此，拉普拉斯算符将标量函数映射到另一个标量函数。
+
+如果右边指定为一个给定函数，\(h(x, y, z)\)则我们有
+\[
+\Delta f = h~
+\]
+这被称为泊松方程，是拉普拉斯方程的一种推广。拉普拉斯方程和泊松方程是椭圆型偏微分方程的最简单例子。拉普拉斯方程也是赫尔姆霍兹方程的特例。
+
+拉普拉斯方程解的一般理论称为势理论。拉普拉斯方程的二次连续可微解是调和函数，\(^\text{[1]}\)这些函数在多个物理学分支中非常重要，特别是在静电学、引力学和流体动力学中。在热传导的研究中，拉普拉斯方程是稳态热方程。\(^\text{[2]}\)一般来说，拉普拉斯方程描述了平衡状态或那些不显式依赖于时间的情况。
+\subsection{在不同坐标系中的形式} 
+在直角坐标系中，\(^\text{[3]}\)
+\[
+\nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} = 0.~
+\]
+在柱面坐标系中，\(^\text{[3]}\)
+\[
+\nabla^2 f = \frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial f}{\partial r} \right) + \frac{1}{r^2} \frac{\partial^2 f}{\partial \phi^2} + \frac{\partial^2 f}{\partial z^2} = 0.~
+\]
+在球坐标系中，使用\( (r, \theta, \varphi) \)约定，\(^\text{[3]}\)
+\[
+\nabla^2 f = \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial f}{\partial r} \right) + \frac{1}{r^2 \sin \theta} \frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial f}{\partial \theta} \right) + \frac{1}{r^2 \sin^2 \theta} \frac{\partial^2 f}{\partial \varphi^2} = 0.~
+\]
+更一般地，在任意曲线坐标系\( (\xi^i) \)中，
+\[
+\nabla^2 f = \frac{\partial}{\partial \xi^j} \left( \frac{\partial f}{\partial \xi^k} g^{kj}\right) + \frac{\partial f}{\partial \xi^j} g^{jm}\Gamma_{mn}^n = 0,~
+\]
+或
+\[
+\nabla^2 f = \frac{1}{\sqrt{|g|}} \frac{\partial}{\partial \xi^i} \left( \sqrt{|g|} g^{ij} \frac{\partial f}{\partial \xi^j} \right) = 0, \quad (g = \det \{g_{ij}\}),~
+\]
+其中\( g_{ij} \)是相对于新坐标的欧几里得度量张量，\( \Gamma \) 表示其克里斯托费尔符号。
+\subsection{边界条件}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/e07e8bea5b6b38d4.png}
+\caption{在一个环形区域（内半径\( r = 2 \)，外半径 \( R = 4 \)上的拉普拉斯方程，具有狄里克雷边界条件\( u(r=2) = 0 \) 和 \( u(R=4) = 4 \sin(5 \theta)\)} \label{fig_LPLSFC_1}
+\end{figure}
+拉普拉斯方程的狄里克雷问题包括在某个区域\( D \)上找到一个解\( \varphi \)，使得\( \varphi \)在\( D \)的边界上等于给定的某个函数。由于拉普拉斯算符出现在热方程中，因此这个问题的一个物理解释如下：根据给定的边界条件规格，固定区域边界上的温度。允许热量流动，直到达到一个稳态，在此状态下，区域内每个点的温度不再变化。然后，区域内的温度分布将由相应的狄里克雷问题的解给出。
+
+拉普拉斯方程的诺伊曼边界条件指定的不是边界上\( D \)的函数\( \varphi \)本身，而是它的法向导数。从物理角度看，这对应于为一个向量场构造势，该向量场的效应仅在\( D \)的边界已知。以热方程为例，这相当于规定通过边界的热流。特别地，在绝热边界上，\( \varphi \)的法向导数为零。
+
+拉普拉斯方程的解称为调和函数；它们在满足方程的区域内都是解析的。如果两个函数都是拉普拉斯方程（或任何线性齐次微分方程）的解，那么它们的和（或任何线性组合）也是解。这一性质被称为叠加原理，非常有用。例如，可以通过求和简单解来构造复杂问题的解。
+\subsection{在二维中}  
+拉普拉斯方程在直角坐标系中的形式为：
+\[
+\frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} \equiv \psi_{xx} + \psi_{yy} = 0.~
+\]
+\subsubsection{解析函数}  
+复数解析函数的实部和虚部都满足拉普拉斯方程。也就是说，如果\( z = x + iy \)，并且
+\[
+f(z) = u(x, y) + iv(x, y),~
+\]
+那么\( f(z) \)为解析函数的必要条件是\( u \)和\( v \)可微，并且满足柯西-黎曼方程：
+\[
+u_x = v_y, \quad v_x = -u_y.~
+\]
+其中\( u_x \)是\( u \)对\( x \)的一阶偏导数。由此可得：
+\[
+u_{yy} = (-v_x)_y = -(v_y)_x = -(u_x)_x.~
+\]
+因此，\( u \)满足拉普拉斯方程。类似的计算表明，\( v \)也满足拉普拉斯方程。反过来，给定一个调和函数，它是一个解析函数\( f(z) \)的实部（至少在局部范围内）。如果试探函数的形式为
+\[
+f(z) = \varphi(x, y) + i \psi(x, y),~
+\]
+那么如果我们设定
+\[
+\psi_x = -\varphi_y, \quad \psi_y = \varphi_x.~
+\]
+这个关系并不能确定\( \psi \)，而只是确定它的增量：
+\[
+d\psi = -\varphi_y\, dx + \varphi_x\, dy.~
+\]
+对于 \( \varphi \) 的拉普拉斯方程意味着 \( \psi \) 的可积性条件得以满足：
+\[
+\psi_{xy} = \psi_{yx},~
+\]
+因此，\( \psi \)可以通过线积分定义。可积性条件和斯托克斯定理意味着连接两点的线积分值与路径无关。由此得到的一对拉普拉斯方程解称为共轭调和函数。这个构造仅在局部有效，或者在路径不绕过奇点的情况下有效。例如，如果\( r \)和\( \theta \)是极坐标，且
+\[
+\varphi = \log r,~
+\]
+则对应的解析函数为
+\[
+f(z) = \log z = \log r + i \theta.~
+\]
+然而，角度\( \theta \)仅在不包含原点的区域内是单值的。
+
+拉普拉斯方程和解析函数之间的紧密联系意味着，拉普拉斯方程的任何解都有各阶导数，并且可以展开为幂级数，至少在不包含奇点的圆内。这与波动方程的解形成鲜明对比，后者通常具有较少的光滑性。
+
+幂级数和傅里叶级数之间有着密切的联系。如果我们在半径为\( R \)的圆内展开一个函数\( f \)为幂级数，这意味着：
+\[
+f(z) = \sum_{n=0}^{\infty} c_n z^n,~
+\]
+其中\( c_n \)是适当定义的系数，其实部和虚部分别为：
+\[
+c_n = a_n + i b_n.~
+\]
+因此，
+\[
+f(z) = \sum_{n=0}^{\infty} \left[ a_n r^n \cos n\theta - b_n r^n \sin n\theta \right] + i \sum_{n=1}^{\infty} \left[ a_n r^n \sin n\theta + b_n r^n \cos n\theta \right],~
+\]
+这是\( f \)的傅里叶级数。这些三角函数本身也可以展开，使用倍角公式。
+\subsubsection{流体流动}   
+设\( u \)和\( v \)分别为二维稳态不可压缩无旋流动的速度场的水平分量和垂直分量。不可压流动的连续性条件是：
+\[
+u_x + v_y = 0,~
+\]
+流动为无旋流的条件是：
+\[
+\nabla \times \mathbf{V} = v_x - u_y = 0.~
+\]
+如果我们定义函数\( \psi \)的微分为：
+\[
+d\psi = u\, dy - v\, dx,~
+\]
+那么连续性条件就是这个微分的可积性条件：得到的函数称为流函数，因为它在流线沿线是常数。\( \psi \)的一阶导数为：
+\[
+\psi_x = -v, \quad \psi_y = u,~
+\]
+而无旋条件意味着\( \psi \)满足拉普拉斯方程。与\( \psi \)共轭的调和函数\( \varphi \)称为速度势。柯西-黎曼方程意味着：
+\[
+\varphi_x = \psi_y = u, \quad \varphi_y = -\psi_x = v.~
+\]
+因此，每个解析函数都对应于平面上的稳态不可压缩、无旋、无粘的流体流动。实部是速度势，虚部是流函数。
+\subsubsection{静电学}  
+根据麦克斯韦方程组，二维空间中与时间无关的电场\( (u, v) \)满足：
+\[
+\nabla \times (u, v, 0) = (v_x - u_y) \hat{\mathbf{k}} = \mathbf{0},~
+\]
+和
+\[
+\nabla \cdot (u, v) = \rho,~
+\]
+其中\( \rho \)是电荷密度。麦克斯韦方程的第一条是微分方程
+\[
+d\varphi = -u\, dx - v\, dy~
+\]
+的可积性条件，因此电势\( \varphi \)可以构造为满足：
+\[
+\varphi_x = -u, \quad \varphi_y = -v.~
+\]
+麦克斯韦方程的第二条则意味着：
+\[
+\varphi_{xx} + \varphi_{yy} = -\rho,~
+\]
+这是泊松方程。拉普拉斯方程可以像在二维问题中一样，在三维静电学和流体流动问题中使用。
+\subsection{在三维中}  
+\subsubsection{基本解}  
+拉普拉斯方程的基本解满足：
+\[
+\Delta u = u_{xx} + u_{yy} + u_{zz} = -\delta (x - x', y - y', z - z'),~
+\]
+其中狄拉克δ函数\( \delta \) 表示在点 \( (x', y', z') \) 集中的单位源。没有任何函数具有这个属性：事实上，它是一个分布，而不是一个函数；但可以把它看作是一个函数的极限，这些函数在空间上的积分为1，并且它们的支撑（函数非零的区域）收缩到一个点（参见弱解）。在定义基本解时，通常采用与常规不同的符号约定。这种符号选择通常方便使用，因为\( -\Delta \)是一个正算符。因此，基本解的定义意味着，如果\( u \)的拉普拉斯算符在包含源点的任意体积上积分，则有：
+\[
+\iiint_V \nabla \cdot \nabla u\, dV = -1.~
+\]
+拉普拉斯方程在坐标旋转下不变，因此我们可以预期，基本解可能是仅依赖于源点距离\( r \)的解。如果我们选择体积为以源点为中心，半径为\( a \)的球体，那么高斯的散度定理意味着：
+\[
+-1 = \iiint_V \nabla \cdot \nabla u\, dV = \iint_S \frac{du}{dr}\, dS = \left. 4\pi a^2 \frac{du}{dr} \right|_{r=a}.~
+\]
+由此得出：
+\[
+\frac{du}{dr} = -\frac{1}{4\pi r^2},~
+\]
+在一个以源点为中心，半径为\( r \)的球面上，因此：
+\[
+u = \frac{1}{4\pi r}.~
+\]
+注意，在相反的符号约定下（物理中使用的符号），这是由点粒子产生的势，对于一个反平方力定律力，在泊松方程的解中出现。类似的推理表明，在二维中：
+\[
+u = -\frac{\log(r)}{2\pi}.~
+\]
+其中\( \log(r) \)表示自然对数。注意，在相反的符号约定下，这是由点状汇聚体（参见点粒子）产生的势，这是二维不可压流动中欧拉方程的解。
+\subsubsection{格林函数}  
+格林函数是一个基本解，同时满足适当的边界条件。比如，\( G(x,y,z;x',y',z') \)可能满足  
+\[
+\nabla \cdot \nabla G = -\delta (x - x', y - y', z - z') \quad \text{在} \, V \, \text{中},~
+\]
+以及  
+\[
+G = 0 \quad \text{如果} \quad (x, y, z) \quad \text{在} \, S \, \text{上}.~
+\]
+现在，如果\( u \)是泊松方程在\( V \)中的任意解：
+\[
+\nabla \cdot \nabla u = -f,~
+\]
+并且\( u \)在\( S \)上取边界值\( g \)，那么我们可以应用格林恒等式（散度定理的结果），它表明：
+\[
+\iiint_V \left[ G \nabla \cdot \nabla u - u \nabla \cdot \nabla G \right] \, dV = \iiint_V \nabla \cdot \left[ G \nabla u - u \nabla G \right] \, dV = \iint_S \left[ G u_n - u G_n \right] \, dS.~
+\]
+符号\( u_n \)和 \( G_n \)表示在边界\( S \)上的法向导数。考虑到\( u \)和\( G \)满足的条件，这个结果简化为：
+\[
+u(x',y',z') = \iiint_V Gf \, dV - \iint_S G_n g \, dS.~
+\]
+因此，格林函数描述了数据\( f \) 和 \( g \) 在 \( (x', y', z') \)处的影响。对于一个半径为\( a \)的球体内部的情况，格林函数可以通过反射法获得（Sommerfeld 1949）：距离球心 \( \rho \) 的源点\( P \)沿其径向线反射到点\( P' \)，该点与球心的距离为：
+\[
+\rho' = \frac{a^2}{\rho}.~
+\]
+注意，如果\( P \)在球体内部，则\( P' \)会在球体外部。此时，格林函数为：
+\[
+\frac{1}{4\pi R} - \frac{a}{4\pi \rho R'}.~
+\]
+其中\( R \)表示源点\( P \)到观察点的距离，\( R' \)表示反射点\( P' \) 到观察点的距离。这个格林函数表达式的一个结果是泊松积分公式。设\( \rho \)、\( \theta \)、和 \( \phi \)为源点\( P \)的球坐标。这里\( \theta \)表示与竖直轴的夹角，这与通常的美式数学符号相反，但与标准的欧洲和物理学惯例一致。那么，具有狄利克雷边界值\( g \)的拉普拉斯方程在球体内的解为（Zachmanoglou & Thoe 1986，第228页）：
+\[
+u(P) = \frac{1}{4\pi} a^3 \left( 1 - \frac{\rho^2}{a^2} \right) \int_0^{2\pi} \int_0^\pi \frac{g(\theta', \phi') \sin \theta'}{\left( a^2 + \rho^2 - 2a \rho \cos \Theta \right)^{3/2}} d\theta' \, d\phi',~
+\]
+其中  
+\[
+\cos \Theta = \cos \theta \cos \theta' + \sin \theta \sin \theta' \cos(\phi - \phi')~
+\]  
+是\( (\theta, \phi) \)和 \( (\theta', \phi') \)之间夹角的余弦。这个公式的一个简单结果是，如果\( u \)是一个调和函数，那么\( u \)在球心的值是它在球面上的值的平均值。这个平均值性质立即意味着，一个非常数的调和函数不能在球内点达到其最大值。
+\subsubsection{拉普拉斯的球面调和函数}
