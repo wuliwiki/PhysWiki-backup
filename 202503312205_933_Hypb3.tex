@@ -1,0 +1,160 @@
+% 双曲线（高中）
+% keys 极坐标系|直角坐标系|圆锥曲线|双曲线|渐近线
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{解析几何\nref{nod_JXJH}，圆\nref{nod_HsCirc}，椭圆\nref{nod_Elips3}，复数\nref{nod_CplxNo}}{nod_fd80}
+
+在发电厂里，有一种巨大的冷却装置，高高耸立，外形像一个中间收紧、两端张开的沙漏。这种特殊的形状不是为了美观，而是工程设计上的巧思。它能有效抵抗强风，减少材料使用，还能提高散热效率。建筑师们发现，如果把某种曲线绕着轴旋转，就能得到这种优雅又实用的形状。这种曲线在数学中早已有详细的研究，它由两条彼此对称的互相分离的分支组成，尽管共用一个坐标系的中心吗，各自却延伸向无穷远处，永不相交，他就被被称为双曲线。
+
+相信，听到双曲线这个名字，读者一定会想起第一次听到双曲线这个词，最有可能的就是在初中学习反比例函数的时候了。相信大多数人在学习时都听过这句“反比例函数的图像是双曲线。”至于什么是双曲线？在当时朴素的概念里，应该就是说它是“两根”“曲线”，至于再细的，老师不会说，学生自然也不会问。
+
+既然反比例函数就是双曲线，那么相信读者也一定记得，作为双曲线非常重要的一个特性，渐近线在高中阶段很少被提及，双曲线永远靠近渐近线，但永不触碰，就像永恒的“靠近而不达”。本文也会对此进行一些分析，以扩充视野。
+
+举个例子：你站在一个房间的两个扬声器之间，发现无论你怎么移动，总能找到一个位置，那里两个扬声器传来的声音大小之差是固定的。连起这些点，就是一条双曲线。
+
+\subsection{“反比例函数是双曲线”}
+
+如前面所说，下面就对照前面推导的结果，来仔细研究一下反比例函数是双曲线这件事。
+
+\begin{example}{求反比例函数$\displaystyle y={1\over x}$的图像逆时针旋转$45^\circ$后的表达式。}
+根据\aref{图像旋转的规律}{sub_FunTra_3}，将$\displaystyle y={1\over x}$逆时针旋转$45^\circ$，即$\displaystyle\theta=-{\pi\over4}$。
+\begin{equation}\label{eq_Hypb3_2}
+\begin{cases}
+\displaystyle
+X_0&=X_1 \cos \left(-{\displaystyle\frac{\pi}{4}}\right) + Y_1 \sin  \left(-{\displaystyle\frac{\pi}{4}}\right)\\
+Y_0&=Y_1 \cos  \left(-{\displaystyle\frac{\pi}{4}}\right) - X_1 \sin  \left(-{\displaystyle\frac{\pi}{4}}\right)\\
+\end{cases}\implies
+\begin{cases}
+X_0&={\displaystyle\frac{1}{\sqrt{2}}}(X_1 - Y_1)\\
+Y_0&={\displaystyle\frac{1}{\sqrt{2}}}(Y_1+ X_1) \\
+\end{cases}~.
+\end{equation}
+将\autoref{eq_Hypb3_2} 代入$xy=1$有：
+\begin{equation}
+\displaystyle
+{1\over\sqrt{2}}(X_1 - Y_1)\cdot{1\over\sqrt{2}}(Y_1+ X_1)=1\implies {X_1^2\over2}- {Y_1^2\over2}=1~.
+\end{equation}
+即旋转后的方程是：
+\begin{equation}
+{x^2\over2}- {y^2\over2}=1~.
+\end{equation}
+\end{example}
+
+这个表达式的形式看着很眼熟，是的，他和半径为$\sqrt{2}$圆相比只差了一个$y^2$前面的符号。这不禁让人联想起椭圆来，椭圆和标准的圆也只是相差了系数。可双曲线和圆、椭圆，外形看上去相差了那么多，hui you shen e m
+由于旋转变换不会改变形状，因此，原本曾经说过反比例函数有两条渐近线是$x,y$轴，经过旋转之后会变成$y=\pm x$。也就是说旋转后的图形，尽管向两方延伸，却不会超过$y=\pm x$的范围。
+
+他的图像是中心位于原点，顶点分别在 $x = \pm \sqrt{2}$ 处，渐近线为$y = \pm x$的离心率为$\sqrt{2}$的双曲线。因此原本的反比例函数$\displaystyle y={1\over x}$的图像是双曲线，且渐近线为$x$轴和$y$轴。至此，初中阶段就接触到的“反比例函数图像是双曲线”得到了证明。
+\subsection{双曲线的几何定义}
+
+在研究椭圆时，曾经提过，如果从圆的定义出发，探索其推广的可能性，就要修改定义的表达方式。如果想要修改$|O_1P|=|O_2P|=r$，打开第二个等号是垂直平分线，打开第一个等号，将$|O_1P|=r,|O_2P|=r$作为一个初始条件，而不要求二者一直相等。如果要求$|O_1P|+|O_2P|=2r$，也就是说这两个距离始终保持他们的和是一个定值$m$，则得到了椭圆。那么，如果认为$|O_1P|-|O_2P|=0$呢？似乎也是一个比较容易的做法。但如果一直是$0$那相当于并没有打开第一个等号，如果像椭圆那样修改，认为这两个距离始终保持他们的差是一个定值$m$，那么将会得到什么呢？
+
+
+\begin{example}{对两定点 $F_1(-c, 0)$ 和 $F_2(c, 0),(c>0)$，若点$P$满足$|PF_1| - |PF_2| = m,(0<m <2c)$，求$P$方程。}
+解：
+
+设椭圆上的任意点为 $P(x, y)$，根据题意有：
+\begin{equation}
+\sqrt{(x + c)^2 + y^2} - \sqrt{(x - c)^2 + y^2} = m~.
+\end{equation}
+移项后，两边平方有：
+\begin{equation}
+(x + c)^2 + y^2 = m^2 + 2m\sqrt{(x - c)^2 + y^2} + (x - c)^2 + y^2~.
+\end{equation}
+打开整理有：
+\begin{equation}
+2m\sqrt{(x - c)^2 + y^2}= 4cx - m^2~.
+\end{equation}
+两边平方，打开有：
+\begin{equation}
+4m^2(x^2 - 2cx+c^2) + 4m^2y^2= m^4-4m^2\cdot2cx+16c^2x^2~.
+\end{equation}
+整理后得到：
+\begin{equation}
+4(m^2 -4c^2)x^2 + 4m^2y^2= m^2(m^2-4c^2)~.
+\end{equation}
+两侧同时除以$(m^2-4c^2)m^2$后得到：
+\begin{equation}\label{eq_Hypb3_3}
+\frac{x^2}{\left(\displaystyle\frac{m}{2}\right)^2} -\frac{y^2}{\displaystyle c^2-\left(\frac{m}{2}\right)^2}=1~.
+\end{equation}
+\end{example}
+
+由于$2c>m>0$，也就是$\displaystyle c^2-\left(\frac{m}{2}\right)^2>0$。这里有几点需要注意的：
+\begin{itemize}
+\item 尽管题目选择的不变量由椭圆的和变成了差，但对比\aref{椭圆的推导过程}{ex_Elips3_1}可以看出，推导的过程与结果其实完全相同，唯一的区别是从原本的$m>2c$，变成了$m<2c$，结果为了保证分母为正，使得\autoref{eq_Hypb3_3} 与\autoref{eq_Elips3_4} 形式上产生了差异。
+\item 推导的条件中隐含了一个条件就是$|PF_1| >|PF_2|$，但更换关系之后，得到的结果与这里给出的结果也一样。或者说例题中的准确结果应该添加一个限定范围，即$x>0$，将其画出之后，恰巧是在右侧的一半。而当把条件改为$||PF_1| - |PF_2|| = m,(0<m <2c)$时，才完整对应了\autoref{eq_Hypb3_3} 的表达式，此时两侧都有图像。
+\item 易知，如果两个定点分别为 $F_1(0,-c)$ 和 $F_2(0,c),(c>0)$，则相当于更换$x,y$的结果位置，得到的表达式是：
+\begin{equation}
+\frac{y^2}{\left(\displaystyle\frac{m}{2}\right)^2}-\frac{x^2}{\displaystyle\left(\frac{m}{2}\right)^2-c^2} =1~.
+\end{equation}
+与椭圆不同的是，这里调换的分母同时还带着符号。
+\item 对于\autoref{eq_Hypb3_3} ，带入$y=0$时，求得的$x$轴交点为$\displaystyle x=\pm\frac{m}{2}$。带入$x=0$时，在实数范围内无解，但在复数域有解，解为$\displaystyle y=\pm\I\sqrt{c^2-\left(\frac{m}{2}\right)^2}$。这一点是与椭圆非常不同的。标准椭圆与坐标轴有四个交点，而这条曲线则只有两个交点。
+\end{itemize}
+
+
+
+就称其为\textbf{双曲线（ellipse）}。
+
+
+
+大多数情况都会认为双曲线是开放的或者说不封闭的，不过转换一下视角，想象一下，当视角来到无穷远处，如果把它们两支相互对称的地方连起来，似乎就形成了一个封闭的环，只不过这个环太大了。不知道你看到双曲线时是否会有这样的想象，他们要是能连起来就太好了。其实，在射影几何的视角下，它们正是在无穷远处相交。而这也带来了非常重要的视角。
+ 
+
+\subsection{双曲线的方程}
+
+与椭圆不同的是，双曲线的实轴与虚轴并不因为$a,b$值的大小而影响，而是完全取决于符号。
+\begin{theorem}{双曲线的标准方程}
+\begin{itemize}
+\item 实轴在$x$轴上，虚轴在$y$轴上的双曲线方程为：
+\begin{equation}\label{eq_Hypb3_4}
+\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1~.
+\end{equation}
+\item 实轴在$y$轴上，虚轴在$x$轴上的双曲线方程为：
+\begin{equation}
+\frac{y^2}{b^2} -\frac{x^2}{a^2}  = 1~.
+\end{equation}
+\end{itemize}
+\end{theorem}
+
+\subsection{渐近线}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4.8cm]{./figures/eb70b650d9fa932b.pdf}
+\caption{双曲线的渐近线} \label{fig_Hypb3_1}
+\end{figure}
+
+当 $x,y$ 都无穷大时， \autoref{eq_Hypb3_4} 中的 $1$ 可以忽略不计，有 $y/x = \pm b/a$，\enref{渐近线}{Asmpto}与 $x$ 轴夹角为
+\begin{equation}\label{eq_Hypb3_1}
+\theta_0 = \arctan(b/a)~.
+\end{equation}
+两条渐近线到两个焦点的距离都为
+\begin{equation}\label{eq_Hypb3_11}
+c\sin\theta_0 = c\cdot b/c = b~.
+\end{equation}
+
+
+事实上这么推导渐近线并不严谨， 在学习了高数的相关内容（见“\enref{泰勒展开}{Taylor}”）后，由\autoref{eq_Hypb3_4} 得
+\begin{equation}
+y = \frac{bx}{a} \sqrt{1-\frac{a^2}{x^2}}~.
+\end{equation}
+把根号部分关于 $a^2/x^2$ 进行泰勒展开， 有
+\begin{equation}\label{eq_Hypb3_13}
+y = \frac ba x - \frac{ab}{2x} + \order{\frac{1}{x^3}}~.
+\end{equation}
+所以当 $x\to\infty$ 时， 就有渐进线 $y = bx/a$。 之所以要这样做， 是为了防止\autoref{eq_Hypb3_13} 右边出现常数项。 如果存在常数项 $\lambda$， 那么双曲线的渐近线就是 $y = bx/a + \lambda$ 了。
+
+\subsection{双曲线的性质}
+面积
+
+
+
+
+
+
+
+
+

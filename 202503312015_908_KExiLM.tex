@@ -1,0 +1,29 @@
+% 柯西-黎曼方程（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Cauchy\%E2\%80\%93Riemann_equations}{相关文章}。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/9b579a327747d777.png}
+\caption{一个向量 \( X \) 在一个域中被复数 \( z \) 乘以后再通过函数 \( f \) 映射，和先通过函数 \( f \) 映射再乘以 \( z \) 的情况进行的视觉对比。如果这两种情况对于所有 \( X \) 和 \( z \) 都导致点最终落在相同的位置，那么函数 \( f \) 满足柯西-黎曼条件。} \label{fig_KExiLM_1}
+\end{figure}
+在数学的复分析领域，柯西–黎曼方程以奥古斯丁·柯西和伯恩哈德·黎曼命名，由一组二阶偏微分方程组成，这些方程为复变量的复函数可复微分的必要与充分条件。
+
+这些方程是：
+\[
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad (1a)~
+\]
+
+和
+\[
+\frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x} \quad (1b)~
+\]
+其中，\(u(x, y)\)和\(v(x, y)\)是实值的二元可微函数。
+
+通常，\( u \) 和 \( v \)分别是复值函数\( f(x + iy) = f(x, y) = u(x, y) + iv(x, y) \)的实部和虚部，其中 \( z = x + iy \)是单一复变量，且\( x \) 和 \( y \)是实变量；\( u \)和\( v \)是实变量的实值可微函数。如果\( f \)在某个复数点可复微分，当且仅当\( u \) 和\( v \)的偏导数在该点满足柯西–黎曼方程时，\( f \)才是复微分的。
+
+全纯函数是指在复平面某个开子集的每一点都可微分的复函数。已经证明，全纯函数是解析的，而解析的复函数是复微分的。特别地，全纯函数是无限次可复微分的。
+
+微分性与解析性之间的等价性是所有复分析的起点。
