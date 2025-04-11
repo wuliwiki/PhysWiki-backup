@@ -50,3 +50,17 @@ ZFC 公理有许多等价的表述。\(^\text{[5]}\)以下是来自 Kunen (1980)
 公理 1-8 构成 ZF，而公理 9 将 ZF 转变为 ZFC。根据 Kunen (1980)，我们用等价的良序定理代替选择公理作为公理 9。
 
 所有 ZFC 的表述都意味着至少存在一个集合。Kunen 包括了一个直接断言集合存在的公理，尽管他指出这样做仅仅是“为了强调”\(^\text{[6]}\)。在这里省略这一公理可以通过两种方式进行辩解。首先，在通常用来形式化 ZFC 的一阶逻辑标准语义中，讨论领域必须是非空的。因此，存在某物是一个一阶逻辑的逻辑定理——通常表述为某物与它自己相同，\(\exists x (x = x)\)。因此，每个一阶理论都证明某物存在。然而，如上所述，由于 ZFC 的预期语义中只有集合，因此在 ZFC 的语境下，这一逻辑定理的解释是某个集合存在。因此，无需额外的公理来断言集合的存在。其次，即便 ZFC 被形式化为所谓的自由逻辑，其中仅凭逻辑本身不能证明某物存在，然而无限公理断言存在一个无限集合。这意味着某个集合存在，因此，依然不需要包括一个单独的公理来断言集合的存在。
+\subsubsection{外延公理}  
+如果两个集合具有相同的元素，则它们是相等的（即是同一个集合）。
+\[
+\forall x \forall y \left[ \forall z \left( z \in x \Leftrightarrow z \in y \right) \Rightarrow x = y \right]~
+\]
+这个公理的逆命题可以从等式的代换性质推导出来。ZFC 是在一阶逻辑中构造的。一些一阶逻辑的表述包括身份（即等号）；而其他表述则不包括。如果构建集合论的一阶逻辑中不包含等号“=”，则\( x = y \)可以定义为以下公式的缩写：\(^\text{[7]}\)
+\[
+\forall z \left[ z \in x \Leftrightarrow z \in y \right] \land \forall w \left[ x \in w \Leftrightarrow y \in w \right]~
+\]
+在这种情况下，外延公理可以重新表述为：
+\[
+\forall x \forall y \left[ \forall z \left( z \in x \Leftrightarrow z \in y \right) \Rightarrow \forall w \left( x \in w \Leftrightarrow y \in w \right) \right]~
+\]
+这表示，如果\( x \)和\( y \)具有相同的元素，则它们属于相同的集合。\(^\text{[8]}\)
