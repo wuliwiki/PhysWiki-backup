@@ -1,0 +1,207 @@
+% 笛卡儿积（综述）
+% license CCBY4
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Cartesian_product}{相关文章}。
+
+在数学中，特别是集合论中，两个集合\(A\)和\(B\)的笛卡尔积，记作\( A \times B \)，是所有有序对\( (a, b) \)的集合，其中\( a \in A \)，且\( b \in B \)\(^\text{[1]}\)。用集合构造符号表示为：  
+\[
+A \times B = \{ (a, b) \mid a \in A \text{ 且 } b \in B \}.^\text{[2][3]}~
+\]
+可以通过对“行的集合”与“列的集合”取笛卡尔积来创建一个表格。若取笛卡尔积 rows × columns，那么表格的每个单元格就包含一个形如（行值，列值）的有序对。\(^\text{[4]}\)
+
+同样地，也可以定义\(n\)个集合的笛卡尔积，称为 n 重笛卡尔积，它可以表示为一个\(n\)-维数组，其中每个元素是一个\(n\)元组（n-tuple）。有序对是 2 元组（2-tuple）或称为“偶对”。更一般地，还可以定义一个按索引排列的集合族的笛卡尔积。
+
+笛卡尔积的名称来自于勒内·笛卡尔，\(^\text{[5]}\)他对解析几何的建立促成了这一概念的产生，该概念进一步推广后形成了“直积”的形式。
+\subsection{集合论中的定义}
+要对笛卡尔积进行严格的定义，必须在集合构造符号中指定一个定义域。在这种情况下，定义域必须包含笛卡尔积本身。
+
+对于集合\( A \)和\( B \)的笛卡尔积，若使用典型的 Kuratowski 对的定义，即将有序对\( (a, b) \)定义为\((a, b) = \{\{a\}, \{a, b\}\}\)那么一个合适的定义域是幂集的幂集\(\mathcal{P}(\mathcal{P}(A \cup B))\)其中\( \mathcal{P} \)表示幂集运算符（即某集合所有子集的集合）。
+
+于是，集合\( A \)和\( B \)的笛卡尔积可以定义为：  
+\[
+A \times B = \{ x \in \mathcal{P}(\mathcal{P}(A \cup B)) \mid \exists a \in A,\ \exists b \in B,\ x = (a, b) \}~
+\]  
+也就是说，笛卡尔积是所有属于该幂集的集合\( x \)，其中\( x \)是某个\( a \in A \)、\( b \in B \)所构成的 Kuratowski 有序对。
+\subsection{示例}  
+\subsubsection{一副扑克牌}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/923db8c9149a95e0.png}
+\caption{标准的52张扑克牌} \label{fig_DKR_1}
+\end{figure}
+一个直观的例子是一副标准的 52 张扑克牌。标准扑克牌的点数集合为\{A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2\}，共有 13 个元素；花色集合为 \{♠, ♥, ♦, ♣\}，共有 4 个元素。这两个集合的笛卡尔积将产生一个包含 52 个有序对的集合，对应于全部 52 张可能的扑克牌。
+
+点数 × 花色的笛卡尔积得到的集合如下形式：  
+\{(A, ♠), (A, ♥), (A, ♦), (A, ♣), (K, ♠), \(\ldots\), (3, ♣), (2, ♠), (2, ♥), (2, ♦), (2, ♣)\}
+
+花色 × 点数的笛卡尔积则得到如下形式的集合：\{(♠, A), (♠, K), (♠, Q), (♠, J), (♠, 10), \(\ldots\), (♣, 6), (♣, 5), (♣, 4), (♣, 3), (♣, 2)\}
+
+这两个集合是不同的，甚至是不相交的，因为它们的有序对元素次序不同。但它们之间存在一个自然的双射（一一对应关系），例如(3, ♣)对应于(♣, 3)，以此类推。
+\subsubsection{二维坐标系}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/19ef6d3242d6d6ba.png}
+\caption{示例点的笛卡尔坐标} \label{fig_DKR_2}
+\end{figure}
+历史上最著名的例子是解析几何中的笛卡尔平面。为了以数值方式表示几何图形，并从图形的数值表示中提取数据信息，勒内·笛卡尔将平面上的每个点对应一个实数对，称为该点的坐标。通常，这对数中的第一个分量和第二个分量分别称为该点的\(x\)坐标和\(y\)坐标（见图示）。
+
+所有这类数对的集合（即笛卡尔积\( \mathbb{R} \times \mathbb{R} \)，其中\( \mathbb{R} \)表示实数集）就对应于整个平面上的点集。\(^\text{[7]}\)
+\subsection{最常见的实现方式（集合论）}  
+从集合论的基本原理出发，可以对笛卡尔积进行形式化定义，这依赖于对有序对的定义。最常见的有序对定义是 Kuratowski 的定义，即：\((x, y) = \{\{x\}, \{x, y\}\}\)根据这个定义，任意有序对\( (x, y) \)是集合\(\mathcal{P}(\mathcal{P}(X \cup Y))\)的元素，其中\( \mathcal{P} \)表示幂集运算符。因此，集合\( X \times Y \)是这个集合的子集。
+在 ZFC（Zermelo–Fraenkel 集合论带选择公理）体系中，两个集合的笛卡尔积的存在性可以从配对公理、并集公理、幂集公理和分离公理推出。由于函数通常被定义为一种特殊的关系，而关系又通常被定义为笛卡尔积的子集，因此两个集合笛卡尔积的定义在逻辑上优先于多数其他数学对象的定义。
+\subsubsection{非交换性与非结合性} 
+设\( A \)、\( B \)、\( C \)、\( D \)为集合。
+
+笛卡尔积\( A \times B \)不是交换的，即  
+\[
+A \times B \ne B \times A,~
+\]  
+因为有序对中的元素顺序被颠倒了，除非满足以下条件之一：\(^\text{[8]}\)
+\begin{itemize}
+\item \( A = B \)，或者  
+\item \( A \) 或 \( B \) 是空集。
+\end{itemize}
+例如：
+
+设 \( A = \{1, 2\} \)，\( B = \{3, 4\} \)  
+  \[
+  A \times B = \{1, 2\} \times \{3, 4\} = \{(1,3), (1,4), (2,3), (2,4)\}~  
+  \]  
+  \[
+  B \times A = \{3, 4\} \times \{1, 2\} = \{(3,1), (3,2), (4,1), (4,2)\}~  
+  \]
+
+若 \( A = B = \{1, 2\} \)  
+  \[
+  A \times B = B \times A = \{1, 2\} \times \{1, 2\} = \{(1,1), (1,2), (2,1), (2,2)\}~  
+  \]
+
+若 \( A = \{1, 2\} \)，\( B = \varnothing \)（空集）  
+  \[
+  A \times B = \{1, 2\} \times \varnothing = \varnothing ~
+  \]  
+  \[
+  B \times A = \varnothing \times \{1, 2\} = \varnothing ~ 
+  \]
+
+严格来说，笛卡尔积也**不是结合的**（除非所涉及的某个集合是空集）：
+\[
+(A \times B) \times C \ne A \times (B \times C)~
+\]
+例如，若 \( A = \{1\} \)，则：\((A \times A) \times A = \{((1,1),1)\} \ne \{(1,(1,1))\} = A \times (A \times A)\)
+\subsubsection{交集、并集与子集}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/39d1af18fe733731.png}
+\caption{} \label{fig_DKR_3}
+\end{figure}
+笛卡尔积在交集方面满足如下性质（见中间图）：
+\[
+(A \cap B) \times (C \cap D) = (A \times C) \cap (B \times D)~
+\]
+但在大多数情况下，若将交集替换为并集，上述等式则**不成立**（见最右侧图）：
+\[
+(A \cup B) \times (C \cup D) \ne (A \times C) \cup (B \times D)~
+\]
+实际上，有如下恒等式成立：
+\[
+(A \times C) \cup (B \times D) = [(A \setminus B) \times C] \cup [(A \cap B) \times (C \cup D)] \cup [(B \setminus A) \times D]~
+\]
+对于差集，还有以下恒等式：
+\[
+(A \times C) \setminus (B \times D) = [A \times (C \setminus D)] \cup [(A \setminus B) \times C]~
+\]
+以下是展示笛卡尔积与其他运算符分配律的一些规则（见最左侧图）\(^\text{[8]}\)：
+\[
+\begin{aligned}
+A \times (B \cap C) &= (A \times B) \cap (A \times C), \\
+A \times (B \cup C) &= (A \times B) \cup (A \times C), \\
+A \times (B \setminus C) &= (A \times B) \setminus (A \times C),
+\end{aligned}~
+\]
+补集方面，有如下等式：
+\[
+(A \times B)^{\complement} = (A^{\complement} \times B^{\complement}) \cup (A^{\complement} \times B) \cup (A \times B^{\complement}),~
+\]
+其中\( A^{\complement} \)表示集合\( A \)的绝对补集。
+
+关于子集关系，还满足以下性质：
+
+若 \( A \subseteq B \)，则  
+  \[
+  A \times C \subseteq B \times C~
+  \]
+若 \( A \ne \varnothing \)，\( B \ne \varnothing \)，则\(A\times B \subseteq C \times D \iff A \subseteq C\)且\(B \subseteq D\).\(\text{[9]}\)
+\subsubsection{基数}  
+集合的基数指的是集合中元素的数量。例如，定义两个集合：  
+\( A = \{a, b\} \)，\( B = \{5, 6\} \)，  
+集合 \( A \) 和 \( B \) 都各有两个元素。它们的笛卡尔积，记作 \( A \times B \)，会得到一个新集合，其元素如下：
+
+\[
+A \times B = \{(a,5), (a,6), (b,5), (b,6)\}~
+\]
+
+也就是说，集合 \( A \) 中的每个元素都与集合 \( B \) 中的每个元素配对，并且每一个配对形成输出集合中的一个元素。  
+生成的每个元素包含的值个数，等于参与笛卡尔积的集合数量——在本例中是 2。输出集合的基数等于所有输入集合基数的乘积，即：
+\[
+|A \times B| = |A| \cdot |B|^\text{[4]}~
+\]
+在本例中：\(|A \times B| = 4\)
+
+类似地，
+\[
+|A \times B \times C| = |A| \cdot |B| \cdot |C|~
+\]
+依此类推。
+
+如果\( A \)或\( B \)是无限集合，而另一个集合非空，那么它们的笛卡尔积\( A \times B \)也是无限集合。\(^\text{[10]}\)
+
+\subsection{多个集合的笛卡尔积} 
+\subsubsection{n 元笛卡尔积}
+笛卡尔积可以推广为\( n \)个集合\( X_1, \dots, X_n \)的\(n\)元笛卡尔积，定义为：
+\[
+X_1 \times \cdots \times X_n = \{(x_1, \dots, x_n) \mid x_i \in X_i \text{ 对于每个 } i \in \{1, \dots, n\} \}~
+\]
+这个集合的元素是\( n \)-元组（n-tuples）。如果元组被定义为嵌套的有序对，那么它可以写作\((X_1 \times \cdots \times X_{n-1}) \times X_n\)的形式。
+
+如果元组被定义为一个函数：  
+\[
+x: \{1, 2, \dots, n\} \to X_1 \cup \cdots \cup X_n~
+\]  
+并且要求对于每个\( i \in \{1, \dots, n\} \)，都有\( x(i) \in X_i \)，那么\(n\)元笛卡尔积也可以定义为以下函数的集合：
+\[
+\left\{ x: \{1, \dots, n\} \to X_1 \cup \cdots \cup X_n\ \middle|\ x(i) \in X_i \text{ 对于每个 } i \in \{1, \dots, n\} \right\}~
+\]
+\subsubsection{n 元笛卡尔幂}
+集合\( X \)的笛卡尔平方是它与自身的笛卡尔积，记作\( X^2 = X \times X \)。一个例子是二维平面\( \mathbf{R}^2 = \mathbf{R} \times \mathbf{R} \)，其中\( \mathbf{R} \) 是实数集：\(^\text{[1]}\)\( \mathbf{R}^2 \) 是所有点 \( (x, y) \) 的集合，其中\( x \)和\( y \)是实数（见笛卡尔坐标系）。
+
+集合\( X \) 的\(n\)元笛卡尔幂，记作\( X^n \)，定义如下：
+\[
+X^n = \underbrace{X \times X \times \cdots \times X}_{n} = \{(x_1, \dots, x_n) \mid x_i \in X\ \text{对于每个 } i \in \{1, \dots, n\} \}~
+\]
+一个例子是 \( \mathbf{R}^3 = \mathbf{R} \times \mathbf{R} \times \mathbf{R} \)，其中 \( \mathbf{R} \) 仍是实数集，\(^\text{[1]}\)更一般地是\( \mathbf{R}^n \)。
+
+集合\( X \)的\(n\)元笛卡尔幂与从一个\(n\)元集合到\( X \)的函数空间是同构的。作为特例，集合\( X \)的 0 元笛卡尔幂可以定义为一个单元素集合，对应于定义域为空、余域为\( X \)的空函数。
+
+\subsubsection{交集、并集、补集与子集}
+设有笛卡尔积：
+\[
+A = A_1 \times \cdots \times A_n,\quad B = B_1 \times \cdots \times B_n~
+\]
+则有以下性质：
+
+\begin{enumerate}
+\item 子集关系\(\A \subseteq B \iff A_i \subseteq B_i \quad \text{对于所有 } i = 1, 2, \ldots, n\)\(^\text{[11]}\)
+\item 交集：\(A \cap B = (A_1 \cap B_1) \times \cdots \times (A_n \cap B_n)\)并且若存在某个\( i \)使得\(A_i \cap B_i = \varnothing\)则有\(A \cap B = \varnothing\)\(^\text{[11]}\)
+\item 并集\(A \cup B \subseteq (A_1 \cup B_1) \times \cdots \times (A_n \cup B_n)\)且只有在以下情况下可能成立等号：\(^\text{[12]}\) 
+\begin{itemize}
+\item \( A \subseteq B \) 或 \( B \subseteq A \)；  
+\item 对于所有 \( i = 1, 2, \ldots, n \)，除一个以外都有 \( A_i = B_i \)。
+\end{itemize}
+\item 补集：若定义全集为\(U = X_1 \times \cdots \times X_n\), 则可以计算笛卡尔积\(A = A_1 \times \cdots \times A_n\)的补集 \(A^\complement \)。为简化表达，引入如下记号：用中括号表示笛卡尔积形成的元组，例如：
+  \[
+  A = A_1 \times A_2 \times \cdots \times A_n = [A_1\quad A_2\quad \cdots\quad A_n]~
+  \]
+\end{enumerate}
+在\(n\)元组代数（n-tuple algebra, NTA）中，\(^\text{[12]}\)这种类似矩阵的笛卡尔积表示方式称为 C-n 元组（C-n-tuple）。
