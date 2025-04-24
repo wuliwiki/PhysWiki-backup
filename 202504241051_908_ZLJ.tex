@@ -104,15 +104,19 @@ V \otimes W = L / R~
 
 例如，立即可以得出，如果\( X = \mathbb{C}^m \)和\( Y = \mathbb{C}^n \)，其中 \( m \)和\( n \)是正整数，则可以设置\( Z = \mathbb{C}^{mn} \)，并定义双线性映射为：
 \[
-T: \mathbb{C}^m \times \mathbb{C}^n \to \mathbb{C}^{mn} \quad (x, y) = \left( (x_1, \ldots, x_m), (y_1, \ldots, y_n) \right) \mapsto (x_i y_j)_{i=1, \ldots, m, j=1, \ldots, n}~
+\begin{aligned}
+T: \mathbb{C}^m \times \mathbb{C}^n &\to \mathbb{C}^{mn}\\
+(x, y) = \left( (x_1, \ldots, x_m), (y_1, \ldots, y_n) \right) &\mapsto (x_i y_j)_{i=1, \ldots, m, j=1, \ldots, n}
+\end{aligned}~
 \]
-从而形成\( X \)和\( Y \)的张量积。[2] 通常，这个映射\( T \)被表示为 \( \otimes \)，因此有：\(x \otimes y = T(x, y)\)
+从而形成\( X \)和\( Y \)的张量积。\(^\text{[2]}\)通常，这个映射\( T \)被表示为\( \otimes \)，因此有：\(x \otimes y = T(x, y)\)
 
 作为另一个例子，假设\( \mathbb{C}^S \)是定义在集合\( S \)上的所有复值函数的向量空间，集合\( S \) 上的加法和标量乘法按点定义（意味着\( f + g \) 是映射\( s \mapsto f(s) + g(s) \) 和 \( c f \) 是映射\( s \mapsto c f(s) \)）。设 \( S \) 和 \( T \) 是任意集合，对于任何\( f \in \mathbb{C}^S \) 和 \( g \in \mathbb{C}^T \)，让\( f \otimes g \in \mathbb{C}^{S \times T} \)表示由\( (s, t) \mapsto f(s) g(t) \)定义的函数。如果\( X \subseteq \mathbb{C}^S \)和\( Y \subseteq \mathbb{C}^T \)是向量子空间，则向量子空间 \( Z := \text{span} \{ f \otimes g : f \in X, g \in Y \} \) 与双线性映射一起：
 \[
-\begin{alignedat}{4}
+\begin{aligned}
 X \times Y &\to Z \\
 (f, g) &\mapsto f \otimes g
-\end{alignedat}~
+\end{aligned}~
 \]
 构成\( X \)和\( Y \)的张量积。\(^\text{[2]}\)
+

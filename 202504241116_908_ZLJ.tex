@@ -104,15 +104,71 @@ V \otimes W = L / R~
 
 例如，立即可以得出，如果\( X = \mathbb{C}^m \)和\( Y = \mathbb{C}^n \)，其中 \( m \)和\( n \)是正整数，则可以设置\( Z = \mathbb{C}^{mn} \)，并定义双线性映射为：
 \[
-T: \mathbb{C}^m \times \mathbb{C}^n \to \mathbb{C}^{mn} \quad (x, y) = \left( (x_1, \ldots, x_m), (y_1, \ldots, y_n) \right) \mapsto (x_i y_j)_{i=1, \ldots, m, j=1, \ldots, n}~
+\begin{aligned}
+T: \mathbb{C}^m \times \mathbb{C}^n &\to \mathbb{C}^{mn}\\
+(x, y) = \left( (x_1, \ldots, x_m), (y_1, \ldots, y_n) \right) &\mapsto (x_i y_j)_{i=1, \ldots, m, j=1, \ldots, n}
+\end{aligned}~
 \]
-从而形成\( X \)和\( Y \)的张量积。[2] 通常，这个映射\( T \)被表示为 \( \otimes \)，因此有：\(x \otimes y = T(x, y)\)
+从而形成\( X \)和\( Y \)的张量积。\(^\text{[2]}\)通常，这个映射\( T \)被表示为\( \otimes \)，因此有：\(x \otimes y = T(x, y)\)
 
 作为另一个例子，假设\( \mathbb{C}^S \)是定义在集合\( S \)上的所有复值函数的向量空间，集合\( S \) 上的加法和标量乘法按点定义（意味着\( f + g \) 是映射\( s \mapsto f(s) + g(s) \) 和 \( c f \) 是映射\( s \mapsto c f(s) \)）。设 \( S \) 和 \( T \) 是任意集合，对于任何\( f \in \mathbb{C}^S \) 和 \( g \in \mathbb{C}^T \)，让\( f \otimes g \in \mathbb{C}^{S \times T} \)表示由\( (s, t) \mapsto f(s) g(t) \)定义的函数。如果\( X \subseteq \mathbb{C}^S \)和\( Y \subseteq \mathbb{C}^T \)是向量子空间，则向量子空间 \( Z := \text{span} \{ f \otimes g : f \in X, g \in Y \} \) 与双线性映射一起：
 \[
-\begin{alignedat}{4}
+\begin{aligned}
 X \times Y &\to Z \\
 (f, g) &\mapsto f \otimes g
-\end{alignedat}~
+\end{aligned}~
 \]
 构成\( X \)和\( Y \)的张量积。\(^\text{[2]}\)
+\subsection{性质}
+\subsubsection{维度}  
+如果\( V \)和\( W \)是有限维向量空间，那么\( V \otimes W \)也是有限维的，且其维度是\( V \)和\( W \)维度的乘积。
+
+这是因为\( V \otimes W \) 的基底是通过取\( V \)的基底元素与\( W \)的基底元素的所有张量积来构成的。
+\subsubsection{结合性} 
+张量积是结合的，意味着给定三个向量空间\( U \)、\( V \)、\( W \)，存在一个典范同构：
+\[
+(U \otimes V) \otimes W \cong U \otimes (V \otimes W)~
+\]
+该同构将\( (u \otimes v) \otimes w \) 映射到 \( u \otimes (v \otimes w) \)。
+
+这使得在多个向量空间或向量的张量积中可以省略括号。
+\subsubsection{作为向量空间运算的交换性}
+两个向量空间\( V \)和\( W \)的张量积是交换的，意味着存在一个典范同构：
+\[
+V \otimes W \cong W \otimes V~
+\]
+该同构将\( v \otimes w \)映射到\( w \otimes v \)。
+
+另一方面，即使\( V = W \)，向量的张量积也不是交换的；即，一般情况下\( v \otimes w \neq w \otimes v \)。
+
+从\( V \otimes V \)到自身的映射\( x \otimes y \mapsto y \otimes x \)引入了一个线性自同构，称为编织映射\textbf{braiding map}。更一般地，照常（见张量代数），设\( V^{\otimes n} \)表示\( V \)的\( n \) 个副本的张量积。对于前\( n \)个正整数的每一个置换\( s \)，映射：
+\[
+x_1 \otimes \cdots \otimes x_n \mapsto x_{s(1)} \otimes \cdots \otimes x_{s(n)}~
+\]
+引入了一个从\( V^{\otimes n} \)到\( V^{\otimes n} \)的线性自同构，这个映射被称为编织映射。
+\subsection{线性映射的张量积}
+“线性映射的张量积”重定向至此。有关模的推广，请参见模块的张量积 § 线性映射的张量积和基环的变化。
+
+给定一个线性映射\( f: U \to V \)和一个向量空间\( W \)，其张量积定义为：
+\[
+f \otimes W: U \otimes W \to V \otimes W~
+\]
+这是唯一的线性映射，满足：
+\[
+(f \otimes W)(u \otimes w) = f(u) \otimes w~
+\]
+张量积\( W \otimes f \)也类似定义。
+
+给定两个线性映射\( f: U \to V \)和\( g: W \to Z \)，它们的张量积定义为：
+\[
+f \otimes g: U \otimes W \to V \otimes Z~
+\]
+这是唯一的线性映射，满足：
+\[
+(f \otimes g)(u \otimes w) = f(u) \otimes g(w)~
+\]
+有：
+\[
+f \otimes g = (f \otimes Z) \circ (U \otimes g) = (V \otimes g) \circ (f \otimes W)~
+\]
+从范畴理论的角度来看，这意味着张量积是一个从向量空间范畴到自身的双变量函子。\(^\text{[3]}\)
