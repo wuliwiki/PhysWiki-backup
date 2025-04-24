@@ -316,3 +316,13 @@ A \otimes_R B := F(A \times B)/G~
 (ar, b) \sim (a, rb)~
 \]
 如果 \( R \) 是非交换的，那么这个张量积不再是一个\( R \)-模，而仅仅是一个阿贝尔群。
+
+张量积的泛性质在模的情形下同样成立，只是稍作修改：映射\(\varphi : A \times B \to A \otimes_R B\)由\((a, b) \mapsto a \otimes b\)定义，被称为“典范的中线性映射（canonical middle linear map）”\(^\text{[8]}\)，它满足以下性质\(^\text{[9]}\)：
+\[
+\begin{aligned}
+\varphi(a + a', b) &= \varphi(a, b) + \varphi(a', b) \\
+\varphi(a, b + b') &= \varphi(a, b) + \varphi(a, b') \\
+\varphi(ar, b) &= \varphi(a, rb)
+\end{aligned}~
+\]
+前两个性质说明\( \varphi \)是阿贝尔群\( A \times B \)上的双线性映射。第三条性质体现了中线性）：右乘\( r \)可在\( A \)上前乘，也可在\( B \)上后乘。对于任意中线性映射\( \psi : A \times B \to G \)（其中 \( G \)是某个阿贝尔群），存在唯一的群同态\( f : A \otimes_R B \to G \)使得：\(\psi = f \circ \varphi\).这个性质在群同构意义下**唯一确定**了 \( \varphi \)。详见主条目中的完整论述。

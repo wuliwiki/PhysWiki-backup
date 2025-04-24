@@ -316,3 +316,63 @@ A \otimes_R B := F(A \times B)/G~
 (ar, b) \sim (a, rb)~
 \]
 如果 \( R \) 是非交换的，那么这个张量积不再是一个\( R \)-模，而仅仅是一个阿贝尔群。
+
+张量积的泛性质在模的情形下同样成立，只是稍作修改：映射\(\varphi : A \times B \to A \otimes_R B\)由\((a, b) \mapsto a \otimes b\)定义，被称为“典范的中线性映射（canonical middle linear map）”\(^\text{[8]}\)，它满足以下性质\(^\text{[9]}\)：
+\[
+\begin{aligned}
+\varphi(a + a', b) &= \varphi(a, b) + \varphi(a', b) \\
+\varphi(a, b + b') &= \varphi(a, b) + \varphi(a, b') \\
+\varphi(ar, b) &= \varphi(a, rb)
+\end{aligned}~
+\]
+前两个性质说明\( \varphi \)是阿贝尔群\( A \times B \)上的双线性映射。第三条性质体现了中线性）：右乘\( r \)可在\( A \)上前乘，也可在\( B \)上后乘。对于任意中线性映射\( \psi : A \times B \to G \)（其中 \( G \)是某个阿贝尔群），存在唯一的群同态\( f : A \otimes_R B \to G \)使得：\(\psi = f \circ \varphi\).这个性质在群同构意义下唯一确定了 \( \varphi \)。详见主条目中的完整论述。
+\subsubsection{非交换环上的模的张量积}
+设\( A \)是一个右\( R \)-模，\( B \)是一个左\( R \)-模。则它们的张量积 \( A \otimes_R B \)是一个阿贝尔群，定义如下：
+\[
+A \otimes_R B := F(A \times B) / G~
+\]
+其中\( F(A \times B) \)是在集合\( A \times B \)上生成的自由阿贝尔群，而 \( G \)是由下列关系生成的子群：
+
+对于所有\( a, a_1, a_2 \in A \)，\( b, b_1, b_2 \in B \)，以及所有\( r \in R \)，有：
+\[
+\begin{aligned}
+&(a_1, b) + (a_2, b) - (a_1 + a_2, b), \\
+&(a, b_1) + (a, b_2) - (a, b_1 + b_2), \\
+&(ar, b) - (a, rb)。
+\end{aligned}~
+\]
+张量积的泛性质令 \( G \) 是一个阿贝尔群，且存在一个映射\(q : A \times B \to G\)满足双线性性，即对任意\( a_1, a_2 \in A \)，\( b_1, b_2 \in B \)，\( r \in R \)，都有：
+\[
+\begin{aligned}
+q(a_1 + a_2, b) &= q(a_1, b) + q(a_2, b), \\
+q(a, b_1 + b_2) &= q(a, b_1) + q(a, b_2), \\
+q(ar, b) &= q(a, rb)。
+\end{aligned}~
+\]
+
+则存在唯一的映射
+\[
+\overline{q} : A \otimes_R B \to G
+\]
+使得：
+\[
+\overline{q}(a \otimes b) = q(a, b)
+\]
+对所有 \( a \in A \)、\( b \in B \) 成立。
+
+这个性质说明：\( A \otimes_R B \) 是使所有中线性映射 \( A \times B \to G \) 因式分解的“**自由对象**”，从而赋予张量积强有力的范畴论刻画。
+
+
+在某些额外条件下，我们可以为 \( A \otimes_R B \) 赋予模结构：
+
+\begin{enumerate}
+\item 若\( A \)是一个\( (S, R) \)-双模（即左\( S \)-模、右\( R \)-模，且模结构相容），则\(A \otimes_R B\)是一个左\( S \)-模，其左作用定义为：\(s(a \otimes b) := (sa) \otimes b\)。
+\item 若\( B \)是一个\( (R, S) \)-双模，则\(A \otimes_R B\)是一个**右 \( S \)-模**，其右作用定义为：\((a \otimes b)s := a \otimes (bs)\)。
+\item 若\( A \)是一个\( (S, R) \)-双模，\( B \)是一个\( (R, T) \)-双模，则\(A \otimes_R B \)是一个\( (S, T) \)-双模，其中左右作用的定义分别如上所述。
+\item 若\( R \)是一个交换环，则\( A \) 与 \( B \)都自然成为\( (R, R) \)-双模，且满足\(ra := ar, \quad br := rb\)。根据第 3 点，可推出：\(A \otimes_R B\)是一个 \( (R, R) \)-双模。
+\end{enumerate}
+
+
+
+
+
