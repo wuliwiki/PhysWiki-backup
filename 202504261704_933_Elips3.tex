@@ -161,16 +161,30 @@ a^2=b^2+c^2~.
 
 \subsubsection{椭圆族}
 
-这里引入一个族的概念，由一个或多个参数连续变化而生成的一组对象就称为\textbf{族（family）}。通过对椭圆的标准方程代换可以得到，取$a=\sqrt{\lambda} p,b=\sqrt{\lambda} q(\lambda>0)$。以\autoref{eq_Elips3_3} 为例，带入后有：
+这里引入一个新的概念，称为\textbf{族（family）}。他是解析几何里面很重要的概念，由一个或多个参数连续变化所生成的一组对象，就称为一个族。下面以椭圆为例来感受一下。
+
+通过对椭圆标准方程的代换，可以构造出一个椭圆族。设取 $a = \sqrt{\lambda} p,b = \sqrt{\lambda} q$，其中 $\lambda >0$。以 \autoref{eq_Elips3_3} 为例，代入后可得：
 \begin{equation}
 \frac{x^2}{\lambda p^2} + \frac{y^2}{\lambda q^2} = 1,\qquad(p>q>0)~.
 \end{equation}
-显然，这符合之前的椭圆标准方程的形式，是一个椭圆，但是有一个参数$\lambda$没有给定。他们稍加整理可以得到：
+
+这个方程仍符合椭圆的标准形式，因此它的形状仍应该是椭圆，只是其中出现了一个未确定的参数 $\lambda$。也就是说，每给出一个符合条件的$\lambda$的值就可以得到一个椭圆。稍作整理，可以得到：
 \begin{equation}
 \frac{x^2}{p^2} + \frac{y^2}{q^2} = \lambda,\qquad(p>q>0)~.
 \end{equation}
-它看上去和标准方程不完全一样，直接对比的话相当于将等号右侧的$1$变成了参数。其实前面说的的代换也可以看作是取$x=\sqrt{\lambda} x',y=\sqrt{\lambda} y'(\lambda>0)$得到的，而根据\aref{图像变换的规律}{sub_FunTra_2}，很显然，这就是在$x,y$两个方向进行了等比例的放缩，就像同心圆那样。
-假设 $p=2$, $q=1$，则表达式为 $\frac{x^2}{4} + \frac{y^2}{1} = \lambda$，从内到外对应的参数值分别为$\lambda = 0.75, 1,1.25,1.5,1.75,2$。
+这看起来与标准椭圆方程略有不同，相当于将等号右边的 $1$ 替换成了一个参数 $\lambda$。
+
+实际上，前面的代换也可以理解为取 $x = \sqrt{\lambda} x',y = \sqrt{\lambda} y'$ （$\lambda>0$）得到的结果。根据\aref{图像变换的规律}{sub_FunTra_2}，这相当于在 $x$ 和 $y$ 两个方向上进行了等比例的缩放，就像同心圆的扩展一样。
+
+例如，设 $p = 2,q = 1$，则表达式为$\displaystyle\frac{x^2}{4} + y^2 = \lambda$。如果取 $\lambda = 0.5, 0.75, 1, 1.5, 2, 2.5$，就可以画出从内到外一系列大小不同但形状相似的椭圆，如 \autoref{fig_Elips3_7} 所示。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/6a64b2ebccddafb7.png}
+\caption{椭圆族$\displaystyle\frac{x^2}{4} + y^2 = \lambda,(\lambda>0)$}\label{fig_Elips3_7}
+\end{figure}
+
+这样通过引入参数 $\lambda$，就可以用一个方程式统一表示一族具有相似性质的椭圆，这在解决某些问题时可以大大简化思考和计算过程。
 
 \subsection{椭圆的性质}
 
