@@ -375,7 +375,7 @@ y &= \frac{bx}{a} -\frac{bx}{a} \cdot\frac{a^2}{2x^2}+\frac{bx}{a}\order{\frac{1
 \end{figure}
 
 因为 $P$ 和 $Q$ 位于双曲线的同一支上，根据双曲线的几何定义，有：
-\begin{equation}
+\begin{equation}\label{eq_Hypb3_20}
 |PF_1| - |PF_2|=|QF_1| - |QF_2|~.
 \end{equation}
 
@@ -390,14 +390,17 @@ y &= \frac{bx}{a} -\frac{bx}{a} \cdot\frac{a^2}{2x^2}+\frac{bx}{a}\order{\frac{1
 \begin{equation}
 \begin{split}
 ||P'F_2| - |P'F_1||
-&= ||P'F_2| - (|QF_1| + |P'Q|)| \
-&= ||P'F_2| - |QF_2| - |P'Q| - (|PF_1| - |PF_2|)| \
-&\leq (||PF_1| - |PF_2||) - (||P'F_2| - |QF_2| - |P'Q||) \
+&= ||P'F_2| - |QF_1| - |P'Q|| \\
+&= ||P'F_2|- |P'Q|  - |QF_2| - (|PF_1| - |PF_2|)| \\
+&\leq (||PF_1| - |PF_2||) - (||P'F_2| - |QF_2| - |P'Q||)\\
 &< ||PF_1| - |PF_2||~.
 \end{split}
 \end{equation}
 
-其中的$\leq$处使用了绝对值不等式|a-b|\leq|a|-|b|
+其中：
+\begin{itemize}
+\item 第二个等号处代入了\autoref{eq_Hypb3_20} 。
+\end{itemize}的$\leq$处使用了绝对值不等式|a-b|\leq|a|-|b|
 
 
 

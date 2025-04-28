@@ -141,7 +141,8 @@ y = \pm  b\I~.
 \end{equation}
 将复数解中虚部所对应的位置标在另一条坐标轴上，得到\textbf{虚顶点（co-vertex）}，连接两虚顶点的线段称为\textbf{虚轴（conjugate axis）}，长度为 $2b$，其中 $b$ 被称为\textbf{半虚轴（semi-conjugate axis）}。
 
-将虚、实顶点及\autoref{eq_Hypb3_12} 中得到的$a,b,c$的关系标记在图上，如\autoref{fig_Hypb3_9} 所示。其中：$A_1,A_2$为实顶点，$B_1,B_2$为虚顶点，$F_1,F_2$为焦点。另外，通常把左右两侧的曲线整体看作一条双曲线，而把每一侧单独的部分称为一支，这里就分别叫做左支和右支。称呼双曲线分割的平面中，包含焦点的一侧称为双曲线的内部，包含虚轴的部分称为外侧。
+将虚、实顶点及\autoref{eq_Hypb3_12} 中得到的$a,b,c$的关系标记在图上，如\autoref{fig_Hypb3_9} 所示。其中：$A_1,A_2$为实顶点，$B_1,B_2$为虚顶点，$F_1,F_2$为焦点。另外，通常把左右两侧的曲线整体看作一条双曲线，而把每一侧单独的部分称为一支，这里就分别叫做左支和右支。称呼双曲线分割的平面中，包含焦点的一侧称为双曲线的内部，包含虚轴的部分称为外侧。因此，与椭圆的中心在内部不同，双曲线的中心在外部。
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width=12cm]{./figures/f22e7cc467ae1fb5.png}
@@ -366,65 +367,46 @@ y &= \frac{bx}{a} -\frac{bx}{a} \cdot\frac{a^2}{2x^2}+\frac{bx}{a}\order{\frac{1
 当且仅当 $P$ 与 $AB'$ 共线时，等号成立，此时$||AP|-|BP||$取到最大值。而结合前面的对称关系，可以得出，此时直线 $AP$ 与 $BP$ 关于直线 $l$ 对称，即 $l$ 平分 $\angle APB$。
 \end{lemma}
 
-有了引理的支持，证明过程就比较容易了。如\autoref{fig_Hypb3_11} 所示，设 $P$ 是双曲线上的任意一点，$l$ 是过 $P$ 的切线，在 $l$ 上取另一点 $P'$（$P'\neq P$），连接 $PF_1$、$PF_2$ 以及 $P'F_1$、$P'F_2$。由于 $P'$ 在双曲线外部，而 $F_1$ 位于双曲线内部，因此线段 $P'F_1$ 必定与双曲线交于某一点，记为 $Q$，并连接 $QF_2$。
+有了引理的支持，证明过程就比较容易了。设 $P$ 是双曲线上的任意一点，$l$ 是过 $P$ 的切线，在 $l$ 上任取另一点 $P'$（$P'\neq P$），连接 $PF_1$、$PF_2$ 以及 $P'F_1$、$P'F_2$。由于 $P'$ 在双曲线外部，而 $F_1,F_2$ 位于双曲线内部，因此线段 $P'F_1,P'F_2$ 必定与双曲线两支分别交于某一点，假设$P$ 和 $Q$ 位于双曲线的同一支上，$P$ 和$R$位于双曲线的不同支上。不妨设$P$在$F_1$一侧，则满足：
+\begin{equation}\label{eq_Hypb3_23}
+|P'F_1|=|P'Q|+|QF_1|,\qquad  |P'F_2|=|P'R|+|RF_2|~.
+\end{equation}
 
+根据双曲线的几何定义，因为 $P$ 和 $Q$ 位于双曲线的同一支上，$P$ 和$R$位于双曲线的不同支上，所以有：
+\begin{equation}\label{eq_Hypb3_20}
+|PF_2| - |PF_1|=|QF_2| - |QF_1|=|RF_1|-|RF_2|=2a>0~.
+\end{equation}
+连接 $QF_2,RF_1$可以得到\autoref{fig_Hypb3_13} 。
 \begin{figure}[ht]
 \centering
-\includegraphics[width=10cm]{./figures/40fbb0a544803b89.png}
-\caption{证明反射性质} \label{fig_Hypb3_11}
+\includegraphics[width=12cm]{./figures/cf7a2c95579dcc4e.png}
+\caption{证明反射性质}  \label{fig_Hypb3_13}
 \end{figure}
 
-因为 $P$ 和 $Q$ 位于双曲线的同一支上，根据双曲线的几何定义，有：
-\begin{equation}
-|PF_1| - |PF_2|=|QF_1| - |QF_2|~.
+
+
+根据三角形两边之和大于第三边，在 $\triangle QP'F_2$ 和$\triangle RP'F_1$ 中，分别有：
+\begin{equation}\label{eq_Hypb3_21}
+|QF_2| + |P'Q| > |P'F_2|~.
 \end{equation}
 
-在 $\triangle QP'F_2$ 中，根据三角形两边之和大于第三边，有：
-\begin{equation}
-|QF_2| + |P'Q| > |P'F_2|
-\quad\implies\quad
-||QF_2| + |P'Q| - |P'F_2|| > 0~.
+\begin{equation}\label{eq_Hypb3_22}
+|RF_1| + |P'R| > |P'F_1|~.
 \end{equation}
 
-接下来就可以得到：
+结合\autoref{eq_Hypb3_23} \autoref{eq_Hypb3_20} 和\autoref{eq_Hypb3_21} 有：
 \begin{equation}
-\begin{split}
-||P'F_2| - |P'F_1||
-&= ||P'F_2| - (|QF_1| + |P'Q|)| \
-&= ||P'F_2| - |QF_2| - |P'Q| - (|PF_1| - |PF_2|)| \
-&\leq (||PF_1| - |PF_2||) - (||P'F_2| - |QF_2| - |P'Q||) \
-&< ||PF_1| - |PF_2||~.
-\end{split}
+|P'F_2| - |P'F_1|<(|QF_2| + |P'Q|)-(|P'Q|+|QF_1|)=|QF_2|-|QF_1|=2a~.
+\end{equation}
+结合\autoref{eq_Hypb3_23} \autoref{eq_Hypb3_20} 和\autoref{eq_Hypb3_22} 有：
+\begin{equation}
+|P'F_1|-|P'F_2|<(|RF_1| + |P'R|)-(|P'R|+|RF_2|)=|RF_1|-|RF_2|=2a~.
 \end{equation}
 
-其中的$\leq$处使用了绝对值不等式|a-b|\leq|a|-|b|
+综上有
+||P'F_1|-|P'F_2||<2a=||PF_2| - |PF_1||
 
-
-
-有了引理之后，证明就比较容易了。如\autoref{fig_Hypb3_11} 所示，设$P$是双曲线上的任意一点，$l$为$P$处的切线，在$l$上取非$P$的一点$P'$，连接$PF_1,PF_2$以及$P'F_1,P'F_2$，由于$P'$在双曲线外，而$F_1$在双曲线内，因此$P'F_1$必与双曲线交于一点，记作$Q$，连接$QF_2$。
-
-
-由于PQ在同一支上，根据双曲线的几何定义有：
-\begin{equation}
-|PF_1| - |PF_2|=|QF_1| - |QF_2|~.
-\end{equation}
-
-在$\triangle QP'F_2$中，有：
-\begin{equation}
-|QF_2|+|P'Q|>|P'F_2|\implies||QF_2|+|P'Q|-|P'F_2||>0~.
-\end{equation}
-
-\begin{equation}
-\begin{split}
-||P'F_2|-|P'F_1|| &=||P'F_2|-|QF_1|-|P'Q||\\
-&=||P'F_2|-|QF_2|-|P'Q|-(|PF_1| - |PF_2|)|\\
-&\leq(||PF_1| - |PF_2||)- (||P'F_2|-|QF_2|-|P'Q||)\\
-&<||PF_1| - |PF_2||
-\end{split}~.
-\end{equation}
-
-由$P'$的任意性，切点$P$是$l$上唯一满足与$F_1,F_2$距离之差取得极大值的位置。因此，根据\autoref{lem_Hypb3_1} 可知，直线$PF_1,PF_2$关于切线$l$对称，即$P$点的入射线与反射线方向关于切线对称，满足反射的定义。由$P$的任意性，双曲线上的所有点都满足这种反射规律。
-
+由于 $P'$ 的任意性，可以推知，切点 $P$ 是直线 $l$ 上唯一一个使得与 $F_1$、$F_2$ 的距离之差取得极大值的位置。因此，根据\autoref{lem_Hypb3_1}，可以得出结论：连接 $P$ 到 $F_1$ 和 $F_2$ 的直线关于切线 $l$ 对称，也就是说，入射方向 $PF_1$ 和反射方向 $PF_2$ 关于切线对称，符合反射的定义。又由于 $P$ 是任取的双曲线上的点，因此双曲线上的所有点都满足这一反射规律。
 
 
 通径

@@ -374,9 +374,9 @@ y &= \frac{bx}{a} -\frac{bx}{a} \cdot\frac{a^2}{2x^2}+\frac{bx}{a}\order{\frac{1
 \caption{证明反射性质} \label{fig_Hypb3_11}
 \end{figure}
 
-因为 $P$ 和 $Q$ 位于双曲线的同一支上，根据双曲线的几何定义，有：
-\begin{equation}
-|PF_1| - |PF_2|=|QF_1| - |QF_2|~.
+根据双曲线的几何定义，因为 $P$ 和 $Q$ 位于双曲线的同一支上，所以有：
+\begin{equation}\label{eq_Hypb3_20}
+|PF_2| - |PF_1|=|QF_2| - |QF_1|~.
 \end{equation}
 
 在 $\triangle QP'F_2$ 中，根据三角形两边之和大于第三边，有：
@@ -390,14 +390,18 @@ y &= \frac{bx}{a} -\frac{bx}{a} \cdot\frac{a^2}{2x^2}+\frac{bx}{a}\order{\frac{1
 \begin{equation}
 \begin{split}
 ||P'F_2| - |P'F_1||
-&= ||P'F_2| - (|QF_1| + |P'Q|)| \
-&= ||P'F_2| - |QF_2| - |P'Q| - (|PF_1| - |PF_2|)| \
-&\leq (||PF_1| - |PF_2||) - (||P'F_2| - |QF_2| - |P'Q||) \
+&= ||P'F_2| - |QF_1| - |P'Q|| \\
+&= ||P'F_2|- |P'Q|  - |QF_2| + ( |PF_2|-|PF_1|)| \\
+&\leq (||PF_1| - |PF_2||) + (||P'F_2| - |QF_2| - |P'Q||)\\
 &< ||PF_1| - |PF_2||~.
 \end{split}
 \end{equation}
 
-其中的$\leq$处使用了绝对值不等式|a-b|\leq|a|-|b|
+其中：
+\begin{itemize}
+\item 第二个等号处代入了\autoref{eq_Hypb3_20} 。
+\item $\leq$处使用了三角不等式$|x+y|\leq|x|+|y|$。
+\end{itemize}
 
 
 

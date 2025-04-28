@@ -141,7 +141,8 @@ y = \pm  b\I~.
 \end{equation}
 将复数解中虚部所对应的位置标在另一条坐标轴上，得到\textbf{虚顶点（co-vertex）}，连接两虚顶点的线段称为\textbf{虚轴（conjugate axis）}，长度为 $2b$，其中 $b$ 被称为\textbf{半虚轴（semi-conjugate axis）}。
 
-将虚、实顶点及\autoref{eq_Hypb3_12} 中得到的$a,b,c$的关系标记在图上，如\autoref{fig_Hypb3_9} 所示。其中：$A_1,A_2$为实顶点，$B_1,B_2$为虚顶点，$F_1,F_2$为焦点。另外，通常把左右两侧的曲线整体看作一条双曲线，而把每一侧单独的部分称为一支，这里就分别叫做左支和右支。称呼双曲线分割的平面中，包含焦点的一侧称为双曲线的内部，包含虚轴的部分称为外侧。
+将虚、实顶点及\autoref{eq_Hypb3_12} 中得到的$a,b,c$的关系标记在图上，如\autoref{fig_Hypb3_9} 所示。其中：$A_1,A_2$为实顶点，$B_1,B_2$为虚顶点，$F_1,F_2$为焦点。另外，通常把左右两侧的曲线整体看作一条双曲线，而把每一侧单独的部分称为一支，这里就分别叫做左支和右支。称呼双曲线分割的平面中，包含焦点的一侧称为双曲线的内部，包含虚轴的部分称为外侧。因此，与椭圆的中心在内部不同，双曲线的中心在外部。
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width=12cm]{./figures/f22e7cc467ae1fb5.png}
@@ -374,9 +375,9 @@ y &= \frac{bx}{a} -\frac{bx}{a} \cdot\frac{a^2}{2x^2}+\frac{bx}{a}\order{\frac{1
 \caption{证明反射性质} \label{fig_Hypb3_11}
 \end{figure}
 
-因为 $P$ 和 $Q$ 位于双曲线的同一支上，根据双曲线的几何定义，有：
-\begin{equation}
-|PF_1| - |PF_2|=|QF_1| - |QF_2|~.
+根据双曲线的几何定义，因为 $P$ 和 $Q$ 位于双曲线的同一支上，所以有：
+\begin{equation}\label{eq_Hypb3_20}
+|PF_2| - |PF_1|=|QF_2| - |QF_1|~.
 \end{equation}
 
 在 $\triangle QP'F_2$ 中，根据三角形两边之和大于第三边，有：
@@ -390,14 +391,18 @@ y &= \frac{bx}{a} -\frac{bx}{a} \cdot\frac{a^2}{2x^2}+\frac{bx}{a}\order{\frac{1
 \begin{equation}
 \begin{split}
 ||P'F_2| - |P'F_1||
-&= ||P'F_2| - (|QF_1| + |P'Q|)| \
-&= ||P'F_2| - |QF_2| - |P'Q| - (|PF_1| - |PF_2|)| \
-&\leq (||PF_1| - |PF_2||) - (||P'F_2| - |QF_2| - |P'Q||) \
+&= ||P'F_2| - |QF_1| - |P'Q|| \\
+&= ||P'F_2|- |P'Q|  - |QF_2| + ( |PF_2|-|PF_1|)| \\
+&\leq (||PF_1| - |PF_2||) + (||P'F_2| - |QF_2| - |P'Q||)\\
 &< ||PF_1| - |PF_2||~.
 \end{split}
 \end{equation}
 
-其中的$\leq$处使用了绝对值不等式|a-b|\leq|a|-|b|
+其中：
+\begin{itemize}
+\item 第二个等号处代入了\autoref{eq_Hypb3_20} 。
+\item $\leq$处使用了三角不等式$|x+y|\leq|x|+|y|$。
+\end{itemize}
 
 
 
