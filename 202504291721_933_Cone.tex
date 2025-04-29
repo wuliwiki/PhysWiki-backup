@@ -1,0 +1,195 @@
+% 圆锥曲线的极坐标方程（高中）
+% keys 极坐标系|圆锥曲线|离心率
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{极坐标系\nref{nod_Polar}，圆锥曲线的统一定义\nref{nod_HsCsFD}}{nod_f498}
+
+\subsection{圆锥曲线的极坐标方程}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/f04d0ae1f160e70c.pdf}
+\caption{由离心率定义圆锥曲线}\label{fig_Cone_1}
+\end{figure}
+
+如\autoref{fig_Cone_1} 所示，以 $O$ 点为原点，使极轴垂直于准线。则有$d = p + r \cos \theta$，代入离心率定义得
+\begin{equation}\label{eq_Cone_2}
+e=\frac{r}{d}=\frac{r}{p + r \cos \theta }~.
+\end{equation}
+整理后可以得到圆锥曲线的极坐标方程。
+\begin{definition}{圆锥曲线的极坐标方程}
+选取一个焦点作为原点，对称轴作为极轴，可以得到圆锥曲线的极坐标方程为：
+
+\begin{equation}\label{eq_Cone_3}
+r(\theta) = \frac{ep}{1 - e\cos \theta },\qquad\theta\in\{\theta|r>0\}~.
+\end{equation}
+
+其中 $e$ 是\textbf{离心率（eccentricity）}， $p$ 是\textbf{焦准距（focal parameter）}。 极角 $\theta$ 的取值范围是所有使 $r>0$ 的值\footnote{下文为了方便表述， 把 $\theta$ 的取值范围限制在一个圆周内， 即 $(-\pi,\pi]$ 或 $[0, 2\pi)$。}，具体来说：
+\begin{itemize}
+\item 当 $0 < e < 1$ 时，  $\theta$ 可以取任意实数；
+\item 当 $e = 1$ 时， $\theta$ 可以取任意不等于 $2\pi n$ 的实数（$n$ 取任意整数）；
+\item 当 $e > 1$ 时， 要求 $\theta_0< \theta + 2\pi n < 2\pi-\theta_0$， 其中 $n$ 取任意整数，其中$\displaystyle\theta_0 = \arccos\frac{1}{e}$。
+\end{itemize}  
+\end{definition}
+
+注意 $p$ 和 $e$ 分别控制圆锥曲线的大小和形状。由于抛物线的 $e = 1$ 不变， 所以所有抛物线的形状都相同。
+
+若定义过焦点且平行于准线的直线被圆锥曲线截出的线段长度为圆锥曲线的\textbf{通径}，记为 $2l$，则$l$称为\textbf{半通径}。那么有 $r(\pi /2) = l$。 代入\autoref{eq_Cone_3} 得 $l = ep$。 所以\autoref{eq_Cone_3} 又可以写为
+
+\begin{equation}\label{eq_Cone_5}
+r(\theta)  = \frac{l}{1 - e\cos \theta }~.
+\end{equation}
+
+在一些文献中， 也把\autoref{eq_Cone_5} 中的负号写为正号， 此需要把\autoref{fig_Cone_2} 中的曲线旋转 $180^\circ$， 因为 $-\cos\theta = \cos(\theta - \pi)$。 上述 $\theta$ 的取值范围也需要加上 $\pi$。
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=11cm]{./figures/52670f52be70ae3b.pdf}
+\caption{不同离心率 $e$ 的圆锥曲线（$p = 1$）} \label{fig_Cone_2}
+\end{figure}
+
+
+
+\subsection{椭圆}
+
+这相当于把一个单位圆（方程 $x^2 + y^2 = 1$）在 $x$ 轴和 $y$ 轴分别拉长了 $a$ 倍和 $b$ 倍。 我们这里用焦点和准线的定义来推导出上式， 以证明它们等价。 我们不妨先以一个焦点为原点定义直角坐标系， 且令 $x$ 轴指向另一个焦点， 则有
+\begin{equation}
+r = \sqrt{x^2 + y^2}~, \qquad \cos\theta = \frac{x}{\sqrt{x^2 + y^2}}~.
+\end{equation}
+
+其中 $a$ 为\textbf{半长轴}， $b$ 为\textbf{半短轴}。这就是椭圆的第二种定义， 即把单位圆沿两个垂直方向分别均匀拉长 $a$ 和 $b$。 所以也可以
+
+代入椭圆的极坐标方程\autoref{eq_Cone_5}  得
+\begin{equation}
+\sqrt{x^2 + y^2} = p + ex~.
+\end{equation}
+两边平方并整理得
+\begin{equation}\label{eq_Cone_1}
+(1 - e^2) \qty( x - \frac{ep}{1 - e^2} )^2 + y^2 = \frac{p^2}{1 - e^2}~.
+\end{equation}
+由此可见，如果我们把椭圆左移焦点到椭圆中心的距离 $ep/(1 - e^2)$，椭圆将具有标准形式，称之为焦距，即
+\begin{equation}
+c = \frac{ep}{1 - e^2}~.
+\end{equation}
+\autoref{eq_Cone_1}  和对比系数得
+\begin{equation}
+a = \frac{p}{1 - e^2}~, \qquad b = \frac{p}{\sqrt {1 - e^2} }~.
+\end{equation}
+以上两式可以将椭圆的极坐标方程转为直角坐标方程。 另外易证
+\begin{equation}
+a^2 = b^2 + c^2~.
+\end{equation}
+若要从直角坐标方程变回极坐标方程， 将逆转得
+\begin{equation}\label{eq_Cone_4}
+e = \frac{c}{a}~,\qquad
+p = \frac{b^2}{a}~.
+\end{equation}
+
+\subsection{双曲线}
+我们已经知道用焦点和准线如何定义双曲线， 双曲线的极坐标方程为（$e>1$）
+\begin{equation}
+r = \frac{p}{1 - e\cos \theta }~.
+\end{equation}
+以与极坐标系相同的原点建立直角坐标系， 要把以上方程变到直角坐标系中， 将$r = \sqrt{x^2 + y^2}$，$\cos \theta  = x/\sqrt{x^2 + y^2}$ 代入得
+\begin{equation}
+\sqrt{x^2 + y^2}  = p + ex~.
+\end{equation}
+两边平方且化简得
+\begin{equation}
+\frac{(e^2 - 1)^2}{p^2} \qty(x + \frac{ep}{e^2 - 1} )^2 - \frac{e^2 - 1}{p^2} y^2 = 1~.
+\end{equation}
+把双曲线沿 $x$ 轴正方向移动 $c$， 可得以下形式
+\begin{equation}\label{eq_Cone_8}
+\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1~.
+\end{equation}
+这就是双曲线的第二种定义， 从上式容易看出， 双曲线的两支是左右对称的。以上两式对比系数得
+\begin{equation}
+a = \frac{p}{e^2 - 1}~, \quad  b = \frac{p}{\sqrt{e^2 - 1} }~, \quad c = \frac{ep}{e^2 - 1}~,
+\end{equation}
+\begin{equation}
+c^2 = a^2 + b^2~.
+\end{equation}
+用 $a, b, c$ 表示 $e,p$ 有
+\begin{equation}
+e = \frac{c}{a} ~,\qquad p = \frac{b^2}{a}~.
+\end{equation}
+由离心率的定义，双曲线的焦点到准线的距离为 $h = p/e=b^2/c$，准线的坐标为 $c-p/e = a^2/c$。由对称性，双曲线有两个焦点和两条准线，任意一个焦点到双曲线两支的任意一点比上该点到焦点同侧准线的距离都等于离心率。
+\subsection{双曲线的两支}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/3ca758fbfc998b7f.pdf}
+\caption{双曲线分为互不相连的左右两支} \label{fig_Cone_3}
+\end{figure}
+根据双曲线的其他定义\upref{Hypb3}， 对同一个 $e>1$， 双曲线事实上是两条曲线， 每条曲线称为一支。 \autoref{fig_Cone_2} 中仅画出了离焦点较近的一支。 上文已经提到 $\theta_0< \theta < 2\pi-\theta_0$。
+
+事实上\autoref{eq_Cone_5} 也可以表示双曲线的另一支， 只需要取 $-\theta_0< \theta < \theta_0$， 此时 $r$ 恒为负值。 若我们在极坐标中定义 $(-r, \theta)$ 和 $(r, \theta + \pi)$ 表示同一点， 就可以画出另一支。 或者说， 把\autoref{eq_Cone_5} 中的  $r,\theta$ 分别替换为 $-r$ 和 $\theta+\pi$ 就得到了这支双曲线的正常极坐标方程（$r > 0$） 和极角范围
+\begin{equation}\label{eq_Cone_6}
+r(\theta) = -\frac{l}{1 + e\cos\theta} \qquad (\pi - \theta_0<\theta < \pi + \theta_0)~.
+\end{equation}
+
+\subsection{抛物线}
+
+我们已经知道用焦点和准线如何定义抛物线和其他圆锥曲线（\autoref{eq_Cone_5}）， 抛物线的离心率 $e = 1$， 所以极坐标方程为
+\begin{equation}\label{eq_Cone_7}
+r = \frac{p}{1 - \cos \theta }~.
+\end{equation}
+以与极坐标系相同的原点建立直角坐标系， 要把以上方程变到直角坐标系中， 将$r = \sqrt{x^2 + y^2}$，$\cos \theta  = x/\sqrt{x^2 + y^2}$ 代入得
+\begin{equation}
+\sqrt{x^2 + y^2}  = p + x~.
+\end{equation}
+两边平方并化简得到
+\begin{equation}
+y^2 = 2p \qty(x + \frac p2)~.
+\end{equation}
+把双曲线沿 $x$ 轴正方向移动 $p/2$， 可得标准抛物线方程
+\begin{equation}\label{eq_Cone_9}
+y^2 = 2px~,
+\end{equation}
+所以抛物线的\textbf{焦距}（焦点到端点）为 $f = p/2$。 与椭圆和双曲线不同的是， 所有的抛物线的形状都相似（形状相同， 大小不同）， 这是因为抛物线有固定的离心率（离心率决定圆锥曲线的形状， 焦距或准线决定大小）。
+
+\subsection{抛物线端点的曲率半径}
+\pentry{平面曲线的曲率和曲率半径（简明微积分）\nref{nod_curvat}}{nod_1813}
+%\addTODO{按照定义推导一下曲率半径为 $p$}
+抛物线顶点处的曲率半径为$p$.
+
+我们使用极坐标曲率半径公式
+\begin{equation}
+\rho = \frac{(r^2 + \dot r^2)^{3/2}}{r^2 + 2\dot r^2 - r\ddot r}~.
+\end{equation}
+
+结合\autoref{eq_Cone_7} 在抛物线顶点处，我们有
+\begin{equation}
+r|_{\theta = \pi} = \frac{p}{1 - \cos \theta} = \frac{p}{2}~,
+\end{equation}
+
+\begin{equation}
+r' |_{\theta = \pi} = -\frac{p}{(1 - \cos \theta)^2} \sin(\theta) = 0~.
+\end{equation}
+
+$r'' |_{\theta = \pi}$使用导数的定义会更好做，这也是高数中求解复杂导数的一个技巧：
+\begin{equation}
+\begin{aligned}
+r''|_{\theta = \pi}  &= \lim_{\theta \to \pi} \frac{r'(\theta) - r'(\pi)}{\theta - \pi}\\
+&=\lim_{\theta \to \pi} \frac{-\frac{p}{(1 - \cos \theta)^2} \sin(\theta)}{\theta - \pi}\\
+&=-\frac{p}{4} \lim_{\theta \to \pi} \frac{\sin(\theta)}{\theta - \pi}\\
+&=\frac{p}{4}~.\\
+\end{aligned}
+\end{equation}
+
+
+那么
+\begin{equation}
+\begin{aligned}
+\rho &= \frac{(r^2 + \dot r^2)^{3/2}}{r^2 + 2\dot r^2 - r\ddot r}\\
+&=\frac{p^3/8}{p^2/4 - p/2*p/4}\\
+&=\frac{p^3/8}{p^2/8}\\
+&=p~.\\
+\end{aligned}
+\end{equation}
+
