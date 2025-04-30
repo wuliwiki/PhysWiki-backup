@@ -1,0 +1,188 @@
+% 抛物线（高中）
+% keys 极坐标系|直角坐标系|圆锥曲线|抛物线
+% license Xiao
+% type Tutor
+
+\begin{issues}
+\issueDraft
+\end{issues}
+
+\pentry{解析几何\nref{nod_JXJH}，圆\nref{nod_HsCirc}，双曲线\nref{nod_Hypb3}，点到直线的距离\nref{nod_P2Line}}{nod_7c17}
+
+不知道读者在初次接触双曲线时，是否产生了一种似曾相识的感觉：它的一支看起来与初中阶段学习过的二次函数图像——抛物线，非常相似。二者都不封闭、有一个开口、略微弯曲、向无限延伸，甚至也拥有一条对称轴。相信一些读者可能早已不禁在心中将双曲线的一支等同于抛物线，认为双曲线不过是“两个抛物线”的组合而已。
+
+这种误解并不罕见，难以否认，抛物线与双曲线在形状上确实有些相像。但从本质上看，二者在几何定义、解析式结构以及性质上都有明显区别。之所以容易混淆，很大程度上与初中学习的重点有关。当时的教学更侧重于二次函数的代数表达与图像之间的关系，例如判断开口方向、对称轴位置、顶点坐标、零点特性等。这些内容有助于建立对抛物线的基本印象，但主要停留在函数视角，对抛物线作为几何图形本身的理解较为有限。
+
+大多数人对抛物线的印象，往往停留在现实生活中物体被抛出后所形成的轨迹。在理想状态下，这类轨迹正是一条抛物线，这也正是“抛物线”名称的来源。然而，随着人们的进一步研究发现，抛物线并不仅仅出现在物理运动中，它还具有独特的几何性质，在许多实际工程中发挥着重要作用。例如，雷达天线的反射面通常设计成抛物面结构，原因就在于抛物线具备一种精确的聚焦特性：来自远处的平行电磁波在抛物面上反射后，会准确地汇聚到焦点；而从焦点出发的信号，也能被反射成方向一致的平行波。这一聚焦能力，使抛物面非常适合实现能量的集中与传输，使抛物线广泛出现于雷达、卫星通信设备、汽车大灯以及太阳能灶等场景中。
+
+\subsection{抛物线的定义}
+
+由于初中阶段已经花了很多力气研究二次函数，并且基本了解了抛物线的图像特征，因此此处不再从函数的角度展开，而是直接进入定义的探讨。
+
+在研究椭圆和双曲线的过程中，曾尝试将圆的定义加以推广。圆可以看作是满足条件 $|O_1P| = |O_2P| = r$ 的点$P$的集合，其中 $O_1$ 与 $O_2$ 是重合的点，二者之间的距离 $d(O_1,O_2)=0$。如果放宽这个限制，即允许 $d(O_1,O_2)$ 不为零，并且打开第一个等号，就可以得到椭圆和双曲线这两种新曲线，这在之前已经探究过了。那么，如果不打开第一个等号，而是改为打开第二个等号，只要求 $|O_1P| = |O_2P|$呢？之前提到过，在这种设定下，点 $P$ 的轨迹是所有关于两个定点等距的点，也就是两点连线的垂直平分线。感觉似乎这样修改之后没有什么可改动的空间了。
+
+不过，不妨换个思路，改变一下条件中的几何元素呢？也就是说，保留其中一个点 $O_1$，将另一个点 $O_2$ 替换为一条固定的直线 $l$，那么问题就变成了：考虑所有满足“到某一固定点与到某一固定直线的距离相等”的点 $P$ 的轨迹，会构成怎样的图形？显然，这样修改之后还需要修改$d$，否则如果直线 $l$ 正好通过定点 $O_1$，唯一满足条件的点就只有 $O_1$，轨迹会退化成一个点。当令$d$满足 $d(O_1,l)=p,(p\neq0)$时，情况就变得有趣起来。
+
+\begin{example}{对定点 $F\left(0, \displaystyle\frac{p}{2}\right)$ 和 $l:y=-\displaystyle\frac{p}{2},\left(p>0\right)$，若点$P$满足$|PF|=d(P,l)$，求点 $P$ 的轨迹方程。}\label{ex_Para3_1}
+解：
+
+设点 $P$ 的坐标为 $(x, y)$，题设条件表示点 $P$ 到定点 $F$ 的距离等于它到直线 $l$ 的距离。写成数学表达式为：
+\begin{equation}
+\sqrt{x^2 + \left(y - \frac{p}{2}\right)^2} = |y + \frac{p}{2}|~.
+\end{equation}
+
+两边平方后，展开并整理，利用平方差公式，有：
+\begin{equation}\label{eq_Para3_1}
+x^2 = \left(y + \frac{p}{2}\right)^2 - \left(y - \frac{p}{2}\right)^2 = 2py~.
+\end{equation}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/e3f63aab20497a5c.png}
+\caption{例1} \label{fig_Para3_4}
+\end{figure}
+\end{example}
+
+可以注意到，原点正好是定点 $F$ 到直线 $l$ 所作垂线段的中点。将\autoref{eq_Para3_1} 改写为 $y$ 关于 $x$ 的函数形式，可得：
+\begin{equation}\label{eq_Para3_2}
+y = \frac{1}{2p}x^2~.
+\end{equation}
+
+这个式子正是一个开口向上的二次函数，其图像是顶点在原点、对称轴为 $y$ 轴的曲线。换句话说，从“点到定点的距离等于它到定直线的距离”这一条件出发，所得到的轨迹，恰好就是一条抛物线。事实上，这个条件本身也就是抛物线的定义。
+
+\begin{definition}{抛物线}
+在平面上，所有满足到一条直线 $l$ 与该直线外一固定点 $F$ 的距离相等的点 $P$ 的轨迹，构成一个几何图形，称为\textbf{抛物线（parabola）}。即，对于抛物线上的任意一点 $P$，都有：
+\begin{equation}
+|PF| = d(P, l)~.
+\end{equation}
+其中，$F$ 被称为抛物线的\textbf{焦点（focus）}，$l$ 被称为抛物线的\textbf{准线（directrix）}，而焦点与准线之间的距离 $d(F, l)$ 被称为抛物线的\textbf{焦准距（focal parameter）}，记作 $p$。
+\end{definition}
+
+根据初中所学，抛物线具有一条对称轴和一个顶点。结合几何定义来看，\textbf{对称轴（axis of symmetry）}是指过焦点并垂直于准线的直线，而\textbf{顶点（vertex）}则是焦点到准线所作垂线段的中点。在抛物线所分割的平面中，约定包含焦点的一侧为抛物线的内部，而包含准线的一侧为其外部。
+
+虽然所有的二次函数图像都是抛物线，但从几何的角度来看，抛物线的本质形状并不依赖于其在坐标系中的具体位置。图像如何放置只会影响其代数表达式，而不会改变其几何性质。事实上，任何抛物线都可以通过平移或旋转，化为顶点在原点、对称轴与 $x$ 轴或 $y$ 轴重合的标准形式。因此，为了研究的简便性，高中阶段通常将研究对象限定为这类标准位置的抛物线。
+
+\subsection{抛物线的方程}
+
+接下来将以 \autoref{eq_Para3_1} 为基础，考察其他“标准位置”的条件下抛物线的方程形式。
+
+首先，若将 \autoref{ex_Para3_1} 中的定点改设为 $F_1(p,0)$，准线改为 $x = -p$，这相当于将原先的 $x$ 轴与 $y$ 轴互换，得到的表达式为：
+\begin{equation}
+y^2 = 2px~.
+\end{equation}
+
+其次，依据二次函数的知识，若想改变 \autoref{eq_Para3_2} 中抛物线的开口方向，只需在二次项前添加负号，即可得到：
+\begin{equation}
+y = -\frac{1}{2p}x^2 \quad \Longrightarrow \quad x^2 = -2py~.
+\end{equation}
+综上，可以归纳出抛物线标准方程。
+
+\begin{theorem}{抛物线的标准方程}\label{the_Para3_1}
+\begin{itemize}
+\item 焦点在$y$轴正半轴上的抛物线标准方程：
+\begin{equation}
+x^2=2py,\qquad(p>0)~.
+\end{equation}
+\item 焦点在$y$轴负半轴上的抛物线标准方程：
+\begin{equation}
+x^2=-2py,\qquad(p>0)~.
+\end{equation}
+\item 焦点在$x$轴正半轴上的抛物线标准方程：
+\begin{equation}\label{eq_Para3_3}
+y^2=2px,\qquad(p>0)~.
+\end{equation}
+\item 焦点在$x$轴负半轴上的抛物线标准方程：
+\begin{equation}
+y^2=-2px,\qquad(p>0)~.
+\end{equation}
+\end{itemize}
+\end{theorem}
+
+有些读者可能会觉得不必区分这四种形式，认为只需记住两种基本形式，再结合 $p$ 的正负来判断开口方向即可，并把 $|p|$ 看作抛物线的焦准距。这样理解记忆是可以接受的。但一般采用上述形式，一方面是与教材体系保持一致，另一方面是因为 参数$p$ 并不只出现在此处，为了统一定义与表达，避免混淆，选用了固定的正值 $p$ 并通过符号体现开口方向。
+
+\autoref{the_Para3_1} 中的四个标准方程，分别对应图 \autoref{fig_Para3_2} 中开口向上、向下、向右、向左的四种抛物线情形。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/70f83278a603508e.png}
+\caption{标准抛物线} \label{fig_Para3_2}
+\end{figure}
+
+此外，抛物线还可以使用参数方程来描述，尤其在物理和工程问题中更为常见。例如，在研究抛体运动或光线反射路径时，参数形式常具有更清晰的表达优势。
+
+\begin{theorem}{抛物线的参数方程}
+\begin{itemize}
+\item 焦点在 $y$ 轴正半轴上的抛物线参数方程：
+\begin{equation}\label{eq_Para3_4}
+\begin{cases}
+x = 2pt \
+y = 2pt^2
+\end{cases},\qquad t \in \mathbb{R}~.
+\end{equation}
+\item 焦点在 $y$ 轴负半轴上的抛物线参数方程：
+\begin{equation}
+\begin{cases}
+x = -2pt \
+y = -2pt^2
+\end{cases},\qquad t \in \mathbb{R}~.
+\end{equation}
+\item 焦点在 $x$ 轴正半轴上的抛物线参数方程：
+\begin{equation}
+\begin{cases}
+x = 2pt^2 \
+y = 2pt
+\end{cases},\qquad t \in \mathbb{R}~.
+\end{equation}
+\item 焦点在 $x$ 轴负半轴上的抛物线参数方程：
+\begin{equation}
+\begin{cases}
+x = -2pt^2 \
+y = -2pt
+\end{cases},\qquad t \in \mathbb{R}~.
+\end{equation}
+\end{itemize}
+\end{theorem}
+
+以 \autoref{eq_Para3_4} 为例，当参数 $t$ 从负变为正时，对应的点沿着抛物线从左侧向右侧移动。这种形式能更方便地反映点在轨迹上的运动过程。在具体问题中，还可以根据需要对参数方程进行适当调整，以适配不同方向或位置的抛物线。
+
+这里，相信有读者会认为有些麻烦，只要有两种形式，然后根据p的正负来判定就可以了，然后认为|p|是焦准距就可以了。当然，如何理解是读者的自由，但这里一则是与教科书统一，二则$p$这个参数本身并不在此出现，为了保持定义的统一以免混淆，因此此处采用了这种方法。\autoref{the_Para3_1} 中的四个方程，分别对应\autoref{fig_Para3_2} 中开口向上、下、右左的四条抛物线。
+
+当然，抛物线也可以使用参数方程，但由于它本身变量间的关系比较简单，
+
+以\autoref{eq_Para3_4} 为例，当 $t$ 从负变正时，$y$ 从负变正，表示点沿抛物线从左侧向右侧移动。这种表示在物理、工程中常用于描述抛射体的运动轨迹或光线反射路径。你也可以根据具体问题，将参数方程稍作变化来适应不同的抛物线形式。
+
+\subsection{抛物线的几何性质}
+
+首先需要指出的是，与双曲线不同，抛物线没有渐近线。以 \autoref{eq_Para3_3} 为例，设抛物线上的点为 $P(x, \sqrt{2px})$，考虑任意一条直线 $L: y = ax + b$，分析当 $x \to +\infty$ 时点 $P$ 到直线 $L$ 的距离：
+
+\begin{equation}
+\begin{split}
+\lim_{x \to +\infty} d(P, L)
+&= \lim_{x \to +\infty} \frac{|ax - \sqrt{2px} + b|}{\sqrt{a^2 + 1}}\
+&= \frac{1}{\sqrt{a^2 + 1}} \lim_{x \to +\infty} | \sqrt{x} \left( a\sqrt{x} - \sqrt{2p} \right) + b |~.
+\end{split}
+\end{equation}
+
+从结果可以看出，随着 $x$ 的增大，分子部分 $|ax - \sqrt{2px} + b|$ 也趋于无穷，因此距离不收敛于 $0$。这说明任意一条直线都无法与抛物线无限接近，也就意味着抛物线没有渐近线。这是抛物线与双曲线在图像性质上的一个最显著区别。
+
+
+对称性（关于轴对称）
+顶点、焦点、准线的定义和关系
+开口方向与参数正负有关
+
+\subsubsection{抛物线的反射性质}（
+光线从焦点发出反射后平行于轴）
+
+\subsubsection{相似性}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4.2cm]{./figures/c89771dd2fef516e.pdf}
+\caption{抛物线的几何性质} \label{fig_Para3_1}
+\end{figure}
+
+在 $x$ 轴正半轴作一条与准线平行的直线 $L$， 则抛物线上一点 $P$ 到其焦点的距离 $r$ 与 $P$ 到 $L$ 的距离之和不变。
+
+如\autoref{fig_Para3_1}， 要证明由焦点和准线定义的抛物线满足该性质， 只需过点 $P$ 作从准线到直线 $L$ 的垂直线段 $AB$， 由于 $r$ 等于线段 $PA$ 的长度， 所以 $r$ 加上 $PB$ 的长度等于 $AB$ 的长度， 与 $P$ 的位置无关。 证毕。
+\subsubsection{切线}
+	•	给定抛物线方程和点，求切线方程
+	•	切线的几何意义（过点，与焦点、准线的关系）
