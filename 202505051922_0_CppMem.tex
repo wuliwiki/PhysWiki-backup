@@ -1,0 +1,10 @@
+% C++ 内存管理
+% license Usr
+% type Note
+
+\begin{itemize}
+
+\item \verb`MyClass* p = new MyClass[10];` 和 \verb`MyClass* arr = new MyClass[10];` 会调用默认 constructor
+\item \verb`delete p;` 和 \verb`delete arr[];` 会调用 destructor。
+\item \verb`new MyClass[10]{arg1, arg2};` 可以统一指定每个对象的 constructor 参数（\verb`new MyClass[10](arg1, arg2);` 是错的）。
+\end{itemize}
