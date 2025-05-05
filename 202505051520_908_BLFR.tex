@@ -1,0 +1,39 @@
+% 布拉利-福尔蒂悖论（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Burali-Forti_paradox}{相关文章}。
+
+在集合论中，布拉利-福尔提悖论展示了构造“所有序数的集合”会导致矛盾，因此证明了在允许构造该集合的系统中存在反论证。该悖论以切萨雷·布拉利-福尔提命名，他在1897年发表了一篇论文，证明了一个定理，这个定理在他未曾意识到的情况下，与乔治·康托尔先前证明的结果相矛盾。伯特兰·罗素随后注意到了这一矛盾，并在1903年出版的《数学原理》一书中提到了这一点，称这一矛盾是由布拉利-福尔提的论文启发的，因此该悖论以布拉利-福尔提的名字命名。
+\subsection{用冯·诺依曼序数表述}
+我们将通过反证法来证明这一点。
+
+令Ω是由所有序数构成的集合。
+$\Omega$是传递的，因为对于Ω的每一个元素x（它是一个序数，可以是任何序数）和x的每一个元素y（即根据冯·诺依曼序数的定义，对于每个序数y < x），我们有y是Ω的一个元素，因为根据该序数构造的定义，任何序数只包含序数。
+Ω是按成员关系良序的，因为它的所有元素也都按此关系良序。
+因此，根据步骤2和3，我们知道Ω是一个序数类，并且根据步骤1，它也是一个序数，因为所有作为集合的序数类也是序数。
+这意味着Ω是Ω的一个元素。
+根据冯·诺依曼序数的定义，$\Omega$< $\Omega$等同于$\Omega$是Ω$\Omega$的一个元素。这个结论由步骤5证明。
+但是，没有任何一个序数类小于它自己，包括Ω，因为根据步骤4（Ω是一个序数类），即Ω ≮ Ω。
+我们从Ω作为集合的前提推导出了两个矛盾的命题（$\Omega< \Omega$ 和 Ω ≮ Ω），因此我们证明了Ω不是一个集合。
+
+
+
+好的，下面是用LaTeX表示的公式翻译内容：
+
+---
+
+**Stated in terms of von Neumann ordinals**
+
+We will prove this by contradiction.
+
+Let $\Omega$ be a set consisting of all ordinal numbers.
+$\Omega$ is transitive because for every element $x$ of $\Omega$ (which is an ordinal number and can be any ordinal number) and every element $y$ of $x$ (i.e., under the definition of von Neumann ordinals, for every ordinal number $y < x$), we have that $y$ is an element of $\Omega$ because any ordinal number contains only ordinal numbers, by the definition of this ordinal construction.
+$\Omega$ is well-ordered by the membership relation because all its elements are also well-ordered by this relation.
+So, by steps 2 and 3, we have that $\Omega$ is an ordinal class and also, by step 1, an ordinal number, because all ordinal classes that are sets are also ordinal numbers.
+This implies that $\Omega \in \Omega$.
+Under the definition of von Neumann ordinals, $\Omega < \Omega$ is the same as $\Omega \in \Omega$. This latter statement is proven by step 5.
+But no ordinal class is less than itself, including $\Omega$, because of step 4 ($\Omega$ is an ordinal class), i.e. $\Omega \not\prec \Omega$.
+We have deduced two contradictory propositions ($\Omega < \Omega$ and $\Omega \not\prec \Omega$) from the sethood of $\Omega$ and, therefore, disproved that $\Omega$ is a set.
+
+---
