@@ -328,14 +328,51 @@ y &= \frac{bx}{a} -\frac{bx}{a} \cdot\frac{a^2}{2x^2}+\frac{bx}{a}\order{\frac{1
 
 当然，对于渐近线的深入研究远远超出了高中的知识范畴，如果感兴趣也可以参考\enref{渐近线}{Asmpto}了解，在此就不予赘述了。
 
-不过，双曲线的渐近线与双曲线上的点所围成的平行四边形面积则是一个固定值。这一点可以从反比例函数上的任意点作坐标轴的垂线与坐标轴围成的矩形面积是固定值可见一斑。
-\begin{example}{求：双曲线上一点作两条渐近线的平行线，与渐近线围成的平行四边形面积。}
-不妨设双曲线上一点$(x_0,y_0)$满足：
+不过，双曲线的渐近线与双曲线上的任意点所确定的平行四边形面积是一个固定值。其实，这一点可以从反比例函数的图像中看出端倪——在反比例函数$\displaystyle y={k\over x}$图像上的任意一点，向 $x$ 轴和 $y$ 轴作垂线，会与坐标轴围出一个面积相等的矩形。
+
+\begin{example}{求：双曲线上任意一点，向两条渐近线作平行线，与两渐近线围成的平行四边形的面积。}
+不妨设双曲线上一点$P(x_0,y_0)$满足：
 \begin{equation}
 \frac{x_0^2}{a^2}-\frac{y_0^2}{b^2}=1~.
 \end{equation}
 
+$P$到渐近线$\displaystyle y={b\over a} x$的距离为平行四边形的高：
+\begin{equation}
+h=\frac{\left|\displaystyle{b\over a}x_0-y_0\right|}{\displaystyle\sqrt{{b^2\over a^2}+1}}=\frac{|\displaystyle bx_0-ay_0|}{a\displaystyle\sqrt{{b^2\over a^2}+1}}~.
+\end{equation}
+
+而$P$作渐近线$\displaystyle y={b\over a} x$的平行线与另一条渐近线$\displaystyle y=-{b\over a} x$的交点$Q(x_1,y_1)$满足下面的方程：
+\begin{equation}\label{eq_Hypb3_26}
+\begin{cases}
+y_1-y_0=\displaystyle{b\over a}(x_1-x_0)\\
+y_1=\displaystyle-{b\over a} x_1
+\end{cases}~.
+\end{equation}
+$|PQ|$则是$h$对应的底：
+\begin{equation}
+\begin{split}
+a&=\sqrt{(x_1-x_0)^2+(y_1-y_0)^2}\\
+&=\sqrt{(x_1-x_0)^2+{b^2\over a^2}(x_1-x_0)^2}\\
+&=|x_1-x_0|\sqrt{1+{b^2\over a^2}}~.
+\end{split}
+\end{equation}
+
+化简\autoref{eq_Hypb3_26} 可以得到：
+\begin{equation}
+x_1-x_0=-\frac{bx_0+ay_0}{2b}~.
+\end{equation}
+
+综上有，平行四边形面积：
+\begin{equation}
+\begin{split}
+S&=ah\\
+&=\left|\frac{bx_0+ay_0}{2b}\right|\sqrt{1+{b^2\over a^2}}\cdot\frac{|\displaystyle bx_0-ay_0|}{a\displaystyle\sqrt{{b^2\over a^2}+1}}\\
+&=\frac{ab\left|\displaystyle\frac{x_0^2}{a^2}-\frac{y_0^2}{b^2}\right|}{2}\\
+&=\frac{ab}{2}~.
+\end{split}
+\end{equation}
 \end{example}
+根据\autoref{ex_Hypb3_1} 的结论，
 
 \subsection{双曲线的性质}
 
