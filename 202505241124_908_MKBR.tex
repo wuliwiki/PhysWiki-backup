@@ -1,0 +1,96 @@
+% 麦克斯韦-玻尔兹曼分布（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Maxwell\%E2\%80\%93Boltzmann_distribution}{相关文章}。
+
+在物理学中（特别是在统计力学中），麦克斯韦–玻尔兹曼分布（Maxwell–Boltzmann distribution，或称麦克斯韦分布）是一种特定的概率分布，以詹姆斯·克拉克·麦克斯韦和路德维希·玻尔兹曼的名字命名。
+
+该分布最初被定义并用于描述理想气体中粒子的速度分布，在这种理想化模型中，粒子在静止容器内自由运动，彼此之间没有相互作用，除了极短暂的碰撞，在这些碰撞中粒子与其他粒子或热环境交换能量和动量。在此语境下，“粒子”仅指气体粒子（即原子或分子），并假设该粒子系统已达到热力学平衡状态。[1]这类粒子的能量遵循麦克斯韦–玻尔兹曼统计，其速度的统计分布可通过将粒子能量与动能等同来推导得出。
+
+从数学上讲，麦克斯韦–玻尔兹曼分布是具有三个自由度的卡方分布（对应于欧几里得空间中速度矢量的三个分量），其尺度参数以与 $T/m$（温度与粒子质量之比）的平方根成正比的单位来度量速度。[2]
+
+麦克斯韦–玻尔兹曼分布是气体动理论的结果，气体动理论为许多基本的气体性质（包括压强和扩散）提供了简化的解释。[3] 麦克斯韦–玻尔兹曼分布本质上适用于三维空间中粒子的速度分布，但结果仅依赖于速率（即速度的大小），而与方向无关。粒子速率的概率分布表示哪些速率更为常见：一个随机选取的粒子，其速率将以该分布为依据进行抽样，因此落在某一速率范围内的可能性会高于另一速率范围。气体动理论适用于经典理想气体，这是一种对真实气体的理想化模型。对于真实气体，存在多种效应（如范德华力、涡流流动、相对论速度极限以及量子交换相互作用），可能使其速率分布偏离麦克斯韦–玻尔兹曼形式。然而，在常温下的稀薄气体表现得非常接近理想气体，其速率分布可被麦克斯韦分布很好地近似描述。这一点对于理想等离子体也成立，即在足够低密度下的电离气体。[4]
+
+该分布最早由麦克斯韦于1860年以启发式方法推导得到。[5][6] 随后在19世纪70年代，玻尔兹曼对该分布的物理起源进行了深入研究。该分布还可以通过最大化系统熵的原理推导出来。以下是一些推导方法的列表：
+\begin{enumerate}
+\item 在相空间中，通过最大熵原理得到的最大熵概率分布，其约束条件是系统的平均能量守恒：$\langle H \rangle = E$
+\item 正则系综方法。
+\end{enumerate}
+\subsection{分布函数}
+对于一个包含大量相同、非相互作用、非相对论性经典粒子且处于热力学平衡状态的系统，在三维速度空间中以速度矢量 $\mathbf{v}$ 为中心、体积为 $d^3\mathbf{v}$ 的无限小区域内的粒子所占比例由下式给出：
+$$
+f(\mathbf{v})\, d^3\mathbf{v} = \left( \frac{m}{2\pi k_{\text{B}} T} \right)^{3/2} \exp\left( -\frac{m v^2}{2 k_{\text{B}} T} \right)\, d^3\mathbf{v},~
+$$
+其中：
+\begin{itemize}
+\item $m$ 是粒子的质量；
+\item $k_{\text{B}}$ 是玻尔兹曼常数；
+\item $T$ 是热力学温度；
+\item $f(\mathbf{v})$ 是速度分布函数，已适当归一化，使得在所有速度范围上的积分满足：$\int f(\mathbf{v})\, d^3\mathbf{v} = 1$。
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/184d3e42595aa10e.png}
+\caption{下图显示了在温度为 298.15 K（25 °C）时几种稀有气体的速率概率密度函数。纵轴的单位是 s/m，因此曲线下任意区间的面积（即粒子速率落在该区间的概率）是无量纲的。} \label{fig_MKBR_1}
+\end{figure}
+我们可以将速度空间中的体积元写为：$d^3\mathbf{v} = dv_x\, dv_y\, dv_z$，这是在标准笛卡尔坐标系中的表示；也可以写为：$d^3\mathbf{v} = v^2\, dv\, d\Omega$,这是在标准球坐标系中的表示，其中：$d\Omega = \sin{v_{\theta}}\, dv_{\phi}\, dv_{\theta}$是立体角元，且：$v^2 = |\mathbf{v}|^2 = v_x^2 + v_y^2 + v_z^2$。
+
+当粒子仅沿一个方向（例如$x$方向）运动时，其麦克斯韦分布函数为：
+$$
+f(v_x)dv_x = \sqrt{ \frac{m}{2\pi k_{\text{B}} T} }\exp\left( -\frac{m v_x^2}{2 k_{\text{B}} T} \right)dv_x~
+$$
+这个公式可以通过对前述三维速度分布函数在 $v_y$ 和 $v_z$ 上积分而得到。
+
+注意到函数 $f(v)$ 的对称性，可以对立体角进行积分，从而将速率的概率分布函数写为如下形式：[7]
+$$
+f(v) = \left( \frac{m}{2\pi k_{\text{B}} T} \right)^{3/2} 4\pi v^2 \exp\left( -\frac{m v^2}{2 k_{\text{B}} T} \right).~
+$$
+这个概率密度函数表示的是单位速率下，在速率接近 $v$ 附近发现一个粒子的概率。这个公式就是麦克斯韦–玻尔兹曼分布（如信息框中所示），其分布参数为：$a = \sqrt{k_{\text{B}} T/m}$麦克斯韦–玻尔兹曼分布等价于具有三个自由度、尺度参数为 $a = \sqrt{k_{\text{B}} T / m}$ 的卡方分布（chi 分布）。
+
+该分布所满足的最简单的常微分方程为：
+$$
+0 = k_{\text{B}} T\, v\, f'(v) + f(v)\left(m v^2 - 2 k_{\text{B}} T\right), \quad
+f(1) = \sqrt{\frac{2}{\pi}} \left( \frac{m}{k_{\text{B}} T} \right)^{3/2} \exp\left( -\frac{m}{2 k_{\text{B}} T} \right)~
+$$
+或者用无量纲形式表示为：
+$$
+0 = a^2 x f'(x) + \left(x^2 - 2 a^2\right) f(x), \quad
+f(1) = \frac{1}{a^3} \sqrt{\frac{2}{\pi}} \exp\left(-\frac{1}{2 a^2} \right).~
+$$
+通过Darwin–Fowler 平均值方法，可以精确地导出麦克斯韦–玻尔兹曼分布。
+\subsection{向二维麦克斯韦–玻尔兹曼分布的弛豫过程}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/1f54e21133b4077f.png}
+\caption{二维气体弛豫至麦克斯韦–玻尔兹曼速率分布的模拟} \label{fig_MKBR_2}
+\end{figure}
+对于被限制在平面内运动的粒子，其速率分布由下式给出：
+$$
+P(s < |\mathbf{v}| < s + ds) = \frac{m s}{k_{\text{B}} T} \exp\left( -\frac{m s^2}{2 k_{\text{B}} T} \right) ds~
+$$
+这个分布用于描述处于平衡态的系统。然而，大多数系统一开始并不在平衡状态。系统向平衡态的演化过程由玻尔兹曼方程所控制。该方程预测，在短程相互作用下，系统最终的平衡速度分布将遵循麦克斯韦–玻尔兹曼分布。右图展示了一个分子动力学（MD）模拟：900 个硬球粒子被限制在一个矩形区域内运动，粒子之间通过完全弹性碰撞相互作用。该系统初始处于非平衡态，但其速度分布（蓝色）很快就收敛到二维麦克斯韦–玻尔兹曼分布（橙色）。
+\subsection{典型速率}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/ddc2b7eec71121f1.png}
+\caption{} \label{fig_MKBR_3}
+\end{figure}
+平均速率$\langle v \rangle$、最可能速率（众数）$v_p$ 和均方根速率 $\sqrt{ \langle v^2 \rangle }$ 都可以通过麦克斯韦分布的性质推导得到。
+
+这在近似理想的单原子气体（如氦气）中效果很好，同时也适用于像双原子氧气这样的分子气体。这是因为，尽管分子气体由于具有更多自由度而具有更大的热容（即在相同温度下具有更高的内能），但它们的平动动能（从而速率）并不因此改变。[8]
+\begin{itemize}
+\item 最可能速率$v_p$ 是系统中任意分子（具有相同质量 $m$）最有可能具有的速率，对应于速率分布函数 $f(v)$ 的最大值（即众数）。为了求解该值，我们对 $f(v)$ 求导：
+$$
+\frac{df(v)}{dv} = -8\pi \left( \frac{m}{2\pi k_{\text{B}}T} \right)^{3/2} v \left( \frac{mv^2}{2k_{\text{B}}T} - 1 \right) \exp\left( -\frac{mv^2}{2k_{\text{B}}T} \right) = 0~
+$$
+将导数设为零并求解 $v$，得到：
+$$
+\frac{m v_p^2}{2k_{\text{B}} T} = 1 \quad \Rightarrow \quad v_p = \sqrt{\frac{2k_{\text{B}} T}{m}} = \sqrt{\frac{2RT}{M}}~
+$$
+\end{itemize}
+其中：
+\begin{itemize}
+\item $R$ 是气体常数；
+\item $M$ 是该物质的摩尔质量，因此可以表示为粒子质量 $m$ 与阿伏伽德罗常数 $N_{\mathrm{A}}$ 的乘积：$M = m N_{\mathrm{A}}$。
+\end{itemize}
