@@ -1,5 +1,5 @@
 % 圆锥曲线的统一定义（高中）
-% keys 准线|第二定义|焦点|圆锥曲线|焦点-准线定义
+% keys 准线|第二定义|焦点|圆锥曲线|焦点-准线定义|射影几何|对偶原理
 % license Xiao
 % type Tutor
 
@@ -66,10 +66,16 @@
 \end{split}
 \end{equation}
 
-为使结果中右侧仅出现常数项，可令一次项系数为零，即：
+为了让结果恰巧关于$y$轴对称，可令一次项系数为零，即：
 \begin{equation}
 m - e^2(m - p) = 0\implies e^2(m - p)^2 = \frac{m^2}{e^2}~.
 \end{equation}
+
+（这里如果不理解，也可以通过配方，将\autoref{eq_HsCsFD_2} 变形为
+\begin{equation}\label{eq_HsCsFD_9}
+(1 - e^2)\left(x+m+\frac{e^2p}{1-e^2}\right)^2 + y^2 = \frac{e^2 p^2}{1 - e^2}~.
+\end{equation}
+，根据二次函数的知识，$\displaystyle\left(x+\frac{m-e^2(m-p)}{1-e^2}\right)^2$的对称轴为$\displaystyle x=-\frac{m-e^2(m-p)}{1-e^2}$。因此，通过调整$m$的值来调整对称轴。）
 
 此时有：
 \begin{equation}\label{eq_HsCsFD_5}
@@ -124,6 +130,32 @@ y^2 = 2px + (2m - p)p~.
 
 由此可以看出，在“焦点–准线”定义的推导过程中，完全未涉及“另一个焦点”。这一点恰好呼应了前文关于行星轨道的讨论：只需给定一个点和约束条件——焦点到准线的距离 $p$ 和距离比值 $e$，就能唯一确定一条圆锥曲线。其中，当 $e < 1$ 时对应椭圆，$e > 1$ 对应双曲线，而 $e = 1$ 则是抛物线。
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/d6efb4f2895bcd01.png}
+\caption{$p = 1$时，不同 $e$ 对应的结果} \label{fig_HsCsFD_1}
+\end{figure}
+
+根据\autoref{ex_HsCsFD_1} 的结论，圆锥曲线永远和焦点在准线的同一侧。这对抛物线而言是显然的，而椭圆和双曲线也可以通过在\autoref{eq_HsCsFD_9} 中讨论得到，由于$y^2\geq0$，因此：
+\begin{equation}
+\left(x+m+\frac{e^2p}{1-e^2}\right)^2 \leq \frac{e^2 p^2}{(1 - e^2)^2}~.
+\end{equation}
+变形有：
+\begin{equation}
+-ep(1+e)\leq (x+m)(1-e^2)\leq ep(1-e)~.
+\end{equation}
+对于椭圆有$1-e^2>0$，因此：
+\begin{equation}
+<-m-p\frac{e}{1-e}\leq x\leq -m+p\frac{e}{1+e}~.
+\end{equation}
+对于双曲线有$1-e^2<0$，因此：
+\begin{equation}
+-ep(1+e)\leq (x+m)(1-e^2)\leq ep(1-e)~.
+\end{equation}
+
+
+\addTODO{这里要描述一下不同e对应的焦点和准线的位置。}
+
 在之前的学习中，经常使用三个参数 $a, b, c$ 来描述椭圆或双曲线的性质。但无论是代数表达式中的 $a, b$，还是几何结构中的 $a, c$，本质上都只包含两个自由变量。事实上，这三个参数始终满足一个固定的约束关系，所以椭圆和双曲线只有两个自由度。这也从另一个角度说明，使用 $p$ 与 $e$ 作为定义参数是合理且充分的。
 
 至此，终于验证了前面的猜想，得到了\textbf{圆锥曲线的焦点–准线定义（Focus–Directrix Definition of Conic Sections）}。
@@ -144,12 +176,6 @@ y^2 = 2px + (2m - p)p~.
 \end{itemize}
 \end{definition}
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=14.25cm]{./figures/d6efb4f2895bcd01.png}
-\caption{$p = 1$时，不同离心率 $e$ 的圆锥曲线} \label{fig_HsCsFD_1}
-\end{figure}
-
 其他三种情况在前文中已有说明，唯一尚未解释的是 $e = 0$ 所对应的情形。在圆的定义中，只涉及一个圆心和一个半径。将统一定义中的焦点看作圆心并不难理解，毕竟在前面的推导中，其他圆锥曲线的焦点也是从圆心发展而来。而现在又给出了定义中的 $e = 0$ ，那么问题来了：准线去哪里了？而圆的半径，又该如何与焦准距建立联系？
 
 解答这些问题，需要回到 \autoref{eq_HsCsFD_7}。当 $e = 0$ 时，有两种可能的情形：
@@ -159,6 +185,8 @@ y^2 = 2px + (2m - p)p~.
 \end{itemize}
 
 同理，当分母趋近于 $0$ 时，有 $e \to \infty$，此时轨迹趋近于准线本身，几乎退化为一条直线，而焦点看上去仿佛与 $(p, 0)$ 重合，这正对应 \autoref{fig_HsCsFD_1} 中的青色情况。至于“准线趋于无穷远”或“焦点趋于无穷远”在几何上究竟意味着什么，则需要借助 \aref{射影几何}{sub_HsCsFD_1} 的视角才能更深入理解。不过，根据 \autoref{def_HsCsFD_1}，现在有充分的理由这样说——所有圆锥曲线本质上是一类几何对象。
+
+\addTODO{焦点和准线固定的图像}
 
 当然，\autoref{ex_HsCsFD_1} 的推导是基于给出定义之后的代数推导，直接根据定义也可以进行几何推导。
 
