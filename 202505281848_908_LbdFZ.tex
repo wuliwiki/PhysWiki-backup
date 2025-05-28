@@ -1,0 +1,39 @@
+% 洛必达法则（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科 \href{https://en.wikipedia.org/wiki/L\%27H\%C3\%B4pital\%27s_rule}{相关文章}。
+
+洛必达法则（/ˌloʊpiːˈtɑːl/，音似“洛-皮-塔尔”，法语：[lopital]），也称为伯努利法则，是一个数学定理，用于通过求导的方法来求解不定式形式的极限。该法则的应用（或重复应用）通常可以将一个不定式转化为一个可以通过代入法轻松求解的表达式。此定理以17世纪法国数学家纪尧姆·德·洛必达命名。尽管该法则通常归功于洛必达，但实际上这个定理是由瑞士数学家约翰·伯努利于1694年首次介绍给他的。
+
+洛必达法则陈述如下：
+
+设函数 $f$ 和 $g$ 在某开区间 $I$ 上定义，并且在 $I \setminus \{c\}$ 上可导，其中 $c$ 是区间 $I$ 的一个（可能是无穷的）聚点。如果满足：
+$$
+\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0 \quad \text{或} \quad \pm \infty~
+$$
+且对于所有 $x \in I \setminus \{c\}$，都有 $g'(x) \ne 0$，并且
+$$
+\lim_{x \to c} \frac{f'(x)}{g'(x)} \quad \text{存在}~
+$$
+那么就有：
+$$
+\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}~
+$$
+该法则通过对分子与分母分别求导，常常可以简化商的表达式，或将其转化为一个可直接用连续性求解的极限形式。
+\subsection{历史}
+纪尧姆·德·洛必达（Guillaume de l'Hôpital，也写作 l'Hospital\(^\text{[a]}\)）于1696年在其著作《Analyse des Infiniment Petits pour l'Intelligence des Lignes Courbes》（直译为《为理解曲线而作的无穷小分析》）中发表了这一法则，该书是第一本关于微分法的教科书。\(^\text{[1][b]}\)然而，人们普遍认为，这一法则实际上是由瑞士数学家约翰·伯努利发现的。\(^\text{[3]}\)
+
+如果满足以下任一条件：
+$$
+\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0~
+$$
+或
+$$
+\lim_{x \to c} |f(x)| = \lim_{x \to c} |g(x)| = \infty ~
+$$
+那么：
+$$
+\lim_{x \to c} \frac{f(x)}{g(x)} = L~
+$$
+虽然上述表达中我们始终使用的是 $x \to c$，但这些极限也可以是单侧极限（例如 $x \to c^+$ 或 $x \to c^-$），当 $c$ 是区间 $I$ 的有限端点时尤为如此。
