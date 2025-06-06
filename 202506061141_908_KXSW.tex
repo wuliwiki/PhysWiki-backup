@@ -1,0 +1,53 @@
+% 柯西-施瓦茨不等式（综述）
+% license CCBYNCSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科 \href{https://en.wikipedia.org/wiki/Cauchy\%E2\%80\%93Schwarz_inequality}{相关文章}。
+
+柯西–施瓦茨不等式（也称为柯西–布尼亚科夫斯基–施瓦茨不等式）是对内积空间中两个向量的内积绝对值的一个上界，其上界由这两个向量范数的乘积给出。它被认为是数学中最重要且应用最广泛的不等式之一。
+
+向量的内积可以用于描述有限和（通过有限维向量空间）、无穷级数（通过序列空间中的向量）以及积分（通过希尔伯特空间中的向量）。柯西于1821年首次发表了关于求和形式的不等式。相应的积分形式的不等式由布尼亚科夫斯基于1859年发表，赫尔曼·施瓦茨于1888年发表了积分形式的现代证明。
+\subsection{不等式的表述}
+柯西–施瓦茨不等式指出，对于内积空间中的任意两个向量$\mathbf{u}$和$\mathbf{v}$，都有：
+$$
+|\langle \mathbf{u}, \mathbf{v} \rangle|^2 \leq \langle \mathbf{u}, \mathbf{u} \rangle \cdot \langle \mathbf{v}, \mathbf{v} \rangle~
+$$
+其中，$\langle \cdot , \cdot \rangle$ 表示内积运算。例如，实数或复数的点积就是常见的内积形式。每一个内积都对应一个欧几里得 $\ell_2$ 范数，也叫做“标准范数”或“诱导范数”，记作 $|\mathbf{u}|$，其定义为：
+$$
+|\mathbf{u}\| := \sqrt{\langle \mathbf{u}, \mathbf{u} \rangle},~
+$$
+其中 $\langle \mathbf{u}, \mathbf{u} \rangle$ 总是一个非负实数（即使内积是复值的）。对上述不等式两边取平方根，就可以得到柯西–施瓦茨不等式更常见的形式，用范数表示为：
+$$
+|\langle \mathbf{u}, \mathbf{v} \rangle| \leq |\mathbf{u}| \cdot |\mathbf{v}|~
+$$
+当且仅当 $\mathbf{u}$ 和 $\mathbf{v}$ 线性相关时，上述不等式取等号。\(^\text{[8][9][10]}\)
+\subsection{特殊情形}
+\subsubsection{Sedrakyan 引理 —— 正实数情形}
+Sedrakyan 不等式，又称为 Bergström 不等式、Engel 形式、Titu 引理（或 T2 引理），表述如下：对于实数 $u_1, u_2, \dots, u_n$ 和正实数 $v_1, v_2, \dots, v_n$，有：
+$$
+\frac{(u_1 + u_2 + \cdots + u_n)^2}{v_1 + v_2 + \cdots + v_n} \leq \frac{u_1^2}{v_1} + \frac{u_2^2}{v_2} + \cdots + \frac{u_n^2}{v_n},~
+$$
+或者用求和符号表示为：
+$$
+\left( \sum_{i=1}^{n} u_i \right)^2 \bigg/ \sum_{i=1}^{n} v_i \leq \sum_{i=1}^{n} \frac{u_i^2}{v_i}.~
+$$
+这个不等式是柯西–施瓦茨不等式的直接推论，具体地，可以将其看作是在欧几里得空间 $\mathbb{R}^n$ 中对向量点积应用柯西–施瓦茨不等式得到的。
+
+方法是令：
+$$
+u_i' = \frac{u_i}{\sqrt{v_i}}, \quad v_i' = \sqrt{v_i},~
+$$
+将其代入向量内积后即可得出上述不等式。这种形式在处理分式型不等式（尤其是分子为完全平方形式）时尤其有用。
+\subsubsection{$R^2$ —— 平面}
+实向量空间 $\mathbb{R}^2$ 表示二维平面。它也是二维欧几里得空间，其中的内积就是点积。若$\mathbf{u} = (u_1, u_2),\quad \mathbf{v} = (v_1, v_2)$
+则柯西–施瓦茨不等式变为：
+$$
+\langle \mathbf{u}, \mathbf{v} \rangle^2 = (\|\mathbf{u}\| \|\mathbf{v}\| \cos \theta)^2 \leq \|\mathbf{u}\|^2 \|\mathbf{v}\|^2,~
+$$
+其中 $\theta$ 是向量 $\mathbf{u}$ 和 $\mathbf{v}$ 之间的夹角。
+
+上述形式也许是最容易理解此不等式的方式，因为余弦的平方最大为 1，当且仅当两个向量方向相同或相反时达到最大值。该不等式也可用向量坐标 $u_1$、$u_2$、$v_1$ 和 $v_2$ 表示为：
+$$
+(u_1 v_1 + u_2 v_2)^2 \leq (u_1^2 + u_2^2)(v_1^2 + v_2^2),~
+$$
+其中等号成立的充要条件是向量 $(u_1, u_2)$ 与向量 $(v_1, v_2)$ 共线（同向或反向），或其中一个为零向量。
