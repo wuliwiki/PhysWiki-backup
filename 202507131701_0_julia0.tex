@@ -1,0 +1,194 @@
+% Julia 开发笔记
+% license Xiao
+% type Note
+
+本文是关于 Julia 解释器的原理： 它使用了哪些技术， 可以使得它作为一门动态语言能达到编译语言的性能。
+
+\begin{itemize}
+\item \href{https://docs.julialang.org/en/v1/devdocs/init/}{Julia 开发者文档}
+\item C 语言这样的叫做 \textbf{Ahead of Time（AOT）} 编译。
+\item Julia 完全使用 \textbf{Just-In-Time（JIT）}。 并不是把部分代码使用该优化，而是全部。Julia 默认不直接理解并执行高级语言（一个解释器见\href{https://juliadebug.github.io/JuliaInterpreter.jl/stable/}{这里}）。 每个重载的函数第一次被调用的时候， julia 都会先给它生成专门的 llvm 机器码。 这个过程还有一个不那么正规的名字叫做 \textbf{Just Ahead-of-Time（JAOT）}。
+\item \textbf{Multiple Dispatch （MD）}： 可以基于参数的类型生成不同的专门代码。
+\item \textbf{Type Inference}： 自动推导变量类型。
+\item 内建并行， 包括分布计算
+\item 高效内存管理： 减少内存分配， 增加内存重复利用。
+\item 基于 \textbf{LLVM}： Julia 编译器先把 Julia 语言变为 \textbf{Julia IR} （和 LLVM IR 相似，而且有若干层）， 再变为 \enref{LLVM IR}{llvmIR}, 最后交给 LLVM 进行优化。
+\item Julia IR 后期使用 \textbf{Single Static Assignment (SSA)} 形式， 把 julia 代码的控制流表示为 \textbf{directed acyclic graph (DAG)}。 Julia IR 中的变量类型都是明确的。
+\item \verb`LLVM.jl` 包可以把 julia 代码直接生成 LLVM IR， 或者把 Julia IR 转为 LLVM IR。
+\item 一些预备知识： 编译原理， 编译器设计， LLVM， Julia 背后原理。
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.2cm]{./figures/7293eeb0d6cd9c43.png}
+\caption{Julia JIT 流程} \label{fig_julia0_1}
+\end{figure}
+
+\subsection{查看 Julia 语法树}
+\begin{itemize}
+\item \verb`dump(::Expr)` 函数可以显示语法树，如 \verb`expr = :(x + 2y)` 显示
+\begin{lstlisting}[language=julia]
+Expr
+  head: Symbol call
+  args: Array{Any}((3,))
+    1: Symbol +
+    2: Symbol x
+    3: Expr
+      head: Symbol call
+      args: Array{Any}((3,))
+        1: Symbol *
+        2: Int64 2
+        3: Symbol y
+\end{lstlisting}
+\item \verb`@which dump(:(x + 2y))` 可以看到该函数在哪里定义。
+\end{itemize}
+
+
+\subsection{把 Julia 代码编译成 LLVM IR 代码}
+首先安装 \verb`using Pkg; Pkg.add("LLVM")` （其实没必要）
+
+在 REPL 中输入如下代码
+\begin{lstlisting}[language=julia,caption=julia]
+function add(x::Int, y::Int)::Int
+    return x + y
+end
+lowered_ir = @code_lowered add(1, 2) # 生成 Lowered Julia IR
+typed_ir = @code_typed add(1, 2) # 生成静态类型的 Julia IR
+llvm_ir = @code_llvm add(1, 2) # 生成 LLVM IR
+\end{lstlisting}
+
+也可以把函数定义写到 jl 脚本中，然后在 REPL 中 \verb`include("脚本名.jl")`， 再 \verb`@code_xxx add(1, 2)`。 \verb`include()` 相当于把脚本代码直接插入到该位置。
+
+注意只会生成指定函数的 IR，不会递归生成它调用的其他函数的 IR。
+
+\begin{lstlisting}[language=none,caption=julia ir]
+julia> lowered_ir = @code_lowered add(1, 2)
+CodeInfo(
+1 ─ %1  = Main.Int
+│   %2  = Main.:+
+│   %3  = (%2)(x, y)   
+│         @_4 = %3
+│   %5  = @_4
+│   %6  = %5 isa %1
+└──       goto #3 if not %6
+2 ─       goto #4
+3 ─ %9  = @_4
+│   %10 = Base.convert(%1, %9)
+└──       @_4 = Core.typeassert(%10, %1)
+4 ┄ %12 = @_4
+└──       return %12
+)
+\end{lstlisting}
+
+生成的 LLVM IR 代码如下
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/f34505db9ea28f8f.png}
+\caption{LLVM IR} \label{fig_julia0_2}
+\end{figure}
+
+注意返回的 \verb`lowered_ir` 变量并不是一个字符串，而是结构化的信息。
+
+\subsubsection{如何读懂 Julia IR}
+如果 Julia IR 中的东西不懂，文档也不完善，那就直接执行试试即可， Julia IR 中的函数都是可以在 REPL 中执行的。 例如上面的 \verb`Main.Int` 执行出来就是 \verb`Int64::DataType`。 找许多 Julia 源码和 IR 对照下来基本就能明白。
+
+\subsection{循环的 IR}
+代码
+\begin{lstlisting}[language=julia]
+for n in 1:5
+    c += n
+end
+\end{lstlisting}
+对应的 IR 是
+\begin{lstlisting}[language=none]
+14 ┄ %77  = Main.:(:)                         ; for n in 1:5
+                                              ;     % ==循环准备阶段==
+│    %78  = (%77)(1, 5)                       ;     % 返回 ::UnitRange{Int64}
+│           @_4 = Base.iterate(%78)           ;     % 初始化迭代器： (值, 循环指数)
+                                              ;     % 类型 Tuple{Int64, Int64}
+                                              ;     % ， 当前为 (1, 1)
+│    %80  = @_4
+│    %81  = %80 === nothing
+│    %82  = Base.not_int(%81)                 ;     % 非运算
+└───        goto #17 if not %82
+                                              ;     % ==循环体==
+15 ┄ %84  = @_4
+│           n = Core.getfield(%84, 1)
+│    %86  = Core.getfield(%84, 2)             ;     % 循环指数（对 UnitRange{Int64}
+                                              ;     %    未必从 1 开始也未必步长为 1）
+│    %87  = Main.:+                           ;     c += n
+│    %88  = c
+│    %89  = n
+│           c = (%87)(%88, %89)
+│           @_4 = Base.iterate(%78, %86)      ;     % 迭代（nothing 表示结束）
+│    %92  = @_4
+│    %93  = %92 === nothing
+│    %94  = Base.not_int(%93)
+└───        goto #17 if not %94
+16 ─        goto #15
+                                              ; end
+\end{lstlisting}
+
+代码
+\begin{lstlisting}[language=julia]
+function foo()
+a = 0
+for i in [1, "123", 1+2im]
+    a += 1
+    println(i, a);
+end
+end
+\end{lstlisting}
+对应的 IR 是
+\begin{lstlisting}[language=none]
+CodeInfo(
+1 ─       a = 0
+                                         ; % ==循环准备==
+│   %2  = Main.:+                        ; % 构造 [1, "123", 1+2im]
+│   %3  = Main.:*
+│   %4  = Main.im
+│   %5  = (%3)(2, %4)
+│   %6  = (%2)(1, %5)
+│   %7  = Base.vect(1, "123", %6)
+│         @_2 = Base.iterate(%7)         ; % 迭代器
+│   %9  = @_2
+│   %10 = %9 === nothing
+│   %11 = Base.not_int(%10)
+└──       goto #4 if not %11
+2 ┄ %13 = @_2                            ; % ==循环体==
+│         i = Core.getfield(%13, 1)      ; % 循环变量
+│   %15 = Core.getfield(%13, 2)          ; % 循环指数
+│   %16 = Main.:+
+│   %17 = a
+│         a = (%16)(%17, 1)
+│   %19 = i
+│   %20 = a
+│         Main.println(%19, %20)
+│         @_2 = Base.iterate(%7, %15)
+│   %23 = @_2
+│   %24 = %23 === nothing
+│   %25 = Base.not_int(%24)
+└──       goto #4 if not %25
+3 ─       goto #2
+4 ┄       return nothing
+)
+\end{lstlisting}
+
+\subsection{Core 模块}
+\begin{itemize}
+\item \verb`Core._apply_iterate(Base.iterate, 函数, 容器1, 容器2, ...)` 会依次把每个 \verb`容器` 的每个元素作为入参去调用 \verb`函数`。 其中 \verb`Base.iterate` 是一个函数，用途未知。
+\end{itemize}
+
+\subsection{Base 模块}
+\begin{itemize}
+\item \verb`Base.not_int(变量)` 逻辑非运算（似乎非逻辑类型就按 bit 取非）
+\item \verb`Base.Pairs(("a","b"), (1,2))` 返回的类型是 \verb`Base.Pairs{Int64, String, Tuple{Int64, Int64}, Tuple{String, String}}`，但类似于 \verb`Dict([1=>"a", 2=>"b"])`。 可以使用 \verb`var[key]` 获取对应的值。
+\item \verb`Base.iterate(容器)` 可以得到 \verb`容器` 的初始迭代器。 \verb`Base.iterate(容器, 迭代器)` 可以得到下一个元素的迭代器。
+\end{itemize}
+
+\subsection{Main 模块}
+
+\begin{itemize}
+\item 基本所有用户能调用的常用内建函数和算符都是 \verb`Main` 模块的， 例如 \verb`Main.println`， \verb`Main.error`， \verb`Main.sqrt` 等。
+\item 算符表示为函数 \verb`Main.:算符符号`， 如大于号 \verb`Main.:>`， 减号 \verb`Main.:-`， 不等于 \verb`Main.:!=`。 \verb`1:5` 中的冒号表示为 \verb`Main.:(:)`
+\end{itemize}
