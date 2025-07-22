@@ -1,0 +1,51 @@
+% 切比雪夫多项式（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Hermann_von_Helmholtz}{相关文章}。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/aa69d9e30009e97a.png}
+\caption{第一类切比雪夫多项式 $T_n$ 的前五项绘图} \label{fig_QBXFdx_1}
+\end{figure}
+切比雪夫多项式是两组与余弦函数和正弦函数相关的正交多项式，分别记作 $T_n(x)$ 和 $U_n(x)$。它们有多种等价定义方式，其中一种起始于三角函数的表示：
+
+第一类切比雪夫多项式 $T_n$ 定义为：
+$$
+T_n(\cos \theta) = \cos(n\theta)~
+$$
+类似地，第二类切比雪夫多项式 $U_n$ 定义为：
+$$
+U_n(\cos \theta)\sin \theta = \sin((n+1)\theta)~
+$$
+乍一看，这些表达式是否真的定义了关于 $\cos \theta$ 的多项式并不明显，但可以通过莫阿弗公式（de Moivre’s formula）来证明这一点（见下文）。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/57edd55432eeb41d.png}
+\caption{第二类切比雪夫多项式 $U_n$ 的前五个多项式图像} \label{fig_QBXFdx_2}
+\end{figure}
+切比雪夫多项式 $T_n$ 是在区间 $[-1, 1]$ 上绝对值被限制在 1 以内、且首项系数最大的多项式。它们也是满足许多其他性质的“极值”多项式之一\(^\text{[1]}\)。
+
+1952 年，科尔内利乌斯·兰齐奥斯指出，切比雪夫多项式在线性系统求解的逼近理论中具有重要作用\(^\text{[2]}\)；$T_n(x)$ 的根，也称为切比雪夫节点，被用作多项式插值中的匹配点，从而优化插值过程。由此得到的插值多项式能够减小龙格现象的问题，并在最大范数意义下提供接近最佳的函数逼近，这也称为“极小极大”准则。这种逼近直接引出了克伦肖–柯蒂斯求积法的方法。
+
+这些多项式以帕夫努季·切比雪夫的名字命名\(^\text{[3]}\)。使用字母 $T$ 是因为该名字的其他音译方式，如法语的 Tchebycheff、Tchebyshev，或德语的 Tschebyschow。
+\subsection{定义}
+\subsubsection{递推定义}
+第一类切比雪夫多项式 $T_n(x)$ 可由以下递推关系定义：
+$$
+\begin{aligned}
+T_0(x) &= 1, \\
+T_1(x) &= x, \\
+T_{n+1}(x) &= 2x \, T_n(x) - T_{n-1}(x).
+\end{aligned}~
+$$
+第二类切比雪夫多项式 $U_n(x)$ 可由以下递推关系定义：
+$$
+\begin{aligned}
+U_0(x) &= 1, \\
+U_1(x) &= 2x, \\
+U_{n+1}(x) &= 2x \, U_n(x) - U_{n-1}(x),
+\end{aligned}~
+$$
+这个递推关系与第一类切比雪夫多项式的定义几乎相同，仅在 $n = 1$ 时的初始值规则上有所不同。
