@@ -1,0 +1,14 @@
+% MSVC （微软 C++ 编译器）笔记
+% license Usr
+% type Note
+
+CMake 如果适配了 VS，且系统安装了 VS，那么可以用构造程序
+\begin{lstlisting}[language=none]
+cmake -DCMAKE_BUILD_TYPE=Debug -G "Visual Studio 16 2019" ..
+cmake --build . --verbose
+\end{lstlisting}
+
+\begin{itemize}
+\item \verb`cl.exe` 是编译器，默认安装路径 \verb`C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe`。 注意微软命令行程序的选项以 \verb`/` 开头
+\item \verb`MSBuild.exe` 是微软自家的构建程序（类似于 make）它会根据 cmake 生成的 \verb`.sln` 和 \verb`.vcxproj` 调用 \verb`cl.exe` 和 \verb`link.exe` 等，默认路径 \verb`C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe`。
+\end{itemize}
