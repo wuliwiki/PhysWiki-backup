@@ -1,0 +1,74 @@
+% 柯西积分公式（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Cauchy\%27s_integral_formula}{相关文章}。
+在数学中，柯西积分公式是复分析中的一个核心命题，以奥古斯丁-路易·柯西的名字命名。它表明，一个在圆盘上全纯（即复可导）的函数，其内部的取值完全由其在圆周边界上的取值所决定。同时，该公式也为全纯函数的一切阶导数提供了积分表达式。
+
+柯西积分公式展示了复分析中的一个重要思想：“微分等价于积分”。即复微分与积分一样，在一致极限下具有良好的行为——而这一性质在实分析中并不成立。
+\subsection{定理}
+设 $U$ 是复平面 $\mathbb{C}$ 的一个开子集，记闭圆盘
+$$
+D = \left\{ z : |z - z_0| \leq r \right\}~
+$$
+完全包含于 $U$ 内。设 $f: U \to \mathbf{C}$ 是一个全纯函数，记 $\gamma$ 为 $D$ 的边界（即圆周），其方向为逆时针。那么，对于圆盘内部任意一点 $a$，有：
+$$
+f(a) = \frac{1}{2\pi i} \oint_{\gamma} \frac{f(z)}{z - a} \, dz.~
+$$
+这个命题的证明依赖于柯西积分定理，同样地，它只要求 $f$ 是复可微的。
+
+由于 $\frac{1}{z - a}$ 可以展开成以 $a$ 为变量的幂级数：
+$$
+\frac{1}{z - a} = \frac{1 + \frac{a}{z} + \left( \frac{a}{z} \right)^2 + \cdots}{z}  ,~
+$$
+由此可知，全纯函数都是解析函数，也就是说，它们可以展开为收敛的幂级数。特别地，$f$ 实际上是无限次可导的，并且其 $n$ 阶导数可以表示为：
+$$
+f^{(n)}(a) = \frac{n!}{2\pi i} \oint_{\gamma} \frac{f(z)}{(z - a)^{n+1}} \, dz.~
+$$
+这个公式有时也称为柯西导数公式。
+
+上述定理可以推广：曲线 $\gamma$ 可以被任何在 $U$ 内绕点 $a$ 一圈（绕数为 1）且可求长的闭曲线替代。此外，像柯西积分定理一样，只要函数 $f$ 在路径围成的开区域内全纯，并在闭包上连续，即可使用该公式。
+
+需要注意的是，并不是所有在边界上连续的函数都能产生一个在边界内部与之匹配的全纯函数。例如，如果取函数 $f(z) = \frac{1}{z}$，在 $|z| = 1$ 上定义，并代入柯西积分公式，在圆内部的所有点处结果都是 0。事实上，只给出一个全纯函数边界上的实部，就足以确定该函数（最多相差一个纯虚常数）。因为与给定实部对应的虚部（作为边界条件）是唯一的，除了加一个常数外。
+
+我们可以结合 Möbius 变换和 Stieltjes 反演公式，从边界上的实部构造出整个圆内的全纯函数。例如，函数 $f(z) = i - iz$ 的实部为 $\text{Re} f(z) = \text{Im} z$。在单位圆上，该函数可表示为：
+$$
+\frac{\frac{i}{z} - iz}{2}.~
+$$
+利用 Möbius 变换和 Stieltjes 公式，我们可构造出圆内对应的全纯函数。其中 $\frac{i}{z}$ 项对圆内无贡献，得到函数 $-iz$。这个函数在边界上的实部与原函数一致，并且给出了相应的虚部，只是差了一个常数（即 $i$）。
+\subsection{证明思路（概要）}
+利用柯西积分定理，我们可以证明：在任意闭合可求长曲线 $C$ 上的积分，等于在以 $a$ 为中心的任意小圆周上的积分。由于 $f(z)$ 是连续的，我们可以选择一个足够小的圆，使得在圆上的 $f(z)$ 与 $f(a)$ 任意接近。
+
+另一方面，对于任意以 $a$ 为圆心的圆 $C$，都有：
+$$
+\oint_{C} \frac{1}{z - a} \, dz = 2\pi i~
+$$
+这个积分可以直接通过参数化计算，即令 $z(t) = a + \varepsilon e^{it}$，其中 $0 \leq t \leq 2\pi$，$\varepsilon$ 是圆的半径。
+
+令 $\varepsilon \to 0$，我们可以得到所需的估计：
+$$
+\left| \frac{1}{2\pi i} \oint_{C} \frac{f(z)}{z - a} \, dz - f(a) \right|
+= \left| \frac{1}{2\pi i} \oint_{C} \frac{f(z) - f(a)}{z - a} \, dz \right|~
+$$
+将 $z = z(t) = a + \varepsilon e^{it}$ 带入，有：
+$$
+= \left| \frac{1}{2\pi i} \int_0^{2\pi} \frac{f(z(t)) - f(a)}{\varepsilon e^{it}} \cdot \varepsilon e^{it} i \, dt \right|~
+$$
+$$
+\leq \frac{1}{2\pi} \int_0^{2\pi} \left| \frac{f(z(t)) - f(a)}{\varepsilon} \right| \varepsilon \, dt
+= \frac{1}{2\pi} \int_0^{2\pi} |f(z(t)) - f(a)| \, dt~
+$$
+$$
+\leq \max_{|z - a| = \varepsilon} |f(z) - f(a)| \quad \xrightarrow[\varepsilon \to 0]{} \quad 0~
+$$
+因此，
+$$
+\frac{1}{2\pi i} \oint_{C} \frac{f(z)}{z - a} \, dz \to f(a) \quad \text{当}~ \varepsilon \to 0~
+$$
+这就证明了柯西积分公式成立。
+\subsection{示例}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/1366d49e74e51339.png}
+\caption{} \label{fig_KXjfgs_1}
+\end{figure}
