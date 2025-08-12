@@ -1,0 +1,11 @@
+% C++ 迭代器笔记
+% license Usr
+% type Note
+
+\begin{itemize}
+\item 5 类迭代器的要求越来越严格，前一个的要求是后一个的子集。
+\item \verb`LegacyInputIterator`, \verb`LegacyForwardIterator`, \verb`LegacyBidirectionalIterator`, \verb`LegacyRandomAccessIterator`, \verb``
+\item STL 容器最少都是 Forward，Input 仅用于文件或 stdin 等 stream。
+\item 超出范围的迭代器最多只能是 \verb`v.end()`，其他的超出范围都是未定义行为。
+\end{itemize}
+

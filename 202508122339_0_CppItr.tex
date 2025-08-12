@@ -1,0 +1,18 @@
+% C++ 迭代器笔记
+% license Usr
+% type Note
+
+\begin{itemize}
+\item 5 类迭代器的要求越来越严格，前一个的要求是后一个的子集。
+\item \verb`LegacyInputIterator`, 只能 single-pass，即遍历一遍（例如 stdin 不能反复从头读）
+\item \verb`LegacyForwardIterator`, 可以反复遍历
+\item \verb`LegacyBidirectionalIterator`,
+\item \verb`LegacyRandomAccessIterator`,
+\item \verb`LegacyContiguousIterator`
+\item STL 容器最少都是 Forward，Input 仅用于文件或 stdin 等 stream。
+\item 超出范围的迭代器最多只能是 \verb`v.end()`，其他的超出范围都是未定义行为。
+\item Range-based for 要求至少 \verb`LegacyForwardIterator`。
+\item is \verb`for (aito xxx &: xxx)` equivalent to \verb`for (auto &it = begin; it != end; ++it) {auto &xxx = *it; ...}`
+\item \verb`These iterators rely on tag dispatching (e.g., std::forward_iterator_tag) and SFINAE-based traits (std::iterator_traits) for algorithm customization.`?
+\end{itemize}
+
