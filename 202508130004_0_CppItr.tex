@@ -13,6 +13,14 @@
 \item 超出范围的迭代器最多只能是 \verb`v.end()`，其他的超出范围都是未定义行为。
 \item Range-based for 要求至少 \verb`LegacyForwardIterator`。
 \item \verb`for (aito &e: v)` 基本相当于 \verb`for (auto it = v.begin(); it != v.end(); ++it) {auto &e = *it; ...}`
-\item \verb`These iterators rely on tag dispatching (e.g., std::forward_iterator_tag) and SFINAE-based traits (std::iterator_traits) for algorithm customization.`?
+\item 为了适用于 \verb`std::sort, std::search` 等标准算法，还需要定义一些属性（不用的话就不强制）
+\begin{lstlisting}[language=cpp]
+// Required for standard algorithms:
+using iterator_category = std::forward_iterator_tag;
+using value_type = T;
+using difference_type = std::ptrdiff_t;
+using reference = T&;
+using pointer = T*;
+\end{lstlisting}
+\item 可以用 \verb`std::iterator_traits` 获取以上属性
 \end{itemize}
-
