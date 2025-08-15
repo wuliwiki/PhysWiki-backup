@@ -1,0 +1,45 @@
+% 费马小定理（综述）
+% license CCBYNCSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Fermat\%27s_little_theorem}{相关文章}。
+
+在数论中，费马小定理指出：如果 $p$ 是一个质数，那么对于任意整数 $a$，数 $a^p - a$ 都是 $p$ 的整数倍。用模运算的记号表示，就是：
+$$
+a^p \equiv a \pmod{p}~
+$$
+例如，当 $a = 2$、$p = 7$ 时，有 $2^7 = 128$，而 $128 - 2 = 126 = 7 \times 18$，正好是 7 的倍数。
+
+如果 $a$ 不能被 $p$ 整除，也就是说 $a$ 与 $p$ 互素，那么费马小定理等价于以下陈述：$a^{p-1} - 1$ 是 $p$ 的整数倍，或者用符号表示为：
+$$
+a^{p-1} \equiv 1 \pmod{p}~
+$$
+例如，当 $a = 2$、$p = 7$ 时，有 $2^6 = 64$，而 $64 - 1 = 63 = 7 \times 9$，也是 7 的倍数。
+
+费马小定理是费马素性检验的理论基础，也是初等数论中的一个基本定理。该定理得名于皮埃尔·德·费马，他在 1640 年提出了这一结论。之所以称为“小定理”，是为了将其与费马大定理区分开来。
+\subsection{历史}
+皮埃尔·德·费马（Pierre de Fermat）最早是在一封写于 **1640 年 10 月 18 日** 的信中向他的朋友兼知己弗雷尼克尔·德·贝西（Frénicle de Bessy）陈述了这一定理。他的表述等价于如下内容：
+
+> 如果 $p$ 是质数，而 $a$ 是任意一个不能被 $p$ 整除的整数，那么 $a^{p-1} - 1$ 一定能被 $p$ 整除。
+
+费马的原始陈述是：
+
+> Tout nombre premier mesure infailliblement une des puissances −1 de quelque progression que ce soit, et l'exposant de la dite puissance est sous-multiple du nombre premier donné −1; et, après qu'on a trouvé la première puissance qui satisfait à la question, toutes celles dont les exposants sont multiples de l'exposant de la première satisfont tout de même à la question.
+
+这段话翻译成中文，并加入一些注释和公式以便理解，可以表述为：
+
+> 每一个质数 $[p]$ 必定整除某一个“某个等比级数 $[a, a^2, a^3, \dots]$”中的“某个幂减一”的结果（即存在某个 $t$，使得 $a^t - 1$ 可被 $p$ 整除），且这个幂的指数 $t$ 是 $p - 1$ 的一个约数。找到第一个满足条件的幂之后，所有指数是这个指数 $t$ 的倍数的幂，同样也满足这一性质。
+
+也就是说，如果某个 $t$ 满足 $a^t \equiv 1 \pmod{p}$，那么所有 $t$ 的倍数也都满足 $a^{kt} \equiv 1 \pmod{p}$。
+
+费马并没有讨论当 $a$ 是 $p$ 的倍数时的情形，也并没有给出他的证明，只是写道：
+
+> Et cette proposition est généralement vraie en toutes progressions et en tous nombres premiers; de quoi je vous envoierois la démonstration, si je n'appréhendois d'être trop long.
+
+翻译为中文是：
+
+> “这个命题在所有的数列和所有的质数中都是普遍成立的；我本可以把它的证明寄给你，只是担心写得太长了。”\(\)
+
+---
+
+如需继续翻译后续段落，请告诉我。
