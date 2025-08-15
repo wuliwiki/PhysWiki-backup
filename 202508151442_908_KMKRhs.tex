@@ -1,0 +1,26 @@
+% 卡迈克尔函数（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Carmichael_function}{相关文章}。
+
+在数论（数学的一个分支）中，正整数 $n$ 的卡迈克尔函数$\lambda(n)$ 定义为满足下列条件的最小正整数 $m$：
+$$
+a^{m} \equiv 1 \pmod{n}~
+$$
+其中 $a$ 为任意与 $n$ 互素的整数。从代数的角度来看，$\lambda(n)$ 是模 $n$ 的整数乘法群的指数。由于这是一个有限阿贝尔群，必然存在一个元素，其阶等于该指数 $\lambda(n)$。这样的元素被称为模 $n$ 的本原 $\lambda$-根（primitive $\lambda$-root modulo $n$）。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/133eee57c8a8a0bb.png}
+\caption{卡迈克尔 λ 函数：$1 \le n \le 1000$ 时的 $\lambda(n)$（与欧拉 φ 函数对比）} \label{fig_KMKRhs_1}
+\end{figure}
+卡迈克尔函数以美国数学家罗伯特·卡迈克尔的名字命名，他于 1910 年首次给出了这一函数的定义【1】。它也被称为卡迈克尔 $\lambda$ 函数、约化欧拉函数以及最小通用指数函数。
+
+模 $n$ 的整数乘法群的阶是 $\varphi(n)$，其中 $\varphi$ 是**欧拉函数**。由于有限群中任一元素的阶都会整除群的阶，所以 $\lambda(n)$ 一定整除 $\varphi(n)$。
+
+下表比较了 $\lambda(n)$（OEIS 数列 A002322）与 $\varphi(n)$ 的前 36 个值（当二者不同的时候，$\varphi(n)$ 用粗体表示；使它们不同的那些 $n$ 的值列在 OEIS 数列 A033949 中）。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/309a6eadd8675298.png}
+\caption{} \label{fig_KMKRhs_2}
+\end{figure}
