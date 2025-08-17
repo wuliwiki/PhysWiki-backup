@@ -1,0 +1,98 @@
+% 非结合代数（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Non-associative_algebra}{相关文章}。
+
+非结合代数[1]（或称分配代数）是指一种域上的代数，其二元乘法运算不假定具有结合性。也就是说，一个代数结构 $A$ 若是域 $K$ 上的非结合代数，则它是一个 $K$-向量空间，并配备了一个 $K$-双线性的二元乘法运算 $A \times A \to A$，该运算可以是结合的，也可以不是。例子包括李代数、约当代数、八元数，以及带有叉乘运算的三维欧几里得空间。由于不假定乘法是结合的，因此必须使用括号来表示运算顺序。例如，$(ab)(cd)$、$(a(bc))d$ 和 $a(b(cd))$ 的结果可能完全不同。
+
+这里的“非结合”意味着不要求结合律成立，但并不意味着结合律被禁止。换句话说，“非结合”就是“未必结合”的意思，正如“非交换”环中的“非交换”并不是绝对禁止交换律，而是指“未必交换”。
+
+一个代数是幺代数（unital 或 unitary），如果它存在一个单位元 $e$，满足对代数中所有元素 $x$ 都有 $ex = x = xe$。例如，八元数是幺代数，但李代数从来都不是。
+
+对 $A$ 的非结合代数结构，可以通过将其关联到其他结合代数来研究，这些结合代数是$A$ 作为 $K$-向量空间时其全体 $K$-自同态代数的子代数。其中有两个重要的例子：导子代数和包络代数（后者在某种意义上是“包含 $A$ 的最小结合代数”）。
+
+更一般地，有些作者把非结合代数的概念扩展到交换环 $R$ 上：即一个带有 $R$-双线性二元乘法运算的 $R$-模[2]。如果一个结构满足除了结合律以外的所有环公理（例如任何 $R$-代数），那么它自然就是一个 $\mathbb{Z}$-代数，因此有些作者称非结合的 $\mathbb{Z}$-代数为非结合环。
+\subsection{满足恒等式的代数}
+具有两个二元运算、但没有其他限制的类环结构是一类非常广泛的对象，过于笼统而难以研究。出于这个原因，最为人熟知的非结合代数类型往往满足某些恒等式或性质，从而在一定程度上简化了乘法。这些性质包括以下几类。
+\subsubsection{常见性质}
+设 $x, y, z$ 为域 $K$ 上代数 $A$ 的任意元素。正整数次幂的递归定义为：$x^1 := x$，对于 $n \geq 1$，有两种习惯定义：右幂：$x^{n+1} := (x^n)x$[3]，左幂：$x^{n+1} := x(x^n)$[4][5]，具体采用哪种定义取决于作者。
+\begin{itemize}
+\item 幺元（Unital）：存在一个元素 $e$，使得 $ex = x = xe$。在这种情况下可定义 $x^0 := e$。
+\item 结合性：$(xy)z = x(yz)$。
+\item 交换性：$xy = yx$。
+\item 反交换性[6]：$xy = -yx$。
+\item Jacobi 恒等式[6][7]：$(xy)z + (yz)x + (zx)y = 0$，或 $x(yz) + y(zx) + z(xy) = 0$，具体形式取决于作者。
+\item Jordan 恒等式[8][9]：$(x^2y)x = x^2(yx)$，或 $(xy)x^2 = x(yx^2)$，具体形式取决于作者。
+\item 可交替性[10][11][12]：左交替律：$(xx)y = x(xy)$，右交替律：$(yx)x = y(xx)$。
+\item 柔性律[13][14]：$(xy)x = x(yx)$。
+\item $n$ 次幂结合律（nth power associative，$n \geq 2$）：对所有满足 $0 < k < n$ 的整数 $k$，有$x^{n-k}x^k = x^n$。
+\item 三次幂结合律：$x^2x = xx^2$。
+\item 四次幂结合律：$x^3x = x^2x^2 = xx^3$（可与下面的“四次幂交换律”比较）。
+\item 幂结合律[4][5][15][16][3]：由任意单个元素生成的子代数是结合代数，即对所有 $n \geq 2$ 成立 $n$ 次幂结合律。
+\item $n$ 次幂交换律（nth power commutative，$n \geq 2$）**：对所有满足 $0 < k < n$ 的整数 $k$，有$x^{n-k}x^k = x^kx^{n-k}$。
+\item 三次幂交换律：$x^2x = xx^2$。
+\item 四次幂交换律：$x^3x = xx^3$（可与上面的“四次幂结合律”比较）。
+\item 幂交换律：由任意单个元素生成的子代数是交换代数，即对所有 $n \geq 2$ 成立 $n$ 次幂交换律。
+\item 指数为 $n \geq 2$ 的幂零性（Nilpotent of index n）**：任意 $n$ 个元素的乘积（无论如何加括号）都为零，但存在某些 $n-1$ 个元素使得其在某种结合方式下乘积不为零：$x_1x_2\cdots x_n = 0, \quad \exists \; y_1,\dots,y_{n-1} \;\; \text{使得 } y_1y_2\cdots y_{n-1} \neq 0$
+\item 指数为 $n \geq 2$ 的幂零：幂结合的代数，且 $x^n = 0$，并且存在某个元素 $y$ 使得 $y^{n-1} \neq 0$。
+\end{itemize}
+\subsubsection{性质之间的关系}
+对于任意特征的域 $K$：
+
+\begin{itemize}
+\item 结合性 $\implies$ 可交替性。
+\item 左交替性、右交替性和柔性律三者中，任意两个 $\implies$ 第三个。
+\item 因此，可交替性 $\implies$ 柔性律。
+\item 可交替性 $\implies$ Jordan 恒等式[17][a]。
+\item 交换性 $\implies$ 柔性律。
+\item 反交换性 $\implies$ 柔性律。
+\item 可交替性 $\implies$ 幂结合性[a]。
+\item 柔性律 $\implies$ 三次幂结合律。
+\item 二次幂结合律 $\equiv \text{恒成立}$。
+\item 二次幂交换律 $\equiv \text{恒成立}$。
+\item 三次幂结合律 $\iff$ 三次幂交换律。
+\item $n$ 次幂结合律 $\implies$ $n$ 次幂交换律。
+\item 指数为 $2$ 的幂零性 $\implies$ 反交换性。
+\item 指数为 $2$ 的幂零性 $\implies$ Jordan 恒等式。
+\item 指数为 $3$ 的幂零代数 $\implies$ Jacobi 恒等式。
+\item 指数为 $n$ 的幂零代数 $\implies$ 指数为 $N$ 的幂零代数，且 $2 \leq N \leq n$。
+\item 幺代数 $\wedge$ 指数为 $n$ 的幂零性两者不相容。若 $K \neq \mathrm{GF}(2)$ 或 $\dim(A) \leq 3$
+\item Jordan 恒等式 与 交换性 一起 $\implies$ 幂结合性[18][19][20][citation needed]。若 $\mathrm{char}(K) \neq 2$：
+\item 右交替性 $\implies$ 幂结合性[21][22][23][24]。
+\item 类似地，左交替性 $\implies$ 幂结合性。
+\item 幺代数 $\wedge$ Jordan 恒等式 $\implies$ 柔性律[25]。
+\item Jordan 恒等式 $\wedge$ 柔性律 $\implies$ 幂结合性[26]。
+\item 交换性 $\wedge$ 反交换性 $\implies$ 指数为 $2$ 的幂零性。
+\item 反交换性 $\implies$ 指数为 $2$ 的幂零。
+\item 幺代数 $\wedge$ 反交换性不相容。若 $\mathrm{char}(K) \neq 3$：
+\item 幺代数 $\wedge$ Jacobi 恒等式不相容。若 $\mathrm{char}(K) \notin \{2,3,5\}$：
+\item 交换性 $\wedge$ $x^4 = x^2x^2$（定义四次幂结合律的两个恒等式之一） $\implies$ 幂结合性[27]。若 $\mathrm{char}(K) = 0$：
+\item 三次幂结合律 $\wedge$ $x^4 = x^2x^2$（定义四次幂结合律的两个恒等式之一） $\implies$ 幂结合性[28]。
+若 $\mathrm{char}(K) = 2$：交换性 $\iff$ 反交换性。
+\end{itemize}
+\subsubsection{结合子}
+在代数 $A$ 上的结合子是一个 $K$-多线性映射：$[\cdot,\cdot,\cdot] : A \times A \times A \to A$其定义为
+$$
+[x,y,z] = (xy)z - x(yz).~
+$$
+它衡量了代数 $A$ 的“非结合性程度”，并且可以方便地表达一些 $A$ 可能满足的恒等式。
+
+设 $x, y, z$ 为代数中的任意元素：
+
+\begin{itemize}
+\item 结合性：$[x,y,z] = 0$
+\item 可交替性：$[x,x,y] = 0 \quad \text{(左交替)}, \qquad [y,x,x] = 0 \quad \text{(右交替)}$
+\item 这意味着交换任意两个变量会改变符号：$[x,y,z] = -[x,z,y] = -[z,y,x] = -[y,x,z]$其逆命题仅在 $\mathrm{char}(K) \neq 2$ 时成立。
+\item 柔性律：$[x,y,x] = 0$
+\item 这意味着交换首尾两项会改变符号：$[x,y,z] = -[z,y,x]$其逆命题同样仅在 $\mathrm{char}(K) \neq 2$ 时成立。
+\item Jordan 恒等式[29]：$[x^2,y,x] = 0 \quad \text{或} \quad [x,y,x^2] = 0$取决于不同作者的定义。
+\item 三次幂结合性：$[x,x,x] = 0$
+\end{itemize}
+核是与所有其他元素都满足结合律的元素集合[30]，即所有满足
+  $$
+  [n,A,A] = [A,n,A] = [A,A,n] = \{0\}~
+  $$
+的 $n \in A$。
+
+核构成 $A$ 的一个结合子环。
