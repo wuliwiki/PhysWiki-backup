@@ -1,0 +1,54 @@
+% 对称性匹配的线性组合
+% keys 分子轨道理论|对称性匹配的线性组合|对称性匹配线性组合|SALC|SALCs
+% license Usr
+% type Tutor
+
+\pentry{分子点群\nref{nod_MPG1}}{nod_52ba}
+我们以 $\text{BH}_3$ 分子为例研究如何通过 SALCs 构建分子轨道。先确定中心原子，例如 $\text{H}_2\text{O}$ 就是中间的氧原子，$\text{BH}_3$ 则是中间的 $\text B$。将周围的 $\text H$ 原子的 $1s$ 轨道（让 $\text H$ 原子成键固然只能考虑 $1s$ 轨道）组合成\textbf{符合特定对称种类}的线性组合，再将上面的结果进一步按照对称性与 $\text B$ 原子的轨道合理线性组合，得到分子轨道。
+
+我们将三个 $\text H$ 原子分别记为 $A$，$B$，$C$ 用以区分。$\text{BH}_3$ 分子应有 $C_{3v}$ 对称性，有 $C_3$ 和 $\sigma_v$ 两种对称操作以及恒等操作 $E$。计算特征标：
+\begin{enumerate}
+\item $s_A$、$s_B$、$s_C$ 均在 $E$ 下不变，$\chi(E)=3$；
+\item $s_A$、$s_B$、$s_C$ 在 $C_3$ 一类操作（包括 $C_3^1$，$C_3^2$）下轮换，$\chi(C_3)=0$；
+\item $s_A$、$s_B$、$s_C$ 在 $\sigma_v$ 一类操作（包括 $\sigma_v$，$\sigma_v'$，$\sigma_v''$）下，一者位置不变，另外两者交换，得到 $\chi(\sigma_v)=1$。
+\end{enumerate}
+考虑记分子的轨道为 $\Gamma$，以三个 $\text H$ 原子的轨道 $(s_A,s_B,s_C)$ 为基底，这显然就是一个可约表示，特征标表为
+\begin{table}[ht]
+\centering
+\caption{$\Gamma$ 的特征标表}\label{tab_SALCs1}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & $E$ & $2C_3$ & $3\sigma_v$ \\
+\hline
+$\Gamma$ & 3 & 0 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+下面来看 $\Gamma$ 是由哪些不可约表示构成的，$C_{3v}$ 群的特征标表是
+\begin{table}[ht]
+\centering
+\caption{$C_{3v}$ 群的特征标表}\label{tab_SALCs2}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$C_{3v}$ & $E$ & $2C_3$ & $3\sigma_v$ &  &  \\
+\hline
+$A_1$ & 1 & 1 & 1 & $z$ & $x^2+y^2$，$z^2$ \\
+\hline
+$A_2$ & 1 & 1 & -1 & $R_z$ &  \\
+\hline
+$E$ & 2 & -1 & 0 & $(x, y), (R_x, R_y)$ & $(x^2-y^2, xy)$，$(xz,yz)$ \\
+\hline
+\end{tabular}
+\end{table}
+考虑
+\begin{equation}
+\Gamma = n_{A_1} A_1 + n_{A_2} A_2 + n_{E} E ~.
+\end{equation}
+则有，若分子点群的阶数为 $h$，例如 $C_{3v}$ 群为 $6$ 阶群，则 
+\begin{equation}
+n_i(\Gamma) = \frac{1}{h} \sum_R \chi^{(\Gamma)}(R) \chi_i(R) ~.
+\end{equation}
+其中 $R$ 是对各个对称操作求和，例如 $2C_3$ 就是有两个 $C_3$ 对称性，需要乘以 $2$，不妨以计算 $n_{A_1}$ 为例：
+\begin{equation}
+n_{A_1} = \frac{1}{6} \times 
+\end{equation}
