@@ -1,0 +1,43 @@
+% 泡利矩阵（综述）
+% license CCBYSA3
+% type Sum
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Pauli_matrices}{相关文章}。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/943b6a85e9584185.png}
+\caption{沃尔夫冈·泡利（1900–1958），约摄于 1924 年。泡利因提出泡利不相容原理而在 1945 年获颁诺贝尔物理学奖**，提名人是阿尔伯特·爱因斯坦。} \label{fig_PLJZ_1}
+\end{figure}
+在数学物理和数学中，泡利矩阵是一组三个$2\times2$ 的复矩阵，它们具有迹为零、厄米特、自反和酉的性质。这些矩阵通常用希腊字母$\sigma$（σ）表示，在涉及同位旋对称性时，有时也用$\tau$（τ）表示。
+$$
+\sigma_1 = \sigma_x = 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix},
+\quad
+\sigma_2 = \sigma_y = 
+\begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix},
+\quad
+\sigma_3 = \sigma_z = 
+\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}.~
+$$
+这些矩阵因物理学家 沃尔夫冈·泡利而得名。在量子力学中，它们出现在泡利方程中，用于描述粒子的自旋与外部电磁场相互作用的情况。它们还可以用来表示两种偏振滤光片的相互作用状态，例如水平/垂直偏振、45 度偏振（左/右）以及圆偏振（左/右）的状态。
+
+每个泡利矩阵都是厄米特矩阵。再加上单位矩阵 $I$（有时被视为第零个泡利矩阵$\sigma_0$），这些矩阵在实数加法下构成了所有 $2 \times 2$ 厄米特矩阵的向量空间的基。这意味着，任何 $2 \times 2$ 厄米特矩阵都可以唯一地写成泡利矩阵的实数线性组合。
+
+泡利矩阵满足以下有用的乘积关系：
+$$
+\sigma_i \sigma_j = \delta_{ij} + i \, \epsilon_{ijk} \, \sigma_k,~
+$$
+其中 $\delta_{ij}$ 是克罗内克 δ，$\epsilon_{ijk}$ 是三阶 Levi-Civita 符号。由于厄米特算符在量子力学中表示可观测量，因此泡利矩阵张成了复二维希尔伯特空间中所有可观测量的空间。在泡利的研究语境中，$\sigma_k$ 表示三维欧几里得空间 $\mathbb{R}^3$ 中沿第 $k$ 个坐标轴方向的自旋对应的可观测量。
+
+此外，当泡利矩阵乘以 $i$ 使之成为反厄米特矩阵后，它们还可以生成李代数意义下的变换：矩阵 $i\sigma_1, i\sigma_2, i\sigma_3$ 构成了实李代数 $\mathfrak{su}(2)$ 的基，并通过指数映射生成特殊酉群 $SU(2)$。由三个位移矩阵 $\sigma_1, \sigma_2, \sigma_3$ 所生成的代数同构于 $\mathbb{R}^3$ 的克利福德代数；而由 $i\sigma_1, i\sigma_2, i\sigma_3$ 生成的带幺结合代数则与四元数代数$\mathbb{H}$ 完全同构。
+\subsection{代数性质}

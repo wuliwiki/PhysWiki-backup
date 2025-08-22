@@ -1,0 +1,346 @@
+% 泡利矩阵（综述）
+% license CCBYSA3
+% type Sum
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Pauli_matrices}{相关文章}。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/943b6a85e9584185.png}
+\caption{沃尔夫冈·泡利（1900–1958），约摄于 1924 年。泡利因提出泡利不相容原理而在 1945 年获颁诺贝尔物理学奖**，提名人是阿尔伯特·爱因斯坦。} \label{fig_PLJZ_1}
+\end{figure}
+在数学物理和数学中，泡利矩阵是一组三个$2\times2$ 的复矩阵，它们具有迹为零、厄米特、自反和酉的性质。这些矩阵通常用希腊字母$\sigma$（σ）表示，在涉及同位旋对称性时，有时也用$\tau$（τ）表示。
+$$
+\sigma_1 = \sigma_x = 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix},
+\quad
+\sigma_2 = \sigma_y = 
+\begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix},
+\quad
+\sigma_3 = \sigma_z = 
+\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}.~
+$$
+这些矩阵因物理学家 沃尔夫冈·泡利而得名。在量子力学中，它们出现在泡利方程中，用于描述粒子的自旋与外部电磁场相互作用的情况。它们还可以用来表示两种偏振滤光片的相互作用状态，例如水平/垂直偏振、45 度偏振（左/右）以及圆偏振（左/右）的状态。
+
+每个泡利矩阵都是厄米特矩阵。再加上单位矩阵 $I$（有时被视为第零个泡利矩阵$\sigma_0$），这些矩阵在实数加法下构成了所有 $2 \times 2$ 厄米特矩阵的向量空间的基。这意味着，任何 $2 \times 2$ 厄米特矩阵都可以唯一地写成泡利矩阵的实数线性组合。
+
+泡利矩阵满足以下有用的乘积关系：
+$$
+\sigma_i \sigma_j = \delta_{ij} + i \, \epsilon_{ijk} \, \sigma_k,~
+$$
+其中 $\delta_{ij}$ 是克罗内克 δ，$\epsilon_{ijk}$ 是三阶 Levi-Civita 符号。由于厄米特算符在量子力学中表示可观测量，因此泡利矩阵张成了复二维希尔伯特空间中所有可观测量的空间。在泡利的研究语境中，$\sigma_k$ 表示三维欧几里得空间 $\mathbb{R}^3$ 中沿第 $k$ 个坐标轴方向的自旋对应的可观测量。
+
+此外，当泡利矩阵乘以 $i$ 使之成为反厄米特矩阵后，它们还可以生成李代数意义下的变换：矩阵 $i\sigma_1, i\sigma_2, i\sigma_3$ 构成了实李代数 $\mathfrak{su}(2)$ 的基，并通过指数映射生成特殊酉群 $SU(2)$。由三个位移矩阵 $\sigma_1, \sigma_2, \sigma_3$ 所生成的代数同构于 $\mathbb{R}^3$ 的克利福德代数；而由 $i\sigma_1, i\sigma_2, i\sigma_3$ 生成的带幺结合代数则与四元数代数$\mathbb{H}$ 完全同构。
+\subsection{代数性质}
+所有三个位相矩阵都可以压缩成一个表达式：
+$$
+\sigma_j =
+\begin{pmatrix}
+\delta_{j3} & \delta_{j1} - i\delta_{j2} \\
+\delta_{j1} + i\delta_{j2} & -\delta_{j3}
+\end{pmatrix},~
+$$
+其中，$\delta_{jk}$ 是克罗内克δ函数，当 $j = k$ 时取值为 $+1$，否则为 $0$。这个表达式的好处在于，可以通过代入 $j = 1, 2, 3$ 来“选择”三个位相矩阵中的任意一个，这在需要进行代数推导但不针对某个具体矩阵时非常实用。
+
+这些矩阵具有自反性：
+$$
+\sigma_1^2 = \sigma_2^2 = \sigma_3^2 = -i\,\sigma_1\sigma_2\sigma_3 =
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
+= I,~
+$$
+其中 $I$ 是单位矩阵。
+
+位相矩阵的行列式和迹为：
+$$
+\det(\sigma_j) = -1, \quad
+\operatorname{tr}(\sigma_j) = 0,~
+$$
+由此可知，每个矩阵 $\sigma_j$ 的特征值为 $+1$ 和 $-1$。
+
+当将单位矩阵 $I$（有时记作 $\sigma_0$）包括在内时，位相矩阵与 $I$ 一起构成：实数域 $\mathbb{R}$ 上 $2 \times 2$ 厄米矩阵空间 $\mathcal{H}_2$的一个 Hilbert–Schmidt 正交基；复数域 $\mathbb{C}$ 上所有 $2 \times 2$ 矩阵空间 $\mathcal{M}_{2,2}(\mathbb{C})$的一个正交基。
+\subsubsection{对易与反对易关系}
+\textbf{对易关系}
+
+保利矩阵满足如下对易关系：
+$$
+[\sigma_j, \sigma_k] = 2i \, \varepsilon_{jkl} \, \sigma_l,~
+$$
+其中 $\varepsilon_{jkl}$ 是Levi-Civita 符号。
+
+
+这些对易关系表明，保利矩阵是以下李代数表示的生成元：
+$$
+(\mathbb{R}^3, \times) \;\cong\; \mathfrak{su}(2) \;\cong\; \mathfrak{so}(3),~
+$$
+即它们与三维实数空间 $\mathbb{R}^3$ 的叉积代数、$\mathfrak{su}(2)$ 李代数和 $\mathfrak{so}(3)$ 李代数互相同构。
+
+\textbf{反对易关系}
+
+保利矩阵还满足以下反对易关系：
+$$
+\{\sigma_j, \sigma_k\} = 2 \delta_{jk} I,~
+$$
+其中，$\{\sigma_j, \sigma_k\}$ 定义为：$\sigma_j \sigma_k + \sigma_k \sigma_j$,$\delta_{jk}$ 是 Kronecker δ 符号，$I$ 表示$2 \times 2$ 单位矩阵。
+
+
+这些反对易关系说明，保利矩阵是三维实空间$\mathbb{R}^3$Clifford 代数$\mathrm{Cl}_3(\mathbb{R})$ 的一个表示的生成元。
+
+利用 Clifford 代数的常规构造方式，可以定义 $\mathfrak{so}(3)$ 李代数的生成元：$\sigma_{jk} = \tfrac{1}{4}[\sigma_j, \sigma_k]$,从而重新得到上文的对易关系（仅相差一个数值因子）。
+
+下面给出一些显式的对易子和反对易子的示例：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/5eeeab185b454847.png}
+\caption{} \label{fig_PLJZ_2}
+\end{figure}
+\subsubsection{特征向量与特征值}
+每一个（厄米的）泡利矩阵都有两个特征值：$+1$ 和 $-1$。相应的归一化特征向量为：
+$$
+\psi_{x+} = \frac{1}{\sqrt{2}}
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix},
+\quad
+\psi_{x-} = \frac{1}{\sqrt{2}}
+\begin{bmatrix}
+1\\
+-1
+\end{bmatrix},~
+$$
+$$
+\psi_{y+} = \frac{1}{\sqrt{2}}
+\begin{bmatrix}
+1\\
+i
+\end{bmatrix},
+\quad
+\psi_{y-} = \frac{1}{\sqrt{2}}
+\begin{bmatrix}
+1\\
+-i
+\end{bmatrix},~
+$$
+$$
+\psi_{z+} =
+\begin{bmatrix}
+1\\
+0
+\end{bmatrix},
+\quad
+\psi_{z-} =
+\begin{bmatrix}
+0\\
+1
+\end{bmatrix}.~
+$$
+\subsection{泡利向量}
+泡利向量定义为\(^\text{[b]}\)：
+$$
+\vec{\sigma} = \sigma_1 \hat{x}_1 + \sigma_2 \hat{x}_2 + \sigma_3 \hat{x}_3,~
+$$
+其中 $\hat{x}_1$、$\hat{x}_2$、$\hat{x}_3$ 分别是更常见的 $\hat{x}$、$\hat{y}$、$\hat{z}$ 的等价记法。
+
+泡利向量提供了一种将三维向量基底映射到泡利矩阵基底的机制\(^\text{[2]}\)，如下所示：
+$$
+\vec{a} \cdot \vec{\sigma} 
+= \sum_{k, l} a_k \sigma_\ell (\hat{x}_k \cdot \hat{x}_\ell) 
+= \sum_k a_k \sigma_k
+= 
+\begin{pmatrix}
+a_3 & a_1 - i a_2 \\
+a_1 + i a_2 & -a_3
+\end{pmatrix}.~
+$$
+更正式地说，该映射定义了从 $\mathbb{R}^3$ 到迹为零的厄米 $2\times 2$ 矩阵向量空间的映射。该映射通过矩阵函数编码了 $\mathbb{R}^3$ 作为赋范向量空间和李代数（其中向量叉乘作为李括号）的结构，使得该映射成为一个李代数同构。
+从表示论的角度看，泡利矩阵因此可视为交织算子。
+
+另一种视角下，泡利向量也可以看作是一个值为 $2\times 2$ 厄米迹为零矩阵的对偶向量，即：$\text{Mat}_{2\times 2}(\mathbb{C}) \otimes (\mathbb{R}^3)^*$,
+它将向量 $\vec{a}$ 映射为：$\vec{a} \mapsto \vec{a} \cdot \vec{\sigma}$.
+\subsubsection{完备性关系}
+向量 $\vec{a}$ 的每一个分量都可以从矩阵中恢复出来（见下方的完备性关系）：
+$$
+\frac{1}{2} \operatorname{tr} \bigl( (\vec{a} \cdot \vec{\sigma}) \vec{\sigma} \bigr) = \vec{a}.~
+$$
+这实际上是映射$\vec{a} \;\mapsto\; \vec{a} \cdot \vec{\sigma}$的逆映射，从而明确表明该映射是一个双射。
+\subsubsection{行列式}
+范数可以通过行列式（差一个负号）给出：
+$$
+\det(\vec{a} \cdot \vec{\sigma}) = -\vec{a} \cdot \vec{a} = -|\vec{a}|^2.~
+$$
+接着，考虑一个$SU(2)$矩阵 $U$ 在这类矩阵空间上的共轭作用：
+$$
+U * (\vec{a} \cdot \vec{\sigma}) := U\,(\vec{a} \cdot \vec{\sigma})\,U^{-1},~
+$$
+我们可以得到：$\det(U * (\vec{a} \cdot \vec{\sigma})) = \det(\vec{a} \cdot \vec{\sigma})$,并且 $U * (\vec{a} \cdot \vec{\sigma})$ 仍然是厄米且无迹的。因此我们可以定义：$U * (\vec{a} \cdot \vec{\sigma}) = \vec{a}' \cdot \vec{\sigma}$,其中，$\vec{a}'$ 与 $\vec{a}$ 具有相同的范数，于是我们可以把 $U$ 解释为三维空间中的一次旋转。事实上，矩阵 $U$ 的特殊限制还意味着该旋转是保持方向的。这就允许我们定义一个映射：$R: \mathrm{SU}(2) \;\longrightarrow\; \mathrm{SO}(3)$其具体形式为：
+$$
+U * (\vec{a} \cdot \vec{\sigma}) = \vec{a}' \cdot \vec{\sigma} := (R(U)\,\vec{a}) \cdot \vec{\sigma},~
+$$
+其中 $R(U) \in \mathrm{SO}(3)$。这个映射就是 $\mathrm{SU}(2)$ 对 $\mathrm{SO}(3)$ 的双覆盖的具体实现，因此说明了：$\mathrm{SU}(2) \;\cong\; \mathrm{Spin}(3)$.此外，$R(U)$ 的各个分量可以通过如下迹运算恢复出来：
+$$
+R(U)_{ij} = \frac{1}{2} \operatorname{tr}(\sigma_i U \sigma_j U^{-1})~
+$$
+\subsubsection{叉积}
+叉积可以由矩阵对易子（差一个 $2i$ 的因子）表示：
+$$
+[\vec{a} \cdot \vec{\sigma},\; \vec{b} \cdot \vec{\sigma}] = 2i\,(\vec{a} \times \vec{b}) \cdot \vec{\sigma}.~
+$$
+实际上，范数的存在源于 $\mathbb{R}^3$ 本身是一个李代数（参见 Killing 型）。
+
+这种叉积还可以用于证明上述映射保持空间方向的性质。
+\subsubsection{特征值与特征向量}
+矩阵$\vec{a} \cdot \vec{\sigma}$的特征值为$\pm |\vec{a}|$.这可以直接从矩阵的无迹性以及显式计算行列式得出。
+
+从更抽象的角度来看，即便不计算行列式（而计算行列式需要用到泡利矩阵的具体性质），也能通过如下关系推导出该结果：$(\vec{a} \cdot \vec{\sigma})^2 - |\vec{a}|^2 = 0$,因为该式可以因式分解为：$(\vec{a} \cdot \vec{\sigma} - |\vec{a}|)(\vec{a} \cdot \vec{\sigma} + |\vec{a}|) = 0$.线性代数中的一个标准结论是：如果一个线性映射满足由若干不相同一次因式组成的多项式方程，那么该映射是可对角化的。因此，这意味着$\vec{a} \cdot \vec{\sigma}$是可对角化的，其特征值为$\pm |\vec{a}|$.此外，由于$\vec{a} \cdot \vec{\sigma}$是无迹矩阵，它必然有且只有一个正特征值 $+|\vec{a}|$ 和一个负特征值 $-|\vec{a}|$。
+
+它的归一化特征向量是：
+$$
+\psi_{+} = 
+\frac{1}{\sqrt{2\left|{\vec{a}}\right|\left(a_3+\left|{\vec{a}}\right|\right)}} 
+\begin{bmatrix}
+a_3 + \left|{\vec{a}}\right| \\
+a_1 + i a_2
+\end{bmatrix},
+\qquad
+\psi_{-} =
+\frac{1}{\sqrt{2\left|{\vec{a}}\right|\left(a_3+\left|{\vec{a}}\right|\right)}} 
+\begin{bmatrix}
+i a_2 - a_1 \\
+a_3 + \left|{\vec{a}}\right|
+\end{bmatrix}.~
+$$
+这些表达式在 $a_3 \to -|{\vec{a}}|$ 时会出现奇异性。可以通过令${\vec{a}} = |{\vec{a}}|(\epsilon, 0, -(1-\epsilon^2/2))$并取极限 $\epsilon \to 0$ 来修正，这样可以得到 $\sigma_z$ 的正确特征向量 $(0,1)$ 和 $(1,0)$。
+
+另一种方法是使用球坐标：${\vec{a}} = a(\sin\vartheta\cos\varphi, \sin\vartheta\sin\varphi, \cos\vartheta)$，这样可以得到特征向量：
+$$
+\psi_+ = \big(\cos(\vartheta/2), \ \sin(\vartheta/2)\exp(i\varphi)\big),~
+$$
+以及
+$$
+\psi_- = \big(-\sin(\vartheta/2)\exp(-i\varphi), \ \cos(\vartheta/2)\big)~
+$$
+\subsubsection{泡利四矢量}
+在旋量理论中使用的泡利四矢量写作$\sigma^\mu$其分量为
+$$
+\sigma^\mu = (I, {\vec{\sigma}}).~
+$$
+这定义了一个从 $\mathbb{R}^{1,3}$ 到厄米矩阵向量空间的映射：
+$$
+x_\mu \;\mapsto\; x_\mu \sigma^\mu ,~
+$$
+该映射的行列式也编码了闵可夫斯基度规（采用“多数负号”的约定）：
+$$
+\det(x_\mu \sigma^\mu) = \eta(x, x) .~
+$$
+该四矢量还满足一个完备性关系。为此，方便起见，引入第二个泡利四矢量：
+$$
+\bar{\sigma}^\mu = (I, -{\vec{\sigma}}) .~
+$$
+并允许使用闵可夫斯基度规张量进行指标升降。这样，关系可以写为：
+$$
+x_\nu = \frac{1}{2} \operatorname{tr} \left( \bar{\sigma}_\nu \, (x_\mu \sigma^\mu) \right).~
+$$
+与泡利三矢量的情形类似，我们也可以找到一个在$\mathbb{R}^{1,3}$上作为等距变换**作用的矩阵群。在这种情况下，该矩阵群是：$\mathrm{SL}(2, \mathbb{C})$，因此我们有：$\mathrm{SL}(2, \mathbb{C}) \;\cong\; \mathrm{Spin}(1,3)$.与前面的推导类似，对于$S \in \mathrm{SL}(2, \mathbb{C})$可以显式写出对应洛伦兹变换矩阵的分量为：
+$$
+\Lambda(S)^{\mu}{}_{\nu} = 
+\frac{1}{2} 
+\operatorname{tr}\!\left( \bar{\sigma}_\nu \, S \, \sigma^\mu \, S^\dagger \right).~
+$$
+实际上，行列式的这个性质可以从$\sigma^\mu$的迹运算特性抽象地推出。对于 $2\times 2$矩阵，成立如下恒等式：
+$$
+\det(A+B) = \det(A) + \det(B) + \operatorname{tr}(A)\operatorname{tr}(B) - \operatorname{tr}(AB).~
+$$
+也就是说，“交叉项”可以通过迹来表示。当$A, B$分别取不同的$\sigma^\mu$时，这些交叉项会消失。于是可以得到（显式写出求和）：$\det\!\left( \sum_{\mu} x_\mu \sigma^\mu \right)= \sum_{\mu} \det\!\left( x_\mu \sigma^\mu \right).$由于这些矩阵都是$2\times 2$阶矩阵，所以该式进一步化简为：$\sum_{\mu} x_\mu^2 \det(\sigma^\mu)=\eta(x, x)$,即行列式自然反映了闵可夫斯基度规 $\eta(x,x)$ 的结构。
+\subsubsection{与点积和叉积的关系}
+泡利矢量优雅地将对易关系和反对易关系映射为相应的向量运算。将对易子与反对易子相加，可得：
+$$
+[\sigma_j, \sigma_k] + \{\sigma_j, \sigma_k\}
+= (\sigma_j \sigma_k - \sigma_k \sigma_j) + (\sigma_j \sigma_k + \sigma_k \sigma_j)~
+$$
+$$
+2 i \, \varepsilon_{jk\ell} \, \sigma_\ell + 2 \delta_{jk} I = 2 \sigma_j \sigma_k~
+$$
+因此：
+$$
+\sigma_j \sigma_k = \delta_{jk} I + i \varepsilon_{jk\ell} \, \sigma_\ell \;.~
+$$
+将方程两边分别与两个三维向量的分量 $a_p$ 和 $b_q$ 相缩并（它们与泡利矩阵可交换，即 $a_p \sigma_q = \sigma_q a_p$，同理 $b_q$ 也一样），对于每个矩阵 $\sigma_q$ 与向量分量 $a_p$，可得：
+$$
+a_j b_k \sigma_j \sigma_k 
+= a_j b_k \left( i \varepsilon_{jk\ell} \sigma_\ell + \delta_{jk} I \right)~
+$$
+$$
+a_j \sigma_j b_k \sigma_k
+= i \varepsilon_{jk\ell} a_j b_k \sigma_\ell + a_j b_k \delta_{jk} I~
+$$
+最后，将点积与叉积的指标记号转化为向量形式，可以得到：
+$$
+(\vec{a} \cdot \vec{\sigma})(\vec{b} \cdot \vec{\sigma})
+= (\vec{a} \cdot \vec{b}) I
++ i (\vec{a} \times \vec{b}) \cdot \vec{\sigma}~
+$$
+如果将 $i$ 识别为伪标量 $\sigma_x \sigma_y \sigma_z$，那么右边可以写成：$
+a \cdot b + a \wedge b$这也正是几何代数中两个向量乘积的定义。
+如果我们将自旋算符定义为$\mathbf{J} = \frac{\hbar}{2} \vec{\sigma}$,那么 $\mathbf{J}$ 满足如下对易关系：
+$$
+\mathbf{J} \times \mathbf{J} = i\hbar \mathbf{J}.~
+$$
+等价地，泡利向量满足：
+$$
+\frac{\vec{\sigma}}{2} \times \frac{\vec{\sigma}}{2} = i \frac{\vec{\sigma}}{2}.~
+$$
+\subsubsection{一些迹关系}
+利用对易关系和反对易关系，可以推导出以下迹公式：
+$$
+\begin{aligned}
+\mathrm{tr}(\sigma_j) &= 0,\\
+\mathrm{tr}(\sigma_j \sigma_k) &= 2\delta_{jk},\\
+\mathrm{tr}(\sigma_j \sigma_k \sigma_\ell) &= 2i\varepsilon_{jk\ell},\\
+\mathrm{tr}(\sigma_j \sigma_k \sigma_\ell \sigma_m) &= 2(\delta_{jk}\delta_{\ell m} - \delta_{j\ell}\delta_{km} + \delta_{jm}\delta_{k\ell}).
+\end{aligned}~
+$$
+如果将矩阵 $\sigma_0 = I$（单位矩阵）也包括进来，这些关系可以扩展为：
+$$
+\begin{aligned}
+\mathrm{tr}(\sigma_\alpha) &= 2\delta_{0\alpha},\\
+\mathrm{tr}(\sigma_\alpha \sigma_\beta) &= 2\delta_{\alpha\beta},\\
+\mathrm{tr}(\sigma_\alpha \sigma_\beta \sigma_\gamma) &= 2\sum_{(\alpha\beta\gamma)} \delta_{\alpha\beta} \delta_{0\gamma} 
+- 4\delta_{0\alpha}\delta_{0\beta}\delta_{0\gamma} 
++ 2i\varepsilon_{0\alpha\beta\gamma},\\
+\mathrm{tr}(\sigma_\alpha \sigma_\beta \sigma_\gamma \sigma_\mu) &= 2(\delta_{\alpha\beta}\delta_{\gamma\mu} 
+- \delta_{\alpha\gamma}\delta_{\beta\mu} 
++ \delta_{\alpha\mu}\delta_{\beta\gamma})\\
+&\quad + 4(\delta_{\alpha\gamma}\delta_{0\beta}\delta_{0\mu} 
++ \delta_{\beta\mu}\delta_{0\alpha}\delta_{0\gamma}) 
+- 8\delta_{0\alpha}\delta_{0\beta}\delta_{0\gamma}\delta_{0\mu} 
++ 2i\sum_{(\alpha\beta\gamma\mu)} \varepsilon_{0\alpha\beta\gamma} \delta_{0\mu}.
+\end{aligned}~
+$$
+其中，希腊字母索引 $\alpha, \beta, \gamma, \mu$ 取值于 $\{0, x, y, z\}$，而符号$\sum_{(\alpha \ldots)}$ 表示对所列指标的循环排列求和。
+\subsubsection{Pauli 向量的指数形式}
+设
+$$
+\vec{a} = a \hat{n}, \quad |\hat{n}| = 1,~
+$$
+其中 $\hat{n}$ 是单位向量，则对于偶数次幂 $2p$（$p = 0, 1, 2, 3, \ldots$），有：
+$$
+(\hat{n} \cdot \vec{\sigma})^{2p} = I,~
+$$
+这可以先通过 $p = 1$ 的情况结合反对易关系来验证。按照约定，$p = 0$ 的情况定义为单位矩阵 $I$。
+
+对于奇数次幂 $2q+1$（$q = 0, 1, 2, 3, \ldots$），有：
+$$
+(\hat{n} \cdot \vec{\sigma})^{2q+1} = \hat{n} \cdot \vec{\sigma}.~
+$$
