@@ -1,0 +1,318 @@
+% 纳维-斯托克斯方程（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Navier\%E2\%80\%93Stokes_equations}{相关文章}。
+
+纳维–斯托克斯方程（/nævˈjeɪ stoʊks/，音译为“纳维-耶 斯托克斯”）是一组描述黏性流体运动的偏微分方程。这些方程以法国工程师兼物理学家克洛德–路易·纳维和爱尔兰物理学家、数学家乔治·加布里埃尔·斯托克斯的名字命名。它们的理论是在数十年的发展过程中逐步建立起来的，从1822年（纳维的工作）到1842–1850年（斯托克斯的研究）。
+
+纳维–斯托克斯方程在数学上表达了牛顿流体的动量平衡，并结合了质量守恒原理。有时，这些方程会配合状态方程一起使用，用来联系压力、温度和密度$1$。它们的推导源于将牛顿第二定律应用于流体运动，并假设流体中的应力可以分解为扩散型的黏性项（与速度梯度成正比）和压力项，从而描述黏性流动。与密切相关的欧拉方程相比，纳维–斯托克斯方程考虑了黏性，而欧拉方程仅适用于无黏性流动。正因为如此，纳维–斯托克斯方程属于椭圆型方程，因此具备更好的解析性质，但代价是数学结构较少（例如，它们从不完全可积）。
+
+纳维–斯托克斯方程非常有用，因为它们描述了许多科学和工程领域中感兴趣现象的物理规律。它们可以用来模拟天气、洋流、管道中的水流以及机翼周围的空气流动。在完整形式或简化形式下，纳维–斯托克斯方程都能帮助进行飞机和汽车的设计、研究血液流动、设计发电站、分析污染问题，以及解决许多其他复杂问题。如果将其与麦克斯韦方程组耦合，还可以用于模拟和研究磁流体力学现象。
+
+从纯数学角度来看，纳维–斯托克斯方程同样具有极高的研究价值。尽管它们有着广泛的实际应用，但至今尚未被证明三维情况下的光滑解是否总是存在——也就是说，解在定义域的所有点上是否无限可微（甚至只是有界）仍是一个未解的问题。这被称为“纳维–斯托克斯方程的存在性与光滑性问题”。克雷数学研究所将其列为数学界七大未解难题之一，并悬赏100万美元奖励对该问题的证明或反例\(^\text{[2][3]}\)。
+\subsection{流速}
+纳维–斯托克斯方程的解是流速。它是一个矢量场——在某段时间区间的任意时刻，方程为流体中每一个空间点给出一个矢量，这个矢量的方向和大小对应于该点在该时刻的流体速度。研究对象通常是三维空间加一维时间，而在纯数学和应用数学中，也会研究更高维的类似情况。
+
+一旦计算出了速度场，就可以通过动力学方程或相关关系推导出其他感兴趣的物理量，例如压力或温度。这与经典力学的常见情况不同，经典力学的解通常是单个粒子的轨迹或连续介质的偏移轨迹。而对于流体而言，研究速度场比研究位置更有意义。不过，为了可视化分析，人们仍然可以计算不同的轨迹。
+
+特别是，当速度场被看作一个矢量场时，它的流线可以理解为“无质量流体粒子”会沿着运动的路径。这些路径就是积分曲线，它们在每一点的切向导数等于该点的速度矢量，可以直观地展示矢量场在某一时刻的整体流动行为。
+\subsection{广义连续介质方程}
+纳维–斯托克斯动量方程可以看作是柯西动量方程的一种特例，其广义对流形式为：
+$$
+\frac{\mathrm{D} \mathbf{u}}{\mathrm{D} t} = \frac{1}{\rho} \nabla \cdot \boldsymbol{\sigma} + \mathbf{f}.~
+$$
+其中：$\mathbf{u}$ 表示流体速度矢量；$\rho$ 是流体密度；$\boldsymbol{\sigma}$ 是柯西应力张量；$\mathbf{f}$ 是单位质量上的外力，例如重力或电磁力。
+
+如果将柯西应力张量 $\boldsymbol{\sigma}$ 设为黏性应力项$\boldsymbol{\tau}$（偏应力，deviatoric stress）和压力项$-p\mathbf{I}$（体积应力，volumetric stress）的和，即：
+$$
+\boldsymbol{\sigma} = \boldsymbol{\tau} - p\mathbf{I},~
+$$
+则可以得到柯西动量方程的对流形式：
+$$
+\rho \frac{\mathrm{D} \mathbf{u}}{\mathrm{D} t} = -\nabla p + \nabla \cdot \boldsymbol{\tau} + \rho \,\mathbf{a}.~
+$$
+其中：
+\begin{itemize}
+\item $\displaystyle \frac{\mathrm{D}}{\mathrm{D}t}$ 是物质导数，定义为
+$\frac{\partial}{\partial t} + \mathbf{u} \cdot \nabla$,表示随流体质点移动的时间变化率；
+\item $\rho$ 表示质量密度；
+\item $\mathbf{u}$ 表示流速矢量；
+\item $\nabla \cdot$ 表示散度；
+\item $p$ 表示压力；
+\item $t$ 表示时间；
+\item $\boldsymbol{\tau}$ 表示偏应力张量，是二阶张量；
+\item $\mathbf{a}$ 表示作用于连续介质的体加速度，例如重力、惯性加速度、静电加速度等。
+\end{itemize}
+由此形式可以明显看出，如果假设流体是无黏性流体，即没有偏应力项 $\boldsymbol{\tau}$，那么柯西动量方程就会简化为欧拉方程。
+
+假设质量守恒，并结合散度与梯度的已知性质，可以使用质量连续性方程来表示均质流体在空间与时间上的单位体积质量（即密度 $\rho$）随物质导数 $\displaystyle \frac{\mathbf{D}}{\mathbf{Dt}}$ 的变化，用以刻画流体介质中速度变化的关系：
+$$
+\frac{\mathbf{D} m}{\mathbf{D} t}
+= \iiint\limits_{V} 
+\left(
+\frac{\mathbf{D} \rho}{\mathbf{D} t}
++ \rho \, (\nabla \cdot \mathbf{u})
+\right)
+\, dV~
+$$
+进一步可得：
+$$
+\frac{\mathbf{D} \rho}{\mathbf{D} t}
++ \rho (\nabla \cdot \mathbf{u})
+= \frac{\partial \rho}{\partial t}
++ (\nabla \rho) \cdot \mathbf{u}
++ \rho (\nabla \cdot \mathbf{u})
+= \frac{\partial \rho}{\partial t}
++ \nabla \cdot (\rho \mathbf{u})
+= 0~
+$$
+其中：
+\begin{itemize}
+\item $\displaystyle \frac{\mathbf{D} m}{\mathbf{D} t}$：表示**单位体积质量（密度 $\rho$）的物质导数；
+\item $\displaystyle \iiint\limits_{V} (F(x_{1},x_{2},x_{3},t))\,dV$：表示在体积 $V$ 内的积分运算；
+\item $\displaystyle \frac{\partial}{\partial t}$：偏导数算子，用于描述随时间的变化率；
+\item $\displaystyle \nabla \cdot \mathbf{u}$：流速 $\mathbf{u}$ 的散度，它是一个标量场\(^\text{[Note 1]}\)；
+\item $\displaystyle \nabla \rho$：密度 $\rho$ 的梯度，即标量场的矢量导数\(^\text{[Note 1]}\)。
+\end{itemize}
+注1：算符 $\nabla$（nabla 符号）表示数学运算符del，用于表示梯度、散度和旋度等向量分析操作。
+
+这一过程最终得到守恒形式的柯西动量方程，常写作\(^\text{[4]}\)：
+$$
+\frac{\partial}{\partial t}(\rho \mathbf{u})
++ \nabla \cdot (\rho \mathbf{u} \otimes \mathbf{u})
+= -\nabla p
++ \nabla \cdot \boldsymbol{\tau}
++ \rho \mathbf{a}~
+$$
+其中，符号 $\otimes$ 表示流速 $\mathbf{u}$ 的外积：
+
+$$
+\mathbf{u} \otimes \mathbf{u} = \mathbf{u} \mathbf{u}^\mathrm{T}.~
+$$
+
+\textbf{公式解析：}
+
+方程左边描述了加速度，由时间依赖项和对流项组成（如果是在非惯性参考系下，还包括非惯性效应）；方程右边可以看作三部分的合力：静水压力项（$-\nabla p$）；偏应力（黏性应力）的散度项（$\nabla \cdot \boldsymbol{\tau}$）；体力项（$\rho \mathbf{a}$，如重力等）。
+
+所有非相对论性的平衡方程（包括纳维–斯托克斯方程）都可以通过柯西动量方程出发，结合本构关系来得到。当将偏应力张量用黏度和流速梯度来表示，并假设黏度为常数时，上述柯西方程就会导出后续的纳维–斯托克斯方程。
+\subsection{对流加速度}
+柯西方程以及由其推导出的所有连续介质方程（包括欧拉方程和纳维–斯托克斯方程）的一个显著特征是对流加速度：即流动相对于空间位置产生的加速度效应。虽然单个流体微粒确实会经历随时间变化的加速度，但流场的对流加速度是一种空间效应，例如流体在喷嘴中被加速就是一个典型的例子。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/ca77c0329cb301f5.png}
+\caption{一个对流的例子：即使流动是稳态的（与时间无关），当流体沿着扩张的管道向下流动时（假设是不可压缩流或亚音速可压缩流），流体速度会逐渐减小，因此在空间位置上仍然存在加速度效应。} \label{fig_NWstks_1}
+\end{figure}
+\subsection{可压缩流}
+说明：这里的偏应力张量依然记作 $\boldsymbol{\tau}$，与广义连续介质方程以及不可压缩流部分的表示一致。
+
+可压缩流动的动量纳维–斯托克斯方程是基于以下关于柯西应力张量的假设推导出来的\(^\text{[5]}\)：
+\begin{itemize}
+\item 应力满足伽利略不变性：
+   应力不直接依赖于流速 $\mathbf{u}$，而是只依赖于流速的空间导数。
+   因此，应力变量是流速的梯度张量 $\nabla \mathbf{u}$，或更简单地，采用应变率张量：
+   $$
+   \boldsymbol{\varepsilon}(\nabla \mathbf{u})
+   \equiv 
+   \frac{1}{2}\nabla \mathbf{u}
+   + \frac{1}{2}(\nabla \mathbf{u})^{T}.~
+   $$
+\item 偏应力与应变率张量成线性关系：$\boldsymbol{\sigma}(\boldsymbol{\varepsilon})= -p\mathbf{I}+ \mathbf{C} : \boldsymbol{\varepsilon}$其中：$p$ 表示压力，且与应变率张量无关；$\mathbf{C}$ 是四阶张量，称为黏性（或弹性）张量，表示比例常数；符号 $:$ 表示双点积。
+\item 流体是各向同性的（如气体或简单液体）：
+   在这种情况下，$\mathbf{C}$ 是一个各向同性张量。
+   进一步，由于偏应力张量是对称的，根据Helmholtz分解，它可以用两个标量 Lamé 参数 表示：第二黏性系数 $\lambda$；动黏度 $\mu$。\\
+   \textbf{最终得到线性本构关系}（形式类似于线性弹性固体的应力公式）：
+   $$
+   \boldsymbol{\sigma}(\boldsymbol{\varepsilon})
+   = -p\mathbf{I}
+   + \lambda \,\operatorname{tr}(\boldsymbol{\varepsilon})\mathbf{I}
+   + 2\mu \,\boldsymbol{\varepsilon},~
+   $$
+   其中： $\operatorname{tr}(\boldsymbol{\varepsilon})$ 是应变率张量的迹。
+\end{itemize}
+其中：$\mathbf{I}$ 表示恒等张量；$\operatorname{tr}(\boldsymbol{\varepsilon})$ 表示应变率张量的迹。
+
+因此，应力张量可以显式写为：
+$$
+\boldsymbol{\sigma} = -p\mathbf{I}
++ \lambda (\nabla \cdot \mathbf{u}) \mathbf{I}
++ \mu \left(\nabla \mathbf{u} + (\nabla \mathbf{u})^{\mathrm{T}}\right).~
+$$
+由于在三维空间中，应变率张量的迹就是**流动的散度**（即流体的膨胀速率）：
+$$
+\operatorname{tr}(\boldsymbol{\varepsilon}) = \nabla \cdot \mathbf{u}.~
+$$
+并且在三维空间中，恒等张量的迹为：
+$$
+\operatorname{tr}(\mathbf{I}) = 3.~
+$$
+因此，在三维空间中，应力张量的迹为：
+$$
+\operatorname{tr}(\boldsymbol{\sigma})
+= -3p + (3\lambda + 2\mu)\nabla \cdot \mathbf{u}.~
+$$
+所以，通过将应力张量分解为各向同性部分和偏应力部分（这是流体力学中的常规做法\(^\text{[6]}\)），可以写为：
+$$
+\boldsymbol{\sigma} =
+-\left[
+p - \left(\lambda + \tfrac{2}{3}\mu\right)(\nabla \cdot \mathbf{u})
+\right]\mathbf{I}
++ \mu \left(
+\nabla \mathbf{u} + (\nabla \mathbf{u})^{\mathrm{T}}
+- \tfrac{2}{3}(\nabla \cdot \mathbf{u})\mathbf{I}
+\right).~
+$$
+引入体黏度 $\zeta$：
+$$
+\zeta \equiv \lambda + \tfrac{2}{3}\mu.~
+$$
+我们最终得到热流体力学中常用的线性本构方程\(^\text{[5]}\)：
+
+\textbf{流体的线性应力本构方程}
+$$
+\boldsymbol{\sigma} = -\big[p - \zeta (\nabla \cdot \mathbf{u})\big]\mathbf{I}
++ \mu \big[\nabla \mathbf{u} + (\nabla \mathbf{u})^{\mathrm{T}}
+- \tfrac{2}{3}(\nabla \cdot \mathbf{u})\mathbf{I} \big]~
+$$
+该方程也可以写成另一种常见形式\(^\text{[7]}\)：
+$$
+\boldsymbol{\sigma} = -p\mathbf{I}
++ \mu \big(\nabla \mathbf{u} + (\nabla \mathbf{u})^{\mathrm{T}}\big)
++ \big(\zeta - \tfrac{2}{3}\mu\big)(\nabla \cdot \mathbf{u})\mathbf{I}.~
+$$
+需要注意的是，在可压缩流的情况下，压力 $p$ 不再单纯与各向同性应力项成比例，因为多了一个体黏度项：$p = -\tfrac{1}{3} \operatorname{tr}(\boldsymbol{\sigma})+ \zeta (\nabla \cdot \mathbf{u})$.
+
+同时，偏应力张量$\boldsymbol{\sigma}'$ 仍与剪切应力张量 $\boldsymbol{\tau}$ 相同（也就是说，牛顿流体的偏应力部分不包含法向应力分量），但相较于不可压缩情形，它多了一个与压缩性相关的项，依然与剪切黏度 $\mu$ 成正比：
+$$
+\boldsymbol{\sigma}' = \boldsymbol{\tau}
+= \mu \big[\nabla \mathbf{u} + (\nabla \mathbf{u})^{\mathrm{T}}
+- \tfrac{2}{3}(\nabla \cdot \mathbf{u})\mathbf{I} \big].~
+$$
+需要强调的是，体黏度$\zeta$和动力黏度$\mu$不一定是常数。对于单一化学组分的流体，这两个传输系数通常取决于两个热力学变量，例如压力和温度。任何显式地将这些传输系数与守恒变量联系起来的方程，都被称为状态方程\(^\text{[8]}\)。
+
+最一般形式的纳维–斯托克斯方程为：
+
+\textbf{纳维–斯托克斯动量方程（对流形式）}
+$$
+\rho \frac{\mathrm{D} \mathbf{u}}{\mathrm{D} t}
+= \rho \left(\frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla) \mathbf{u} \right)
+= -\nabla p
++ \nabla \cdot \left\{
+\mu \left[
+\nabla \mathbf{u} + (\nabla \mathbf{u})^{\mathrm{T}}
+- \tfrac{2}{3} (\nabla \cdot \mathbf{u}) \mathbf{I}
+\right]
+\right\}
++ \nabla \left[\zeta (\nabla \cdot \mathbf{u})\right]
++ \rho \mathbf{a}.~
+$$
+用指标记号可以写为\(^\text{[9]}\)：
+
+\textbf{纳维–斯托克斯动量方程（指标形式）}
+$$
+\rho \left(
+\frac{\partial u_{i}}{\partial t}
++ u_{k} \frac{\partial u_{i}}{\partial x_{k}}
+\right)
+= -\frac{\partial p}{\partial x_{i}}
++ \frac{\partial}{\partial x_{k}}
+\left[
+\mu \left(
+\frac{\partial u_{i}}{\partial x_{k}}
++ \frac{\partial u_{k}}{\partial x_{i}}
+- \tfrac{2}{3}\delta_{ik}
+\frac{\partial u_{l}}{\partial x_{l}}
+\right)
+\right]
++ \frac{\partial}{\partial x_{i}}
+\left(
+\zeta
+\frac{\partial u_{\ell}}{\partial x_{\ell}}
+\right)
++ \rho a_{i}.~
+$$
+对应的守恒形式可通过质量连续性方程得到，因为在该条件下，动量方程左侧满足：
+$$
+\rho \frac{\mathrm{D} \mathbf{u}}{\mathrm{D} t}
+= \frac{\partial}{\partial t}(\rho \mathbf{u})
++ \nabla \cdot (\rho \mathbf{u} \otimes \mathbf{u}).~
+$$
+最终得到：
+
+\textbf{纳维–斯托克斯动量方程（守恒形式}）
+$$
+\frac{\partial}{\partial t}(\rho \mathbf{u})
++ \nabla \cdot
+\left(
+\rho \mathbf{u} \otimes \mathbf{u}
++ \big[p - \zeta (\nabla \cdot \mathbf{u})\big]\mathbf{I}
+- \mu
+\left[
+\nabla \mathbf{u}
++ (\nabla \mathbf{u})^{\mathrm{T}}
+- \tfrac{2}{3} (\nabla \cdot \mathbf{u}) \mathbf{I}
+\right]
+\right)
+= \rho \mathbf{a}.~
+$$
+关于第二黏度系数 $\zeta$ 的说明：第二黏度系数不仅依赖于压力和温度，还依赖于过程本身，因此它并不完全是一个纯粹的材料常数。示例：当声波以某一固定频率周期性压缩和膨胀流体单元时，第二黏度系数会依赖于声波的频率，这种依赖性称为色散。在某些情况下，$\zeta$ 可以近似认为是常数。在这种假设下，体黏度 $\zeta$ 的作用表现为：机械压力不再等同于热力学压力\(^\text{[10]}\)，具体如下所示：
+$$
+\nabla \cdot (\nabla \cdot \mathbf{u})\mathbf{I}
+= \nabla (\nabla \cdot \mathbf{u}),~
+$$
+$$
+\bar{p} \equiv p - \zeta \,\nabla \cdot \mathbf{u}.~
+$$
+这里，$\bar{p}$ 表示修正后的机械压力。
+
+然而，这种差异在大多数情况下通常会被忽略（也就是说，只要我们不涉及声吸收、激波衰减等需要考虑第二黏度系数 $\zeta$ 的过程\(^\text{[11]}\)），做法是直接假设 $\zeta = 0$。这种假设被称为斯托克斯假设\(^\text{[12]}\)。斯托克斯假设的有效性可以通过动理论以及单原子气体的实验得到验证\(^\text{[13]}\)；而对于其他气体和液体，斯托克斯假设通常并不完全正确。在斯托克斯假设下，纳维–斯托克斯方程变为：
+
+\textbf{纳维–斯托克斯动量方程（对流形式，斯托克斯假设）}
+$$
+\rho \frac{\mathrm{D} \mathbf{u}}{\mathrm{D} t}
+= \rho \left(
+\frac{\partial \mathbf{u}}{\partial t}
++ (\mathbf{u} \cdot \nabla)\mathbf{u}
+\right)
+= -\nabla p
++ \nabla \cdot \left\{
+\mu \left[
+\nabla \mathbf{u}
++ (\nabla \mathbf{u})^{\mathrm{T}}
+- \tfrac{2}{3}(\nabla \cdot \mathbf{u}) \mathbf{I}
+\right]
+\right\}
++ \rho \mathbf{a}.~
+$$
+若假设动力黏度 $\mu$和体黏度 $\zeta$在空间中均为常数，对流形式的方程可以进一步简化。通过计算应力张量的散度：$\nabla \cdot (\nabla \mathbf{u}) = \nabla^2 \mathbf{u}$,$\nabla \cdot [(\nabla \mathbf{u})^{\mathrm{T}}] = \nabla (\nabla \cdot \mathbf{u})$最终得到可压缩纳维–斯托克斯动量方程\(^\text{[14]}\)：
+
+\textbf{纳维–斯托克斯动量方程（均匀剪切和体黏度，对流形式）}
+$$
+\frac{\mathrm{D}\mathbf{u}}{\mathrm{D}t}
+= -\frac{1}{\rho}\nabla p
++ \nu \nabla^2 \mathbf{u}
++ \left(\tfrac{1}{3}\nu + \xi \right)\nabla (\nabla \cdot \mathbf{u})
++ \mathbf{a}.~
+$$
+其中：$\displaystyle \frac{\mathrm{D}}{\mathrm{D}t}$ 是物质导数；$\nu = \frac{\mu}{\rho}$ 是剪切运动黏度；$\xi = \frac{\zeta}{\rho}$ 是体运动黏度。
+
+\textbf{在守恒形式下，将流速的微分算子带到方程左侧，可写成：}
+$$
+\left(
+\frac{\partial}{\partial t}
++ \mathbf{u} \cdot \nabla
+- \nu \nabla^2
+- \left(\tfrac{1}{3}\nu + \xi\right)\nabla(\nabla \cdot)
+\right)\mathbf{u}
+= -\frac{1}{\rho}\nabla p
++ \mathbf{a}.~
+$$
+对流加速度项还可以重写为：
+$$
+\mathbf{u} \cdot \nabla \mathbf{u}
+= (\nabla \times \mathbf{u}) \times \mathbf{u}
++ \tfrac{1}{2}\nabla \mathbf{u}^2,~
+$$
+其中 $(\nabla \times \mathbf{u}) \times \mathbf{u}$ 被称为Lamb 向量。
+
+在不可压缩流的特例下，压力会对流动施加约束，使得流体元的体积保持不变，即等容流，其速度场满足$\nabla \cdot \mathbf{u} = 0$从而形成无散速度场\(^\text{[15]}\)。
