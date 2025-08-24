@@ -158,3 +158,34 @@ $$
 其中 $M > 0$。
 
 我们可以进一步选择 $\delta$，使得上述不等式右边小于 $\varepsilon$。
+
+在本证明开头的推论表明，函数 $A$ 和 $B$ 在每个边界区域上的振幅都不超过 $\varepsilon$。因此有：
+$$
+\left| 
+\sum_{i=k+1}^{s} \int_{\Gamma_i} A\,dx + B\,dy
+\right|
+\leq 
+\frac{1}{2}\,\varepsilon
+\sum_{i=k+1}^{s} \Lambda_i .~
+$$
+根据引理 1(iii) 可得：
+$$
+\sum_{i=k+1}^{s} \Lambda_i
+\leq 
+\Lambda + (4\delta)\,4\!\left(\frac{\Lambda}{\delta} + 1\right)
+\leq 
+17\Lambda + 16.~
+$$
+结合以上不等式，最终得到：
+$$
+\left| 
+\int_{\Gamma} A\,dx + B\,dy
+-
+\int_{R} \varphi
+\right|
+< 
+C\,\varepsilon ,~
+$$
+其中 $C > 0$。
+
+由于这一结果对任意 $\varepsilon > 0$ 都成立，证明完毕。
