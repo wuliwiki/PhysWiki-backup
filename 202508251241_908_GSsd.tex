@@ -1,0 +1,130 @@
+% 高斯散度定理（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Divergence_theorem}{相关文章}。
+
+在向量分析中，散度定理，又称高斯定理或奥斯特罗格拉德斯基定理\(^\text{[1]}\)，是一条将向量场通过闭合曲面的通量与该曲面所包围体积内场的散度联系起来的定理。
+
+更准确地说，散度定理表明：一个向量场在闭合曲面上的曲面积分（即该曲面的“通量”）等于该曲面所包围区域内散度的体积分。直观地理解，这意味着“一个区域内所有场源的总和（将汇点视为负源）等于该区域向外的净通量”。
+
+散度定理在物理和工程数学中有着重要地位，尤其是在静电学和流体力学领域。在这些领域中，它通常应用于三维情形。然而，该定理可以推广到任意维度。在一维情形下，它等价于微积分基本定理；在二维情形下，它等价于格林定理。
+\subsection{用液体流动来解释}
+向量场常通过流体速度场（例如气体或液体）来进行说明。运动中的液体在每一点都有一个速度——即速度大小和方向，这个速度可以用一个向量表示，因此液体在某一时刻的速度分布可以看作一个向量场。假设在流体内部放置一个想象的闭合曲面 $S$，它包围了一个体积。该体积内液体的流出通量等于穿过该曲面的体积流率，即速度在该曲面上的曲面积分。
+
+如果流体是不可压缩的，那么闭合体积内的液体总量保持不变；如果体积内没有源或汇，穿过 $S$ 的净通量就是零。即使液体在运动，它可能在曲面 $S$ 的某些位置流入体积，在另一些位置流出体积，但流入和流出的总量始终相等，因此净通量为零。
+
+然而，如果在闭合曲面内存在一个液体源，例如一根向内部注入液体的管道，那么新增的液体会对周围液体施加压力，促使液体向各个方向流出。这会导致通过曲面 $S$ 的净外流，且该外流通量等于通过管道注入的体积流率。同样，如果在曲面 $S$ 内有一个汇或排水口，例如一根排出液体的管道，那么液体在外界压力的作用下会整体向汇点方向流动。穿过曲面 $S$ 的净内流通量等于通过该排水口排出的液体体积流率。
+
+如果曲面 $S$ 内有多个液体的源和汇，通过该曲面的通量可以通过将所有源注入的体积流率相加，再减去所有汇排出的体积流率来计算。液体通过某个源或汇的体积流率（汇的流率取负号）等于该点速度场的散度。因此，将整个体积内的散度积分（即体积分）起来，结果就等于通过曲面 $S$ 的净通量。这就是散度定理\(^\text{[2]}\)。
+
+散度定理应用于任何形式的守恒定律中，这类定律表明：所有源与汇的总体积（即散度的体积分）等于该体积边界上的净流量\(^\text{[3]}\)。
+\subsection{数学表述}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/62c835fec923f18e.png}
+\caption{由曲面 $S = \partial V$ 所包围的区域 $V$，其表面法向量为 $\mathbf{n}$。} \label{fig_GSsd_1}
+\end{figure}
+假设 $V$ 是 $\mathbb{R}^n$ 的一个子集（当 $n = 3$ 时，$V$ 表示三维空间中的一个体积），它是紧致的并且具有分段光滑的边界 $S$（也记作 $\partial V = S$）。如果 $\mathbf{F}$ 是定义在 $V$ 邻域上的连续可微向量场，则有\(^\text{[4][5]}\)：
+$$
+\iiint_V (\nabla \cdot \vec{F}) \, dV 
+= 
+\iint_S (\vec{F} \cdot \hat{n}) \, dS~
+$$
+左边是对体积 $V$ 的体积分，右边是对体积 $V$ 边界的曲面积分。闭集 $\partial V$ 由指向外的法向量来定向，$\mathbf{\hat{n}}$ 是边界 $\partial V$ 上几乎每一点的外指单位法向量。（$\mathrm{d}\mathbf{S}$ 可作为 $\mathbf{n}\,\mathrm{d}S$ 的简写。）从直观描述的角度来看，方程的左边表示体积 $V$ 内所有“源”的总量，而右边表示穿过边界 $S$ 的总通量。
+\subsection{非正式推导}
+散度定理源于这样一个事实：如果将体积 $V$ 分割成若干部分，那么原始体积流出的通量等于每个子体积流出通量的代数和  。这一结论成立的原因在于，新划分出的子体积会产生一些并非原始体积表面的新分界面，而这些分界面上的通量只是从一个子体积流向另一个子体积，在计算所有子体积的流出通量总和时，这部分通量会相互抵消。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/7668f625ceb7390d.png}
+\caption{一个被分成两个子体积的总体积。右图中，这两个子体积被分开，以显示不同表面上的通量分布。} \label{fig_GSsd_2}
+\end{figure}
+请看示意图：一个封闭、有界的体积 $V$ 被一个表面 $S_3$（绿色部分）分割成两个体积 $V_1$ 和 $V_2$。每个子体积 $V_i$ 的流出通量 $\Phi(V_i)$ 等于穿过其两个表面的通量之和，因此两个子区域的总流出通量为
+$$
+\Phi(V_1) + \Phi(V_2) = \Phi_1 + \Phi_{31} + \Phi_2 + \Phi_{32}~
+$$
+其中，$\Phi_1$ 和 $\Phi_2$ 分别是穿过表面 $S_1$ 和 $S_2$ 的通量；$\Phi_{31}$ 是穿过 $S_3$ 从体积 1 流出的通量，$\Phi_{32}$ 是穿过 $S_3$ 从体积 2 流出的通量。需要注意的是，表面 $S_3$ 同时属于两个体积的边界，而它在两个体积中的外法向方向是相反的。因此，一个体积通过 $S_3$ 流出的通量，恰好等于另一个体积通过 $S_3$ 流出的通量的相反数，两者在求和时相互抵消：
+$$
+\Phi_{31} = \iint_{S_3} \mathbf{F} \cdot \mathbf{\hat{n}}\, dS
+          = -\iint_{S_3} \mathbf{F} \cdot (-\mathbf{\hat{n}})\, dS
+          = -\Phi_{32}~
+$$
+因此：
+$$
+\Phi(V_1) + \Phi(V_2) = \Phi_1 + \Phi_2~
+$$
+由于表面 $S_1$ 和 $S_2$ 的并集就是整个体积 $V$ 的边界 $S$，于是有：
+$$
+\Phi(V_1) + \Phi(V_2) = \Phi(V)~
+$$
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/d01571da78decb37.png}
+\caption{该体积可以被划分为任意数量的子体积，并且整个体积 $V$ 的通量等于所有子体积通量的总和，因为绿色分隔面上的通量在总和中会相互抵消。在图 (b) 中，体积被轻微分开，以说明每一个绿色分隔面都是两个相邻体积的共同边界的一部分。} \label{fig_GSsd_3}
+\end{figure}
+这个原理同样适用于被分成任意多个部分的体积，如图所示。\(^\text{[7]}\)由于每个内部分割面（绿色部分）在相邻的两个子体积通量中以相反的符号出现，它们会相互抵消，因此通量的贡献只来自外部表面（灰色部分）。而所有子体积的外部表面合起来正好就是原始体积的外表面。
+$$
+\Phi(V) = \sum_{V_i \subset V} \Phi(V_i)~
+$$
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/51b1ad07d4b2709d.png}
+\caption{随着体积分得越来越小，每个体积的通量 $\Phi(V_i)$ 与该体积大小 $|V_i|$ 的比值趋近于 $\operatorname{div} \mathbf{F}$（散度）。} \label{fig_GSsd_4}
+\end{figure}
+每个体积的通量 $\Phi$ 是向量场 $\mathbf{F}(\mathbf{x})$ 在其表面上的曲面积分：
+$$
+\iint_{S(V)} \mathbf{F} \cdot \mathbf{\hat{n}} \;\mathrm{d} S
+= 
+\sum_{V_i \subset V} 
+\iint_{S(V_i)} \mathbf{F} \cdot \mathbf{\hat{n}} \;\mathrm{d} S~
+$$
+我们的目标是把原始体积划分为无限多个无限小的体积。随着体积分得越来越小，右侧每个子体积的表面积 $S(V_i)$ 趋近于零，因此每个子体积的曲面积分趋向于零。然而，根据散度的定义，通量与体积的比值$\frac{\Phi(V_i)}{|V_i|}= \frac{1}{|V_i|}\iint_{S(V_i)} \mathbf{F} \cdot \mathbf{\hat{n}} \;\mathrm{d} S$括号内的这一部分一般不会消失，而是在体积趋近于零时趋向于散度 $\operatorname{div} \mathbf{F}$。因此：
+$$
+\iint_{S(V)} \mathbf{F} \cdot \mathbf{\hat{n}} \;\mathrm{d} S
+=
+\sum_{V_i \subset V}
+\left(
+\frac{1}{|V_i|}
+\iint_{S(V_i)} \mathbf{F} \cdot \mathbf{\hat{n}} \;\mathrm{d} S
+\right)
+|V_i|~
+$$
+只要向量场 $\mathbf{F}(\mathbf{x})$ 有连续的导数，即使把体积分得无限小，上式依然成立：
+$$
+\iint_{S(V)} \mathbf{F} \cdot \mathbf{\hat{n}} \;\mathrm{d} S
+=
+\lim_{|V_i|\to 0}
+\sum_{V_i \subset V}
+\left(
+\frac{1}{|V_i|}
+\iint_{S(V_i)} \mathbf{F} \cdot \mathbf{\hat{n}} \;\mathrm{d} S
+\right)
+|V_i|~
+$$
+当 $|V_i|$ 趋近于零时，$|V_i|$ 变为无穷小体积 $\mathrm{d}V$，括号中的部分成为散度，求和变为对整个体积 $V$ 的积分：
+$$
+\iint_{S(V)} \mathbf{F} \cdot \mathbf{\hat{n}} \;\mathrm{d} S
+=
+\iiint_{V} \operatorname{div} \mathbf{F} \;\mathrm{d} V~
+$$
+由于这一推导完全不依赖于坐标系，这也说明了散度与所用的坐标系无关。
+\subsection{证明}
+对于欧几里得空间的有界开子集，我们将证明以下结论：\(^\text{[citation needed]}\)
+
+\textbf{定理}—— 设$\displaystyle \Omega \subset \mathbb{R}^n$
+是一个具有 $C^1$ 边界的开且有界的区域。若$\displaystyle u \in C^1(O)$，其中 $O$ 是 $\displaystyle \overline{\Omega}$ 的一个开邻域，则对每个$\displaystyle i \in \{1, \dots, n\}$，有：
+$$
+\int_{\Omega} u_{x_i} \, dV = \int_{\partial \Omega} u \, \nu_i \, dS ,~
+$$
+其中
+$\displaystyle \nu : \partial \Omega \to \mathbb{R}^n$
+是边界 $\partial \Omega$ 上指向外侧的单位法向量。等价地，可以写为：
+$$
+\int_{\Omega} \nabla u \, dV = \int_{\partial \Omega} u \, \nu \, dS .~
+$$
+\textbf{定理证明}\(^\text{[8]}\)
+\begin{itemize}
+\item 第一步是将问题化简为$\displaystyle u \in C_c^1(\mathbb{R}^n)$ 的情形。取$\displaystyle \phi \in C_c^\infty(O)$，使得$\displaystyle \phi = 1$ 在$\displaystyle \overline{\Omega}$ 上成立。注意到
+$\displaystyle \phi u \in C_c^1(O) \subset C_c^1(\mathbb{R}^n)$，且$\displaystyle \phi u = u$ 在$\displaystyle \overline{\Omega}$ 上成立。因此，只需证明该定理对$\displaystyle \phi u$ 成立即可。由此，我们可以假设$\displaystyle u \in C_c^1(\mathbb{R}^n)$。
+
+\end{itemize}
