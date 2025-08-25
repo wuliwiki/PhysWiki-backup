@@ -226,3 +226,167 @@ $$
 \nabla \cdot \left(\mathbf{P} \times (\nabla \times \mathbf{Q})
 - \mathbf{Q} \times (\nabla \times \mathbf{P})\right).~
 $$
+然而，项
+$$
+\mathbf{Q} \cdot \left[\nabla \left(\nabla \cdot \mathbf{P} \right)\right]
+-\mathbf{P} \cdot \left[\nabla \left(\nabla \cdot \mathbf{Q} \right)\right],~
+$$
+并不能轻易地改写成散度的形式。
+
+另一种方法是引入双向量，这种表述需要用到二阶的格林函数\(^\text{[9][10]}\)。不过，这里给出的推导避免了这些复杂性\(^\text{[11]}\)。
+注意到，格林第二恒等式中的标量场可以看作是向量场的笛卡尔分量，即：
+$$
+\mathbf{P} = \sum_{m} p_m \hat{\mathbf{e}}_m,
+\qquad
+\mathbf{Q} = \sum_{m} q_m \hat{\mathbf{e}}_m.~
+$$
+将每个分量的公式相加，可以得到：
+$$
+\sum_{m} \left[ p_m \Delta q_m - q_m \Delta p_m \right]
+=
+\sum_{m} \nabla \cdot \left( p_m \nabla q_m - q_m \nabla p_m \right).~
+$$
+根据点积的定义，左边可以直接写成向量形式：
+$$
+\sum_{m} \left[ p_m \Delta q_m - q_m \Delta p_m \right]
+=
+\mathbf{P} \cdot \Delta \mathbf{Q}
+-
+\mathbf{Q} \cdot \Delta \mathbf{P}.~
+$$
+右边（RHS）用向量算子来表达稍微麻烦一些。由于散度算子对加法的分配律成立，散度的和等于和的散度，即：
+$$
+\sum_{m} \nabla \cdot \left(p_{m} \nabla q_{m} - q_{m} \nabla p_{m} \right)
+=
+\nabla \cdot
+\left(
+\sum_{m} p_{m} \nabla q_{m}
+-
+\sum_{m} q_{m} \nabla p_{m}
+\right).~
+$$
+回忆点积梯度的向量恒等式：
+$$
+\nabla(\mathbf{P} \cdot \mathbf{Q})
+=
+(\mathbf{P} \cdot \nabla)\mathbf{Q}
++
+(\mathbf{Q} \cdot \nabla)\mathbf{P}
++
+\mathbf{P} \times (\nabla \times \mathbf{Q})
++
+\mathbf{Q} \times (\nabla \times \mathbf{P}),~
+$$
+如果将其按分量形式展开，则可以写成：
+$$
+\nabla(\mathbf{P} \cdot \mathbf{Q})
+=
+\nabla \sum_{m} p_{m} q_{m}
+=
+\sum_{m} p_{m} \nabla q_{m}
++
+\sum_{m} q_{m} \nabla p_{m}.~
+$$
+这个结果与我们想要用向量形式表达的结论非常接近，只是存在一个符号差异。由于每一项中的微分算子仅作用于某一个向量（例如 $p_m$ 或 $q_m$），因此各项可以写成：
+$$
+\sum_{m} p_{m} \nabla q_{m} = (\mathbf{P} \cdot \nabla)\mathbf{Q} + \mathbf{P} \times (\nabla \times \mathbf{Q}),~
+$$
+$$
+\sum_{m} q_{m} \nabla p_{m} = (\mathbf{Q} \cdot \nabla)\mathbf{P} + \mathbf{Q} \times (\nabla \times \mathbf{P}).~
+$$
+这些结果可以通过向量分量的严格推导加以验证。因此，右边部分可以写为：
+$$
+\sum_{m} p_{m} \nabla q_{m} - \sum_{m} q_{m} \nabla p_{m} =
+(\mathbf{P} \cdot \nabla)\mathbf{Q} + \mathbf{P} \times (\nabla \times \mathbf{Q})
+- (\mathbf{Q} \cdot \nabla)\mathbf{P} - \mathbf{Q} \times (\nabla \times \mathbf{P}).~
+$$
+结合左右两部分，可以得到类似标量格林定理的向量形式：
+
+\textbf{向量场的格林定理：}
+$$
+\mathbf{P} \cdot \Delta \mathbf{Q} - \mathbf{Q} \cdot \Delta \mathbf{P} =
+(\mathbf{P} \cdot \nabla)\mathbf{Q} + \mathbf{P} \times (\nabla \times \mathbf{Q})
+- (\mathbf{Q} \cdot \nabla)\mathbf{P} - \mathbf{Q} \times (\nabla \times \mathbf{P}).~
+$$
+\textbf{交叉乘积的旋度恒等式：}
+$$
+\nabla \times (\mathbf{P} \times \mathbf{Q}) =
+(\mathbf{Q} \cdot \nabla)\mathbf{P} - (\mathbf{P} \cdot \nabla)\mathbf{Q}
++ \mathbf{P}(\nabla \cdot \mathbf{Q}) - \mathbf{Q}(\nabla \cdot \mathbf{P}).~
+$$
+利用该恒等式，可以将格林向量恒等式改写为：
+$$
+\mathbf{P} \cdot \Delta \mathbf{Q} - \mathbf{Q} \cdot \Delta \mathbf{P} =
+\nabla \cdot
+\left[
+\mathbf{P}(\nabla \cdot \mathbf{Q}) - \mathbf{Q}(\nabla \cdot \mathbf{P})
+- \nabla \times (\mathbf{P} \times \mathbf{Q})
++ \mathbf{P} \times (\nabla \times \mathbf{Q})
+- \mathbf{Q} \times (\nabla \times \mathbf{P})
+\right].~
+$$
+由于旋度的散度为零，上式第三项消失，得到格林第二向量恒等式：
+$$
+\mathbf{P} \cdot \Delta \mathbf{Q} - \mathbf{Q} \cdot \Delta \mathbf{P} =
+\nabla \cdot
+\left[
+\mathbf{P}(\nabla \cdot \mathbf{Q}) - \mathbf{Q}(\nabla \cdot \mathbf{P})
++ \mathbf{P} \times (\nabla \times \mathbf{Q})
+- \mathbf{Q} \times (\nabla \times \mathbf{P})
+\right].~
+$$
+通过类似的推导，可以把点积的拉普拉斯展开成与各因子的拉普拉斯相关的形式：
+$$
+\Delta (\mathbf{P} \cdot \mathbf{Q}) =
+\mathbf{P} \cdot \Delta \mathbf{Q} - \mathbf{Q} \cdot \Delta \mathbf{P}
++ 2 \nabla \cdot
+\left[
+(\mathbf{Q} \cdot \nabla)\mathbf{P}
++ \mathbf{Q} \times (\nabla \times \mathbf{P})
+\right].~
+$$
+由此，可以将之前难以写成散度形式的项转换为散度形式：
+$$
+\mathbf{P} \cdot [\nabla(\nabla \cdot \mathbf{Q})] -
+\mathbf{Q} \cdot [\nabla(\nabla \cdot \mathbf{P})]
+=
+\nabla \cdot
+\left[
+\mathbf{P}(\nabla \cdot \mathbf{Q}) -
+\mathbf{Q}(\nabla \cdot \mathbf{P})
+\right].~
+$$
+这个结果可以通过展开右边“标量乘向量”的散度公式进行验证。
+\subsubsection{第三向量恒等式}
+第三个向量恒等式可以利用自由空间标量格林函数推导得到【4】。首先，考虑标量格林函数的定义：$\Delta G(\mathbf{x}, \boldsymbol{\eta}) = \delta(\mathbf{x} - \boldsymbol{\eta})$,然后两边乘以向量场 $\mathbf{P}$，再减去 $G \nabla_i \nabla^i \mathbf{P}$：
+
+$$
+\nabla_i\left(\mathbf{P} \nabla^i G - G \nabla^i \mathbf{P}\right)
+= \mathbf{P} \,\delta(\mathbf{x} - \boldsymbol{\eta}) - G \,\Delta \mathbf{P}.~
+$$
+
+---
+
+接下来，对体积 $U$ 积分，并利用散度定理：
+
+$$
+\oint_{\partial U} 
+\left[
+\mathbf{P}(\mathbf{y}) \frac{\partial G(\mathbf{y}, \boldsymbol{\eta})}{\partial \mathbf{n}}
+- G(\mathbf{y}, \boldsymbol{\eta}) \frac{\partial \mathbf{P}(\mathbf{y})}{\partial \mathbf{n}}
+\right] dS_{\mathbf{y}}
++ \int_U G(\mathbf{y}, \boldsymbol{\eta}) \Delta \mathbf{P}(\mathbf{y}) dV_{\mathbf{y}}
+=
+\begin{cases}
+\mathbf{P}(\boldsymbol{\eta}), & \boldsymbol{\eta} \in U,\\
+0, & \boldsymbol{\eta} \notin U.
+\end{cases}~
+$$
+\subsection{相关内容}
+
+\begin{itemize}
+\item *格林函数（Green's function）**
+* **基尔霍夫积分定理（Kirchhoff integral theorem）**
+* **拉格朗日恒等式（Lagrange's identity, 边值问题）**
+
+\end{itemize}
