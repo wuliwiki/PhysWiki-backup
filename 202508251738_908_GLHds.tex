@@ -1,0 +1,149 @@
+% 格林恒等式（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Green\%27s_identities}{相关文章}。
+
+在数学中，格林恒等式是一组包含三条公式的向量分析恒等式，用于关联区域内部（体积部分）与其边界在微分算子作用下的关系。它们以发现格林定理的数学家乔治·格林的名字命名。
+\subsection{格林第一恒等式}
+这个恒等式可以通过将散度定理应用于向量场 $\mathbf{F} = \psi \nabla \varphi$ 并利用乘积法则的推广形式
+$$
+\nabla \cdot (\psi \mathbf{X}) = \nabla \psi \cdot \mathbf{X} + \psi \nabla \cdot \mathbf{X}~
+$$
+推导出来。
+设 $\varphi$ 和 $\psi$ 是定义在某个区域 $U \subset \mathbb{R}^d$ 上的标量函数，其中 $\varphi$ 是二阶连续可微函数，$\psi$ 是一阶连续可微函数。令 $\mathbf{X} = \nabla \varphi$，并将 $\nabla \cdot (\psi \nabla \varphi)$ 在 $U$ 上积分，则有\(^\text{[1]}\)：
+$$
+\int_U \left(\psi \,\Delta \varphi + \nabla \psi \cdot \nabla \varphi \right) \, dV
+= 
+\oint_{\partial U} \psi \, (\nabla \varphi \cdot \mathbf{n}) \, dS
+=
+\oint_{\partial U} \psi \, \nabla \varphi \cdot d\mathbf{S},~
+$$
+该定理是散度定理的一个特殊情形，本质上是分部积分在高维情况下的对应形式，其中 $\psi$ 和 $\varphi$ 的梯度分别代替了 $u$ 和 $v$。
+
+需要注意的是，上述格林第一恒等式其实是一个更一般恒等式的特例，这个更一般的恒等式是通过在散度定理中代入 $\mathbf{F} = \psi \mathbf{\Gamma}$ 得到的：
+$$
+\int_U \left(\psi \, \nabla \cdot \mathbf{\Gamma} + \mathbf{\Gamma} \cdot \nabla \psi \right)\, dV
+=
+\oint_{\partial U} \psi \, (\mathbf{\Gamma} \cdot \mathbf{n}) \, dS
+=
+\oint_{\partial U} \psi \, \mathbf{\Gamma} \cdot d\mathbf{S}~
+$$
+\subsection{格林第二恒等式}
+如果 $\varphi$ 和 $\psi$ 都是在区域 $U \subset \mathbb{R}^3$ 上二阶连续可微的函数，并且 $\varepsilon$ 在 $U$ 上是一阶连续可微的函数，则取$\mathbf{F} = \psi \varepsilon \nabla \varphi - \varphi \varepsilon \nabla \psi$可以得到：
+$$
+\int_U \left[\psi \,\nabla \cdot (\varepsilon \nabla \varphi) - \varphi \,\nabla \cdot (\varepsilon \nabla \psi)\right]\, dV
+=
+\oint_{\partial U} \varepsilon \left(\psi \frac{\partial \varphi}{\partial \mathbf{n}} - \varphi \frac{\partial \psi}{\partial \mathbf{n}}\right)\, dS~
+$$
+在 $\varepsilon = 1$ 的特殊情况下，公式化简为：
+$$
+\int_U \left(\psi \nabla^2 \varphi - \varphi \nabla^2 \psi\right) \, dV
+=
+\oint_{\partial U} \left(\psi \frac{\partial \varphi}{\partial \mathbf{n}} - \varphi \frac{\partial \psi}{\partial \mathbf{n}}\right) \, dS~
+$$
+在上式中，$\displaystyle \partial \varphi/\partial \mathbf{n}$ 表示 $\varphi$ 沿着指向外侧的单位法向量 $\mathbf{n}$ 的方向导数：
+$$
+\frac{\partial \varphi}{\partial \mathbf{n}}
+= \nabla \varphi \cdot \mathbf{n}
+= \nabla_{\mathbf{n}} \varphi~
+$$
+将这个定义显式代入 $\varepsilon = 1$ 的第二格林恒等式，得到：
+$$
+\int_U \left(\psi \nabla^2 \varphi - \varphi \nabla^2 \psi\right) \, dV
+=
+\oint_{\partial U} \left(\psi \nabla \varphi - \varphi \nabla \psi\right) \cdot d\mathbf{S}v~
+$$
+特别地，这个结果表明：对于在边界上消失的函数，拉普拉斯算子在 $L^2$ 内积下是自伴算子，因此上式右边的边界积分项为零。
+\subsection{格林第三恒等式}
+格林第三恒等式是从第二恒等式推导出来的，方法是取 $\varphi = G$，其中 $G$ 是拉普拉斯算子 $\Delta$ 的基本解（即格林函数）。这意味着：
+$$
+\Delta G(\mathbf{x}, \boldsymbol{\eta}) = \delta(\mathbf{x} - \boldsymbol{\eta}).~
+$$
+例如，在 $\mathbf{R}^3$ 中，格林函数的一个解为：
+$$
+G(\mathbf{x}, \boldsymbol{\eta}) = \frac{-1}{4\pi \|\mathbf{x} - \boldsymbol{\eta}\|}.~
+$$
+格林第三恒等式表明，如果 $\psi$ 是在区域 $U$ 上二阶连续可微的函数，则有：
+$$
+\int_{U} \left[ G(\mathbf{y}, \boldsymbol{\eta}) \, \Delta \psi(\mathbf{y}) \right] \, dV_{\mathbf{y}}
+- \psi(\boldsymbol{\eta})
+=
+\oint_{\partial U} 
+\left[
+G(\mathbf{y}, \boldsymbol{\eta}) 
+\frac{\partial \psi}{\partial \mathbf{n}} (\mathbf{y})
+-
+\psi(\mathbf{y})
+\frac{\partial G(\mathbf{y}, \boldsymbol{\eta})}{\partial \mathbf{n}}
+\right] 
+\, dS_{\mathbf{y}}.~
+$$
+当 $\psi$ 本身是一个调和函数（即拉普拉斯方程的解 $\nabla^2 \psi = 0$）时，格林第三恒等式可以简化为：
+$$
+\psi(\boldsymbol{\eta}) 
+= 
+\oint_{\partial U} 
+\left[
+\psi(\mathbf{y}) 
+\frac{\partial G(\mathbf{y}, \boldsymbol{\eta})}{\partial \mathbf{n}}
+-
+G(\mathbf{y}, \boldsymbol{\eta}) 
+\frac{\partial \psi}{\partial \mathbf{n}}(\mathbf{y})
+\right] 
+\, dS_{\mathbf{y}}~
+$$
+如果选择满足狄利克雷边界条件的格林函数 $G$，使得 $G$ 在区域 $U$ 的边界 $\partial U$ 上为零，那么上式中的第二项会消失，得到更简洁的形式：
+$$
+\psi(\boldsymbol{\eta}) 
+= 
+\oint_{\partial U} 
+\psi(\mathbf{y}) 
+\frac{\partial G(\mathbf{y}, \boldsymbol{\eta})}{\partial \mathbf{n}}
+\, dS_{\mathbf{y}}~
+$$
+这种形式常用于构造狄利克雷边界条件问题的解。对于诺伊曼边界条件问题，虽然也可以简化，但通过将散度定理应用于定义格林函数的偏微分方程可以证明，格林函数在边界上的积分不可能为零，因此它无法在边界上完全消失。详细论证及替代方案可参见拉普拉斯算子的格林函数或文献\(^\text{[2]}\)。
+
+对于诺伊曼边界条件，可以选择合适的格林函数 $G$ 来简化积分$3$。首先注意：
+$$
+\int_U 
+\Delta G(\mathbf{y}, \boldsymbol{\eta}) 
+\, dV_{\mathbf{y}}
+= 1
+= 
+\oint_{\partial U} 
+\frac{\partial G(\mathbf{y}, \boldsymbol{\eta})}{\partial \mathbf{n}}
+\, dS_{\mathbf{y}}~
+$$
+因此，$\displaystyle \frac{\partial G(\mathbf{y}, \boldsymbol{\eta})}{\partial \mathbf{n}}$ 不可能在边界 $S$ 上为零。一个常用的选择是令：$\frac{\partial G(\mathbf{y}, \boldsymbol{\eta})}{\partial \mathbf{n}}= \frac{1}{\mathcal{A}}$其中，$\mathcal{A}$ 表示边界曲面 $S$ 的面积。在这种设定下，积分可以简化为：
+$$
+\psi(\boldsymbol{\eta})
+= 
+\langle \psi \rangle_S
+-
+\oint_{\partial U}
+G(\mathbf{y}, \boldsymbol{\eta})
+\frac{\partial \psi}{\partial \mathbf{n}}(\mathbf{y})
+\, dS_{\mathbf{y}}~
+$$
+其中，$\langle \psi \rangle_S$ 是 $\psi$ 在曲面 $S$ 上的平均值：
+$$
+\langle \psi \rangle_S
+=
+\frac{1}{\mathcal{A}}
+\oint_{\partial U}
+\psi(\mathbf{y})
+\, dS_{\mathbf{y}}~
+$$
+此外，如果 $\psi$ 是拉普拉斯方程的解（即 $\Delta \psi = 0$），根据散度定理可得：
+$$
+\oint_{\partial U}
+\frac{\partial \psi}{\partial \mathbf{n}}(\mathbf{y})
+\, dS_{\mathbf{y}}
+=
+\int_U
+\Delta \psi(\mathbf{y})
+\, dV_{\mathbf{y}}
+= 0~
+$$
+这是诺伊曼边界问题有解的必要条件。

@@ -1,0 +1,32 @@
+% 格林恒等式（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Green\%27s_identities}{相关文章}。
+
+在数学中，格林恒等式是一组包含三条公式的向量分析恒等式，用于关联区域内部（体积部分）与其边界在微分算子作用下的关系。它们以发现格林定理的数学家乔治·格林的名字命名。
+\subsection{格林第一恒等式}
+这个恒等式可以通过将散度定理应用于向量场 $\mathbf{F} = \psi \nabla \varphi$ 并利用乘积法则的推广形式
+$$
+\nabla \cdot (\psi \mathbf{X}) = \nabla \psi \cdot \mathbf{X} + \psi \nabla \cdot \mathbf{X}~
+$$
+推导出来。
+设 $\varphi$ 和 $\psi$ 是定义在某个区域 $U \subset \mathbb{R}^d$ 上的标量函数，其中 $\varphi$ 是二阶连续可微函数，$\psi$ 是一阶连续可微函数。令 $\mathbf{X} = \nabla \varphi$，并将 $\nabla \cdot (\psi \nabla \varphi)$ 在 $U$ 上积分，则有[1]：
+$$
+\int_U \left(\psi \,\Delta \varphi + \nabla \psi \cdot \nabla \varphi \right) \, dV
+= 
+\oint_{\partial U} \psi \, (\nabla \varphi \cdot \mathbf{n}) \, dS
+=
+\oint_{\partial U} \psi \, \nabla \varphi \cdot d\mathbf{S},~
+$$
+该定理是**散度定理**的一个特殊情形，本质上是**分部积分**在高维情况下的对应形式，其中 $\psi$ 和 $\varphi$ 的梯度分别代替了 $u$ 和 $v$。
+
+需要注意的是，上述 **格林第一恒等式** 其实是一个更一般恒等式的特例，这个更一般的恒等式是通过在散度定理中代入 $\mathbf{F} = \psi \mathbf{\Gamma}$ 得到的：
+$$
+\int_U \left(\psi \, \nabla \cdot \mathbf{\Gamma} + \mathbf{\Gamma} \cdot \nabla \psi \right)\, dV
+=
+\oint_{\partial U} \psi \, (\mathbf{\Gamma} \cdot \mathbf{n}) \, dS
+=
+\oint_{\partial U} \psi \, \mathbf{\Gamma} \cdot d\mathbf{S}~
+$$
+\subsection{格林第二恒等式}
