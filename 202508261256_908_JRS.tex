@@ -1,0 +1,140 @@
+% 卷绕数（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Winding_number}{相关文章}。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/801932f041ea8a31.png}
+\caption{这条曲线相对于点 $p$ 的绕数是2。} \label{fig_JRS_1}
+\end{figure}
+在数学中，闭合曲线相对于平面中某一点的绕数或绕线指数是一个整数，表示该曲线绕该点逆时针方向环绕的总次数，也就是曲线的“转数”。对于某些非闭合的平面曲线，其绕数可能是非整数。绕数依赖于曲线的方向：如果曲线沿顺时针方向绕点运动，则绕数为负数。
+
+绕数是代数拓扑中的基础研究对象，并且在向量分析、复分析、几何拓扑、微分几何以及物理学（例如弦理论）中都扮演着重要角色。
+\subsection{直观描述}
+沿着红色曲线运动的一个物体，会绕位于原点的人逆时针转两圈。
+假设我们有一条位于 $xy$ 平面上的闭合、有方向的曲线。我们可以把这条曲线想象成某个物体的运动轨迹，而曲线的方向表示物体运动的方向。这样，这条曲线的绕数就等于该物体绕原点逆时针转的总圈数。
+
+在计算总圈数时，逆时针的运动计为正数，而顺时针的运动计为负数。例如，如果一个物体先绕原点逆时针转了四圈，然后又绕原点顺时针转了一圈，那么这条曲线的总绕数就是3。
+
+按照这个规则，一条完全没有绕过原点的曲线，其绕数为0；而一条绕原点顺时针运动的曲线，其绕数为负数。因此，曲线的绕数可以是任意整数。下面的图示展示了绕数从 −2到3的不同曲线。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{./figures/f02fc89a7a934eb5.png}
+\caption{} \label{fig_JRS_2}
+\end{figure}
+\subsection{形式化定义}
+设$\gamma: [0,1] \to \mathbb{C} \setminus \{a\}$是一条平面上去掉点 $a$ 后的连续闭合路径。曲线$\gamma$绕点$a$的绕数定义为整数：
+$$
+\mathrm{wind}(\gamma, a) = s(1) - s(0),~
+$$
+其中 $(\rho, s)$ 是该路径用极坐标表示的形式，即通过如下覆盖映射 $p$ 提升得到的路径：
+$$
+p: \mathbb{R}_{>0} \times \mathbb{R} \to \mathbb{C} \setminus \{a\} : (\rho_0, s_0) \mapsto a + \rho_0 e^{i 2\pi s_0}.~
+$$
+绕数的良好定义性源于提升路径的存在性和唯一性（给定覆盖空间的起点），并且因为映射 $p$ 的所有纤维都具有以下形式：$\rho_0 \times (s_0 + \mathbb{Z})$，所以上述表达式不依赖于起点的具体选择。由于路径是闭合的，最终得到的绕数是一个整数。
+\subsection{替代表述}
+在数学的不同分支中，绕数常常有不同的定义方式。下面列出的所有定义都与前面给出的定义是等价的：
+\subsubsection{亚历山大编号法}
+1865 年，奥古斯特·费迪南德·莫比乌斯，首次提出了一种用简单组合规则来定义绕数的方法\(^\text{[1]}\)；1928 年，小詹姆斯·沃德尔·亚历山大又独立地提出了同样的规则。\(^\text{[2]}\)根据该方法，任意一条曲线都会将平面分割成若干个连通区域，其中有一个区域是无界的。这一定义具有以下性质：在同一个区域内的任意两点，其对应的绕数是相同的。无界区域内（即平面外延处任意点）的绕数为0。相邻两个区域的绕数之差正好是1；其中绕数较大的区域出现在曲线运动方向的左侧。
+\subsubsection{微分几何}
+在微分几何中，参数方程通常假定是可微的（或至少是分段可微的）。在这种情况下，极坐标角 $\theta$ 与直角坐标 $x$ 和 $y$ 的关系由以下公式给出：
+$$
+d\theta = \frac{1}{r^{2}}\left(x\,dy - y\,dx\right)
+\quad\text{其中 } r^{2} = x^{2} + y^{2}.~
+$$
+这个公式可以通过对 $\theta$ 的定义进行求导得到：
+$$
+\theta(t) = \arctan\!\left(\frac{y(t)}{x(t)}\right).~
+$$
+根据微积分基本定理，$\theta$ 的总变化量等于 $d\theta$ 的积分。因此，一条可微曲线的绕数可以表示为一条曲线积分：
+$$
+\text{wind}(\gamma, 0) = 
+\frac{1}{2\pi} 
+\oint_{\gamma} 
+\left(\frac{x}{r^{2}}\,dy - \frac{y}{r^{2}}\,dx\right).~
+$$
+在去掉原点的平面上，微分形式 $d\theta$ 是一个闭合但非全微分的 1-形式，它生成了穿孔平面的第一 de Rham 上同调群。特别地，如果 $\omega$ 是定义在去掉原点的平面上的任意一个闭合的、可微的 1-形式，那么沿任意闭合路径积分 $\omega$ 的结果都会是绕数的某个倍数。
+\subsubsection{复分析}
+在复分析中，绕数在许多理论中都起着极其重要的作用（例如留数定理的表述）。在复分析的语境下，复平面上一条闭合曲线 $\gamma$ 的绕数可以用复坐标 $z = x + iy$ 来表示。若写作 $z = r e^{i\theta}$，则有：
+$$
+dz = e^{i\theta}dr + i r e^{i\theta} d\theta~
+$$
+因此：
+$$
+\frac{dz}{z} = \frac{dr}{r} + i\,d\theta = d[\ln r] + i\,d\theta.~
+$$
+由于 $\gamma$ 是闭合曲线，$\ln(r)$ 的总变化量为零，因此积分 $\frac{dz}{z}$ 等于 $i$ 乘以 $\theta$ 的总变化量。由此，曲线 $\gamma$ 绕原点的绕数为\(^\text{[3]}\)：
+$$
+\frac{1}{2\pi i} \oint_{\gamma} \frac{dz}{z}.~
+$$
+更一般地，如果曲线 $\gamma$ 由参数 $t \in [\alpha, \beta]$ 表示，且对于复平面上的某点 $z_0$，有 $z_0 \notin \gamma([\alpha, \beta])$，那么曲线 $\gamma$ 绕点 $z_0$ 的绕数（也称为曲线 $\gamma$ 关于 $z_0$ 的指标）定义为\(^\text{[4]}\)：
+$$
+\mathrm{Ind}_{\gamma}(z_0)
+= \frac{1}{2\pi i} \oint_{\gamma} \frac{d\zeta}{\zeta - z_0}
+= \frac{1}{2\pi i} \int_{\alpha}^{\beta} 
+\frac{\gamma'(t)}{\gamma(t) - z_0}\, dt.~
+$$
+这个公式正是著名的柯西积分公式的一个特例。
+
+在复平面中，绕数的一些基本性质可以通过以下定理给出：\(^\text{[5]}\)
+
+\textbf{定理}
+设$\gamma:[\alpha,\beta]\to\mathbb{C}$是一条闭合路径，并令
+
+$$
+\Omega := \mathbb{C} \setminus \gamma([\alpha,\beta])
+$$
+
+表示曲线 $\gamma$ 的像的补集。那么，曲线 $\gamma$ 关于点 $z$ 的指标（即绕数）定义为：
+
+$$
+\mathrm{Ind}_{\gamma}:\Omega\to\mathbb{C}, \quad 
+z \mapsto 
+\frac{1}{2\pi i}
+\oint_{\gamma} 
+\frac{d\zeta}{\zeta - z},
+$$
+
+并且它满足以下性质：
+
+1. **整数值性质**：
+
+   $$
+   \mathrm{Ind}_{\gamma}(z) \in \mathbb{Z}, 
+   \quad \forall z\in\Omega;
+   $$
+
+2. **分区常数性**：
+   在 $\Omega$ 的每一个**连通分支**（即最大连通子集）上，$\mathrm{Ind}_{\gamma}(z)$ 是**常数**；
+
+3. **无界区域的零绕数**：
+   若点 $z$ 位于 $\Omega$ 的**无界连通区域**，则
+
+   $$
+   \mathrm{Ind}_{\gamma}(z) = 0.
+   $$
+
+---
+
+**推论**
+该定理直接给出了圆形路径绕某点的绕数。如预期一样，绕数等于曲线 $\gamma$ 绕该点**逆时针环绕的次数**。
+
+若路径 $\gamma$ 定义为：
+
+$$
+\gamma(t) = a + r e^{int}, 
+\quad 0 \leq t \leq 2\pi, 
+\quad n \in \mathbb{Z},
+$$
+
+则有：
+
+$$
+\mathrm{Ind}_{\gamma}(z) =
+\begin{cases}
+n, & |z-a|<r;\\[6pt]
+0, & |z-a|>r.
+\end{cases}
+$$
