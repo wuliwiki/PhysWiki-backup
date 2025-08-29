@@ -1,0 +1,94 @@
+% 拓扑不变量（综述）
+% license CCBYNCSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Topological_property}{相关文章}
+
+在拓扑学及其相关数学领域中，拓扑性质或拓扑不变量是指在同胚下保持不变的拓扑空间的某种性质。换句话说，拓扑性质是一个在同胚映射下封闭的拓扑空间的真类。也就是说，如果某个空间 $X$ 具有某一性质，那么所有与 $X$ 同胚的空间也都具有这一性质。通俗地说，拓扑性质就是能够用开集来描述的空间性质。
+
+在拓扑学中，一个常见的问题是判断两个拓扑空间是否同胚。为了证明两个空间不是同胚，只需找到一个它们不共有的拓扑性质即可。
+\subsection{ }
+一个性质 $P$ 可以具备以下特征：
+\begin{itemize}
+\item \textbf{遗传性},若对任意拓扑空间 $(X, \mathcal{T})$ 及其子集 $S \subseteq X$，其子空间 $\bigl(S, \mathcal{T}|_S\bigr)$ 也具有性质 $P$。
+\item \textbf{弱遗传性},若对任意拓扑空间 $(X, \mathcal{T})$ 及其闭子集 $S \subseteq X$，其子空间 $\bigl(S, \mathcal{T}|_S\bigr)$ 也具有性质 $P$。
+\end{itemize}
+\subsection{常见的拓扑性质}
+\subsubsection{基数函数}
+\begin{itemize}
+\item 空间 $X$ 的基数 $|X|$：指空间 $X$ 中点的数量。
+\item 空间 $X$ 的拓扑基数$|\tau(X)|$：指该空间拓扑（即所有开集的集合）的基数。
+\item 权$w(X)$：指空间 $X$ 的拓扑基的最小基数。
+\item 稠密度$d(X)$：指空间 $X$ 的一个稠密子集的最小基数，即闭包等于 $X$ 的子集所含的最少点数。
+\end{itemize}
+\subsubsection{分离性}
+在较早的数学文献中，这些术语的定义有所不同；参见“分离公理的历史”。
+
+\begin{itemize}
+\item \textbf{$T_0$ 空间（Kolmogorov 空间）}.若空间中任意两个不同的点 $x$ 和 $y$，至少存在一个开集包含其中一个点但不包含另一个点，则该空间是Kolmogorov 空间。
+\item \textbf{$T_1$ 空间（Fréchet 空间）}.若空间中任意两个不同的点 $x$ 和 $y$，总可以找到一个开集包含 $x$ 但不包含 $y$（注意与 $T_0$ 空间的区别，这里可以指定是哪一个点位于开集中）。
+  等价地，若空间中每个单点集都是闭集，则该空间是$T_1$ 空间。
+  所有 $T_1$ 空间都必然是 $T_0$ 空间。
+\item \textbf{清醒空间（Sober 空间）}.若空间中的每个不可约闭集$C$都有一个唯一的*泛点$p$，则该空间是Sober 空间。换句话说，如果闭集 $C$ 不能表示为两个非空闭集的并集（可以相交），那么必定存在某个点 $p$，使得 $\{p\}$ 的闭包正好是 $C$，且只有这个点 $p$ 具有这种性质。
+\item \textbf{ $T_2$ 空间（Hausdorff 空间）}.若空间中任意两个不同的点都有**互不相交的邻域**，则该空间是 Hausdorff 空间。所有 $T_2$ 空间都必然是 $T_1$ 空间。
+\item \textbf{$T_{2\frac{1}{2}}$ 空间（Urysohn 空间）}.若空间中任意两个不同的点都有**互不相交的闭邻域**，则该空间是 Urysohn 空间。所有 $T_{2\frac{1}{2}}$ 空间都必然是 $T_2$ 空间。
+\item \textbf{完全 $T_2$ 空间（完全 Hausdorff 空间）}.若空间中任意两个不同的点可以被某个函数分离，则该空间是完全 Hausdorff 空间。所有完全 Hausdorff 空间都是 Urysohn 空间。
+\item \textbf{正规空间（Regular 空间）}.若空间中任意一个闭集 $C$ 和不在 $C$ 中的点 $p$，都存在互不相交的邻域分别包含 $C$ 和 $p$，则该空间是正规空间。
+
+\item \textbf{$T_3$ 空间（正规 Hausdorff 空间，Regular Hausdorff）}.
+如果一个空间既是**正规空间（regular）**又是 **$T_0$** 空间，那么它就是**正规 Hausdorff 空间**。
+（因为正规空间若且唯若是 $T_0$ 空间时才是 Hausdorff 空间，所以这种命名是一致的。）
+
+---
+
+\item \textbf{完全正规空间}.
+如果对于任意闭集 $C$ 和一个不在 $C$ 中的点 $p$，存在某个函数能够**分离 $C$ 和 $\{p\}$**，则该空间是**完全正规空间**。
+
+---
+
+\item $T_{3\frac{1}{2}}$ 空间（Tychonoff 空间，完全正规 Hausdorff 空间，Completely $T_3$ 空间）**
+如果一个空间既是**完全正规空间**又是 **$T_0$** 空间，则该空间是**Tychonoff 空间**。
+（因为完全正规空间若且唯若是 $T_0$ 空间时才是 Hausdorff 空间，所以这种命名是一致的。）
+所有 Tychonoff 空间都是正规 Hausdorff 空间。
+
+---
+
+\item 正规空间（Normal space）**
+如果任意两个**互不相交的闭集**都有**互不相交的邻域**，则该空间是**正规空间**。
+正规空间允许进行**单位分解（partition of unity）**。
+
+---
+
+\item $T_4$ 空间（正规 Hausdorff 空间，Normal Hausdorff space）**
+一个正规空间若且唯若是 **$T_1$** 空间时才是 Hausdorff 空间。
+所有正规 Hausdorff 空间必然是 Tychonoff 空间。
+
+---
+
+\item 完全正规空间（Completely normal space）**
+如果任意两个**分离的集合**都有**互不相交的邻域**，则该空间是**完全正规空间**。
+
+---
+
+\item $T_5$ 空间（完全正规 Hausdorff 空间，Completely normal Hausdorff space）**
+一个完全正规空间若且唯若是 **$T_1$** 空间时才是 Hausdorff 空间。
+所有完全正规 Hausdorff 空间都是正规 Hausdorff 空间。
+
+---
+
+\item 完全正规化空间（Perfectly normal space）**
+如果任意两个**互不相交的闭集**都能被某个函数**精确分离**，则该空间是**完全正规化空间**。
+完全正规化空间也必然是完全正规空间。
+
+---
+
+\item $T_6$ 空间（完全正规 Hausdorff 空间，Perfectly normal Hausdorff space 或 完全 $T_4$ 空间）**
+如果一个空间既是**完全正规化空间**又是 **$T_1$** 空间，则它是**完全正规 Hausdorff 空间**。
+所有完全正规 Hausdorff 空间也必然是完全正规 Hausdorff 空间。
+
+---
+
+\item \textbf{离散空间}如果空间中的每一个点都是**完全孤立**的，也就是说空间的**任意子集都是开集**，则该空间是**离散空间**。
+\item \textbf{孤立点的数量}.指拓扑空间中孤立点的总数量。
+
+\end{itemize}
