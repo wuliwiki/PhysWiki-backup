@@ -1,0 +1,76 @@
+% 庞特里亚金类（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Pontryagin_class}{相关文章}
+
+在数学中，庞特里亚金类，以列夫·庞特里亚金的名字命名，是实向量丛的一类特征类。庞特里亚金类所在的上同调群的次数总是4的倍数。
+\subsection{定义}
+给定定义在流形$M$ 上的一个实向量丛$E$，它的第 $k$ 阶庞特里亚金类$p_k(E)$ 定义为：
+$$
+p_k(E) = p_k(E, \mathbb{Z}) = (-1)^k \, c_{2k}(E \otimes \mathbb{C}) 
+\;\; \in \;\; H^{4k}(M, \mathbb{Z})~
+$$
+其中：
+\begin{itemize}
+\item $c_{2k}(E \otimes \mathbb{C})$：表示向量丛$E$的复化$E \otimes \mathbb{C} = E \oplus iE$的第 $2k$ 阶陈类。
+\item $H^{4k}(M, \mathbb{Z})$：表示流形$M$的次数为 $4k$ 的整系数上同调群。
+\end{itemize}
+有理庞特里亚金类$p_k(E, \mathbb{Q})$ 则定义为$p_k(E)$在$H^{4k}(M, \mathbb{Q})$（即流形 $M$ 的次数为$4k$的有理系数上同调群）中的像。
+\subsection{性质}
+总庞特里亚金类，实向量丛 $E$ 的**总庞特里亚金类**定义为：
+
+$$
+p(E) = 1 + p_1(E) + p_2(E) + \cdots \;\;\in\;\; H^*(M, \mathbb{Z}),~
+$$
+
+其中 $H^*(M, \mathbb{Z})$ 表示流形 $M$ 的整系数上同调环。
+
+该类在模去 2 阶挠元后，对向量丛的Whitney 和（Whitney sum）** 是乘法的，即：
+$$
+2p(E \oplus F) = 2p(E) \smile p(F),~
+$$
+其中 $\smile$ 表示上同调中的杯积（cup product），$E$ 和 $F$ 是定义在同一流形 $M$ 上的两个向量丛。
+
+---
+
+**2. 分量形式下的性质**
+
+对各阶庞特里亚金类 $p_k$ 而言，有：
+
+* 一阶：
+
+  $$
+  2p_1(E \oplus F) = 2p_1(E) + 2p_1(F),
+  $$
+
+* 二阶：
+
+  $$
+  2p_2(E \oplus F) = 2p_2(E) + 2p_1(E) \smile p_1(F) + 2p_2(F),
+  $$
+
+以此类推。
+
+---
+
+**3. 消失条件并不意味着平凡性**
+
+庞特里亚金类和 Stiefel–Whitney 类同时消失，并不意味着该向量丛是平凡丛。例如，在 9 维球面 $S^9$ 上，存在一个唯一的、秩为 10 的非平凡向量丛 $E_{10}$（在向量丛同构意义下）。其黏合函数（clutching function）来自同伦群：
+
+$$
+\pi_8(O(10)) = \mathbb{Z}/2\mathbb{Z}.
+$$
+
+在这个例子中：
+
+* 所有庞特里亚金类都消失，因为 $S^9$ 在次数 9 上不存在对应的上同调群。
+* 所有 Stiefel–Whitney 类也都消失，特别是第九阶 Stiefel–Whitney 类 $w_9$ 由 **Wu 公式**：
+
+  $$
+  w_9 = w_1 w_8 + Sq^1(w_8)
+  $$
+
+  可知为零。
+
+此外，这个向量丛是**稳定非平凡的（stably nontrivial）**：即使把 $E_{10}$ 与任意秩的平凡丛做 Whitney 和，结果依然是非平凡的【Hatcher 2009, p.76】。
