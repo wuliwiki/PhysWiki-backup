@@ -1,0 +1,18 @@
+% 微分同胚（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Diffeomorphism}{相关文章}
+
+在数学中，微分同胚是可微流形之间的一种同构。它是一个可逆函数，能够将一个可微流形映射到另一个可微流形，并且该函数及其逆函数都是连续可微的。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/61cddbbc19414b20.png}
+\caption{一个从正方形映射到其自身的微分同胚下，正方形上矩形网格的映射图像。} \label{fig_WeiFTP_1}
+\end{figure}
+\subsection{定义}
+给定两个可微流形 $M$ 和 $N$，一个连续可微映射$f: M \to N$如果它是双射，并且它的逆映射$f^{-1}: N \to M$也是可微的，那么 $f$ 就称为一个微分同胚。如果映射$f$及其逆映射都是$r$ 次连续可微的，则称 $f$是一个$C^r$-微分同胚。
+
+两个流形$M$和$N$如果存在一个微分同胚$f: M \to N$则称它们是微分同胚的，通常记作$M \simeq N$。如果两个流形都是$C^r$可微的，并且存在一个$r$次连续可微的双射，其逆映射也是$r$次连续可微的，那么称它们是$C^r$-微分同胚的。$C^1$-微分同胚通常直接称为微分同胚。$C^0$-微分同胚则等价于一个同胚。
+\subsection{流形子集的微分同胚}
+设$M$和$N$是两个流形，$X \subset M$ 和 $Y \subset N$ 是它们的子集。一个函数$f: X \to Y$称为光滑的，如果对每一个点 $p \in X$，都存在一个包含 $p$ 的邻域$U \subset M$以及一个光滑函数$g: U \to N$使得在交集部分有$g|_{U \cap X} = f|_{U \cap X}$。换句话说，函数 $g$ 是函数 $f$ 的一个光滑延拓。若函数 $f$ 是双射、**光滑的**，并且它的逆映射也是光滑的，那么 $f$ 就称为一个**微分同胚（diffeomorphism）**。
