@@ -1,0 +1,131 @@
+% 光滑函数（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Smoothness}{相关文章}
+
+在数学分析中，函数的光滑性是一个由其定义域上连续导数的阶数（可微类，differentiability class）来衡量的性质。[1]
+
+一个属于$C^k$类的函数，意味着它至少是$k$阶光滑的；换句话说，$C^k$类函数是在其定义域上具有连续的$k$阶导数的函数。
+
+一个属于$C^\infty$类的函数（也称为$C^\infty$函数，读作“C-infinity function”），是一个无穷可微函数，即拥有所有阶数导数的函数（这也意味着所有这些导数都是连续的）。
+
+通常情况下，术语光滑函数指的就是一个$C^\infty$函数。但在某些问题的语境中，它也可能表示“具有足够阶可微性”的函数。
+\subsection{可微类}
+可微类是根据函数导数的性质对函数进行分类的一种方式，它衡量的是函数存在并且连续的最高阶导数的阶数。
+
+考虑实数轴上的一个开集$U$，以及一个定义在$U$上、取实值的函数$f$。设$k$是一个非负整数。如果函数$f$的各阶导数$f', f'', \dots, f^{(k)}$都存在并且在$U$上连续，则称函数$f$属于$C^k$类。如果 $f$ 在 $U$ 上是 $k$ 阶可微的，那么它至少属于$C^{k-1}$类，因为它的 $f', f'', \dots, f^{(k-1)}$都在$U$上连续。如果函数 $f$ 在 $U$ 上有任意阶导数，则称它是无穷可微的、光滑的，或者是$C^\infty$ 类。这意味着它的所有导数在$U$上都是连续函数。[2]如果函数$f$是光滑的（即 $f \in C^\infty$），并且它在定义域内任意一点的 Taylor 级数在该点的某个邻域内收敛并等于函数本身，则称$f$属于$C^\omega$类，也称为解析函数。存在一些函数是光滑但不是解析的，因此 $C^\omega$ 严格包含在 $C^\infty$ 之内。凸起函数就是这种性质的例子。
+
+换句话说：$C^0$类是所有连续函数的集合；$C^1$类是所有一阶导数存在且连续的函数，这类函数称为连续可微函数。因此，$C^1$函数正好是导数存在且导数属于$C^0$类的函数。一般来说，可递归地定义这些类：$C^0$类：所有连续函数的集合；$C^k$类（$k>0$）：所有可微函数的集合，其导数属于$C^{k-1}$ 类。由此可以得出：对于每个$k>0$，有$C^k \subset C^{k-1},$且严格包含（$C^k \subsetneq C^{k-1}$）。无穷可微函数的类$C^\infty$是所有非负整数$k$的$C^k$类的交集。
+\subsubsection{示例}
+\textbf{示例：连续（C⁰）但不可微}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/45836d8c75a81d54.png}
+\caption{The$ C^0 function f(x) = x for x \ge 0$ and 0 otherwise.} \label{fig_GHhs_1}
+\end{figure}
+函数
+$$
+f(x)=
+\begin{cases}
+x, & x \ge 0,\\
+0, & x < 0
+\end{cases}~
+$$
+是连续的，但在$x = 0$处不可微，因此它属于$C^0$类，但不属于$C^1$类。
+
+\textbf{示例：有限次可微函数（Cᵏ）}
+
+对于每个偶数整数 $k$，函数
+$$
+f(x) = |x|^{k+1}~
+$$
+在所有$x$上都是连续且$k$次可微的。然而，在$x = 0$处，$f$并不是$(k+1)$次可微的，因此$f$属于$C^k$类，但不属于任意$C^j$类（其中 $j > k$）。
+
+\textbf{示例：可微但导数不连续（非 $C^1$）}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/7881902a68d0bad7.png}
+\caption{The function $g(x) = x2 sin(1/x) for x > 0$.} \label{fig_GHhs_2}
+\end{figure}
+函数
+$$
+g(x) =
+\begin{cases}
+x^2 \sin\left(\frac{1}{x}\right), & x \neq 0,\\
+0, & x = 0
+\end{cases}~
+$$
+是可微的，其导数为
+$$
+g'(x) =
+\begin{cases}
+-\cos\left(\frac{1}{x}\right) + 2x \sin\left(\frac{1}{x}\right), & x \neq 0,\\
+0, & x = 0
+\end{cases}~
+$$
+由于$\cos(1/x)$在$x \to 0$时振荡，$g'(x)$在0处不连续。因此，$g(x)$是可微的，但不属于$C^1$类。
+
+\textbf{示例：可微但非 Lipschitz 连续}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/2082dceaa17a53df.png}
+\caption{函数$f:\mathbb{R} \to \mathbb{R}$定义为$f(x) = x^{2} \sin\left(\tfrac{1}{x}\right), \quad x \neq 0$以及$f(0) = 0$是可微的，但这个函数并不是连续可微的。} \label{fig_GHhs_3}
+\end{figure}
+函数
+$$
+h(x) =
+\begin{cases}
+x^{4/3} \sin\left(\frac{1}{x}\right), & x \neq 0,\\
+0, & x = 0
+\end{cases}~
+$$
+是可微的，但它的导数在某些紧集上无界。
+因此，$h$ 是一个可微但不是局部 Lipschitz 连续的函数示例。
+
+\textbf{示例：解析函数（$C^\omega$）}
+
+指数函数$e^x$是解析的，因此属于$C^\omega$类（其中 $\omega$ 是最小的超限序数）。三角函数在其定义域内也是解析的，因为它们是复指数函数$e^{ix} \quad \text{和} \quad e^{-ix}$的线性组合。
+
+\textbf{示例：光滑函数（$C^\infty$）但非解析函数（$C^\omega$）}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/93e2bf298942f20d.png}
+\caption{一个光滑但非解析的函数。} \label{fig_GHhs_4}
+\end{figure}
+凸起函数
+$$
+f(x) =
+\begin{cases}
+e^{-\frac{1}{1-x^2}}, & |x| < 1,\\
+0, & \text{其他情况}
+\end{cases}~
+$$
+是光滑的，因此属于$C^\infty$类，但在$x = \pm 1$处不是解析的，因此不属于$C^\omega$类。函数$f$是一个具有紧支集的光滑函数的例子。
+\subsubsection{多变量可微类}
+一个函数$f: U \subseteq \mathbb{R}^n \to \mathbb{R}$，定义在 $\mathbb{R}^n$ 的开集 $U$ 上，若对于每组非负整数$\alpha_1, \alpha_2, \ldots, \alpha_n$满足$\alpha = \alpha_1 + \alpha_2 + \cdots + \alpha_n \le k$，所有的偏导数
+$$
+\frac{\partial^\alpha f}{\partial x_1^{\alpha_1}\,\partial x_2^{\alpha_2}\,\cdots\,\partial x_n^{\alpha_n}}(y_1, y_2, \ldots, y_n)~
+$$
+都存在且在$U$上连续，则称函数$f$在$U$上是$C^k$类函数。等价地，如果$f$的第$k$阶 Fréchet 导数在$U$的每一点都存在且连续，那么$f$也是$C^k$类的。如果函数$f$在$U$ 上连续，则称它是$C$类或 $C^0$类函数。若$f$是$C^1$类函数，则称它是连续可微的。
+
+一个函数$f: U \subset \mathbb{R}^n \to \mathbb{R}^m$，定义在 $\mathbb{R}^n$ 的开集 $U$ 上，如果它的每一个分量函数
+$$
+f_i(x_1, x_2, \ldots, x_n)
+= (\pi_i \circ f)(x_1, x_2, \ldots, x_n)
+= \pi_i(f(x_1, x_2, \ldots, x_n)), \quad i=1,2,3,\ldots,m,~
+$$
+都是$C^k$类的（其中 $\pi_i: \mathbb{R}^m \to \mathbb{R}$是自然投影，定义为 $\pi_i(x_1, x_2, \ldots, x_m) = x_i$），则称$f$在$U$上是$C^k$类函数。如果 $f$ 在 $U$ 上连续，或者等价地，所有分量$f_i$都是连续的，则称$f$是$C$类或$C^0$类函数。
+\subsubsection{$C^k$ 函数空间}
+设 $D$ 是实数轴上的一个开集。所有定义在$D$上的$C^k$实值函数的集合构成一个 Fréchet 向量空间，其拓扑由一列半范数族给出：
+$$
+p_{K,m} = \sup_{x \in K} \big| f^{(m)}(x) \big|,~
+$$
+其中 $K$ 是一列逐渐增大的紧集，它们的并集是 $D$，而 $m = 0, 1, \dots, k$。
+
+定义在$D$上的$C^\infty$函数的集合同样构成一个\textbf{Fréchet 空间}。使用的方法与上面相同，只是此时 $m$ 取遍所有非负整数。
+
+这些空间在许多需要函数具有某一阶导数的应用中自然出现；然而，尤其是在研究偏微分方程时，使用\textbf{Sobolev 空间}有时会更加有用。
+\subsection{连续性}
+
+参数连续性（parametric continuity，$C^k$）和几何连续性（geometric continuity，$G^n$）这两个术语是由 Brian Barsky 提出的，用来说明可以通过放宽参数沿曲线运动速度的限制来衡量曲线的光滑程度。\[4]\[5]\[6]
