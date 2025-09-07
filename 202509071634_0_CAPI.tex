@@ -1,0 +1,53 @@
+% C/C++ API 兼容性
+% license Usr
+% type Note
+
+\subsection{库中的符号的可见性设置}
+\begin{itemize}
+\item 跨 dll/so 调用\textbf{符号（包括函数、全局变量等）}时，C API 是稳定的，意思是统一操作系统和 CPU 架构中，不同的编译器或同一编译器的不同版本编译的 dll/so 等可以混用。 但 C++ API 不稳定，不能混用。
+\item 在 C++ 中声明了 \verb`extern "C" {...}` 的部分也是 C API。
+\item dll/so 中的符号可以设置编译器属性（非标准 C/C++）如 GCC 的 \verb`__attribute__((attribute_name))` MSVC 和 MinGW 的 \verb`__declspec(attribute_name)`。注意双层括号不可省略为单层。其中 \verb`attribute_name` 在 \verb`__declspec` 中可以是 \verb`dllimport` 或 \verb`dllexport`；若用 GCC/Clang 在非 Windows 系统跨平台使用则用 \verb`visibility("default")` 表示 public，\verb`visibility("hidden")` 表示 hidden（不区分 import/export）。
+\item \verb`default/hidden` 是对应了编译器选项 \verb`-fvisibility=default/hidden`。
+\item GCC 默认 dll/so 库中的符号全部导出（即 \verb`-fvisibility=default`），而 MSVC 默认全部隐藏。 只有导出的符号才可以被其他库或可执行文件使用。
+\item GCC 若要默认隐藏（推荐），可以通过（即 \verb`-fvisibility=hidden`）控制某个编译单元，或者用 linker 选项 \verb`-Wl,--exclude-all-symbols` 隐藏当前编译的库的所有符号。
+\begin{lstlisting}[language=cpp]
+// mylib.h
+// MYLIB_BUILDING 宏在编译 mylib.dll 时必须定义，在使用时必须没有定义
+
+#if defined(_MSC_VER)
+    // MSVC handling
+    #ifdef MYLIB_BUILDING
+        #define MYLIB_API __declspec(dllexport)
+    #else
+        #define MYLIB_API __declspec(dllimport)
+    #endif
+#elif defined(__GNUC__) || defined(__clang__)
+    // GCC/Clang - cross other platforms
+    #ifdef MYLIB_BUILDING
+        #define MYLIB_API __attribute__((visibility("default")))
+    #else
+        #define MYLIB_API
+    #endif
+#else
+    #define MYLIB_API  // Unknown compiler
+#endif
+
+class MYLIB_API MyClass {  // Exported on all platforms
+public:
+    void method();
+};
+\end{lstlisting}
+\item \verb`MYLIB_API` 只需要在声明符号的时候使用，不需要在定义时使用（除非定义和声明写在一起，例如 C++ template、inline 函数等）。
+\end{itemize}
+
+\subsection{跨编译器编译库}
+例如要在使用 MinGW 编译一个库给 MSVC 使用，除了使用 \verb`extern "C" {...}`， 为了避免该库依赖 MinGW 特有的依赖库，应该把它们设置为静态链接。
+\begin{lstlisting}[language=bash]
+# Compile with these flags to avoid MinGW dependencies
+gcc -shared -o mylib.dll mylib.c \
+    -static \                     # Static linking (crucial!)
+    -static-libgcc \              # Static libgcc
+    -static-libstdc++ \           # Static C++ runtime if needed
+    -Wl,--output-def,mylib.def \  # Generate .def file
+    -Wl,--out-implib,libmylib.a
+\end{lstlisting}
