@@ -1,0 +1,29 @@
+% 子集（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Subset}{相关文章}
+
+在数学中，如果集合 **A** 的所有元素都是集合 **B** 的元素，则称 **A** 是 **B** 的子集；此时 **B** 是 **A** 的超集。集合 **A** 与 **B** 可以相等；若不相等，则 **A** 是 **B** 的真子集。一个集合是另一个集合的子集这一关系称为**包含关系**（有时也称为**包涵关系**）。表达方式包括：**A 是 B 的子集**，等价于说 **B 包含 A** 或 **A 被包含于 B**。一个 **k-子集**（k-subset）是指含有 **k 个元素**的子集。
+
+在形式化表述时，$A \subseteq B$表示为$\forall x \,(x \in A\Rightarrow x \in B)$。可以用一种称为元素论证法的证明技巧来证明$A \subseteq B$。具体做法是：给定集合 A 和 B，要证明$A \subseteq B$，假设a是集合A中一个特定但任意选取的元素，然后证明a也是集合B的元素。
+
+这种技巧的有效性可以看作是**全称概化**（universal generalization）的结果：通过证明
+
+$$
+(c \in A) \Rightarrow (c \in B)
+$$
+
+对于任意选择的元素 **c** 成立，全称概化便能推出
+
+$$
+\forall x \,(x \in A \Rightarrow x \in B)，
+$$
+
+这就等价于
+
+$$
+A \subseteq B，
+$$
+
+如上所述。
