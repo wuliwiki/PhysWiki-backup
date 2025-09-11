@@ -40,7 +40,7 @@ $通常表示从 1 到 100 的所有整数。即便在这种情况下，仍然�
 \begin{figure}[ht]
 \centering
 \includegraphics[width=6cm]{./figures/009b7b48421ad40c.png}
-\caption{} \label{fig_KSJ_1}
+\caption{从整数到偶数的双射映射} \label{fig_KSJ_1}
 \end{figure}
 有些集合是无限的；这些集合的元素数目大于任意一个可以指定的整数$n$。 （无论指定的整数$n$多大，比如 $n=10^{1000}$，无限集中的元素都比$n$多。）例如，自然数集合可以记作：$\{0,1,2,3,4,5,\dots\}$，它有无穷多个元素，我们无法用任何一个自然数来表示它的大小。[a]看起来很自然的做法是将集合分为不同的类：把所有只含有一个元素的集合放在一起；所有含有两个元素的集合放在一起；……；最后，把所有无限集合放在一起，并认为它们大小相同。这种观点对于可数无限集是成立的，并且在格奥尔格·康托尔之前是普遍的假设。例如，奇数集合是无限的，偶数集合是无限的，整数集合也是无限的。我们可以认为这些集合大小相同，因为我们可以这样安排：对每一个整数，都对应一个唯一的偶数：
 $$
@@ -77,7 +77,7 @@ $$
 \begin{figure}[ht]
 \centering
 \includegraphics[width=6cm]{./figures/16cb3ab4d89837dc.png}
-\caption{} \label{fig_KSJ_2}
+\caption{康托尔配对函数为每一对自然数分配一个唯一的自然数。} \label{fig_KSJ_2}
 \end{figure}
 $$
 0 \leftrightarrow (0,0),\; 
@@ -111,7 +111,7 @@ $$
 \begin{figure}[ht]
 \centering
 \includegraphics[width=6cm]{./figures/380a9651ca4a9c4a.png}
-\caption{} \label{fig_KSJ_3}
+\caption{可数多个可数集合的枚举} \label{fig_KSJ_3}
 \end{figure}
 例如，给定若干可数集
 $\mathbf{a}, \mathbf{b}, \mathbf{c}, \dots$，
@@ -200,14 +200,56 @@ e.\textbf{证明：}如果对每个$i \in I = \{1, \dots , n\}$，集合$A_i$都
 $$
 G : I \times \mathbb{N} \to \bigcup_{i \in I} A_i, \quad G(i,m) = g_i(m)~
 $$
-它是一个满射。由于$I \times \mathbb{N}$是可数的，所以并集$\bigcup_{i \in I} A_i$也是可数的。
-
-f.证明：与有限情形类似，但这里 $I = \mathbb{N}$。我们使用**可数选择公理**，为每个 $i \in \mathbb{N}$ 选择一个满射 $g_i$，该满射来自于从 $\mathbb{N}$ 到 $A_i$ 的非空满射集合。\[26]
-
-注意，由于我们考虑的是满射
-
+它是一个满射。由于$I \times \mathbb{N}$是可数的，所以并集$\bigcup_{i \in I} A_i$也是可数的。\\
+f.\textbf{证明：}与有限情形类似，但这里 $I = \mathbb{N}$。我们使用可数选择公理，为每个 $i \in \mathbb{N}$ 选择一个满射 $g_i$，该满射来自于从 $\mathbb{N}$ 到 $A_i$ 的非空满射集合。[26]注意，由于我们考虑的是满射
 $$
-G : \mathbb{N} \times \mathbb{N} \to \bigcup_{i \in I} A_i，
+G : \mathbb{N} \times \mathbb{N} \to \bigcup_{i \in I} A_i~
 $$
+而不是单射，因此并不要求这些集合两两不交。\\
+g.\textbf{证明：}(1) 注意，如果 $T$ 是可数的，那么存在一个单射函数$h : T \to \mathbb{N}$,若$f : S \to T$是单射，则复合函数$h \circ f : S \to \mathbb{N}$也是单射，因此 $S$ 是可数的。(2) 注意，如果 $S$ 是可数的，那么要么 $S$ 是空集，要么存在一个满射函数$h : \mathbb{N} \to S$.若 $g : S \to T$ 是满射，则要么 $S$ 与 $T$ 都是空集，要么复合函数$g \circ h : \mathbb{N} \to T$是满射。在任一情况下，$T$都是可数的。\\
+h.参见**康托尔的第一个不可数性证明，以及有限交性质 # 应用中的拓扑学证明。
+\subsection{引文}
+\begin{enumerate}
+\item Manetti, Marco (2015 年 6 月 19 日). *Topology*. Springer. p. 26. ISBN 978-3-319-16958-3.
+\item Rudin 1976, 第 2 章
+\item Tao 2016, p. 181
+\item Kamke 1950, p. 2
+\item Lang 1993, 第 I 章 §2
+\item Apostol 1969, p. 23, 第 1.14 节
+\item Thierry, Vialar (2017 年 4 月 4 日). *Handbook of Mathematics. BoD - Books on Demand. p. 24. ISBN 978-2-9551990-1-5.
+\item Mukherjee, Subir Kumar (2009). *First Course in Real Analysis. Academic Publishers. p. 22. ISBN 978-81-89781-90-3.
+\item Yaqub, Aladdin M. (2014 年 10 月 24 日). *An Introduction to Metalogic. Broadview Press. ISBN 978-1-4604-0244-3.
+\item Singh, Tej Bahadur (2019 年 5 月 17 日). *Introduction to Topology. Springer. p. 422. ISBN 978-981-13-6954-4.
+\item Katzourakis, Nikolaos; Varvaruca, Eugen (2018 年 1 月 2 日). *An Illustrative Introduction to Modern Analysis*. CRC Press. ISBN 978-1-351-76532-9.
+\item Halmos 1960, p. 91
+\item Kamke 1950, p. 2
+\item Dlab, Vlastimil; Williams, Kenneth S. (2020 年 6 月 9 日). Invitation To Algebra: A Resource Compendium For Teachers, Advanced Undergraduate Students And Graduate Students In Mathematics. World Scientific. p. 8. ISBN 978-981-12-1999-3.
+\item Tao 2016, p. 182
+\item Stillwell, John C. (2010). Roads to Infinity: The Mathematics of Truth and Proof. CRC Press. p. 10. ISBN 9781439865507. —— 康托尔在 1874 年发现不可数集，这是数学史上最出乎意料的事件之一。在 1874 年之前，大多数人甚至不认为无穷是一个合法的数学主题，因此无法想象有区分“可数无穷”和“不可数无穷”的必要。
+\item Cantor 1878, p. 242.
+\item Ferreirós 2007, pp. 268, 272–273.
+\item "What Are Sets and Roster Form?". expii. 2021-05-09. 存档于 2020-09-18.
+\item Halmos 1960, p. 91
+\item Halmos 1960, p. 92
+\item Avelsgaard 1990, p. 182
+\item Kamke 1950, pp. 3–4
+\item Avelsgaard 1990, p. 180
+\item Fletcher & Patty 1988, p. 187
+\item Hrbacek, Karel; Jech, Thomas (1999 年 6 月 22 日). Introduction to Set Theory*, 第三版, 修订与扩展版. CRC Press. p. 141. ISBN 978-0-8247-7915-3.
+\end{enumerate}
+\subsection{参考文献}
+\begin{itemize}
+\item Apostol, Tom M. (1969 年 6 月), Multi-Variable Calculus and Linear Algebra with Applications, 卷 2 (第 2 版), 纽约: John Wiley + Sons, ISBN 978-0-471-00007-5.
+\item Avelsgaard, Carol (1990), Foundations for Advanced Mathematics, Scott, Foresman and Company, ISBN 0-673-38152-8.
+\item Cantor, Georg (1878), “Ein Beitrag zur Mannigfaltigkeitslehre”, Journal für die Reine und Angewandte Mathematik, 1878 (84): 242–248, doi:10.1515/crelle-1878-18788413, S2CID 123695365.
+\item Ferreirós, José (2007), Labyrinth of Thought: A History of Set Theory and Its Role in Mathematical Thought (第 2 次修订版), Birkhäuser, ISBN 978-3-7643-8349-7.
+\item Fletcher, Peter; Patty, C. Wayne (1988), Foundations of Higher Mathematics, 波士顿: PWS-KENT Publishing Company, ISBN 0-87150-164-3.
+\item Halmos, Paul R. (1960), *Naive Set Theory*, D. Van Nostrand Company, Inc. 1974 年由 Springer-Verlag, New York 再版, ISBN 0-387-90092-6（Springer-Verlag 版）; 2011 年由 Martino Fine Books 再版, ISBN 978-1-61427-131-4（平装版）.
+\item Kamke, Erich (1950), Theory of Sets, Dover 数学与物理丛书, 纽约: Dover, ISBN 978-0486601410.
+\item Lang, Serge (1993), Real and Functional Analysis, 柏林, 纽约: Springer-Verlag, ISBN 0-387-94001-4.
+\item Rudin, Walter (1976), Principles of Mathematical Analysis, 纽约: McGraw-Hill, ISBN 0-07-054235-X.
+\item Tao, Terence (2016), “Infinite sets”. Analysis I. Texts and Readings in Mathematics. 卷 37 (第 3 版), 新加坡: Springer, pp. 181–210, doi:10.1007/978-981-10-1789-6\_8. ISBN 978-981-10-1789-6.
+\end{itemize}
 
-而不是单射，因此并不要求这些集合两两不交。
+
+

@@ -200,14 +200,40 @@ e.\textbf{证明：}如果对每个$i \in I = \{1, \dots , n\}$，集合$A_i$都
 $$
 G : I \times \mathbb{N} \to \bigcup_{i \in I} A_i, \quad G(i,m) = g_i(m)~
 $$
-它是一个满射。由于$I \times \mathbb{N}$是可数的，所以并集$\bigcup_{i \in I} A_i$也是可数的。
-
-f.证明：与有限情形类似，但这里 $I = \mathbb{N}$。我们使用**可数选择公理**，为每个 $i \in \mathbb{N}$ 选择一个满射 $g_i$，该满射来自于从 $\mathbb{N}$ 到 $A_i$ 的非空满射集合。\[26]
-
-注意，由于我们考虑的是满射
-
+它是一个满射。由于$I \times \mathbb{N}$是可数的，所以并集$\bigcup_{i \in I} A_i$也是可数的。\\
+f.\textbf{证明：}与有限情形类似，但这里 $I = \mathbb{N}$。我们使用**可数选择公理**，为每个 $i \in \mathbb{N}$ 选择一个满射 $g_i$，该满射来自于从 $\mathbb{N}$ 到 $A_i$ 的非空满射集合。[26]注意，由于我们考虑的是满射
 $$
-G : \mathbb{N} \times \mathbb{N} \to \bigcup_{i \in I} A_i，
+G : \mathbb{N} \times \mathbb{N} \to \bigcup_{i \in I} A_i~
 $$
-
 而不是单射，因此并不要求这些集合两两不交。
+g.\textbf{证明：}
+
+(1) 注意，如果 $T$ 是可数的，那么存在一个单射函数
+
+$$
+h : T \to \mathbb{N}.
+$$
+
+若 $f : S \to T$ 是单射，则复合函数
+
+$$
+h \circ f : S \to \mathbb{N}
+$$
+
+也是单射，因此 $S$ 是可数的。
+
+(2) 注意，如果 $S$ 是可数的，那么要么 $S$ 是空集，要么存在一个满射函数
+
+$$
+h : \mathbb{N} \to S。
+$$
+
+若 $g : S \to T$ 是满射，则要么 $S$ 与 $T$ 都是空集，要么复合函数
+
+$$
+g \circ h : \mathbb{N} \to T
+$$
+
+是满射。在任一情况下，$T$ 都是可数的。
+
+参见**康托尔的第一个不可数性证明**，以及**有限交性质 # 应用**中的拓扑学证明。
