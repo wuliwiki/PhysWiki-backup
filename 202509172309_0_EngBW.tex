@@ -1,0 +1,54 @@
+% 一维高斯波包的时间—能量不确定度的计算
+% license Usr
+% type Note
+
+\subsection{粒子}
+\begin{equation}
+P(k)\dd{k} = P'(E)\dd{E} = P'(k^2/2)k\dd{k}~.
+\end{equation}
+所以
+\begin{equation}
+P'(E) = P(k)/k = \exp[-a^2 k^2]/k~.
+\end{equation}
+
+\begin{equation}
+\Delta k = \Delta E/k~.
+\end{equation}
+\begin{equation}
+\Delta x = c\Delta t~.
+\end{equation}
+
+
+高斯波包 FWHMI （用 $\Delta$ 表示）和 sigma 的关系是？前者是后者的 $2\sqrt{2\ln 2} = 2.35482$ 倍。
+
+$\frac{c\Delta t \cdot \Delta E/k}{8\ln 2} = \frac{\Delta x}{2\sqrt{2\ln 2}}\frac{\Delta k}{2\sqrt{2\ln 2}} = \sigma_x \sigma_k \leq \frac{1}{2}$
+
+于是得到（原子单位） $\Delta t\Delta E \leq (4\ln 2)k/c = 2.77258 k/c$。
+
+\begin{lstlisting}[language=matlab]
+Eng = eV2au_E(143); % 83
+FWHMI_E = eV2au_E(20); % 10
+
+k = sqrt(2*Eng);
+c = 137.036;
+
+FWHMI_t = 4*log(2)*k/c / FWHMI_E;
+
+disp('FWHMI_t [as] = ');
+disp(au_t2as(FWHMI_t));
+\end{lstlisting}
+
+\subsection{电磁波}
+$E = \omega$。
+
+\begin{equation}
+\frac{\Delta t}{2\sqrt{2\ln 2}}\frac{\Delta E}{2\sqrt{2\ln 2}} = \sigma_t \sigma_\omega \leq \frac{1}{2}~.
+\end{equation}
+\begin{equation}
+\Delta t\Delta E = 4\ln 2 = 2.772589~.
+\end{equation}
+
+国际单位下，$\beta_E\beta_t = \hbar$，所以
+\begin{equation}
+\Delta t \Delta E  = \frac{2\ln 2}{\pi}h~.
+\end{equation}
