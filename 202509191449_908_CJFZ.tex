@@ -1,0 +1,158 @@
+% 乘积法则（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Product_rule}{相关文章}
+
+在微积分中，乘积法则（或称莱布尼茨法则[2]、莱布尼茨乘积法则）是一个用于求两个或多个函数乘积的导数的公式。对于两个函数，可以用拉格朗日记号表示为：
+$$
+(u \cdot v)' = u' \cdot v + u \cdot v',~
+$$
+或用莱布尼茨记号表示为：
+$$
+\frac{d}{dx}(u \cdot v) = \frac{du}{dx} \cdot v + u \cdot \frac{dv}{dx}.~
+$$
+该法则可以推广到三个或更多函数的乘积，推广到乘积的高阶导数规则，以及其他语境中。
+\subsection{发现}
+这一法则的发现通常归功于 戈特弗里德·莱布尼茨，他使用“无穷小”（现代微分的前身）进行了论证。[3]（然而，莱布尼茨论文的译者 J. M. Child[4] 认为应归功于艾萨克·巴罗。）以下是莱布尼茨的推理：[5]设$u$和$v$是函数。则$d(uv)$等于两个相继$uv$之差；其中一个是$uv$，另一个是$(u+du)(v+dv)$。于是：
+$$
+d(u \cdot v) = (u+du)\cdot(v+dv) - u\cdot v 
+= u \cdot dv + v \cdot du + du \cdot dv.~
+$$
+由于项$du \cdot dv$相较于$du$和$dv$是“可忽略的”，莱布尼茨得出结论：
+$$
+d(u \cdot v) = v \cdot du + u \cdot dv,~
+$$
+这确实就是乘积法则的微分形式。
+
+如果两边同时除以微分$dx$，就得到：
+$$
+\frac{d}{dx}(u \cdot v) = v \cdot \frac{du}{dx} + u \cdot \frac{dv}{dx},~
+$$
+这同样可以用拉格朗日记号写作：
+$$
+(u \cdot v)' = v \cdot u' + u \cdot v'.~
+$$
+\subsubsection{最初的证明}
+莱布尼茨和牛顿都给出了乘积法则的证明，但以现代标准来看并不严格。
+莱布尼茨借助“无穷小量”进行推理，把积解释为矩形的面积；而牛顿则使用“流动量”的概念进行推理。[6][7]
+\subsection{例子}
+\begin{itemize}
+\item 假设我们要求函数$f(x) = x^{2}\sin(x)$的导数。应用乘积法则，可以得到$f'(x) = 2x \cdot \sin(x) + x^{2}\cos(x)$，因为$x^{2}$的导数是 $2x$，而正弦函数的导数是余弦函数。
+\item 乘积法则的一个特殊情形是常数倍法则：如果 $c$ 是一个常数，而$f(x)$是一个可微函数，那么$(cf)(x) = c \cdot f(x)$也是可微的，其导数为$(cf)'(x) = c \cdot f'(x)$。这一结果可以直接从乘积法则推出，因为任何常数的导数都是零。
+\item 这一点结合求导的和法则，表明微分运算是线性的。此外，分部积分公式就是由乘积法则推导出来的，商法则（弱形式）也是如此。所谓“弱形式”，指的是它并没有证明商一定可微，而只是指出：如果可微，其导数是什么。
+\end{itemize}
+\subsection{证明}
+\subsubsection{导数的极限定义}
+设$h(x) = f(x)g(x)$，并且假设$f$和$g$在$x$处可导。我们要证明$h$在 $x$ 处也可导，且其导数为$h'(x) = f'(x)g(x) + f(x)g'(x)$.为此，在分子中加上并减去一项$f(x)g(x+\Delta x) - f(x)g(x+\Delta x)$（其值为零，因此不改变原式），从而可以因式分解，然后利用极限的性质来处理。
+$$
+\begin{aligned}
+h'(x) &= \lim_{\Delta x \to 0} \frac{h(x+\Delta x) - h(x)}{\Delta x} \\[6pt]
+&= \lim_{\Delta x \to 0} \frac{f(x+\Delta x)g(x+\Delta x) - f(x)g(x)}{\Delta x} \\[6pt]
+&= \lim_{\Delta x \to 0} \frac{f(x+\Delta x)g(x+\Delta x) - f(x)g(x+\Delta x) + f(x)g(x+\Delta x) - f(x)g(x)}{\Delta x} \\[6pt]
+&= \lim_{\Delta x \to 0} \frac{\big(f(x+\Delta x)-f(x)\big)\cdot g(x+\Delta x) + f(x)\cdot \big(g(x+\Delta x)-g(x)\big)}{\Delta x} \\[6pt]
+&= \lim_{\Delta x \to 0} \frac{f(x+\Delta x)-f(x)}{\Delta x} \cdot \lim_{\Delta x \to 0} g(x+\Delta x) \\ 
+&\quad + \lim_{\Delta x \to 0} f(x) \cdot \lim_{\Delta x \to 0} \frac{g(x+\Delta x)-g(x)}{\Delta x} \\[6pt]
+&= f'(x)g(x) + f(x)g'(x).
+\end{aligned}~
+$$
+其中$\lim_{\Delta x \to 0} g(x+\Delta x) = g(x)$是因为可导函数必定连续。
+\subsubsection{线性近似}
+根据定义，如果$f,g:\mathbb{R}\to \mathbb{R}$在$x$处可导，则我们可以写成线性近似式：
+$$
+f(x+h) = f(x) + f'(x)h + \varepsilon_{1}(h),~
+$$
+$$
+g(x+h) = g(x) + g'(x)h + \varepsilon_{2}(h),~
+$$
+其中误差项相对于$h$是高阶无穷小：
+$$
+\lim_{h\to 0}\frac{\varepsilon_{1}(h)}{h} = \lim_{h\to 0}\frac{\varepsilon_{2}(h)}{h} = 0,~
+$$
+也记作 $\varepsilon_{1}, \varepsilon_{2} \sim o(h)$。
+
+于是：
+$$
+\begin{aligned}
+f(x+h)g(x+h) - f(x)g(x) 
+&= \big(f(x) + f'(x)h + \varepsilon_{1}(h)\big)\big(g(x) + g'(x)h + \varepsilon_{2}(h)\big) - f(x)g(x) \\[6pt]
+&= f(x)g(x) + f'(x)g(x)h + f(x)g'(x)h - f(x)g(x) + \text{误差项} \\[6pt]
+&= f'(x)g(x)h + f(x)g'(x)h + o(h).
+\end{aligned}~
+$$
+这里的“误差项”包括诸如
+$$
+f(x)\varepsilon_{2}(h), \quad f'(x)g'(x)h^{2}, \quad h f'(x)\varepsilon_{1}(h),~
+$$
+这些量显然都是$o(h)$级别的。两边同时除以$h$，再令$h \to 0$，即可得到结果：$(fg)'(x) = f'(x)g(x) + f(x)g'(x)$.
+\subsubsection{四分平方法}
+这个证明利用了链式法则和四分平方函数$q(x) = \tfrac{1}{4}x^{2}, \quad q'(x) = \tfrac{1}{2}x$我们有：
+$$
+uv = q(u+v) - q(u-v),~
+$$
+对两边同时求导：
+$$
+\begin{aligned}
+f' &= q'(u+v)(u' + v') - q'(u-v)(u' - v') \\[6pt]
+&= \tfrac{1}{2}(u+v)(u' + v') - \tfrac{1}{2}(u-v)(u' - v') \\[6pt]
+&= \tfrac{1}{2}(uu' + vu' + uv' + vv') - \tfrac{1}{2}(uu' - vu' - uv' + vv') \\[6pt]
+&= vu' + uv'.
+\end{aligned}~
+$$
+\subsubsection{多变量链式法则}
+乘积法则可以看作是多元链式法则在乘法函数$m(u, v) = uv$上的一种特殊情况：
+$$
+\frac{d(uv)}{dx} = \frac{\partial (uv)}{\partial u}\frac{du}{dx} + \frac{\partial (uv)}{\partial v}\frac{dv}{dx} = v\frac{du}{dx} + u\frac{dv}{dx}.~
+$$
+\subsubsection{非标准分析}
+设$u$和$v$是关于$x$的连续函数，并且$dx, du, dv$是非标准分析框架下（具体来说是超实数体系中的）无穷小。记$\mathrm{st}$为标准部函数，它将有限超实数映射为与之无限接近的实数。于是有：
+$$
+\begin{aligned}
+\frac{d(uv)}{dx}
+&= \operatorname{st}\!\left(\frac{(u+du)(v+dv)-uv}{dx}\right)\\
+&= \operatorname{st}\!\left(\frac{uv+u\cdot dv+v\cdot du+du\cdot dv - uv}{dx}\right)\\
+&= \operatorname{st}\!\left(\frac{u\cdot dv+v\cdot du+du\cdot dv}{dx}\right)\\
+&= \operatorname{st}\!\left(u\frac{dv}{dx}+(v+dv)\frac{du}{dx}\right)\\
+&= u\frac{dv}{dx}+v\frac{du}{dx}.
+\end{aligned}~
+$$
+这实际上就是莱布尼茨当时的证明方式，本质上依赖于同类项超越法则，只不过这里用的是“标准部”函数来代替。
+\subsubsection{光滑无穷小分析}
+在Lawvere的无穷小方法框架下，设$dx$是一个平方为零的无穷小量。于是有
+
+$$
+du = u'\,dx, \quad dv = v'\,dx,
+$$
+
+因此：
+
+$$
+\begin{aligned}
+d(uv) &= (u+du)(v+dv) - uv \\
+&= uv + u\cdot dv + v\cdot du + du\cdot dv - uv \\
+&= u\cdot dv + v\cdot du + du\cdot dv \\
+&= u\cdot dv + v\cdot du
+\end{aligned}
+$$
+
+因为
+
+$$
+du\,dv = u'v'(dx)^2 = 0.
+$$
+
+再除以 $dx$，得到：
+
+$$
+\frac{d(uv)}{dx} = u\frac{dv}{dx} + v\frac{du}{dx},
+$$
+
+或者等价地：
+
+$$
+(uv)' = u\cdot v' + v\cdot u'.
+$$
+
+——这与常见的**乘积法则**形式完全一致。
+
+要不要我接着帮你翻译 **“高阶乘积法则（莱布尼茨公式）”** 的部分？
