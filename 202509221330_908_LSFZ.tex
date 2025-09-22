@@ -1,0 +1,26 @@
+% 链式法则（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Chain_rule}{相关文章}
+
+在微积分中，链式法则是一条公式，它用函数$f$和$g$的导数来表达它们复合函数的导数。更准确地说，若$h = f \circ g$是函数，满足$h(x) = f(g(x))$对任意 $x$ 成立，则在拉格朗日记号中，链式法则为：
+$$
+h'(x) = f'(g(x)) \, g'(x).~
+$$
+或者等价地：
+$$
+h' = (f \circ g)' = (f' \circ g)\cdot g'.~
+$$
+链式法则也可以用莱布尼茨记号表示。若变量 $z$ 依赖于变量 $y$，而 $y$ 又依赖于变量 $x$（即 $y$ 和 $z$ 都是依赖变量），那么 $z$ 也通过中间变量 $y$ 依赖于 $x$。在这种情况下，链式法则表示为：
+$$
+\frac{dz}{dx} = \frac{dz}{dy} \cdot \frac{dy}{dx},~
+$$
+以及：
+$$
+\left.\frac{dz}{dx}\right|_{x} = \left.\frac{dz}{dy}\right|_{y(x)} \cdot \left.\frac{dy}{dx}\right|_{x},~
+$$
+其中竖线记号用来指出导数应当在哪些点进行计算。
+
+在积分中，与链式法则对应的规则是代换积分法。
+
