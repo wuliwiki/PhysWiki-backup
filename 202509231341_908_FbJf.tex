@@ -1,0 +1,376 @@
+% 分部积分法（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Integration_by_parts}{相关文章}
+
+在微积分中，更一般地说，在数学分析中，分部积分（integration by parts，或称偏积分 partial integration）是一种方法，用来将函数乘积的积分，转化为它们的导数与原函数乘积的积分形式。它常用于把一个函数乘积的不定积分转化为另一个更容易求解的不定积分。这个公式可以被看作是微分中乘积法则的积分版本；事实上，它正是由乘积法则推导而来的。
+
+分部积分公式表述如下：
+$$
+\begin{aligned}
+\int_{a}^{b} u(x)\,v'(x)\,dx &= \Big[u(x)v(x)\Big]_{a}^{b} - \int_{a}^{b} u'(x)\,v(x)\,dx \\
+&= u(b)v(b) - u(a)v(a) - \int_{a}^{b} u'(x)\,v(x)\,dx .
+\end{aligned}~
+$$
+或者，设$u = u(x), \quad du = u'(x)\,dx, \quad v = v(x), \quad dv = v'(x)\,dx$,则公式可以写得更为简洁：
+$$
+\int u\,dv = uv - \int v\,du .~
+$$
+前一个公式写作定积分形式，而后一个公式则写作不定积分形式。若对后者加上适当的积分限，应当能得到前者，但后者并不必然与前者等价。
+
+数学家布鲁克·泰勒于1715 年首次发表了分部积分的思想。对于 Riemann–Stieltjes 积分与 Lebesgue–Stieltjes 积分，存在更一般化的分部积分形式。而在序列的离散情形中，其对应的类比被称为分部求和。
+\subsection{定理}
+\subsubsection{两个函数的乘积}
+该定理可以如下推导。对于两个连续可微函数$u(x)$和$v(x)$，乘积法则表明：
+$$
+(u(x)v(x))' = u'(x)v(x) + u(x)v'(x).~
+$$
+对等式两边关于 $x$ 积分：
+$$
+\int (u(x)v(x))'\,dx = \int u'(x)v(x)\,dx + \int u(x)v'(x)\,dx,~
+$$
+注意到不定积分就是原函数，便得到：
+$$
+u(x)v(x) = \int u'(x)v(x)\,dx + \int u(x)v'(x)\,dx,~
+$$
+其中省略了积分常数。由此得到分部积分公式：
+$$
+\int u(x)v'(x)\,dx = u(x)v(x) - \int u'(x)v(x)\,dx,~
+$$
+或者用微分形式表示：
+$$
+du = u'(x)\,dx, \quad dv = v'(x)\,dx,~
+$$
+则有：
+$$
+\int u(x)\,dv = u(x)v(x) - \int v(x)\,du.~
+$$
+这应当理解为函数之间的相等式，两边均可加上一个未指定的常数。若在$x=a$与$x=b$两点取差，并应用微积分基本定理，就得到定积分形式：
+$$
+\int_{a}^{b} u(x)v'(x)\,dx = u(b)v(b) - u(a)v(a) - \int_{a}^{b} u'(x)v(x)\,dx.~
+$$
+原始积分$\int u v'\,dx$包含导数$v'$；要应用该定理，必须先找到$v$，即$v'$的一个原函数，然后再计算所得积分$\int v u'\,dx$。
+\subsubsection{较低光滑性函数情况下的有效性}
+并不要求$u$和$v$必须是连续可微的。当$u$是绝对连续的，并且指定为$v'$的函数是Lebesgue 可积的（但不一定连续），分部积分公式依然成立。[3]（如果 $v'$ 在某点不连续，那么它的原函数$v$在该点可能没有导数。）
+
+若积分区间不是紧区间，则不需要$u$在整个区间上绝对连续，也不需要$v'$在整个区间上 Lebesgue 可积，如下的一些例子（其中$u$与$v$是连续且连续可微的）所示。例如：
+$$
+u(x) = e^x/x^2, \quad v'(x) = e^{-x},~
+$$
+此时$u$在区间$[1,\infty)$上并不是绝对连续的，但仍然有：
+$$
+\int_{1}^{\infty} u(x)v'(x)\,dx 
+= \Big[u(x)v(x)\Big]_{1}^{\infty} - \int_{1}^{\infty} u'(x)v(x)\,dx .~
+$$
+只要$[u(x)v(x)]_{1}^{\infty}$被理解为极限
+$$
+\lim_{L \to \infty} \big(u(L)v(L) - u(1)v(1)\big),~
+$$
+并且只要右边的两个项都是有限的，那么公式仍然成立。这只在我们选择$v(x) = -e^{-x}$
+时才为真。
+
+类似地，如果
+$$
+u(x) = e^{-x}, \quad v'(x) = x^{-1}\sin(x),~
+$$
+则$v'$在区间$[1,\infty)$上并不是Lebesgue 可积的，但依然有
+$$
+\int_{1}^{\infty} u(x)v'(x)\,dx = [u(x)v(x)]_{1}^{\infty} - \int_{1}^{\infty} u'(x)v(x)\,dx,~
+$$
+并且应作同样的解释。
+
+同样，人们也可以很容易构造出类似的例子，其中$u$和$v$并不是连续可微的。
+
+进一步地，如果$f(x)$是区间$[a,b]$上的一个有界变差函数，而$\varphi(x)$在$[a,b]$上可微，则有
+$$
+\int_{a}^{b} f(x)\varphi'(x)\,dx = -\int_{-\infty}^{\infty} \widetilde{\varphi}(x)\, d\big(\widetilde{\chi}_{[a,b]}(x)\,\widetilde{f}(x)\big),~
+$$
+其中
+$$
+d\big(\chi_{[a,b]}(x)\widetilde{f}(x)\big)~
+$$
+表示对应于有界变差函数$\chi_{[a,b]}(x)f(x)$的符号测度，而函数$\widetilde{f}, \widetilde{\varphi}$是$f, \varphi$在整个实数轴$\mathbb{R}$上的扩展，分别为有界变差函数与可微函数。
+\subsubsection{多个函数的乘积}
+对三个函数$u(x), v(x), w(x)$的乘积法则进行积分，可以得到类似的结果：
+$$
+\int_{a}^{b} uv\,dw \;=\; [uvw]_{a}^{b} - \int_{a}^{b} uw\,dv - \int_{a}^{b} vw\,du.~
+$$
+一般而言，对于$n$个因子的乘积，有：
+$$
+\left(\prod_{i=1}^{n} u_i(x)\right)' \;=\; \sum_{j=1}^{n} u_j'(x)\,\prod_{i \neq j}^{n} u_i(x),~
+$$
+由此可得：
+$$
+\Bigg[\prod_{i=1}^{n} u_i(x)\Bigg]_{a}^{b} \;=\; \sum_{j=1}^{n} \int_{a}^{b} u_j'(x)\,\prod_{i \neq j}^{n} u_i(x).~
+$$
+\subsection{可视化}
+考虑一个参数曲线$(x,y) = (f(t), g(t))$.假设该曲线在局部是一一对应且可积的，我们可以定义：
+$$
+x(y) = f(g^{-1}(y)), \quad y(x) = g(f^{-1}(x)).~
+$$
+蓝色区域的面积为
+$$
+A_{1} = \int_{y_{1}}^{y_{2}} x(y)\,dy,~
+$$
+同样，红色区域的面积为
+$$
+A_{2} = \int_{x_{1}}^{x_{2}} y(x)\,dx.~
+$$
+总面积$A_1 + A_2$等于大矩形的面积$x_{2}y_{2}$，减去小矩形的面积$x_{1}y_{1}$：
+$$
+\overbrace{\int_{y_{1}}^{y_{2}} x(y)\,dy}^{A_{1}}
++ \overbrace{\int_{x_{1}}^{x_{2}} y(x)\,dx}^{A_{2}}
+= \Bigl. x \cdot y(x) \Bigr|_{x_{1}}^{x_{2}}
+= \Bigl. y \cdot x(y) \Bigr|_{y_{1}}^{y_{2}}.~
+$$
+换用参数$t$表示：
+$$
+\int_{t_{1}}^{t_{2}} x(t)\,dy(t) + \int_{t_{1}}^{t_{2}} y(t)\,dx(t) 
+= \Bigl. x(t)y(t) \Bigr|_{t_{1}}^{t_{2}}.~
+$$
+换作不定积分形式，可以写作：
+$$
+\int x\,dy + \int y\,dx = xy.~
+$$
+整理得：
+$$
+\int x\,dy = xy - \int y\,dx.~
+$$
+因此，分部积分可以被理解为：通过矩形面积与红色区域面积，推导出蓝色区域的面积。
+
+这种可视化也解释了为什么当已知函数$f(x)$的积分时，分部积分可以帮助求其反函数$f^{-1}(x)$的积分。实际上，函数$x(y)$与$y(x)$互为反函数，而积分$\int x\,dy$可以如上所示，通过已知的积分$\int y\,dx$来计算。特别地，这说明了分部积分在处理对数函数与反三角函数积分时的应用。事实上，如果函数 $f$在某个区间上可微且一一对应，那么分部积分就可以用来推导一个公式，将$f^{-1}$ 的积分表示为$f$的积分。这一点在文章《反函数的积分》中已有展示。
+\subsection{应用}
+\subsubsection{寻找原函数}
+分部积分是一种启发式方法，而不是纯粹的机械过程。给定一个函数需要积分时，常见的策略是巧妙地将该函数拆分为两个函数的乘积$u(x)v(x)$，使得通过分部积分公式得到的剩余积分比原积分更容易计算。下面的形式有助于说明选择策略：
+$$
+\int uv\,dx \;=\; u \int v\,dx \;-\; \int \Bigl(u' \int v\,dx\Bigr)\,dx .~
+$$
+在右边，$u$被微分而$v$被积分；因此，通常选择$u$是一个在微分后简化的函数，或选择$v$是一个在积分后简化的函数。一个简单的例子：
+$$
+\int \frac{\ln(x)}{x^{2}}\,dx .~
+$$
+因为$\ln(x)$的导数是$\tfrac{1}{x}$，所以令$\ln(x)$ 作为$u$而$\tfrac{1}{x^2}$的原函数是$-\tfrac{1}{x}$，因此令$\tfrac{1}{x^2}$作为$v$。代入分部积分公式：
+$$
+\int \frac{\ln(x)}{x^{2}}\,dx
+= -\frac{\ln(x)}{x} - \int \left(\frac{1}{x}\right)\left(-\frac{1}{x}\right)\,dx .~
+$$
+其中$-\tfrac{1}{x^2}$的原函数可以通过幂次法则求得，为$\tfrac{1}{x}$，于是最终得到：
+$$
+\int \frac{\ln(x)}{x^{2}}\,dx
+= \left(-\frac{\ln(x) + 1}{x}\right)\, + C~
+$$
+其中$C$是积分常数。
+
+或者，可以选择$u$和$v$，使得乘积$u' \bigl(\int v\,dx\bigr)$因为消去而简化。例如，若要求解：
+$$
+\int \sec^{2}(x)\cdot \ln\!\bigl(|\sin(x)|\bigr)\,dx.~
+$$
+如果取 $u(x) = \ln(|\sin(x)|)$，$v(x) = \sec^{2}x$，那么由链式法则可得$
+u'(x) = \frac{1}{\tan x}$,而 $\sec^{2}x$ 的原函数是 $\tan x$。于是分部积分公式给出：
+$$
+\int \sec^{2}(x)\cdot \ln(|\sin(x)|)\,dx
+= \tan(x)\cdot \ln(|\sin(x)|) - \int \tan(x)\cdot \frac{1}{\tan(x)}\,dx .~
+$$
+被积函数简化为$1$，因此其原函数为$x$。找到这种简化组合通常需要一定的尝试。
+
+在某些应用中，可能并不需要分部积分所产生的积分形式特别简单；例如在数值分析中，只要积分结果量级较小、对整体仅贡献微小的误差项就足够了。一些其他的特殊技巧将在下面的例子中展示。
+
+\textbf{多项式与三角函数}
+
+为了计算
+$$
+I = \int x \cos(x)\,dx,~
+$$
+令：
+$$
+\begin{aligned}
+u &= x \;\;\Rightarrow\;\; du = dx\\
+dv &= \cos(x)\,dx \;\;\Rightarrow\;\; v = \int \cos(x)\,dx = \sin(x)
+\end{aligned}~
+$$
+于是：
+$$
+\begin{aligned}
+\int x\cos(x)\,dx &= \int u\,dv \\
+&= u \cdot v - \int v\,du \\
+&= x\sin(x) - \int \sin(x)\,dx \\
+&= x\sin(x) + \cos(x) + C,
+\end{aligned}~
+$$
+其中 $C$ 为积分常数。
+
+对于更高次幂的 $x$，如：
+$$
+\int x^{n}e^{x}\,dx, \quad \int x^{n}\sin(x)\,dx, \quad \int x^{n}\cos(x)\,dx,~
+$$
+可以反复应用分部积分来计算；每一次应用该定理都会使 $x$ 的幂次降低 1。
+
+\textbf{指数函数与三角函数}
+
+一个常用来展示分部积分运作方式的例子是：
+$$
+I = \int e^{x}\cos(x)\,dx.~
+$$
+在这里，需要进行两次分部积分。第一次令：
+$$
+u = \cos(x) \;\;\Rightarrow\;\; du = -\sin(x)\,dx~
+$$
+$$
+dv = e^{x}\,dx \;\;\Rightarrow\;\; v = \int e^{x}\,dx = e^{x}~
+$$
+于是：
+$$
+\int e^{x}\cos(x)\,dx = e^{x}\cos(x) + \int e^{x}\sin(x)\,dx.~
+$$
+接着，为了计算剩下的积分，再次应用分部积分：
+$$
+\begin{aligned}
+u &= \sin(x) \;\;\Rightarrow\;\; du = \cos(x)\,dx\\
+dv &= e^{x}\,dx \;\;\Rightarrow\;\; v = \int e^{x}\,dx = e^{x}.
+\end{aligned}~
+$$
+于是：
+$$
+\int e^{x}\sin(x)\,dx = e^{x}\sin(x) - \int e^{x}\cos(x)\,dx.~
+$$
+把结果代入前式：
+$$
+\int e^{x}\cos(x)\,dx = e^{x}\cos(x) + e^{x}\sin(x) - \int e^{x}\cos(x)\,dx.~
+$$
+此时，等式两边出现了相同的积分项。把它加到等式两边：
+$$
+2\int e^{x}\cos(x)\,dx = e^{x}\bigl[\sin(x) + \cos(x)\bigr] + C,~
+$$
+整理得：
+$$
+\int e^{x}\cos(x)\,dx = \tfrac{1}{2}e^{x}\bigl[\sin(x) + \cos(x)\bigr] + C',~
+$$
+其中$C$（以及$C' = \tfrac{C}{2}$）为积分常数。
+
+类似的方法也可以用来计算$\sec^{3}x$ 的积分。
+
+\textbf{与常数 1 相乘的函数}
+
+另外两个著名的例子是：当分部积分应用于一个函数与常数 $1$ 相乘的情形。这种方法在已知该函数的导数，并且已知其导数与 $x$ 相乘后的积分时有效。
+
+第一个例子是：$\int \ln(x)\,dx$.我们将其写作：
+$$
+I = \int \ln(x)\cdot 1\,dx.~
+$$
+令：
+$$
+\begin{aligned}
+u &= \ln(x) \;\;\Rightarrow\;\; du = \frac{dx}{x},\\
+dv &= dx \;\;\Rightarrow\;\; v = x.
+\end{aligned}~
+$$
+于是：
+$$
+\begin{aligned}
+\int \ln(x)\,dx 
+&= x\ln(x) - \int \frac{x}{x}\,dx \\
+&= x\ln(x) - \int 1\,dx \\
+&= x\ln(x) - x + C,
+\end{aligned}~
+$$
+其中$C$是积分常数。
+
+第二个例子是反正切函数$\arctan(x)$：
+$$
+I = \int \arctan(x)\,dx.~
+$$
+将其改写为：
+$$
+\int \arctan(x)\cdot 1\,dx.~
+$$
+令：
+$$
+\begin{aligned}
+u &= \arctan(x) \;\;\Rightarrow\;\; du = \frac{dx}{1+x^{2}},\\
+dv &= dx \;\;\Rightarrow\;\; v = x.
+\end{aligned}~
+$$
+于是：
+$$
+\int \arctan(x)\,dx 
+= x\arctan(x) - \int \frac{x}{1+x^{2}}\,dx.~
+$$
+后一个积分利用反向链式法则和自然对数积分公式可得：
+$$
+\int \arctan(x)\,dx 
+= x\arctan(x) - \frac{\ln(1+x^{2})}{2} + C.~
+$$
+
+\textbf{LIATE 法则}
+
+LIATE 法则是分部积分的一条经验规则。它的核心思想是：在以下列表中，优先选择排在前面的函数作为$u$：[4]
+\begin{itemize}
+\item L – 对数函数：$\ln(x),\ \log_{b}(x)$ 等
+\item I – 反三角函数（包括双曲函数的反函数）：$\arctan(x),\ \operatorname{arcsec}(x),\ \operatorname{arsinh}(x)$ 等
+\item A – 代数函数（如多项式）：$x^{2},\ 3x^{50}$ 等
+\item T – 三角函数（包括双曲函数）：$\sin(x),\ \tan(x),\ \operatorname{sech}(x)$ 等
+\item E – 指数函数：$e^{x},\ 19^{x}$ 等
+\end{itemize}
+而作为$dv$的函数则是列表中排在最后的函数。原因是：列表越靠后的函数通常具有比前面函数更简单的原函数。该规则有时也写作“DETAIL”，其中D代表$dv$，即取列表顶部的函数作为$dv$。另一个变体是ILATE 法则，它与 LIATE 的区别在于：反三角函数排在对数函数之前。
+
+为了演示 LIATE 法则，考虑积分：
+$$
+\int x \cdot \cos(x)\,dx.~
+$$
+按照 LIATE 法则，取 $u = x$，$dv = \cos(x)\,dx$，于是 $du = dx$，而
+$$
+v = \int \cos(x)\,dx = \sin(x),~
+$$
+因此积分变为：
+$$
+x \cdot \sin(x) - \int 1 \cdot \sin(x)\,dx,~
+$$
+即：
+$$
+x \cdot \sin(x) + \cos(x) + C.~
+$$
+一般来说，我们会尽量选择$u$和$dv$，使得$du$比$u$更简单，同时$dv$易于积分。如果反过来，取$\cos(x)$作为$u$，而$x\,dx$作为$dv$，那么会得到：
+$$
+\frac{x^{2}}{2}\cos(x) + \int \frac{x^{2}}{2}\sin(x)\,dx,~
+$$
+这种形式在递归地应用分部积分公式后，显然会导致无限递归，从而得不到结果。
+
+尽管 LIATE 法则是一个有用的经验规则，但它也有例外。一个常见的替代方法是按照“ILATE”的顺序来考虑。此外，在某些情况下，多项式项需要以非平凡的方式拆分。
+
+例如，要计算：
+$$
+\int x^{3}e^{x^{2}}\,dx,~
+$$
+我们可以设：
+$$
+u = x^{2}, \quad dv = x \cdot e^{x^{2}}\,dx,~
+$$
+于是：
+$$
+du = 2x\,dx, \quad v = \frac{e^{x^{2}}}{2}.~
+$$
+因此：
+$$
+\int x^{3}e^{x^{2}}\,dx 
+= \int (x^{2})(x e^{x^{2}})\,dx
+= \int u\,dv
+= uv - \int v\,du
+= \frac{x^{2}e^{x^{2}}}{2} - \int xe^{x^{2}}\,dx.~
+$$
+最后得到：
+$$
+\int x^{3}e^{x^{2}}\,dx = \frac{e^{x^{2}}\,(x^{2}-1)}{2} + C.~
+$$
+分部积分在数学分析中常常被用作证明定理的工具。
+\subsection{华里士乘积}
+圆周率$\pi$的华里士无穷乘积公式为：
+$$
+\begin{aligned}
+\frac{\pi}{2} 
+&= \prod_{n=1}^{\infty} \frac{4n^{2}}{4n^{2}-1} 
+= \prod_{n=1}^{\infty} \left(\frac{2n}{2n-1} \cdot \frac{2n}{2n+1}\right)\\
+&= \left(\frac{2}{1}\cdot\frac{2}{3}\right)\cdot\left(\frac{4}{3}\cdot\frac{4}{5}\right)\cdot\left(\frac{6}{5}\cdot\frac{6}{7}\right)\cdot\left(\frac{8}{7}\cdot\frac{8}{9}\right)\cdot\;\cdots
+\end{aligned}~
+$$
+该结果可以通过分部积分推导出来。

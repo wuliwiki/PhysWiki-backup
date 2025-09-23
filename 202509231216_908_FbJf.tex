@@ -91,3 +91,70 @@ $$
 d\big(\chi_{[a,b]}(x)\widetilde{f}(x)\big)~
 $$
 表示对应于有界变差函数$\chi_{[a,b]}(x)f(x)$的符号测度，而函数$\widetilde{f}, \widetilde{\varphi}$是$f, \varphi$在整个实数轴$\mathbb{R}$上的扩展，分别为有界变差函数与可微函数。
+\subsubsection{多个函数的乘积}
+对三个函数$u(x), v(x), w(x)$的乘积法则进行积分，可以得到类似的结果：
+$$
+\int_{a}^{b} uv\,dw \;=\; [uvw]_{a}^{b} - \int_{a}^{b} uw\,dv - \int_{a}^{b} vw\,du.~
+$$
+一般而言，对于$n$个因子的乘积，有：
+$$
+\left(\prod_{i=1}^{n} u_i(x)\right)' \;=\; \sum_{j=1}^{n} u_j'(x)\,\prod_{i \neq j}^{n} u_i(x),~
+$$
+由此可得：
+$$
+\Bigg[\prod_{i=1}^{n} u_i(x)\Bigg]_{a}^{b} \;=\; \sum_{j=1}^{n} \int_{a}^{b} u_j'(x)\,\prod_{i \neq j}^{n} u_i(x).~
+$$
+\subsection{可视化}
+考虑一个参数曲线
+
+$$
+(x,y) = (f(t), g(t)).
+$$
+
+假设该曲线在局部是一一对应且可积的，我们可以定义：
+
+$$
+x(y) = f(g^{-1}(y)), \quad y(x) = g(f^{-1}(x)).
+$$
+
+蓝色区域的面积为
+
+$$
+A_{1} = \int_{y_{1}}^{y_{2}} x(y)\,dy,
+$$
+
+同样，红色区域的面积为
+
+$$
+A_{2} = \int_{x_{1}}^{x_{2}} y(x)\,dx.
+$$
+
+总面积 $A_1 + A_2$ 等于大矩形的面积 $x_{2}y_{2}$，减去小矩形的面积 $x_{1}y_{1}$：
+
+$$
+\overbrace{\int_{y_{1}}^{y_{2}} x(y)\,dy}^{A_{1}}
++ \overbrace{\int_{x_{1}}^{x_{2}} y(x)\,dx}^{A_{2}}
+= \Bigl. x \cdot y(x) \Bigr|_{x_{1}}^{x_{2}}
+= \Bigl. y \cdot x(y) \Bigr|_{y_{1}}^{y_{2}}.
+$$
+
+换用参数 $t$ 表示：
+
+$$
+\int_{t_{1}}^{t_{2}} x(t)\,dy(t) + \int_{t_{1}}^{t_{2}} y(t)\,dx(t) 
+= \Bigl. x(t)y(t) \Bigr|_{t_{1}}^{t_{2}}.
+$$
+
+换作不定积分形式，可以写作：
+
+$$
+\int x\,dy + \int y\,dx = xy.
+$$
+
+整理得：
+
+$$
+\int x\,dy = xy - \int y\,dx.
+$$
+
+因此，分部积分可以被理解为：通过矩形面积与红色区域面积，推导出蓝色区域的面积。
