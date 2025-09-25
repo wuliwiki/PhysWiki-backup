@@ -1,0 +1,55 @@
+% 海森伯群（综述）
+% license CCBYSA3
+% type Sum
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Heisenberg_group}{相关文章}
+
+在数学中，海森堡群$H$（以维尔纳·海森堡命名）是由如下形式的$3 \times 3$ 上三角矩阵组成的群：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}~
+$$
+其运算为矩阵乘法。元素$a, b, c$可以取自任意含幺交换环，常见的选择是实数环（得到所谓的“连续海森堡群”）或整数环（得到“离散海森堡群”）。
+
+连续海森堡群出现在对一维量子力学系统的描述中，尤其是在Stone–von Neumann 定理的语境下。更一般地，可以考虑与$n$维系统相关的海森堡群，最一般的情况则对应于任意的辛向量空间。
+\subsection{三维情形}
+在三维情形下，两个海森堡矩阵的乘积为：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & a' & c' \\
+0 & 1 & b' \\
+0 & 0 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & a + a' & c + ab' + c' \\
+0 & 1 & b + b' \\
+0 & 0 & 1
+\end{pmatrix}.~
+$$
+由其中的$ab'$项可以看出，该群是非阿贝尔群。
+
+海森堡群的中性元是单位矩阵，其逆元由下式给出：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+1 & -a & ab - c \\
+0 & 1 & -b \\
+0 & 0 & 1
+\end{pmatrix}.~
+$$
+该群是二维仿射群$\mathrm{Aff}(2)$的一个子群：$\begin{pmatrix}1 & a & c \\0 & 1 & b \\0 & 0 & 1\end{pmatrix}$作用在$(\vec{x}, 1)$上时，对应的仿射变换为：$\begin{pmatrix}1 & a \\0 & 1\end{pmatrix} \vec{x} +\begin{pmatrix}c \\b\end{pmatrix}$.三维情形下有若干重要的例子。
+
