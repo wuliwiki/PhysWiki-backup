@@ -1,0 +1,214 @@
+% 辛群（综述）
+% license CCBY4
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Symplectic_group}{相关文章}
+
+在数学中，“辛群”的名称可以指两类不同但密切相关的数学群族，分别记作Sp(2n, F)与Sp(n)，其中n正整数，F为域（通常取C或 R）。后一种被称为紧致辛群，也记作$\mathrm{USp}(n)$。许多作者使用略有不同的记号，通常差别体现在系数 2 的处理上。此处采用的记号与表示这些群的最常见矩阵的规模保持一致。在卡当（Cartan）对单李代数的分类中，复群Sp(2n, C) 的李代数记作Cₙ，而Sp(n)则是Sp(2n, C)的紧致实型。需要注意的是，当我们提及“（紧致）辛群”时，通常是指依照维数n编号的一族（紧致）辛群。
+
+“辛群”这一名称由赫尔曼·外尔提出，用来取代此前令人困惑的名称——“（线）复群”（(line) complex group）和“阿贝尔线性群”。它是“复数”一词的希腊语类比。
+
+梅塔辛群是实数域上辛群的双覆盖；它在其他局部域、有限域以及阿德尔环上也有类似的对应物。
+\subsection{Sp(2n, F)}
+辛群是一个经典群，定义为作用在2n 维向量空间（定义在域$F$上）上的线性变换的集合，这些变换保持一个非退化的斜对称双线性型。这样的向量空间称为辛向量空间，而一个抽象辛向量空间$V$的辛群记作$\mathrm{Sp}(V)$。一旦为$V$选定基底，辛群就变为由矩阵乘法构成的$2n \times 2n$辛矩阵群，其元素属于域$F$。这个群记作$\mathrm{Sp}(2n, F)$或$\mathrm{Sp}(n, F)$。如果该双线性型由一个非奇异斜对称矩阵 $\Omega$ 表示，则有：
+$$
+\operatorname{Sp}(2n,F) = \{ M \in M_{2n \times 2n}(F) : M^{\mathrm{T}} \, \Omega \, M = \Omega \},~
+$$
+其中$M^{\mathrm{T}}$表示矩阵$M$的转置。通常，$\Omega$定义为：
+$$
+\Omega = 
+\begin{pmatrix}
+0 & I_n \\
+- I_n & 0
+\end{pmatrix},~
+$$
+其中$I_n$是 $n \times n$ 单位矩阵。在这种情况下，$\mathrm{Sp}(2n, F)$ 可以表示为如下的分块矩阵：
+$$
+\begin{pmatrix}
+A & B \\
+C & D
+\end{pmatrix}, \quad A, B, C, D \in M_{n \times n}(F),~
+$$
+并满足以下三个方程：
+$$
+\begin{aligned}
+- C^{\mathrm{T}} A + A^{\mathrm{T}} C &= 0, \\
+- C^{\mathrm{T}} B + A^{\mathrm{T}} D &= I_n, \\
+- D^{\mathrm{T}} B + B^{\mathrm{T}} D &= 0.
+\end{aligned}~
+$$
+由于所有辛矩阵的行列式都等于 1，辛群是特殊线性群$\mathrm{SL}(2n, F)$的一个子群。当$n = 1$时，矩阵满足辛条件当且仅当其行列式为 1，因此：$\mathrm{Sp}(2, F) = \mathrm{SL}(2, F)$.而当$n > 1$时，还存在附加条件，即$\mathrm{Sp}(2n, F)$是$\mathrm{SL}(2n, F)$的一个真子群。
+
+通常，域$F$取实数域$\mathbf{R}$或复数域$\mathbf{C}$。在这些情况下，$\mathrm{Sp}(2n, F)$分别是实或复的李群，其实或复维数为：$n(2n+1)$.这些群是连通的，但不是紧致的。
+
+当域的特征不为 2 时，$\mathrm{Sp}(2n, F)$的中心由矩阵$I_{2n}$ 和 $-I_{2n}$ 构成。\(^\text{[1]}\)由于其中心是离散的，且模去中心的商群是单群，因此 $\mathrm{Sp}(2n, F)$ 被视为一个单李群。
+
+对应李代数的实秩，因此李群$\mathrm{Sp}(2n, F)$的实秩为：$n$。
+
+辛群$\mathrm{Sp}(2n, F)$的李代数定义为：
+$$
+\mathfrak{sp}(2n,F) = \{ X \in M_{2n \times 2n}(F) : \Omega X + X^{\mathrm{T}} \Omega = 0 \},~
+$$
+其李括号由对易子给出。\(^\text{[2]}\)
+
+对于标准的斜对称双线性型：$\Omega = \begin{pmatrix}0 & I \\- I & 0
+\end{pmatrix}$，该李代数由所有分块矩阵$\begin{pmatrix}A & B \\C & D
+\end{pmatrix}$构成，并满足条件：
+$$
+\begin{aligned}
+A &= - D^{\mathrm{T}}, \\
+B &= B^{\mathrm{T}}, \\
+C &= C^{\mathrm{T}}
+\end{aligned}~
+$$
+\subsubsection{Sp(2n, C)}
+复数域上的辛群是一个非紧致、单连通的单李群。该群的定义中并不涉及共轭（与直觉上的预期相反），而只是将定义中的域换为复数域，其余保持完全相同。\(^\text{[3]}\)
+\subsubsection{Sp(2n, R)}
+$\mathrm{Sp}(n, \mathbf{C})$是实群$\mathrm{Sp}(2n, \mathbf{R})$ 的复化。$\mathrm{Sp}(2n, \mathbf{R})$是一个实的、非紧致的、连通的单李群。\(^\text{[4]}\)它的基本群同构于加法下的整数群。作为单李群的实型，它的李代数是可分解李代数。
+
+$\mathrm{Sp}(2n, \mathbf{R})$的进一步性质：
+\begin{itemize}
+\item 从李代数$\mathfrak{sp}(2n, \mathbf{R})$ 到群 $\mathrm{Sp}(2n, \mathbb{R})$的指数映射不是满射。然而，该群的任意元素都可以表示为两个指数的乘积。\(^\text{[5]}\)换句话说：
+   $$
+   \forall S \in \operatorname{Sp}(2n,\mathbf{R}) \;\; \exists X, Y \in \mathfrak{sp}(2n,\mathbf{R}) \;\; S = e^{X} e^{Y}.~
+   $$
+\item 对于所有$S \in \mathrm{Sp}(2n, \mathbf{R})$，有：
+   $$
+   S = O Z O',~
+   $$
+   其中
+   $$
+   O, O' \in \operatorname{Sp}(2n, \mathbf{R}) \cap SO(2n) \cong U(n),~
+   $$
+   且
+   $$
+   Z = \begin{pmatrix} D & 0 \\ 0 & D^{-1} \end{pmatrix}.~
+   $$
+   这里 $D$ 是正定对角矩阵。所有这样的 $Z$ 构成 $\mathrm{Sp}(2n, \mathbf{R})$ 的一个非紧子群，而 $U(n)$ 构成一个紧子群。这种分解被称为欧拉分解或Bloch–Messiah 分解。\(^\text{[6]}\)更多关于辛矩阵的性质可参见维基百科相关页面。
+\item 作为李群，$\mathrm{Sp}(2n, \mathbf{R})$具有流形结构。该流形与酉群$U(n)$和一个维数为$n(n+1)$的向量空间的笛卡尔积微分同胚。\(^\text{[7]}\)
+\end{itemize}
+\subsubsection{无穷小生成元}
+辛李代数$\mathfrak{sp}(2n, F)$的元素称为哈密顿矩阵。
+
+这些矩阵$Q$的一般形式为：
+$$
+Q = 
+\begin{pmatrix}
+A & B \\
+C & -A^{\mathrm{T}}
+\end{pmatrix},~
+$$
+其中$B$与$C$是对称矩阵。推导过程可参见“经典群”。
+\subsubsection{辛矩阵的例子}
+对于$\mathrm{Sp}(2, \mathbf{R})$，即所有行列式为 1 的$2 \times 2$ 矩阵，该群的三个辛$(0,1)$-矩阵为：\(^\text{[8]}\)
+$$
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}, \quad
+\begin{pmatrix}
+1 & 0 \\
+1 & 1
+\end{pmatrix}, \quad
+\text{以及} \quad
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}.~
+$$
+\textbf{Sp(2n, R)}
+
+事实证明，$\operatorname{Sp}(2n, \mathbf{R})$可以用生成元作出相当明确的描述。设$\operatorname{Sym}(n)$表示所有对称的$n \times n$矩阵，则$\operatorname{Sp}(2n, \mathbf{R})$由以下集合生成：$D(n) \cup N(n) \cup \{\Omega\}$,其中
+$$
+\begin{aligned}
+D(n) &= \left\{ 
+\begin{bmatrix}
+A & 0 \\
+0 & (A^{T})^{-1}
+\end{bmatrix}
+\;\middle|\; A \in \operatorname{GL}(n, \mathbf{R})
+\right\},\\
+N(n) &= \left\{
+\begin{bmatrix}
+I_{n} & B \\
+0 & I_{n}
+\end{bmatrix}
+\;\middle|\; B \in \operatorname{Sym}(n)
+\right\},
+\end{aligned}~
+$$
+它们都是 $\operatorname{Sp}(2n, \mathbf{R})$ 的子群。\(^\text{[9] p.173 [10] p.2}\)
+\subsubsection{与辛几何的关系}
+辛几何研究的是辛流形。在辛流形上的任意一点，其切空间都是一个辛向量空间。\(^\text{[11]}\)如前所述，保持辛向量空间结构的变换构成一个群，这个群就是$\mathrm{Sp}(2n, F)$，具体形式依赖于空间的维数以及其定义的域。
+
+一个辛向量空间本身就是一个辛流形。因此，在辛群作用下的变换，在某种意义上可以看作是辛同胚的线性化版本，而辛同胚是辛流形上一类更一般的结构保持变换。
+\subsection{Sp(n)}
+紧致辛群\(^\text{[12]}\)$\mathrm{Sp}(n)$ 定义为复辛群$\mathrm{Sp}(2n, \mathbb{C})$与$2n \times 2n$酉群的交集：
+$$
+\operatorname{Sp}(n) := \operatorname{Sp}(2n;\mathbb{C}) \cap U(2n) 
+= \operatorname{Sp}(2n;\mathbb{C}) \cap SU(2n).~
+$$
+它有时记作$\mathrm{USp}(2n)$。
+
+另一种等价的描述是：$\mathrm{Sp}(n)$可以看作是$\mathrm{GL}(n, \mathbb{H})$（可逆四元数矩阵群）的一个子群，它保持$\mathbb{H}^n$上的标准 Hermitian 型：
+$$
+\langle x, y \rangle = \bar{x}_1 y_1 + \cdots + \bar{x}_n y_n~
+$$
+换句话说，$\mathrm{Sp}(n)$就是四元数酉群$U(n, \mathbb{H})$。\(^\text{[13]}\)它有时也被称为超酉群。此外，$\mathrm{Sp}(1)$即为所有模长为 1 的四元数的集合，与$\mathrm{SU}(2)$等价，并且在拓扑上同胚于三维球面 $S^3$。
+
+需要注意的是，$\mathrm{Sp}(n)$并不是前文所述意义上的“辛群”——它并不保持 $\mathbb{H}^n$上的某个非退化斜对称$\mathbb{H}$-双线性型，因为除了零型之外不存在这样的形式。相反，它同构于$\mathrm{Sp}(2n, \mathbb{C})$ 的一个子群，因此确实保持一个在复向量空间（维数为$2n$的两倍）上的复辛形式。正如下文所解释的，$\mathrm{Sp}(n)$ 的李代数是复辛李代数 $\mathfrak{sp}(2n, \mathbb{C})$ 的紧实型。
+
+$\mathrm{Sp}(n)$ 是一个实李群，其（实）维数为：$n(2n+1)$。它是紧致的并且是单连通的。[14]
+
+$\mathrm{Sp}(n)$的李代数由四元数斜 Hermitian 矩阵给出，即所有满足条件的$n \times n$四元数矩阵：
+$$
+A + A^{\dagger} = 0,~
+$$
+其中$A^{\dagger}$表示$A$的共轭转置（此处取四元数共轭）。其李括号由对易子给出。
+\subsubsection{重要子群}
+一些主要的子群关系为：
+$$
+\begin{aligned}
+\operatorname{Sp}(n) &\supset \operatorname{Sp}(n-1)\\
+\operatorname{Sp}(n) &\supset \operatorname{U}(n)\\
+\operatorname{Sp}(2) &\supset \operatorname{O}(4)
+\end{aligned}~
+$$
+反过来，$\mathrm{Sp}(n)$ 本身也是其他一些群的子群：
+$$
+\begin{aligned}
+\operatorname{SU}(2n) &\supset \operatorname{Sp}(n)\\
+F_{4} &\supset \operatorname{Sp}(4)\\
+G_{2} &\supset \operatorname{Sp}(1)
+\end{aligned}~
+$$
+此外，还有以下李代数之间的同构关系：$\mathfrak{sp}(2) \cong \mathfrak{so}(5), \quad\mathfrak{sp}(1) \cong \mathfrak{so}(3) \cong \mathfrak{su}(2)$。
+\subsection{辛群之间的关系}
+每个复半单李代数都有一个分裂实型和一个紧实型；前者可以看作是后两者的复化。
+
+$\mathrm{Sp}(2n, \mathbf{C})$的李代数是半单的，记作$\mathfrak{sp}(2n, \mathbf{C})$。它的分裂实型是$\mathfrak{sp}(2n, \mathbf{R})$，而它的紧实型是$\mathfrak{sp}(n)$。这两者分别对应于李群$\mathrm{Sp}(2n, \mathbf{R})$和$\mathrm{Sp}(n)$。
+
+李代数$\mathfrak{sp}(p, n-p)$（对应于李群$\mathrm{Sp}(p, n-p)$）则是紧实型的不定号对应物。
+\subsection{物理意义}
+\subsubsection{经典力学}
+非紧致辛群$\mathrm{Sp}(2n, \mathbb{R})$在经典物理中出现，作为保持泊松括号的正则坐标对称性。
+
+考虑一个含有$n$个粒子的系统，它按照哈密顿方程演化。在给定时刻，它在相空间中的位置由正则坐标向量表示为：
+$$
+\mathbf{z} = (q^{1}, \ldots, q^{n}, p_{1}, \ldots, p_{n})^{\mathrm{T}}~
+$$
+群$\mathrm{Sp}(2n, \mathbb{R})$的元素在某种意义上就是该向量上的正则变换，即它们保持哈密顿方程的形式。\(^\text{[15][16]}\)
+
+若新的正则坐标为：
+$$
+\mathbf{Z} = \mathbf{Z}(\mathbf{z}, t) = (Q^{1}, \ldots, Q^{n}, P_{1}, \ldots, P_{n})^{\mathrm{T}},~
+$$
+则用“点”表示对时间的导数，有：
+$$
+\dot{\mathbf{Z}} = M(\mathbf{z}, t) \, \dot{\mathbf{z}},~
+$$
+其中：
+$$
+M(\mathbf{z}, t) \in \operatorname{Sp}(2n, \mathbf{R})~
+$$
+对所有时刻$t$以及相空间中的所有$\mathbf{z}$都成立。\(^\text{[17]}\)
