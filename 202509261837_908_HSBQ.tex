@@ -1,0 +1,546 @@
+% 海森伯群（综述）
+% license CCBYSA3
+% type Sum
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Heisenberg_group}{相关文章}
+
+在数学中，海森堡群$H$（以维尔纳·海森堡命名）是由如下形式的$3 \times 3$上三角矩阵组成的群：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}~
+$$
+其运算为矩阵乘法。元素$a, b, c$可以取自任意含幺交换环，常见的选择是实数环（得到所谓的“连续海森堡群”）或整数环（得到“离散海森堡群”）。
+
+连续海森堡群出现在对一维量子力学系统的描述中，尤其是在Stone–von Neumann 定理的语境下。更一般地，可以考虑与$n$维系统相关的海森堡群，最一般的情况则对应于任意的辛向量空间。
+\subsection{三维情形}
+在三维情形下，两个海森堡矩阵的乘积为：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & a' & c' \\
+0 & 1 & b' \\
+0 & 0 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & a + a' & c + ab' + c' \\
+0 & 1 & b + b' \\
+0 & 0 & 1
+\end{pmatrix}.~
+$$
+由其中的$ab'$项可以看出，该群是非阿贝尔群。
+
+海森堡群的中性元是单位矩阵，其逆元由下式给出：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+1 & -a & ab - c \\
+0 & 1 & -b \\
+0 & 0 & 1
+\end{pmatrix}.~
+$$
+该群是二维仿射群$\mathrm{Aff}(2)$的一个子群：$\begin{pmatrix}1 & a & c \\0 & 1 & b \\0 & 0 & 1\end{pmatrix}$作用在$(\vec{x}, 1)$上时，对应的仿射变换为：$\begin{pmatrix}1 & a \\0 & 1\end{pmatrix} \vec{x} +\begin{pmatrix}c \\b\end{pmatrix}$.三维情形下有若干重要的例子。
+\subsubsection{连续海森堡群}
+若$a, b, c$为实数（在实数环$\mathbf{R}$中），则得到连续海森堡群$H_{3}(\mathbf{R})$。
+
+它是一个3维幂零实李群。
+
+除了作为实$3 \times 3$矩阵的表示外，连续海森堡群在函数空间中还有若干不同的表示。根据Stone–von Neumann 定理，在同构意义下，海森堡群$H$存在唯一的不变的不可约酉表示，其中其中心通过一个给定的非平凡特征作用。
+
+这一表示有若干重要的实现方式（或模型）：在薛定谔模型中，海森堡群作用在平方可积函数空间上；在θ表示中，它作用在上半平面上的全纯函数空间上；其名称源自其与θ函数的联系。
+\subsubsection{离散海森堡群}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/ee8c83aac78d7ea1.png}
+\caption{离散海森堡群的 Cayley 图的一部分，其生成元为文中所述的$x, y, z$（着色仅用于辅助视觉效果）。} \label{fig_HSBQ_1}
+\end{figure}
+如果$a, b, c$是整数（在环$\mathbf{Z}$ 中），则可以得到离散海森堡群$H_{3}(\mathbf{Z})$。这是一个非阿贝尔的幂零群。它有两个生成元：
+$$
+x = \begin{pmatrix}
+1 & 1 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}, \quad
+y = \begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{pmatrix}~
+$$
+并且满足如下关系式：
+$$
+z = x y x^{-1} y^{-1}, \quad xz = zx, \quad yz = zy,~
+$$
+其中
+$$
+z = \begin{pmatrix}
+1 & 0 & 1 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}~
+$$
+是$H_{3}$的中心的生成元。（注意：矩阵$x, y, z$的逆元，只需把对角线上方的1替换成−1。）
+
+根据Bass定理，它具有4阶的多项式增长率。
+
+群中的任意元素都可以通过下式生成：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}
+= y^{b} z^{c} x^{a}.~
+$$
+\subsubsection{模 $p$ 的海森堡群（当 $p$ 是奇素数时）}
+如果取$a, b, c \in \mathbf{Z}/p\mathbf{Z}$，其中$p$为奇素数，那么就得到模 $p$ 的海森堡群。它是一个阶为$p^{3}$的群，生成元为$x, y$，并且满足以下关系：
+$$
+z = x y x^{-1} y^{-1}, \quad x^{p} = y^{p} = z^{p} = 1, \quad xz = zx, \quad yz = zy.~
+$$
+在奇素数阶有限域上的海森堡群的类似物称为额外特殊群，更准确地说，是指数为 $p$的额外特殊群。更一般地，如果一个群 $G$ 的导出子群包含在其中心 $Z$ 内，那么映射$G/Z \times G/Z \;\to\; Z$就是一个阿贝尔群上的斜对称双线性算子。
+
+然而，若要求$G/Z$是有限向量空间，就必须要求$G$的 Frattini 子群包含在中心中；而若要求$Z$是$\mathbf{Z}/p\mathbf{Z}$上的一维向量空间，则必须要求 $Z$的阶为$p$。因此，如果 $G$ 不是阿贝尔群，那么$G$就是一个额外特殊群。如果$G$是额外特殊群，但其指数不是$p$，那么下面给出的关于辛向量空间$G/Z$的一般构造并不会得到与$G$同构的群。
+\subsubsection{模 2 的海森堡群}
+模2的海森堡群阶为8，并且同构于二面体群$D_{4}$（即正方形的对称群）。注意到如果
+$$
+x = \begin{pmatrix}
+1 & 1 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}, \quad
+y = \begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{pmatrix},~
+$$
+那么
+$$
+xy = \begin{pmatrix}
+1 & 1 & 1 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{pmatrix}, \quad
+yx = \begin{pmatrix}
+1 & 1 & 0 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{pmatrix}.~
+$$
+元素$x$ 和 $y$对应于两个相隔$45^\circ$的反射，而$xy$和$yx$对应于$90^\circ$的旋转。其余的反射是$xyx$与$yxy$，而$180^\circ$的旋转则由$xyxy \; (= yxyx)$给出。
+\subsection{海森堡代数}
+海森堡群$H$（在实数域上）的李代数$\mathfrak{h}$称为海森堡代数。\(^\text{[1]}\)
+它可以表示为如下形式的$3 \times 3$矩阵空间\(^\text{[2]}\)：
+$$
+\begin{pmatrix}
+0 & a & c \\
+0 & 0 & b \\
+0 & 0 & 0
+\end{pmatrix}, \quad a, b, c \in \mathbb{R}.~
+$$
+下列三个元素构成$\mathfrak{h}$的一组基：
+$$
+X = \begin{pmatrix}
+0 & 1 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{pmatrix}, \quad
+Y = \begin{pmatrix}
+0 & 0 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0
+\end{pmatrix}, \quad
+Z = \begin{pmatrix}
+0 & 0 & 1 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{pmatrix}.~
+$$
+这些基元素满足以下对易关系：
+$$
+[X, Y] = Z, \quad [X, Z] = 0, \quad [Y, Z] = 0.~
+$$
+“海森堡群”这一名称的动机来自于上述关系，它们与量子力学中的正则对易关系形式相同：
+$$
+[\hat{x}, \hat{p}] = i \hbar I, \quad [\hat{x}, i \hbar I] = 0, \quad [\hat{p}, i \hbar I] = 0,~
+$$
+其中$\hat{x}$是位置算符，$\hat{p}$是动量算符，$\hbar$是普朗克常数。
+
+海森堡群$H$具有一个特殊性质：指数映射是一个从李代数$\mathfrak{h}$到群$H$的一一对应的满射\(^\text{[3]}\)：
+$$
+\exp \begin{pmatrix}
+0 & a & c \\
+0 & 0 & b \\
+0 & 0 & 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & a & c + \tfrac{ab}{2} \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}.~
+$$
+\subsubsection{在共形场论中}
+在共形场论中，“海森堡代数”一词被用来指代上述代数的无限维推广。它由元素$a_{n}, \quad n \in \mathbb{Z}$所张成，并满足以下对易关系：
+$$
+[a_{n}, a_{m}] = \delta_{n+m,0}.~
+$$
+在重新缩放之后，这实际上就是上述有限维海森堡代数的可数无穷多个拷贝。
+\subsection{更高维度}
+在更高维的欧几里得空间中，以及更一般的辛向量空间上，可以定义更一般的海森堡群$H_{2n+1}$。最简单的一般情形是维数为$2n+1$的实海森堡群，其中 $n \geq 1$ 为任意整数。作为矩阵群，$H_{2n+1}$（或者记为$H_{2n+1}(\mathbb{R})$，表示这是定义在实数域 $\mathbb{R}$上的海森堡群）被定义为一类$(n+2)\times(n+2)$的实矩阵群，其矩阵形式为：
+$$
+\begin{bmatrix}
+1 & \mathbf{a} & c \\
+\mathbf{0} & I_{n} & \mathbf{b} \\
+0 & \mathbf{0} & 1
+\end{bmatrix},~
+$$
+其中：\\
+$\mathbf{a}$是长度为$n$的行向量；\\
+$\mathbf{b}$是长度为$n$的列向量；\\
+$I_{n}$ 是 $n \times n$的单位矩阵。
+\subsubsection{群结构}
+这确实是一个群，其乘法运算如下所示：
+$$
+\begin{bmatrix}
+1 & \mathbf{a} & c \\
+\mathbf{0} & I_{n} & \mathbf{b} \\
+0 & \mathbf{0} & 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+1 & \mathbf{a}' & c' \\
+\mathbf{0} & I_{n} & \mathbf{b}' \\
+0 & \mathbf{0} & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & \mathbf{a} + \mathbf{a}' & c + c' + \mathbf{a} \cdot \mathbf{b}' \\
+\mathbf{0} & I_{n} & \mathbf{b} + \mathbf{b}' \\
+0 & \mathbf{0} & 1
+\end{bmatrix},~
+$$
+并且
+$$
+\begin{bmatrix}
+1 & \mathbf{a} & c \\
+\mathbf{0} & I_{n} & \mathbf{b} \\
+0 & \mathbf{0} & 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+1 & -\mathbf{a} & -c + \mathbf{a} \cdot \mathbf{b} \\
+\mathbf{0} & I_{n} & -\mathbf{b} \\
+0 & \mathbf{0} & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & \mathbf{0} & 0 \\
+\mathbf{0} & I_{n} & \mathbf{0} \\
+0 & \mathbf{0} & 1
+\end{bmatrix}.~
+$$
+\subsubsection{李代数}
+海森堡群是一个单连通李群，其李代数由如下形式的矩阵组成：
+$$
+\begin{bmatrix}
+0 & \mathbf{a} & c \\
+\mathbf{0} & 0_{n} & \mathbf{b} \\
+0 & \mathbf{0} & 0
+\end{bmatrix},~
+$$
+其中：\\
+$\mathbf{a}$ 是长度为 $n$ 的行向量；\\
+$\mathbf{b}$ 是长度为 $n$ 的列向量；\\
+$0_{n}$ 是 $n \times n$ 的零矩阵。\\
+设$e_{1}, \ldots, e_{n}$为$\mathbb{R}^{n}$的标准基，并定义：
+$$
+p_{i} =
+\begin{bmatrix}
+0 & e_{i}^{T} & 0 \\
+\mathbf{0} & 0_{n} & \mathbf{0} \\
+0 & \mathbf{0} & 0
+\end{bmatrix}, \quad
+q_{j} =
+\begin{bmatrix}
+0 & \mathbf{0} & 0 \\
+\mathbf{0} & 0_{n} & e_{j} \\
+0 & \mathbf{0} & 0
+\end{bmatrix}, \quad
+z =
+\begin{bmatrix}
+0 & \mathbf{0} & 1 \\
+\mathbf{0} & 0_{n} & \mathbf{0} \\
+0 & \mathbf{0} & 0
+\end{bmatrix}.~
+$$
+由此得到的李代数满足以下正则对易关系：
+$$
+[p_{i}, q_{j}] = \delta_{ij} z, \quad [p_{i}, z] = 0, \quad [q_{j}, z] = 0,~
+$$
+其中$p_{1}, \ldots, p_{n}, q_{1}, \ldots, q_{n}, z$是代数的生成元。
+
+特别地，$z$是海森堡李代数的中心元。需要注意的是，海森堡群的李代数是幂零的。
+\subsubsection{指数映射}
+设
+$$
+u = 
+\begin{bmatrix}
+0 & \mathbf{a} & c \\
+\mathbf{0} & 0_{n} & \mathbf{b} \\
+0 & \mathbf{0} & 0
+\end{bmatrix},~
+$$
+它满足$u^{3} = 0_{n+2}$.指数映射计算为：
+$$
+\exp(u) = \sum_{k=0}^{\infty} \frac{1}{k!} u^{k} 
+= I_{n+2} + u + \tfrac{1}{2} u^{2} 
+= 
+\begin{bmatrix}
+1 & \mathbf{a} & c + \tfrac{1}{2}\mathbf{a} \cdot \mathbf{b} \\
+\mathbf{0} & I_{n} & \mathbf{b} \\
+0 & \mathbf{0} & 1
+\end{bmatrix}.~
+$$
+任意幂零李代数的指数映射，都是该李代数与其唯一对应的连通、单连通李群之间的一个微分同胚。
+
+除了涉及维度和李群的表述外，如果我们将$\mathbf{R}$替换为任意交换环$A$，上述讨论同样适用。相应的群记作$H_{n}(A)$。
+
+在进一步假设素数 2 在环$A$中可逆的条件下，指数映射同样成立，因为它退化为有限项的求和，并且形式与上式相同（例如，$A$可以是奇素数$p$的剩余类环$\mathbf{Z}/p\mathbf{Z}$，或任何特征为 0 的域）。
+\subsection{表示论}
+海森堡群的酉表示论相当简单——后来由Mackey理论推广——而且正是它在量子物理中被引入的动机，如下所述。
+
+对于每个非零实数$\hbar$，可以定义海森堡群$H_{2n+1}$的一个不可约酉表示$\Pi_{\hbar}$，它作用在希尔伯特空间$L^{2}(\mathbb{R}^{n})$上，其定义公式为\(^\text{[4]}\)：
+$$
+\bigg[\Pi_{\hbar}
+\begin{pmatrix}
+1 & \mathbf{a} & c \\
+0 & I_{n} & \mathbf{b} \\
+0 & 0 & 1
+\end{pmatrix}
+\psi \bigg](\mathbf{x})
+=
+e^{i\hbar c} e^{i \mathbf{b}\cdot \mathbf{x}} \psi(\mathbf{x} + \hbar \mathbf{a})~
+$$
+这种表示称为薛定谔表示。它的动机来自于量子力学中位置算符与动量算符的指数形式的作用。参数$\mathbf{a}$表示在位置空间中的平移；参数$\mathbf{b}$表示在动量空间中的平移；参数$c$给出一个整体的相位因子。需要这个相位因子才能形成一个真正的算符群，因为位置空间的平移与动量空间的平移是不对易的。
+
+关键结果是石–冯·诺伊曼定理，它表明：海森堡群的每一个（强连续的）不可约酉表示，只要其中心的作用是非平凡的，那么它必然与某个$\Pi_{\hbar}$（对应某个 $\hbar$）等价\(^\text{[5]}\)。换句话说，它们都等价于定义在$2n$维辛空间上的Weyl 代数（或 CCR 代数）。
+
+由于海森堡群是$\mathbb{R}^{2n}$的一个一维中心扩张，所以它的不可约酉表示也可以被看作是$\mathbb{R}^{2n}$的不可约酉投射表示。从概念上讲，上面给出的表示就是经典相空间$\mathbb{R}^{2n}$上平移对称群的量子力学对应物。量子版本只是$\mathbb{R}^{2n}$的一个投射表示，这一点在经典层面就已经有所暗示。相空间中平移的哈密顿生成元是位置函数和动量函数。然而，它们在 Poisson 括号下的张成并不构成一个李代数，因为$\{x_{i}, p_{j}\} = \delta_{i,j}$.实际上，位置函数、动量函数再加上常数函数的张成，才在Poisson括号下构成一个李代数。这个李代数是交换李代数$\mathbb{R}^{2n}$的一个一维中心扩张，同构于海森堡群的李代数。
+\subsection{在辛向量空间上的情形}
+海森堡群的一般抽象形式可以由任意辛向量空间构造而成\(^\text{[6]}\)。例如，设$(V, \omega)$是一个有限维实辛向量空间（因此$\omega$是$V$上的一个非退化斜对称双线性形式）。在$(V, \omega)$上的海森堡群$H(V)$（或简记为$V$）是集合 $V \times \mathbf{R}$，并赋予如下群运算：
+$$
+(v, t) \cdot (v', t') = \big(v + v', \; t + t' + \tfrac{1}{2}\omega(v, v')\big).~
+$$
+海森堡群是加法群$V$的一个中心扩张。因此存在如下精确序列：
+$$
+0 \;\longrightarrow\; \mathbf{R} \;\longrightarrow\; H(V) \;\longrightarrow\; V \;\longrightarrow\; 0.~
+$$
+任意辛向量空间都承认一个Darboux基$\{e_{j}, f_{k}\}_{1 \le j,k \le n}$，满足$\omega(e_{j}, f_{k}) = \delta_{jk}$，其中$V$的维数为 $2n$（必然是偶数）。在这个基的表示下，每个向量可以分解为：
+$$
+v = q^{a} e_{a} + p_{a} f^{a}.~
+$$
+这里的$q^{a}$与$p_{a}$是正则共轭坐标。
+
+如果$\{e_{j}, f_{k}\}_{1 \leq j,k \leq n}$是$V$的一个Darboux基，那么取$\{E\}$作为$\mathbb{R}$ 的基，则$\{e_{j}, f_{k}, E\}_{1 \leq j,k \leq n}$就是$V \times \mathbb{R}$的相应基。此时，海森堡群中的一个向量可表示为：
+$$
+v = q^{a} e_{a} + p_{a} f^{a} + tE.~
+$$
+群运算变为：
+$$
+(p, q, t) \cdot (p', q', t') = \big(p + p',\; q + q',\; t + t' + \tfrac{1}{2}(pq' - p'q)\big).~
+$$
+由于海森堡群的底层流形是一个线性空间，因此李代数中的向量可以规范地与群中的向量对应。海森堡群的李代数由以下对易关系给出：
+$$
+[(v_{1}, t_{1}), (v_{2}, t_{2})] = \omega(v_{1}, v_{2}),~
+$$
+或者用 Darboux 基来写：
+$$
+[e_{a}, f^{b}] = \delta_{a}^{b},~
+$$
+并且所有其他对易子均为零。
+
+也可以用另一种方式来定义群运算，但它给出的群与我们刚刚定义的群是同构的。为避免混淆，我们使用$u$代替$t$，于是群中的一个向量表示为：
+$$
+v = q^{a} e_{a} + p_{a} f^{a} + uE,~
+$$
+其群运算为：
+$$
+(p, q, u) \cdot (p', q', u') = \big(p + p',\; q + q',\; u + u' + pq'\big).~
+$$
+群的一个元素
+$$
+v = q^{a} e_{a} + p_{a} f^{a} + uE~
+$$
+可以表示为矩阵：
+$$
+\begin{bmatrix}
+1 & p & u \\
+0 & I_{n} & q \\
+0 & 0 & 1
+\end{bmatrix},~
+$$
+这就给出了$H(V)$的一个忠实矩阵表示。在这种表述下，$u$与我们之前的$t$的关系为$u = t + \tfrac{1}{2}pq$，因此乘积的$t$值为：
+$$
+\begin{aligned}
+&u + u' + pq' - \tfrac{1}{2}(p+p')(q+q') \\
+={}& t + \tfrac{1}{2}pq + t' + \tfrac{1}{2}p'q' + pq' - \tfrac{1}{2}(p+p')(q+q') \\
+={}& t + t' + \tfrac{1}{2}(pq' - p'q),
+\end{aligned}~
+$$
+与先前的结果一致。
+
+与上三角矩阵群的同构依赖于将$V$分解为一个Darboux 基，这等价于选择一个同构$V \cong U \oplus U^{*}$。虽然新的群运算给出的群与上面定义的群同构，但带有这种运算的群有时被称为极化海森堡群，以提醒人们这种群运算依赖于基的选择（即$V$的一个拉格朗日子空间的选择就是一次极化）。
+
+对于任意李代数，都存在唯一的连通、单连通李群$G$。所有其他与$G$拥有相同李代数的连通李群都具有形式$G/N$，其中$N$是$G$的一个离散中心子群。在当前情形下，$H(V)$的中心是$\mathbb{R}$，而唯一的离散子群同构于$\mathbb{Z}$。因此，$H(V)/\mathbb{Z}$是另一个与其共享该李代数的李群。值得注意的是：这个李群不承认任何忠实的有限维表示；它不同构于任何矩阵群。不过，它确实拥有一个著名的无限维酉表示族。
+\subsection{与 Weyl 代数的联系}
+海森堡群的李代数$\mathfrak{h}_{n}$如上所述 (1)，可以表示为一个矩阵李代数。Poincaré–Birkhoff–Witt定理适用于确定其泛包络代数$U(\mathfrak{h}_{n})$。在若干性质中，泛包络代数是一个结合代数，其中$\mathfrak{h}_{n}$ 可以单射嵌入。
+
+根据 Poincaré–Birkhoff–Witt 定理，它实际上是由如下单项式生成的自由向量空间：
+$$
+z^{j} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{n}^{k_{n}} q_{1}^{\ell_{1}} q_{2}^{\ell_{2}} \cdots q_{n}^{\ell_{n}},~
+$$
+其中所有指数均为非负整数。
+
+因此，$U(\mathfrak{h}_{n})$由如下实系数多项式组成：
+$$
+\sum_{j, \vec{k}, \vec{\ell}} c_{j \vec{k} \vec{\ell}} \,\, z^{j} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{n}^{k_{n}} q_{1}^{\ell_{1}} q_{2}^{\ell_{2}} \cdots q_{n}^{\ell_{n}},~
+$$
+并满足对易关系：
+$$
+p_{k} p_{\ell} = p_{\ell} p_{k}, \quad 
+q_{k} q_{\ell} = q_{\ell} q_{k}, \quad 
+p_{k} q_{\ell} - q_{\ell} p_{k} = \delta_{k\ell} z, \quad 
+zp_{k} - p_{k}z = 0, \quad 
+zq_{k} - q_{k}z = 0.~
+$$
+代数 $U(\mathfrak{h}_{n})$ 与 $\mathbb{R}^{n}$ 上具有多项式系数的微分算子代数密切相关，因为任意这样的算子都能唯一表示为如下形式：
+$$
+P = \sum_{\vec{k}, \vec{\ell}} c_{\vec{k} \vec{\ell}} \,\, 
+\partial_{x_{1}}^{k_{1}} \partial_{x_{2}}^{k_{2}} \cdots \partial_{x_{n}}^{k_{n}} 
+x_{1}^{\ell_{1}} x_{2}^{\ell_{2}} \cdots x_{n}^{\ell_{n}}.~
+$$
+这个代数称为Weyl 代数。抽象理论表明，Weyl 代数$W_{n}$ 是 $U(\mathfrak{h}_{n})$的一个商代数。不过，这一点也可以直接从上面的表示看出，即通过如下映射：
+$$
+z^{j} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{n}^{k_{n}} q_{1}^{\ell_{1}} q_{2}^{\ell_{2}} \cdots q_{n}^{\ell_{n}}
+\;\;\mapsto\;\;
+\partial_{x_{1}}^{k_{1}} \partial_{x_{2}}^{k_{2}} \cdots \partial_{x_{n}}^{k_{n}}
+x_{1}^{\ell_{1}} x_{2}^{\ell_{2}} \cdots x_{n}^{\ell_{n}}.~
+$$
+\subsection{应用}
+\subsubsection{Weyl 的量子力学参数化}
+促使 Hermann Weyl 明确构造出海森堡群的应用，源于这样一个问题：为什么薛定谔绘景与海森堡绘景在物理上是等价的。抽象地说，其原因就是 Stone–von Neumann 定理：只要中心李代数元$z$的作用被固定，那么其不可约酉表示在酉等价意义下是唯一的；代数中的非平凡元素全都等价于通常的位置算符与动量算符。
+
+因此，薛定谔绘景和海森堡绘景是等价的——它们只是这个本质上唯一的表示的两种不同实现方式。
+\subsubsection{Theta 表示}
+同样的唯一性结果被David Mumford应用于离散海森堡群，在他关于阿贝尔簇的方程理论中。这个推广非常广泛，它概括了Jacobi椭圆函数中的处理方式，而后者对应于阶为 8 的模 2 海森堡群。最简单的情形就是海森堡群的theta表示，其中离散情形给出了theta 函数。
+\subsubsection{傅里叶分析}
+海森堡群也出现在傅里叶分析中，在某些 Stone–von Neumann 定理的表述中被使用。在这种情形下，海森堡群可以理解为作用在平方可积函数空间上；其结果是海森堡群的一个表示，有时称为Weyl表示。
+\subsection{作为一个亚黎曼流形}
+定义在实数域上的三维海森堡群$H_{3}(\mathbb{R})$也可以理解为一个光滑流形，且是亚黎曼流形的一个简单例子\(^\text{[7]}\)。给定点$p = (x, y, z) \in \mathbb{R}^{3}$，在该点定义一个微分 1-形式 $\Theta$：
+$$
+\Theta_{p} = dz - \tfrac{1}{2}(x \, dy - y \, dx).~
+$$
+这个 1-形式属于$\mathbb{R}^{3}$的余切丛；也就是说：
+$$
+\Theta_{p} : T_{p}\mathbf{R}^{3} \to \mathbf{R}~
+$$
+是切丛上的一个映射。令
+$$
+H_{p} = \{ v \in T_{p}\mathbf{R}^{3} \mid \Theta_{p}(v) = 0 \}.~
+$$
+可以看出，$H$是切丛$T\mathbb{R}^{3}$的一个子丛。在$H$上的余度量由将向量投影到由 $x$-方向和 $y$-方向张成的二维空间上来给出。也就是说，若$v = (v_{1}, v_{2}, v_{3})$、$w = (w_{1}, w_{2}, w_{3}) \in T\mathbf{R}^{3}$，则其内积定义为：
+$$
+\langle v, w \rangle = v_{1} w_{1} + v_{2} w_{2}.~
+$$
+由此得到的结构将$H$变成了海森堡群的流形。流形上的一个正交归一标架由以下李向量场给出：
+$$
+X = \frac{\partial}{\partial x} - \tfrac{1}{2}y \frac{\partial}{\partial z}, \quad
+Y = \frac{\partial}{\partial y} + \tfrac{1}{2}x \frac{\partial}{\partial z}, \quad
+Z = \frac{\partial}{\partial z},~
+$$
+
+它们满足关系式$[X, Y] = Z$，而 $[X, Z] = [Y, Z] = 0$。作为李向量场，它们构成了群作用的一个左不变基。该流形上的测地线是螺旋线，在二维投影下为圆弧。也就是说，如果
+$$
+\gamma(t) = (x(t), y(t), z(t))~
+$$
+是一条测地线，那么其二维投影$c(t) = (x(t), y(t))$就是一个圆弧，并且
+$$
+z(t) = \tfrac{1}{2} \int_{c} x \, dy - y \, dx,~
+$$
+其中积分限制在二维平面上。换句话说，曲线的高度与圆弧所围成的圆的面积成正比，这可由格林公式得出。
+\subsection{局部紧阿贝尔群的海森堡群}
+更一般地，可以定义局部紧阿贝尔群$K$的海森堡群，其中$K$配备有一个 Haar 测度 \(^\text{[8]}\)。这样的群有一个Pontrjagin 对偶群$\hat{K}$，它由$K$上所有取值于$U(1)$的连续特征组成，并在赋予紧开拓扑后同样是一个局部紧阿贝尔群。与局部紧阿贝尔群$K$相关联的海森堡群，是希尔伯特空间$L^{2}(K)$的酉群中的一个子群，该子群由来自$K$的平移算子和来自$\hat{K}$的乘法算子生成。
+
+更具体地说，Hilbert空间$L^{2}(K)$由$K$上平方可积的复值函数$f$构成。平移算子：$K$中的平移在$L^{2}(K)$上形成了$K$的一个酉表示：
+$$
+(T_{x} f)(y) = f(x+y), \quad x,y \in K.~
+$$
+特征乘法算子：同样地，对偶群$\hat{K}$中的特征也定义了酉算子：
+$$
+(M_{\chi} f)(y) = \chi(y) f(y), \quad \chi \in \hat{K}.~
+$$
+这些算子并不对易，而是满足：
+$$
+\big(T_{x} M_{\chi} T_{x}^{-1} M_{\chi}^{-1} f\big)(y) = \overline{\chi(x)} f(y),~
+$$
+即相当于乘上一个固定的模为 1 的复数。
+
+因此，与$K$相关联的海森堡群$H(K)$，是$K \times \hat{K}$的一种中心扩张，对应的群短正合列为：
+$$
+1 \;\longrightarrow\; U(1) \;\longrightarrow\; H(K) \;\longrightarrow\; K \times \hat{K} \;\longrightarrow\; 0.~
+$$
+更一般的海森堡群可由上同调群$H^{2}(K, U(1))$中的2-余循环来描述。由于 $K$与其对偶群$\hat{K}$之间存在对偶性，这给出了一个典范余循环，但通常还会存在其他的余循环。
+
+海森堡群在$L^{2}(K)$上是不可约作用的。实际上，连续特征能够分离点\(^\text{[9]}\)，因此任何与它们对易的 $L^{2}(K)$ 上的酉算子必然是一个$L^{\infty}$ 乘子。而若该算子还与平移对易，则说明该乘子只能是常数\(^\text{[10]}\)。
+
+一个Stone–von Neumann定理的推广版本（由 George Mackey 证明）同样适用于海森堡群$H(K)$\(^\text{[11][12]}\)。在这里，傅里叶变换是$L^{2}(K)$ 与$L^{2}(\hat{K})$表示之间的唯一交织算子。详情可参见Stone–von Neumann theorem#Relation to the Fourier transform的讨论。
+\subsection{参见}
+\begin{itemize}
+\item 正则对易关系
+\item Wigner–Weyl 变换
+\item Stone–von Neumann 定理
+\item 投射表示
+\item 几何化猜想
+\end{itemize}
+\subsection{注释}
+\begin{enumerate}
+\item Woit, Peter. Topics in Representation Theory: The Heisenberg Algebra (PDF).
+\item Hall 2015. 命题 3.26。
+\item Hall 2015. 第 2 章，习题 9。
+\item Hall 2013. 命题 14.7。
+\item Hall 2013. 定理 14.8。
+\item Hans Tilgner, "A class of solvable Lie groups and their relation to the canonical formalism"，Annales de l'institut Henri Poincaré (A) Physique théorique, 13 卷第 2 期 (1970)，第 103–127 页（2011-06-05 存档于 Wayback Machine）。
+\item Richard Montgomery, A Tour of Subriemannian Geometries, Their Geodesics and Applications*（Mathematical Surveys and Monographs, 卷 91），美国数学学会，2002 年，ISBN 0-8218-1391-9。
+\item David Mumford (1991), Tata lectures on theta III*, *Progress in Mathematics, 卷 97, Birkhäuser。
+\item Karl Heinrich Hofmann, Sidney A. Morris (2006), The structure of compact groups: a primer for students, a handbook for the expert, De Gruyter studies in mathematics 25 (第 2 修订版)，Walter de Gruyter，ISBN 9783110190069。
+\item 这一论证在 Roger Howe (1980), "On the role of the Heisenberg group in harmonic analysis", Bulletin of the American Mathematical Society, 3 (2): 821–844 中出现了略有不同的表述，doi:10.1090/S0273-0979-1980-14825-9, MR 0578375。
+\item George Mackey (1949), "On a theorem of Stone and von Neumann", Duke Mathematical Journal, 16 (2): 313–326, doi:10.1215/s0012-7094-49-01631-2。
+\item A. Prasad (2009), "An easy proof of the Stone–von Neumann–Mackey theorem", *Expositiones Mathematicae*, 29: 110–118, arXiv:0912.0574, doi:10.1016/j.exmath.2010.06.001, S2CID 56340220。
+\end{enumerate}
+\subsection{参考文献}
+\begin{itemize}
+\item Binz, Ernst; Pods, Sonja (2008). Geometry of Heisenberg Groups. American Mathematical Society. ISBN 978-0-8218-4495-3.
+\item Hall, Brian C. (2013). Quantum Theory for Mathematicians. Graduate Texts in Mathematics, 卷 267, Springer. Bibcode:2013qtm..book.....H. ISBN 978-1461471158.
+\item Hall, Brian C. (2015). Lie Groups, Lie Algebras, and Representations: An Elementary Introduction. Graduate Texts in Mathematics, 卷 222 (第二版). Springer. ISBN 978-3319134666.
+\item Howe, Roger (1980). "On the role of the Heisenberg group in harmonic analysis". Bulletin of the American Mathematical Society. 3 (2): 821–843. doi:10.1090/s0273-0979-1980-14825-9. MR 0578375.
+\item Kirillov, Alexandre A. (2004). "Ch. 2: Representations and Orbits of the Heisenberg Group". Lectures on the Orbit Method. American Mathematical Society. ISBN 0-8218-3530-0.
+\item Mackey, George (1976). The theory of Unitary Group Representations. Chicago Lectures in Mathematics. University of Chicago Press. ISBN 978-0226500522.
+\end{itemize}
+\subsection{外部链接}
+\begin{itemize}
+\item Groupprops, The Group Properties Wiki — Unitriangular matrix group UT(3,p)
+\end{itemize}
+
