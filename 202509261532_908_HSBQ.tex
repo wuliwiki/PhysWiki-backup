@@ -1,0 +1,117 @@
+% 海森伯群（综述）
+% license CCBYSA3
+% type Sum
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Heisenberg_group}{相关文章}
+
+在数学中，海森堡群$H$（以维尔纳·海森堡命名）是由如下形式的$3 \times 3$ 上三角矩阵组成的群：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}~
+$$
+其运算为矩阵乘法。元素$a, b, c$可以取自任意含幺交换环，常见的选择是实数环（得到所谓的“连续海森堡群”）或整数环（得到“离散海森堡群”）。
+
+连续海森堡群出现在对一维量子力学系统的描述中，尤其是在Stone–von Neumann 定理的语境下。更一般地，可以考虑与$n$维系统相关的海森堡群，最一般的情况则对应于任意的辛向量空间。
+\subsection{三维情形}
+在三维情形下，两个海森堡矩阵的乘积为：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & a' & c' \\
+0 & 1 & b' \\
+0 & 0 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & a + a' & c + ab' + c' \\
+0 & 1 & b + b' \\
+0 & 0 & 1
+\end{pmatrix}.~
+$$
+由其中的$ab'$项可以看出，该群是非阿贝尔群。
+
+海森堡群的中性元是单位矩阵，其逆元由下式给出：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+1 & -a & ab - c \\
+0 & 1 & -b \\
+0 & 0 & 1
+\end{pmatrix}.~
+$$
+该群是二维仿射群$\mathrm{Aff}(2)$的一个子群：$\begin{pmatrix}1 & a & c \\0 & 1 & b \\0 & 0 & 1\end{pmatrix}$作用在$(\vec{x}, 1)$上时，对应的仿射变换为：$\begin{pmatrix}1 & a \\0 & 1\end{pmatrix} \vec{x} +\begin{pmatrix}c \\b\end{pmatrix}$.三维情形下有若干重要的例子。
+\subsubsection{连续海森堡群}
+若$a, b, c$为实数（在实数环$\mathbf{R}$中），则得到连续海森堡群$H_{3}(\mathbf{R})$。
+
+它是一个3维幂零实李群。
+
+除了作为实$3 \times 3$矩阵的表示外，连续海森堡群在函数空间中还有若干不同的表示。根据Stone–von Neumann 定理，在同构意义下，海森堡群$H$存在唯一的不变的不可约酉表示，其中其中心通过一个给定的非平凡特征作用。
+
+这一表示有若干重要的实现方式（或模型）：在薛定谔模型中，海森堡群作用在平方可积函数空间上；在θ表示中，它作用在上半平面上的全纯函数空间上；其名称源自其与θ函数的联系。
+\subsubsection{离散海森堡群}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/ee8c83aac78d7ea1.png}
+\caption{离散海森堡群的 Cayley 图的一部分，其生成元为文中所述的$x, y, z$（着色仅用于辅助视觉效果）。} \label{fig_HSBQ_1}
+\end{figure}
+如果$a, b, c$是整数（在环$\mathbf{Z}$ 中），则可以得到离散海森堡群$H_{3}(\mathbf{Z})$。这是一个非阿贝尔的幂零群。它有两个生成元：
+$$
+x = \begin{pmatrix}
+1 & 1 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}, \quad
+y = \begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{pmatrix}~
+$$
+并且满足如下关系式：
+$$
+z = x y x^{-1} y^{-1}, \quad xz = zx, \quad yz = zy,~
+$$
+其中
+$$
+z = \begin{pmatrix}
+1 & 0 & 1 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}~
+$$
+是$H_{3}$的中心的生成元。（注意：矩阵$x, y, z$的逆元，只需把对角线上方的1替换成−1。）
+
+根据Bass定理，它具有4阶的多项式增长率。
+
+群中的任意元素都可以通过下式生成：
+$$
+\begin{pmatrix}
+1 & a & c \\
+0 & 1 & b \\
+0 & 0 & 1
+\end{pmatrix}
+= y^{b} z^{c} x^{a}.~
+$$
+\subsubsection{模 $p$ 的海森堡群（当 $p$ 是奇素数时）}
+如果取$a, b, c \in \mathbf{Z}/p\mathbf{Z}$，其中$p$为奇素数，那么就得到模 $p$ 的海森堡群。它是一个阶为$p^{3}$的群，生成元为$x, y$，并且满足以下关系：
+$$
+z = x y x^{-1} y^{-1}, \quad x^{p} = y^{p} = z^{p} = 1, \quad xz = zx, \quad yz = zy.~
+$$
+在奇素数阶有限域上的海森堡群的类似物称为额外特殊群，更准确地说，是指数为 $p$的额外特殊群。更一般地，如果一个群 $G$ 的导出子群包含在其中心 $Z$ 内，那么映射$G/Z \times G/Z \;\to\; Z$就是一个阿贝尔群上的斜对称双线性算子。
+
+然而，若要求$G/Z$是有限向量空间，就必须要求$G$的 Frattini 子群包含在中心中；而若要求$Z$是$\mathbf{Z}/p\mathbf{Z}$上的一维向量空间，则必须要求 $Z$的阶为$p$。因此，如果 $G$ 不是阿贝尔群，那么$G$就是一个额外特殊群。如果$G$是额外特殊群，但其指数不是$p$，那么下面给出的关于辛向量空间$G/Z$的一般构造并不会得到与$G$同构的群。
+
+
+
