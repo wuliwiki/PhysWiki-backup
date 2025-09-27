@@ -684,3 +684,197 @@ i & 0
 0 & -1
 \end{bmatrix}.~
 \]
+\subsubsection{莫比乌斯群的生成元}
+另一组生成元来自于与莫比乌斯群的同构。下表列出了六个生成元，其中：
+\begin{itemize}
+  \item 第一列给出在莫比乌斯作用下的流的生成元（在黎曼球面进行立体投影之后），表现为欧几里得平面上的实向量场；
+  \item 第二列给出对应的一参数莫比乌斯变换子群；
+  \item 第三列给出对应的一参数洛伦兹变换子群（即前一子群在同态映射下的像）；
+  \item 第四列给出在洛伦兹作用下的流的生成元，表现为闵可夫斯基时空上的实向量场。
+\end{itemize}
+需要注意的是，这些生成元由以下部分构成：
+\begin{itemize}
+  \item 两个抛物型（零旋转）；
+  \item 一个双曲型（沿 $\partial_{z}$ 方向的推动）；
+  \item 三个椭圆型（分别是绕 $x, y, z$ 轴的旋转）。
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/bf9eecae1e651f6f.png}
+\caption{} \label{fig_LuoLz_4}
+\end{figure}
+\textbf{示例：绕 $y$ 轴的旋转}
+
+从
+\[
+\sigma_{2} =
+\begin{bmatrix}
+0 & i \\
+- i & 0
+\end{bmatrix}~
+\]
+开始。
+
+取指数：
+\[
+\exp\!\left(\tfrac{i\theta}{2}\sigma_{2}\right) =
+\begin{bmatrix}
+\cos\!\left(\tfrac{\theta}{2}\right) & -\sin\!\left(\tfrac{\theta}{2}\right) \\
+\sin\!\left(\tfrac{\theta}{2}\right) & \cos\!\left(\tfrac{\theta}{2}\right)
+\end{bmatrix}.~
+\]
+
+该 $SL(2,\mathbf{C})$ 元素表示一参数（椭圆型）莫比乌斯变换子群：
+\[
+\xi \;\mapsto\; \xi' = 
+\frac{\cos\!\left(\tfrac{\theta}{2}\right)\,\xi - \sin\!\left(\tfrac{\theta}{2}\right)}
+{\sin\!\left(\tfrac{\theta}{2}\right)\,\xi + \cos\!\left(\tfrac{\theta}{2}\right)}.~
+\]
+接下来，
+\[
+\left.\frac{d\xi'}{d\theta}\right|_{\theta = 0}
+= -\frac{1+\xi^{2}}{2}.~
+\]
+对应的$C$上的向量场（可看作$S^{2}$在立体投影下的像）为
+\[
+-\frac{1+\xi^{2}}{2}\,\partial_{\xi}.~
+\]
+若写作$\xi = u + iv$，则该向量场在$\mathbb{R}^{2}$ 上为
+\[
+-\frac{1+u^{2}-v^{2}}{2}\,\partial_{u} - uv\,\partial_{v}.~
+\]
+回到我们的$SL(2,\mathbf{C})$元素，写出其作用$X \;\mapsto\; PXP^{\dagger}$,并整理各项，可以发现其在旋量映射下的像为$SO^{+}(1,3)$中的元素：
+\[
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & \cos(\theta) & 0 & \sin(\theta) \\
+0 & 0 & 1 & 0 \\
+0 & -\sin(\theta) & 0 & \cos(\theta)
+\end{bmatrix}.~
+\]
+对$\theta$在$\theta=0$处求导，得到在$\mathbf{R}^{1,3}$上对应的向量场：
+\[
+z\partial_{x} - x\partial_{z}.~
+\]
+这显然是绕$y$轴逆时针旋转的生成元。
+\subsection{洛伦兹群的子群}
+洛伦兹群李代数的子代数可以按共轭分类枚举出来，从而受限洛伦兹群的闭子群也可以按共轭分类列出。（详见下文引用的 Hall 著作。）这些子代数可以方便地用上表所给的生成元$X_{n}$来表示。
+
+一维子代数显然对应于洛伦兹群元素的四类共轭类：
+\begin{itemize}
+  \item $X_{1}$ 生成一个抛物型的一参数子代数$SO(0,1)$；
+  \item $X_{3}$ 生成一个推动（一参数双曲子群$SO(1,1)$；
+  \item $X_{4}$ 生成一个旋转的一参数子代数$SO(2)$；
+  \item $X_{3} + aX_{4}$（其中$a \neq 0$）生成一个螺旋型（一参数）子代数。
+\end{itemize}
+（严格来说，最后一种情况对应无穷多个类，因为不同的 $a$ 给出不同的类。）  
+二维子代数如下：  
+\begin{itemize}
+  \item $X_{1},X_{2}$ 生成一个交换子代数，完全由抛物型元素构成；
+  \item $X_{1},X_{3}$ 生成一个非交换子代数，同构于仿射群 $\mathrm{Aff}(1)$ 的李代数；
+  \item $X_{3},X_{4}$ 生成一个交换子代数，由推动、旋转和螺旋型变换组成，这些变换共享同一对不动点。
+\end{itemize}
+三维子代数按照 Bianchi 分类方案：  
+\begin{itemize}
+  \item $X_{1},X_{2},X_{3}$ 生成一个 Bianchi V 型子代数，同构于欧几里得相似变换群 $\mathrm{Hom}(2)$ 的李代数；
+  \item $X_{1},X_{2},X_{4}$ 生成一个 Bianchi $\mathrm{VII}_{0}$ 型子代数，同构于欧几里得群 $E(2)$ 的李代数；
+  \item $X_{1},X_{2},X_{3}+aX_{4}$ （其中 $a \neq 0$）生成一个 Bianchi $\mathrm{VII}_{a}$ 型子代数；
+  \item $X_{1},X_{3},X_{5}$ 生成一个 Bianchi VIII 型子代数，同构于 $\mathrm{SL}(2,\mathbf{R})$ 的李代数，即双曲平面的等距群；
+  \item $X_{4},X_{5},X_{6}$ 生成一个 Bianchi IX 型子代数，同构于 $\mathrm{SO}(3)$ 的李代数，即旋转群。
+\end{itemize}
+Bianchi 类型指的是意大利数学家 Luigi Bianchi 对三维李代数的分类。
+\begin{itemize}
+\item 四维子代数都与下式共轭：$X_{1},X_{2},X_{3},X_{4}$它生成一个同构于欧几里得相似群$\mathrm{Sim}(2)$的李代数的子代数。这些子代数构成一个格（见图），并且每个子代数通过指数映射生成受限李群的一个闭子群。由此，通过与 Klein 四元群的某个元素相乘，可以构造出洛伦兹群的所有子群（按共轭分类）。
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/8307cf181d93e2bb.png}
+\caption{李代数$\mathfrak{so}(1,3)$的子代数格（模共轭）} \label{fig_LuoLz_5}
+\end{figure}
+与任意连通李群一样，受限洛伦兹群的闭子群的陪集空间（即齐性空间）具有重要的数学意义。以下是几个简要描述：  
+
+\begin{itemize}
+\item 群$\mathrm{Sim}(2)$是一条零直线的稳定子，即黎曼球面上一点的稳定子——因此齐性空间$\mathrm{SO}^{+}(1,3) / \mathrm{Sim}(2)$ 是表示$S^{2}$上保角几何的 Kleinian 几何。  
+\item （欧几里得群的恒等分支）$\mathrm{SE}(2)$是一个零向量的稳定子，因此齐性空间$\mathrm{SO}^{+}(1,3) / \mathrm{SE}(2)$是无质量粒子的动量空间；从几何上看，这种 Kleinian 几何表示的是闵可夫斯基时空中光锥的退化几何。  
+\item 旋转群$\mathrm{SO}(3)$是类时向量的稳定子，因此齐性空间$\mathrm{SO}^{+}(1,3) / \mathrm{SO}(3)$是有质量粒子的动量空间；从几何上看，这个空间正是三维双曲空间$H^{3}$。
+\end{itemize}
+\subsection{推广到更高维度}
+洛伦兹群的概念可以自然推广到任意维的时空。数学上，$(n+1)$维闵可夫斯基空间的洛伦兹群是不定正交群$O(n,1)$，它由保持如下二次型的线性变换组成：
+$$
+(x_{1},x_{2},\ldots ,x_{n},x_{n+1}) ;\mapsto; x_{1}^{2}+x_{2}^{2}+\cdots +x_{n}^{2}-x_{n+1}^{2}.~
+$$
+群(O(1,n))保持的二次型为：
+$$
+(x_{1},x_{2},\ldots ,x_{n},x_{n+1}) ;\mapsto; x_{1}^{2}-x_{2}^{2}-\cdots -x_{n+1}^{2}.~
+$$
+$O(1,n)$与$O(n,1)$互为同构，这两种表示在理论物理界都被广泛使用：前者更常见于与引力相关的文献，而后者更常见于粒子物理学文献。
+
+一个常见的记号是将配备这种二次型的向量空间$\mathbf{R}^{n+1}$记为 $\mathbf{R}^{1,n}$。
+
+四维情况（即$(n=3)$）下洛伦兹群的许多性质可以直接推广到任意 $n$。例如，洛伦兹群$O(n,1)$有四个连通分支，并且它通过共形变换作用于$(n-1)$维的天球，即$(n+1)$维闵可夫斯基空间中的$(n-1)$维球面。其单位元连通分支$SO^{+}(n,1)$是一个以$SO(n)$为纤维、底空间为双曲$n$空间$H^{n}$的丛。
+
+低维情况$n=1,2$常常作为物理情形$n=3$的“玩具模型”。而高维洛伦兹群则在一些物理理论（如弦论）中出现，这些理论假设存在隐藏维度。
+
+此外，洛伦兹群$O(n,1)$也是$n$维de Sitter 空间$dS_{n}$的等距群，其中$dS_{n}$可以表示为齐性空间
+$$
+dS_{n} ;\cong; O(n,1)/O(n-1,1).~
+$$
+特别地，$O(4,1)$是四维 de Sitter 宇宙$dS_{4}$的等距群，这是一个宇宙学模型。
+\subsection{另见}
+\begin{itemize}
+\item 洛伦兹变换
+\item 洛伦兹群的表示论
+\item 庞加莱群
+\item 莫比乌斯群
+\item 闵可夫斯基空间
+\item 双四元数
+\item 不定正交群
+\item 四元数与空间旋转
+\item 狭义相对论
+\item 量子力学中的对称性
+\end{itemize}
+\subsection{注释}\\
+a,一些作者在提及 (SO^{+}(1,3)) 时，使用 (SO(1,3)) 甚至 (O(1,3)) 来表示。\\
+b,具体推导可参见 *Weyl 方程* 一文。
+\subsection{参考文献}
+\begin{enumerate}
+\item Weinberg, 2002
+\item Varićak, V. 1910. Theory of Relativity and Lobachevskian Geometry, Phys Z 1910, §3 “Lorentz–Einstein transformation as translation”. 英译见 Wikipedia.
+\item Gelfand, Minlos & Shapiro, 1963
+\item  Wigner, 1939
+\item Hall, 2015, 定义 3.18
+\item Hall, 2015, 命题 3.25
+\end{enumerate}
+\subsection{阅读书目}
+
+*\begin{itemize}
+\item  Emil Artin (1957)，*Geometric Algebra*，第三章：辛几何与正交几何（Symplectic and Orthogonal Geometry），通过 Internet Archive，可获取关于正交群 (O(p, q)) 的内容。
+
+* Carmeli, Moshe (1977)，*Group Theory and General Relativity, Representations of the Lorentz Group and Their Applications to the Gravitational Field*，McGraw-Hill, New York，ISBN 978-0-07-009986-9。一本经典参考书；参见第 1–6 章关于洛伦兹群表示的内容。
+
+* Frankel, Theodore (2004)，*The Geometry of Physics*（第二版），剑桥：Cambridge University Press，ISBN 978-0-521-53927-2。是李群理论、纤维丛、自旋覆盖以及其他许多主题的优秀参考书。
+
+* Fulton, William; Harris, Joe (1991)，*Representation theory. A first course*，Graduate Texts in Mathematics, Readings in Mathematics, Vol. 129. 纽约：Springer-Verlag，doi:10.1007/978-1-4612-0979-9，ISBN 978-0-387-97495-8，MR 1153249，OCLC 246650103。参见第 11 讲关于 (SL(2,\mathbb{C})) 的不可约表示。
+
+* Gelfand, I. M.; Minlos, R. A.; Shapiro, Z. Ya. (1963)，*Representations of the Rotation and Lorentz Groups and their Applications*，纽约：Pergamon Press。
+
+* Hall, Brian C. (2015)，*Lie Groups, Lie Algebras, and Representations: An Elementary Introduction*，Graduate Texts in Mathematics, Vol. 222（第二版），Springer，ISBN 978-3319134666。
+
+* Hall, G. S. (2004)，*Symmetries and Curvature Structure in General Relativity*，新加坡：World Scientific，ISBN 978-981-02-1051-9。参见第 6 章关于洛伦兹群李代数子代数的内容。
+
+* Hatcher, Allen (2002)，*Algebraic Topology*，剑桥：Cambridge University Press，ISBN 978-0-521-79540-1。另有“在线版本”，2005 年 7 月 3 日检索。参见 §1.3 关于覆盖空间的精美插图讨论，以及 §3D 关于旋转群拓扑的内容。
+
+* Misner, Charles; Thorne, Kip S.; Wheeler, John (1973)，*Gravitation*，W. H. Freeman and Company，ISBN 978-0-7167-0344-0，§41.3。
+
+* Naber, Gregory (1992)，*The Geometry of Minkowski Spacetime*，纽约：Springer-Verlag，ISBN 978-0486432359。（Dover 再版）。关于闵可夫斯基时空和洛伦兹群的优秀参考书。
+
+* Needham, Tristan (1997)，*Visual Complex Analysis*，牛津：Oxford University Press，ISBN 978-0-19-853446-4。参见第 3 章关于莫比乌斯变换的精美插图讨论。
+
+* Weinberg, S. (2002)，*The Quantum Theory of Fields*，第一卷，Cambridge University Press，ISBN 978-0-521-55001-7。
+
+* Wigner, E. P. (1939)，"On unitary representations of the inhomogeneous Lorentz group"，*Annals of Mathematics*, 40 (1): 149–204，Bibcode:1939AnMat..40..149W，doi:10.2307/1968551，JSTOR 1968551，MR 1503456，S2CID 121773411。
+\end{itemize}
+
+---
+
+要不要我把这份 **阅读书目** 也改排成 LaTeX `thebibliography` 环境？这样可以直接放进学术论文里用 `\bibitem` 引用。

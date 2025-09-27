@@ -684,3 +684,76 @@ i & 0
 0 & -1
 \end{bmatrix}.~
 \]
+\subsubsection{莫比乌斯群的生成元}
+另一组生成元来自于与莫比乌斯群的同构。下表列出了六个生成元，其中：
+\begin{itemize}
+  \item 第一列给出在莫比乌斯作用下的流的生成元（在黎曼球面进行立体投影之后），表现为欧几里得平面上的实向量场；
+  \item 第二列给出对应的一参数莫比乌斯变换子群；
+  \item 第三列给出对应的一参数洛伦兹变换子群（即前一子群在同态映射下的像）；
+  \item 第四列给出在洛伦兹作用下的流的生成元，表现为闵可夫斯基时空上的实向量场。
+\end{itemize}
+需要注意的是，这些生成元由以下部分构成：
+\begin{itemize}
+  \item 两个抛物型（零旋转）；
+  \item 一个双曲型（沿 $\partial_{z}$ 方向的推动）；
+  \item 三个椭圆型（分别是绕 $x, y, z$ 轴的旋转）。
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/bf9eecae1e651f6f.png}
+\caption{} \label{fig_LuoLz_4}
+\end{figure}
+\textbf{示例：绕 $y$ 轴的旋转}
+
+从
+\[
+\sigma_{2} =
+\begin{bmatrix}
+0 & i \\
+- i & 0
+\end{bmatrix}~
+\]
+开始。
+
+取指数：
+\[
+\exp\!\left(\tfrac{i\theta}{2}\sigma_{2}\right) =
+\begin{bmatrix}
+\cos\!\left(\tfrac{\theta}{2}\right) & -\sin\!\left(\tfrac{\theta}{2}\right) \\
+\sin\!\left(\tfrac{\theta}{2}\right) & \cos\!\left(\tfrac{\theta}{2}\right)
+\end{bmatrix}.~
+\]
+
+该 $SL(2,\mathbf{C})$ 元素表示一参数（椭圆型）莫比乌斯变换子群：
+\[
+\xi \;\mapsto\; \xi' = 
+\frac{\cos\!\left(\tfrac{\theta}{2}\right)\,\xi - \sin\!\left(\tfrac{\theta}{2}\right)}
+{\sin\!\left(\tfrac{\theta}{2}\right)\,\xi + \cos\!\left(\tfrac{\theta}{2}\right)}.~
+\]
+接下来，
+\[
+\left.\frac{d\xi'}{d\theta}\right|_{\theta = 0}
+= -\frac{1+\xi^{2}}{2}.~
+\]
+对应的$C$上的向量场（可看作$S^{2}$在立体投影下的像）为
+\[
+-\frac{1+\xi^{2}}{2}\,\partial_{\xi}.~
+\]
+若写作$\xi = u + iv$，则该向量场在$\mathbb{R}^{2}$ 上为
+\[
+-\frac{1+u^{2}-v^{2}}{2}\,\partial_{u} - uv\,\partial_{v}.~
+\]
+回到我们的$SL(2,\mathbf{C})$元素，写出其作用$X \;\mapsto\; PXP^{\dagger}$,并整理各项，可以发现其在旋量映射下的像为$SO^{+}(1,3)$中的元素：
+\[
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & \cos(\theta) & 0 & \sin(\theta) \\
+0 & 0 & 1 & 0 \\
+0 & -\sin(\theta) & 0 & \cos(\theta)
+\end{bmatrix}.~
+\]
+对$\theta$在$\theta=0$处求导，得到在$\mathbf{R}^{1,3}$上对应的向量场：
+\[
+z\partial_{x} - x\partial_{z}.~
+\]
+这显然是绕$y$轴逆时针旋转的生成元。
