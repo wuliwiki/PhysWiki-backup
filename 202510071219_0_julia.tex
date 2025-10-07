@@ -151,13 +151,20 @@ map(+, [1, 2, 3], [10, 20, 30]) # Returns [11, 22, 33]
 
 \verb`map(容器) do 元素: ... return 值; end` 可以对每个元素做某种处理，并把结果生成 Vector
 \begin{lstlisting}[language=julia]
-result = map(1:10) do n
+result = map(1:4) do n
     product = 1
     for i in 1:n
         product += i
     end
-    return product
+    return product # 该 return 和函数中的一样可以省略
 end
+
+# 运行结果
+# 4-element Vector{Int64}:
+#   2
+#   4
+#   7
+#  11
 \end{lstlisting}
 
 \subsubsection{异常处理}

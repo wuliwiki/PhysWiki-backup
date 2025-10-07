@@ -1,0 +1,530 @@
+% Julia 的数据类型（笔记）
+% license Xiao
+% type Tutor
+
+\subsection{变量类型}
+
+参考 \href{https://docs.julialang.org/en/v1/manual/types/#man-declared-types}{Julia 文档}。
+\begin{itemize}
+\item Julia 是动态类型的语言。 具体类型不能互相作为子类， 只能作为抽象类的子类（sub type）。
+\item Julia 中所有的值都是对象。 C++ 中 \verb`float`, \verb`double` 等不是对象， 只有 \verb`struct`, \verb`class` 定义的才是对象。 Julia 中的对象\textbf{没有成员函数}。
+\item 可以在 literal、 变量、 表达式、 函数定义后面加上 \verb`::变量类型` 用于确认它具有该类型， 如果类型不符会产生异常。 如果 \verb`变量类型` 是抽象的， 那么表达式只能是它的一个子类。
+\item 只有 “值” 有类型， 而不是变量具有类型。 变量只是个名字而已
+\item 抽象和具体的类都可以使用其他类作为参数
+\end{itemize}
+
+常见类型
+\verb`Int8`, \verb`UInt8`, \verb`Int16`, \verb`UInt16`, \verb`Int32`, \verb`UInt32`, \verb`Int64`（即 \verb`Int`）, \verb`UInt64`, \verb`Int128`, \verb`UInt128`, \verb`Float16`, \verb`Float32`, \verb`Float64`, \verb`ComplexF16`, \verb`ComplexF32` 和 \verb`ComplexF64`
+
+\verb`BigInt` 是任意大小的整数， \verb`BigFloat` 是任意精度浮点数。
+
+\begin{lstlisting}[language=julia]
+julia> BigFloat(2.1) # 2.1 here is a Float64
+2.100000000000000088817...
+
+julia> BigFloat("2.1") # the closest BigFloat to 2.1
+2.099999999...99999986
+
+julia> BigFloat("2.1", RoundUp)
+2.100000000...0000021
+
+julia> BigFloat("2.1", precision=128)
+2.0999999...995
+
+julia> BigFloat("2.1", RoundUp, precision=128)
+2.100000000...00000000000007
+\end{lstlisting}
+
+使用 \verb`typeof(var)` 来询问变量类型， 用 \verb`isa(var, type)` 来确定类型。 \verb`sizeof(变量或类型)` 来查看类型的字节数
+
+\begin{itemize}
+\item \verb`setprecision(二进制精度);` 可以设置运算默认的精度
+\item \verb`BigFloat(pi)` 会默认为上面设置的精度， \verb`BigFloat(pi, precision=...)` 可以临时改变精度， 但是 \verb`BigFloat(pi, precision=...)*2` 仍然是上面设置的精度， 因为乘法使用上面设置的精度。
+\item \verb`pi` 的加减乘除都得到 \verb`Float64` 类型。
+\end{itemize}
+
+
+\subsubsection{逻辑类型}
+\begin{itemize}
+\item \verb`Bool` 类型的值可以是 \verb`true` 或者 \verb`false`
+\item \verb`any([true, false, ...])` 和 \verb`all([trua, false, ...])`
+\end{itemize}
+
+\subsubsection{整数}
+\begin{itemize}
+\item 整数 literal 的类型取决于它的大小， 例如 \verb`typeof(3)` 是 \verb`Int64`； \verb`typeof(12345678902234567890)` 是 \verb`Int128`， \verb`typeof(1234567890223456789032345678904234567890)` 是 \verb`BigInt`。 \verb`typemin(类型)` 和 \verb`typemax(类型)` 可以查看最大最小值。
+\item 两个相同类型的 Int 相加时， 如果 overflow 会变成负数。 两个不同类型的 Int 相加时， 较小的类型会先转换为较大的类型。 若 \verb`a = Int8(1)`， \verb`a += 1` 后 \verb`a` 会变为 \verb`Int64`。 因为 \verb`1` 相当于 \verb`Int64(1)`。
+\end{itemize}
+
+\subsubsection{浮点数}
+\begin{itemize}
+\item 任何浮点数 literal 都是 \verb`Float64`。
+\item \verb`eps(Float64)` 返回 \verb`2.220446049250313e-16`
+\item \verb`NaN` 是 not a number， 可以用 \verb`isnan(x)` 来判断
+\end{itemize}
+
+\subsection{无理数}
+\begin{itemize}
+\item \verb`pi` 的类型是 \verb`Irrational{:π}` 其中 \verb`:π` 的类型是 \verb`Symbol` （又例如 \verb`:abc`， \verb`:a`）注意 \verb`:pi` 和 \verb`:π` 是两个不同的 \verb`Symbol`。
+\item 用户可以用 \verb`:名字` 表示任意名字的 \verb`Symbol`，常用于字典的 key，类似于 C++ 的 enum。
+\item \verb`BigFloat(pi, precision=500)` 可以获得 500 位二进制的 pi。
+\end{itemize}
+
+
+\subsection{字符串类型}
+\begin{itemize}
+\item 每个 unicode 字符的类型是 \verb`Char`，字符串的类型是 \verb`String`。
+\verb`sizeof(Char) = 4`
+\item Julia 字符串默认采用 UTF-8， \verb`a = "你好 Julia"` 中， \verb`a[1]` 是 \verb`你`， \verb`a[4]` 是 \verb`好`， \verb`a[8]` 是 \verb`J`。 \verb`a[2]` 会报错！
+\item 用 \verb`i = nextind(str, i)` 来获取下一个字符的合法索引！
+\item \verb`for c = str` 也可以遍历每个字符（不是每个字节）
+\item \verb`for i = eachindex(a)` 可以遍历每个字符所在的索引
+\item \verb`length(str)` 返回字符个数（不是每个字节数）
+\item \verb`s = "abcde"` 的类型是 \verb`String`， 注意 \verb`String` 并不是 \verb`Array{Char, 1}`！ \verb`s[i]` 可以获取单个 Char， 但是不能赋值， 因为 String 是不可改变的（immutable）。
+\item 子串替换： \verb`s1 = replace(s, "bc" => "BC")`。 \verb`s1` 也可以是 \verb`s` 本身。
+\item \verb`s = s1*s2` 拼接字符串（等效地： \verb`s = string(s1, s2)`）， \item \verb`s *= s1` 可以 append。
+\item \verb`string(str1, str2, ...)` 也可以拼接
+\item \verb`s = s1^3` 重复字符串 3 次， \verb`s ^= 3` 同理。 相当于 \verb`repeat(s1, 3)`
+\item \verb`findfirst("abc", s)` 搜索字符串， 返回一个 \verb`UnitRange{Int64}`， 如 \verb`3:5`。
+\item \verb`findnext("abc", s, ind)` 从 \verb`ind` 开始搜索下一个
+\item \verb`collect(str)` 可以得到一个字符数组，即 \verb`Vector{Char}`。
+\item \verb`s = b"abcABC123"` 的类型是 \verb`Base.CodeUnits{UInt8, String}`， \verb`s[i]` 的类型是 \verb`UInt8`
+\item \verb`bytes = Vector{UInt8}(str)` 可以把字符串转换为字节。
+\item \verb`str = raw"Hello\nJulia"` 创建裸字符串（\verb`\n` 不当作换行）
+\item 字符串不能直接修改， 如 \verb`a[i] = 'b';`
+\item \verb`"""..."""` 可以表示多行字符串
+\item \verb`"The sum of $x and $y is $(x + y)."`
+\item 可以用 \verb`==` 或 \verb`<` 对比两个字符串。
+\item \verb`new_str = replace(str, "Julia" => "World")` 可以替换字符串。
+\item \verb`str1 = strip(str)` 可以除去两边空格。
+\item \verb`parts = split(str, ",")` 可以拆分字符串。
+\item \verb`str = join(parts, ", ")` 可以组合。
+\item \verb`startswith(str, key)` 和 \verb`endswith(str, key)` 。
+\item \verb`findfirst(str, key)` 和 \verb`findlast(str, key)`
+\item \verb`str = "Hello, Julia!"; m = match(r"Julia", str)` 正则表达式匹配
+\item 插入用 \verb`new_str = original_str[1:7] * insert_str * original_str[8:end]`
+\end{itemize}
+
+
+\subsection{抽象类型}
+声明抽象类型
+\begin{lstlisting}[language=julia]
+abstract type 子类名 <: 母类名 end
+\end{lstlisting}
+声明后， 可以用 \verb`类1 <: 类2` 来判断是否符合该关系， 返回一个 \verb`Bool`。
+
+用 \verb`supertype(类)` 可以查看某个类的母类， \verb`subtypes(类)` 可以查看所有子类。
+
+例子
+\begin{lstlisting}[language=julia]
+abstract type Number end
+abstract type Real     <: Number end
+abstract type AbstractFloat <: Real end
+abstract type Integer  <: Real end
+abstract type Signed   <: Integer end
+abstract type Unsigned <: Integer end
+\end{lstlisting}
+最高级的抽象类是 \verb`Any`， 这里的 \verb`Number` 就是 \verb`Any` 的子类。
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=13cm]{./figures/372e22612fcbfe77.png}
+\caption{Julia 自带类型结构} \label{fig_JuType_1}
+\end{figure}
+以及
+\begin{lstlisting}[language=julia]
+Complex{T<:Real} <: Number
+Rational{T<:Integer} <: Real
+Irrational{sym} <: AbstractIrrational
+\end{lstlisting}
+
+
+\subsection{原始类型}
+\textbf{原始类型（primitive type）}是由 bit 组成的具体类型。 Julia 可以自定义原始类型。 定义原始类型的格式为
+\begin{lstlisting}[language=julia]
+primitive type 类名 比特数 end
+primitive type 类名 <: 父类名 比特数 end
+\end{lstlisting}
+例如
+\begin{lstlisting}[language=julia]
+primitive type Float16 <: AbstractFloat 16 end
+primitive type Float32 <: AbstractFloat 32 end
+primitive type Float64 <: AbstractFloat 64 end
+
+primitive type Bool <: Integer 8 end
+primitive type Char <: AbstractChar 32 end
+
+primitive type Int8    <: Signed   8 end
+primitive type UInt8   <: Unsigned 8 end
+primitive type Int16   <: Signed   16 end
+primitive type UInt16  <: Unsigned 16 end
+primitive type Int32   <: Signed   32 end
+primitive type UInt32  <: Unsigned 32 end
+primitive type Int64   <: Signed   64 end
+primitive type UInt64  <: Unsigned 64 end
+primitive type Int128  <: Signed   128 end
+primitive type UInt128 <: Unsigned 128 end
+\end{lstlisting}
+
+\subsection{数组和矩阵}
+\begin{itemize}
+\item 索引从 1 开始， 和 Matlab 一样
+\item 矩阵（数组）使用\enref{列主序}{MatSto}， 和 Matlab 一样
+\item 数组类型为 \verb`Array{类型,维数}`。 一维数组 \verb`Array{类型,1}` 也记为 \verb`Vector{类型}`， 不区分行和列； \verb`Array{类型,2}` 也记为 \verb`Matrix{类型}`， 区分行向量和列向量。
+\item \verb`[1, 2]` 和 \verb`[1; 2]` 的类型都是 \verb`Array{Int64,1}`， 但 \verb`[1 2]` 的类型是 \verb`Array{Int64,2}`
+\item \verb`类型[1,2,3]` 可以创建指定类型的数组。
+\item \verb`append!(数组, 元素)` 或者 \verb`push!(数组, 元素)` 可以在列向量最后添加一个元素。
+\item \verb`push!([1, 2, 3], 4, 5)` 或者 \verb`append!([1, 2, 3], [4, 5])`
+\item \verb`类型[]` 创建空数组
+\item \verb`a = [1 2; 3 4]` 得到 \verb`Array{Float64,2}` 注意不能用逗号， 但可以不写 \verb`;` 而使用换行。
+\item \verb`[1, "abc", 1.2]` 的类型是 \verb`Vector{Any}`。
+\item \verb`[2^i for i = 1:10]` 可以用通项公式快速生成一个数组。
+\item \verb`typeof(1:3)` 是 \verb`UnitRange{Int64}`。 支持 \verb`T<:Real` 元素类。 如 \verb`UnitRange(3.3, 5.6)`。
+\item \verb`typeof(1:2:5)` 是 \verb`StepRange{Int64, Int64}`。
+\item \verb`typeof(1.1:3)` 和 \verb`typeof(1.1:2:5)` 的类型都是 \verb`StepRangeLen{T,R,S,L}`。 它的 constructor 是 \verb`a = StepRangeLen(ref::R, step::S, len::L, [offset=1])`。 其中 \verb`T` 是标量类型即 \verb`a[i]` 的类型， \verb`R` 是 \verb`ref` 即 \verb`a[offset]` 的类型， \verb`S` 是 \verb`step` 的类型， \verb`L` 是元素个数 \verb`len` 的类型。
+\item \verb`push!(v, 元素)` 可以在 \verb`Vector` 后面增加一个元素，同时也会返回新的 \verb`v`。 \verb`pop!(v)` 移除最后的元素， 返回最后一个元素。
+\item \verb`splice!(v, 3:5)` 可以删除 \verb`v[3:5]`
+\item \verb`A .= 值` 或者 \verb`fill!(v, 值)` 可以把 \verb`v` 的每个元素赋值。
+\item 矩阵切割如 \verb`a[:, j, :]`
+\item 矩阵尺寸 \verb`size(矩阵, 维度)`， 元素个数 \verb`length()`（相当于 Matlab 的 \verb`numel`）， \verb`isempty()` 检查空矩阵， \verb`reverse()` 元素倒序排序
+\item \verb`findmax(), findmin()` 找到矩阵的最大最小元素。
+\item \verb`Array{Float64,2}(undef, 2, 3)` 创建矩阵， 矩阵元不初始化。
+\item 零向量矩阵 \verb`zeros(整数)` 或 \verb`zeros(整数, 整数)` 分别返回 \verb`Array{Float64,1}` 和 \verb`Array{Float64,2}`。 也可以用 \verb`zeros(类型, 整数, 整数)` 指定类型。
+\item 随机矩阵如 \verb`rand(N1, N2, ...)` 或者 \verb`rand(类型, N1, N2, ...)`。
+\item 求矩阵的哈希值如 \verb`hash(矩阵)`， 类型为 \verb`UInt64`。 把运算结果的 hash 输出可以保证计算过程不被优化掉。 事实上可以作用于任何对象（包括自定义类型）。
+\item 64 位机器上， 整数 literal 的类型默认是 \verb`Int64`
+\item \verb`a[:, 1]` 或者 \verb`a[1, :]` 仍然得到 \verb`Array{Int64,2}`
+\item \verb`a[:, 1] = [3; 4]` 可以修改 \verb`a` 的值
+\item \verb`a = b` 是浅复制， \verb`a` 改变了 \verb`b` 也会改变（同一对象）。
+\item \verb`a = copy(b)` 是真复制， 新生成一个对象。
+\item 可以用 \verb`a === b` 来判断是否是同一对象。
+\item \verb`b = a[:, 1]` 也是真复制。
+\item \verb`a` 作为参数传给函数是 pass by reference， 相当于 C 语言传递指针（有例外， 见 \enref{Julia 的函数}{JuFunc}）
+\item 方括号前面可以指定类型， 如 \verb`Float32[1, 4, 5]`。
+\item 数组的类型也可以是抽象类型甚至任意类型 \verb`Any`。 例如 \verb`["a", 1.23]` 的类型就是 \verb`Vector{Any}` 即 \verb`Array{Any, 1}`
+\item \verb`函数.(数组)` 可以对数组内的每个元素分别作用， 返回数组。 例如 \verb`sin.([1,2,3])`。 \verb`sin([1,2,3])` 是错误的用法。
+\item \verb`exp([1 2;3 4])` 是矩阵的指数， \verb`exp.([1 2;3 4])` 是逐个元素做指数。
+\item \verb`collect(1:5)` 可以把类似 range 的类型变为 \verb`Vector{}` 类型。
+\item \verb`v .+ 标量` 可以把数组的每一个元素加上标量。 如果用 \verb`+` 会出错。 同理也有 \verb`.+=`。 其他算符同理。
+\item \verb`矩阵 .+ 行向量` 可以对每一行都加行向量。
+\item \verb`B = [A; A]` 可以拼接矩阵
+\item \verb`resize!(矢量, N)` 可以用于改变矢量长度， 已有的元素值不会改变， 新增的元素不初始化。
+\item \verb`A = reshape(数组, N1, N2, ...)` 或者 \verb`A = reshape(数组, (N1, N2, ...))` 可以改变数组的形状甚至维度。 但改变前后元素个数必须不变。 注意 \verb`A` 和 \verb`数组` 共享内存， 改变一个另一个也会变。
+\item \verb`A'` 是厄密共轭， 转置再取共轭， 相当于 \verb`conj(transpose(A))`
+\item \verb`maximum(v)` 求最大值， \verb`maximum(A,2)` 求第二个维度的最大值。
+\item \verb`argmax(v)` 同理， 返回 index。
+\end{itemize}
+
+\subsection{子数组}
+\begin{itemize}
+\item \verb`a[:, 1]` 作为参数传给函数是 pass by value， 如果需要 by reference， 使用 \verb`view` 函数获取 \verb`SubArray` 类
+\item \verb`SubArray` 不存数据， 可以用来给函数参数 pass by reference
+\item \verb`SubArray` 类型的 5 个参数 \verb`SubArray{标量类,维数,矩阵类,Tuple{各维度索引类型},是否支持快速索引}`
+\item \verb`view(a, :, 1)` 的类型是 \verb`SubArray{Int64,1,Matrix{Int64},Tuple{Base.Slice{Base.OneTo{Int64}},Int64},true}`
+\item \verb`view(a, 1, :)` 的类型是 \verb`SubArray{Int64,1,Matrix{Int64},Tuple{Int64,Base.Slice{Base.OneTo{Int64}}},true}`
+\item \verb`view(a, 1:2, 2:3)` 的类型是 \verb`SubArray{Int64,2,Matrix{Int64},Tuple{UnitRange{Int64},UnitRange{Int64}},false}`
+\item \verb`SubArray <: AbstractArray{T,Ndim} <: Any`
+\item \verb`Array{T,Ndim} <: DenseArray{T,Ndim} <: AbstractArray{T,Ndim} <: Any`
+\item 所以只要函数参数接受 \verb`AbstractArray`， 就可以同时接受 \verb`Array, SubArray`。
+\end{itemize}
+
+\verb`SubArray` 的结构
+\begin{lstlisting}[language=julia]
+struct SubArray{T,N,P,I,L} <: AbstractArray{T,N}
+    parent::P
+    indices::I
+    offset1::Int  # for linear indexing and pointer, only valid when L==true
+    stride1::Int  # used only for linear indexing
+    ...
+end
+\end{lstlisting}
+
+\begin{itemize}
+\item \verb`1:5` 等效于 \verb`range(1,5)`， 类型是 \verb`UnitRange{Int64}`
+\item 要转换成普通数组用 \verb`Vector(3:5)`。
+\item \verb`1:3:9` 等效于 \verb`StepRange(1, 3, 9)`， 类型是 \verb`StepRange{Int64, Int64}` 注意 \verb`StepRange` 类型的参数只能是整数。 \verb`StepRange(1, Int8(3), 9)` 的类型是 \verb`StepRange{Int64, Int8}`
+\item \verb`1.2:5.1` （等效于 \verb`range(1.2,5.1)`）和 \verb`1:0.2:4.1` （等效于 \verb`1:0.2:4` 和 \verb`range(1,4,16)`）的类型是 \verb`StepRangeLen{Float64, Base.TwicePrecision{Float64}, Base.TwicePrecision{Float64}, Int64}`。 \verb`range(2,4,3)` 虽然每个元素都是整数， 但类型也是一样的。
+\item \verb`LinRange(初始值,终止值,个数)` 概念上是等间距数组， 相当于 Matlab 的 \verb`linspace`。 但类型为 \verb`LinRange{Float64, Int64}`。
+\item \verb`range(1,2,length=3)` 等效于 \verb`1.0:0.5:2.0`。
+\item 所有这些 range 类型的抽象类都是 \verb`AbstractRange <: AbstractVector <: Any`， 都可以像数组一样用 \verb`size(x, dim)` 来获取尺寸， \verb`length()` 获取元素个数， 可以用 \verb`x[i]` 获取元素。
+\end{itemize}
+
+\subsection{复合类型}
+\textbf{复合类型（composite）} 类似于 C++ 中的 \verb`struct`， 但是不能有成员函数。
+\begin{lstlisting}[language=julia]
+struct Foo
+    bar # 抽象类型是 Any
+    baz::Int
+    qux::Float64
+end
+\end{lstlisting}
+创建该类型的对象
+\begin{lstlisting}[language=julia]
+foo = Foo("Hello, world.", 23, 1.5) # 叫做 constructor
+\end{lstlisting}
+\begin{itemize}
+\item 要获取成员的值， 用 \verb`foo.bar`, \verb`foo.baz`, \verb`foo.qux` 等。 用 \verb`struct` 声明的复合类型值在生成后就不能被改变。 如果 struct 里面有矩阵等， 那么矩阵元仍然是 mutable 的（没有 lower level const）。
+\item 如果要支持成员改变， 那么用 \verb`mutable struct` 来声明即可。 mutable struct 通常存在 heap 中而不是在 stack 中。
+\item 查看成员名称用 \verb`fieldnames(Foo或Foo的对象)`， 如果还要显示成员类型， 用 \verb`dump(Foo)`。
+\item \verb`ismutable(Foo)` 可以判断是否 \verb`mutable struct`。
+\item 要判断一个类型是 primitive 还是 struct， 可以先打个 \verb`?` 进入 help 模式， 然后再输入 \verb`Foo`。 等效地也可以用 \verb`@doc Foo`。
+\item 定义 constructor 如：
+\begin{lstlisting}[language=julia]
+struct Person
+    name::String
+    age::Int
+    function abc(name::String, age::Int, add::Int)
+        new(name, age+add)
+    end
+end
+\end{lstlisting}
+\item 注意 struct 里面的函数并不能用于定义其他 “成员函数”。
+\item 要定义类型转换， 可以定义一个新的 constructor， 也可以定义一个函数 \verb`Base.convert(::Type{类型1}, f::类型2)`， 转换用 \verb`g = convert(类型1, f)`
+\end{itemize}
+
+\subsection{结构体（回收）}
+\begin{itemize}
+\item 定义
+\begin{lstlisting}[language=julia]
+mutable struct User
+    id::Int
+    name::String
+    email::String
+    age::Int
+end
+\end{lstlisting}
+\item 默认构造函数 \verb`user1 = User(1, "Alice", "alice@example.com", 30)`
+\item 如果没有 \verb`mutable`， 构造后将不能改变字段值。
+\item 定义后无法动态增减字段。
+\item \verb`fieldnames(类型)` 查看所有字段，\verb`fieldname(类型, i)` 查看第 \verb`i` 个，\verb`nfields(对象)` 是数量， \verb`fieldtypes(类型)` 查看对应的类型。 \verb`dump(类型)` 查看详情， \verb`methods(类型)` 查看有哪些函数（似乎只能显示构造函数）。
+\item 例如 \verb`dump(Rational{Int64})` 得到
+\begin{lstlisting}[language=julia]
+Rational{Int64} <: Real
+  num::Int64
+  den::Int64`
+\end{lstlisting}
+\verb`nfields(1//2)` 得到 \verb`2`。注意 \verb`nfields(Rational{Int64})` 是 8，因为 \verb`typeof(Rational{Int64})` 是 \verb`DataType`，而 \verb`dump(DataType)` 是
+\begin{lstlisting}[language=julia]
+DataType <: Type{T}
+  name::Core.TypeName
+  super::DataType
+  parameters::Core.SimpleVector
+  types::Core.SimpleVector
+  instance::Any
+  layout::Ptr{Nothing}
+  hash::Int32
+  flags::UInt16
+\end{lstlisting}
+\verb`fieldnames(Rational{Int64})` 得到 \verb`(:num, :den)`，\verb`fieldtypes(Rational{Int64})` 得到 \verb`(Int64, Int64)`。
+\item 自定义构造函数（\verb`C:\Users\addis\AppData\Local\Programs\Julia-1.11.6\share\julia\base\boot.jl`）：
+\begin{lstlisting}[language=julia]
+struct Pair{A, B}
+    first::A
+    second::B
+    Pair(a, b) = new{typeof(a), typeof(b)}(a, b)
+    function Pair{A, B}(@nospecialize(a), @nospecialize(b)) where {A, B}
+        @inline
+        return new(a::A, b::B)
+    end
+end
+\end{lstlisting}
+\end{itemize}
+
+
+\subsection{Type Unions}
+\begin{lstlisting}[language=julia]
+IntOrString = Union{Int, AbstractString}
+1 :: IntOrString
+"Hello!" :: IntOrString
+1.0 :: IntOrString # 异常
+\end{lstlisting}
+但是， 这和使用 \verb`<:` 有什么区别？ 一个类只可能有一个非 Union 的母类， 如果一个函数的参数想要支持两个母类不同的类怎么办？ 那就用 Union 即可。
+
+另外一个应用的例子是 \verb`Union{T, Nothing}` 作为函数参数， 这样这个参数就可以忽略了。
+
+\subsection{含参类型（Struct）}
+
+复数类型 \verb`ComplexF16`, \verb`ComplexF32` 和 \verb`ComplexF64` 是 \verb`Complex{Float16}`, \verb`Complex{Float32}` 和 \verb`Complex{Float64}` 的别名。 \verb`Complex` 就是一个\textbf{含参类型（parametric type）}
+
+例如
+\begin{lstlisting}[language=julia]
+struct Point{T}
+    x::T
+    y::T
+end
+\end{lstlisting}
+那么 \verb`Point{Float64}` 等都是合法的具体类型。
+
+\verb`Point` 本身是一个抽象类， 是其具体类的母类
+\begin{lstlisting}[language=julia]
+julia> Point{Float64} <: Point
+true
+julia> Point{AbstractString} <: Point
+true
+\end{lstlisting}
+\verb`<:` 相当于一个二元算符， 输出 \verb`Bool`。
+
+例子：
+\begin{lstlisting}[language=julia]
+function norm(p::Point{Real})
+    sqrt(p.x^2 + p.y^2)
+end
+\end{lstlisting}
+constructor
+\begin{lstlisting}[language=julia]
+p = Point{Float64}(1.0, 2.0)
+\end{lstlisting}
+
+\subsection{含参抽象类型}
+\textbf{含参抽象类型（Parametric Abstract Types）}
+例如
+\begin{lstlisting}[language=julia]
+abstract type Pointy{T} end
+struct Point{T} <: Pointy{T}
+    x::T
+    y::T
+end
+\end{lstlisting}
+
+
+\subsection{Pair}
+\begin{itemize}
+\item \verb`值1 => 值2` 的数据类型是 \verb`Pair{类型1, 类型2}`， 两种类型都可以是 \verb`Any`。
+\item \verb`"abc" => 1.23` 的类型是 \verb`Pair{String, Float64}`， 令 \verb`p = "abc" => 1.23`， 那么 \verb`p.first` 和 \verb`p.second` 分别可以获取两个变量。
+\item \verb`Pair` 同样是 immutable 的。
+\end{itemize}
+
+
+\subsection{Tuple}
+Tuple 是函数参数列表的抽象。 例如两个元素的 tuple type 类似于如下的含参 struct 类型
+\begin{lstlisting}[language=julia]
+struct Tuple2{A,B}
+    a::A
+    b::B
+end
+\end{lstlisting}
+例子
+\begin{lstlisting}[language=julia]
+julia> typeof((1,"foo",2.5))
+Tuple{Int64, String, Float64}
+\end{lstlisting}
+\begin{lstlisting}[language=julia]
+julia> Tuple{Int,AbstractString} <: Tuple{Real,Any}
+true
+
+julia> Tuple{Int,AbstractString} <: Tuple{Real,Real}
+false
+\end{lstlisting}
+
+\begin{itemize}
+\item \verb`t = (值1, 值2, 值3, ...)` 就是 \verb`Tuple`
+\item 数组的元素类型必须相同， 而 \verb`Tuple` 的元素类型可以不同
+\item \verb`t = (1, "3.1", [1 2; 3 4])` 的类型是 \verb`Tuple{Int64, String, Matrix{Int64}}`
+\item 数组的 \verb`length()`， \verb`isempty()`， \verb`reverse()` 同样适用于 \verb`Tuple`。
+\item \verb`t[i]` 获取某个元素， 但不能对其赋值！ Tuple 的元素永远不能改变！ Tuple 类型是 immutable 的。
+\item named tuple： \verb`x = (a=2, b="abc")`， 类型为 \verb`NamedTuple{(:a, :b), Tuple{Int64, String}}`。 然后可以使用 \verb`x.a` 和 \verb`x.b` 来获取元素。
+\item 单个元素的 tuple 如 \verb`(1,)`， 空 tuple 用 \verb`()` 表示， 类型为 \verb`Tuple{}`。
+\item \verb`(a1,a2,a3) = my_tuple` 可以把 Tuple 拆开
+\item \verb`(x,y) = (1,"ab")` 或者 \verb`x,y = (1,"ab")` 会分别把元素赋值给 \verb`x, y`。 这可以用于函数返回多个值。
+\end{itemize}
+
+\subsection{指针}
+\begin{itemize}
+\item \verb`p = pointer(v)` 可以获取一个数组第一个元素的指针， 类型是 \verb`Ptr{元素类型}`。 \verb`unsafe_load(p)` 可以获得第一个元素的值 \verb`p + sizeof(元素类型)` 可以获得下一个元素的指针。
+\item \verb`unsafe_store!(p, 值)` 可以给指针的元素赋值。
+\end{itemize}
+
+
+\subsection{类似 C++ 的数据结构}
+\subsubsection{Set}
+\begin{itemize}
+\item \verb`s = Set{Int64}()` 生成某种类型的空 set。
+\item \verb`s = Set([1,2,3])` 把数组变为 \verb`Set` （自动推导出类型 \verb`Set{Int64}`）
+\item \verb`push!(s, 123, 23, 532)` 添加若干元素。
+\item \verb`empty!(s)` 清空集合。
+\item \verb`in(123, s)` 查看某个元素是否存在
+\item \verb`union!(s1,s2)` 计算并集， 赋值给 \verb`s1`， \verb`s = union(s1,s2)` 计算并集， 赋值给 \verb`s`。
+\end{itemize}
+
+\subsubsection{Dict}
+\begin{itemize}
+\item \verb`d = Dict{key类型,Val类型}()` 创建一个字典（哈希表）， 也可以直接用 \verb`Dict("ab"=>12, "bc"=>23)` （会自动推导类型 \verb`Dict{String, Int64}`）
+\item 例如：\verb`d = Dict("a" => 1, "b" => 2)`， 取值用 \verb`d["a"]`， \verb`d["c"]` 会报错， 若不想报错也可以用 \verb`get(d, "c", nothing)` 当 key 不存在就会返回第三个入参。
+\item \verb`push!(d, key1=>val1, key2=>val2)` 添加若干 entry， 如果 \verb`key` 已经存在， 就覆盖 \verb`val`。
+\item 添加新元素也可以用 \verb`a[key] = val`。
+\item \verb`a[key]` 获取对应的 \verb`val`， 如果 \verb`key` 不存在则会出错。
+\item 删除一个元素用 \verb`delete!(d, key)`
+\item \verb`keys(d)` 表示所有存在的 key， 类型是 \verb`Base.KeySet{key类型, Dict{key类型, val类型}}`， 不会复制值。
+\item \verb`vals(d)` 同理， 类型是 \verb`Base.ValueIterator{Dict{String, Int64}}`
+\item 要循环， 可以
+\begin{lstlisting}[language=julia]
+for (k, v) in d
+   ...
+end
+\end{lstlisting}
+\end{itemize}
+
+
+\subsection{Vararg Tuple Types}
+
+\subsection{Named Tuple Types}
+
+\subsection{Parametric Primitive Types}
+
+\subsection{UnionAll Types}
+
+\subsection{Singleton types}
+
+\subsection{Type{T} type selectors}
+
+\subsection{Type Aliases}
+使用等号。 例如
+\begin{lstlisting}[language=julia]
+# 32-bit system:
+julia> UInt
+UInt32
+
+# 64-bit system:
+julia> UInt
+UInt64
+\end{lstlisting}
+实现方法
+\begin{lstlisting}[language=julia]
+This is accomplished via the following code in base/boot.jl:
+
+if Int === Int64
+    const UInt = UInt64
+else
+    const UInt = UInt32
+end
+\end{lstlisting}
+
+\subsection{Operations on Types}
+\begin{lstlisting}[language=julia]
+julia> isa(1, Int)
+true
+
+julia> typeof(Rational{Int})
+DataType
+
+julia> typeof(Union{Real,String})
+Union
+
+julia> typeof(DataType)
+DataType
+
+julia> typeof(Union)
+DataType
+
+julia> supertype(Float64)
+AbstractFloat
+
+julia> supertype(Number)
+Any
+
+julia> supertype(AbstractString)
+Any
+
+julia> supertype(Any)
+Any
+\end{lstlisting}
