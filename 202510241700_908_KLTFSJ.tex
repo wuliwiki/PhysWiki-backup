@@ -1,0 +1,212 @@
+% 库拉托夫斯基闭包公理（Kuratowski closure axioms）（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Kuratowski_closure_axioms}{相关文章}。
+
+在拓扑学及其相关数学分支中，库拉托夫斯基闭包公理（Kuratowski closure axioms）是一组可用于在一个集合上定义拓扑结构的公理。它们与更常用的开集定义是等价的。该体系最早由卡齐米日·库拉托夫斯基（Kazimierz Kuratowski）形式化提出，\(^\text{[1]}\)后来又被数学家如瓦茨瓦夫·谢尔平斯基（Wacław Sierpiński）和安东尼奥·蒙泰罗（António Monteiro）等人进一步研究。\(^\text{[2]}\)
+
+另一组类似的公理也可以仅通过其对偶概念——内点算子（interior operator）来定义拓扑结构。\(^\text{[3]}\)
+\subsection{定义}
+\subsubsection{库拉托夫斯基闭包算子及其弱化形式}
+设$X$为任意集合，$\wp(X)$为其幂集。一个库拉托夫斯基闭包算子（Kuratowski closure operator）是一个一元运算$\mathbf{c} : \wp(X) \to \wp(X)$满足以下性质：
+
+\textbf{[K1]}保持空集：$\mathbf{c}(\varnothing) = \varnothing
+$
+
+\textbf{[K2]}外延性（Extensive）：对所有$A \subseteq X $，$A \subseteq \mathbf{c}(A)$
+
+\textbf{[K3]}幂等性（Idempotent）：对所有$A \subseteq X$，$\mathbf{c}(A) = \mathbf{c}(\mathbf{c}(A))$
+
+\textbf{[K4]}对二元并集保持（或分配律）：对所有$A, B \subseteq X$，
+$\mathbf{c}(A \cup B) = \mathbf{c}(A) \cup \mathbf{c}(B)$
+
+由于闭包算子$\mathbf{c}$保持二元并集，上述条件的一个推论是\(^\text{[4]}\)：
+
+\textbf{[K4′]}单调性（Monotone）：$A \subseteq B \Rightarrow \mathbf{c}(A) \subseteq \mathbf{c}(B)$
+
+事实上，如果我们将\textbf{[K4]}中的等号改为包含号，就得到一个更弱的公理\textbf{[K4″]}（次可加性，subadditivity）：
+
+\textbf{[K4″]}次可加性：对所有$A, B \subseteq X $，$\mathbf{c}(A \cup B) \subseteq \mathbf{c}(A) \cup \mathbf{c}(B)$
+
+那么可以容易看出，公理\textbf{[K4′]}与\textbf{[K4″]}一起等价于 \textbf{[K4]}（见下文“证明2”的倒数第二段）。
+
+库拉托夫斯基（1966）提出了一个第五个（可选）公理，要求单点集在闭包下保持不变：对所有$ x \in X $，$\mathbf{c}({x}) = {x}$他将满足全部五条公理的拓扑空间称为T₁ 空间（T1-spaces），以区别于仅满足前四条公理的一般空间。实际上，这些空间与通常意义下的拓扑T₁ 空间完全对应（见下文）。\(^\text{[5]}\)
+
+如果省略条件\textbf{[K3]}，则这些公理定义了一个 Čech 闭包算子。\(^\text{[6]}\)若改为省略\textbf{[K1]}，则满足\textbf{[K2]}、\textbf{[K3]}与 \textbf{[K4′]}的算子称为 Moore 闭包算子。\(^\text{[7]}\)因此，一个二元组$(X, \mathbf{c})$称为库拉托夫斯基空间（Kuratowski closure space）、Čech 闭包空间（Čech closure space）或Moore 闭包空间（Moore closure space），取决于闭包算子$\mathbf{c}$满足的公理体系。
+\subsubsection{替代公理化}
+四条库拉托夫斯基闭包公理可以被一个条件所取代，这一条件由 Pervin 提出：\(^\text{[8]}\)
+
+$\text{[P]}\quad \forall, A,B \subseteq X, \quad A \cup \mathbf{c}(A) \cup \mathbf{c}(\mathbf{c}(B)) = \mathbf{c}(A \cup B) \setminus \mathbf{c}(\varnothing)$
+即：
+对所有$A, B \subseteq X$，有$A \cup c(A) \cup c(c(B)) = c(A \cup B) \setminus c(\varnothing)$
+
+由该条件可以推出公理\textbf{[K1]–[K4]}：
+\begin{enumerate}
+\item 取$A = B = \varnothing$。则$\varnothing \cup c(\varnothing) \cup c(c(\varnothing)) = c(\varnothing) \setminus c(\varnothing) = \varnothing$即$c(\varnothing) \cup c(c(\varnothing)) = \varnothing$这立即推出\textbf{[K1]}。
+\item 取任意$A \subseteq X$，令$B = \varnothing$。应用\textbf{[K1]}，得$A \cup c(A) = c(A)$推出\textbf{[K2]}。
+\item 取$A = \varnothing$，任意$B \subseteq X$。应用\textbf{[K1]}，得$c(c(B)) = c(B)$即\textbf{[K3]}。
+\item 取任意 (A, B \subseteq X)，结合 [K1]–[K3]，可推得 **\textbf{[K4]}。
+\end{enumerate}
+另一种替代方案由 Monteiro（1945）提出，他提出了一个更弱的公理，仅能推出 \textbf{[K2]–[K4]}：\(^\text{[9]}\)
+
+$\text{[M]}\quad \forall, A,B \subseteq X, \quad A \cup c(A) \cup c(c(B)) \subseteq c(A \cup B)$
+
+即：$A \cup c(A) \cup c(c(B)) \subseteq c(A \cup B)$
+
+条件\textbf{[K1]}与\textbf{[M]}相互独立。确实，如果$X \neq \varnothing$，定义算子$\mathbf{c}^\star : \wp(X) \to \wp(X)$为常值映射$A \mapsto \mathbf{c}^\star(A) := X$则该算子满足\textbf{[M]}，但不保持空集，因为$\mathbf{c}^\star(\varnothing) = X$由定义可见，任何满足 \textbf{[M]} 的算子都是一个 Moore 闭包算子。
+
+M. O. Botelho 与 M. H. Teixeira** 提出了一个更对称的替代形\textbf{[BT]}，它同样蕴含公理\textbf{[K2]–[K4]}：\(^\text{[2]}\)
+
+$\text{[BT]}\quad \forall, A,B \subseteq X, \quad A \cup B \cup c(c(A)) \cup c(c(B)) = c(A \cup B)$
+
+即：$A \cup B \cup c(c(A)) \cup c(c(B)) = c(A \cup B)$
+\subsection{类似结构}
+\subsubsection{内点算子、外点算子与边界算子}
+与库拉托夫斯基闭包算子相对的对偶概念是库拉托夫斯基内点算子（Kuratowski interior operator），它是一个映射$\mathbf{i} : \wp(X) \to \wp(X)$满足以下条件：\(^\text{[3]}\)
+
+\textbf{[I1]}保持全集：$\mathbf{i}(X) = X$
+
+\textbf{[I2]}内延性（intensive）：对所有$A \subseteq X $，$\mathbf{i}(A) \subseteq A$
+
+\textbf{[I3]}幂等性（idempotent）：对所有$A \subseteq X $，$
+\mathbf{i}(\mathbf{i}(A)) = \mathbf{i}(A)$
+
+\textbf{[I4]}对二元交集保持（preserves binary intersections）：对所有$A, B \subseteq X $，$\mathbf{i}(A \cap B) = \mathbf{i}(A) \cap \mathbf{i}(B)$
+
+对于这些算子，可以得到与库拉托夫斯基闭包算子完全类似的结论。例如，所有库拉托夫斯基内点算子都是保序的（isotonic），即满足\textbf{[K4′]}。并且由于\textbf{[I2]}的内延性，可以将\textbf{[I3]}中的等号弱化为包含号。
+
+闭包与内点的对偶关系库拉托夫斯基闭包与内点之间的对偶关系由幂集$\wp(X)$上的自然补运算（complement operator）给出，该映射$\mathbf{n} : \wp(X) \to \wp(X)$定义为$A \mapsto \mathbf{n}(A) := X \setminus A$
+该映射是幂集格上的正交补（orthocomplementation），即它满足德摩根律（De Morgan’s laws）：若 (\mathcal{I}) 是任意指标集，且${A_i}_{i \in \mathcal{I}} \subseteq \wp(X)$,则有
+$$
+\mathbf{n}\left( \bigcup_{i \in \mathcal{I}} A_i \right) = \bigcap_{i \in \mathcal{I}} \mathbf{n}(A_i),
+\quad
+\mathbf{n}\left( \bigcap_{i \in \mathcal{I}} A_i \right) = \bigcup_{i \in \mathcal{I}} \mathbf{n}(A_i).~
+$$
+利用这些规律及 (\mathbf{n}) 的定义性质，可以证明任意库拉托夫斯基内点算子可诱导出一个库拉托夫斯基闭包算子（反之亦然），通过以下定义式：$\mathbf{c} := \mathbf{n i n},\mathbf{i} := \mathbf{n c n}$.因此，关于闭包算子$\mathbf{c}$的任何结论，都可以通过这些关系以及正交补 $\mathbf{n}$的性质，转换为关于内点算子$\mathbf{i}$的对应结论。
+
+Pervin（1964）进一步给出了库拉托夫斯基外点算子（exterior operator）和边界算子（boundary operator）的类似公理化形式。\(^\text{[3][10]}\)这些算子同样可以通过以下关系定义出对应的闭包算子：$\mathbf{c} := \mathbf{n e},\mathbf{c}(A) := A \cup \mathbf{b}(A)$.
+\subsubsection{抽象算子}
+需要注意的是，公理\textbf{[K1]–[K4]}可以被推广，用于在一个一般有界格
+$(L, \land, \lor, \mathbf{0}, \mathbf{1})$上定义一个抽象的一元运算
+$\mathbf{c} : L \to L$其方法是：将集合论中的包含关系替换为该格上的偏序关系，将集合并（union）替换为并（join，$\lor$）运算，将集合交（intersection）替换为交（meet，$\land$）运算；类似地，也可以对公理 \textbf{[I1]–[I4]}进行相应的形式替换。如果该格是正交补格（orthocomplemented lattice），则这两种抽象运算（抽象闭包与抽象内点）可以按照通常方式互相诱导。抽象闭包算子或内点算子可以用于在格上定义一种广义拓扑结构（generalized topology）。
+
+由于 Moore 闭包算子的定义中既不涉及并运算，也不涉及空集，因此它的定义可以进一步推广为：在任意偏序集（poset）$S$上定义一个抽象的一元算子$\mathbf{c} : S \to S$.
+\subsection{与其他拓扑公理化的联系}
+\subsubsection{由闭包导出的拓扑}
+一个闭包算子可以自然地导出一个拓扑。设$X$为任意集合。我们称集合$C \subseteq X$相对于一个库拉托夫斯基（Kuratowski）闭包算子$\mathbf{c} : \wp(X) \to \wp(X)$是闭集，当且仅当它是该算子的一个不动点。换句话说，它在$\mathbf{c}$作用下保持不变，即
+$\mathbf{c}(C) = C$.可以证明：所有闭集的补集组成的族满足拓扑的三个常规要求；等价地，所有闭集构成的族${\mathfrak{S}}[\mathbf{c}]$满足以下条件：
+
+\textbf{[T1]}有界子格（Bounded Sublattice）
+
+它是幂集$\wp(X)$的一个有界子格，也就是说$X, \varnothing \in {\mathfrak{S}}[\mathbf{c}]$.
+
+\textbf{[T2]}任意交封闭（Closure under Arbitrary Intersections）
+
+它对任意交封闭：若$\mathcal{I}$是任意指标集，且$\left\{ C_i \right\}*{i \in \mathcal{I}} \subseteq {\mathfrak{S}}[\mathbf{c}]$,则有$\bigcap*{i \in \mathcal{I}} C_i \in {\mathfrak{S}}[\mathbf{c}]$.
+
+\textbf{[T3]}有限并封闭（Closure under Finite Unions）
+
+它对有限并封闭：若$\mathcal{I}$是有限指标集，且$\left\{ C_i \right\}*{i \in \mathcal{I}} \subseteq {\mathfrak{S}}[\mathbf{c}]$,则有$\bigcup*{i \in \mathcal{I}} C_i \in {\mathfrak{S}}[\mathbf{c}]$.
+
+由闭包导出的拓扑的进一步说明
+
+注意，由幂等性公理\textbf{[K3]}可得，可以更简洁地写作${\mathfrak{S}}[\mathbf{c}] = \operatorname{im}(\mathbf{c})$.即闭集族${\mathfrak{S}}[\mathbf{c}]$等于闭包算子$\mathbf{c}$的像集。
+
+\textbf{证明 1}
+
+\textbf{[T1]}根据扩张性（Extensivity）公理\textbf{[K2]}，有$X \subseteq \mathbf{c}(X)$,并且由于闭包算子将$X$的幂集映射到其自身（即任何子集的像仍然是 (X) 的子集），$\mathbf{c}(X) \subseteq X$.因此我们得到$X = \mathbf{c}(X)$,从而可知$X \in {\mathfrak{S}}[\mathbf{c}]$.再由空集保持性（Preservation of the empty set）公理\textbf{[K1]}，立即可得$\varnothing \in {\mathfrak{S}}[\mathbf{c}]$.
+
+\textbf{[T2]}接下来，设$\mathcal{I}$是任意指标集，并令每个$C_i$ 对所有$i \in \mathcal{I}$均为闭集。根据扩张性\textbf{[K2]}，有$\bigcap_{i \in \mathcal{I}} C_i \subseteq \mathbf{c}!\left( \bigcap_{i \in \mathcal{I}} C_i \right)$.又根据单调性（Isotonicity）公理\textbf{[K4′]}，若$\bigcap_{i \in \mathcal{I}} C_i \subseteq C_i, \quad \forall i \in \mathcal{I}$,则$\mathbf{c}!\left( \bigcap_{i \in \mathcal{I}} C_i \right) \subseteq \mathbf{c}(C_i) = C_i, \quad \forall i \in \mathcal{I}$.这意味着$\mathbf{c}!\left( \bigcap_{i \in \mathcal{I}} C_i \right) \subseteq \bigcap_{i \in \mathcal{I}} C_i$.因此我们得到$\bigcap_{i \in \mathcal{I}} C_i = \mathbf{c}!\left( \bigcap_{i \in \mathcal{I}} C_i \right)$,即$\bigcap_{i \in \mathcal{I}} C_i \in {\mathfrak{S}}[\mathbf{c}]$.
+
+\textbf{[T3]}最后，设$\mathcal{I}$是一个有限指标集，且每个$C_i$对所有$i \in \mathcal{I}$均为闭集。由二元并的保持性（Preservation of binary unions）公理\textbf{[K4]}，并使用对取并集合数目的数学归纳法，可得$\bigcup_{i \in \mathcal{I}} C_i = \mathbf{c}!\left( \bigcup_{i \in \mathcal{I}} C_i \right)$.因此$\bigcup_{i \in \mathcal{I}} C_i \in {\mathfrak{S}}[\mathbf{c}]$.
+\subsubsection{由拓扑导出闭包}
+反之，若给定一个满足公理\textbf{[T1]–[T3]}的集合族$\kappa$，则可以按以下方式构造一个 库拉托夫斯基闭包算子（Kuratowski closure operator）。设$A \in \wp(X)$,且定义$A^{\uparrow} = {, B \in \wp(X) \mid A \subseteq B ,}$,即$A^{\uparrow}$是$A$的包含上集（inclusion upset）。
+
+那么，定义
+$$
+\mathbf{c}*{\kappa}(A) := \bigcap*{B \in (\kappa \cap A^{\uparrow})} B~
+$$
+即可得到一个作用于幂集$\wp(X)$的库拉托夫斯基闭包算子$\mathbf{c}_{\kappa} : \wp(X) \to \wp(X)$.
+
+\textbf{证明 2}
+
+\textbf{[K1]}由于$\varnothing^{\uparrow} = \wp(X)$,因此$\mathbf{c}_{\kappa}(\varnothing)$化简为族$\kappa$中所有集合的交集；而根据公理\textbf{[T1]}，有$\varnothing \in \kappa$,所以该交集退化为空集，由此得到\textbf{[K1]}。
+
+\textbf{[K2]}根据$A^{\uparrow}$的定义，我们有$A \subseteq B$对所有$B \in (\kappa \cap A^{\uparrow})$都成立，因此$A$必然包含于所有这类集合的交集之中。由此得到扩张性（extensivity）性质\textbf{[K2]}。
+
+\textbf{[K3]}注意，对于所有$A \in \wp(X)$,族$\mathbf{c}*{\kappa}(A)^{\uparrow} \cap \kappa$包含$\mathbf{c}*{\kappa}(A)$自身，且该集合在包含关系下是极小元素。因此$\mathbf{c}*{\kappa}^{2}(A)= \bigcap*{B \in \mathbf{c}*{\kappa}(A)^{\uparrow} \cap \kappa} B= \mathbf{c}*{\kappa}(A)$,即满足幂等性（idempotence）\textbf{[K3]}。
+
+\textbf{[K4′]}设
+[
+A \subseteq B \subseteq X,
+]
+则有
+[
+B^{\uparrow} \subseteq A^{\uparrow},
+]
+从而
+[
+\kappa \cap B^{\uparrow} \subseteq \kappa \cap A^{\uparrow}.
+]
+由于后者可能包含更多的元素，我们得到
+[
+\mathbf{c}*{\kappa}(A) \subseteq \mathbf{c}*{\kappa}(B),
+]
+这就是单调性（isotonicity） [K4′]。
+
+注意，单调性蕴含
+[
+\mathbf{c}*{\kappa}(A) \subseteq \mathbf{c}*{\kappa}(A \cup B)
+\quad\text{以及}\quad
+\mathbf{c}*{\kappa}(B) \subseteq \mathbf{c}*{\kappa}(A \cup B),
+]
+因此有
+[
+\mathbf{c}*{\kappa}(A) \cup \mathbf{c}*{\kappa}(B) \subseteq \mathbf{c}_{\kappa}(A \cup B)。
+]
+
+---
+
+**[K4]** 最后，取
+[
+A, B \in \wp(X)。
+]
+由公理 [T2] 可知
+[
+\mathbf{c}*{\kappa}(A), \mathbf{c}*{\kappa}(B) \in \kappa；
+]
+此外，[T2] 还保证
+[
+\mathbf{c}*{\kappa}(A) \cup \mathbf{c}*{\kappa}(B) \in \kappa。
+]
+由扩张性 [K2]，有
+[
+\mathbf{c}*{\kappa}(A) \in A^{\uparrow}, \quad
+\mathbf{c}*{\kappa}(B) \in B^{\uparrow},
+]
+因此
+[
+\mathbf{c}*{\kappa}(A) \cup \mathbf{c}*{\kappa}(B) \in (A^{\uparrow}) \cap (B^{\uparrow})。
+]
+但
+[
+(A^{\uparrow}) \cap (B^{\uparrow}) = (A \cup B)^{\uparrow}，
+]
+于是得到
+[
+\mathbf{c}*{\kappa}(A) \cup \mathbf{c}*{\kappa}(B) \in \kappa \cap (A \cup B)^{\uparrow}。
+]
+由于
+[
+\mathbf{c}*{\kappa}(A \cup B)
+]
+是在包含关系下
+[
+\kappa \cap (A \cup B)^{\uparrow}
+]
+的极小元素，我们得到
+[
+\mathbf{c}*{\kappa}(A \cup B) \subseteq \mathbf{c}*{\kappa}(A) \cup \mathbf{c}*{\kappa}(B)。
+]
+由此得到加性（additivity）性质 [K4]。
