@@ -1,0 +1,217 @@
+% 数理逻辑（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Mathematical_logic}{相关文章}。
+
+数学逻辑（Mathematical Logic）是数学中对形式逻辑的研究。其主要分支包括模型论、证明论、集合论与递归论（又称可计算性理论）。数学逻辑的研究通常探讨逻辑形式系统的数学性质，例如其表达能力与推理能力。然而，它也可以用于刻画数学推理的正确性，或为数学建立理论基础。
+
+自其诞生以来，数学逻辑既推动了数学基础研究的发展，也受到其驱动。该领域的起源可追溯至19世纪晚期，当时几何、算术与分析的公理化体系相继建立。20世纪初，大卫·希尔伯特（David Hilbert）提出了著名的“希尔伯特计划”（Hilbert’s Program），旨在证明数学基础理论的一致性。库尔特·哥德尔（Kurt Gödel）、格哈德·根岑（Gerhard Gentzen）等人的研究部分地解决了这一计划，同时也揭示了证明一致性问题的复杂性。
+
+集合论的研究表明，几乎所有通常的数学内容都可以用集合语言形式化，尽管仍存在一些定理无法在常见集合论公理系统内被证明。现代数学基础研究的重点，往往不再是寻找能涵盖全部数学的理论，而是致力于分析哪些数学部分能够在特定的形式系统中被形式化（如“反向数学”所做的那样）。
+\subsection{分支领域与研究范围}
+1977年出版的《数学逻辑手册》（Handbook of Mathematical Logic由 J. Barwise 编辑，North-Holland 出版社，1977年\(^\text{[1]}\)）将当代数学逻辑大致划分为四个主要领域：
+\begin{enumerate}
+  \item 集合论（Set Theory）；
+  \item 模型论（Model Theory）；
+  \item 递归论（Recursion Theory）；
+  \item 证明论与构造数学（Proof Theory and Constructive Mathematics），两者通常被视为同一研究方向的不同方面。
+\end{enumerate}
+此外，计算复杂性理论（Computational Complexity Theory）有时也被归入数学逻辑的研究范畴。\(^\text{[2][3]}\)
+每个分支领域都有其独特的研究重点，但许多技术与结果在不同领域之间是共享的。各子领域之间的边界，以及数学逻辑与其他数学领域之间的界限，往往并不清晰。例如，哥德尔不完备定理不仅是递归论与证明论的重要成果，还引出了模态逻辑中的勒布定理（Löb's Theorem）；而强制法（Forcing）这一方法被广泛应用于集合论、模型论与递归论之中，并用于研究直觉主义数学。
+
+范畴论（Category Theory）虽使用了大量形式公理化方法，并研究“范畴逻辑”（Categorical Logic），但通常不被视为数学逻辑的一个分支。由于范畴论在数学多个领域中具有广泛适用性，包括桑德斯·麦克莱恩（Saunders Mac Lane）在内的数学家提出将其作为独立于集合论的数学基础体系。这类基础体系依赖于“拓扑斯”（Topos）的概念，它可以被看作集合论的广义模型，并可在经典或非经典逻辑下定义。
+\subsection{历史}
+数学逻辑在19世纪中期作为数学的一个分支逐渐形成，源自哲学形式逻辑与数学传统的汇合。\(^\text{[4]}\)数学逻辑（又称“后勤学”（Logistic）、“符号逻辑”（Symbolic Logic）、“逻辑代数”（Algebra of Logic），或更近代的称呼“形式逻辑”（Formal Logic））是19世纪间发展起来的一系列逻辑理论的总称，它依赖一种人工符号系统与严格的演绎方法。\(^\text{[5]}\)在此之前，逻辑的研究主要与修辞学、计算术（calculationes\(^\text{[6]}\)）、三段论以及哲学研究相结合。20世纪上半叶，数学逻辑领域取得了爆炸性的发展，涌现出一系列奠基性成果，同时伴随着对数学基础问题的激烈争论。
+\subsubsection{早期历史}
+逻辑理论在历史上的许多文化中都得到了独立发展，包括古代中国、印度、希腊、罗马帝国以及伊斯兰世界。希腊的逻辑方法，尤其是亚里士多德的逻辑（即“项逻辑”，term logic），在其著作《工具论》（Organon）中系统呈现，对西方科学与数学的发展产生了长达数千年的深远影响。\(^\text{[7]}\)斯多葛派哲学家，尤其是克里西波斯（Chrysippus），开创了命题逻辑（propositional logic）的研究。18世纪的欧洲，一些哲学数学家——如莱布尼茨（Gottfried Wilhelm Leibniz）与兰伯特（Johann Heinrich Lambert）——尝试以符号化或代数化的方式处理形式逻辑的运算。然而，他们的研究成果大多零散，影响有限，并未引起广泛关注。
+\subsubsection{十九世纪}
+19世纪中叶，乔治·布尔（George Boole）与奥古斯都·德摩根（Augustus De Morgan）分别提出了系统化的数学逻辑理论。他们的研究基于代数学家乔治·皮科克（George Peacock）等人的工作，将传统的亚里士多德逻辑扩展为一个足以探讨数学基础的形式框架。\(^\text{[8]}\)1847年，瓦特罗斯拉夫·贝尔蒂奇（Vatroslav Bertić）独立于布尔，对逻辑的代数化也作出了重要贡献。\(^\text{[9]}\)此后，查尔斯·桑德斯·皮尔士（Charles Sanders Peirce）在布尔的成果基础上发展出一个包含关系与量词的逻辑体系，并于1870年至1885年间陆续发表了多篇论文。
+
+哥特洛布·弗雷格（Gottlob Frege）则在1879年发表了《概念文字》（Begriffsschrift），独立提出了含量词的逻辑体系。这部著作通常被视为逻辑史上的分水岭。然而，弗雷格的工作在当时鲜为人知，直到20世纪初伯特兰·罗素（Bertrand Russell）开始推广其思想后才逐渐受到重视。弗雷格所创的二维逻辑符号体系虽然具有高度表达力，但并未被广泛采用，现代文献中几乎不再使用。
+
+1890年至1905年间，恩斯特·施罗德（Ernst Schröder）出版了三卷本《逻辑代数讲义》（Vorlesungen über die Algebra der Logik）。  
+该著作系统总结并扩展了布尔、德摩根与皮尔士的成果，是19世纪末符号逻辑研究的全面总结与重要参考文献。
+
+\textbf{基础理论的发展}
+
+数学未建立在坚实基础上的担忧，促使学者们为数学的基本领域（如算术、分析与几何）建立起严格的公理化体系。
+
+在逻辑中，算术 一词通常指自然数理论。朱塞佩·皮亚诺（Giuseppe Peano）在1899年发表了著名的皮亚诺公理（Peano Axioms）\(^\text{[10]}\)，该体系在布尔与施罗德的逻辑系统基础上发展而来，并引入了量词（Quantifiers）。当时皮亚诺并不知道弗雷格的研究。与此同时，理查德·戴德金（Richard Dedekind）指出，自然数可以通过其数学归纳性质被唯一刻画。他提出了另一种非形式化的刻画方法，虽不具皮亚诺体系的逻辑严谨性，却能证明后者无法触及的若干定理，例如自然数集合的唯一性（同构意义下），以及从后继函数与归纳法定义加法和乘法的递归构造。\(^\text{[11]}\)
+
+19世纪中叶，人们发现欧几里得几何体系的公理存在缺陷。\(^\text{[12]}\)除了尼古拉·罗巴切夫斯基（Nikolai Lobachevsky）于1826年证明的平行公设独立性\(^\text{[13]}\)外，数学家还发现某些欧几里得理所当然的命题实际上无法从其原有公理推导。例如，“一条直线至少包含两个点”，或“两圆若半径相等且圆心距离等于该半径，则必相交”。希尔伯特（David Hilbert）在帕施（Moritz Pasch）早期工作的基础上\(^\text{[15]}\)，提出了一套完整的几何公理体系\(^\text{[14]}\)。几何的成功公理化激发了希尔伯特进一步为数学的其他领域（如自然数与实数）寻求完全公理化描述的计划，这成为20世纪上半叶数学基础研究的重要方向。
+
+19世纪的实分析理论取得了巨大进展，特别是在函数收敛性与傅里叶级数方面。  
+卡尔·魏尔斯特拉斯（Karl Weierstrass）等数学家构造了“处处不可导但连续”的函数，挑战了人们对函数的传统理解（即函数是计算规则或光滑曲线）。他提出“分析的算术化”（arithmetization of analysis），试图以自然数的性质为基础公理化分析。 现代的\((\varepsilon, \delta)\)-极限定义最早由博尔查诺（Bernard Bolzano）于1817年提出\(^\text{[16]}\)，但鲜为人知。柯西（Augustin-Louis Cauchy）在1821年以无穷小定义连续性（见《分析教程》（Cours d’Analyse），第34页）。1858年，戴德金以有理数的“戴德金分割”（Dedekind cuts）定义实数，这一方法至今仍在教材中沿用。\(^\text{[17]}\)
+
+格奥尔格·康托尔（Georg Cantor）发展了无限集合论的基本概念。他首先提出了基数理论，并证明了实数与自然数具有不同的基数。\(^\text{[18]}\)在随后的二十年间，康托尔发表了一系列论文，系统地发展了超穷数理论。1891年，他通过著名的“对角线论证”（diagonal argument）证明了实数集不可数，并进一步证明了“任意集合的幂集具有更大的基数”（即康托尔定理）。  康托尔相信“任何集合都可以良序化”，但始终未能证明该命题，遂于1895年将其列为公开问题。\(^\text{[19]}\)
+\subsubsection{二十世纪的发展}
+20世纪初，数学逻辑的主要研究方向集中在集合论与形式逻辑上。  
+在非形式化集合论中发现的各种悖论，使一些学者开始怀疑数学体系本身是否存在内在的不一致性，从而促使他们寻求一致性证明。
+
+1900年，希尔伯特（David Hilbert）在巴黎国际数学家大会上提出了著名的23个世纪问题，其中前两个分别要求：（1）解决连续统假设（Continuum Hypothesis）；  （2）证明初等算术的一致性。第十个问题则要求找出一种算法，能判定任意给定的多元整系数多项式方程是否存在整数解。这些问题的研究方向深刻影响了数学逻辑的发展。同样，希尔伯特于1928年提出的“判定问题”（Entscheidungsproblem）——即给定一个形式化的数学命题，是否存在一种算法能判定其真伪——也成为逻辑史上的核心议题。
+
+\textbf{集合论与悖论的出现}
+
+恩斯特·采梅洛（Ernst Zermelo）首先给出了“每个集合都可以良序化”的证明，这一结果此前连康托尔（Georg Cantor）也未能获得。\(^\text{[20]}\)为实现该证明，采梅洛引入了“选择公理”（Axiom of Choice），该公理一经提出便引发了数学界的激烈讨论与研究。针对其证明方法的质疑，采梅洛发表了第二篇论文，专门回应批评意见，并进一步澄清了证明过程。\(^\text{[21]}\)这篇论文促使选择公理逐渐被数学界广泛接受。
+
+与此同时，关于选择公理的怀疑因“朴素集合论悖论”的发现而进一步加剧。切萨雷·布拉里-福尔蒂（Cesare Burali-Forti）首先提出了著名的布拉里-福尔蒂悖论（Burali-Forti Paradox），指出“所有序数的集合”本身无法构成集合。\(^\text{[22]}\)不久之后，伯特兰·罗素（Bertrand Russell）于1901年发现了罗素悖论（Russell’s Paradox），朱尔·理查（Jules Richard）也提出了理查悖论（Richard’s Paradox）。\(^\text{[23]}\)
+
+采梅洛随后提出了首个集合论公理体系\(^\text{[24]}\)，后来亚伯拉罕·弗兰克尔（Abraham Fraenkel）加入了“替代公理”（Axiom of Replacement），二者共同形成了现代的采梅洛–弗兰克尔集合论（Zermelo–Fraenkel Set Theory，简称ZF）。采梅洛的体系通过“大小限制原理”（Limitation of Size Principle）有效避免了罗素悖论。
+
+1910年，罗素与阿尔弗雷德·诺思·怀特海（Alfred North Whitehead）出版了《数学原理》（Principia Mathematica）第一卷。这部划时代的著作在类型论（Type Theory）的完全形式框架下建立了函数与基数理论，旨在彻底消除集合论悖论。尽管类型论未能成为数学的通用基础体系，但《数学原理》仍被视为20世纪最具影响力的著作之一。\(^\text{[25]}\)
+
+随后，弗兰克尔26证明了：选择公理无法从采梅洛的集合论（带原子元素）中推出。  
+保罗·科恩（Paul Cohen）\(^\text{[27]}\)后来进一步证明，即使不引入原子元素（urelements），选择公理在ZF体系中仍不可证。科恩在其证明中发展了“强制法”（Forcing），这一方法后来成为集合论中证明独立性命题的核心工具。\(^\text{[28]}\)
+
+\textbf{符号逻辑}
+
+利奥波德·勒文海姆（Leopold Löwenheim）\(^\text{[29]}\)与托拉夫·斯科伦（Thoralf Skolem）\(^\text{[30]}\)共同提出了著名的勒文海姆–斯科伦定理（Löwenheim–Skolem Theorem）。该定理指出：一阶逻辑（first-order logic）无法控制无限结构（infinite structures）的基数大小（cardinality）。斯科伦进一步意识到，这一结论同样适用于集合论的一阶形式化体系，并由此推导出：任何一阶集合论的形式化体系都必然存在一个可数模型（countable model）。这一违反直觉的结果后来被称为斯科伦悖论（Skolem’s Paradox）。
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/4c1b2e37ba280cee.png}
+\caption{1925年，维也纳学生时代的青年库尔特·哥德尔（Kurt Gödel）肖像} \label{fig_SLlj_2}
+\end{figure}
+在其博士论文中，库尔特·哥德尔（Kurt Gödel）证明了完备性定理（Completeness Theorem），该定理建立了一阶逻辑（first-order logic）中语法（syntax）与语义（semantics）之间的对应关系。\(^\text{[31]}\)哥德尔进一步利用完备性定理证明了紧致性定理（Compactness Theorem），从而揭示了一阶逻辑推理的有限性本质（finitary nature of logical consequence）。这些结果共同确立了一阶逻辑作为数学家使用的主导逻辑体系的地位。
+
+1931年，哥德尔发表了划时代论文《论〈数学原理〉及相关体系中的形式上不可判定命题》（On Formally Undecidable Propositions of Principia Mathematica and Related Systems），其中证明了所有“足够强且可计算”（sufficiently strong and effective）的一阶理论的不完备性（incompleteness）。这一结论，即著名的哥德尔不完备定理（Gödel’s Incompleteness Theorem），揭示了数学公理体系的根本局限性，对希尔伯特（Hilbert）的“形式化一致性计划”（Hilbert’s Program）造成了沉重打击。  
+它表明：在任何形式化的算术体系中，不可能在该体系内部证明其自身的一致性（consistency）。然而，希尔伯特起初并未充分认识到不完备定理的深远意义。\(^\text{[a]}\)
+
+哥德尔定理进一步表明：若一个形式体系是一致的（consistent），则其一致性无法在体系自身或任何更弱的体系中得到证明。这意味着——尽管理论体系的内部一致性不可被其自身形式化地验证——仍可能存在无法在体系内表达的外部一致性证明。此后，格哈德·根岑（Gerhard Gentzen）通过一个有限主义（finitistic）的系统，并辅以超穷归纳原理（transfinite induction），成功证明了算术体系的一致性。\(^\text{[32]}\)根岑的研究引入了割消去法（cut elimination）与证明论序数（proof-theoretic ordinals）等核心概念，这些思想成为现代证明论（proof theory）的基础工具。  哥德尔则给出了另一种一致性证明方法：将经典算术的一致性归约为高阶直觉主义算术（intuitionistic arithmetic in higher types）的相容性问题。\(^\text{[33]}\)
+
+值得一提的是，第一本为普通读者撰写的符号逻辑教材早在1896年便已问世，其作者正是《爱丽丝梦游仙境》（Alice's Adventures in Wonderland）的作者路易斯·卡罗尔（Lewis Carroll）。\(^\text{[34][35]}\)
+
+\textbf{其他分支的开端}
+
+阿尔弗雷德·塔斯基（Alfred Tarski）首先奠定了模型论（Model Theory）的基础。
+
+自1935年起，一群著名的数学家以笔名“尼古拉·布尔巴基”（Nicolas Bourbaki）合作编写并出版了《数学原理》（Éléments de mathématique）系列丛书。  这套百科全书式的数学著作以高度公理化与简洁严谨的风格著称，强调基于集合论的数学基础与形式化表述。书中所创造的术语，如单射（injection）、满射（surjection）与双射（bijection）等，以及其采用的集合论基础框架，均被广泛采纳并沿用至今，对现代数学语言的统一与标准化产生了深远影响。
+
+与此同时，对“可计算性”的研究逐渐发展为递归论（Recursion Theory）或可计算性理论（Computability Theory）。这是因为哥德尔（Gödel）与克里尼（Stephen Cole Kleene）在早期形式化过程中依赖于函数的递归定义。\(^\text{[b]}\)当这些递归定义被证明与图灵（Alan Turing）提出的“图灵机”形式化等价时，人们认识到一个崭新的核心概念——可计算函数（computable function）——被正式确立。更重要的是，该定义被证明具有足够的鲁棒性，能够容纳多个彼此独立的等价刻画。
+
+在1931年的不完备性定理研究中，哥德尔尚未拥有严格意义上的“有效形式体系”（effective formal system）的定义。他立即意识到，新提出的可计算性概念正可用于精确定义这一体系，从而使他能够以更一般的形式陈述不完备定理，而不仅仅停留在原论文中隐含的范围。
+
+1940年代，斯蒂芬·科尔·克里尼（Stephen Cole Kleene）与埃米尔·波斯特（Emil Leon Post）在递归论领域取得了大量重要成果。克里尼\(^\text{[36]}\)提出了相对可计算性（relative computability）的概念，这一思想早在图灵的研究中已有雏形参见文献\(^\text{[37]}\)，并提出了著名的算术层级（arithmetical hierarchy）。他后来又将递归理论推广至高阶函数泛函（higher-order functionals）的研究。克里尼与格奥尔格·克赖泽尔（Georg Kreisel）还共同研究了直觉主义数学（intuitionistic mathematics）的形式化版本，尤其关注其在证明论（proof theory）语境下的逻辑结构。
+\subsection{形式逻辑系统}
+数学逻辑的核心在于以形式逻辑系统（formal logical systems）为工具来刻画数学概念。这些系统虽然在细节上各不相同，但它们的共同点是：只研究在一个固定的形式语言（formal language）中表达的符号与命题。其中，命题逻辑（propositional logic）与一阶逻辑（first-order logic）是当今研究最为广泛的两种系统，  
+原因在于它们既能有效地应用于数学基础研究，又具有良好的证明论性质。\(^\text{[c]}\)此外，学者们还研究更强的经典逻辑系统，如二阶逻辑（second-order logic）与无限逻辑（infinitary logic），以及非经典逻辑（non-classical logics），如直觉主义逻辑（intuitionistic logic）。
+\subsubsection{一阶逻辑}
+一阶逻辑是一种特殊的形式逻辑系统，其句法（syntax）仅允许有限表达式构成良构公式（well-formed formulas），而其语义（semantics）则以“所有量词皆限定于一个固定论域”（fixed domain of discourse）为特征。
+
+形式逻辑的早期成果揭示了一阶逻辑的若干局限。1919年，洛文海姆–斯科勒姆定理（Löwenheim–Skolem theorem）表明：若一个可数一阶语言中的句子集合存在一个无限模型，则它在每一个无限基数上至少都有一个模型。这意味着——不存在一组一阶公理可以唯一地刻画自然数系、实数系或任何其他无限结构的同构类。由于早期数学基础研究的目标是为整个数学建立统一的公理化理论，这一限制尤其令人震撼。
+
+哥德尔完备性定理（Gödel’s completeness theorem）建立了一阶逻辑中语义与句法之间的等价关系。\(^\text{[31]}\)该定理指出：若某命题在所有满足某组公理的模型中皆为真，则必存在一段有限的推导可由这些公理导出该命题。而紧致性定理（compactness theorem）最初作为哥德尔完备性证明中的引理出现，但直到多年后逻辑学家才认识到其重要性并广泛应用。紧致性定理断言：一个句子集合有模型，当且仅当其每个有限子集都有模型；换言之，若一个公式集不一致，则其必存在某个有限子集亦不一致。完备性与紧致性这两项定理，使得对一阶逻辑中“逻辑蕴涵”的研究变得极为精致，并奠定了模型论发展的基础。这也是一阶逻辑在整个数学中占据核心地位的重要原因之一。
+
+哥德尔不完备定理（Gödel’s incompleteness theorems）进一步揭示了一阶公理化体系的根本限制。\(^\text{[38]}\)第一不完备定理指出：对于任何一致的、有效给定（effectively given，定义见下文）且能解释算术的一阶逻辑系统，总存在一个命题在自然数意义下为真，但在该系统内却不可被证明（并且在某些与该系统一致的非标准模型中甚至可能为假）。例如，在任何能表达皮亚诺公理（Peano axioms）的逻辑系统中，哥德尔句（Gödel sentence）在自然数上成立，却无法在该系统内被证明。
+
+这里，一个逻辑系统称为“有效给定”，是指能否机械地判断任意给定公式是否为该系统的公理；若系统还能表达皮亚诺算术，则称其“足够强”（sufficiently strong）。  
+当该定理应用于一阶逻辑时，它意味着任何足够强、一致、有效的一阶理论都存在非初等等价的模型，这一限制比洛文海姆–斯科勒姆定理所揭示的更为严格。  
+
+第二不完备定理进一步指出：任何足够强、一致、有效的算术公理系统都无法在自身内部证明其自身的一致性。这一结论通常被解释为表明希尔伯特计划（Hilbert’s program）无法彻底实现。
+\subsubsection{其他经典逻辑}
+除了第一阶逻辑之外，还有许多其他逻辑体系被深入研究。其中包括：
+\begin{itemize}
+  \item 无限逻辑（infinitary logics）：允许公式中出现无限的信息；
+  \item 高阶逻辑（higher-order logics）：其语义中直接包含集合论的部分内容。
+\end{itemize}
+研究最广泛的无限逻辑是 \( L_{\omega_{1}, \omega} \)。  在该逻辑中，量词的嵌套深度依旧是有限的（如同一阶逻辑），但公式内部可以包含有限或可数无限个合取（conjunctions）与析取（disjunctions）。例如，可以通过如下 \( L_{\omega_{1}, \omega} \) 的公式表述“\(x\) 是一个整数”这一性质：
+\[
+(x = 0) \lor (x = 1) \lor (x = 2) \lor \cdots~
+\]
+高阶逻辑（Higher-order Logics）不仅允许对论域（domain of discourse）中的元素进行量化，还允许对论域的子集、子集的集合以及更高阶对象进行量化。其语义定义方式是：量词不再各自对应一个独立的论域，而是直接在适当类型的所有对象上取值。 例如，弗雷格（Frege）的逻辑在一阶逻辑建立之前就已具备类似的集合论特征。
+
+虽然高阶逻辑比一阶逻辑更具表达力（例如可以完全刻画自然数结构），但它们并不满足一阶逻辑的完备性定理与紧致性定理的类似形式，因此在证明论分析中较为困难。
+
+
+另一类逻辑是不动点逻辑（Fixed-point Logics），它允许归纳定义（inductive definitions），类似于原始递归函数（primitive recursive functions）的定义方式。
+
+可以形式化定义一种“一阶逻辑的扩展”：该概念涵盖了本节中提到的所有逻辑，因为它们在某些基本性质上与一阶逻辑相似，但并不包括所有逻辑体系——例如直觉逻辑、模态逻辑或模糊逻辑（fuzzy logic）均不在其内。
+
+林德斯特伦定理（Lindström's theorem）表明：唯一同时满足紧致性定理与向下洛文海姆–斯科勒姆定理的一阶逻辑扩展就是一阶逻辑本身。
+\subsubsection{非经典逻辑与模态逻辑}
+模态逻辑（modal logic）引入了额外的模态算子，例如“必然为真”的算子。尽管模态逻辑很少用于直接公理化整个数学体系，但它在研究一阶可证性性质\(^\text{[39]}\)和集合论强迫（forcing）\(^\text{[40]}\)方面具有重要应用。
+
+直觉逻辑（intuitionistic logic）由阿伦德·海廷（Arend Heyting）发展，用于研究布劳威尔（L.E.J. Brouwer）的直觉主义（intuitionism）计划，后者本人避免形式化。直觉逻辑显著不同于经典逻辑，它不包含排中律（law of excluded middle），即并非每个命题都必然“真”或“非真”。克莱尼（Stephen Kleene）在直觉逻辑证明论方面的研究表明，直觉主义证明中可以恢复构造性信息（constructive information）。例如，在直觉算术中每个可证为“全函数”的函数都是可计算的，而在经典算术（如皮亚诺算术）中并非如此。
+\subsubsection{代数逻辑}
+代数逻辑运用抽象代数的方法来研究形式逻辑的语义。一个基本例子是：使用布尔代数（Boolean algebras）来表示经典命题逻辑中的真值，以及使用海廷代数（Heyting algebras）来表示直觉命题逻辑中的真值。更强的逻辑系统，如一阶逻辑与高阶逻辑，则可通过更复杂的代数结构（如柱代数（cylindric algebras））来研究。
+\subsection{集合论}
+集合论研究的是集合（sets），即对象的抽象集合。  许多基本概念，如序数（ordinal numbers）与基数（cardinal numbers），最早由格奥尔格·康托尔（Georg Cantor）在集合论形式化之前以非公理化方式提出。第一个集合论的公理化体系由策梅洛（Ernst Zermelo）提出\(^\text{[24]}\)，稍后经扩展成为策梅洛–弗兰克尔集合论（Zermelo–Fraenkel Set Theory，简称 ZF），这也是当今数学中最广泛使用的基础理论。
+
+其他集合论体系（Other Set-Theoretic Formalizations）除 ZF 外，还有多种集合论的形式化系统被提出：冯·诺伊曼–伯奈斯–哥德尔集合论（von Neumann–Bernays–Gödel set theory, NBG），莫尔斯–凯利集合论（Morse–Kelley set theory, MK），新基础集合论（New Foundations, NF）。
+其中，ZF、NBG 与 MK 均基于累积层级结构（cumulative hierarchy）来描述集合的生成。而 NF 采取不同路线，它允许“所有集合的集合”等对象存在，但相应地对“集合存在公理”施加了限制。另一个系统——克里普克–普拉特克集合论（Kripke–Platek set theory, KP）则与广义递归论密切相关。选择公理与连续统假设（Axiom of Choice and Continuum Hypothesis）集合论中最著名的两个命题是选择公理与连续统假设。
+
+选择公理（Axiom of Choice）最早由策梅洛提出\(^\text{[20]}\)，并由弗兰克尔（Abraham Fraenkel）证明其与 ZF 公理体系的独立性\(^\text{[26]}\)，但该公理后来被大多数数学家所接受。该公理表述为：对于任意一个由非空集合组成的集合族，存在一个集合 \( C \)，
+其恰好从每个集合中选取一个元素。换言之，\( C \)“选择”了每个集合中的一个元素。尽管有些人认为这种“选择能力”显然存在（因为每个集合非空），但缺乏一个通用的、具体的选择规则，使该公理具有非构造性特征。斯特凡·巴拿赫（Stefan Banach）与阿尔弗雷德·塔斯基（Alfred Tarski）证明，若接受选择公理，则可以将一个实心球分解为有限个部分，并重新组合（无需缩放）成两个与原球等大的实心球。这一令人惊异的结果即巴拿赫–塔斯基悖论（Banach–Tarski paradox）\(^\text{[41]}\)，是选择公理诸多反直觉结论之一。
+
+连续统假设（Continuum Hypothesis, CH）最早由康托尔提出为猜想，并被大卫·希尔伯特（David Hilbert）列为 1900 年著名的 23 个问题中的第一个。哥德尔（Kurt Gödel）通过构造可构成宇宙（constructible universe, \(L\)），证明了在 ZF（无论是否包含选择公理）的前提下，连续统假设无法被否证。而在 1963 年，保罗·科恩（Paul Cohen）使用强迫方法（forcing）证明，连续统假设无法从 ZF 公理系统中被证明\(^\text{[27]}\)。这一独立性结果虽未完全解决希尔伯特的问题，但表明可能需要引入新的集合论公理以决定该假设的真伪。近年，W. Hugh Woodin在此方向上进行了新的研究，然而其最终意义仍有待评估\(^\text{[42]}\)。
+
+当代集合论研究（Contemporary Research in Set Theory）现代集合论的研究重点包括：大基数理论（large cardinal theory）：研究具有强大性质的基数。这些“大基数”（large cardinals）的存在无法在 ZFC 中被证明，而最小的一类——不可达基数（inaccessible cardinal）——的存在就已蕴含了 ZFC 的一致性。尽管这些基数具有极高的势，但其存在对实数轴结构具有深远影响。可判定性理论（determinacy）：研究某些双人无限博弈中是否存在一方的制胜策略。若这些游戏被称为“可判定”（determined），则制胜策略的存在会蕴含实数轴及其他波兰空间（Polish spaces）的结构性质。
+\subsection{模型论}
+模型论研究各种形式理论（formal theories）的模型（models）。在此背景下，一个“理论”指的是在某个特定的形式逻辑与符号系统（signature）下给定的一组公式，而一个“模型”则是对该理论提供具体语义解释的结构（structure）。模型论与普遍代数（universal algebra）及代数几何（algebraic geometry）密切相关，但模型论的方法更加注重逻辑方面的推理，而非代数或几何的计算技巧。
+
+一个理论的所有模型组成的集合称为该理论的初等类（elementary class）。  
+经典模型论的目标包括：研究某一特定初等类中模型的性质；或判断某些结构类是否构成一个初等类。
+
+量词消去与可定义集合（Quantifier Elimination and Definable Sets）量词消去法（quantifier elimination）是一种证明技术，可用于表明特定理论中的可定义集合（definable sets）不会过于复杂。阿尔弗雷德·塔斯基（Alfred Tarski）在实封闭域（real-closed fields）上建立了量词消去定理，该结果同时表明——实数域的理论是可判定的（decidable）。\(^\text{[43]}\)塔斯基还指出，他的方法同样适用于任意特征的代数闭域（algebraically closed fields）。从这一路线发展出的现代分支即研究所谓的O-极小结构（o-minimal structures），该理论旨在刻画那些“几何上简单”的可定义集。
+
+莫利范畴定理（Morley’s Categoricity Theorem）迈克尔·D·莫利（Michael D. Morley）证明了著名的莫利范畴定理（Morley’s categoricity theorem）： 若某可数语言中的一阶理论在某个不可数基数下是范畴的（categorical），即该基数下所有模型彼此同构，则该理论在所有不可数基数下都是范畴的。\(^\text{[44]}\)
+
+沃特猜想（Vaught’s Conjecture）连续统假设（Continuum Hypothesis, CH）的一个平凡推论是：若一个完备理论具有少于连续统多个非同构的可数模型，则它只能拥有可数多个此类模型。沃特猜想（Vaught’s conjecture，由罗伯特·L·沃特提出）  断言这一结论即使在不假设连续统假设的情况下也成立。目前已证明了该猜想的若干特殊情形，但总体问题仍未解决。
+\subsection{递归论}
+递归论（recursion theory），又称为可计算性理论（computability theory），研究可计算函数（computable functions）的性质以及图灵度（Turing degrees）。图灵度将不可计算函数划分为若干类，每一类具有相同程度的不可计算性。递归论还包括对广义可计算性（generalized computability）与可定义性（definability）的研究。  
+
+递归论起源于 1930 年代罗莎·彼得（Rózsa Péter）、阿隆佐·丘奇（Alonzo Church）与阿兰·图灵（Alan Turing）的工作，并在 1940 年代被斯蒂芬·克莱尼（Stephen Kleene）和埃米尔·波斯特（Emil Post）大幅扩展。\(^\text{[45]}\)
+
+经典递归论（Classical Recursion Theory）经典递归论主要研究\(\mathbb{N} \to \mathbb{N}\)函数的可计算性。其基本成果建立了一类稳健而规范的可计算函数集合，这些函数类具有多种独立且等价的刻画形式——包括图灵机（Turing machine）、λ 演算（lambda calculus）等。更高阶的结果涉及图灵度结构（structure of Turing degrees）以及递归可枚举集格（lattice of recursively enumerable sets）的研究。
+
+广义递归论（Generalized Recursion Theory）将递归理论的思想扩展到不再局限于有限计算的情形。该分支包括高阶类型（higher types）中的可计算性研究，
+以及超算术理论（hyperarithmetical theory）和α-递归理论（α-recursion theory）等领域。
+
+现代递归论研究（Contemporary Research）方向包括：算法随机性（algorithmic randomness），可计算模型论（computable model theory），
+逆向数学（reverse mathematics），以及纯递归论中的新结果（new results in pure recursion theory）。
+\subsubsection{算法不可解问题}
+递归论的一个重要分支研究算法不可解性（algorithmic unsolvability）。若不存在任何可计算算法能对问题的所有合法输入返回正确输出，则称该判定问题（decision problem）或函数问题（function problem）为算法不可解的。
+
+最早关于算法不可解性的结果由丘奇（Church）与图灵（Turing）于 1936 年独立获得，他们证明了著名的判定问题（Entscheidungsproblem）是算法不可解的。图灵的证明基于停机问题（halting problem）的不可解性，这一结果在递归论与计算机科学中均具有深远影响。
+
+数学中存在许多著名的不可判定问题实例：群的词问题（word problem for groups）——由彼得·诺维科夫（Pyotr Novikov, 1955）与W. Boone（1959）分别独立证明其算法不可解；忙海狸问题（busy beaver problem）——由蒂博尔·拉多（Tibor Radó）于 1962 年提出，是最著名的不可判定问题之一。
+
+希尔伯特第十问题（Hilbert’s tenth problem）要求给出一种算法，判断给定的多元整系数多项式方程是否在整数中有解。朱莉娅·鲁滨逊（Julia Robinson）、马丁·戴维斯（Martin Davis）与希拉里·普特南（Hilary Putnam）对该问题作出了部分进展。最终，尤里·马季亚谢维奇（Yuri Matiyasevich）于 1970 年证明该问题算法不可解[46]，这标志着希尔伯特第十问题的彻底解决。
+\subsection{证明论与建构数学}
+证明论（proof theory）研究的是各种逻辑推理系统中的形式证明（formal proofs）。在该领域中，证明被视为形式化的数学对象，从而可以通过数学方法对其进行分析与操作。常见的推理系统包括：
+\begin{itemize}
+  \item 希尔伯特风格系统（Hilbert-style systems），
+  \item 自然演绎系统（systems of natural deduction），
+  \item 以及由根岑（Gerhard Gentzen）发展出的序列演算（sequent calculus）。
+\end{itemize}
+建构数学与前项主义（Constructive Mathematics and Predicativism）在数理逻辑的语境中，建构数学（constructive mathematics）研究非经典逻辑系统，例如直觉主义逻辑（intuitionistic logic），以及前项性系统（predicative systems）。早期前项主义的代表人物之一是赫尔曼·外尔（Hermann Weyl），他证明了在仅使用前项方法的条件下，依然可以发展实分析中的大部分内容。\(^\text{[47]}\)
+
+由于形式证明是完全有限的（finitary），而结构中的“真值”往往是无限概念，因此建构数学通常强调“可证明性”（provability）而非“真理性”（truth）。研究的一个重要方向是：分析经典（或非建构）系统中的可证明性与直觉主义（或建构）系统中的可证明性之间的关系。例如，哥德尔–根岑负翻译（Gödel–Gentzen negative translation）表明，可以将经典逻辑嵌入到直觉逻辑中，从而使得直觉主义证明的某些性质可以反向转移到经典证明之中。
+
+现代发展（Recent Developments）现代证明论的研究方向包括：
+\begin{itemize}
+  \item 证明挖掘（proof mining）——由乌尔里希·科伦巴赫（Ulrich Kohlenbach）发展；
+  \item 证明论序数（proof-theoretic ordinals）的研究——由迈克尔·拉特亨（Michael Rathjen）提出。
+\end{itemize}
+\subsubsection{应用}
+“数理逻辑不仅成功地应用于数学及其基础研究（如弗雷格、罗素、希尔伯特、伯奈斯、舒尔茨、卡尔纳普、莱希尼夫斯基、斯科勒姆），  
+还应用于：物理学（卡尔纳普、迪特里希、罗素、香农、怀特海、赖欣巴赫、费弗里耶），生物学（伍杰尔、塔斯基），心理学（菲奇、亨佩尔），法律与伦理（门格尔、克卢格、奥本海姆），经济学（冯·诺伊曼、摩根斯特恩），工程与实用科学（伯克利、施塔姆），乃至形而上学（萨拉穆哈、舒尔茨、博亨斯基）。此外，它在逻辑史研究中的应用也极为丰硕（卢卡谢维奇、舒尔茨、梅茨、贝克尔、穆迪、萨拉穆哈、迪尔、约尔丹、伯纳、博亨斯基、沙耶尔、英格尔斯）。\(^\text{[48]}\)“数理逻辑还被应用于神学（德列夫诺夫斯基、萨拉穆哈、托马斯）。”\(^\text{[48]}\)
+\subsubsection{与计算机科学的联系}
+计算机科学中的可计算性理论（computability theory）研究与数理逻辑中的可计算性密切相关，但两者在研究重点上有所不同：计算机科学家通常侧重于具体编程语言与可行可计算性（feasible computability），而数理逻辑研究者则更注重可计算性作为理论概念及其与不可计算性（noncomputability）的关系。
+
+模型论与程序语义（Model Theory and Programming Semantics）编程语言语义理论（semantics of programming languages）与模型论（model theory）关系密切，同样地，程序验证（program verification）——尤其是模型检测（model checking）—— 也是模型论思想的直接应用之一。  
+
+柯里–霍华德对应（Curry–Howard correspondence）揭示了证明与程序的对应关系，这一思想属于证明论（proof theory）的范畴，特别与直觉主义逻辑（intuitionistic logic）相关。形式演算体系，如λ 演算（lambda calculus）与组合子逻辑（combinatory logic），如今被视为理想化的编程语言进行研究。
+
+自动定理证明与逻辑编程（Automated Theorem Proving and Logic Programming）计算机科学反过来也对数学产生了重要影响。它发展出用于自动验证甚至自动发现数学证明的技术，如自动定理证明（automated theorem proving）与逻辑编程（logic programming）。  
+这些技术不仅促进了数学形式化验证的发展，也构成了人工智能和符号计算的重要基础。
+
+\paragraph{描述性复杂性理论（Descriptive Complexity Theory）}
+\textbf{描述性复杂性理论}（descriptive complexity theory）研究\textbf{逻辑系统与计算复杂性}（computational complexity）之间的联系。  
+这一领域的首个重要成果是\textbf{法金定理}（Fagin’s theorem, 1974），  
+该定理指出：
+\[
+\mathbf{NP} \text{ precisely equals the class of languages expressible by existential second-order logic.}
+\]
+换言之，\textbf{NP 类问题}正好对应于\textbf{存在二阶逻辑}（existential second-order logic）所能表达的语言集合。
+

@@ -19,6 +19,7 @@
 \item \verb`'abc` 是 \verb`(quote abc)` 的语法糖
 \item \verb`(typeof 1.23e4)` 是 \verb`double`
 \item \verb`(typeof "abc")` 是 \verb`array byte`
+\item \verb`(typeof #\a)` 是 \verb`wchar` 是字符
 \item \verb`(typeof #t)` 是 \verb`boolean`， 还有 \verb`#f`
 \item \verb`(typeof '())` 是 \verb`null`
 \item \verb`(typeof (cons 1 2))` 是 \verb`pair`
@@ -29,6 +30,7 @@
 \item \verb`(aref (vector 10 11 12) 0)` 获取第 0 个元素 \verb`10`
 \item \verb`(typeof (lambda (a b) (+ a b)))` 是 \verb`function`
 \item \verb`(typeof aref)` 是 \verb`builtin` （内建函数）
+\item \verb`(aset! 向量 索引 值)` 可以改变向量元素值。 如 \verb`(define x (vector 1 2 3 4))`， \verb`(aset! x 2 9)`
 \end{itemize}
 
 \subsection{计算器}
@@ -40,8 +42,8 @@
 \item \verb`(define a '(1 2 3))` 然后 \verb|`(0 ,@a 4)| 得到 \verb`(0 1 2 3 4)`。
 \item \verb`(cons 1 2)` 显示为 \verb`(1 . 2)`， \verb`(cons 1 (cons 2 (cons 3 4)))` 显示为 \verb`(1 2 3 . 4)`
 \item \verb`(list 1 2 3 4)` 和 \verb`'(1 2 3 4)` 等效，显示为 \verb`(1 2 3 4)`
-\item \verb`(eq 1 1)` 检查是否相等， 返回 \verb`#t`
-\item \verb`(= 3 3)` 等效吗？
+\item \verb`(eq 1 1)` （\verb`eq` 是 \verb`eq?` 的别名）检查是否相等， 返回 \verb`#t`
+\item \verb`(= 3 3.0)` 数值比较，即使是不同类型也能比。
 \item \verb`(length 列表)` 返回长度， \verb`(length= 列表 长度)` 检查长度是否符合预期。
 \end{itemize}
 
@@ -53,6 +55,8 @@
 
 \subsection{字符串}
 \begin{itemize}
+\item \verb`(string 变量)` 可以把其他类型转为字符串： \verb`string` 且支持多入参。 如 \verb`(string 1.2 ", " 3.4)` 得到 \verb`"1.2, 3.4"`
+\item 字符串长度 \verb`(sizeof "abc")`
 \item \verb`(string "abc" "def" "ghi")` 拼接字符串
 \item \verb`(string.join '("abc" "def") ", ")` 得到 \verb`"abc, def"`
 \item \verb`(symbol "abc")` 把字符串转为符号。
@@ -68,7 +72,7 @@
 \item \verb`(null? '())` 返回 \verb`#t`
 \item \verb`(define (函数名 形参1 (形参2 默认值) ...) 函数体)`。 如 \verb`(define (myfun1 x (y 3.14)) (+ x y))`
 \item 返回 \verb`boolean` 的函数称为 predicate，习惯上以 \verb`?` 结尾
-\item 内建 predicate（以下全返回 \verb`#t`）：\verb`(number? 42)`，\verb`(odd? 3)`， \verb`(string? "abc")`， \verb`(null? '())`，\verb`(pair? '(1 2))`，\verb`(even? 6)`，\verb`(eq? 1 1)`
+\item 内建 predicate（以下全返回 \verb`#t`）：\verb`(number? 42)`，\verb`(odd? 3)`， \verb`(string? "abc")`， \verb`(null? '())`，\verb`(pair? '(1 2))`，\verb`(even? 6)`，\verb`(eq? 1 1)`（判断是否同一对象），\verb`(eqv? 1 1)`（比较值和类型）。
 \item \verb`(map 函数 列表)` 会把函数依次作用在列表的每个元素并返回一个新的列表。 例如 \verb`(map abs '(-1 -2 3 -4))` 得到 \verb`(1 2 3 4)`。
 \item \verb`*名字*` 只是个普通名字，习惯上用这种格式表示它是一个全局变量（声明在任何函数体之外）。
 \item \verb`let` 结构
@@ -87,6 +91,17 @@
 \item \verb`(prog1 语句1 语句2 ...)` 依次执行每个语句并返回第一个语句的值。
 \item 任意数量参数函数：\verb`(define (函数名 参数1 参数1 . 参数n) 函数体)`。例如 \verb`(define (show first . rest) (princ "First: " first "\n") (princ "Rest: " rest "\n"))`， 然后 \verb`(show 1 2 3 4)` 会显示 \verb`First: 1 Rest: (2 3 4)`。
 \item 若要把列表展开作为调用函数的参数，如 \verb`(apply + '(1 2 3))` 得 6。
+\item 列表是 immutable 的，若要改变，只能创建一个新的（也可以用 \verb`vector`）
+\begin{lstlisting}[language=none]
+(define (list-set lst n val)
+  (if (null? lst)
+      '()
+      (if (= n 0)
+          (cons val (cdr lst))
+          (cons (car lst)
+                (list-set (cdr lst) (- n 1) val)))))
+\end{lstlisting}
+使用： \verb`(list-set '(1 2 3 4) 2 99)` 得到 \verb`(1 2 99 4)`。
 \end{itemize}
 
 
