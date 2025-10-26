@@ -2,7 +2,7 @@
 % license Usr
 % type Note
 
-\subsection{构造}
+\subsection{构建}
 \begin{itemize}
 \item 如果编译了 Julia，那么 \verb`src/flisp/flisp` 就是 REPL。
 \item julia 中， \verb`julia/src` 或 \verb`julia/src/flisp` 有许多 scm 文件和 lsp 文件（都在 \verb`flsp` 中）。
@@ -27,7 +27,6 @@
 \item \verb`(list 1 2 3)` 等效为 \verb`(cons 1 (cons 2 (cons 3 '())))`， 本质上是单链表。 类型仍然是 \verb`pair`。
 \item \verb`(typeof (vector 1 2 3))` 是 \verb`vector`
 \item \verb`(aref (vector 10 11 12) 0)` 获取第 0 个元素 \verb`10`
-
 \end{itemize}
 
 \subsection{计算器}
@@ -52,7 +51,9 @@
 
 \subsection{字符串}
 \begin{itemize}
+\item \verb`(string "abc" "def" "ghi")` 拼接字符串
 \item \verb`(string.join '("abc" "def") ", ")` 得到 \verb`"abc, def"`
+\item \verb`(symbol "abc")` 把字符串转为符号。
 \end{itemize}
 
 
@@ -65,6 +66,7 @@
 \item 返回 \verb`boolean` 的函数称为 predicate，习惯上以 \verb`?` 结尾
 \item 内建 predicate（以下全返回 \verb`#t`）：\verb`(number? 42)`，\verb`(odd? 3)`， \verb`(string? "abc")`， \verb`(null? '())`，\verb`(pair? '(1 2))`，\verb`(even? 6)`，\verb`(eq? 1 1)`
 \item \verb`(map 函数 列表)` 会把函数依次作用在列表的每个元素并返回一个新的列表。 例如 \verb`(map abs '(-1 -2 3 -4))` 得到 \verb`(1 2 3 4)`。
+\item \verb`*名字*` 只是个普通名字，习惯上用这种格式表示它是一个全局变量（声明在任何函数体之外）。
 \end{itemize}
 
 \subsection{循环}
