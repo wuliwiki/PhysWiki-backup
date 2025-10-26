@@ -70,7 +70,7 @@
 \begin{figure}[ht]
 \centering
 \includegraphics[width=6cm]{./figures/4c1b2e37ba280cee.png}
-\caption{} \label{fig_SLlj_2}
+\caption{1925年，维也纳学生时代的青年库尔特·哥德尔（Kurt Gödel）肖像} \label{fig_SLlj_2}
 \end{figure}
 在其博士论文中，库尔特·哥德尔（Kurt Gödel）证明了完备性定理（Completeness Theorem），该定理建立了一阶逻辑（first-order logic）中语法（syntax）与语义（semantics）之间的对应关系。\(^\text{[31]}\)哥德尔进一步利用完备性定理证明了紧致性定理（Compactness Theorem），从而揭示了一阶逻辑推理的有限性本质（finitary nature of logical consequence）。这些结果共同确立了一阶逻辑作为数学家使用的主导逻辑体系的地位。
 
@@ -79,4 +79,94 @@
 
 哥德尔定理进一步表明：若一个形式体系是一致的（consistent），则其一致性无法在体系自身或任何更弱的体系中得到证明。这意味着——尽管理论体系的内部一致性不可被其自身形式化地验证——仍可能存在无法在体系内表达的外部一致性证明。此后，格哈德·根岑（Gerhard Gentzen）通过一个有限主义（finitistic）的系统，并辅以超穷归纳原理（transfinite induction），成功证明了算术体系的一致性。\(^\text{[32]}\)根岑的研究引入了割消去法（cut elimination）与证明论序数（proof-theoretic ordinals）等核心概念，这些思想成为现代证明论（proof theory）的基础工具。  哥德尔则给出了另一种一致性证明方法：将经典算术的一致性归约为高阶直觉主义算术（intuitionistic arithmetic in higher types）的相容性问题。\(^\text{[33]}\)
 
-值得一提的是，第一本为普通读者撰写的符号逻辑教材早在1896年便已问世，其作者正是《爱丽丝梦游仙境》（Alice's Adventures in Wonderland）的作者路易斯·卡罗尔（Lewis Carroll）。\(^\text{[30]}\)[34][35]
+值得一提的是，第一本为普通读者撰写的符号逻辑教材早在1896年便已问世，其作者正是《爱丽丝梦游仙境》（Alice's Adventures in Wonderland）的作者路易斯·卡罗尔（Lewis Carroll）。\(^\text{[34][35]}\)
+
+\textbf{其他分支的开端}
+
+阿尔弗雷德·塔斯基（Alfred Tarski）首先奠定了模型论（Model Theory）的基础。
+
+自1935年起，一群著名的数学家以笔名“尼古拉·布尔巴基”（Nicolas Bourbaki）合作编写并出版了《数学原理》（Éléments de mathématique）系列丛书。  这套百科全书式的数学著作以高度公理化与简洁严谨的风格著称，强调基于集合论的数学基础与形式化表述。书中所创造的术语，如单射（injection）、满射（surjection）与双射（bijection）等，以及其采用的集合论基础框架，均被广泛采纳并沿用至今，对现代数学语言的统一与标准化产生了深远影响。
+
+与此同时，对“可计算性”的研究逐渐发展为递归论（Recursion Theory）或可计算性理论（Computability Theory）。这是因为哥德尔（Gödel）与克里尼（Stephen Cole Kleene）在早期形式化过程中依赖于函数的递归定义。\(^\text{[b]}\)当这些递归定义被证明与图灵（Alan Turing）提出的“图灵机”形式化等价时，人们认识到一个崭新的核心概念——可计算函数（computable function）——被正式确立。更重要的是，该定义被证明具有足够的鲁棒性，能够容纳多个彼此独立的等价刻画。
+
+在1931年的不完备性定理研究中，哥德尔尚未拥有严格意义上的“有效形式体系”（effective formal system）的定义。他立即意识到，新提出的可计算性概念正可用于精确定义这一体系，从而使他能够以更一般的形式陈述不完备定理，而不仅仅停留在原论文中隐含的范围。
+
+1940年代，斯蒂芬·科尔·克里尼（Stephen Cole Kleene）与埃米尔·波斯特（Emil Leon Post）在递归论领域取得了大量重要成果。克里尼\(^\text{[36]}\)提出了相对可计算性（relative computability）的概念，这一思想早在图灵的研究中已有雏形参见文献\(^\text{[37]}\)，并提出了著名的算术层级（arithmetical hierarchy）。他后来又将递归理论推广至高阶函数泛函（higher-order functionals）的研究。克里尼与格奥尔格·克赖泽尔（Georg Kreisel）还共同研究了直觉主义数学（intuitionistic mathematics）的形式化版本，尤其关注其在证明论（proof theory）语境下的逻辑结构。
+\subsection{形式逻辑系统}
+数学逻辑的核心在于以形式逻辑系统（formal logical systems）为工具来刻画数学概念。这些系统虽然在细节上各不相同，但它们的共同点是：只研究在一个固定的形式语言（formal language）中表达的符号与命题。其中，命题逻辑（propositional logic）与一阶逻辑（first-order logic）是当今研究最为广泛的两种系统，  
+原因在于它们既能有效地应用于数学基础研究，又具有良好的证明论性质。\(^\text{[c]}\)此外，学者们还研究更强的经典逻辑系统，如二阶逻辑（second-order logic）与无限逻辑（infinitary logic），以及非经典逻辑（non-classical logics），如直觉主义逻辑（intuitionistic logic）。
+\subsubsection{一阶逻辑}
+一阶逻辑是一种特殊的形式逻辑系统，其句法（syntax）仅允许有限表达式构成良构公式（well-formed formulas），而其语义（semantics）则以“所有量词皆限定于一个固定论域”（fixed domain of discourse）为特征。
+
+形式逻辑的早期成果揭示了一阶逻辑的若干局限。1919年，洛文海姆–斯科勒姆定理（Löwenheim–Skolem theorem）表明：若一个可数一阶语言中的句子集合存在一个无限模型，则它在每一个无限基数上至少都有一个模型。这意味着——不存在一组一阶公理可以唯一地刻画自然数系、实数系或任何其他无限结构的同构类。由于早期数学基础研究的目标是为整个数学建立统一的公理化理论，这一限制尤其令人震撼。
+
+哥德尔完备性定理（Gödel’s completeness theorem）建立了一阶逻辑中语义与句法之间的等价关系。\(^\text{[31]}\)该定理指出：若某命题在所有满足某组公理的模型中皆为真，则必存在一段有限的推导可由这些公理导出该命题。而紧致性定理（compactness theorem）最初作为哥德尔完备性证明中的引理出现，但直到多年后逻辑学家才认识到其重要性并广泛应用。紧致性定理断言：一个句子集合有模型，当且仅当其每个有限子集都有模型；换言之，若一个公式集不一致，则其必存在某个有限子集亦不一致。完备性与紧致性这两项定理，使得对一阶逻辑中“逻辑蕴涵”的研究变得极为精致，并奠定了模型论发展的基础。这也是一阶逻辑在整个数学中占据核心地位的重要原因之一。
+
+哥德尔不完备定理（Gödel’s incompleteness theorems）进一步揭示了一阶公理化体系的根本限制。\(^\text{[38]}\)第一不完备定理指出：对于任何一致的、有效给定（effectively given，定义见下文）且能解释算术的一阶逻辑系统，总存在一个命题在自然数意义下为真，但在该系统内却不可被证明（并且在某些与该系统一致的非标准模型中甚至可能为假）。例如，在任何能表达皮亚诺公理（Peano axioms）的逻辑系统中，哥德尔句（Gödel sentence）在自然数上成立，却无法在该系统内被证明。
+
+这里，一个逻辑系统称为“有效给定”，是指能否机械地判断任意给定公式是否为该系统的公理；若系统还能表达皮亚诺算术，则称其“足够强”（sufficiently strong）。  
+当该定理应用于一阶逻辑时，它意味着任何足够强、一致、有效的一阶理论都存在非初等等价的模型，这一限制比洛文海姆–斯科勒姆定理所揭示的更为严格。  
+
+第二不完备定理进一步指出：任何足够强、一致、有效的算术公理系统都无法在自身内部证明其自身的一致性。这一结论通常被解释为表明希尔伯特计划（Hilbert’s program）无法彻底实现。
+\subsubsection{其他经典逻辑}
+除了第一阶逻辑之外，还有许多其他逻辑体系被深入研究。其中包括：
+\begin{itemize}
+  \item 无限逻辑（infinitary logics）：允许公式中出现无限的信息；
+  \item 高阶逻辑（higher-order logics）：其语义中直接包含集合论的部分内容。
+\end{itemize}
+研究最广泛的无限逻辑是 \( L_{\omega_{1}, \omega} \)。  在该逻辑中，量词的嵌套深度依旧是有限的（如同一阶逻辑），但公式内部可以包含有限或可数无限个合取（conjunctions）与析取（disjunctions）。例如，可以通过如下 \( L_{\omega_{1}, \omega} \) 的公式表述“\(x\) 是一个整数”这一性质：
+\[
+(x = 0) \lor (x = 1) \lor (x = 2) \lor \cdots~
+\]
+高阶逻辑（Higher-order Logics）不仅允许对论域（domain of discourse）中的元素进行量化，还允许对论域的子集、子集的集合以及更高阶对象进行量化。其语义定义方式是：量词不再各自对应一个独立的论域，而是直接在适当类型的所有对象上取值。 例如，弗雷格（Frege）的逻辑在一阶逻辑建立之前就已具备类似的集合论特征。
+
+虽然高阶逻辑比一阶逻辑更具表达力（例如可以完全刻画自然数结构），但它们并不满足一阶逻辑的完备性定理与紧致性定理的类似形式，因此在证明论分析中较为困难。
+
+
+另一类逻辑是不动点逻辑（Fixed-point Logics），它允许归纳定义（inductive definitions），类似于原始递归函数（primitive recursive functions）的定义方式。
+
+可以形式化定义一种“一阶逻辑的扩展”：该概念涵盖了本节中提到的所有逻辑，因为它们在某些基本性质上与一阶逻辑相似，但并不包括所有逻辑体系——例如直觉逻辑、模态逻辑或模糊逻辑（fuzzy logic）均不在其内。
+
+林德斯特伦定理（Lindström's theorem）表明：唯一同时满足紧致性定理与向下洛文海姆–斯科勒姆定理的一阶逻辑扩展就是一阶逻辑本身。
+\subsubsection{非经典逻辑与模态逻辑}
+模态逻辑（modal logic）引入了额外的模态算子，例如“必然为真”的算子。尽管模态逻辑很少用于直接公理化整个数学体系，但它在研究一阶可证性性质[39]和集合论强迫（forcing）[40]方面具有重要应用。
+
+直觉逻辑（intuitionistic logic）由阿伦德·海廷（Arend Heyting）发展，用于研究布劳威尔（L.E.J. Brouwer）的直觉主义（intuitionism）计划，后者本人避免形式化。直觉逻辑显著不同于经典逻辑，它不包含排中律（law of excluded middle），即并非每个命题都必然“真”或“非真”。克莱尼（Stephen Kleene）在直觉逻辑证明论方面的研究表明，直觉主义证明中可以恢复构造性信息（constructive information）。例如，在直觉算术中每个可证为“全函数”的函数都是可计算的，而在经典算术（如皮亚诺算术）中并非如此。
+\subsubsection{代数逻辑}
+代数逻辑运用抽象代数的方法来研究形式逻辑的语义。一个基本例子是：使用布尔代数（Boolean algebras）来表示经典命题逻辑中的真值，以及使用海廷代数（Heyting algebras）来表示直觉命题逻辑中的真值。更强的逻辑系统，如一阶逻辑与高阶逻辑，则可通过更复杂的代数结构（如柱代数（cylindric algebras））来研究。
+\subsection{集合论}
+集合论研究的是集合（sets），即对象的抽象集合。  许多基本概念，如序数（ordinal numbers）与基数（cardinal numbers），最早由格奥尔格·康托尔（Georg Cantor）在集合论形式化之前以非公理化方式提出。第一个集合论的公理化体系由策梅洛（Ernst Zermelo）提出[24]，稍后经扩展成为策梅洛–弗兰克尔集合论（Zermelo–Fraenkel Set Theory，简称 ZF），这也是当今数学中最广泛使用的基础理论。
+
+其他集合论体系（Other Set-Theoretic Formalizations）除 ZF 外，还有多种集合论的形式化系统被提出：冯·诺伊曼–伯奈斯–哥德尔集合论（von Neumann–Bernays–Gödel set theory, NBG），莫尔斯–凯利集合论（Morse–Kelley set theory, MK），新基础集合论（New Foundations, NF）。
+其中，ZF、NBG 与 MK 均基于累积层级结构（cumulative hierarchy）来描述集合的生成。而 NF 采取不同路线，它允许“所有集合的集合”等对象存在，但相应地对“集合存在公理”施加了限制。另一个系统——克里普克–普拉特克集合论（Kripke–Platek set theory, KP）则与广义递归论密切相关。选择公理与连续统假设（Axiom of Choice and Continuum Hypothesis）集合论中最著名的两个命题是选择公理与连续统假设。
+
+选择公理（Axiom of Choice）最早由策梅洛提出[20]，并由弗兰克尔（Abraham Fraenkel）证明其与 ZF 公理体系的独立性[26]，但该公理后来被大多数数学家所接受。该公理表述为：对于任意一个由非空集合组成的集合族，存在一个集合 \( C \)，
+其恰好从每个集合中选取一个元素。换言之，\( C \)“选择”了每个集合中的一个元素。尽管有些人认为这种“选择能力”显然存在（因为每个集合非空），但缺乏一个通用的、具体的选择规则，使该公理具有非构造性特征。斯特凡·巴拿赫（Stefan Banach）与阿尔弗雷德·塔斯基（Alfred Tarski）证明，若接受选择公理，则可以将一个实心球分解为有限个部分，并重新组合（无需缩放）成两个与原球等大的实心球。这一令人惊异的结果即巴拿赫–塔斯基悖论（Banach–Tarski paradox）[41]，是选择公理诸多反直觉结论之一。
+
+连续统假设}（Continuum Hypothesis, CH）最早由康托尔提出为猜想，
+并被\textbf{大卫·希尔伯特}（David Hilbert）列为 1900 年著名的 23 个问题中的第一个。  
+\textbf{哥德尔}（Kurt Gödel）通过构造\textbf{可构成宇宙}（constructible universe, \(L\)），
+证明了在 ZF（无论是否包含选择公理）的前提下，  
+连续统假设\textit{无法被否证}。  
+而在 1963 年，\textbf{保罗·科恩}（Paul Cohen）使用\textbf{强迫方法}（forcing）证明，
+连续统假设\textit{无法从 ZF 公理系统中被证明}\footnote{参见文献 [27]}。  
+这一独立性结果虽未完全解决希尔伯特的问题，
+但表明可能需要引入新的集合论公理以决定该假设的真伪。  
+近年，\textbf{W. Hugh Woodin} 在此方向上进行了新的研究，
+然而其最终意义仍有待评估\footnote{参见文献 [42]}。
+
+\paragraph{当代集合论研究（Contemporary Research in Set Theory）}
+
+现代集合论的研究重点包括：
+\begin{itemize}
+  \item \textbf{大基数理论}（large cardinal theory）：研究具有强大性质的基数。  
+  这些“\textbf{大基数}”（large cardinals）的存在无法在 ZFC 中被证明，  
+  而最小的一类——\textbf{不可达基数}（inaccessible cardinal）——
+  的存在就已蕴含了 ZFC 的一致性。
+  尽管这些基数具有极高的势，但其存在对实数轴结构具有深远影响。
+
+  \item \textbf{可判定性理论}（determinacy）：  
+  研究某些双人无限博弈中是否存在一方的制胜策略。  
+  若这些游戏被称为“可判定”（determined），
+  则制胜策略的存在会蕴含实数轴及其他\textbf{波兰空间}（Polish spaces）的结构性质。
+\end{itemize}
