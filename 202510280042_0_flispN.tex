@@ -157,9 +157,19 @@ int f() {
 \end{lstlisting}
 \end{itemize}
 
+
 \subsubsection{异常}
 \begin{itemize}
-\item \verb`(trycatch `
+\item \verb`(trycatch 要执行的命令 异常处理函数)`
+\begin{lstlisting}[language=none]
+(trycatch
+  (begin
+    (princ "Before error\n")
+    (error "Something went wrong!")
+    (princ "After error\n"))     ; never reached
+  (lambda (e)
+    (princ "Caught exception: " e "\n")))
+\end{lstlisting}
 \end{itemize}
 
 
