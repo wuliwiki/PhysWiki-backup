@@ -208,49 +208,24 @@ f(x)
 \[
 \Delta f = 0~
 \]
-则称其为弱调和函数（weakly harmonic function）。
+则称其为弱调和函数（weakly harmonic function）。即：\(f\) 在分布意义（distributional sense）下满足拉普拉斯方程。换言之，对于任意测试函数 \(\varphi \in C_c^\infty(\Omega)\)，有\(\int_{\Omega} f \, \Delta \varphi \, dx = 0.\)根据魏尔引理（Weyl’s lemma），弱调和函数在几乎处处意义下与强调和函数（strongly harmonic function）一致，因此它是平滑的（即 \(C^\infty\)）。同样地，任何弱调和分布实际上都对应于某个强调和函数，因此也必然光滑。
 
-即：\(f\) 在分布意义（distributional sense）下满足拉普拉斯方程。  
-换言之，对于任意测试函数 \(\varphi \in C_c^\infty(\Omega)\)，有
+狄利克雷原理（Dirichlet’s Principle）拉普拉斯方程还有若干其它等价的弱形式，其中之一即为著名的\emph{狄利克雷原理}。在该原理中，调和函数可视为属于 Sobolev 空间 \(H^1(\Omega)\) 的函数，它们是下述狄利克雷能量泛函的极小化者：
 \[
-\int_{\Omega} f \, \Delta \varphi \, dx = 0.~
+J(u) := \int_{\Omega} |\nabla u|^2 \, dx.~
 \]
-
-根据魏尔引理（Weyl’s lemma），弱调和函数在几乎处处意义下与强调和函数（strongly harmonic function）一致，因此它是平滑的（即 \(C^\infty\)）。  
-同样地，任何弱调和分布实际上都对应于某个强调和函数，因此也必然光滑。
-
----
-
-\subsection*{狄利克雷原理（Dirichlet’s Principle）}
-
-拉普拉斯方程还有若干其它等价的弱形式，其中之一即为著名的\emph{狄利克雷原理}。
-
-在该原理中，调和函数可视为属于 Sobolev 空间 \(H^1(\Omega)\) 的函数，它们是下述狄利克雷能量泛函的极小化者：
+换句话说，若\(u \in H^1(\Omega)\)满足\(J(u) \le J(u + v)\),对所有\(v \in C_c^\infty(\Omega)\),亦即对所有\(v \in H_0^1(\Omega)\)成立，则称 \(u\) 为调和函数。因此，调和函数可理解为使狄利克雷能量泛函在局部变分下取极小值的函数，即物理意义上的“平衡态势能场”。这一弱形式在变分法、偏微分方程以及数值分析中具有极其重要的作用。
+\subsubsection{流形上的调和函数}
+在任意黎曼流形（Riemannian manifold）上，调和函数可通过拉普拉斯–贝尔特拉米算子（Laplace–Beltrami operator）\(\Delta\) 来定义。在这种情形下，函数 \(f\) 称为调和的（harmonic），若满足
 \[
-J(u) := \int_{\Omega} |\nabla u|^2 \, dx.
+\Delta f = 0.~
 \]
+许多欧氏空间中调和函数的性质在这种更一般的流形背景下依然成立，例如：平均值定理（Mean value theorem，基于测地球 geodesic balls）；最大值原理（Maximum principle）；哈纳克不等式（Harnack inequality）。除平均值定理外，这些性质均可视为一般线性二阶椭圆型偏微分方程的直接推论。
+\subsubsection{次调和函数}
+若一个 \(C^2\) 函数满足\(\Delta f \ge 0\),则称其为次调和函数（subharmonic function）。此条件保证了最大值原理依然成立，尽管其他调和函数的性质可能不再具备。更一般地，函数 \(f\) 为次调和，当且仅当：在其定义域内任意一个球的内部，其图像位于插值该球边界值的调和函数图像之下。
+\subsubsection{调和形式}
+调和函数研究的一个重要推广是调和形式（harmonic forms）的研究，它定义在黎曼流形上，并与上同调理论（cohomology theory）密切相关。此外，还可以定义向量值调和函数或调和映射（harmonic maps），即两个黎曼流形之间的映射，使其成为广义狄利克雷能量泛函\(E(u) = \int_M |\nabla u|^2 \, dV\)的临界点。这类映射包含普通的调和函数作为特例（即狄利克雷原理Dirichlet principle）。调和映射在极小曲面理论（theory of minimal surfaces）中尤为重要。例如，一条曲线（即从区间 \(I \subset \mathbb{R}\) 到黎曼流形 \(M\) 的映射）\(\gamma: I \to M\)是调和映射当且仅当它是一条测地线（geodesic）。
 
-换句话说，若
-\[
-u \in H^1(\Omega)
-\]
-满足
-\[
-J(u) \le J(u + v),
-\]
-对所有
-\[
-v \in C_c^\infty(\Omega),
-\]
-亦即对所有
-\[
-v \in H_0^1(\Omega)
-\]
-成立，则称 \(u\) 为调和函数。
-
-因此，调和函数可理解为使狄利克雷能量泛函在局部变分下取极小值的函数，即物理意义上的“平衡态势能场”。  
-这一弱形式在变分法、偏微分方程以及数值分析中具有极其重要的作用。
-```
 
 
 
