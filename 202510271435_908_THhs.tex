@@ -1,0 +1,60 @@
+% 调和函数（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Harmonic_function}{相关文章}。
+
+
+在数学、数理物理以及随机过程理论中，调和函数（harmonic function）是指满足拉普拉斯方程（Laplace's equation）的函数。  
+设
+\[
+f : U \to \mathbb{R}~
+\]
+其中 \(U \subseteq \mathbb{R}^n\) 为一个开集，且 \(f\) 是定义在 \(U\) 上的二阶连续可微函数（即 \(f \in C^2(U)\)）。若 \(f\) 在 \(U\) 上处处满足
+\[
+\frac{\partial^2 f}{\partial x_1^2}
++ \frac{\partial^2 f}{\partial x_2^2}
++ \cdots
++ \frac{\partial^2 f}{\partial x_n^2}
+= 0~
+\]
+则称 \(f\) 为一个\textbf{调和函数}。  
+该方程通常记作
+\[
+\nabla^2 f = 0,
+\quad \text{或等价地} \quad
+\Delta f = 0.~
+\]
+\subsection{“Harmonic” 一词的词源}
+“调和函数（harmonic function）”中的形容词“harmonic”（意为“谐和的”或“调和的”）起源于一根被拉紧的弦上某一点所经历的谐振运动（harmonic motion）。描述此类运动的微分方程的解可以用正弦函数（sine）与余弦函数（cosine）来表示，因此这些函数被称为谐波（harmonics）。傅里叶分析（Fourier analysis）研究如何将单位圆上的函数展开为这些谐波的级数。若考虑高维空间中单位 \(n\) 球面上的谐波类比，便得到所谓的球谐函数（spherical harmonics）。这些函数满足拉普拉斯方程。随着时间的推移，“harmonic”一词被推广，用来指代所有满足拉普拉斯方程的函数。\(^\text{[1]}\)  
+\subsection{例子}
+以下给出了一些二元调和函数的典型例子：
+\begin{enumerate}
+  \item \textbf{任意全纯函数（holomorphic function）的实部或虚部。}  
+  实际上，定义在平面上的所有调和函数都可以表示为某个全纯函数的实部或虚部。
+  \item 函数$f(x, y) = e^{x} \sin y$.这是前述情况的一个特例，因为$f(x, y) = \operatorname{Im}\!\left(e^{x + i y}\right)$,而 \( e^{x + i y} \) 是一个全纯函数。对 \(x\) 的二阶偏导数为$\frac{\partial^2 f}{\partial x^2} = e^{x} \sin y$,对 \(y\) 的二阶偏导数为$\frac{\partial^2 f}{\partial y^2} = -\, e^{x} \sin y$,因此$\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = 0$,故 \(f\) 是调和的。
+  \item 函数$f(x, y) = \ln\!\left(x^2 + y^2\right),\quad (x, y) \in \mathbb{R}^2 \setminus \{0\}$.该函数定义在去掉原点的平面上，可用于描述：一条线电荷（line charge）产生的电势；或一根无限长圆柱体质量（cylindrical mass）产生的引力势。
+\end{enumerate}
+对于三元调和函数，常见的例子列于下表。设$r^2 = x^2 + y^2 + z^2$,则可构造出许多满足拉普拉斯方程$\Delta f = 0$的函数，例如球对称势函数与球谐函数。
+
+\begin{table}[ht]
+\centering
+\caption{}\label{tab_THhs1}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{函数}&\textbf{奇点}\\
+\hline
+\(\displaystyle \frac{1}{r}\)& 位于原点的单位点电荷 \\
+\hline
+\(\displaystyle \frac{x}{r^{3}}\)& 位于原点的沿 \(x\) 方向偶极子 \\
+\hline
+* & * \\
+\hline
+* & * \\
+\hline
+* & * \\
+\hline
+* & * \\
+\hline
+\end{tabular}
+\end{table}
