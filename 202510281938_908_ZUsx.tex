@@ -1,0 +1,100 @@
+% 组合数学（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/Combinatorics}{相关文章}。
+
+组合数学是数学的一个分支，主要研究计数（counting）——既作为获得结果的方法，又作为研究有限结构某些性质的目的。它与数学的许多其他领域密切相关，并在从逻辑到统计物理、从进化生物学到计算机科学等众多领域中有广泛的应用。
+
+组合数学以其所处理问题的广泛性而著称。组合问题出现在纯数学的许多分支中，尤其是在代数学、概率论、拓扑学与几何学中\(^\text{[1]}\) ，同时也出现在众多应用领域。  
+历史上，许多组合问题往往是独立提出的，作为在某个数学背景下出现的特定问题的特设性解法（ad hoc solutions）。然而，在二十世纪后期，强大而一般的理论方法被发展出来，使得组合数学成为一门独立的数学分支\(^\text{[2]}\)。组合数学中最古老且最易于理解的部分之一是图论（graph theory），它本身就与其他数学领域有着大量自然的联系。在计算机科学中，组合数学被广泛用于推导算法分析中的公式与估计。
+\subsection{定义}
+组合数学的确切范围并没有被普遍认同\(^\text{[3]}\)。正如 H. J. Ryser 所指出的，由于组合数学跨越了众多数学分支，因此要给出一个精确的定义是困难的\(^\text{[4]}\)。如果我们从其所研究的问题类型来描述这一领域，那么组合数学主要涉及以下几个方面：
+\begin{enumerate}
+  \item 枚举（enumeration）：对特定结构的计数，这些结构在广义上被称为排列（arrangements）或配置（configurations），它们通常与有限系统相关；
+  \item 存在性（existence）：研究满足特定条件的结构是否存在；
+  \item 构造性（construction）：探讨如何以一种或多种方式构造出这些结构；
+  \item 优化（optimization）：在多种可能的结构或解中寻找“最优”的一个，无论其意义为“最大”、“最小”或符合其他最优性标准。
+\end{enumerate}
+Leon Mirsky 曾指出：“组合数学是一系列彼此关联的研究，它们有共同点，但在目标、方法以及所达到的统一程度上却差异很大。”\(^\text{[5]}\)一种定义组合数学的方式，或许是通过描述它的各个分支（subdivisions）、它们所处理的问题以及所采用的技术。下文将采用这种方式来介绍组合数学。然而，从历史的角度看，是否将某些主题纳入组合数学的范畴，也存在一定的传统性和争议性\(^\text{[6]}\)。尽管组合数学主要关注有限系统，但其中的一些问题与方法也可以推广到无限（尤其是可数）离散系统的情形。
+\subsection{历史}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/cd0b1d539f634f3d.png}
+\caption{一个换铃（change ringing）的例子（使用六个钟），这是图论（graph theory）中最早的非平凡成果之一。} \label{fig_ZUsx_1}
+\end{figure}
+基本的组合概念与枚举结果在古代世界的许多地方早已出现。最早记录在案的组合技巧可追溯到公元前16世纪的《莱因德纸草书》（Rhind Papyrus）中的第79题。这一问题涉及一种几何级数，与斐波那契（Fibonacci）关于“由若干个1和2的组合形成给定总和”的计数问题有相似之处\(^\text{[7]}\)。印度医师苏什鲁塔（Sushruta）在其著作《Sushruta Samhita》中指出，从六种不同味道中取一种、两种、……直到全部六种，共可形成 $2^{6}-1=63$ 种组合。希腊历史学家普鲁塔克（Plutarch）记载了斯多亚学派哲学家克律西波斯（Chrysippus，公元前3世纪）与天文学家喜帕恰斯（Hipparchus，公元前2世纪）之间的一场关于一个精妙枚举问题的争论，该问题后来被证明与施罗德–喜帕恰斯数（Schröder–Hipparchus numbers）有关\(^\text{[8][9][10]}\)。更早时，阿基米德（Archimedes，公元前3世纪）在其著作《Ostomachion》中可能已考虑过一个平面拼图问题中不同拼图配置数（configurations）的计算\(^\text{[11]}\)，而阿波罗尼乌斯（Apollonius）失传的部分著作中也可能包含类似的组合思想\(^\text{[12][13]}\)。
+
+在中世纪时期，组合数学的研究主要在欧洲之外持续发展。印度数学家摩诃毗罗（Mahāvīra，约公元850年）给出了排列数与组合数的计算公式\(^\text{[14][15]}\)，这些公式可能早在公元6世纪时就已为印度数学家所知\(^\text{[16]}\)。犹太哲学家兼天文学家亚伯拉罕·伊本·以斯拉（Abraham ibn Ezra，约公元1140年）发现了二项式系数的对称性；而数学家利维·本·格尔松（Levi ben Gerson，亦称Gersonides）则在1321年给出了其闭合形式\(^\text{[17]}\)。展示二项式系数之间关系的算术三角形（arithmetical triangle）早在10世纪的数学论文中就已出现，它后来被称为帕斯卡三角形（Pascal’s triangle）。在中世纪的英格兰，钟学（campanology）的研究产生了当今所谓凯莱图（Cayley graphs）上的哈密顿环（Hamiltonian cycles）实例\(^\text{[18][19]}\)。
+
+文艺复兴时期，伴随数学与科学的复兴，组合数学也焕发了新的生命力。帕斯卡（Pascal）、牛顿（Newton）、雅各布·伯努利（Jacob Bernoulli）与欧拉（Euler）的著作成为这一新兴领域的奠基之作。进入近代，J.J. Sylvester（19世纪末）与 Percy MacMahon（20世纪初）的工作奠定了枚举组合学（enumerative combinatorics）与代数组合学（algebraic combinatorics）的基础。与此同时，图论（graph theory）因与四色问题（four color problem）的联系而引发广泛关注。
+
+在20世纪下半叶，组合数学经历了迅速的发展，促成了数十种新的学术期刊与会议的创立\(^\text{[20]}\)。这一增长部分得益于其与其他数学分支（如代数、概率论、泛函分析、数论等）之间的新联系与应用。这些跨界互动模糊了组合数学与数学及理论计算机科学其他领域之间的边界，同时也在某种程度上导致了该领域的局部分化。
+\subsection{组合数学的研究方法与分支}
+\subsubsection{枚举组合学}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=8cm]{./figures/f519060ae1ca5e23.png}
+\caption{三个顶点上可能构成的五种二叉树（binary trees），是卡塔兰数（Catalan numbers）的一个例子。} \label{fig_ZUsx_2}
+\end{figure}
+枚举组合学是组合数学中最经典的分支，主要研究如何计算特定组合对象（combinatorial objects）的数量。虽然“计算集合中元素的数量”是一个相当广泛的数学问题，但许多实际应用中出现的问题往往具有相对简单的组合描述。斐波那契数列（Fibonacci numbers）就是枚举组合学中最基本的例子之一。  著名的十二重分类（twelvefold way）为排列、组合与划分问题提供了一个统一的计数框架。
+\subsubsection{解析组合学}
+解析组合学（Analytic Combinatorics）主要利用复分析与概率论的工具研究组合结构的枚举问题。与枚举组合学不同，后者通常依赖显式的组合公式与生成函数（generating functions）来表达结果，而解析组合学则旨在推导出渐近公式（asymptotic formulae），以揭示组合数量随规模增长时的行为规律。
+\subsubsection{划分理论}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/bab5b57a5b9cd495.png}
+\caption{平面分拆} \label{fig_ZUsx_3}
+\end{figure}
+划分理论研究与整数划分（integer partitions）相关的各种计数与渐近问题，并与 $q$-级数（$q$-series）、特殊函数（special functions）及正交多项式（orthogonal polynomials）密切相关。该领域最初属于数论与分析的一部分，但如今通常被视为组合数学的一个分支，或是一个独立学科。
+
+划分理论综合采用了双射方法（bijective approach）以及分析学与解析数论中的多种工具，并与统计力学（statistical mechanics）存在深刻联系。在几何上，整数划分可通过杨图（Young diagrams）或费雷图（Ferrers diagrams）进行可视化。划分理论在数学与物理的多个分支中均有应用，例如：对称多项式（symmetric polynomials）的研究；对称群（symmetric group）的结构分析；以及更一般的群表示论（group representation theory）。
+\subsubsection{图论}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/b4d873e3538cfd65.png}
+\caption{彼得森图} \label{fig_ZUsx_4}
+\end{figure}
+图（graphs）是组合数学中最基本的对象之一。图论的研究内容十分广泛，既包括计数组合问题（例如：具有 $n$ 个顶点和 $k$ 条边的图的数量），也包括结构性问题（例如：哈密顿回路（Hamiltonian cycles）的存在性），以及代数表示问题（例如：给定一个图 $G$ 和两个数 $x, y$，Tutte 多项式 $T_G(x,y)$ 是否具有组合学解释？）。虽然图论与组合数学之间存在非常紧密的联系，但两者有时被视为独立的学科领域。\(^\text{[21]}\)组合方法在许多图论问题中都有应用，但这两个领域通常关注不同类型的问题并使用不同的研究目标。
+\subsubsection{设计理论}
+设计理论研究组合设计（combinatorial designs），即具有特定交集性质的子集集合。区组设计（block designs）是其中一种特殊类型。这一领域是组合数学中最古老的分支之一，其历史可追溯到1850年提出的柯克曼女学生问题（Kirkman's schoolgirl problem）。该问题的解是斯坦纳系统（Steiner system）的一个特例，而斯坦纳系统在有限单群分类中扮演着重要角色。此外，该领域还与编码理论（coding theory）和几何组合学（geometric combinatorics）密切相关。
+
+组合设计理论在实验设计（design of experiments）中有重要应用。统计学家罗纳德·费希尔（Ronald Fisher）在生物实验设计方面的工作奠定了其基础理论。现代应用还遍布众多领域，包括：有限几何（finite geometry）；比赛日程安排（tournament scheduling）；彩票设计（lotteries）；数学化学与数学生物学；算法设计与分析；网络与群体测试；密码学（cryptography）。\(^\text{[22]}\)
+\subsubsection{有限几何}
+有限几何研究仅包含有限个点的几何系统。该领域主要研究与连续几何（如欧几里得平面、实射影空间等）类似、但以组合方式定义的结构。有限几何为设计理论提供了丰富的实例来源。需要注意的是，它不应与离散几何（Discrete Geometry，也称组合几何）混淆。
+\subsubsection{序理论}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/28b3b283de600fc9.png}
+\caption{按包含关系排序的集合 \(\{x, y, z\}\) 的幂集的哈斯图} \label{fig_ZUsx_5}
+\end{figure}
+序理论研究偏序集（partially ordered sets），包括有限与无限情形。它为诸如“这个小于那个”（“this is less than that”）或“这个先于那个”（“this precedes that”）等陈述提供了一个形式化的框架。偏序的各种实例广泛出现在代数、几何、数论、以及整个组合数学与图论中。偏序集的重要类型与例子包括：格（lattices）；布尔代数（Boolean algebras）。
+\subsubsection{拟阵理论}
+拟阵理论抽象地推广了几何的一部分。它研究一组（通常是有限的）向量在向量空间中所具有的、不依赖于线性相关关系中具体系数的性质。拟阵理论不仅关注结构性质，也研究计数性质（enumerative properties）。该理论最早由哈斯勒·惠特尼（Hassler Whitney）提出，并最初作为序理论的一部分加以研究。如今，拟阵理论已成为一个独立的研究领域，并与组合数学的多个分支建立了密切联系。
+\subsubsection{极值组合学}
+极值组合学研究：在满足特定约束的前提下，一个有限对象集（如数、图、向量、集合等）能够多大或多小。极值组合学的主要研究方向之一是极值集族理论（Extremal Set Theory）。例如：在一个含$n$个元素的集合中，最多可以有多少个$k$元子集使得它们两两相交？最多可以有多少个子集，使得任意一个都不包含另一个？第二个问题的答案由斯佩纳定理（Sperner’s Theorem）给出，该定理为极值集族理论奠定了基础。
+
+类似的问题还涉及满足特定性质的最大可能图。例如：在$2n$个顶点上的最大三角形无关图（triangle-free graph）是一个完全二部图$K_{n,n}$。在许多情况下，极值函数$f(n)$的精确值过于复杂难以求得，因此通常只能给出其渐近估计（asymptotic estimate）。
+
+拉姆齐理论（Ramsey Theory）是极值组合学的另一个重要分支。它刻画了这样的原理：任何足够大的结构中都必然包含某种形式的“秩序”。这一思想可视为抽屉原理（Pigeonhole Principle）的高阶推广。
+\subsubsection{概率组合学}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/eba47a0f06b82124.png}
+\caption{方格网格图中的自回避行走。} \label{fig_ZUsx_6}
+\end{figure}
+在概率组合学（Probabilistic Combinatorics）中，研究的问题通常如下：对于一个随机离散对象（例如随机图），某个特定性质出现的概率是多少？例如，一个随机图中平均会包含多少个三角形？概率方法还用于判断是否存在具有某些特定性质的组合对象（即使难以给出显式构造）。其思想是：如果随机选择一个对象时，选中具有这些性质的概率大于 0，则这样的对象必然存在。这种方法（通常称为概率方法（Probabilistic Method））在极值组合学（Extremal Combinatorics）和图论（Graph Theory）中具有极高的应用价值。与此密切相关的一个研究方向是有限马尔可夫链（Finite Markov Chains）在组合对象上的研究，其中再次运用了概率工具来估计混合时间（mixing time）。  
+
+该领域通常与保罗·埃尔德什（Paul Erdős）联系在一起——他是该领域的奠基者。概率组合学最初被视为研究组合学其他分支问题的一套工具，但近年来已逐渐发展成为组合数学的一个独立分支。
+\subsubsection{代数组合学}
+
+代数组合学（Algebraic Combinatorics）是数学的一个分支，它在各种组合情境中运用抽象代数的方法，尤其是群论（Group Theory）和表示论（Representation Theory），并且反过来也将组合技术应用于代数中的问题。随着研究的发展，代数组合学被更广泛地视为一个组合方法与代数方法交互尤为强烈且富有意义的数学领域。因此，代数组合学中的组合主题可能具有枚举（Enumerative）性质，或涉及拟阵（Matroids）、多面体（Polytopes）、偏序集（Partially Ordered Sets）或有限几何（Finite Geometries）等对象。  
+
+在代数方面，除了群论和表示论之外，\textbf{格论（Lattice Theory）}与\textbf{交换代数（Commutative Algebra）}  
+也是代数组合学中常见的研究工具。
+```
+
+
+
+
+

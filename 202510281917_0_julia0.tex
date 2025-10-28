@@ -306,7 +306,7 @@ end
 \item \href{https://docs.julialang.org/en/v1/devdocs/build/build/#Required-Build-Tools-and-External-Libraries}{构建依赖}，看起来 Mingw 较难满足，先试试用 Ubuntu22 构建吧。
 \item 直接用 make，不使用 cmake
 \item 要编译 debug 版本，用 \verb`make debug`（\href{https://docs.julialang.org/en/v1/devdocs/backtraces/}{文档}）
-\item 强烈推荐不要用命令行编译而是 CLion 打开 Makefile 然后选择 debug 作为 target。Executable 填写 \verb`G:\OneDrive\github\etc-3rd-party\julia\usr\bin\julia-debug` 经过一段时间的加载，所有的符号都可以跳转到定义。编译以后支持逐行调试。当然用命令行编译再用 \enref{Custom Build Targets}{CLionN} 也是可以的。
+\item 强烈推荐 CLion 打开 Makefile 然后选择 debug 作为 target。Executable 填写 \verb`G:\OneDrive\github\etc-3rd-party\julia\usr\bin\julia-debug` 经过一段时间的加载，所有的符号都可以跳转到定义。编译以后支持逐行调试。当然用命令行编译再用 \enref{Custom Build Targets}{CLionN} 也是可以的。
 \item 注意 make 的之前可能需要挂个梯子
 \item 作为第一个调试，命令行参数可以填 \verb`-e 'println("Hello World!")'`
 \begin{lstlisting}[language=bash]
@@ -316,7 +316,9 @@ make O="$PWD/build" configure
 \item 最新的 v1.12.0 中 \verb`make debug` 失败，提了 \href{https://github.com/JuliaLang/julia/issues/57675}{issue} 正在修复。撤回到 v1.10.10 编译成功
 \item 注意 \verb`make debug` 之前最好把 \verb`.git` 文件夹之外的东西都删掉然后重新 \verb`git checkout .`
 \item 注意 git remote 的名字不能改，就留一个默认的 \verb`origin`
-\item \verb`julia -e '命令;命令'` 可以运行命令而不互动
+\item 在 \verb`JULIA stdlib/SparseArrays.debug.image` 等镜像时可能会报 Segmentation Fault，再次运行 \verb`make debug` 会继续。
+
+\item 调试：\verb`julia -e '命令;命令'` 可以运行命令而不互动
 \end{itemize}
 
 \subsubsection{数据结构}
@@ -394,6 +396,8 @@ typedef struct {
 \item \verb`Meta.parseall()` 会调用 \verb`_parse_string()`， \verb`Core._parse()`， \verb`parsing.jl:fl_parse()`， 最后调用 C 语言的 \verb`src/ast.c:jl_fl_parse` 但该函数在 gdb 中同样无法断点暂停。
 \item 这里的 \verb`fl_` 指的是 femtolisp
 \item \verb`ast.c` 中 \verb`jl_parse*()` 函数都会调用 \verb`jl_parse()`，进而调用上述的 \verb`Core._parse()`。 可见，无论是 \verb`-e` 还是 \verb`parse_input_line` 都没有使用 \verb`JuliaSyntax.parse`（目前是 1.11.6 > 1.10）
+\item \verb`jl_fl_parse()` 里面调用一堆
+\item \verb`jl_fl_parse()` 负责调用 \verb`jlfrontend.scm` 中的 \verb`jl-parse-all或one` 函数，把 jl 源码字符串 parse 成 S-expr 再转换为 Julia 的 \verb`Expr` 类型。
 \end{itemize}
 
 \subsection{执行语法树}
@@ -423,7 +427,7 @@ typedef struct {
                      // exception handler (0 if none)
 } interpreter_state;
 \end{lstlisting}
-\item 模块
+\item Julia 模块
 \begin{lstlisting}[language=cpp]
 typedef struct _jl_module_t { // Julia 模块
     JL_DATA_TYPE
