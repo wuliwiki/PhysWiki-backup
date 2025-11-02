@@ -1,0 +1,503 @@
+% Julia 开发笔记
+% license Xiao
+% type Note
+
+本文是关于 Julia 解释器的原理： 它使用了哪些技术， 可以使得它作为一门动态语言能达到编译语言的性能。
+
+\begin{itemize}
+\item \href{https://docs.julialang.org/en/v1/devdocs/init/}{Julia 开发者文档}
+\item C 语言这样的叫做 \textbf{Ahead of Time（AOT）} 编译。
+\item Julia 完全使用 \textbf{Just-In-Time（JIT）}。 并不是把部分代码使用该优化，而是全部。Julia 默认不直接理解并执行高级语言（一个解释器见\href{https://juliadebug.github.io/JuliaInterpreter.jl/stable/}{这里}）。 每个重载的函数第一次被调用的时候， julia 都会先给它生成专门的 llvm 机器码。 这个过程还有一个不那么正规的名字叫做 \textbf{Just Ahead-of-Time（JAOT）}。
+\item \textbf{Multiple Dispatch （MD）}： 可以基于参数的类型生成不同的专门代码。
+\item \textbf{Type Inference}： 自动推导变量类型。
+\item 内建并行， 包括分布计算
+\item 高效内存管理： 减少内存分配， 增加内存重复利用。
+\item 基于 \textbf{LLVM}： Julia 编译器先把 Julia 语言变为 \textbf{Julia IR} （和 LLVM IR 相似，而且有若干层）， 再变为 \enref{LLVM IR}{llvmIR}, 最后交给 LLVM 进行优化。
+\item Julia IR 后期使用 \textbf{Single Static Assignment (SSA)} 形式， 把 julia 代码的控制流表示为 \textbf{directed acyclic graph (DAG)} 的 CFG（Control Flow Graph）。 Julia IR 中的变量类型都是明确的。
+\item \verb`LLVM.jl` 包可以把 julia 代码直接生成 LLVM IR， 或者把 Julia IR 转为 LLVM IR。
+\item 一些预备知识： 编译原理， 编译器设计， LLVM， Julia 背后原理。
+\item 关于\href{https://zhuanlan.zhihu.com/p/569704329}{多重分派}
+\item \href{https://zhuanlan.zhihu.com/p/515863922}{Julia 的批评}
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.2cm]{./figures/7293eeb0d6cd9c43.png}
+\caption{Julia JIT 流程} \label{fig_julia0_1}
+\end{figure}
+
+\subsection{Parser 和 IR 等架构}
+\begin{itemize}
+\item Julia 的 lexer 和 Parser 在 1.10 （2023 年底）之前是用 femtolisp 写的，后来改为 Julia 自己实现。 但据说 lowering 和 boostrap 等仍然使用 femtolisp，即不是完全自举。 femtolisp 的功能仅限于内核的一小部分，其他部分都是 C/C++ 和 Julia
+\item \verb`Meta.parse` 是用户使用时表面上的 parser。 从 1.10 开始，它底层替换为 \href{https://julialang.github.io/JuliaSyntax.jl/dev/api/}{JuliaSyntax}，使用 \verb`JuliaSyntax.parse!` 或者  \verb`JuliaSyntax.parsestmt`。
+\item 从 AST 到 Julia IR 这步就是 \verb`Core.Compiler` 模块实现的
+\item \href{https://pretalx.com/juliacon2024/talk/D3H79J/}{相关资源：Julia Con: Core.Compiler} 以及 \href{https://www.youtube.com/watch?v=4X59gs1dfo0}{Youtube 视频}。
+\item Femtolisp 是 lisp 的一个实现，用于 lexer/parser 最有名的应用就是 Julia compiler
+\item Julia 除了 AST 还有 CST （Concrete Syntax Tree），有更多的 Token 细节，用于代码高亮等用途
+\item Julia 的 \href{https://github.com/JuliaLang/julia}{Github 页面}显示，除了 C/C++，还使用了 Tree-sitter 语言（可能用于 VS code 插件？）
+\end{itemize}
+
+
+\subsection{Julia 的 AST 格式（Expr）}
+\begin{itemize}
+\item \verb`dump(表达式)` 函数可以显示语法树，如 \verb`expr = :(x + 2y)` 显示
+\begin{lstlisting}[language=julia]
+Expr
+  head: Symbol call
+  args: Array{Any}((3,))
+    1: Symbol +
+    2: Symbol x
+    3: Expr
+      head: Symbol call
+      args: Array{Any}((3,))
+        1: Symbol *
+        2: Int64 2
+        3: Symbol y
+\end{lstlisting}
+\item \verb`Expr` 类型是内建的，似乎无法查看源码。
+\item \verb`dump(类型)` 可以显示该类型的定义。 \verb`dump(Expr)` 会打印 
+\begin{lstlisting}[language=julia]
+Expr <: Any
+  head::Symbol
+  args::Vector{Any}
+\end{lstlisting}
+\item 创建表达式用 \verb`Expr(表达头, 入参1, 入参2, ...)` 如 \verb`ex = Expr(:call, :+, 1, 2)`
+\item \verb`Meta.show_sexpr()` 可以将 \verb`Expr` 表示为 lisp 的 S-expression
+\item \verb`@which dump(:(x + 2y))` 可以看到该函数在哪里定义（\verb`C:\Users\addis\AppData\Local\Programs\Julia-1.11.7\share\julia\base\show.jl`）。
+\item \verb`dump(arg; maxdepth=最大层数)` 可以指定最大层数。
+\item 接下来调用 \verb`function dump(io::IOContext, @nospecialize(x), n::Int, indent)`
+\item 但 parser 似乎不是用 Julia 写的，因为不如调试无法看到生成语法树的过程。
+\item 插值表达式 \verb`$(...)` 可以出现在 \verb`quote ... end` 中，直接把一部分表达式求值并插入而不是把 \verb`...` 作为表达式插入。 例如 \verb`:(a + b)` 中 \verb`+, a, b` 都是 Symbol， 但 \verb`a = 1; ex = :($(a+1) + b)` 得到的就是 \verb`:(2 + b)`
+\item 例子：
+来看一下如下表达式
+\begin{lstlisting}[language=julia]
+st = 
+quote
+    struct MySt
+        a::Int64
+        b::String
+    end
+end
+\end{lstlisting}
+\verb`dump(Base.remove_linenums!(st))` 的结果是
+\begin{lstlisting}[language=julia]
+Expr
+  head: Symbol block
+  args: Array{Any}((1,))
+    1: Expr
+      head: Symbol struct
+      args: Array{Any}((3,))
+        1: Bool false
+        2: Symbol MySt
+        3: Expr
+          head: Symbol block
+          args: Array{Any}((2,))
+            1: Expr
+              head: Symbol ::
+              args: Array{Any}((2,))
+                1: Symbol a
+                2: Symbol Int64
+            2: Expr
+              head: Symbol ::
+              args: Array{Any}((2,))
+                1: Symbol b
+                2: Symbol String
+\end{lstlisting}
+\end{itemize}
+
+
+\subsection{把 Julia 代码编译成 LLVM IR 代码}
+首先安装 \verb`using Pkg; Pkg.add("LLVM")` （其实没必要）
+
+在 REPL 中输入如下代码
+\begin{lstlisting}[language=julia,caption=julia]
+function add(x::Int, y::Int)::Int
+    return x + y
+end
+lowered_ir = @code_lowered add(1, 2) # 生成 Lowered Julia IR
+typed_ir = @code_typed add(1, 2) # 生成静态类型的 Julia IR
+llvm_ir = @code_llvm add(1, 2) # 生成 LLVM IR
+\end{lstlisting}
+
+也可以把函数定义写到 jl 脚本中，然后在 REPL 中 \verb`include("脚本名.jl")`， 再 \verb`@code_xxx add(1, 2)`。 \verb`include()` 相当于把脚本代码直接插入到该位置。 如果找不到，就用 \verb`using InteractiveUtils; a = InteractiveUtils.@code_lowered add(1, 2);`
+
+注意只会生成指定函数的 IR，不会递归生成它调用的其他函数的 IR。
+
+\begin{lstlisting}[language=none,caption=julia ir]
+julia> lowered_ir = @code_lowered add(1, 2)
+CodeInfo(
+1 ─ %1  = Main.Int
+│   %2  = Main.:+
+│   %3  = (%2)(x, y)   
+│         @_4 = %3
+│   %5  = @_4
+│   %6  = %5 isa %1
+└──       goto #3 if not %6
+2 ─       goto #4
+3 ─ %9  = @_4
+│   %10 = Base.convert(%1, %9)
+└──       @_4 = Core.typeassert(%10, %1)
+4 ┄ %12 = @_4
+└──       return %12
+)
+\end{lstlisting}
+
+生成的 LLVM IR 代码如下
+\begin{figure}[ht]
+\centering
+\includegraphics[width=14.25cm]{./figures/f34505db9ea28f8f.png}
+\caption{LLVM IR} \label{fig_julia0_2}
+\end{figure}
+
+注意返回的 \verb`lowered_ir` 变量并不是一个字符串，而是结构化的信息。
+
+\subsubsection{如何读懂 Julia IR}
+如果 Julia IR 中的东西不懂，文档也不完善，那就直接执行试试即可， Julia IR 中的函数都是可以在 REPL 中执行的。 例如上面的 \verb`Main.Int` 执行出来就是 \verb`Int64::DataType`。 找许多 Julia 源码和 IR 对照下来基本就能明白。
+
+\subsection{循环的 IR}
+代码
+\begin{lstlisting}[language=julia]
+for n in 1:5
+    c += n
+end
+\end{lstlisting}
+对应的 IR 是
+\begin{lstlisting}[language=none]
+14 ┄ %77  = Main.:(:)                         ; for n in 1:5
+                                              ;     % ==循环准备阶段==
+│    %78  = (%77)(1, 5)                       ;     % 返回 ::UnitRange{Int64}
+│           @_4 = Base.iterate(%78)           ;     % 初始化迭代器： (值, 循环指数)
+                                              ;     % 类型 Tuple{Int64, Int64}
+                                              ;     % ， 当前为 (1, 1)
+│    %80  = @_4
+│    %81  = %80 === nothing
+│    %82  = Base.not_int(%81)                 ;     % 非运算
+└───        goto #17 if not %82
+                                              ;     % ==循环体==
+15 ┄ %84  = @_4
+│           n = Core.getfield(%84, 1)
+│    %86  = Core.getfield(%84, 2)             ;     % 循环指数（对 UnitRange{Int64}
+                                              ;     %    未必从 1 开始也未必步长为 1）
+│    %87  = Main.:+                           ;     c += n
+│    %88  = c
+│    %89  = n
+│           c = (%87)(%88, %89)
+│           @_4 = Base.iterate(%78, %86)      ;     % 迭代（nothing 表示结束）
+│    %92  = @_4
+│    %93  = %92 === nothing
+│    %94  = Base.not_int(%93)
+└───        goto #17 if not %94
+16 ─        goto #15
+                                              ; end
+\end{lstlisting}
+
+代码
+\begin{lstlisting}[language=julia]
+function foo()
+a = 0
+for i in [1, "123", 1+2im]
+    a += 1
+    println(i, a);
+end
+end
+\end{lstlisting}
+对应的 IR 是
+\begin{lstlisting}[language=none]
+CodeInfo(
+1 ─       a = 0
+                                         ; % ==循环准备==
+│   %2  = Main.:+                        ; % 构造 [1, "123", 1+2im]
+│   %3  = Main.:*
+│   %4  = Main.im
+│   %5  = (%3)(2, %4)
+│   %6  = (%2)(1, %5)
+│   %7  = Base.vect(1, "123", %6)
+│         @_2 = Base.iterate(%7)         ; % 迭代器
+│   %9  = @_2
+│   %10 = %9 === nothing
+│   %11 = Base.not_int(%10)
+└──       goto #4 if not %11
+2 ┄ %13 = @_2                            ; % ==循环体==
+│         i = Core.getfield(%13, 1)      ; % 循环变量
+│   %15 = Core.getfield(%13, 2)          ; % 循环指数
+│   %16 = Main.:+
+│   %17 = a
+│         a = (%16)(%17, 1)
+│   %19 = i
+│   %20 = a
+│         Main.println(%19, %20)
+│         @_2 = Base.iterate(%7, %15)
+│   %23 = @_2
+│   %24 = %23 === nothing
+│   %25 = Base.not_int(%24)
+└──       goto #4 if not %25
+3 ─       goto #2
+4 ┄       return nothing
+)
+\end{lstlisting}
+
+\subsection{Core 模块}
+\begin{itemize}
+\item \verb`Core._apply_iterate(Base.iterate, 函数, 容器1, 容器2, ...)` 会依次把每个 \verb`容器` 的每个元素作为入参去调用 \verb`函数`。 其中 \verb`Base.iterate` 是一个函数，用途未知。
+\end{itemize}
+
+\subsection{Base 模块}
+\begin{itemize}
+\item \verb`Base.not_int(变量)` 逻辑非运算（似乎非逻辑类型就按 bit 取非）
+\item \verb`Base.Pairs(("a","b"), (1,2))` 返回的类型是 \verb`Base.Pairs{Int64, String, Tuple{Int64, Int64}, Tuple{String, String}}`，但类似于 \verb`Dict([1=>"a", 2=>"b"])`。 可以使用 \verb`var[key]` 获取对应的值。
+\item \verb`Base.iterate(容器)` 可以得到 \verb`容器` 的初始迭代器。 \verb`Base.iterate(容器, 迭代器)` 可以得到下一个元素的迭代器。
+\end{itemize}
+
+\subsection{Main 模块}
+
+\begin{itemize}
+\item 基本所有用户能调用的常用内建函数和算符都是 \verb`Main` 模块的， 例如 \verb`Main.println`， \verb`Main.error`， \verb`Main.sqrt` 等。
+\item 算符表示为函数 \verb`Main.:算符符号`， 如大于号 \verb`Main.:>`， 减号 \verb`Main.:-`， 不等于 \verb`Main.:!=`。 \verb`1:5` 中的冒号表示为 \verb`Main.:(:)`
+\end{itemize}
+
+\subsection{code_lowered 源码分析}
+\begin{itemize}
+\item \verb`@code_lowered` 会调用 \verb`C:\Users\addis\AppData\Local\Programs\Julia-1.11.6\share\julia\base\reflection.jl` 中的 \verb`function code_lowered(@nospecialize(f), @nospecialize(t=Tuple); generated::Bool=true, debuginfo::Symbol=:default)`
+\item \verb`reflection.jl` 的 \verb`function method_instances(@nospecialize(f), @nospecialize(t), world::UInt)` 会返回 \verb`Core.MethodInstance` 数组，每个元素是 \verb`Core.Compiler.specialize_method(match)` 返回的。 其 \verb`source` 字段应该就是压缩后的 IR
+\item \verb`reflection.jl` 的 \verb`uncompressed_ir(m::Method)` 最后会调用 \verb`ccall(:jl_uncompress_ir, Any, (Any, Ptr{Cvoid}, Any), m, C_NULL, s)::CodeInfo`，也就是调用 c 语言函数。
+\item 所以看来 code_lowered 也是 C/C++ 实现的
+\item \verb`@code_lowered` 返回一个 \verb`Core.CodeInfo` 类型的结构体，最后经过一次 \verb`remove_linenums!(code)`，打印出来就是我们看到的文本格式 Julia IR，其 \verb`code` 字段（\verb`Vector{Any}`）就是内部的数据结构。
+\item \verb`%数字` 并不是连续的，而是行号也就是 \verb`code[数字]`
+\item 每个元素可能是 \verb`Expr`, \verb`GlobalRef`（例如 \verb`Main.:+`）, \verb`Core.SlotNumber`（变量名赋值给临时变量）, \verb`Core.NewVarNode`, \verb`Core.GotoIfNot`（goto 语句）
+\item 变量名在 \verb`code` 中用符号 \verb`:_数字` 来表示，具体的变量名对照表在 \verb`slotnames` 字段中 \verb`slotnames[数字]`。
+\item \verb`fieldnames(GlobalRef)` 为 \verb`(:mod, :name, :binding)`， 是为了引用某个模块中的某个全局对象。 \verb`mod::Module` 字段是模块名，\verb`name::Symbol`，是被引用的符号名， \verb`binding::Core.Binding` 未知。
+\end{itemize}
+
+\subsection{code_typed} 源码分析
+\begin{itemize}
+\item 返回的第一个出参是 \verb`Core.CodeInfo` 类型的
+\item 之前 untyped 没有常量折叠，typed 有，以及死分支剪切，函数内联
+\item \verb`code` 字段是 \verb`Vector{Any}`， 元素类型有 \verb`Expr`, \verb`Nothing`, \verb`Core.ReturnNode`（表示 return）。其中 \verb`Expr` 的 \verb`head` 一般是 \verb`:invoke`， \verb`args` 分别是被调函数的 \verb`MethodInstance`， 和被调函数的 \verb`GlobalRef`（例如 \verb`Main.print`），函数入参1，入参2，……
+\item \verb`Core.ReturnNode` 只有一个 \verb`val` 字段，就是返回值。
+\item phi 节点表示为 \verb`Core.PhiNode`
+\item 还有一个奇怪的 pi 节点 \verb`Core.PiNode`，有两个字段 \verb`val, typ`
+\item \verb`boot.jl` 中注释了许多基本类型的定义，这些类型是使用 C 语言定义的。 如
+\begin{lstlisting}[language=julia]
+mutable struct Expr
+    head::Symbol
+    args::Array{Any,1}
+end
+
+struct GotoNode
+    label::Int
+end
+
+struct PiNode
+    val
+    typ
+end
+
+mutable struct Symbol
+# opaque （不透明对象）
+end
+\end{lstlisting}
+\item \verb`Core.eval(模块, 表达式)` 可以在某个模块中执行表达式， 而普通的 \verb`Main.eval(x) = Core.eval(Main, x)` 默认在 \verb`Main` 模块（\verb`sysimg.jl`）。
+\item typed ir 中常见的函数有 \verb`Base` 模块中的 \verb`add_int, or_int, xor_int, mul_float, lt_float, setfield!, getfield`，他们的类型是 \verb`Core.IntrinsicFunction`。
+\end{itemize}
+
+\subsection{Julia 内核笔记（非 Julia 源码的部分）}
+\begin{itemize}
+\item \href{https://docs.julialang.org/en/v1/devdocs/build/build/}{构建 Julia（官方文档）}
+\item \href{https://docs.julialang.org/en/v1/devdocs/build/build/#Required-Build-Tools-and-External-Libraries}{构建依赖}，看起来 Mingw 较难满足，先试试用 Ubuntu22 构建吧。
+\item 直接用 make，不使用 cmake
+\item 要编译 debug 版本，命令行用 \verb`make debug`（\href{https://docs.julialang.org/en/v1/devdocs/backtraces/}{文档}）。 注意 make 的之前可能需要挂个梯子。
+\item 强烈推荐 CLion 打开 Makefile 作为工程文件。 经过一段时间的加载，所有的符号都可以跳转到定义。 编译以后支持逐行调试。 支持实时显示当前变量。
+\item 然后用命令行编译再用 \enref{Custom Build Targets}{CLionN}，Exe 选择 \verb`G:\OneDrive\github\etc-3rd-party\julia\usr\bin\julia-debug`。
+\item 作为第一个调试，命令行参数可以填 \verb`-e 'println("Hello World!")'`
+\begin{lstlisting}[language=bash]
+rm -rf build && mkdir build
+make O="$PWD/build" configure
+\end{lstlisting}
+\item 最新的 v1.12.0 中 \verb`make debug` 失败，提了 \href{https://github.com/JuliaLang/julia/issues/57675}{issue} 正在修复。撤回到 v1.10.10 编译成功
+\item 注意 \verb`make debug` 之前最好把 \verb`.git` 文件夹之外的东西都删掉然后重新 \verb`git checkout .`
+\item 注意 git remote 的名字不能改，就留一个默认的 \verb`origin`
+\item 在 \verb`JULIA stdlib/SparseArrays.debug.image` 等镜像时可能会报 Segmentation Fault，再次运行 \verb`make debug` 会继续。
+
+\item 调试：\verb`julia -e '命令;命令'` 可以运行命令而不互动
+\end{itemize}
+
+\subsubsection{数据结构}
+\begin{itemize}
+\item \verb`Expr` 的 C 类型为
+\begin{lstlisting}[language=cpp]
+typedef struct {
+    JL_DATA_TYPE
+    jl_sym_t *head;
+    jl_array_t *args;
+} jl_expr_t;
+\end{lstlisting}
+可以直接把 \verb`jl_value_t *` 硬 cast 成 \verb`jl_expr_t *`。
+\item \verb`Symbol` 的 C 类型为
+\begin{lstlisting}[language=cpp]
+typedef struct _jl_sym_t {
+    JL_DATA_TYPE
+    _Atomic(struct _jl_sym_t*) left; // 左子节点
+    _Atomic(struct _jl_sym_t*) right; // 右子节点
+    uintptr_t hash;    // precomputed hash value
+    // JL_ATTRIBUTE_ALIGN_PTRSIZE(char name[]);
+} jl_sym_t;
+\end{lstlisting}
+大概就是用二叉树实现了一个 \verb`std::set`，用作 \verb`StringPool`。但注意这里只不会储存 string 本身只会储存它的 hash。所以 sym 不知道他自己的名字。
+\item \verb`jl_symbol_name()` 可以获取 symbol 的名字（可以直接在 debugger 中使用），原理是寻找 \verb`jl_sym_t` 对象在内存中后面的地址并转为 \verb`char*`（后面到底是什么？）
+\item \verb`ast.c` 中定义了（所有可能的？）表达式类型，即 \verb`jl_expr_t` 的 \verb`head`。它们的 \verb`jl_symbol_name()` 是两个下划线之间的名字。
+\begin{lstlisting}[language=cpp]
+// head symbols for each expression type
+JL_DLLEXPORT jl_sym_t *jl_call_sym;
+JL_DLLEXPORT jl_sym_t *jl_invoke_sym;
+JL_DLLEXPORT jl_sym_t *jl_invoke_modify_sym;
+JL_DLLEXPORT jl_sym_t *jl_empty_sym;
+JL_DLLEXPORT jl_sym_t *jl_top_sym;
+JL_DLLEXPORT jl_sym_t *jl_module_sym;
+JL_DLLEXPORT jl_sym_t *jl_slot_sym;
+...
+\end{lstlisting}
+\item \verb`julia.h` 是 Julia C API 的总头文件， 在 C/C++ 中调用 julia 时用它（类似于 \verb`Python.h`）。
+\item \verb`jl_value_t` 本身没有定义， \verb`gc.c:jl_gc_alloc_()` 分配的内存布局为：\verb`jl_taggedvalue_t + 数据部分`。
+返回的 \verb`jl_value_t*` 就是 \verb`数据部分` 的起始指针， \verb`jl_taggedvalue_t` 存放的就是动态类型信息。
+\item 如何判断一个 \verb`jl_value_t` 具体是什么？可以用 \verb`julia.h` 中的 \verb`jl_is_类型()` 宏函数。 如果函数名是 \verb`jl_is_*node()` 那么就是用于判断是否为语法树节点。 例如 \verb`jl_is_linenode` 判断是否为标记文件和行号的节点。
+\item \verb`jl_is_类型()` 实现上是通过 \verb`jl_typetagis()` 宏函数。对比指针指向的一个 bit field，和 \verb`jl_类型_tag`（如 \verb`jl_int16_tag`），在 \verb`enum jl_small_typeof_tags` 中定义。
+\item \verb`jl_typetagof(对象)` 宏函数返回 \verb`jl_value_t` 对象的 typetag
+\item \verb`jl_typeof(对象)` 返回另一个 \verb`jl_value_t`， 类型是 \verb`DataType`。
+\item \verb`Array` 的 C 类型为
+\begin{lstlisting}[language=cpp]
+typedef struct {
+    JL_DATA_TYPE
+    void *data;
+    size_t length; // 矩阵元个数
+    jl_array_flags_t flags;
+    uint16_t elsize; // element size including alignment (dim 1 memory stride)
+    uint32_t offset; // for 1-d only. does not need to get big.
+    size_t nrows;
+    union {
+        // 1d
+        size_t maxsize;
+        // Nd
+        size_t ncols;
+    };
+    // other dim sizes go here for ndims > 2
+
+    // followed by alignment padding and inline data, or owner pointer
+} jl_array_t;
+\end{lstlisting}
+\verb`jl_array_len()` 可以获取长度， \verb`ajl_array_ptr_ref()` 可以获取矩阵元
+
+\item \verb`julia.h` 中 \verb`jl_datatype_t *jl_expr_type;` 这说明 \verb`_type` 结尾的是一个值，\verb`_t` 结尾的才是类型。
+\item \verb`jl_is_expr` 如何定义？
+\end{itemize}
+
+
+\subsubsection{调用过程}
+\begin{itemize}
+\item 启动过程参考\href{https://docs.julialang.org/en/v1/devdocs/init/}{官方文档}。
+\item 注意 \verb`__attribute__((constructor))` 开头的函数会在库加载时被调用（有可能在 \verb`main()` 前，如果不使用 \verb`dlopen()` 加载。
+\item \verb`jlapi.c:true_main()` 函数会加载 \verb`Base._start`，然后 \verb`jl_apply()` 会调用该函数（位于 \verb`C:\Users\addis\AppData\Local\Programs\Julia-1.11.7\share\julia\base` 的 \verb`client.jl`）。
+\item 调用的过程无法调试，因为调用到 \verb`gc.c:_jl_invoke()` 中的 \verb`invoke()` 函数时无法继续步入，可能因为这是从 jl 由 llvm 编译成的机器码，没有 debug info。 在 Julia debugger 中打断点也没用，好像只能 print debug
+\item \verb`julia -e 'println("hello!")'` 最终会在 \verb`parse_input_line(::String)` 进而 \verb`Meta.parseall()` 中进行词法语法解析， `\verb`Core.eval(Main, ex)` 中执行。
+\item \verb`Meta.parseall()` 会调用 \verb`_parse_string()`， \verb`Core._parse()`， \verb`parsing.jl:fl_parse()`， 最后调用 C 语言的 \verb`src/ast.c:jl_fl_parse` 但该函数在 gdb 中同样无法断点暂停。
+\item 这里的 \verb`fl_` 指的是 femtolisp
+\item \verb`ast.c` 中 \verb`jl_parse*()` 函数都会调用 \verb`jl_parse()`，进而调用上述的 \verb`Core._parse()`。 可见，无论是 \verb`-e` 还是 \verb`parse_input_line` 都没有使用 \verb`JuliaSyntax.parse`（目前是 1.11.6 > 1.10）
+\item \verb`jl_fl_parse()` 里面调用一堆
+\item \verb`jl_fl_parse()` 负责调用 \verb`jlfrontend.scm` 中的 \verb`jl-parse-all或one` 函数，把 jl 源码字符串 parse 成 S-expr 再转换为 Julia 的 \verb`Expr` 类型。
+\end{itemize}
+
+\subsection{jl_task_t 是什么}
+\begin{itemize}
+\item \verb`jl_task_t` 是 Julia 的 Task， 也叫协程（coroutines），也叫绿线程。 携程不是操作系统层面的线程，而是 julia runtime 实现的。
+\item 每个 method 定义都会被分配一个单调递增的整数，称为其世界编号（world number，或称 world age）。当你定义一个新方法时，全局的世界计数器会递增。
+\item 每个 Task（以及每次函数调用）都在某个特定的世界时代中执行， \verb`jl_task_t::world_age` 决定了它可以看到哪些版本的方法。 例如：
+\begin{lstlisting}[language=none]
+f(x) = 1
+@async begin
+    sleep(1)
+    f("hello") # always return 1
+end
+f(x::String) = 2   # defined later
+\end{lstlisting}
+\end{itemize}
+
+
+\subsection{执行语法树}
+\begin{itemize}
+\item 使用 \verb`Core.eval()`，调用 \verb`toplevel.c: jl_toplevel_eval_flex()` 它内部会通过 \verb`jl_needs_lowering()` 判断是否直接执行语法树？
+\item 传入 \verb`jl_toplevel_evel_flex()` 的节点是 \verb`jl_toplevel_sym`，要递归对每个分支执行 \verb`jl_toplevel_evel_flex()`
+\item \verb`body_attributes()` 用于总结要执行的 Expr 的一些属性，例如是否有函数定义， 是否有 \verb`ccall()`，然后用 \verb`if, else` 立即判断是否需要编译该 AST， 还是使用解释器直接执行。
+\item 要是决定解释器直接执行，则 \verb`jl_interpret_toplevel_thunk()`。 注意第二个参数 \verb`jl_code_info_t src` 中含有 SSA。（是否执行 SSA 而不是语法树？）， \verb`jl_array_t *stmts = src->code;`（类型必须为 \verb`Array{Any}`） 就是所有 IR 命令？
+\item \verb`jl_interpret_toplevel_thunk()` 会调用 \verb`interpreter.c: eval_body()`
+\item \verb`do_call()` 求函数调用
+\item \verb`eval_value()` 求其中一个参数
+\item 解释器状态：
+\begin{lstlisting}[language=cpp]
+typedef struct {
+    jl_code_info_t *src; // contains the names and number of slots
+    jl_method_instance_t *mi; // MethodInstance we're executing,
+                              // or NULL if toplevel
+    jl_module_t *module; // context for globals
+    jl_value_t **locals; // slots for holding local slots and ssavalues
+    jl_svec_t *sparam_vals; // method static parameters,
+                            // if eval-ing a method body
+    size_t ip; // Leak the currently-evaluating statement
+               // index to backtrace capture
+    int preevaluation; // use special rules for pre-evaluating expressions
+                      // (deprecated--only for ccall handling)
+    int continue_at; // statement index to jump to after leaving
+                     // exception handler (0 if none)
+} interpreter_state;
+\end{lstlisting}
+\item Julia 模块
+\begin{lstlisting}[language=cpp]
+typedef struct _jl_module_t { // Julia 模块
+    JL_DATA_TYPE
+    jl_sym_t *name; // 模块名
+    struct _jl_module_t *parent;
+    _Atomic(jl_svec_t*) bindings;
+    _Atomic(jl_array_t*) bindingkeyset; // index lookup by name into bindings
+    // hidden fields:
+    arraylist_t usings;  // modules with all bindings potentially imported
+    jl_uuid_t build_id;
+    jl_uuid_t uuid;
+    size_t primary_world;
+    _Atomic(uint32_t) counter;
+    int32_t nospecialize;  // global bit flags: initialization for new methods
+    int8_t optlevel;
+    int8_t compile;
+    int8_t infer;
+    uint8_t istopmod;
+    int8_t max_methods;
+    jl_mutex_t lock;
+    intptr_t hash;
+} jl_module_t;
+\end{lstlisting}
+\item 在执行 \verb`Main.println` 函数的时候，\verb`println` 只是一个 symbol 而不是函数对象，\verb`jl_eval_global_var()` （调用 \verb`jl_get_global()`）可以从 Main 中获取函数对象。
+\item 最后，\verb`println` 的函数对象和所有求值后的参数被传入 \verb`jl_apply()` 调用 \verb`jl_apply_generic()` 调用 \verb`_jl_invoke()`
+\end{itemize}
+
+\subsection{测试}
+\begin{itemize}
+\item 测试 \verb`b = 2; for i in 1:10000 println("(b+i)^2 = ", (b+i)^2) end`
+\end{itemize}
+
+\subsection{flisp 如何与 C 工作}
+\begin{itemize}
+\item \href{https://zhuanlan.zhihu.com/p/597444640}{参考这里}
+\item 在构建 Julia 的时候，会先编译 FemtoLisp，生成它的静态库和可执行文件。
+\item 之后，FemtoLisp 将 jlfrontend.scm 编译成 .boot 字节码 \verb`./flisp mk_julia_flisp_boot.scm src/ jlfrontend.scm src/julia_flisp.boot`
+\item 所以 \verb`jlfrontend.scm` 才是整个 fl 前端的入口
+\item 调用 bin2hex.scm 将 boot 文件转换成头文件 \verb`julia_flisp.boot.inc` （其实就是将 boot 文件的内容编码成一个 16 进制整数数组），这个头文件将被 include 到 C 代码中一起被编译。
+\item 而前面编译生成的静态库又会被与 Julia 的其它部分一起链接，生成 Julia 的可执行文件（前端命令行程序，LLVM 好像是被以动态链接的方式包含到 Julia 中作为后端的，不太记得清了）。
+\item 当 Julia 启动时，它就会从前面提到的十六进制整数数组中加载它的（用 Scheme 语言编写的）前端的字节码，然后调用其中的接口来解析 Julia 的代码，生成对应的 AST，然后交给后端解释器和 LLVM 去优化执行。
+\end{itemize}
+
+\subsection{函数分派}
+\begin{itemize}
+\item 每个 method 有一个 signature，例如 \verb`f(x::Int, y::Float64)` 的 signature 是 \verb`Tuple{Int, Float64}`， \verb`f(x::Number, y)` 的是 \verb`Tuple{Number, Any}`。 \verb`leafsig`（leaf signature） 的意思是所有类型都是具体类（\verb`isconcrete()`），也就是类型树中的叶子节点。 
+\item 宏函数 \verb`jl_methtable_t *jl_gf_mtable(jl_value_t *F)` 返回函数对象 \verb`F` 的分派表。
+\item \verb`jl_methtable_t` 是方法表，里面每一个方法是一个 \verb`jl_method_t`，对应 jl 源码中的一个 \verb`function` 关键字。 每个方法还会细分为 \verb`jl_method_instance_t`，也就是每个类型都最终确定为具体类的最终特化。
+\item （\verb`gf.c`）\verb`jl_method_instance_t * jl_lookup_generic_(jl_value_t *F, jl_value_t **args, uint32_t nargs, uint32_t callsite, size_t world);` 根据函数对象，入参，以及调用该函数处的指针，world_age 查找并返回最终特化。
+\item 得到 \verb`jl_method_instance_t *` 后， 调用该方法实例用（\verb`gf.c`） \verb`jl_value_t *_jl_invoke(jl_value_t *F, jl_value_t **args, uint32_t nargs, jl_method_instance_t *mfunc, size_t world)`
+\item 一个 method instance 中可能有多个编译好的 \verb`jl_code_instance_t`（链表），这是因为可能有不同的 world age 和 compilation states。 每一个 \verb`jl_code_instance_t` 的 \verb`next` 字段指向下一个， \verb`jl_code_instance_t` 的 \verb`invoke` 字段（类型 \verb`jl_callptr_t`， 定义为 \verb`typedef jl_value_t *(jl_call_t)(jl_value_t*, jl_value_t**, uint32_t, struct _jl_code_instance_t*);`， 使用方法 \verb`函数调用(入参，出参，入参个数，函数实例)`）是调用该 code instance 的函数指针，可以直接用 如果参数类型等不匹配导致调用失败，会返回 \verb`NULL`。
+\end{itemize}
