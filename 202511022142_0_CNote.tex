@@ -211,8 +211,7 @@ atomic_exchange(&x, 5);             // atomically set x = 5, return old value
 \item 多线程原子读写的顺序和时效性大有讲究！首先，一般单线程的普通变量读写可能会被编译器优化！其次，CPU 每个核都有自己的缓存，即使是 atomic 变量也不能假设写了之后其他线程可以马上看到。
 \item 这里 \verb`atomic_store/load` 是最严格的，等效于 \verb`atomic_store/load_explicit(xxx, memory_order_seq_cst)`，适合新手，可以假设顺序就是代码中的那样，且立刻生效。 但性能最低。
 \item 最不严格的是 \verb`atomic_store/load_explicit(xxx, memory_order_relaxed)`，可能顺序打乱也未必立刻生效，只保证单次操作是原子的。 性能最高。
-\item 处于中间的是 \verb`atomic_store/load_explicit(xxx, memory_order_relaxed)`
-\item  <  < memory_order_acq_rel < memory_order_seq_cst
+\item 处于中间的是 \verb`atomic_store_explicit(xxx, memory_order_release)` 和 \verb`load_explicit(xxx, memory_order_acquire)`。 同样不能保证立即生效，但保证 release 之前写入的所有变量会在 acquire 之后读到。
 \end{itemize}
 
 
