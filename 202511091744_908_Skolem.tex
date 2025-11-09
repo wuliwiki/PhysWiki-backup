@@ -1,0 +1,54 @@
+% 勒文海姆–斯科伦定理（综述）
+% license CCBYSA3
+% type Wiki
+
+本文根据 CC-BY-SA 协议转载翻译自维基百科\href{https://en.wikipedia.org/wiki/L\%C3\%B6wenheim\%E2\%80\%93Skolem_theorem}{相关文章}。
+
+在数理逻辑中，洛文海姆–斯科伦定理（Löwenheim–Skolem theorem）是关于模型的存在性与基数的一个定理，以数学家莱奥波德·洛文海姆（Leopold Löwenheim）和托拉夫·斯科伦（Thoralf Skolem）的名字命名。  
+
+其精确定义如下：若一个可数的一阶理论（countable first-order theory）存在一个无限模型，那么对于任意无限基数 \(\kappa\)，该理论都存在一个基数为 \(\kappa\) 的模型。这意味着，任何具有无限模型的一阶理论都不可能在同构意义下拥有唯一模型。  
+
+由此可知，一阶理论无法控制其无限模型的基数。（向下的）洛文海姆–斯科伦定理是刻画一阶逻辑的两个关键性质之一，另一个是紧致性定理（compactness theorem）。这两者共同构成了林德斯特伦定理（Lindström’s theorem）的基础。而在更强的逻辑体系中（例如二阶逻辑），一般而言洛文海姆–斯科伦定理并不成立。[1]  
+\subsection{定理}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6cm]{./figures/9c693c47e7fbd008.png}
+\caption{} \label{fig_Skolem_1}
+\end{figure}
+在其最一般的形式下，洛文海姆–斯科伦定理（Löwenheim–Skolem Theorem）表述如下：
+
+对于任意签名（signature）\(\sigma\)，任意无限的 \(\sigma\)-结构 \(M\)，以及任意满足 \(\kappa \geq |\sigma|\) 的无限基数 \(\kappa\)，存在一个 \(\sigma\)-结构 \(N\)，使得 \(|N| = \kappa\)，并且：
+\begin{itemize}
+\item 若 \(\kappa < |M|\)，则 \(N\) 是 \(M\) 的一个**初等子结构**（elementary substructure）；  
+\item 若 \(\kappa \geq |M|\)，则 \(N\) 是 \(M\) 的一个**初等扩张**（elementary extension）。  
+\end{itemize}
+该定理通常被分为上述两种情况：  
+第一部分（关于较小基数的初等子结构）称为向下洛文海姆–斯科伦定理（Downward Löwenheim–Skolem Theorem）[2]:160–162；第二部分（关于较大基数的初等扩张）称为向上洛文海姆–斯科伦定理（Upward Löwenheim–Skolem Theorem）[3]。  
+\subsection{讨论}
+以下将进一步阐述签名（signature）与结构（structure）的基本概念。
+\subsubsection{概念}
+\textbf{签名}
+
+一个签名由以下部分组成：一组函数符号\(S_{\text{func}}\)，一组关系符号\(S_{\text{rel}}\)，以及一个函数\(\operatorname{ar} : S_{\text{func}} \cup S_{\text{rel}} \to \mathbb{N}_0\)表示各符号的元数（arity）。一个元数为 0 的函数符号称为常数符号。在一阶逻辑中，签名有时也被称为语言（language）。若其函数符号与关系符号的集合是可数的，则称该签名为可数签名。一般而言，签名的基数就是它所包含全部符号集合的基数。
+
+一个**一阶理论**（first-order theory）由固定的签名与该签名下的一组句子（无自由变元的公式）组成[4]:40。理论常常通过：给出一组公理以生成该理论，或  
+- 指定一个**结构**并令该理论由该结构满足的所有句子组成，  
+来定义。
+
+---
+
+#### 结构 / 模型（Structures / Models）
+
+给定一个签名 \(\sigma\)，一个 \(\sigma\)-结构 \(M\) 是对 \(\sigma\) 中符号的具体解释。  
+它包括一个基础集合（通常也记为 \(M\)），以及对函数符号和关系符号的解释。
+
+- 一个常数符号在 \(M\) 中的解释就是 \(M\) 的某个元素；  
+- 一个 \(n\)-元函数符号 \(f\) 的解释是一个映射 \(f^M : M^n \to M\)；  
+- 一个关系符号 \(R\) 的解释是 \(M\) 上的一个 \(n\)-元关系，即 \(M^n\) 的一个子集。
+
+一个 \(\sigma\)-结构 \(M\) 的**子结构**（substructure）是这样获得的：  
+取 \(M\) 的一个子集 \(N\)，使其对所有函数符号的解释封闭（因此包含所有常数符号的解释），  
+并将关系符号的解释限制到 \(N\)。  
+
+**初等子结构**（elementary substructure）是子结构中特殊的一种，它与原结构（其初等扩张）满足完全相同的一阶句子。
+```
