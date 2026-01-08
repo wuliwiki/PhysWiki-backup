@@ -1,0 +1,431 @@
+% Julia 笔记
+% keys Julia 语言|科学计算|数值计算|REPL
+% license Xiao
+% type Note
+
+Julia 从 Matlab 和 C/C++ 借鉴了不少语法， 如果你两种语言都已经会了， 那么 Julia 是十分简单的。 本章的目的就是为已经学习过类似语言的读者提供一个 Julia 语言的快速入门笔记。
+
+Ubuntu/Debian 安装方法。
+\begin{lstlisting}[language=bash]
+sudo apt install julia
+# 或者
+sudo snap install Julia --classic
+\end{lstlisting}
+如果版本较老， 最好还是从\href{https://julialang.org/downloads}{官网下载安装包}， 直接解压即可使用 \verb`bin/julia` 执行文件。 也可以创建软链 \verb`sudo ln -s /home/用户名/julia-xxx/bin/julia /usr/bin/julia`
+
+Windows 默认安装目录： \verb`C:\Users\<Username>\AppData\Local\Programs\Julia-<version>`
+
+要检查该路径，可以用 \verb`print(Sys.which("julia"))` 或者 \verb`print(Sys.BINDIR)`（如果不用 \verb`print`，Windows \verb`\` 会打印为 \verb`\\`）。
+
+另外本地的 Jupyter Notebook 也支持 Julia。 在 julia 命令行里面运行 \verb`import Pkg`， \verb`Pkg.add("IJulia")`。 现在打开 Jupyter notebook 就可以新建 julia 文档了。
+
+至于 IDE， Juno 和 JuliaPro 都已经停止更新， 当前（2023-3）最热门的 IDE 环境是 Julia 的 \href{https://www.julia-vscode.org}{VScode 拓展}， 支持逐行调试。
+
+\subsection{VS Code 逐行调试}
+\begin{itemize}
+\item VS Code 安装 Julia 官方插件，打开文件夹，打开文件，打断点，左边栏打开调试面板即可。 即使是内部脚本也可以步入调试。
+\end{itemize}
+
+\subsection{命令行}
+\begin{itemize}
+\item 最简单的 Hello World 程序如 \verb`println("hello world")` 会自动换行。 \verb`print` 则没有自动换行。
+\item \verb`x = 1; y = 2; @show x y;` 可以打印 \verb`x = 1 <换行> y = 2`。
+\item Julia 的命令行环境叫做 \textbf{REPL (read-eval-print-loop)}
+\item 注释用 \verb`#`， 或者 \verb`#=一些注释=#`， 多行注释也可以和 python 一样用 \verb`"""..."""`。
+\item 选中文字后 \verb`Ctrl + C` 可以复制， 未选中时用于中断执行。
+\item \verb`Ctrl + V` 用于粘贴。
+\item \verb`Ctrl + D` 退出或者 \verb`exit()` 退出。
+\item \verb`Ctrl + R` 搜索命令历史。
+\item \verb`ans` 变量和 Matlab 一样， 用于显示上一次运算的输出结果（结果赋值给变量的除外）
+\item 在一行中运行多个命令， 用分号隔开
+\item 在 REPL 中不用分号会显示输出， 但函数定义内不会。
+\item 要清空 workspace 中的变量只能重启
+\item \verb`println("$var1 some words $var2")` 中 \verb`var1, var2` 可以是数字、字符串等， 这和 \verb`println(var1, " some words ", var2)` 等效。 其实这是字符串的功能而不是 \verb`println` 特有的。 要避免混淆用 \verb`$(var)`， 如 \verb`$(var)a`。
+\item \verb`io = IOBuffer(); println(io, "Hello Julia!"); s = String(take!(io))` 可以让 \verb`println` 输出到字符串。
+\item 脚本中定义的变量在 \verb`Main.` 模块中，如 \verb`x = 3; println(Main.x)`
+\end{itemize}
+
+\subsection{计算器}
+\begin{itemize}
+\item \verb`b = 2a` 和 \verb`c = 2(b+3)` 都可以省略乘号。 注意 \verb`1/2a` 相当于 \verb`1/(2a)`
+\item \verb`2/3` 返回双精度类型 \verb`Float64` 而不是整数
+\item \verb`2//3` 返回 \verb`Rational{Int64}` 类型， 相当于用两个 \verb`Int64` 整数来表示分数， 分数之间的运算没有误差
+\item 表示复数如 \verb`1 + 2im`， 相当于 \verb`ComplexF64(0,2)`。 又例如 \verb`1//2 + (3//4)im` 的类型是 \verb`Complex{Rational{Int64}}`
+\item 圆周率 \verb`pi` 的类型是 \verb`Irrational{:π}`， \verb`@which pi` 可以看到它的模块是 \verb`Base.MathConstants.pi`。
+\item 自然对数底 \verb`ℯ` 即 \verb`Base.MathConstants.e` 或 \verb`Base.MathConstants.ℯ`， 类型是 \verb`Irrational{:ℯ}`。
+\end{itemize}
+
+\subsection{变量基础}
+\begin{itemize}
+\item 用 \verb`typeof()` 查看某个变量的类型（python 是 \verb`type`）
+\item 类型完全是动态的， 但可以在表达式或者函数定义后面加上 \verb`::类型` 限制变量类型。例如 \verb`a::Int = 1.2;` 会报错。
+\item 字符串用双引号， 单个字符用单引号
+\item 感叹号 \verb`!` 可用于变量名或函数名的非首字符。 一般来说，在函数名最后加 \verb`!` 用于表示该函数的参数会被修改。
+\item 查看类型的最大和最小值如 \verb`typemax(Int64)`， \verb`typemin(Int64)`
+\item 标准库提供任意精度类型 \verb`BigInt` 和 \verb`BigFloat` （底层是 GMP）
+\item 变量名可以用 UTF-8 字符， 在一些编辑器中可以用反斜杠 latex 命令打出对应的字符
+\item 注意和 C++ 不同， Julia 中的变量名只是 object 的标签
+\item 要释放一个变量所占的内存， 把它赋值为 \verb`nothing` （类型为 \verb`Nothing <: Any`）， 然后运行垃圾回收 \verb`GC.gc()` 即可。
+\item 类型的名称也可以作为值来使用， \verb`typeof(Float64)` 是 \verb`DataType`。
+\item \verb`@isdefined 变量名` 可以查看某变量是否有定义。
+\end{itemize}
+
+\subsubsection{全局变量}
+\begin{lstlisting}[language=julia]
+x = 100
+function qux()
+    global x  # 需要修改 x（只读无需声明）
+    x = 200
+end
+\end{lstlisting}
+
+\subsection{变量和数据结构}
+\begin{itemize}
+\item 数组、矩阵、字符串、Struct 结构体等，见 \enref{Julia 的数据类型（笔记）}{JuType}。
+\end{itemize}
+
+
+\subsection{脚本}
+\begin{itemize}
+\item \verb`@which 名字` 可以查看一个名字在哪里定义，如函数、宏（\verb`@which @宏名`）、模块、全局变量、类型名等。
+\item \verb`@edit 命令` 可以用默认编辑器打开定义代码， 例如 \verb`1+1`， \verb`sin(1)`。
+\item 在系统命令行用 \verb`julia 文件名.jl` 运行脚本， 用 \verb`julia 文件名.jl <arg1> <arg2>` 给出 arguments
+\item 在 REPL 中运行脚本如 \verb`include("/Users/addis/Desktop/main.jl")`（windows 路径不区分大小写）， 也支持反斜杠， 但要转义成 \verb`\\`。 在任何地方用 \verb`include` 相当于把文件代码直接插入到当前位置。
+\item 在文件中， 如果要确定当前文件是不是主文件， 用 \verb`abspath(PROGRAM_FILE) == @__FILE__`
+\item 如果存在启动脚本 \verb`~/.julia/config/startup.jl`， \verb`julia 文件名.jl` 会先运行启动脚本再运行 \verb`文件名.jl`。 要跳过启动脚本，用 \verb`julia --startup-file=no 文件名.jl`（只能是 \verb`[yes|no]`）。 如果存在环境变量 \verb`JULIA_DEPOT_PATH`， 默认启动脚本路径就是 \verb`JULIA_DEPOT_PATH/config/startup.jl`（参考 \verb`julia --help`）
+\item 若运行 \verb`julia 文件名.jl arg1 arg2 ...`， 后面的参数可以在脚本中通过全局变量 \verb`ARGS` 访问。一个分析 \verb`ARGS` 的库叫 \verb`ArgParse`。
+\item \verb`julia -e '若干julia语句'` 可以执行若干语句而不打开 REPL。
+\end{itemize}
+
+
+\subsection{线性代数}
+\begin{itemize}
+\item 迹 \verb`tr(A)`， 行列式 \verb`det(A)`， 逆 \verb`inv(A)`， 本征值 \verb`eigvals(A)`， 本征矢 \verb`eigvecs(A)`， 本征对 \verb`tmp = eigen(A)`（\verb`tmp.vectors, tmp.values`）， LU 分解%（\addTODO{链接}）
+ \verb`factorize(A)`
+\item \enref{带对角矩阵}{BanDmt}没有专门的类型， 直接把每一列压缩存到普通矩阵中（列主序）。
+\end{itemize}
+
+\subsubsection{特殊矩阵类}
+\begin{itemize}
+\item \verb`Symmetric`， \verb`Hermitian`， \verb`UpperTriangular`， \verb`LowerTriangular`， \verb`Tridiagonal`， \verb`SymTridiagonal`， \verb`Bidiagonal`， \verb`Diagonal`
+\item 稀疏矩阵： \verb`using SparseArrays`， 然后 \verb`S = sparse(行标矢量,列标矢量,非零元矢量)` 可以创建 \enref{CSC 格式}{SprMat}的矩阵： \verb`SparseMatrixCSC{矩阵元类型, 指标类型}`
+\end{itemize}
+
+\subsubsection{BLAS 和 Lapack}
+\begin{itemize}
+\item \href{https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/}{参考文档}。
+\item 带对角矩阵的矩阵乘法 $y = Ax+b$ 如 \verb`using LinearAlgebra.BLAS;m=3;n=4;kl=1;ku=1;alpha=1.;beta=0.;A=rand(kl+ku+1,n);x=rand(Float64,n); y=zeros(Float64,m); gbmv!('N', m, kl, ku, alpha, A, x, beta, y)` 其中矩阵尺寸为 \verb`m` 乘 \verb`n`，上下子对角线数量 \verb`ku, kl`。
+\item 在 Julia 中， 函数后面有感叹号一般表明该函数会改变它的参数。
+\item 普通矩阵本征问题 \verb`geev!(jobvl, jobvr, A)`； 对称矩阵本征问题 \verb`syev!(jobz, uplo, A)`； 对称三对角矩阵本征问题 \verb`stev!(job, dv, ev)`
+\end{itemize}
+
+
+\subsection{控制流}
+\begin{lstlisting}[language=Julia]
+b = 3;
+# 循环内的 `a` 的值不影响循环外的 `a` 的值
+# 循环内初次定义的其他变量在循环外也无定义
+for a = 1:5 # 也可以用 `in` 代替 `=`
+    if a < b
+        println(a, " < ", b)
+    elseif a > b
+        println(a, " > ", b)
+    else
+        println(a, " = ", b)
+    end
+end
+\end{lstlisting}
+其中 \verb`1:5` 的类型是 \verb`UnitRange{Int64}`。 若令 \verb`a = 1:5`， 可以使用 \verb`a[i]` 获取 “元素”。 类似地， \verb`1:2:5` 的类型是 \verb`StepRange{Int64, Int64}`。
+
+\begin{itemize}
+\item for 循环也可以使用 \verb`for i in [1,4,0]`
+\item if 也可以写成一行 \verb`if 条件; 命令; end`
+\item 类似于 Python，如 \verb`for (i, e) in enumerate(my_container)`
+\end{itemize}
+
+\subsubsection{map 控制流}
+首先介绍 \verb`map()` 函数
+\begin{lstlisting}[language=julia]
+map(sin, [1,2,3]) # Returns [sin(1), sin(2), sin(3)]
+map(+, [1, 2, 3], [10, 20, 30]) # Returns [11, 22, 33]
+\end{lstlisting}
+
+\verb`map(容器) do 元素: ... return 值; end` 可以对每个元素做某种处理，并把结果生成 Vector
+\begin{lstlisting}[language=julia]
+result = map(1:4) do n
+    product = 1
+    for i in 1:n
+        product += i
+    end
+    return product # 该 return 和函数中的一样可以省略
+end
+
+# 运行结果
+# 4-element Vector{Int64}:
+#   2
+#   4
+#   7
+#  11
+\end{lstlisting}
+
+\subsubsection{do 语句}
+\begin{lstlisting}[language=julia]
+f(x) do a, b
+    body
+end
+# 相当于：
+f(x, (a, b) -> begin
+    body
+end)
+# 即定义一个 lambda 函数并传入 f() 的最后一个参数
+\end{lstlisting}
+
+
+\subsubsection{异常处理}
+\begin{lstlisting}[language=julia]
+try 
+    一些命令
+catch y
+    if isa(y, 错误类型1)
+        一些命令
+    elseif isa(y, 错误类型2)
+        一些命令
+    end
+end
+\end{lstlisting}
+\begin{itemize}
+\item 一些常见的错误类型如 \verb`DomainError`（例如 \verb`sqrt(-1)`）， \verb`BoundsError`（数组指标超出范围）。
+\end{itemize}
+
+\subsection{函数}
+
+另见\enref{Julia 的函数（笔记）}{JuFunc}。
+
+函数定义
+\begin{lstlisting}[language=julia]
+function sphere_vol(r)
+    return 4/3*pi*r^3
+end
+\end{lstlisting}
+
+定义含名参数如
+\begin{lstlisting}[language=julia]
+function greet(name; greeting="Hello")
+    println("greeting, $(name)!")
+end
+\end{lstlisting}
+
+\begin{itemize}
+\item 函数最后如果没有 \verb`return` 会自动返回最后一个语句的值（含 \verb`nothing`）。此时 \verb`a = myfun()` 会得到 \verb`nothing` 不会报错。
+\item 返回多个变量用 \verb`return a, b, c` 或 \verb`return (a, b, c)` 实际上是返回一个 \verb`Tuple`。 此时 \verb`ret = myfun()` 会得到该 \verb`Tuple`，但 \verb`a, b, c = myfun()` 会把 tuple 展开。 允许 \verb`a, b = myfun()`。
+\item 函数允许对不同类型重载（包括用户定义的 \verb`struct`）
+\begin{lstlisting}[language=julia]
+function greet(x)
+    println("x");
+end
+
+function greet(s::String)
+    println("s");
+end
+\end{lstlisting}
+现在打 \verb`greet`， 会显示 \verb`greet (generic function with 2 methods)`。 \verb`greet(1)` 会显示 \verb`x`， \verb`greet("a")` 会显示 \verb`s`。
+\item 定义变参数函数， 如 \verb`f1(args...) = f2(args...)`
+\end{itemize}
+
+\subsubsection{函数嵌套}
+\begin{lstlisting}[language=julia]
+function outer()
+    z = 15  # z is local to outer()
+    function inner()
+        println(z)  # inner() 可以访问 outer() 的变量
+    end
+    inner()  # Output: 15
+end
+\end{lstlisting}
+
+\subsubsection{函数定义简写}
+
+\begin{lstlisting}[language=julia]
+add(a, b) = a + b
+\end{lstlisting}
+等效于
+\begin{lstlisting}[language=julia]
+function add(a, b)
+    return a + b
+end
+\end{lstlisting}
+
+\subsubsection{关键字变量}
+和 Python 类似
+\begin{lstlisting}[language=julia]
+function code_lowered(x:Float64, y::String;
+    kw1::Bool=true, kw2::Symbol=:default)
+    # ...
+end
+\end{lstlisting}
+
+\subsubsection{常用函数}
+\begin{itemize}
+\item 当前时间 \verb`time()`
+\end{itemize}
+
+
+
+\subsection{画图}
+第三方画图包 \verb`Plots`， 无需安装
+\begin{lstlisting}[language=Julia]
+using Plots
+x = 1:10; y = rand(10); # These are the plotting data
+plot(x,y)
+\end{lstlisting}
+
+
+\subsection{储存变量}
+要把任意变量存到文件， 用 \verb`using Serialization`， 除此之外常用的还有 \verb`using JLD2`。
+\begin{lstlisting}[language=julia]
+using Serialization
+a = randn(100,100)
+f = serialize("file1.dat", a)
+a1 = deserialize("file1.dat")
+println(a == a1)
+\end{lstlisting}
+
+\subsection{文件读写}
+\begin{itemize}
+\item 当前路径 \verb`pwd()`， 更改路径 \verb`cd()`
+\item \verb`readdir()` 返回当前路径或指定路径中的文件和文件夹
+\item \verb`f = open("文件名", "r")` 打开文件读取， \verb`close(f)` 关闭文件。
+\item \verb`eof(f)` 用于判断是否到达文件末尾
+\item \verb`s = readline(f)` 读取下一行
+\item \verb`s = read(f, String)` 整个文件读入字符串
+\item \verb`using DelimitedFiles; m = readdlm("文件名")` 从文本文件中读取矩阵
+\item \verb`write(file, str)` 把字符串写入文本文件
+\item \verb`using DelimitedFiles; writedlm("文件名", 矩阵)` 把矩阵写入文本文件（用空格与回车）
+\end{itemize}
+
+
+\subsection{模块（Module）}
+\begin{itemize}
+\item 定义模块 \verb`module 模块名; 定义变量、类型、函数; end`。
+\item \verb`import 模块名` 后， 调用函数（或变量）用 \verb`模块名.函数名`， 但 \verb`using 模块名` 后， 可以省略 \verb`模块名.`
+\item 要 \verb`using` 指定内容， 用 \verb`using 模块名: 函数1, 函数2, 变量3`。
+\item \verb`import 模块名: 函数1, 函数2, 变量3` 和上一条同理。
+\item \verb`import 模块名 as 自定义名` 和 python 一样。
+\item 最上层的模块名叫做 \verb`Main`， 在最上层定义的名字（变量，函数等）都可以记为 \verb`Main.名字`。
+\begin{lstlisting}[language=julia]
+# module1.jl
+module Module1
+export function1 # using Module1 时，可以把 Module1.function1 写为 function1
+function function1()
+    println("This is function1 from Module1")
+end
+end
+\end{lstlisting}
+\item \verb`export` 的名字只影响 \verb`using Module1`，不会影响 \verb`import Module1`。
+\item \verb`sin`, \verb`size` 等常用函数都是 \verb`Base` 模块中的，\verb`Base` 模块会自动导入到每个 session 所以可以省略。
+\item \verb`parentmodule(sin)` 可以查询 \verb`sin` 函数所在的模块（\verb`Base`）。
+\end{itemize}
+
+
+
+\subsection{调用 C/C++/Fortran 函数}
+\begin{itemize}
+\item \href{https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/}{见相关文档}。
+\item 见 “\enref{Julia 调用 C 语言}{JuliaC}”
+\end{itemize}
+
+\subsection{并行计算}
+\begin{itemize}
+\item 多线程参考\href{https://docs.julialang.org/en/v1/manual/multi-threading/}{官方文档}。
+\item MPI 并行参考\href{http://www.claudiobellei.com/2018/09/30/julia-mpi/}{这篇文章}。
+\end{itemize}
+
+\subsection{eval}
+\begin{itemize}
+\item \verb`@eval 表达式` 可以在最外层作用域展开生成代码。 例如
+\begin{lstlisting}[language=julia]
+for T in (...)
+    @eval my_func(a::T) = (...)
+end
+\end{lstlisting}
+可以生成若干函数重载。
+\end{itemize}
+
+
+\subsection{宏}
+\begin{itemize}
+\item 
+\begin{lstlisting}[language=julia]
+macro mymacro()
+    # 没有 return 则默认 return 最后的 quote 表达式
+    quote
+        println("The value of x is $x")
+    end
+end
+
+x = 3
+@mymacro() # 打印 The value of x is 10
+\end{lstlisting}
+\item \verb`quote ... end` 结构用于把若干命令打包成一个类型为 \verb`Expr` 的对象， 类型为 \verb`Expr`。里面的内容不会立即执行。
+\item \verb`quote ... end` 也可以简写为 \verb`:( ... )`，类型是 \verb`Expr`，表示 Julia AST（详见 \enref{Julia 开发笔记}{julia0}）。
+\item 运行 \verb`@mymacro`， 如果当前的 \verb`x` 有定义就会打出它的值。
+\item 可以用 \verb`@macroexpand @mymacro` 来查看宏展开后的代码。
+\begin{lstlisting}[language=julia]
+# 类似一个普通函数
+macro mymacro2(args...)
+    println("== Macro called ==")
+    println("type of args: $(typeof(args))")
+    println("Number of arguments: $(length(args))")
+    for (i, arg) in enumerate(args)
+        println("Argument $i: $(string(arg)) | Type: $(typeof(arg))")
+    end
+    println()
+    return :(nothing)
+end
+x = 1; y = 2; z = 3
+@mymacro2(x, y, z)
+@mymacro2 x y z # 等效的调用方法
+
+# 输出：
+# == Macro called ==
+# type of args: Tuple{Symbol, Symbol, Symbol}
+# Number of arguments: 3
+# Argument 1: x | Type: Symbol
+# Argument 2: y | Type: Symbol
+# Argument 3: z | Type: Symbol
+\end{lstlisting}
+也就是说，宏的入参会把所有变量当符号（或表达式）处理，不会考虑其值。
+
+\begin{lstlisting}[language=julia]
+@mymacro2 x+y z
+# 输出：
+% == Macro called ==
+% type of args: Tuple{Expr, Symbol}
+% Number of arguments: 2
+% Argument 1: x + y | Type: Expr
+% Argument 2: z | Type: Symbol
+\end{lstlisting}
+\end{itemize}
+
+\subsection{Julia 协程}
+\begin{itemize}
+\item \verb`Task(f)` 开启协程执行函数 \verb`f`。 但用户基本从来不用这个。
+\item 一个 OS 线程中同一时间只能有一个 Task 执行。
+\item 只有几种情况可以终止执行：1. \verb`I/O wait`， 2. \verb`yield()`， 3. 执行结束。
+\begin{lstlisting}[language=none]
+@async begin
+    for i in 1:3
+        println("A $i")
+        sleep(0.5)
+    end
+end
+
+@async begin
+    for i in 1:3
+        println("B $i")
+        sleep(0.5)
+    end
+end
+\end{lstlisting}
+\item \verb`current_task()` 可以得到当前 \verb`Task` 对象。 显示为 \verb`Task (runnable) @0x0...d7f0`
+\end{itemize}
