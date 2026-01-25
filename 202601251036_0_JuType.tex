@@ -530,7 +530,7 @@ false
 \item 单个元素的 tuple 如 \verb`(1,)`， 空 tuple 用 \verb`()` 表示， 类型为 \verb`Tuple{}`。
 \item \verb`(a1,a2,a3) = my_tuple` 可以把 Tuple 拆开
 \item \verb`(x,y) = (1,"ab")` 或者 \verb`x,y = (1,"ab")` 会分别把元素赋值给 \verb`x, y`。 这可以用于函数返回多个值。
-\item \verb`NTuple{<长度>, <类型>}` 等效于 \verb`Tuple{<类型>, <类型>, ...}`
+\item \verb`NTuple{<长度>, <类型>}` 等效于 \verb`Tuple{<类型>, <类型>, ...}`（可以用 \verb`===`）
 \end{itemize}
 
 \subsection{指针}
