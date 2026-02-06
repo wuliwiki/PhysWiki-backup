@@ -92,25 +92,41 @@ define i32 @main() {
 \end{lstlisting}
 
 \subsubsection{另一些例子}
-栈和堆上的矩阵：
+栈上数组：
 \begin{lstlisting}[language=none]
-define i64 @my_func(i64 signext %"my_var") #0 {
-  top:
+define void @stack_array_example() #0 {
+  entry:
+    ; 栈上分配：`double array[8];`
     %array = alloca [10 x double], align 8
+    ; 赋值 `value = 3.14`
+    %value = fadd double 0.0, 3.14
+    ; 元素指针 `ptr = array[0][2]`
+    %ptr = getelementptr inbounds [10 x double],
+            [10 x double]* %array, i64 0, i64 2
+    ; 指针赋值 `*ptr = value`
+    store double %value, double* %ptr, align 8
+    ; 指针取值 `loaded_value = *ptr`
+    %loaded_value = load double, double* %ptr, align 8
+    ret void
+}
+\end{lstlisting}
 
-    ; 声明 malloc 函数
-    declare i8* @malloc(i64)
+堆上数组：
+\begin{lstlisting}[language=none]
+; 声明 malloc 函数（也可以在函数体中声明）
+declare i8* @malloc(i64)
 
-    ; `double *array = (double *)malloc(10*sizeof(doubles))`
+define i64 @heap_memory_example(i64 signext %"my_var") #0 {
+  top:
+    ; 堆上分配：`double *array = (double *)malloc(10*sizeof(doubles));`
     %size = mul i64 10, 8
     %malloc_result = call i8* @malloc(i64 %size)
     %array = bitcast i8* %malloc_result to double*
 
-    ; `value = 3.14`
+    ; 赋值 `value = 3.14`
     %value = fadd double 0.0, 3.14
-    ; Get pointer to the 3rd element
-    %ptr = getelementptr inbounds [10 x double], \
-      [10 x double]* %array, i64 0, i64 2
+    ; 元素指针 `ptr = array[0][2]`（也可以使用和栈一样的命令）
+    %ptr = getelementptr inbounds double, double* %array, i64 2
     store double %value, double* %ptr, align 8
 
     ; Load a value from the array
@@ -123,6 +139,7 @@ define i64 @my_func(i64 signext %"my_var") #0 {
 \item 合法的本地变量（寄存器）名字如 \verb`%x, %var1, %my_var, %func.entry, %tmp-1`，也可以用数字开头如 \verb`%0, %1a`，甚至用字符串 \verb`%"my var", %"var@1", %"func.entry#1"`。
 \item 缩进不重要
 \item 注释用 \verb`;`
+\item 单个指令中间不能换行（用 \verb`\` 也不行），字符串可以
 \item 函数返回用 \verb`ret` 不是 \verb`return`
 \item \verb`@名字` 用于声明全局函数或变量
 \item \verb`signext`: 指定入参实参应该 sign-extended 到 64 位。一些机器上，入参可能通过小于 64 位的寄存器上
@@ -130,7 +147,7 @@ define i64 @my_func(i64 signext %"my_var") #0 {
 \item \verb`标签名:` 定义用于跳转的标签。
 \item 名字（变量、函数、label）里面可以包含英文句号 “\verb`.`”
 \item 对本地变量，不存在类似 C 语言的 \verb`const`。
-\item \verb`getelementptr` （GEP）的格式为 \verb`指针 = getelementptr 基类型, 基类型* 指针, 指标类型1 ind1, 指标类型2 ind2 ...`。 在取数组第 3 个元素时，最后是 \verb`i64 0, i64 2`， 第一个从 \verb`指针` 中获取数组， 第二个从 array 中获取获取第 3 个元素。
+\item \verb`getelementptr` （GEP）的格式为 \verb`指针 = getelementptr 基类型, 基类型* 指针, 指标类型1 ind1, 指标类型2 ind2 ...`。 在取数组第 3 个元素时，最后是 \verb`i64 0, i64 2`， 第一个从 \verb`数组的指针` 中获取数组 \verb`array`， 第二个从 \verb`array` 中获取获取第 3 个元素，相当于 \verb`指针[0][2]`。
 \end{itemize}
 
 \subsection{判断}
@@ -150,9 +167,9 @@ define i64 @my_func(i64 signext %"my_var") #0 {
 int foo(int x) {
     int y;
     if (x > 0) {
-        y = 10;
+        y = x * 2;
     } else {
-        y = 20;
+        y = x + 5;
     }
     return y;
 }
@@ -160,50 +177,57 @@ int foo(int x) {
 
 \begin{lstlisting}[language=none]
 define i32 @foo(i32 %x) {
-  entry:
-    %cmp = icmp sgt i32 %x, 0  ; Compare x > 0
-    br i1 %cmp, label %if.then, label %if.else
+entry:
+  ; 判断 `if x > 0, goto if.then; else, goto if.else`
+  %cmp = icmp sgt i32 %x, 0
+  br i1 %cmp, label %if.then, label %if.else
 
-  if.then:
-    br label %merge
+if.then:
+  %value.then = mul i32 %x, 2
+  br label %merge
 
-  if.else:
-    br label %merge
+if.else:
+  %value.else = add i32 %x, 5
+  br label %merge
 
-  merge:
-    ; Select value based on predecessor
-    %y = phi i32 [ 10, %if.then ], [ 20, %if.else ]
-    ret i32 %y
+merge:
+  %y = phi i32 [ %value.then, %if.then ], [ %value.else, %if.else ]
+  ret i32 %y
 }
 \end{lstlisting}
 
 
 \subsection{循环}
-一个什么都不做的空循环，注意这里循环变量 \verb`%i` 之所以能反复写入而不违反 SSA 是因为使用了 alloca 分配了栈上变量。
-\begin{lstlisting}[language=none]
-define void @countUpTo(i32 %limit) {
-  entry:
-    ; Initialize loop variable
-    %i = alloca i32
-    store i32 0, i32* %i
+一个什么都不做的空循环
+\begin{lstlisting}[language=cpp]
+void countUpTo(int n) {
+    for (int i = 0; i < n; i++) {
+        // 循环体为空 - 只计数
+    }
+}
+\end{lstlisting}
 
-    ; Jump to the loop condition check
+\begin{lstlisting}[language=none]
+define void @countUpTo(i32 %n) {
+  entry:
+    ; 循环变量 i 的栈上指针
+    ; 栈上变量可以被多次赋值而不需要 phi 函数！
+    %i = alloca i32
+    ; 赋值 `i = 0;`
+    store i32 0, i32* %i
     br label %loop.cond
 
   loop.cond:
-    ; Load loop variable
     %i.val = load i32, i32* %i
 
-    ; Check if the loop variable is less than the limit
-    %cond = icmp slt i32 %i.val, %limit
+    ; 比较 `cond = %i.val < n`
+    %cond = icmp slt i32 %i.val, %n
     br i1 %cond, label %loop.body, label %loop.end
 
   loop.body:
-    ; Increment the loop variable
     %next.val = add i32 %i.val, 1
     store i32 %next.val, i32* %i
 
-    ; Jump back to the loop condition
     br label %loop.cond
 
   loop.end:
@@ -211,6 +235,27 @@ define void @countUpTo(i32 %limit) {
     ret void
 }
 \end{lstlisting}
+
+若要完全把循环变量优化到寄存器上，则
+\begin{lstlisting}[language=none]
+define void @countUpTo(i32 %n) {
+entry:
+  br label %loop.cond
+
+loop.cond:
+  %i = phi i32 [ 0, %entry ], [ %next.val, %loop.body ]
+  %cond = icmp slt i32 %i, %n
+  br i1 %cond, label %loop.body, label %loop.end
+
+loop.body:
+  %next.val = add i32 %i, 1
+  br label %loop.cond
+
+loop.end:
+  ret void
+}
+\end{lstlisting}
+
 
 生成数组 \verb`[1,2,3,4]`
 \begin{lstlisting}[language=none]
@@ -280,10 +325,10 @@ define i32* @createArray() {
 \begin{lstlisting}[language=cpp]
 int sum(int n) {
     int result = 0;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         result += i;
         if (i % 2 == 0) {
-            result += 1;  // Modify result again
+            result += 1;
         }
     }
     return result;

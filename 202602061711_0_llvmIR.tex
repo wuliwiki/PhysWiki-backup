@@ -109,8 +109,8 @@ define i64 @my_func(i64 signext %"my_var") #0 {
     ; `value = 3.14`
     %value = fadd double 0.0, 3.14
     ; Get pointer to the 3rd element
-    %ptr = getelementptr inbounds [10 x double], \
-      [10 x double]* %array, i64 0, i64 2
+    %ptr = getelementptr inbounds [10 x double], 
+                   [10 x double]* %array, i64 0, i64 2
     store double %value, double* %ptr, align 8
 
     ; Load a value from the array
@@ -123,6 +123,7 @@ define i64 @my_func(i64 signext %"my_var") #0 {
 \item 合法的本地变量（寄存器）名字如 \verb`%x, %var1, %my_var, %func.entry, %tmp-1`，也可以用数字开头如 \verb`%0, %1a`，甚至用字符串 \verb`%"my var", %"var@1", %"func.entry#1"`。
 \item 缩进不重要
 \item 注释用 \verb`;`
+\item 单个指令中间不能换行（用 \verb`\` 也不行），字符串可以
 \item 函数返回用 \verb`ret` 不是 \verb`return`
 \item \verb`@名字` 用于声明全局函数或变量
 \item \verb`signext`: 指定入参实参应该 sign-extended 到 64 位。一些机器上，入参可能通过小于 64 位的寄存器上
