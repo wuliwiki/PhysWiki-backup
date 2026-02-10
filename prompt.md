@@ -92,4 +92,23 @@ you know how to check utf8 number of bytes don't you? there is already a util ca
 
  remember to validate tex are valid utf8, otherwise, throw an error
 
+now, recover every record to the original tex file, from db only, to verify. add a command line
+  argument, e.g. `<manager> checkout 202009071539_7_TrTnsr.tex`, then use this command to recover
+  the deleted files `git status` repots.
+
+now, checkout all deleted files (shown by `git status`) using `git checkout ...` in PhysWiki-
+  backup
+
+ok, now rebuild the db files again (I deleted) from all these tex files and delete tex files
+
+when I run `SQLITE_TMPDIR=/tmp /mnt/g/github/PhysWikiScan/build/test/physwiki_backup_restore
+  checkout`, is every file restored separately from db? instead of based only on one record
+
+in PhysWikiScan, do you have an API to restore a tex file as a string? specify
+  time,author,article in separate arguments using string,int,string. also do you have an API to
+  add a new record? arguments are `author_id,article_id,new_ver_string`
+
+also an API to produce diff json string by any two specified "id"?
+
+
 
