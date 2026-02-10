@@ -110,5 +110,14 @@ in PhysWikiScan, do you have an API to restore a tex file as a string? specify
 
 also an API to produce diff json string by any two specified "id"?
 
+now, the PhysWikiScan project relies on PhysWiki-backup/*.tex, but we've deleted all of them
+  and moved to a new db. move the db into PhysWikiScan/data, then use this db in the entire
+  PhysWikiScan project
 
+in PhysWiki-backup.db, rename "timestamp" to
+  "time", rename "author_id" to "author", rename "article_id" to "entry", rename "prev_ver" to
+  "last". also rename those fields in data/PhysWiki-backup-template.sql
+
+I recovered all of the github/PhysWiki-backup/*.tex file, reconstruct data/PhysWiki-
+  backup.db from thos files, from scratch again
 
