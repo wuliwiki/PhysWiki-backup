@@ -61,3 +61,35 @@ PhysWiki-backup is also a repository, now write a program that migrade all tex f
   the db and delete the origin files after confirming they can be recovered correctly. make sure
   to verify the hashes. you can recover files by `git checkout .` and `git clean`. You should test
   the migration until every tex file is migrated successfully.
+
+now, recover every tex files, and use `git diff` to check if they are different from original
+  ones
+
+I mean recover from db. I deleted all tex file, and please try again
+
+when you recover each file, don't base on any other recovered file, but only use db. since later
+  it is required to recover any single tex file from the db only
+
+no! I check the db file, your "diff" is not based on the previous version of the same
+  "article_id"! rebuild the db again, ask me to check !
+
+add a foreign key for each record to point to the last version record, that "diff" is based on! named "prev_ver"
+
+can you use "id" NUMBER as a primary key? and "prev_ver" pointing to "id"?
+
+put `nlohmann json` headers in `deps/nlohmann_json` and change CMakeLists.txt to use this
+  folder, so that other computers can compile without installing again. copy from `/mnt/github/
+  BaltamCodegen/third_party/nlohmann_json/`
+
+in .sql file, also index "prev_ver" field
+
+put "prev_ver" before "diff"; also, "id" 86322 and 86323 are not right, there is only a small
+  diff, but you replaced the whole file
+
+don't use utf32, can't you just use utf8? and don't cut a single codepoint
+
+you know how to check utf8 number of bytes don't you? there is already a util called `u8_iter` in /mnt/g/github/PhysWikiScan/SLISC/str/unicode.h
+
+ remember to validate tex are valid utf8, otherwise, throw an error
+
+
